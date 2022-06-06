@@ -1,3 +1,4 @@
+---
 layout: page
-title: "Sobre"
-permalink: /sobre/
+title: About me
+---
