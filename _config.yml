@@ -1,3 +1,7 @@
 theme: jekyll-theme-minimal
 title: vbfelix
 description: Página pessoal
+
+layout: page
+title: "sobre"
+permalink: /sobre/
