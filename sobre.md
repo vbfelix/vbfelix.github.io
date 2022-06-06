@@ -1,5 +1,3 @@
----
-title: Sobre
-layout: template
-filename: sobre.md
---- 
+layout: page
+title: "Sobre"
+permalink: /sobre/
