@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "In 2016, I co-founded a data consulting firm (H0) with a partner, and we worked on over 300 scientific studies and over 40 surveys for businesses. Our job entailed assisting to maximize the use of statistics, from sample design to analysis, and sometimes even training others to use the techniques themselves.\nIn 2020, I was invited to establish and develop the data team within the Research & Development (R&D) department of GA, a brazilian animal science tech firm. In 2021, I was promoted to head of R&D, where I was responsible not just for the data, but also for the software development team.\nGA merged with Intergado in 2022, a company that produces hardware for automating data collecting with accuracy in order to offer better actions through data science. Now, as the Strategy Manager for this new company, I oversee the implementation of corporate strategy across all products, monitoring and mapping project progress, identifying risks, and liaising between technical and non-technical teams to align priorities and goals."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vinícius Félix",
+    "section": "",
+    "text": "I am a statistician who focus on making data-driven decisions easier."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Vinícius Félix",
+    "section": "Education",
+    "text": "Education\n[2017-2019] Master of Science in Biostatistics – State University of Maringá – Brazil\n[2013-2017] Bachelor of Science in Statistics – State University of Maringá – Brazil"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Vinícius Félix",
+    "section": "Experience",
+    "text": "Experience\n[03/2022 - Ongoing] GA + Intergado | Strategy Manager\n[01/2021 - 03/2022] GA | Head of R&D\n[09/2020 - 12/2020] GA | Head of Data\n[09/2016 - 08/2020] H0 | Data Scientist Consultant and Co-founder"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "FÉLIX, V. B.; SOUZA, E. M. . Wavelet Cross-correlation in Bivariate Time-Series Analysis. TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p. 391-403, 2018.\nFÉLIX, V. B.; MENEZES, A. F. B. . Comparisons of ten corrections methods for t-test in multiple comparisons via Monte Carlo study. Electronic Journal of Applied Statistical Analysis, v. 11, p. 1, 2018.\nHENRIQUES, M. J. ; FÉLIX, V. B. ; GONZATTO, O. A. ; SCHMIDT, F. ; GUERRA, N. ; OLIVEIRA NETO, A. M. . A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p. 140-144, 2017.\nFÉLIX, V. B.; GONZATTO, O. A. ; ROSSONI, D. F. ; HENRIQUES, M. J. . ESTIMADORES DE SEMIVARIÂNCIA: UMA REVISÃO. CIÊNCIA E NATURA, v. 38, p. 1157, 2016.\n\n\n\n\n\nFÉLIX, V. B.; FERNANDES, L. B. ; POSE, R. A. . Open Source, o novo jeito de fazer ciência. Revista Ser Médico."
+  },
+  {
+    "objectID": "publications.html#complete-works",
+    "href": "publications.html#complete-works",
+    "title": "Publications",
+    "section": "Complete works",
+    "text": "Complete works\n\nAUGUSTO JUNIOR, S. N. ; FÉLIX, V. B. . Survival analysis of the brazilian Spotify ranking: Differences between national and international artists. In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.\nROSSONI, D. F. ; FÉLIX, V. B. . Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015."
+  },
+  {
+    "objectID": "publications.html#expanded-abstracts",
+    "href": "publications.html#expanded-abstracts",
+    "title": "Publications",
+    "section": "Expanded abstracts",
+    "text": "Expanded abstracts\n\nFÉLIX, V. B.; MENEZES, A. F. B. . Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.\nFÉLIX, V. B.; ALVARENGA, B. ; FERNANDES, L. B. . Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano. In: I Encontro de Modelagem Estatística, 2017, Maringá. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano, 2017.\nFÉLIX, V. B.; GARCIA, F. ; FERNANDES, L. B. . Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.\nFÉLIX, V. B.; HENRIQUES, M. J. ; GONZATTO, O. A. . Modelos Espaciais para Predição de Dados Batimétricos. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Modelos Espaciais para Predição de Dados Batimétricos, 2016.\nHENRIQUES, M. J. ; FÉLIX, V. B. ; GONZATTO, O. A. . Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine, 2016.\nFÉLIX, V. B.; SOUZA, E. M. . Correlação Múltipla Wavelet. In: XXV EAIC e V EAIC Jr, 2016, Maringá. Correlação Múltipla Wavelet, 2016.\nFÉLIX, V. B.; GUEDES, T. A. . O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada. In: I Workshop em Bioestatística, 2016, Maringá. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada, 2016.\nHENRIQUES, M. J. ; GONZATTO, O. A. ; FÉLIX, V. B. ; SCHMIDT, F. ; OLIVEIRA NETO, A. M. . A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.\nSOUZA, E. M. ; SAPUCCI, L. ; FÉLIX, V. B. . Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.\nFÉLIX, V. B.; ROSSONI, D. F. . Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap. In: VI SEEMI - VI Simpósio de Estatística Espacial e Modelagem de Imagens, 2015, Toledo. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, Através de métodos bootstrap, 2015.\nFÉLIX, V. B.; SOUZA, E. M. . Tópicos em Variância Wavelet. In: XXIV EAIC e IV EAIC Jr, 2015, Maringá. Tópicos em Variância Wavelet, 2015.\nFÉLIX, V. B.; SOUZA, E. M. . Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015."
+  },
+  {
+    "objectID": "publications.html#abstracts",
+    "href": "publications.html#abstracts",
+    "title": "Publications",
+    "section": "Abstracts",
+    "text": "Abstracts\n\nFÉLIX, V. B.; SOUZA, E. M. ; ROSSONI, D. F. . Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.\nMENEZES, A. F. B. ; FÉLIX, V. B. . Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.\nFÉLIX, V. B.; FURRIEL, W. O. . Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014. In: XIII Semana da Estatística, 2016, Maringá. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014, 2016.\nHENRIQUES, M. J. ; GONZATTO, O. A. ; FÉLIX, V. B. . Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.\nGONZATTO, O. A. ; HENRIQUES, M. J. ; FÉLIX, V. B. . Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.\nSOUZA, E. M. ; SAPUCCI, L. F. ; NEGRI, T. T. ; FÉLIX, V. B. . Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.\nFÉLIX, V. B.; SOUZA, E. M. ; MENEZES, A. F. B. . Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.\nFÉLIX, V. B.; SOUZA, E. M. . Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA). In: XII Semana da Estatística, 2015, Maringá. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA), 2015.\nFÉLIX, V. B.; GONZATTO, O. A. ; HENRIQUES, M. J. ; LANDGRAF, G. O. ; ARAUJO, I. M. ; ROSSONI, D. F. . Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.\nFÉLIX, V. B.; SOUZA, E. M. . Correção Múltipla e Cruzada de Wavelets. In: XI Semana de Estatística, 2014, Maringá. Correção Múltipla e Cruzada de Wavelets, 2014.\nLANDGRAF, G. O. ; ROSSONI, D. F. ; FÉLIX, V. B. . Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013."
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr."
+  },
+  {
+    "objectID": "talks.html#section-1",
+    "href": "talks.html#section-1",
+    "title": "Talks",
+    "section": "2021",
+    "text": "2021\n\nConfinamento de bovinos, interpretando as respostas nutricionais através de dados e informações - SEVAM 2021 (Semana de Extensão Veterinária da Anhembi Morumbi)"
+  },
+  {
+    "objectID": "talks.html#section-2",
+    "href": "talks.html#section-2",
+    "title": "Talks",
+    "section": "2020",
+    "text": "2020\n\nA Era da Convergência: O Peso da Gestão Analítica - ECR 2020 (Encontro de Confinamento e de Recriadores)"
+  },
+  {
+    "objectID": "talks.html#section-3",
+    "href": "talks.html#section-3",
+    "title": "Talks",
+    "section": "2019",
+    "text": "2019\n\nCiência de dados e IA, como se preparar? - 1º Action Time\nDegustando ferramentas de BI - 5º PowerBI Maringá\nGráficos: O Limiar entre uma mensagem e uma mentira - FrontIn Maringá\nCiência de Dados: Um Alicerce para Pecuária de Precisão - TICNOVA 2019\nValidando seu produto: Evitando uma morte prematura com dados - IxDA Maringá #3\nA Pecuária de Precisão - Semana de Gestão de Confinamento 2019 (Zoo Jr. - UEM)\nData-Driven Product Development ft. Luis Berns - FEMUG #23\nO cenário da tecnologia em números - 1º AfroTech MGA\nEstatística: Um Arsenal para Tomada de Decisão - Eureka Moment\nDissecando Métricas Ágeis - Maringá Agile #4"
+  },
+  {
+    "objectID": "talks.html#section-4",
+    "href": "talks.html#section-4",
+    "title": "Talks",
+    "section": "2018",
+    "text": "2018\n\nMúsicas no Spotify: Como vivem? E quanto tempo sobrevivem? - Cerveja com Dados Maringá #1\nData Science: Magia ou Ciência? - Semana do programador DB1\nData Science: Magia ou Ciência? - GDG Maringá: Ciência de dados\nTrabalhando com Consultoria Estatística - VIII SEst UFSCar/USP"
+  },
+  {
+    "objectID": "talks.html#section-5",
+    "href": "talks.html#section-5",
+    "title": "Talks",
+    "section": "2017",
+    "text": "2017"
+  },
+  {
+    "objectID": "talks.html#section-6",
+    "href": "talks.html#section-6",
+    "title": "Talks",
+    "section": "2016",
+    "text": "2016\n\nCorrelação Múltipla Wavelet - XXV EAIC e V EAIC Jr.\nThe Concept of 4D Datasets - I Workshop em Bioestatística"
+  }
+]
