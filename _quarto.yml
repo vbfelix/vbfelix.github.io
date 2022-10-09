@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "vbfelix"
+  page-footer:
+    left: "Blog made with [Quarto](https://quarto.org/), by Vinícius Félix. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - publications.qmd
+      - talks.qmd
+      - icon: github
+        href: https://github.com/vbfelix
+      - icon: linkedin
+        href: https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

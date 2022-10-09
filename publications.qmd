@@ -1,0 +1,77 @@
+---
+title: "Publications"
+---
+
+# Articles
+
+## Scientific magazines
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136) . Wavelet Cross-correlation in Bivariate Time-Series Analysis. TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p. 391-403, 2018.
+
+2.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894) . Comparisons of ten corrections methods for t-test in multiple comparisons via Monte Carlo study. Electronic Journal of Applied Statistical Analysis^![](https://buscatextual.cnpq.br/buscatextual/images/curriculo/jcr.gif)^, v. 11, p. 1, 2018.
+
+3.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031) ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") ; SCHMIDT, F. ; GUERRA, N. ; OLIVEIRA NETO, A. M. . A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p. 140-144, 2017.
+
+4.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374) ; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081) ; [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031) . ESTIMADORES DE SEMIVARIÂNCIA: UMA REVISÃO. CIÊNCIA E NATURA, v. 38, p. 1157, 2016.
+
+## Magazines
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427) ; POSE, R. A. . Open Source, o novo jeito de fazer ciência. Revista Ser Médico.
+
+# Conferences
+
+## Complete works
+
+1.  [AUGUSTO JUNIOR, S. N.](http://lattes.cnpq.br/2374886805780530) ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) . Survival analysis of the brazilian Spotify ranking: Differences between national and international artists. In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.
+
+2.  [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015.
+
+## Expanded abstracts 
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894) . Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.
+
+2.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); ALVARENGA, B. ; [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427 "Clique para visualizar o currículo") . Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano. In: I Encontro de Modelagem Estatística, 2017, Maringá. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano, 2017.
+
+3.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); GARCIA, F. ; [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427 "Clique para visualizar o currículo") . Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.
+
+4.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") . Modelos Espaciais para Predição de Dados Batimétricos. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Modelos Espaciais para Predição de Dados Batimétricos, 2016.
+
+5.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") . Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine, 2016.
+
+6.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Correlação Múltipla Wavelet. In: XXV EAIC e V EAIC Jr, 2016, Maringá. Correlação Múltipla Wavelet, 2016.
+
+7.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GUEDES, T. A.](http://lattes.cnpq.br/6155197091899789 "Clique para visualizar o currículo") . O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada. In: I Workshop em Bioestatística, 2016, Maringá. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada, 2016.
+
+8.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") ; SCHMIDT, F. ; OLIVEIRA NETO, A. M. . A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.
+
+9.  [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") ; SAPUCCI, L. ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.
+
+10. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") . Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap. In: VI SEEMI - VI Simpósio de Estatística Espacial e Modelagem de Imagens, 2015, Toledo. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, Através de métodos bootstrap, 2015.
+
+11. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Tópicos em Variância Wavelet. In: XXIV EAIC e IV EAIC Jr, 2015, Maringá. Tópicos em Variância Wavelet, 2015.
+
+12. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015.
+
+## Abstracts 
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") ; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") . Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.
+
+2.  [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.
+
+3.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [FURRIEL, W. O.](http://lattes.cnpq.br/2695786323673324) . Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014. In: XIII Semana da Estatística, 2016, Maringá. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014, 2016.
+
+4.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.
+
+5.  [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") ; [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) . Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.
+
+6.  [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") ; [SAPUCCI, L. F.](http://lattes.cnpq.br/8285827971934692 "Clique para visualizar o currículo") ; [NEGRI, T. T.](http://lattes.cnpq.br/3441145714823409 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.
+
+7.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") ; [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894 "Clique para visualizar o currículo") . Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.
+
+8.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA). In: XII Semana da Estatística, 2015, Maringá. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA), 2015.
+
+9.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") ; [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031) ; [LANDGRAF, G. O.](http://lattes.cnpq.br/5589432074854512 "Clique para visualizar o currículo") ; ARAUJO, I. M. ; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") . Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.
+
+10. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Correção Múltipla e Cruzada de Wavelets. In: XI Semana de Estatística, 2014, Maringá. Correção Múltipla e Cruzada de Wavelets, 2014.
+
+11. [LANDGRAF, G. O.](http://lattes.cnpq.br/5589432074854512 "Clique para visualizar o currículo") ; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013.

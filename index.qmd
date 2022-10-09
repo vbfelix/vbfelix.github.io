@@ -1,0 +1,24 @@
+---
+title: "Vinícius Félix"
+image: perfil.png
+about:
+  template: jolla
+---
+
+I am a statistician who focus on making data-driven decisions easier.
+
+## Education
+
+\[2017-2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil
+
+\[2013-2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
+
+## Experience
+
+\[03/2022 - Ongoing\] GA + Intergado \| Strategy Manager
+
+\[01/2021 - 03/2022\] GA \| Head of R&D
+
+\[09/2020 - 12/2020\] GA \| Head of Data
+
+\[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
