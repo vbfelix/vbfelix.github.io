@@ -26,7 +26,7 @@ title: "Publications"
 
 2.  [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") . Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015.
 
-## Expanded abstracts 
+## Expanded abstracts
 
 1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894) . Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.
 
@@ -52,7 +52,7 @@ title: "Publications"
 
 12. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") . Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015.
 
-## Abstracts 
+## Abstracts
 
 1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") ; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") . Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.
 
