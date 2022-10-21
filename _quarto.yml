@@ -5,7 +5,7 @@ project:
 website:
   title: "vbfelix"
   page-footer:
-    left: "Blog made with [Quarto](https://quarto.org/), by Vinícius Félix. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
+    left: "Blog made with [Quarto](https://quarto.org/), by [Vinícius Félix](https://github.com/vbfelix/vbfelix.github.io). License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
   navbar:
     left:
       - href: index.qmd

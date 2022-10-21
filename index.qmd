@@ -15,10 +15,12 @@ I am a statistician who focus on making data-driven decisions easier.
 
 ## Experience
 
-\[03/2022 - Present\] GA + Intergado \| Strategy Manager
+\[04/2022 - Present\] GA + Intergado \| Strategy Manager
 
 \[01/2021 - 03/2022\] GA \| Head of R&D
 
 \[09/2020 - 12/2020\] GA \| Head of Data
+
+\[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
 
 \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
