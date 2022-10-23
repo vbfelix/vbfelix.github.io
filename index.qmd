@@ -2,25 +2,27 @@
 title: "Vinícius Félix"
 image: perfil.png
 about:
-  template: jolla
+  template: trestles
 ---
 
 I am a statistician who focus on making data-driven decisions easier.
 
 ## Education
 
-\[2017-2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil
+![](images/uem_logo.jpg){width="31" height="33"} \[2017-2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil
 
-\[2013-2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
+![](images/uem_logo.jpg){width="31" height="33"} \[2013-2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
 
 ## Experience
 
-\[04/2022 - Present\] GA + Intergado \| Strategy Manager
+![](images/ga_logo.jpg){width="31"} \[04/2022 - Present\] GA + Intergado \| Strategy Manager
 
-\[01/2021 - 03/2022\] GA \| Head of R&D
+![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| Head of R&D
 
-\[09/2020 - 12/2020\] GA \| Head of Data
+![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Head of Data
 
-\[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
+![](images/unicesumar_logo-01.png){width="31"} \[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
 
-\[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
+![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
+
+![](images/estats_logo-01.jpg){width="31"} \[07/2013- 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
