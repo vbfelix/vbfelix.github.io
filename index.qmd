@@ -3,6 +3,7 @@ title: "Vinícius Félix"
 image: perfil.png
 about:
   template: trestles
+  image-width: 70%
 ---
 
 I am a statistician who focus on making data-driven decisions easier.
