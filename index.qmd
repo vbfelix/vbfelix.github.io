@@ -1,5 +1,5 @@
 ---
-title: "Vinícius Félix"
+title: "Vinícius B. Félix"
 image: perfil.png
 about:
   template: trestles
@@ -7,12 +7,6 @@ about:
 ---
 
 I am a statistician who focus on making data-driven decisions easier.
-
-## Education
-
-![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil
-
-![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
 
 ## Experience
 
@@ -27,3 +21,9 @@ I am a statistician who focus on making data-driven decisions easier.
 ![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
 
 ![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Statistics Consultant and Co-founder
+
+## Education
+
+![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
+
+![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
