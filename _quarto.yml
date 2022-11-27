@@ -12,6 +12,7 @@ website:
         text: Home
       - about.qmd
       - publications.qmd
+      - certifications.qmd
       - talks.qmd
       - icon: file-earmark-person
         href: https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing  
