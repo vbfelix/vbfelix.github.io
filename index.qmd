@@ -20,7 +20,7 @@ I am a statistician who focus on making data-driven decisions easier.
 
 ![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
 
-![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Statistics Consultant and Co-founder
+![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
 
 ## Education
 

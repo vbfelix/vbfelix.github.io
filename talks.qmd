@@ -53,3 +53,11 @@ title: "Talks"
 -   Correlação Múltipla Wavelet - XXV EAIC e V EAIC Jr.
 
 -   The Concept of 4D Datasets - I Workshop em Bioestatística
+
+## 2015
+
+-   Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
+
+-   Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
+
+
