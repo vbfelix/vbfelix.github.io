@@ -2,7 +2,9 @@
 title: "Certifications"
 ---
 
-# Career tracks
+# Courses
+
+## Career tracks
 
 ![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
 
@@ -10,26 +12,26 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
 
-# Skill tracks
+## Skill tracks
 
-## Python
+### Python
 
 ![](images/download%20(1).png){width="31"} [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
 
 ![](images/download%20(1).png){width="31"} [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
 
-## R
+### R
 
 ![](images/download-01.png){width="31"} [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
 
 ![](images/download-01.png){width="31"} [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
 
-## SQL
+### SQL
 
 ![](images/download-01.png){width="31"} [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
 
-# Theory
+## Theory
 
-## Machine Learning
+### Machine Learning
 
 ![](images/coursera-blog-image-01.png){width="31" height="30"} [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
