@@ -6,10 +6,6 @@ title: "Certifications"
 
 ## Career tracks
 
-### Programmer
-
-![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
-
 ### Data Analyst
 
 ![](images/download-01.png){width="31"} [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
@@ -19,6 +15,10 @@ title: "Certifications"
 ### Data Scientist
 
 ![](images/download-01.png){width="31"} [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
+
+### Developer
+
+![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
 
 ## Skill tracks
 

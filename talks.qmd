@@ -59,5 +59,3 @@ title: "Talks"
 -   Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
 
 -   Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
-
-
