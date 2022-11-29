@@ -8,9 +8,9 @@ title: "Certifications"
 
 ### Data Analyst
 
-![](images/download-01.png){width="31"} [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
-
 ![](images/download-01.png){width="31"} [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
+
+![](images/download-01.png){width="31"} [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
 
 ### Data Scientist
 
@@ -28,11 +28,13 @@ title: "Certifications"
 
 ![](images/download%20(1).png){width="31"} [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
 
+![](images/download-01.png){width="31"} [Python Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1)
+
 ### R
 
-![](images/download-01.png){width="31"} [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
-
 ![](images/download-01.png){width="31"} [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
+
+![](images/download-01.png){width="31"} [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
 
 ### SQL
 
