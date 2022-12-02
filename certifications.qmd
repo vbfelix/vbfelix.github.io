@@ -10,6 +10,8 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
 
+![](images/download-01.png){width="31"} [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
+
 ![](images/download-01.png){width="31"} [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
 
 ### Data Scientist
