@@ -1,29 +1,16 @@
 ---
-title: "Vinícius B. Félix"
-image: perfil.png
+title: "Blog"
 about:
-  template: trestles
+  template: jolla
   image-width: 70%
+listing:
+  contents: posts
+  fields: [image, date, title, description, categories,author]
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
 ---
-
-I am a statistician who focus on making data-driven decisions easier.
-
-## Experience
-
-![](images/ga_logo.jpg){width="31"} \[04/2022 - Present\] GA + Intergado \| Strategy Manager
-
-![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| Head of R&D
-
-![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Head of Data
-
-![](images/unicesumar_logo-01.png){width="31"} \[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
-
-![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
-
-![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
-
-## Education
-
-![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
-
-![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil

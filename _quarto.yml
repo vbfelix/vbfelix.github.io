@@ -11,10 +11,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - publications.qmd
-      - certifications.qmd
-      - talks.qmd
+      - header-about.qmd
+      - header-publications.qmd
+      - header-certifications.qmd
+      - header-talks.qmd
       - icon: file-earmark-person
         href: https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing  
       - icon: github
@@ -23,7 +23,6 @@ website:
         href: https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/
       - icon: stack-overflow
         href: https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix  
-
 
 format:
   html:

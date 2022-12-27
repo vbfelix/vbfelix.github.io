@@ -1,0 +1,342 @@
+---
+title: "An intro to dplyr::across"
+author: "Vinícius Félix"
+date: "2023-01-01"
+categories: [R,Intro to,Tidyverse]
+image: "intro-to-dplyr-across.png"
+---
+
+In this post of the series **Intro to**, I'll give an introduction to the function `across` of the R package `dplyr`.
+
+# History
+
+As described in their site, [Tidyverse](https://www.tidyverse.org/) is an opinionated collection of R packages developed for data applications. One of the ecosystem main packages is [dplyr](https://dplyr.tidyverse.org/), which offers a consistent set of verbs to assist you in resolving data manipulation problems.
+
+In June of 2020 we had the official release of [dplyr 1.0.0](https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/) where a new function was introduced to us, opening new possibilities to data manipulation, that was the birth of `across` one of the most powerful and versatily functions to work with data, before talking about it let's see how we used to work before.
+
+## Before across
+
+As one of thre greatest R packages `dplyr` possesses a lot functions, but it has two main verbs to manipulate data, they are:
+
+-   `summarise`: allows us to apply a transformation that reduce the number of observations, e.g., mean;
+
+-   `mutate`: allows us to apply transformation to our existing variables or even creating new ones with the same size, e.g., multiplying one variable by another.
+
+Let's see how they work in practice:
+
+```{r, warning=FALSE,message=FALSE}
+library(dplyr)
+library(palmerpenguins)
+
+glimpse(penguins)
+```
+
+We will summarize every numerical variable using the dataset `penguins` from the `palmerpenguins` package, computing the mean for each. The mean function can then be applied to each variable inside the verb `summarize`.
+
+```{r}
+penguins %>% 
+  summarise(
+    mean(bill_length_mm,na.rm = TRUE),
+    mean(bill_depth_mm,na.rm = TRUE),
+    mean(flipper_length_mm,na.rm = TRUE),
+    mean(body_mass_g,na.rm = TRUE)
+  ) %>% 
+  glimpse()
+```
+
+In the example above we see that it works, but have some problems:
+
+1.  Due to its manual nature and increased risk of human error from writing numerous lines of code or even copying and pasting it, it would become a tiresome task if there were many columns;
+
+2.  The function will be given to the new tvariables as their names if their names are not set.
+
+A smarter approach is the use of a `summarise` variant, called `summarise_if`.
+
+```{r}
+penguins %>% 
+  summarise_if(
+    .predicate = is.numeric,
+    .funs = ~mean(.,na.rm = TRUE)
+  ) %>% 
+  glimpse()
+```
+
+In the example above we see that inside `summarise_if` we define two argumens:
+
+1.  `.predicate`: the condition to check which variables we are going to apply the functions;
+
+2.  `.funs`: a function or list of functions.
+
+Even though these variables are the means of the originals, unlike the first method, the function here kept the names of the original variables. The fact that we can now apply a function to 5 columns with only 2 lines of code is another advantage.
+
+So it was successful, but what is the issue? What if I also wanted to learn the mode of the variable species? How could we go about doing that?
+
+```{r}
+penguins %>% 
+  summarise(
+    species = relper::calc_mode(species),
+    across(.cols = where(is.numeric),.fns = ~mean(.,na.rm = TRUE))
+  ) %>% 
+  glimpse()
+```
+
+In the example above we apply `across` , we see that it is used inside the conventional verb `summarise` , meaning we can still apply other functions even using `across`.
+
+So `across` is a function that is complementary to `mutate` and `summarise`, that allows us to apply multiples functions across multiples variables.
+
+Just as curiosity, even though this old functions are superseeded they still exists, and their suffixes are `_at()` , `_if()` and `_all()` .
+
+# across
+
+Now that we understood the overall goal of `across`, we will explore each argument of the function.
+
+## .cols
+
+The first argument of `across` determine which columns of the data.frame we are going to apply our functions, this argument is:
+
+-   Non-optional
+
+-   The default is every single variable of the data.frame, by using the function `everything`.
+
+-   Accepts as input:
+
+    -   Integers, referencing the variables positions;
+
+    -   Strings, referencing the variables names;
+
+    -   Select helpers functions, e.g., `contains`, as we will see below.
+
+### Default
+
+```{r}
+penguins %>% 
+  summarise(across(.fns = as.character)) %>% 
+  glimpse()
+```
+
+In the example above we apply the function `as.character` to every column, since we did not use an input to the argument `.cols`.
+
+```{r}
+penguins %>% 
+  summarise(across(.cols = everything(),.fns = as.character)) %>% 
+  glimpse()
+```
+
+In the example above we see that same result is obtained from the previous, since the default of `.cols` is `everything`.
+
+### By type
+
+If we want to select variables by their type we can use the function `where` + a function that check the variable type.
+
+```{r}
+penguins %>% 
+  mutate(across(.cols = where(is.factor),.fns = toupper)) %>% 
+  glimpse()
+```
+
+In the example above we made all factor variables to be uppercase.
+
+Other functions can also be used, such as:
+
+-   `is.numeric:` check if the variable is numeric;
+
+    -   `is.integer` check if the variable is an integer;
+
+    -   `is.double` check if the variable is a double;
+
+-   `is.factor` check if the variable is a factor;
+
+-   `is.character` check if the variable is a character;
+
+-   `is.logical` check if the variable is a boolean (`TRUE`/`FALSE`).
+
+We can also combine more than one function in the same `across`:
+
+```{r}
+penguins %>% 
+  mutate(across(.cols = where(is.factor) | where(is.character),.fns = toupper)) %>%   glimpse()
+```
+
+In the example above we made all factor (`species` and `island`) and character (`sex`) variables to be uppercase.
+
+### By name
+
+Another method of column selection is by using their name.
+
+```{r}
+penguins %>% 
+  summarise(across(.cols = ends_with("_mm"),.fns = ~mean(.,na.rm = TRUE))) %>% 
+  glimpse()
+```
+
+In the example above we compute the mean for the variables that ends with the pattern *`_mm`.*
+
+So all the the selection helpers can be used:
+
+-   `all_of`: allows us to pass a string vector to select specific variables, that helps when we are looking for a group of variables, which not obey a simples check condition such as been of the same type or having the a name pattern, e.g., `all_of(vector_of_variables)` ;
+
+-   `any_of:` is a similar function to `all_of` , but it can be used to remove variables with the operator `-`, e.g., `any_of(-vector_of_variables)` ;
+
+-   `contains`: allows to select variables that contains a specific string in their names. e.g., `contains(length)`;
+
+-   `ends_with`: variables that ends with a specific string pattern, e.g., `ends_with("_mm")`;
+
+-   `everything`: all variables, and already the default of the argument `.cols`;
+
+-   `last_col`: the last variable of the data.frame;
+
+-   `matches`: variables with a name that matches a given regular expression;
+
+-   `num_range`: variables that have a numeric sequence in their name, e.g., `var1`, `var2` and `var3` then we can use `num_range("var",1:3)`;
+
+-   `starts_with`: variables that starts with a specific string pattern, e.g., `starts_with("bill_")`.
+
+### By order
+
+Another method of column selection is using the name of the variables and the operator `:` to apply the function to a sequence of variables.
+
+```{r}
+penguins %>% 
+  summarise(across(.cols = bill_length_mm:body_mass_g,.fns = ~mean(.,na.rm = TRUE))) %>%
+  glimpse()
+```
+
+In the example above we compute the mean to every variable from `bill_length_mm` to `body_mass_g`.
+
+We can see that this variables are third to sixth of the data.frame, then can also use a method to reference them by their position.
+
+```{r}
+penguins %>% 
+  summarise(across(.cols = 3:6,.fns = ~mean(.,na.rm = TRUE))) %>%
+  glimpse()
+```
+
+In the example above we computed the mean for the same variables as before, but now using their column position instead.
+
+## .fns
+
+The argument `.fns` determine which functions are going to be applied, this argument is:
+
+-   Non-optional
+
+-   No default
+
+-   Accepts as input:
+
+    -   Single function;
+
+    -   List of functions.
+
+```{r}
+penguins %>% 
+  summarise(
+    across(
+      .cols = where(is.numeric),
+      .fns = list(
+        ~mean(.,na.rm = TRUE),
+        ~median(.,na.rm = TRUE)
+      )
+    )
+  ) %>% 
+  glimpse()
+```
+
+The mean and median are computed in the aforementioned example, but since more than one function is applied to the same variable, a numerical suffix is added based on the order in which our functions were defined inside the list, making mean 1 and median 2. This can be confusing and lead to errors later on.
+
+```{r}
+penguins %>% 
+  summarise(
+    across(
+      .cols = where(is.numeric),
+      .fns = list(
+        mean = ~mean(.,na.rm = TRUE),
+        median = ~median(.,na.rm = TRUE)
+      )
+    )
+  ) %>% 
+  glimpse()
+```
+
+Since we defined the names of the functions in the example above and added them automatically as suffixes, it is now clearer what we are doing.
+
+## .names
+
+The argument `.names` determines the name of resultant the variables after the functions are applied, so it allows us to change the names of the variables, this argument is:
+
+-   Optional
+
+-   The default is `NULL`
+
+-   Accepts as input:
+
+    -   A string, where we can use `{.col}` and `{.fn}` as variables to receive the respective names of the columns and/or functions.
+
+```{r}
+penguins %>% 
+  summarise(
+    across(
+      .cols = where(is.numeric),
+      .fns = list(
+        mean = ~mean(.,na.rm = TRUE),
+        median = ~median(.,na.rm = TRUE)
+      ),
+      .names = "{.fn}----{.col}"
+    )
+  ) %>% 
+  glimpse()
+```
+
+In the example above we change the variables names so they start with the function applied followed by 4 hyphens and then the original columns names.
+
+# c_across
+
+The function `c_across` is a cousin of `across` , let´s construct another data.frame to showcase it.
+
+```{r}
+library(tidyr)
+
+xpenguins <-
+  penguins %>% 
+  group_by(species) %>% 
+  summarise(
+    heaviest = max(body_mass_g,na.rm = TRUE),
+    lightest = min(body_mass_g,na.rm = TRUE)
+    ) %>%
+  pivot_longer(cols = -species) %>% 
+  pivot_wider(names_from = species,values_from = value)
+
+xpenguins
+```
+
+In the preceding example, we create a data.frame in wide format, with a column for each species and two rows representing the heaviest and lightest penguins of each. Assume our goal is to calculate the total weight of the heaviest and lightest penguins, which entails adding the weights of the three species in a fourth column called `total weight`.
+
+```{r}
+xpenguins %>% 
+  mutate(total_weight = Adelie + Chinstrap + Gentoo)
+```
+
+We can use a simple solution of manually entering each variable name and adding each other, which works but is not ideal, especially when we have many columns.
+
+```{r}
+xpenguins %>% 
+  rowwise() %>% 
+  mutate(total_weight = sum(c_across(-name)))
+```
+
+An alternative is to apply `c_across`, first it works together with the verb `rowwise` that make the commands below it to operate by row, not column.
+
+Not only that, but `c_across` differs from `across` in that it has only a `.cols` argument, so it must be placed within a function, which provides an advantage over the first approach in that we can now use the functions arguments.
+
+```{r}
+xpenguins_na <- xpenguins
+xpenguins_na[1,3] <- NA
+  
+xpenguins_na %>% 
+  rowwise() %>% 
+  mutate(
+    total_weight_plus = Adelie + Chinstrap + Gentoo,
+    total_weight_cacross = sum(c_across(-name),na.rm = TRUE)
+    )
+```
+
+Finally, above we show what would happen if we had an `NA` in the data. Most functions in R by default give `NA` as results if a `NA` is present in the data, so we can benefit from the use of the function `sum`, since it has an argument to ignore them (`na.rm = TRUE`).

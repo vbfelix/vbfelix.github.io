@@ -1,121 +1,198 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "header-about.html",
+    "href": "header-about.html",
+    "title": "About me",
     "section": "",
-    "text": "In 2016, I co-founded a data consulting firm (H0 Consultoria) with a partner, and we worked on over 350 scientific studies and over 40 surveys for businesses. Our job entailed assisting to maximize the use of statistics, from sample design to analysis, and sometimes even training others to use the techniques themselves.\nIn 2020, I was invited to establish and develop the data team within the Research & Development (R&D) department of GA, a brazilian animal science tech firm. In 2021, I was promoted to head of R&D, where I was responsible not just for the data, but also for the software development team.\nGA merged with Intergado in 2022, a company that produces hardware for automating data collecting with accuracy in order to offer better actions through data science. Now, as the Strategy Manager for this new company, I oversee the implementation of corporate strategy across all products, monitoring and mapping project progress, identifying risks, and liaising between technical and non-technical teams to align priorities and goals."
+    "text": "[04/2022 - Present] GA + Intergado | Strategy Manager\n [01/2021 - 03/2022] GA | Head of R&D\n [09/2020 - 12/2020] GA | Head of Data\n [10/2018 - 11/2019] Unicesumar | Statistics Professor\n [09/2016 - 08/2020] H0 | Data Scientist Consultant and Co-founder\n [07/2013 - 12/2015] Estats Consultoria | Data Analyst and Co-founder"
   },
   {
-    "objectID": "certifications.html",
-    "href": "certifications.html",
+    "objectID": "header-about.html#education",
+    "href": "header-about.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n [2017 - 2019] Master of Science in Biostatistics – State University of Maringá – Brazil – Spatio-temporal geostatistics: modelling of natural phenomena in spacetime\n [2013 - 2017] Bachelor of Science in Statistics – State University of Maringá – Brazil"
+  },
+  {
+    "objectID": "header-about.html#more-about-me",
+    "href": "header-about.html#more-about-me",
+    "title": "About me",
+    "section": "More about me",
+    "text": "More about me\nI have been using data analysis since 2013. I concentrated on time-series, geostatistics, and data visualization during my graduate studies. In addition, I was one of the founders of the statistics junior enterprise, Estats Consultoria, where I served as President and Marketing Director in addition to working as a data analyst during projects.\nTogether with a partner, I co-founded the data consulting company H0 Consultoria in 2016. Since then, we have worked on more than 350 scientific studies and 40 business surveys. Our responsibility was to help others make the most of statistics, from sample design to analysis, and occasionally even to teach them how to use the tools themselves.\nI received an invitation to start and grow the data team within GA’s Research & Development (R&D) division in 2020. GA is a Brazilian animal science tech company. I was given the opportunity to lead the whole R&D in 2021, and as such, I was in charge of the software development team in addition to the data.\nIn order to offer better actions through data science, GA merged with Intergado in 2022, a company that makes hardware for accurately automating data collection. As the company’s new strategy manager, my current responsibilities include managing the implementation of corporate strategy across all products, keeping track of project status, identifying risks, and coordinating between technical and non-technical teams to align priorities and goals."
+  },
+  {
+    "objectID": "header-certifications.html",
+    "href": "header-certifications.html",
     "title": "Certifications",
     "section": "",
     "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n\n\n\n Data Scientist with R\n\n\n\n R Programmer\n\n\n\n\n\n\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals\n\n\n\n Data Manipulation with R\n Data Visualization with R\n\n\n\n SQL Fundamentals\n\n\n\n\n\n\n How Google does Machine Learning"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Vinícius B. Félix",
-    "section": "",
-    "text": "I am a statistician who focus on making data-driven decisions easier."
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Vinícius B. Félix",
-    "section": "Experience",
-    "text": "Experience\n [04/2022 - Present] GA + Intergado | Strategy Manager\n [01/2021 - 03/2022] GA | Head of R&D\n [09/2020 - 12/2020] GA | Head of Data\n [10/2018 - 11/2019] Unicesumar | Statistics Professor\n [09/2016 - 08/2020] H0 | Data Scientist Consultant and Co-founder\n [07/2013 - 12/2015] Estats Consultoria | Data Analyst and Co-founder"
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Vinícius B. Félix",
-    "section": "Education",
-    "text": "Education\n [2017 - 2019] Master of Science in Biostatistics – State University of Maringá – Brazil – Spatio-temporal geostatistics: modelling of natural phenomena in spacetime\n [2013 - 2017] Bachelor of Science in Statistics – State University of Maringá – Brazil"
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
+    "objectID": "header-publications.html",
+    "href": "header-publications.html",
     "title": "Publications",
     "section": "",
     "text": "SOUZA, E. M; FÉLIX, V. B.. . Wavelet Cross-correlation in Bivariate Time-Series Analysis. TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p. 391-403, 2018.\nFÉLIX, V. B.; MENEZES, A. F. B. . Comparisons of ten corrections methods for t-test in multiple comparisons via Monte Carlo study. Electronic Journal of Applied Statistical Analysis, v. 11, p. 1, 2018.\nHENRIQUES, M. J. ; FÉLIX, V. B. ; GONZATTO, O. A. ; SCHMIDT, F. ; GUERRA, N. ; OLIVEIRA NETO, A. M. A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p. 140-144, 2017.\nFÉLIX, V. B.; GONZATTO, O. A. ; ROSSONI, D. F. ; HENRIQUES, M. J. . ESTIMADORES DE SEMIVARIÂNCIA: UMA REVISÃO. CIÊNCIA E NATURA, v. 38, p. 1157, 2016.\n\n\n\n\n\nFÉLIX, V. B.; FERNANDES, L. B. ; POSE, R. A. Open Source, o novo jeito de fazer ciência. Revista Ser Médico."
   },
   {
-    "objectID": "publications.html#complete-works",
-    "href": "publications.html#complete-works",
+    "objectID": "header-publications.html#complete-works",
+    "href": "header-publications.html#complete-works",
     "title": "Publications",
     "section": "Complete works",
     "text": "Complete works\n\nAUGUSTO JUNIOR, S. N. ; FÉLIX, V. B. Survival analysis of the brazilian Spotify ranking: Differences between national and international artists. In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.\nROSSONI, D. F. ; FÉLIX, V. B. Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015."
   },
   {
-    "objectID": "publications.html#expanded-abstracts",
-    "href": "publications.html#expanded-abstracts",
+    "objectID": "header-publications.html#expanded-abstracts",
+    "href": "header-publications.html#expanded-abstracts",
     "title": "Publications",
     "section": "Expanded abstracts",
     "text": "Expanded abstracts\n\nFÉLIX, V. B.; MENEZES, A. F. B. Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.\nFÉLIX, V. B.; ALVARENGA, B.; FERNANDES, L. B. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano. In: I Encontro de Modelagem Estatística, 2017, Maringá. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano, 2017.\nFÉLIX, V. B.; GARCIA, F. ; FERNANDES, L. B. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.\nFÉLIX, V. B.; HENRIQUES, M. J. ; GONZATTO, O. A. Modelos Espaciais para Predição de Dados Batimétricos. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Modelos Espaciais para Predição de Dados Batimétricos, 2016.\nHENRIQUES, M. J. ; FÉLIX, V. B. ; GONZATTO, O. A. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine, 2016.\nFÉLIX, V. B.; SOUZA, E. M. Correlação Múltipla Wavelet. In: XXV EAIC e V EAIC Jr, 2016, Maringá. Correlação Múltipla Wavelet, 2016.\nFÉLIX, V. B.; GUEDES, T. A. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada. In: I Workshop em Bioestatística, 2016, Maringá. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada, 2016.\nHENRIQUES, M. J. ; GONZATTO, O. A. ; FÉLIX, V. B. ; SCHMIDT, F. ; OLIVEIRA NETO, A. M. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.\nSOUZA, E. M. ; SAPUCCI, L. ; FÉLIX, V. B. Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.\nFÉLIX, V. B.; ROSSONI, D. F. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap. In: VI SEEMI - VI Simpósio de Estatística Espacial e Modelagem de Imagens, 2015, Toledo. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, Através de métodos bootstrap, 2015.\nFÉLIX, V. B.; SOUZA, E. M. Tópicos em Variância Wavelet. In: XXIV EAIC e IV EAIC Jr, 2015, Maringá. Tópicos em Variância Wavelet, 2015.\nFÉLIX, V. B.; SOUZA, E. M. Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015."
   },
   {
-    "objectID": "publications.html#abstracts",
-    "href": "publications.html#abstracts",
+    "objectID": "header-publications.html#abstracts",
+    "href": "header-publications.html#abstracts",
     "title": "Publications",
     "section": "Abstracts",
     "text": "Abstracts\n\nFÉLIX, V. B.; SOUZA, E. M. ; ROSSONI, D. F. Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.\nMENEZES, A. F. B. ; FÉLIX, V. B. Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.\nFÉLIX, V. B.; FURRIEL, W. O. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014. In: XIII Semana da Estatística, 2016, Maringá. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014, 2016.\nHENRIQUES, M. J. ; GONZATTO, O. A. ; FÉLIX, V. B. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.\nGONZATTO, O. A. ; HENRIQUES, M. J. ; FÉLIX, V. B. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.\nSOUZA, E. M. ; SAPUCCI, L. F. ; NEGRI, T. T. ; FÉLIX, V. B. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.\nFÉLIX, V. B.; SOUZA, E. M. ; MENEZES, A. F. B. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.\nFÉLIX, V. B.; SOUZA, E. M. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA). In: XII Semana da Estatística, 2015, Maringá. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA), 2015.\nFÉLIX, V. B.; GONZATTO, O. A. ; HENRIQUES, M. J. ; LANDGRAF, G. O. ; ARAUJO, I. M. ; ROSSONI, D. F. .Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.\nFÉLIX, V. B.; SOUZA, E. M. Correção Múltipla e Cruzada de Wavelets. In: XI Semana de Estatística, 2014, Maringá. Correção Múltipla e Cruzada de Wavelets, 2014.\nLANDGRAF, G. O. ; ROSSONI, D. F. ; FÉLIX, V. B. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013."
   },
   {
-    "objectID": "talks.html",
-    "href": "talks.html",
+    "objectID": "header-talks.html",
+    "href": "header-talks.html",
     "title": "Talks",
     "section": "",
     "text": "Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr."
   },
   {
-    "objectID": "talks.html#section-1",
-    "href": "talks.html#section-1",
+    "objectID": "header-talks.html#section-1",
+    "href": "header-talks.html#section-1",
     "title": "Talks",
     "section": "2021",
     "text": "2021\n\nConfinamento de bovinos, interpretando as respostas nutricionais através de dados e informações - SEVAM 2021 (Semana de Extensão Veterinária da Anhembi Morumbi)"
   },
   {
-    "objectID": "talks.html#section-2",
-    "href": "talks.html#section-2",
+    "objectID": "header-talks.html#section-2",
+    "href": "header-talks.html#section-2",
     "title": "Talks",
     "section": "2020",
     "text": "2020\n\nA Era da Convergência: O Peso da Gestão Analítica - ECR 2020 (Encontro de Confinamento e de Recriadores)"
   },
   {
-    "objectID": "talks.html#section-3",
-    "href": "talks.html#section-3",
+    "objectID": "header-talks.html#section-3",
+    "href": "header-talks.html#section-3",
     "title": "Talks",
     "section": "2019",
     "text": "2019\n\nCiência de dados e IA, como se preparar? - 1º Action Time\nDegustando ferramentas de BI - 5º PowerBI Maringá\nGráficos: O Limiar entre uma mensagem e uma mentira - FrontIn Maringá\nCiência de Dados: Um Alicerce para Pecuária de Precisão - TICNOVA 2019\nValidando seu produto: Evitando uma morte prematura com dados - IxDA Maringá #3\nA Pecuária de Precisão - Semana de Gestão de Confinamento 2019 (Zoo Jr. - UEM)\nData-Driven Product Development ft. Luis Berns - FEMUG #23\nO cenário da tecnologia em números - 1º AfroTech MGA\nEstatística: Um Arsenal para Tomada de Decisão - Eureka Moment\nDissecando Métricas Ágeis - Maringá Agile #4"
   },
   {
-    "objectID": "talks.html#section-4",
-    "href": "talks.html#section-4",
+    "objectID": "header-talks.html#section-4",
+    "href": "header-talks.html#section-4",
     "title": "Talks",
     "section": "2018",
     "text": "2018\n\nMúsicas no Spotify: Como vivem? E quanto tempo sobrevivem? - Cerveja com Dados Maringá #1\nData Science: Magia ou Ciência? - Semana do programador DB1\nData Science: Magia ou Ciência? - GDG Maringá: Ciência de dados\nTrabalhando com Consultoria Estatística - VIII SEst UFSCar/USP"
   },
   {
-    "objectID": "talks.html#section-5",
-    "href": "talks.html#section-5",
+    "objectID": "header-talks.html#section-5",
+    "href": "header-talks.html#section-5",
     "title": "Talks",
     "section": "2017",
     "text": "2017"
   },
   {
-    "objectID": "talks.html#section-6",
-    "href": "talks.html#section-6",
+    "objectID": "header-talks.html#section-6",
+    "href": "header-talks.html#section-6",
     "title": "Talks",
     "section": "2016",
     "text": "2016\n\nCorrelação Múltipla Wavelet - XXV EAIC e V EAIC Jr.\nThe Concept of 4D Datasets - I Workshop em Bioestatística"
   },
   {
-    "objectID": "talks.html#section-7",
-    "href": "talks.html#section-7",
+    "objectID": "header-talks.html#section-7",
+    "href": "header-talks.html#section-7",
     "title": "Talks",
     "section": "2015",
     "text": "2015\n\nTópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.\nAvaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Theory\n\n\nIntro to\n\n\nChi-square\n\n\nInference\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nR\n\n\nIntro to\n\n\nTidyverse\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html",
+    "href": "posts/2023-01-01-chi-square-test/index.html",
+    "title": "An intro to chi-square test",
+    "section": "",
+    "text": "In this post of the series Intro to, I’ll give an introduction to the chi-square test, one of the most well-known statistical tests."
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html#contingency-table",
+    "href": "posts/2023-01-01-chi-square-test/index.html#contingency-table",
+    "title": "An intro to chi-square test",
+    "section": "Contingency table",
+    "text": "Contingency table\nIf you have your contingency table ready, an easy and quick way to apply the test is to create a matrix with the observed values of each class.\n\n#matrix with the count \ndata <- matrix(data = c(10,20,30,20,30,50,10,20,10),ncol = 3)\ndata\n\n     [,1] [,2] [,3]\n[1,]   10   20   10\n[2,]   20   30   20\n[3,]   30   50   10\n\nchisq.test(data)\n\n\n    Pearson's Chi-squared test\n\ndata:  data\nX-squared = 8.6111, df = 4, p-value = 0.07159\n\n\nWe can see that the function already show us the statistic, number of degrees of freedom and the p value."
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html#raw-data",
+    "href": "posts/2023-01-01-chi-square-test/index.html#raw-data",
+    "title": "An intro to chi-square test",
+    "section": "Raw data",
+    "text": "Raw data\nWe usually work with raw data as data analysts, where each row represents one observation. In this case, we can transform our data to perform the same function as in the previous example.\n\nlibrary(tidyr)\nlibrary(dplyr)\n\n#Raw data simulation\ndata <-\n  expand_grid(\n    race  = c(1:3), \n    frame = factor(c(\"S\",\"M\",\"L\"))\n  ) %>% \n  arrange(race,frame) %>% \n  mutate(n  = c(10,20,30,20,30,50,10,20,10)) %>% \n  uncount(n)\n\ndata\n\n# A tibble: 200 x 2\n    race frame\n   <int> <fct>\n 1     1 L    \n 2     1 L    \n 3     1 L    \n 4     1 L    \n 5     1 L    \n 6     1 L    \n 7     1 L    \n 8     1 L    \n 9     1 L    \n10     1 L    \n# ... with 190 more rows\n\ndata %>% \n  #Number of observed values for each class\n  count(race,frame) %>% \n  #Pivot table to make a contingency table\n  pivot_wider(names_from = race,values_from = n) %>% \n  #Removal of the variable as column\n  select(-1) %>% \n  #Chi-square test\n  chisq.test()\n\n\n    Pearson's Chi-squared test\n\ndata:  .\nX-squared = 8.6111, df = 4, p-value = 0.07159"
+  },
+  {
+    "objectID": "posts/2023-01-01-dplyr-across/index.html",
+    "href": "posts/2023-01-01-dplyr-across/index.html",
+    "title": "An intro to dplyr::across",
+    "section": "",
+    "text": "In this post of the series Intro to, I’ll give an introduction to the function across of the R package dplyr."
+  },
+  {
+    "objectID": "posts/2023-01-01-dplyr-across/index.html#before-across",
+    "href": "posts/2023-01-01-dplyr-across/index.html#before-across",
+    "title": "An intro to dplyr::across",
+    "section": "Before across",
+    "text": "Before across\nAs one of thre greatest R packages dplyr possesses a lot functions, but it has two main verbs to manipulate data, they are:\n\nsummarise: allows us to apply a transformation that reduce the number of observations, e.g., mean;\nmutate: allows us to apply transformation to our existing variables or even creating new ones with the same size, e.g., multiplying one variable by another.\n\nLet’s see how they work in practice:\n\nlibrary(dplyr)\nlibrary(palmerpenguins)\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~\n$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~\n$ sex               <fct> male, female, female, NA, female, male, female, male~\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~\n\n\nGiven the dataset penguins from the package palmerpenguins we will summarise each numeric variable, computing the mean for each one. Then, we can apply the mean function to each variable, inside the verb summarise.\n\npenguins %>% \n  summarise(\n    mean(bill_length_mm,na.rm = TRUE),\n    mean(bill_depth_mm,na.rm = TRUE),\n    mean(flipper_length_mm,na.rm = TRUE),\n    mean(body_mass_g,na.rm = TRUE)\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 4\n$ `mean(bill_length_mm, na.rm = TRUE)`    <dbl> 43.92193\n$ `mean(bill_depth_mm, na.rm = TRUE)`     <dbl> 17.15117\n$ `mean(flipper_length_mm, na.rm = TRUE)` <dbl> 200.9152\n$ `mean(body_mass_g, na.rm = TRUE)`       <dbl> 4201.754\n\n\nIn the example above we see that it works, but have some problems:\n\nIt is very manual, so if we had many columns it would became a tedious activity, besides the higher probability of human error by writing a lot of lines or even copy and pasting the code;\nWIthout setting the names of the new tvariables, they will receive the function as their new names.\n\nA smarter approach is the use of a summarise variant, called summarise_if.\n\npenguins %>% \n  summarise_if(\n    .predicate = is.numeric,\n    .funs = ~mean(.,na.rm = TRUE)\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 5\n$ bill_length_mm    <dbl> 43.92193\n$ bill_depth_mm     <dbl> 17.15117\n$ flipper_length_mm <dbl> 200.9152\n$ body_mass_g       <dbl> 4201.754\n$ year              <dbl> 2008.029\n\n\nIn the example above we see that inside summarise_if we define two argumens:\n\n.predicate: the condition to check which variables we are going to apply the functions;\n.funs: a function or list of functions.\n\nDifferent from the first approach here the function kept the name of the original variables, even though they are the mean’s of the originals. Another benefit is the reduction of lines of code, since now with 2 lines we applied a function to 5 columns.\nSo it worked, but what’s the problem? Let’s say that I also want to know the mode of the variable species, how I could do that?\n\npenguins %>% \n  summarise(\n    species = relper::calc_mode(species),\n    across(.cols = where(is.numeric),.fns = ~mean(.,na.rm = TRUE))\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 6\n$ species           <fct> Adelie\n$ bill_length_mm    <dbl> 43.92193\n$ bill_depth_mm     <dbl> 17.15117\n$ flipper_length_mm <dbl> 200.9152\n$ body_mass_g       <dbl> 4201.754\n$ year              <dbl> 2008.029\n\n\nIn the example above we apply across , we see that it is used inside the conventional verb summarise , meaning we can still apply other functions even using across.\nSo across is a function that is complementary to mutate and summarise, that allows us to apply multiples functions across multiples variables.\nJust as curiosity, even though this old functions are superseeded they still exists, and their suffixes are _at() , _if() and _all() ."
+  },
+  {
+    "objectID": "posts/2023-01-01-dplyr-across/index.html#cols",
+    "href": "posts/2023-01-01-dplyr-across/index.html#cols",
+    "title": "An intro to dplyr::across",
+    "section": ".cols",
+    "text": ".cols\nThe first argument of across determine which columns of the data.frame we are going to apply our functions, this argument is:\n\nNon-optional\nThe default is every single variable of the data.frame, by using the function everything.\nAccepts as input:\n\nNumbers, referencing the variables positions;\nStrings, referencing the variables names;\nSelect helpers functions, e.g., contains, as we will see below.\n\n\n\nDefault\n\npenguins %>% \n  summarise(across(.fns = as.character)) %>% \n  glimpse()\n\nRows: 344\nColumns: 8\n$ species           <chr> \"Adelie\", \"Adelie\", \"Adelie\", \"Adelie\", \"Adelie\", \"A~\n$ island            <chr> \"Torgersen\", \"Torgersen\", \"Torgersen\", \"Torgersen\", ~\n$ bill_length_mm    <chr> \"39.1\", \"39.5\", \"40.3\", NA, \"36.7\", \"39.3\", \"38.9\", ~\n$ bill_depth_mm     <chr> \"18.7\", \"17.4\", \"18\", NA, \"19.3\", \"20.6\", \"17.8\", \"1~\n$ flipper_length_mm <chr> \"181\", \"186\", \"195\", NA, \"193\", \"190\", \"181\", \"195\",~\n$ body_mass_g       <chr> \"3750\", \"3800\", \"3250\", NA, \"3450\", \"3650\", \"3625\", ~\n$ sex               <chr> \"male\", \"female\", \"female\", NA, \"female\", \"male\", \"f~\n$ year              <chr> \"2007\", \"2007\", \"2007\", \"2007\", \"2007\", \"2007\", \"200~\n\n\nIn the example above we apply the function as.character to every column, since we did not use an input to the argument .cols.\n\npenguins %>% \n  summarise(across(.cols = everything(),.fns = as.character)) %>% \n  glimpse()\n\nRows: 344\nColumns: 8\n$ species           <chr> \"Adelie\", \"Adelie\", \"Adelie\", \"Adelie\", \"Adelie\", \"A~\n$ island            <chr> \"Torgersen\", \"Torgersen\", \"Torgersen\", \"Torgersen\", ~\n$ bill_length_mm    <chr> \"39.1\", \"39.5\", \"40.3\", NA, \"36.7\", \"39.3\", \"38.9\", ~\n$ bill_depth_mm     <chr> \"18.7\", \"17.4\", \"18\", NA, \"19.3\", \"20.6\", \"17.8\", \"1~\n$ flipper_length_mm <chr> \"181\", \"186\", \"195\", NA, \"193\", \"190\", \"181\", \"195\",~\n$ body_mass_g       <chr> \"3750\", \"3800\", \"3250\", NA, \"3450\", \"3650\", \"3625\", ~\n$ sex               <chr> \"male\", \"female\", \"female\", NA, \"female\", \"male\", \"f~\n$ year              <chr> \"2007\", \"2007\", \"2007\", \"2007\", \"2007\", \"2007\", \"200~\n\n\nIn the example above we see that same result is obtained, since the default of .cols is everything.\n\n\nBy type\nIf we want to select variables by their type we can use the verb where + a function that check the variable type.\n\npenguins %>% \n  mutate(across(.cols = where(is.factor),.fns = toupper)) %>% \n  glimpse()\n\nRows: 344\nColumns: 8\n$ species           <chr> \"ADELIE\", \"ADELIE\", \"ADELIE\", \"ADELIE\", \"ADELIE\", \"A~\n$ island            <chr> \"TORGERSEN\", \"TORGERSEN\", \"TORGERSEN\", \"TORGERSEN\", ~\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~\n$ sex               <chr> \"MALE\", \"FEMALE\", \"FEMALE\", NA, \"FEMALE\", \"MALE\", \"F~\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~\n\n\nIn the example above we made all factor variables to be uppercase.\nOther function can also be used, such as:\n\nis.numeric: check if the variable is numeric;\n\nis.integer check if the variable is an integer;\nis.double check if the variable is a double;\n\nis.factor check if the variable is a factor;\nis.character check if the variable is a character;\nis.logical check if the variable is a boolean (TRUE/FALSE).\n\nWe can also combine more than one variable in the same across:\n\npenguins %>% \n  mutate(across(.cols = where(is.factor) | where(is.character),.fns = toupper)) %>%   glimpse()\n\nRows: 344\nColumns: 8\n$ species           <chr> \"ADELIE\", \"ADELIE\", \"ADELIE\", \"ADELIE\", \"ADELIE\", \"A~\n$ island            <chr> \"TORGERSEN\", \"TORGERSEN\", \"TORGERSEN\", \"TORGERSEN\", ~\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~\n$ sex               <chr> \"MALE\", \"FEMALE\", \"FEMALE\", NA, \"FEMALE\", \"MALE\", \"F~\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~\n\n\nIn the example above we made all factor (species and island) and character (sex) variables to be uppercase.\n\n\nBy name\nAnother method of column selection is by using their name.\n\npenguins %>% \n  summarise(across(.cols = ends_with(\"_mm\"),.fns = ~mean(.,na.rm = TRUE))) %>% \n  glimpse()\n\nRows: 1\nColumns: 3\n$ bill_length_mm    <dbl> 43.92193\n$ bill_depth_mm     <dbl> 17.15117\n$ flipper_length_mm <dbl> 200.9152\n\n\nIn the example above we compute the mean for the variables that ends with the pattern _mm.\nSo all the the selection helpers can be used:\n\nall_of: allows us to pass a string vector to select specific variables, that does not check other conditions, e.g., all_of(-vector_of_variables) ;\nany_of: has a similar function to all_of , but it can be used to remove variables with the operator -, e.g., any_of(-vector_of_variables) ;\ncontains: variables that contains a specific string in their names;\nends_with: variables that ends with a specific string pattern;\neverything: all variables, and already the default of the argument .cols;\nlast_col: the last variable;\nmatches: variables with a name that matches a given regular expression;\nnum_range: variables that have a numeric sequence in their name, e.g., var1, var2 and var3 then we can use num_range(\"var\",1:3);\nstarts_with: variables that starts with a specific string pattern.\n\n\n\nBy order\nAnother method of columns selection is using the name of the variables and the operator : to apply the function to a sequence of variables.\n\npenguins %>% \n  summarise(across(.cols = bill_length_mm:body_mass_g,.fns = ~mean(.,na.rm = TRUE))) %>%\n  glimpse()\n\nRows: 1\nColumns: 4\n$ bill_length_mm    <dbl> 43.92193\n$ bill_depth_mm     <dbl> 17.15117\n$ flipper_length_mm <dbl> 200.9152\n$ body_mass_g       <dbl> 4201.754\n\n\nIn the example above we compute the mean to every variable from bill_length_mm to body_mass_g.\nWe can see that this variables are third to sixth of the data.frame, then can also use a method to reference them by their position.\n\npenguins %>% \n  summarise(across(.cols = 3:6,.fns = ~mean(.,na.rm = TRUE))) %>%\n  glimpse()\n\nRows: 1\nColumns: 4\n$ bill_length_mm    <dbl> 43.92193\n$ bill_depth_mm     <dbl> 17.15117\n$ flipper_length_mm <dbl> 200.9152\n$ body_mass_g       <dbl> 4201.754\n\n\nIn the example above we computed the mean for the same variables as before, but now using their column position instead."
+  },
+  {
+    "objectID": "posts/2023-01-01-dplyr-across/index.html#fns",
+    "href": "posts/2023-01-01-dplyr-across/index.html#fns",
+    "title": "An intro to dplyr::across",
+    "section": ".fns",
+    "text": ".fns\nThe argument .fns determine which functions are going to be applied, this argument is:\n\nNon-optional\nNo default\nAccepts as input:\n\nSingle function;\nList of functions.\n\n\n\npenguins %>% \n  summarise(\n    across(\n      .cols = where(is.numeric),\n      .fns = list(\n        ~mean(.,na.rm = TRUE),\n        ~median(.,na.rm = TRUE)\n      )\n    )\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 10\n$ bill_length_mm_1    <dbl> 43.92193\n$ bill_length_mm_2    <dbl> 44.45\n$ bill_depth_mm_1     <dbl> 17.15117\n$ bill_depth_mm_2     <dbl> 17.3\n$ flipper_length_mm_1 <dbl> 200.9152\n$ flipper_length_mm_2 <dbl> 197\n$ body_mass_g_1       <dbl> 4201.754\n$ body_mass_g_2       <dbl> 4050\n$ year_1              <dbl> 2008.029\n$ year_2              <dbl> 2008\n\n\nIn the example above we can see that both the mean and median are computed, but as more than one function is applied to the same variable a numeric suffix is added, by the order we defined our functions inside the list, this can be confusing.\n\npenguins %>% \n  summarise(\n    across(\n      .cols = where(is.numeric),\n      .fns = list(\n        mean = ~mean(.,na.rm = TRUE),\n        median = ~median(.,na.rm = TRUE)\n      )\n    )\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 10\n$ bill_length_mm_mean      <dbl> 43.92193\n$ bill_length_mm_median    <dbl> 44.45\n$ bill_depth_mm_mean       <dbl> 17.15117\n$ bill_depth_mm_median     <dbl> 17.3\n$ flipper_length_mm_mean   <dbl> 200.9152\n$ flipper_length_mm_median <dbl> 197\n$ body_mass_g_mean         <dbl> 4201.754\n$ body_mass_g_median       <dbl> 4050\n$ year_mean                <dbl> 2008.029\n$ year_median              <dbl> 2008\n\n\nIn the example above we defined the name of functions inside the list, now they are added as suffixes, which make easier to see what are we doing."
+  },
+  {
+    "objectID": "posts/2023-01-01-dplyr-across/index.html#names",
+    "href": "posts/2023-01-01-dplyr-across/index.html#names",
+    "title": "An intro to dplyr::across",
+    "section": ".names",
+    "text": ".names\nThe argument .names determines the result of the variables names after the functions are applied, so it allows us to change the names of the variables, this argument is:\n\nOptional\nThe default is NULL\nAccepts as input:\n\nA string, where we can use {.col} and {.fn} as variables to receive the respective names of the columns and/or functions.\n\n\n\npenguins %>% \n  summarise(\n    across(\n      .cols = where(is.numeric),\n      .fns = list(\n        mean = ~mean(.,na.rm = TRUE),\n        median = ~median(.,na.rm = TRUE)\n      ),\n      .names = \"{.fn}----{.col}\"\n    )\n  ) %>% \n  glimpse()\n\nRows: 1\nColumns: 10\n$ `mean----bill_length_mm`      <dbl> 43.92193\n$ `median----bill_length_mm`    <dbl> 44.45\n$ `mean----bill_depth_mm`       <dbl> 17.15117\n$ `median----bill_depth_mm`     <dbl> 17.3\n$ `mean----flipper_length_mm`   <dbl> 200.9152\n$ `median----flipper_length_mm` <dbl> 197\n$ `mean----body_mass_g`         <dbl> 4201.754\n$ `median----body_mass_g`       <dbl> 4050\n$ `mean----year`                <dbl> 2008.029\n$ `median----year`              <dbl> 2008\n\n\nIn the example above we change the variables names so they start with the function applied followed by 4 hyphens and then the original columns names."
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html#introduction",
+    "href": "posts/2023-01-01-chi-square-test/index.html#introduction",
+    "title": "An intro to chi-square test",
+    "section": "Introduction",
+    "text": "Introduction\nAfter all of these equations, we’ll perform a real-world example.\nLet’s say we have 200 animals in our random sample, and we want to see if race has anything to do with frame size. In order to see our observed values in each class, i.e., race x frame, we will first look at a contingency table with the absolute frequency of animals:\n\n\n\nFrame\nRace 1\nRace 2\nRace 3\nFrame Total\n\n\n\n\nSmall\n10\n20\n10\n40\n\n\nMedium\n20\n30\n20\n70\n\n\nLarge\n30\n50\n10\n90\n\n\nRace Total\n60\n100\n40\n200"
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html#test-statistic",
+    "href": "posts/2023-01-01-chi-square-test/index.html#test-statistic",
+    "title": "An intro to chi-square test",
+    "section": "Test statistic",
+    "text": "Test statistic\nTo compute our statistic, as given by the equation Equation 1, we have to:\n\nCompute the expected value for each class (cell in terms of a contingency table);\nCompute the component \\(\\frac{(O_i -E_i)^2}{E_i}\\) fo each class;\nCompute the \\(X^2\\) statistic by summing all values of step 2.\n\nTo begin, we will perform the calculus for a single cell to demonstrate each step, and we will select the Race 1 x Small frame class. In this case, our observed value is 10, so we do the following to calculate the expected value:\n\\[\nE_1 = (40 \\times 60)/200 = 12.\n\\tag{15}\\]\nWe multiplied our marginal results and divided them by our sample size because one of our assumptions is that the variables are independent. We can now compute the component for the first cell using our expected value.\n\\[\n\\begin{align}\n& =  \\frac{(O_1 - E_1)^2}{E_1}  \\\\\n& =  \\frac{(10 - 12)^2}{12}  \\\\\n& =  \\frac{(-2)^2}{12}  \\\\\n& =  \\frac{4}{12} \\\\\n& =  1/3.\\\\\n\\end{align}\n\\tag{16}\\]\nNow we apply the calculus to each cell, computing the expected value for every class:\n\n\n\nFrame\nRace 1\nRace 2\nRace 3\n\n\n\n\nSmall\n12\n20\n8\n\n\nMedium\n21\n35\n14\n\n\nLarge\n27\n45\n18\n\n\n\nAnd then we can also compute \\(\\frac{(O_i -E_i)^2}{E_i}\\) for each one:\n\n\n\nFrame\nRace 1\nRace 2\nRace 3\n\n\n\n\nSmall\n0.33\n0\n0.50\n\n\nMedium\n0.05\n0.71\n2.57\n\n\n\n0.33\n0.56\n3.56\n\n\n\nLastly, we sum all the values to obtain the statistic \\(X^2\\), which is equal to 8.61."
+  },
+  {
+    "objectID": "posts/2023-01-01-chi-square-test/index.html#p-value",
+    "href": "posts/2023-01-01-chi-square-test/index.html#p-value",
+    "title": "An intro to chi-square test",
+    "section": "p-value",
+    "text": "p-value\nNow, if we want to obtain the p value we have to look at the chi-sqaure distribution, so first we need to obtain the number of degrees of freedom \\((q)\\), in this cases that is given by:\n\\[\nq = (n_r-1)\\times(n_c-1),\n\\tag{17}\\]\nwhere\n\n\\(n_r\\) is the number of rows in the contingency table, i.e., the number of levels of the respective categorical variable;\n\\(n_c\\) is the number of columns in the contingency table, i.e., the number of levels of the respective categorical variable.\n\nThen, we have in our example that\n\\[\n\\begin{align}\nq & =  (n_r-1)\\times(n_c-1)  \\\\\n& =  (3-1) \\times (3-1) \\\\\n& =  (2) \\times (2) \\\\\n& =  4.\\\\\n\\end{align}\n\\tag{18}\\]\nWith an established \\(q\\), we now can compute the p value given by:\n\\[\nP(\\chi_4^2 > X^2|H_0),\n\\tag{19}\\]\nor the probability that a value is larger than \\(X^2\\) given a \\(\\chi_4^2\\) distribution and a true null hypothesis, as we can see in the figure below:\n\n\n\n\n\nWith a p value of 0.0716, we have that the p value is greater than 0.05, so we do not reject the null hypothesis, i.e., we do not have sample evidence to reject the null hypothesis that race and size frame are independent.."
   }
 ]
