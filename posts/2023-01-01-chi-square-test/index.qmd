@@ -274,7 +274,7 @@ $$ {#eq-p-value}
 
 or the probability that a value is larger than $X^2$ given a $\chi_4^2$ distribution and a true null hypothesis, as we can see in the figure below:
 
-```{r,echo=FALSE,message=FALSE,warning=FALSE,}
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))
 suppressWarnings(library(relper))
 suppressWarnings(library(dplyr))
