@@ -1,0 +1,35 @@
+---
+title: "About me"
+---
+
+## Professional Experience
+
+![](images/ga_logo.jpg){width="31"} \[04/2022 - Present\] GA + Intergado \| Strategy Manager
+
+![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| Head of R&D
+
+![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Head of Data
+
+![](images/unicesumar_logo-01.png){width="31"} \[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
+
+![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
+
+![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
+
+## Education
+
+![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
+
+![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
+
+## More about me
+
+I have been using data analysis since 2013. I concentrated on time-series, geostatistics, and data visualization during my graduate studies. In addition, I was one of the founders of the statistics junior enterprise, Estats Consultoria, where I served as President and Marketing Director in addition to working as a data analyst during projects.
+
+Together with a partner, I co-founded the data consulting company H0 Consultoria in 2016. Since then, we have worked on more than 350 scientific studies and 40 business surveys. Our responsibility was to help others make the most of statistics, from sample design to analysis, and occasionally even to teach them how to use the tools themselves.
+
+I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA is a Brazilian animal science tech company.
+
+Later, in the end of th year, I was given the opportunity to lead the whole R&D in 2021, and as such, I was in charge of the software development team in addition to the data.
+
+In order to offer better actions through data science, GA merged with Intergado in 2022, a company that makes hardware for accurately automating data collection. As the company's new strategy manager, my current responsibilities include managing the implementation of corporate strategy across all products, keeping track of project status, identifying risks, and coordinating between technical and non-technical teams to align priorities and goals.
