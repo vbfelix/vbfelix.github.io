@@ -2,13 +2,13 @@
 title: "An intro to dplyr::across"
 author: "Vinícius Félix"
 date: "2023-01-01"
-categories: [R,Intro to,Tidyverse]
+categories: [Intro to, Tools, R]
 image: "intro-to-dplyr-across.png"
 ---
 
 In this post of the series **Intro to**, I'll give an introduction to the function `across` of the R package `dplyr`.
 
-# History
+# Context
 
 As described in their site, [Tidyverse](https://www.tidyverse.org/) is an opinionated collection of R packages developed for data applications. One of the ecosystem main packages is [dplyr](https://dplyr.tidyverse.org/), which offers a consistent set of verbs to assist you in resolving data manipulation problems.
 
