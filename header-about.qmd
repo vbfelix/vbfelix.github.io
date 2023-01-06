@@ -48,7 +48,7 @@ I decided to pursue a master's degree in Biostatistics after graduating in the b
 
 Also I assisted one of my advisors in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap in the context of geostatistics.
 
-Lastly, I also chose epidemiology and psychometrics as my optional credits.
+Lastly, I chose epidemiology and psychometrics as my optional credits.
 
 ### [2016-2020] Data Science Consultant
 
