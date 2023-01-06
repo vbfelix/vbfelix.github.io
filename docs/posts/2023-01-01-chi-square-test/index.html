@@ -205,10 +205,9 @@ div.csl-indent {
     <div class="quarto-title column-body">
       <h1 class="title">An intro to chi-square test</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Theory</div>
                 <div class="quarto-category">Intro to</div>
-                <div class="quarto-category">Chi-square</div>
-                <div class="quarto-category">Inference</div>
+                <div class="quarto-category">Theory</div>
+                <div class="quarto-category">Test</div>
               </div>
                   </div>
   </div>
@@ -241,7 +240,7 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#history" id="toc-history" class="nav-link active" data-scroll-target="#history">History</a></li>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
   <li><a href="#math" id="toc-math" class="nav-link" data-scroll-target="#math">Math</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
   <ul class="collapse">
@@ -264,8 +263,8 @@ div.csl-indent {
 
 
 <p>In this post of the series <strong>Intro to</strong>, I’ll give an introduction to the chi-square test, one of the most well-known statistical tests.</p>
-<section id="history" class="level1">
-<h1>History</h1>
+<section id="context" class="level1">
+<h1>Context</h1>
 <p>To investigate a probability criterion on any theory of an observed system of errors and to apply it in order to establish a goodness of fit (GoF) measure, Karl Pearson published a paper <span class="citation" data-cites="pearson1900">(<a href="#ref-pearson1900" role="doc-biblioref">Pearson 1900</a>)</span>, the reason why the test is also known as Pearson’s chi-square test<span class="smallcaps">.</span></p>
 <p>We can test how likely a variable is to come from a specified distribution in this application because we have a metric to check whether or not our observed values are close to or not to the expected values, in this case we can define hypotheses as:</p>
 <ul>
@@ -325,7 +324,7 @@ Z = \frac{Y-\mu}{\sqrt{\sigma^2}} \longrightarrow \mathcal{N}(0,1),
 <ul>
 <li><p><span class="math inline">\(Y\)</span> is the sum of random independent and identically distributed variables, with the same mean and variance;</p></li>
 <li><p><span class="math inline">\(\mu\)</span> is the mean;</p></li>
-<li><p><span class="math inline">\(\sigma^2\)</span> is the variance ;</p></li>
+<li><p><span class="math inline">\(\sigma^2\)</span> is the variance;</p></li>
 <li><p><span class="math inline">\(\mathcal{N}\)</span> is a normal distribution.</p></li>
 </ul>
 <p>So applying the approximation of the normal to a binomial distribution:</p>

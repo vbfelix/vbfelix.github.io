@@ -2,14 +2,14 @@
 title: "An intro to chi-square test"
 author: "Vinícius Félix"
 date: "2023-01-01"
-categories: [Theory,Intro to,Chi-square, Inference]
+categories: [Intro to, Theory, Hypothesis test]
 bibliography: references.bib
 image: "intro-to-chi-square-test.png"
 ---
 
 In this post of the series **Intro to**, I'll give an introduction to the chi-square test, one of the most well-known statistical tests.
 
-# History
+# Context
 
 To investigate a probability criterion on any theory of an observed system of errors and to apply it in order to establish a goodness of fit (GoF) measure, Karl Pearson published a paper [@pearson1900], the reason why the test is also known as Pearson's chi-square test[.]{.smallcaps}
 
@@ -274,7 +274,7 @@ $$ {#eq-p-value}
 
 or the probability that a value is larger than $X^2$ given a $\chi_4^2$ distribution and a true null hypothesis, as we can see in the figure below:
 
-```{r,echo=FALSE,message=FALSE,warning=FALSE,}
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))
 suppressWarnings(library(relper))
 suppressWarnings(library(dplyr))
@@ -293,7 +293,7 @@ ggplot(data.frame(x = c(-0, 18))) +
     title = expression(paste(chi[4]**2," probability distribution.")),
     caption = "Source: @vbfelix."
   )+
-  flip_y_title+
+  plt_flip_y_title+
   scale_y_continuous(expand = c(0,0))+
   scale_x_continuous(expand = c(0,0),breaks = seq(0,20,2), sec.axis = sec_axis(~.,breaks = chi_square,labels = chi_square))+
   geom_vline(xintercept = chi_square, linetype = "dashed", col = 'red', size = .75)+
@@ -303,7 +303,8 @@ ggplot(data.frame(x = c(-0, 18))) +
     fill = "red",
     alpha = .5
   )+
-  annotate(geom = "text",x = 12,y = .035,label = paste0("p value = ",format_p_value(p_value)), size = 5)
+  annotate(geom = "text",x = 12,y = .035,label = paste0("p value = ",format_p_value(p_value)), size = 5)+
+  plt_water_mark(vfx_watermark)
 ```
 
 With a p value of 0.0716, we have that the p value is greater than 0.05, so we do not reject the null hypothesis, i.e., we do not have sample evidence to reject the null hypothesis that race and size frame are independent..

@@ -1,0 +1,552 @@
+---
+title: "An intro to logarithmic scale"
+author: "Vinícius Félix"
+date: "2023-01-07"
+categories: [Intro to, Theory, DataViz]
+image: "intro-to-log-scale.png"
+bibliography: references.bib
+---
+
+In this post of the series **Intro to**, I'll give an introduction to the logarithmic scale, and how useful it can be in data visualization.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+```
+
+# Context
+
+## Exponentiation
+
+When learning math, we usually start by the fundamental arithmetic operations:
+
+-   Addiction and Subtraction;
+
+-   Multiplication and Division.
+
+After the basics, the next step is the exponentiation, which is essentially a two-number math operation, where:
+
+-   $b$ is the base, the value that will be exponentiated;
+
+-   $n$ is the exponent, the value that the base will be raised by the power of.
+
+Then, we say that $b$ is raised to the power of $n$, meaning that:
+
+$$
+b^n = b_{[1]} \times b_{[2]} \times ... \times b_{[n-1]} \times b_{[n]} = x, \quad n \in \mathbb{Z}^{++}. 
+$$ {#eq-exp}
+
+As stated in the @eq-exp, $b$ is multiplied by itself $n$ times, and this property of the exponentiation is given for any positive integer $n$.
+
+So, let's say we want to exponentiate the number 10 to the power of 3, that is:
+
+$$
+10^3 = 10\times 10 \times 10 = 100 \times 10 = 1000.
+$$ {#eq-10-power-3}
+
+In the example above, 3 is the exponent and 10 is the base, resulting in 1,000.
+
+Next, let's understand how the exponential function works in general. For the first scenario, we will use 3 exponents (2, 3 and 4) applied to a sequence of bases from -1 to 1.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+ 
+x0 <- seq(-1,1,l = 200)
+e1 <- x0^2
+e2 <- x0^3
+e3 <- x0^4
+
+exp_data <- 
+  tibble(x0,e1,e2,e3) %>% 
+  pivot_longer(-x0) %>% 
+  mutate(name = recode(name, e1 = "2", e2 = "3", e3 = "4"))
+
+exp_plt1 <-
+exp_data %>% 
+  ggplot(aes(x0,value, col = name))+
+  geom_vline(xintercept = 0,linetype = "dashed")+
+  geom_hline(yintercept = 0,linetype = "dashed")+
+  geom_line(size = 1)+
+  plt_theme_xy()+
+  scale_x_continuous(expand = c(0.01,0))+
+  scale_y_continuous(expand = c(0.01,0))+
+  labs(
+    x = "b",
+    y = expression(b**n),
+    col = "n = ",
+    caption = "Source: @vbfelix."
+  )+
+  plt_flip_y_title+
+  scale_color_manual(values = c("royalblue4","forestgreen","darkgoldenrod2"))+
+  plt_water_mark(vfx_watermark)
+
+exp_plt1
+
+```
+
+Looking at the figure above we can see some interesting behaviors:
+
+-   $b^n = 0$ when $b = 0$;
+-   $b^n = 1$ when $b = 1$, for all $n$;
+-   $b^n = 1$ when $b = -1$ and $n$ is even;
+-   $b^n = -1$ when $b = -1$ and $n$ is odd;
+-   $b^n > 0$ when $n$ is even, since multiplying an negative value for an even number of times yields a positive result;
+-   $b^n > b$ when $1 > b > 0$, to help our visualization of this behavior, we will plot a identity line dashed with the color red, i.e., $b^n = b$.
+
+```{r, echo = FALSE}
+exp_plt1 + geom_abline(intercept = 0,slope = 1,linetype = "dashed", col = "red")
+```
+
+We see that the values are below the line for positives bases, hence:
+
+$$
+1 >  b > 0  \longrightarrow b^n > b, \quad n \in \mathbb{Z}^{++}.
+$$ {#eq-exp-frac-base}
+
+But let's keep in mind that until now we worked with bases between -1 and 1, will see how the exponentiation behavior for $b >= 1$ next.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+x0 <- seq(1,5,l = 200)
+e1 <- x0^2
+e2 <- x0^3
+e3 <- x0^4
+
+exp_data <- 
+  tibble(x0,e1,e2,e3) %>% 
+  pivot_longer(-x0) %>% 
+  mutate(name = recode(name, e1 = "2", e2 = "3", e3 = "4"))
+
+exp_data %>% 
+  ggplot(aes(x0,value, col = name))+
+  geom_hline(yintercept = 0,linetype = "dashed")+
+  geom_line(size = 1)+
+  plt_theme_xy()+
+  scale_x_continuous(expand = c(0.01,0))+
+  scale_y_continuous(expand = c(0.01,0))+
+  labs(
+    x = "b",
+    y = expression(b**n),
+    col = "n = ",
+    caption = "Source: @vbfelix."
+  )+
+  plt_flip_y_title+
+  scale_color_manual(values = c("royalblue4","forestgreen","darkgoldenrod2"))+
+  plt_water_mark(vfx_watermark)
+```
+
+Looking at values \> 1 for our base, we see how fast the results of $b^n$ grows for a higher $n$.
+
+After seeing how the behavior is for differents bases, we will do the same for the exponents. As we applied integer positive values for our exponents in the examples before, let's see how fractional exponents behavior.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+x0 <- seq(-1,1,l = 200)
+e1 <- x0^(1/2)
+e2 <- x0^(1/3)
+e3 <- x0^(1/4)
+
+exp_data <- 
+  tibble(x0,e1,e2,e3) %>% 
+  pivot_longer(-x0) %>% 
+  mutate(name = recode(name, e1 = "1/2", e2 = "1/3", e3 = "1/4"))
+
+exp_data %>% 
+  ggplot(aes(x0,value, col = name))+
+  geom_vline(xintercept = 0,linetype = "dashed")+
+  geom_hline(yintercept = 0,linetype = "dashed")+
+  geom_line(size = 1)+
+  plt_theme_xy()+
+  scale_x_continuous(expand = c(0.01,0))+
+  scale_y_continuous(expand = c(0.01,0))+
+  labs(
+    x = "b",
+    y = expression(b**n),
+    col = "n = ",
+    caption = "Source: @vbfelix."
+  )+
+  plt_flip_y_title+
+  scale_color_manual(values = c("royalblue2","darkgreen","darkgoldenrod3"))+
+  plt_water_mark(vfx_watermark)
+```
+
+We can see that for negatives values of $b$ there are not defined values of $b^n$, but why is that?
+
+$$
+b^{\frac{n}{m}} = (b^n)^{\frac{1}{m}} = \sqrt[m]{b^n}.
+$$ {#eq-exp-n-m}
+
+In the @eq-exp-n-m we look how a fractional exponent is actually the $m$*th* root of $b^n$, so if $m$ is even, there would be no real solution, since a even root of a negative value is not defined for real numbers.
+
+After understanding the basics of the the exponentiation we can jump to the inverse operation, the logarithm ($\log$).
+
+## Logarithm
+
+So, let's see how $\log$ works, since it is the inverse of the exponentiation, we can write it as:
+
+$$
+\log_b(x) = n \longleftrightarrow b^n = x.
+$$ {#eq-log-formula}
+
+As stated in the equation above, the $\log$ function gives what is the exponent ($n$) we have to raise our base ($b$) to result in $x$.
+
+Applying this logic, we can see the @eq-10-power-3 as:
+
+$$
+\log_{10}(1000) = 3.
+$$ {#eq-log-10-1000}
+
+So the $\log$ is which number 10 has to be exponiented to result in 1,000, then we can easily expand this to show other results:
+
+| $\log_{10}(x)$ | $x$     |
+|----------------|---------|
+| -5             | 0.00001 |
+| -4             | 0.0001  |
+| -3             | 0.001   |
+| -2             | 0.01    |
+| -1             | 0.1     |
+| 0              | 1       |
+| 1              | 10      |
+| 2              | 100     |
+| 3              | 1000    |
+| 4              | 10,000  |
+| 5              | 100,000 |
+
+: {tbl-colwidths="\[25,25\]"}
+
+In the table above we see thjat the result of the $\log_{10}(x)$ increase 1 unit as the value in $x$ is multiplied by 10. This is a very helpful property, that will explore more later.
+
+Just as we did with the exponentiation, let's see how the $\log$ behavior, so we will apply the function to a $x$ varying from -1 to 11 with three different bases (2, $\mathcal{e}$ and 10).
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+x0 <- seq(-1,11,l = 200)
+e1 <- log(x0,2)
+e2 <- log(x0)
+e3 <- log(x0,10)
+
+exp_data <- 
+  tibble(x0,e1,e2,e3) %>% 
+  pivot_longer(-x0) %>% 
+  mutate(name = recode(name, e1 = "2", e2 = "e", e3 = "10"))
+
+exp_data %>% 
+  ggplot(aes(x0,value, col = name))+
+  geom_vline(xintercept = 0,linetype = "dashed")+
+  geom_hline(yintercept = 0,linetype = "dashed")+
+  geom_hline(yintercept = 1,linetype = "dashed")+
+  geom_segment(mapping = aes(x = 1,xend = 1, y = Inf, yend = 0), col = "black", linetype = "dashed")+
+  geom_segment(mapping = aes(x = 2,xend = 2, y = Inf, yend = 1), col = "black", linetype = "dashed")+
+  geom_segment(mapping = aes(x = exp(1),xend = exp(1), y = Inf, yend = 1), col = "black", linetype = "dashed")+
+  geom_segment(mapping = aes(x = 10,xend = 10, y = Inf, yend = 1), col = "black", linetype = "dashed")+
+  geom_line(size = 1)+
+  annotate(geom = "point",x = c(2,exp(1),10),y = 1, col = "black",size = 2.5)+
+  annotate(geom = "point",x = 1,y = 0, col = "black",size = 2.5)+
+  plt_theme_xy()+
+  scale_x_continuous(expand = c(0.01,0),breaks = -1:12,
+                     sec.axis = sec_axis(trans = ~.,breaks = c(1,2,exp(1),10),labels = c("1","2","e","10")))+
+  scale_y_continuous(expand = c(0.01,0),breaks = -5:5)+
+  labs(
+    x = "x",
+    y = expression(n == log[b](x)),
+    col = "b = ",
+    caption = "Source: @vbfelix."
+  )+
+  plt_flip_y_title+
+  scale_color_manual(values = c("blueviolet","tomato1","olivedrab3"))+
+  plt_water_mark(vfx_watermark)
+
+
+
+```
+
+Looking at the figure above we can see some interesting behaviors:
+
+-   $n$ is nonexistent when $x < 0$, as we saw earlier for somes cases in the exponentiation would result in a undefined number;
+-   $n$ is equal to 1 when $x = b$;
+-   $n$ is equal to 0 when $x = 1$;
+-   $n$ is negative when $x < 1$.
+
+Before exploring more of the logarithm properties, you can be asking what it is the $\mathcal{e}$ used in the example before?
+
+### Natural logarithm
+
+This logarithm is a special case, where the base of the $\log$ is the number $\mathcal{e}$, also known as Euler's number or Napier's constant, defined by:
+
+$$
+\mathcal{e} = \sum_{n = 0}^{\infty}\frac{1}{n!} = \frac{1}{1} + \frac{1}{1\times2}+ \frac{1}{1\times2\times3} + ... \approx 2.718282.
+$$ {#eq-euler-number}
+
+So the natural logarithm can be written as:
+
+$$
+\log_{\mathcal{e}}(x) = \mathrm{ln}(x).
+$$ {#eq-natural-log}
+
+### Properties
+
+The $\log$ function has many properties that helps us in many situations, let's see the main properties.
+
+#### Product
+
+The first property is that the $\log$ of the products of $x$ and $y$ is the same as the sum of the $\log$'s of $x$ and $y$, that is:
+
+$$
+\log_b(xy) = \log_b(x) + \log_b(y).
+$$ {#eq-log-product}
+
+To see that, let's use the @eq-log-formula and define a second logarithm as:
+
+$$
+\log_b(y) = m \longleftrightarrow y = b^m.
+$$ {#eq-log-y-exp}
+
+By applying the product property of the exponentiation we have that:
+
+$$
+xy = b^n \ b^ m = b^{(n+m)}.
+$$ {#eq-exp-product}
+
+Now, if we apply the @eq-exp-product in the @eq-log-product, our result is:
+
+$$
+\begin{align}
+\log_b(xy)
+&= \log_b(b^{(n + m)}) \\
+&= n + m \\
+&= \log_b(x) + \log_b(y).
+\end{align}
+$$ {#eq-log-product-proof}
+
+#### Quotient
+
+The second property is that the $\log$ of the division of $x$ and $y$ is the same as the subtraction of the $\log$'s of $x$ and $y$, that is:
+
+$$
+\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y).
+$$ {#eq-log-quotient}
+
+Using the same definitions of @eq-log-formula and @eq-log-y-exp, we have that:
+
+$$
+\frac{x}{y} = \frac{b^n}{b^m} = b^{n-m}, 
+$$ {#eq-exp-quotient}
+
+if we aplly the @eq-exp-quotient in the @eq-log-quotient, our result is:
+
+$$
+\begin{align}
+\log_b\left(\frac{x}{y}\right)
+&= \log_b(b^{n-m}) \\
+&= n-m \\
+&= \log_b(x) - \log_b(y).
+\end{align}
+$$ {#eq-exp-quotient-proof}
+
+#### Power
+
+The third property is that the $\log$ of a value $x$ raised by a power $a$, is equal to the product of $a$ times the $\log$ of $x$.
+
+$$
+\log_b(x^a) = a\log_b(x).
+$$ {#eq-log-power}
+
+Expanding the definition in @eq-log-formula:
+
+$$
+\log_b(x) = n \longrightarrow x = b^n \longrightarrow x^a = (b^{n})^a = b^{an},
+$$ {#eq-log-x-exp-a}
+
+Now, if we use the definition in the @eq-log-power, we have that:
+
+$$
+\begin{align}
+\log_b(x^a)
+&= \log_b(b^{an}) \\
+&= an \\
+&= a\log_b(x).
+\end{align}
+$$ {#eq-exp-power-proof}
+
+# Data Visualization
+
+Finally, we will see an application of the $\log$ scale directly to data visualization, first we will see how those math properties appears in a graph.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+b <- rep(10,5)
+
+df <- 
+  tibble(x = cumprod(b)) %>% 
+  mutate(
+    y = log(x,base = 10),
+    x2 = lead(x),
+    y2 = lead(y)
+    )
+
+df %>% 
+  ggplot(aes(x,y))+
+  scale_x_log10(
+    breaks = df$x,expand = c(0.02,0),
+    labels = df$x %>% format_num(0))+
+  scale_y_continuous(breaks = 1:5,limits = c(1,5),expand = c(0.02,0))+
+  plt_theme_xy(14,margin = .45)+
+  theme(panel.grid.minor = element_blank())+
+  labs(
+    y = expression(paste(log[10],"(x)")),
+    caption = "Source: @vbfelix.",
+    x = "x"
+  )+
+  plt_flip_y_title+
+  geom_segment(aes(x = min(x), xend = x, y = y, yend = y),linetype = "dashed")+
+  geom_segment(aes(x = x, xend = x, y = min(y), yend = y),linetype = "dashed")+
+  geom_point(size = 3)+
+  geom_curve(aes(xend = x2-.25, yend = 1,y = 1),
+             curvature = -.5,
+             col = "firebrick3",
+             arrow = arrow(length = unit(.25,"cm")))+
+  geom_curve(aes(yend = y2-.025, xend = 10,x = 10),
+             curvature = .5,
+             col = "royalblue4",
+             arrow = arrow(length = unit(.25,"cm")))+
+  geom_text(aes(y = 1.4, x = ((x2+x)/2) , label = "x10"),
+            fontface = "bold",
+            col = "firebrick3",
+            size = 5)+
+  geom_text(aes(x = 19, y = y+.85 , label = "+1"),
+            fontface = "bold",
+            col = "royalblue4",
+            size = 5)+
+  theme(
+    axis.text.x = element_text(colour  = "firebrick3",face = "bold"),
+    axis.title.x = element_text(colour  = "firebrick3",face = "bold"),
+    axis.ticks.x = element_line(colour  = "firebrick3"),
+    axis.text.y = element_text(colour  = "royalblue4",face = "bold"),
+    axis.title.y = element_text(colour  = "royalblue4",face = "bold"),
+    axis.ticks.y = element_line(colour  = "royalblue4")
+  )+
+  plt_water_mark(vfx_watermark)+
+  coord_equal()+
+  NULL
+
+```
+
+Since the $\log$ is the inverse of the exponentation, we show here in this graph where we plot the cumulative product of a vector of size 5 with number 10 in the x axis versus the respective logarithm, with base 10, in the y axis.
+
+In the x axis as the data multiple by 10 the result of the $\log$ increase by 1 in the y axis. This property make it easier to showcase data that:
+
+-   Have a multiplicative effect;
+-   Outliers;
+-   Groups with different magnitudes.
+
+Let's see a simple example of how the change in scale can easily modify our perspective.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+x <- 1:10
+y <- log(x)
+
+tibble(x,y) %>%
+  mutate(x2 = lead(x)) %>% 
+  mutate(y2 = lead(y)) %>% 
+  ggplot(aes(x,y))+
+  geom_segment(aes(xend = x2,yend = y),
+               linetype = "dashed",
+               size = .9,
+               col = "firebrick3")+
+  geom_segment(aes(yend = y2,x = x2, xend = x2),
+               linetype = "dashed",
+               size = .9,
+               col = "royalblue4")+
+  geom_point(size = 2)+
+  plt_theme_xy()+
+  scale_x_continuous(breaks = 1:10, expand = c(0.01,0))+
+  scale_y_continuous(breaks = y, expand = c(0.01,0),
+                     labels = format_num(y))+
+  labs(
+    x = "x\nLinear scale",
+    subtitle = "Log scale",
+    caption = "Source: @vbfelix.",
+    y = expression(paste(log[e],"(x)")),
+  )+
+  plt_flip_y_title+
+  theme(
+    axis.text.x = element_text(colour  = "firebrick3",face = "bold"),
+    axis.title.x = element_text(colour  = "firebrick3",face = "bold"),
+    axis.ticks.x = element_line(colour  = "firebrick3"),
+    axis.text.y = element_text(colour  = "royalblue4",face = "bold"),
+    plot.subtitle = element_text(colour  = "royalblue4",face = "bold"),
+    axis.title.y = element_text(colour  = "royalblue4",face = "bold"),
+    axis.ticks.y = element_line(colour  = "royalblue4")
+  )+
+  plt_water_mark(vfx_watermark)+
+  NULL
+
+```
+
+In the figure above we just apply the $\log_e$ in a sequence from 1 to 10, we see in the x axis (linear scale) that the distance between the values are equidistant, but for the y axis the distances shorten for higher values, the reasoning for that is because the result of the $\log$ is the exponent to reach that specific value $x$, so different from addition, a minimal increase can cause a major difference in our result.
+
+With that, the effect of a minimal increase in the exponent has a huge implication in the resultant values, for example, going from 1 to 2 requires a 0.69 unit increase in the exponent, but to go from 9 to 10 required a difference of just 0.10 in the exponent.
+
+So the $\log$ scale can be very helpful to "*compress*" data with a huge magnitude, making possible to see behaviors that were "*squished*" by the linear scale.
+
+## Real data application
+
+We will look at the number of deaths from COVID--19 [@guidotti2020] of Argentina (ARG), Brazil (BRA) and the United States of America (USA), in 2020.
+
+As a disclaimer, the goal of this analysis is to demonstrate how the logarithm can be useful, not to gain any insight into how COVID actually behaved in these countries, as that would necessitate more in-depth research.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+df <- 
+  COVID19::covid19(verbose = FALSE,
+    country = c("BRA","ARG","USA"),
+    level = 1,
+    start = "2020-01-01",
+    end = "2020-12-31"
+    ) %>% 
+  as_tibble() %>% 
+  select(date,deaths, country = iso_alpha_3) %>% 
+  filter(deaths > 0)
+
+
+plt_base <-
+df %>%
+  ggplot(aes(date,deaths))+
+  geom_line(aes(col = country), size = 1)+
+  plt_theme_y()+
+  plt_water_mark(vfx_watermark)+
+  scale_x_date(date_breaks = "1 month",date_labels = "%m", expand = c(0.01,0))+
+  labs(
+    x = "Month",
+    title = "Cumulative number of deaths in 2020 by COVID-19.",
+    caption = "Source: COVID-19 Data Hub.",
+    y = "",
+    col = "Country:"
+  )+
+  scale_color_manual(values = c("steelblue1","springgreen4","red"))
+
+max_value <- 350000
+
+lin_scale <- seq(0,max_value,50000)
+log_scale <- c(max_value / c(1,cumprod(rep(10,4))),0)
+
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+plt_base +
+  scale_y_continuous(expand = c(.05,0), breaks = lin_scale,
+                     labels = format_num(lin_scale,0), limits = range(lin_scale))
+```
+
+Looking at the figure above we see that number of deaths are bigger in USA, Brazil and lastly Argentina, that is no surprise since it follows the same order of population size.
+
+So if we want to compare the behavior of the countries it can be hard, for example, Argentina has less deaths and the curve become "*squished*", making it hard to see what really happened.
+
+Since we have data with different magnitudes, we can apply the logarithm.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+plt_base +
+  scale_y_log10(expand = c(.05,0), breaks = log_scale,
+                labels = format_num(log_scale,0))+
+  labs(subtitle = expression(paste(log[10]," scale")))
+```
+
+After the application of the $\log_10$, we can see each country's behavior more clearly. For example, the number of deaths in the United States began earlier and slowed down faster than in Brazil, whereas Argentina had a steady number of deaths until November, when it began to "*stabilize*".
