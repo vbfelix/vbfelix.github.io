@@ -26,9 +26,9 @@ When learning math, we usually start by the fundamental arithmetic operations:
 
 -   Multiplication and Division.
 
-After the basics, the next step is the exponentiation, we will look at how it works, which is essentially a two-number math operation, where:
+After the basics, the next step is the exponentiation, which is essentially a two-number math operation, where:
 
--   $b$ is the base, the value that will be exponiented;
+-   $b$ is the base, the value that will be exponentiated;
 
 -   $n$ is the exponent, the value that the base will be raised by the power of.
 
@@ -38,7 +38,7 @@ $$
 b^n = b_{[1]} \times b_{[2]} \times ... \times b_{[n-1]} \times b_{[n]} = x, \quad n \in \mathbb{Z}^{++}. 
 $$ {#eq-exp}
 
-As stated in the @eq-exp $b$ is multiplied by itself $n$ times, and this property of the exponentiation is given for any positive integer $n$.
+As stated in the @eq-exp, $b$ is multiplied by itself $n$ times, and this property of the exponentiation is given for any positive integer $n$.
 
 So, let's say we want to exponentiate the number 10 to the power of 3, that is:
 
@@ -88,7 +88,7 @@ exp_plt1
 Looking at the figure above we can see some interesting behaviors:
 
 -   $b^n = 0$ when $b = 0$;
--   $b^n = 1$ when $b = 1$;
+-   $b^n = 1$ when $b = 1$, for all $n$;
 -   $b^n = 1$ when $b = -1$ and $n$ is even;
 -   $b^n = -1$ when $b = -1$ and $n$ is odd;
 -   $b^n > 0$ when $n$ is even, since multiplying an negative value for an even number of times yields a positive result;
@@ -185,7 +185,7 @@ After understanding the basics of the the exponentiation we can jump to the inve
 So, let's see how $\log$ works, since it is the inverse of the exponentiation, we can write it as:
 
 $$
-\log_b(x) = n \longleftrightarrow b^n = x
+\log_b(x) = n \longleftrightarrow b^n = x.
 $$ {#eq-log-formula}
 
 As stated in the equation above, the $\log$ function gives what is the exponent ($n$) we have to raise our base ($b$) to result in $x$.
@@ -214,7 +214,7 @@ So the $\log$ is which number 10 has to be exponiented to result in 1,000, then 
 
 : {tbl-colwidths="\[25,25\]"}
 
-In the table above we see thjat the result of the $\log_{10}(x)$ increase 1 unit as the value in $x$ is multiplied by 10.
+In the table above we see thjat the result of the $\log_{10}(x)$ increase 1 unit as the value in $x$ is multiplied by 10. This is a very helpful property, that will explore more later.
 
 Just as we did with the exponentiation, let's see how the $\log$ behavior, so we will apply the function to a $x$ varying from -1 to 11 with three different bases (2, $\mathcal{e}$ and 10).
 
@@ -262,9 +262,9 @@ exp_data %>%
 Looking at the figure above we can see some interesting behaviors:
 
 -   $n$ is nonexistent when $x < 0$, as we saw earlier for somes cases in the exponentiation would result in a undefined number;
--   $n$ is equal to 1 when $b = x$;
--   $n$ is equal to 0 when $x = 0$, no matter what base;
--   $n$ is negative when $x < 0$.
+-   $n$ is equal to 1 when $x = b$;
+-   $n$ is equal to 0 when $x = 1$;
+-   $n$ is negative when $x < 1$.
 
 Before exploring more of the logarithm properties, you can be asking what it is the $\mathcal{e}$ used in the example before?
 
@@ -294,7 +294,7 @@ $$
 \log_b(xy) = \log_b(x) + \log_b(y).
 $$ {#eq-log-product}
 
-To see that, let's use the @eq-log-formula and define a second equation as:
+To see that, let's use the @eq-log-formula and define a second logarithm as:
 
 $$
 \log_b(y) = m \longleftrightarrow y = b^m.
@@ -306,7 +306,7 @@ $$
 xy = b^n \ b^ m = b^{(n+m)}.
 $$ {#eq-exp-product}
 
-Now, if we use the @eq-exp-product to @eq-log-product, we result in:
+Now, if we apply the @eq-exp-product in the @eq-log-product, our result is:
 
 $$
 \begin{align}
@@ -331,7 +331,7 @@ $$
 \frac{x}{y} = \frac{b^n}{b^m} = b^{n-m}, 
 $$ {#eq-exp-quotient}
 
-if we use the @eq-exp-quotient to @eq-log-quotient, we result in:
+if we aplly the @eq-exp-quotient in the @eq-log-quotient, our result is:
 
 $$
 \begin{align}
@@ -344,7 +344,7 @@ $$ {#eq-exp-quotient-proof}
 
 #### Power
 
-The third property is that the $\log$ of a value $x$ raised by a power $a$, is equal to the product of $a$ to the $\log$ of $x$.
+The third property is that the $\log$ of a value $x$ raised by a power $a$, is equal to the product of $a$ times the $\log$ of $x$.
 
 $$
 \log_b(x^a) = a\log_b(x).
@@ -431,11 +431,11 @@ df %>%
 
 Since the $\log$ is the inverse of the exponentation, we show here in this graph where we plot the cumulative product of a vector of size 5 with number 10 in the x axis versus the respective logarithm, with base 10, in the y axis.
 
-In the x axis as the data multiple by 10 the result of the $\log$ increase by 1 in the y axis, so with that we can showcase data that:
+In the x axis as the data multiple by 10 the result of the $\log$ increase by 1 in the y axis. This property make it easier to showcase data that:
 
-- Have a multiplicative effect;
-- Outliers;
-- Groups with different magnitudes.
+-   Have a multiplicative effect;
+-   Outliers;
+-   Groups with different magnitudes.
 
 Let's see a simple example of how the change in scale can easily modify our perspective.
 
@@ -485,7 +485,7 @@ In the figure above we just apply the $\log_e$ in a sequence from 1 to 10, we se
 
 With that, the effect of a minimal increase in the exponent has a huge implication in the resultant values, for example, going from 1 to 2 requires a 0.69 unit increase in the exponent, but to go from 9 to 10 required a difference of just 0.10 in the exponent.
 
-So the $\log$ scale can be very helpful to "*compress*" data with a huge magnitude, making possible to see behaviors that were "*squished*" by the linear scale. 
+So the $\log$ scale can be very helpful to "*compress*" data with a huge magnitude, making possible to see behaviors that were "*squished*" by the linear scale.
 
 ## Real data application
 
@@ -549,4 +549,4 @@ plt_base +
   labs(subtitle = expression(paste(log[10]," scale")))
 ```
 
-After the application, we can see each country's behavior more clearly. For example, the number of deaths in the United States began earlier and slowed down faster than in Brazil, whereas Argentina had a steady number of deaths until November, when it began to "*stabilize*".
+After the application of the $\log_10$, we can see each country's behavior more clearly. For example, the number of deaths in the United States began earlier and slowed down faster than in Brazil, whereas Argentina had a steady number of deaths until November, when it began to "*stabilize*".
