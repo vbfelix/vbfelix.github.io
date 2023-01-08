@@ -19,7 +19,7 @@ suppressWarnings(library(tidyr))
 
 The [tidyverse](https://www.tidyverse.org/) is an ecosystem of R packages the revolutionized how data is handled in the language. It provides amazing and famous libraries such as [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/), that have great functions, e.g., we covered the [across](https://vbfelix.github.io/posts/2023-01-01-dplyr-across/) function from [dplyr](https://dplyr.tidyverse.org/).
 
-But, we can have the need to create our own functions using this functions inside them,, and a problem may surge as the tidyverse works based on a dataframe, and how to pass the arguments can be a issue.
+But, we can have the need to create our own functions using this functions inside them, and a problem may surge as the tidyverse works based on a dataframe, and how to pass the arguments can be a issue.
 
 So, to make it easier to create this functions, some special operators were created, in a way that we can pass an input as an argument to functions that will work based on a dataframe, even if we just pass the column name.
 
