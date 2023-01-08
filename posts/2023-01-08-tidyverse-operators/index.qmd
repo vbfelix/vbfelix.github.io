@@ -1,7 +1,7 @@
 ---
 title: "An intro to tidyverse operators"
 author: "Vinícius Félix"
-date: "2023-01-10"
+date: "2023-01-08"
 categories: [Intro to, Tools, R]
 image: "intro-to-tidyverse-operators.png"
 ---
