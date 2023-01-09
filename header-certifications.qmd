@@ -28,6 +28,8 @@ title: "Certifications"
 
 ![](images/download%20(1).png){width="31"} [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
 
+![](images/download%20(2).png){width="31" height="21"} [Data Analysis with Python](https://www.freecodecamp.org/certification/fcc9e7d893e-6799-4c57-a0c9-c8f664ec685a/data-analysis-with-python-v7)
+
 ![](images/download-01.png){width="31"} [Data Manipulation with Python](https://www.datacamp.com/statement-of-accomplishment/track/e24f579f704adfa1882ff2f859aaf2c34fb334ac)
 
 ![](images/download%20(1).png){width="31"} [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
