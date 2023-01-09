@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.520">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+<meta name="dcterms.date" content="2023-01-14">
+
+<title>vbfelix - An analysis of Settlers of Catan</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">vbfelix</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-about.html">About me</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html">Certifications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-talks.html">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing"><i class="bi bi-file-earmark-person" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"><i class="bi bi-stack-overflow" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">An analysis of Settlers of Catan</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">An analysis of</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 14, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#is-the-dice-fair" id="toc-is-the-dice-fair" class="nav-link" data-scroll-target="#is-the-dice-fair">Is the dice fair?</a></li>
+  <li><a href="#the-last-will-be-the-first" id="toc-the-last-will-be-the-first" class="nav-link" data-scroll-target="#the-last-will-be-the-first">The last will be the first?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>In this post of the series <strong>An analysis of</strong>, I’ll do a data analysis of my favorite board game, Settlers of Catan.</p>
+<div class="cell">
+
+</div>
+<section id="context" class="level1">
+<h1>Context</h1>
+<p>Settlers of Catan, or just <a href="https://www.catan.com/">Catan</a> is a board game designed by <a href="https://en.wikipedia.org/wiki/Klaus_Teuber" title="Klaus Teuber">Klaus Teuber</a>. In the game we take the role of settlers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg" class="img-fluid figure-img" width="279"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Catan set. Source: catan.com</figcaption><p></p>
+</figure>
+</div>
+<p>The game has 19 locations, where:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Resource</th>
+<th>Number of locations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pasture</td>
+<td>Wool</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Hill</td>
+<td>Brick</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Mountain</td>
+<td>Ore</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Field</td>
+<td>Grain</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Forest</td>
+<td>Lumber</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Desert</td>
+<td>None</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Each location, with the exception of the desert will have a number, this number is one the possible results of the sum of two dices, so they will vary from 2 to 12, where the number 7 we will result in the action of the robber, where you can choose to block 1 location and rob 1 random resource from a player located there.</p>
+<p>The main goal of the game is to achieve 10 points (<strong>P</strong>), to achieve points we have structures:</p>
+<ul>
+<li><p><strong>Road</strong>: 1 brick + 1 lumber</p></li>
+<li><p><strong>(1P) Settlement</strong>: 1 Brick + 1 lumber + 1 wool + 1 grain</p></li>
+<li><p><strong>(2P) City</strong>: 3 ores + 2 grains</p></li>
+</ul>
+<p>We also have the <strong>development card</strong>: 1 ore + 1 wool + 1 grain, which you draw randomly from a deck of cards with different effects, one of them been cards that award you <strong>1P.</strong></p>
+<p>And lastly, achievements:</p>
+<ul>
+<li><p><strong>(2P) Longest road:</strong> the player that first achieve a sequencial road of size 5;</p></li>
+<li><p><strong>(2P) Largest army:</strong> the player that first uses 3 knight cards (<strong>development card</strong>).</p></li>
+</ul>
+<p>For more in-depth information check the rules in the <a href="https://www.catan.com/">official site</a>.</p>
+</section>
+<section id="analysis" class="level1">
+<h1>Analysis</h1>
+<p>For the analysis we will use the dataset <a href="https://www.kaggle.com/datasets/lumins/settlers-of-catan-games">My Settlers of Catan Games</a> from the user Lumin of Kaggle.</p>
+<section id="is-the-dice-fair" class="level2">
+<h2 class="anchored" data-anchor-id="is-the-dice-fair">Is the dice fair?</h2>
+<p>The first analysis will be of the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.</p>
+<p>Considering that for each dice we have 6 possible outcomes we will consider a probability of 1/6 to each result, and we will compute the probability of each result for the sum of two dices.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In the figure above we can see an graph where in each axis is the result of each dice, and we can we see all possible results of the sum of those dices, than we can see that some results appears more frequenty than others, e.g., the number 7 is the most frequent result, since it appears 6 times. Another interesting result is that we can see a simmetry in the results, let’s take a look using another visual form.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As previously stated, the results are simmetry centred on the number 7, and the extreme results are 2 and 12, with only one combination possible for each.</p>
+<p>So now we will take a look at the observed data versus the expected outcome.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Comparing the observed values from the real dataset we can see that the results from dice seems pretty fair, since is very similar to our expected outcome, the largest difference was from the number 4 where the observed values were 1.02 percentual points below the probabilty.</p>
+</section>
+<section id="the-last-will-be-the-first" class="level2">
+<h2 class="anchored" data-anchor-id="the-last-will-be-the-first">The last will be the first?</h2>
+<p>The order in this game is crucial, since it gives you the power to decide the locations of your settlement, but been the last one is not the worst, because you become the first to put you second settlement in the map.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>   
+  </div>
+</footer>
+
+
+
+</body></html>

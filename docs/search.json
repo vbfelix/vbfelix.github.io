@@ -116,7 +116,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Intro to\n\n\nTheory\n\n\nDataViz\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nHypothesis test\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\nNo matching items"
+    "text": "An analysis of\n\n\n\n\n\n\n\n\n\n\n\nJan 14, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nDataViz\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nHypothesis test\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-01-01-chi-square-test/index.html",
@@ -222,5 +222,40 @@
     "title": "An intro to logarithmic scale",
     "section": "Real data application",
     "text": "Real data application\nWe will look at the number of deaths from COVID–19 (Guidotti and Ardia 2020) of Argentina (ARG), Brazil (BRA) and the United States of America (USA), in 2020.\nAs a disclaimer, the goal of this analysis is to demonstrate how the logarithm can be useful, not to gain any insight into how COVID actually behaved in these countries, as that would necessitate more in-depth research.\n\n\n\n\n\n\n\n\nLooking at the figure above we see that number of deaths are bigger in USA, Brazil and lastly Argentina, that is no surprise since it follows the same order of population size.\nSo if we want to compare the behavior of the countries it can be hard, for example, Argentina has less deaths and the curve become “squished”, making it hard to see what really happened.\nSince we have data with different magnitudes, we can apply the logarithm.\n\n\n\n\n\nAfter the application, we can see each country’s behavior more clearly. For example, the number of deaths in the United States began earlier and slowed down faster than in Brazil, whereas Argentina had a steady number of deaths until November, when it began to “stabilize”."
+  },
+  {
+    "objectID": "posts/2023-01-14-settlers-of-catan/index.html",
+    "href": "posts/2023-01-14-settlers-of-catan/index.html",
+    "title": "An analysis of Settlers of Catan",
+    "section": "",
+    "text": "In this post of the series An analysis of, I’ll do a data analysis of my favorite board game, Settlers of Catan."
+  },
+  {
+    "objectID": "posts/2023-01-14-settlers-of-catan/index.html#import-data",
+    "href": "posts/2023-01-14-settlers-of-catan/index.html#import-data",
+    "title": "An analysis of Settlers of Catan",
+    "section": "Import data",
+    "text": "Import data"
+  },
+  {
+    "objectID": "posts/2023-01-14-settlers-of-catan/index.html#renaming-variables",
+    "href": "posts/2023-01-14-settlers-of-catan/index.html#renaming-variables",
+    "title": "An analysis of Settlers of Catan",
+    "section": "Renaming variables",
+    "text": "Renaming variables\n\ncatan_df <-\n  catan_or %>% \n  select(\n    dice_02 = X2,\n    dice_03 = X3,\n    dice_04 = X4,\n    dice_05 = X5,\n    dice_06 = X6,\n    dice_07 = X7,\n    dice_08 = X8,\n    dice_09 = X9,\n    dice_10 = X10,\n    dice_11 = X11,\n    dice_12 = X12,\n    set1_l1_num = settlement1,\n    set1_l1_res = X,\n    set1_l2_num = X.1,\n    set1_l2_res = X.2,\n    set1_l3_num = X.3,\n    set1_l3_res = X.4,\n    set2_l1_num = settlement2,\n    set2_l1_res = X5,\n    set2_l2_num = X.6,\n    set2_l2_res = X.7,\n    set2_l3_num = X.8,\n    set2_l3_res = X.9\n  )\n\ncatan_df %>% glimpse()\n\nRows: 200\nColumns: 23\n$ dice_02     <int> 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1~\n$ dice_03     <int> 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3~\n$ dice_04     <int> 5, 5, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5, 5, 7, 7, 7, 7~\n$ dice_05     <int> 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 12, 12, 12, 12, 9,~\n$ dice_06     <int> 7, 7, 7, 7, 10, 10, 10, 10, 10, 10, 10, 10, 14, 14, 14, 14~\n$ dice_07     <int> 10, 10, 10, 10, 8, 8, 8, 8, 4, 4, 4, 4, 20, 20, 20, 20, 14~\n$ dice_08     <int> 6, 6, 6, 6, 14, 14, 14, 14, 5, 5, 5, 5, 12, 12, 12, 12, 9,~\n$ dice_09     <int> 7, 7, 7, 7, 9, 9, 9, 9, 5, 5, 5, 5, 11, 11, 11, 11, 9, 9, ~\n$ dice_10     <int> 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 4, 4, 4, 4, 3, 3, 3, 3~\n$ dice_11     <int> 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2~\n$ dice_12     <int> 1, 1, 1, 1, 3, 3, 3, 3, 1, 1, 1, 1, 3, 3, 3, 3, 1, 1, 1, 1~\n$ set1_l1_num <int> 6, 5, 5, 6, 6, 5, 5, 4, 5, 5, 6, 5, 5, 6, 9, 5, 6, 5, 6, 5~\n$ set1_l1_res <chr> \"L\", \"W\", \"S\", \"O\", \"W\", \"C\", \"C\", \"C\", \"L\", \"W\", \"S\", \"L\"~\n$ set1_l2_num <int> 3, 8, 6, 9, 9, 8, 6, 9, 4, 8, 9, 6, 6, 9, 10, 9, 9, 6, 4, ~\n$ set1_l2_res <chr> \"C\", \"O\", \"S\", \"L\", \"O\", \"S\", \"W\", \"W\", \"L\", \"O\", \"W\", \"W\"~\n$ set1_l3_num <int> 11, 10, 12, 3, 10, 10, 11, 11, 10, 10, 3, 11, 11, 3, 11, 1~\n$ set1_l3_res <chr> \"C\", \"W\", \"W\", \"L\", \"O\", \"O\", \"O\", \"O\", \"C\", \"C\", \"L\", \"S\"~\n$ set2_l1_num <int> 9, 4, 8, 4, 8, 8, 5, 6, 6, 4, 8, 8, 8, 5, 4, 8, 8, 5, 9, 4~\n$ set2_l1_res <int> 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 12, 12, 12, 12, 9,~\n$ set2_l2_num <int> 10, 5, 4, 8, 10, 4, 9, 4, 3, 9, 10, 4, 3, 8, 8, 4, 10, 9, ~\n$ set2_l2_res <chr> \"W\", \"S\", \"S\", \"L\", \"L\", \"L\", \"W\", \"C\", \"L\", \"W\", \"C\", \"C\"~\n$ set2_l3_num <int> 11, 11, 3, 10, 0, 3, 10, 3, 11, 11, 0, 3, 0, 10, 10, 3, 0,~\n$ set2_l3_res <chr> \"O\", \"O\", \"C\", \"S\", \"2L\", \"W\", \"L\", \"S\", \"S\", \"S\", \"3G\", \"~"
+  },
+  {
+    "objectID": "posts/2023-01-14-settlers-of-catan/index.html#is-the-dice-fair",
+    "href": "posts/2023-01-14-settlers-of-catan/index.html#is-the-dice-fair",
+    "title": "An analysis of Settlers of Catan",
+    "section": "Is the dice fair?",
+    "text": "Is the dice fair?\nThe first analysis will be of the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.\nConsidering that for each dice we have 6 possible outcomes we will consider a probability of 1/6 to each result, and we will compute the probability of each result for the sum of two dices.\n\n\n\n\n\nIn the figure above we can see an graph where in each axis is the result of each dice, and we can we see all possible results of the sum of those dices, than we can see that some results appears more frequenty than others, e.g., the number 7 is the most frequent result, since it appears 6 times. Another interesting result is that we can see a simmetry in the results, let’s take a look using another visual form.\n\n\n\n\n\nAs previously stated, the results are simmetry centred on the number 7, and the extreme results are 2 and 12, with only one combination possible for each.\nSo now we will take a look at the observed data versus the expected outcome.\n\n\n\n\n\nComparing the observed values from the real dataset we can see that the results from dice seems pretty fair, since is very similar to our expected outcome, the largest difference was from the number 4 where the observed values were 1.02 percentual points below the probabilty."
+  },
+  {
+    "objectID": "posts/2023-01-14-settlers-of-catan/index.html#the-last-will-be-the-first",
+    "href": "posts/2023-01-14-settlers-of-catan/index.html#the-last-will-be-the-first",
+    "title": "An analysis of Settlers of Catan",
+    "section": "The last will be the first?",
+    "text": "The last will be the first?\nThe order in this game is crucial, since it gives you the power to decide the locations of your settlement, but been the last one is not the worst, because you become the first to put you second settlement in the map."
   }
 ]

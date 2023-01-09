@@ -1,0 +1,228 @@
+---
+title: "An analysis of Settlers of Catan"
+author: "Vinícius Félix"
+date: "2023-01-14"
+categories: [An analysis of]
+image: "an-analysis-of-settlers-of-catan.png"
+---
+
+In this post of the series **An analysis of**, I'll do a data analysis of my favorite board game, Settlers of Catan.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+```
+
+# Context
+
+Settlers of Catan, or just [Catan](https://www.catan.com/) is a board game designed by [Klaus Teuber](https://en.wikipedia.org/wiki/Klaus_Teuber "Klaus Teuber"). In the game we take the role of settlers.
+
+![Catan set. Source: catan.com](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){width="279"}
+
+The game has 19 locations, where:
+
+| Location | Resource | Number of locations |
+|----------|----------|---------------------|
+| Pasture  | Wool     | 4                   |
+| Hill     | Brick    | 3                   |
+| Mountain | Ore      | 3                   |
+| Field    | Grain    | 4                   |
+| Forest   | Lumber   | 4                   |
+| Desert   | None     | 1                   |
+
+Each location, with the exception of the desert will have a number, this number is one the possible results of the sum of two dices, so they will vary from 2 to 12, where the number 7 we will result in the action of the robber, where you can choose to block 1 location and rob 1 random resource from a player located there.
+
+The main goal of the game is to achieve 10 points (**P**), to achieve points we have structures:
+
+-   **Road**: 1 brick + 1 lumber
+
+-   **(1P) Settlement**: 1 Brick + 1 lumber + 1 wool + 1 grain
+
+-   **(2P) City**: 3 ores + 2 grains
+
+We also have the **development card**: 1 ore + 1 wool + 1 grain, which you draw randomly from a deck of cards with different effects, one of them been cards that award you **1P.**
+
+And lastly, achievements:
+
+-   **(2P) Longest road:** the player that first achieve a sequencial road of size 5;
+
+-   **(2P) Largest army:** the player that first uses 3 knight cards (**development card**).
+
+For more in-depth information check the rules in the [official site](https://www.catan.com/).
+
+```{r, echo = FALSE,include = F}
+
+catan_or <- read.csv("catanstats.csv")
+
+catan_df <-
+  catan_or %>% 
+  rename(
+    dice_02 = X2,
+    dice_03 = X3,
+    dice_04 = X4,
+    dice_05 = X5,
+    dice_06 = X6,
+    dice_07 = X7,
+    dice_08 = X8,
+    dice_09 = X9,
+    dice_10 = X10,
+    dice_11 = X11,
+    dice_12 = X12,
+    set1_l1_num = settlement1,
+    set1_l1_res = X,
+    set1_l2_num = X.1,
+    set1_l2_res = X.2,
+    set1_l3_num = X.3,
+    set1_l3_res = X.4,
+    set2_l1_num = settlement2,
+    set2_l1_res = X.5,
+    set2_l2_num = X.6,
+    set2_l2_res = X.7,
+    set2_l3_num = X.8,
+    set2_l3_res = X.9
+  ) %>% 
+  group_by(player) %>% 
+  mutate(winner = if_else(points == max(points), TRUE, FALSE)) %>% 
+  ungroup()
+```
+
+# Analysis
+
+For the analysis we will use the dataset [My Settlers of Catan Games](https://www.kaggle.com/datasets/lumins/settlers-of-catan-games) from the user Lumin of Kaggle.
+
+## Is the dice fair?
+
+The first analysis will be of the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.
+
+Considering that for each dice we have 6 possible outcomes we will consider a probability of 1/6 to each result, and we will compute the probability of each result for the sum of two dices.
+
+```{r, echo = FALSE}
+two_dices <-
+  expand.grid(dice1 = 1:6, dice2 = 1:6) %>% 
+  mutate(dice_sum = dice1+dice2) %>% 
+  group_by(dice_sum) %>% 
+  mutate(n = n()) 
+
+two_dices %>% 
+  ggplot(aes(dice1,dice2))+
+  geom_tile(aes(fill = as.factor(n)), col = "black", alpha = .75)+
+  scale_x_continuous(expand = c(0,0),breaks = 1:6)+
+  scale_y_continuous(expand = c(0,0),breaks = 1:6)+
+  labs(
+    x = "Dice 1",
+    y = "Dice 2",
+    fill = "Frequency:",
+    title = "All possible outcomes of the sum of two dice.",
+    caption = 'Source: @vbfelix.'
+  )+
+  geom_text(aes(label = dice_sum),fontface = "bold")+
+  plt_water_mark(vfx_watermark)+
+  plt_theme_xy(base_size = 12)+
+  scale_fill_brewer(type = "seq",palette = 7,direction = -1)+
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))+
+  theme(panel.grid.major = element_blank())
+```
+
+In the figure above we can see an graph where in each axis is the result of each dice, and we can we see all possible results of the sum of those dices, than we can see that some results appears more frequenty than others, e.g., the number 7 is the most frequent result, since it appears 6 times. Another interesting result is that we can see a simmetry in the results, let's take a look using another visual form.
+
+```{r, echo = FALSE}
+two_dice_sum <-
+  two_dices %>% 
+  select(dice_sum,n) %>% 
+  unique() 
+
+plt_two_dice_sum <-
+two_dice_sum %>% 
+  ggplot(aes(dice_sum,n))+
+  geom_col(fill = "grey75", col = "black")+
+  plt_theme_y()+
+  plt_water_mark(vfx_watermark)+
+  scale_x_continuous(expand = c(0.01,0),breaks = 2:12)+
+  scale_y_continuous(
+    expand = c(0,0),
+    breaks = 0:6,
+    name = "Frequency",
+    sec.axis = sec_axis(
+      trans = ~.,
+      breaks = 1:6,
+      labels = c("1/36","1/18","1/12","1/9","5/36","1/6"),
+      name = "Probability"),
+    limits = c(0,6.5)
+  )+
+  labs(
+    x = "Sum of two dice",
+    title = "Expected result of the sum of two dice.",
+    caption = "Source: @vbfelix"
+  )
+  
+plt_two_dice_sum
+```
+
+As previously stated, the results are simmetry centred on the number 7, and the extreme results are 2 and 12, with only one combination possible for each.
+
+So now we will take a look at the observed data versus the expected outcome.
+
+```{r, echo = F}
+
+real_dice  <-
+  catan_df %>% 
+  select(gameNum,starts_with("dice_")) %>% 
+  pivot_longer(cols = -gameNum,names_to = "dice_sum",values_to = "n") %>%
+  mutate(dice_sum = as.numeric(stringr::str_remove(dice_sum,"dice_"))) %>% 
+  count(dice_sum,wt = n) %>% 
+  mutate(prop = n/sum(n)) 
+  
+real_prev_dice <-
+  two_dice_sum %>%
+  ungroup() %>% 
+  mutate(prop = n/sum(n)) %>% 
+  mutate(type = "Expected") %>% 
+  bind_rows(
+    real_dice %>% 
+      mutate(type = "Observed")
+  )
+
+text_dice <-
+  real_prev_dice %>% 
+  select(-n) %>% 
+  mutate(prop = 100*prop) %>% 
+  pivot_wider(names_from = type,values_from = prop) %>% 
+  mutate(
+    y = (Expected+Observed)/2,
+    lbl = format_num(Observed - Expected,2)
+  )
+
+real_prev_dice %>%     
+  ggplot(aes(dice_sum,100*prop))+
+  geom_col(aes(fill = type),col = "black", position = position_dodge2())+
+  plt_theme_y()+
+  plt_water_mark(vfx_watermark)+
+  scale_x_continuous(expand = c(0.01,0),breaks = 2:12)+
+  scale_y_continuous(
+    expand = c(0,0),
+    name = "Proportion (%)",
+    limits = 100*c(0,.20),
+    breaks = 100*seq(0,.2,.02)
+  )+
+  labs(
+    x = "Sum of two dice",
+    title = "Expected and observed results of the sum of two dice.",
+    subtitle = "Difference between observed and expected proportion.",
+    caption = "Source: @vbfelix.",
+    fill = ""
+  )+
+  geom_text(
+    data = text_dice,
+    mapping = aes(y = y, label = lbl),
+    nudge_y = 1.35
+  )+
+  scale_fill_manual(values = c("grey75","royalblue2"))
+```
+
+Comparing the observed values from the real dataset we can see that the results from dice seems pretty fair, since is very similar to our expected outcome, the largest difference was from the number 4 where the observed values were 1.02 percentual points below the probabilty.
+
+## The last will be the first?
+
+The order in this game is crucial, since it gives you the power to decide the locations of your settlement, but been the last one is not the worst, because you become the first to put you second settlement in the map.
