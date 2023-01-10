@@ -4,58 +4,58 @@ title: "Talks"
 
 ## 2022
 
--   Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr.
+-   ![](images/bra.png){width="20"} Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr.
 
 ## 2021
 
--   Confinamento de bovinos, interpretando as respostas nutricionais através de dados e informações - SEVAM 2021 (Semana de Extensão Veterinária da Anhembi Morumbi)
+-   ![](images/bra.png){width="20"} Confinamento de bovinos, interpretando as respostas nutricionais através de dados e informações - SEVAM 2021 (Semana de Extensão Veterinária da Anhembi Morumbi)
 
 ## 2020
 
--   A Era da Convergência: O Peso da Gestão Analítica - ECR 2020 (Encontro de Confinamento e de Recriadores)
+-   ![](images/bra.png){width="20"} A Era da Convergência: O Peso da Gestão Analítica - ECR 2020 (Encontro de Confinamento e de Recriadores)
 
 ## 2019
 
--   Ciência de dados e IA, como se preparar? - 1º Action Time
+-   ![](images/bra.png){width="20"} Ciência de dados e IA, como se preparar? - 1º Action Time
 
--   Degustando ferramentas de BI - 5º PowerBI Maringá
+-   ![](images/bra.png){width="20"} Degustando ferramentas de BI - 5º PowerBI Maringá
 
--   Gráficos: O Limiar entre uma mensagem e uma mentira - FrontIn Maringá
+-   ![](images/bra.png){width="20"} Gráficos: O Limiar entre uma mensagem e uma mentira - FrontIn Maringá
 
--   Ciência de Dados: Um Alicerce para Pecuária de Precisão - TICNOVA 2019
+-   ![](images/bra.png){width="20"} Ciência de Dados: Um Alicerce para Pecuária de Precisão - TICNOVA 2019
 
--   Validando seu produto: Evitando uma morte prematura com dados - IxDA Maringá #3
+-   ![](images/bra.png){width="20"} Validando seu produto: Evitando uma morte prematura com dados - IxDA Maringá #3
 
--   A Pecuária de Precisão - Semana de Gestão de Confinamento 2019 (Zoo Jr. - UEM)
+-   ![](images/bra.png){width="20"} A Pecuária de Precisão - Semana de Gestão de Confinamento 2019 (Zoo Jr. - UEM)
 
--   Data-Driven Product Development ft. Luis Berns - FEMUG #23
+-   ![](images/bra.png){width="20"} Data-Driven Product Development ft. Luis Berns - FEMUG #23
 
--   O cenário da tecnologia em números - 1º AfroTech MGA
+-   ![](images/bra.png){width="20"} O cenário da tecnologia em números - 1º AfroTech MGA
 
--   Estatística: Um Arsenal para Tomada de Decisão - Eureka Moment
+-   ![](images/bra.png){width="20"} Estatística: Um Arsenal para Tomada de Decisão - Eureka Moment
 
--   Dissecando Métricas Ágeis - Maringá Agile #4
+-   ![](images/bra.png){width="20"} Dissecando Métricas Ágeis - Maringá Agile #4
 
 ## 2018
 
--   Músicas no Spotify: Como vivem? E quanto tempo sobrevivem? - Cerveja com Dados Maringá #1
+-   ![](images/bra.png){width="20"} Músicas no Spotify: Como vivem? E quanto tempo sobrevivem? - Cerveja com Dados Maringá #1
 
--   Data Science: Magia ou Ciência? - Semana do programador DB1
+-   ![](images/bra.png){width="20"} Data Science: Magia ou Ciência? - Semana do programador DB1
 
--   Data Science: Magia ou Ciência? - GDG Maringá: Ciência de dados
+-   ![](images/bra.png){width="20"} Data Science: Magia ou Ciência? - GDG Maringá: Ciência de dados
 
--   Trabalhando com Consultoria Estatística - VIII SEst UFSCar/USP
+-   ![](images/bra.png){width="20"} Trabalhando com Consultoria Estatística - VIII SEst UFSCar/USP
 
 ## 2017
 
 ## 2016
 
--   Correlação Múltipla Wavelet - XXV EAIC e V EAIC Jr.
+-   ![](images/bra.png){width="20"} Correlação Múltipla Wavelet - XXV EAIC e V EAIC Jr.
 
--   The Concept of 4D Datasets - I Workshop em Bioestatística
+-   ![](images/usa-01.png){width="20"} The Concept of 4D Datasets - I Workshop em Bioestatística
 
 ## 2015
 
--   Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
+-   ![](images/bra.png){width="20"} Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
 
--   Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
+-   ![](images/bra.png){width="20"} Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
