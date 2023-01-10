@@ -120,6 +120,8 @@ catan_df <-
 
 For the analysis we will use the dataset [My Settlers of Catan Games](https://www.kaggle.com/datasets/lumins/settlers-of-catan-games) from the user Lumin of Kaggle.
 
+A disclaimer: this dataset has only 50 observations, with one of the players always being the same, and with a winrate of 50%, so the goal here is simply to look at the data and test some hypotheses, rather than to do an inference or study about the game.
+
 ## Is the dice fair?
 
 The first analysis will about the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.
