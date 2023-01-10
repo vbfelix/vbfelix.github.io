@@ -19,7 +19,7 @@ suppressWarnings(library(tidyr))
 
 Settlers of Catan, or just [Catan](https://www.catan.com/) is a board game designed by [Klaus Teuber](https://en.wikipedia.org/wiki/Klaus_Teuber "Klaus Teuber"). In the game we take the role of settlers.
 
-![Catan set. Source: catan.com](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){width="279"}
+![Catan set. Source: catan.com](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){alt="Catan set. Source: catan.com" width="279"}
 
 The game has 19 locations, where:
 
@@ -54,6 +54,24 @@ For more in-depth information check the rules in the [official site](https://www
 
 ```{r, echo = FALSE,include = F}
 
+dice_weight <- function(x){
+  case_when(
+    x == 2  ~ 1,
+    x == 3  ~ 2,
+    x == 4  ~ 3,
+    x == 5  ~ 4,
+    x == 6  ~ 5,
+    x == 7  ~ 6,
+    x == 8  ~ 5,
+    x == 9  ~ 4,
+    x == 10 ~ 3,
+    x == 11 ~ 2,
+    x == 12 ~ 1,
+    TRUE ~ 0
+  )
+}
+  
+
 catan_or <- read.csv("catanstats.csv")
 
 catan_df <-
@@ -83,9 +101,19 @@ catan_df <-
     set2_l3_num = X.8,
     set2_l3_res = X.9
   ) %>% 
-  group_by(player) %>% 
-  mutate(winner = if_else(points == max(points), TRUE, FALSE)) %>% 
-  ungroup()
+  #winner
+  group_by(gameNum) %>% 
+  mutate(winner = if_else(points == max(points), "Winner", "Loser")) %>% 
+  ungroup() %>%
+  #settlement weight
+  mutate(
+    across(.cols = ends_with("_num"),~ifelse(is.na(.),0,.)),
+    across(.cols = ends_with("_num"),dice_weight),
+    set1_weight = set1_l1_num + set1_l2_num + set1_l3_num,
+    set2_weight = set2_l1_num + set2_l2_num + set2_l3_num,
+    set_weight = set1_weight + set2_weight
+  )
+
 ```
 
 # Analysis
@@ -94,7 +122,7 @@ For the analysis we will use the dataset [My Settlers of Catan Games](https://ww
 
 ## Is the dice fair?
 
-The first analysis will be of the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.
+The first analysis will about the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.
 
 Considering that for each dice we have 6 possible outcomes we will consider a probability of 1/6 to each result, and we will compute the probability of each result for the sum of two dices.
 
@@ -223,6 +251,124 @@ real_prev_dice %>%
 
 Comparing the observed values from the real dataset we can see that the results from dice seems pretty fair, since is very similar to our expected outcome, the largest difference was from the number 4 where the observed values were 1.02 percentual points below the probabilty.
 
-## The last will be the first?
+## Spending money to make money
+
+In the dataset we have the following concepts, as described by the author:
+
+-   **Production gain:** Cards gained from structures;
+
+-   **Trade gain:** Cards gained from peer or bank trade;
+
+-   **Non-production gain:** Cards gained from stealing with the robber, plus cards gained with non-knight development cards, e.g., a road building card is +4 resources;
+
+-   **Total gain:** Production + Trade + Non-production;
+
+Also we have the ways to loss cards
+
+-   **Trade loss:** Cards lost from peer or bank trades;
+
+-   **Robber loss:** Cards lost directly from robbers, knights, and other players' monopoly cards;
+
+-   **Tribute loss:** Cards lost when player had to discard on a 7 roll;
+
+-   **Total loss:** Trade + Robber + Tribute.
+
+First of all, let's see how the total gain and loss relate.
+
+```{r}
+catan_df %>%
+  ggplot(aes(totalLoss, totalGain,col = winner))+
+  geom_point()+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  geom_abline(aes(slope = 1,intercept = 0, alpha = "Identity line"),
+              linetype = "dashed")+
+  geom_smooth(method = "lm", se = FALSE)+
+  scale_alpha_manual(values = c(1,1))+
+  labs(
+    alpha = "",
+    col = "",
+    x = "Total loss",
+    y = "Total gain"
+    )+
+  scale_x_continuous(breaks = seq(0,200,10))+
+  scale_y_continuous(breaks = seq(0,200,20))+
+  scale_color_brewer(palette = "Set1")
+
+```
+
+We see in the figure above that:
+
+1.  The loss and gain are positive correlated;
+
+2.  There is no player that lost more than gained, as no point is below the identity line;
+
+3.  The winner gained a lot more than player that lost.
+
+To take a better look at the third point, let's plot the gain/loss cards ratio.
+
+```{r}
+catan_df %>%
+  mutate(GainLoss = totalGain/totalLoss) %>% 
+  ggplot(aes(GainLoss,fill = winner))+
+  geom_density(alpha = .7)+
+  plt_theme_x()+
+  plt_water_mark(vfx_watermark)+
+  labs(
+    fill = "",
+    y = "Density",
+    x = "(Total gain) / (Total loss)"
+    )+
+  scale_x_continuous(
+    breaks = 1:10,
+    expand = c(0,0),
+    sec.axis = sec_axis(
+      trans = ~.,
+      breaks = c(2.15,2.31),
+      labels = c("2.15\n|","2.31\n|\n|"))
+  )+
+  scale_y_continuous(expand = c(0,0), breaks = seq(0,1,.1))+
+  scale_fill_brewer(palette = "Set1")+
+  theme(axis.ticks.x.top = element_blank())
+```
+
+Looking at the gain/loss ratio density plot, we see that:
+
+-   The density is positive skewed, for winners or losers;
+
+-   The losers have a more concentrated density, using the peak of the density as a metric, winners gain 2.31 cards to every card lost, whereas losers gain 2.15 cards.
+
+## More Cards = More Points?
+
+Even though we have a lot of metric about cards gain and loss, what matters to win are the points, so let's take a look how correlated are they.
+
+```{r}
+catan_df %>% 
+  select(points,production:totalLoss) %>% 
+  pivot_longer(cols = -points) %>% 
+  group_by(name) %>% 
+  summarise(corr = cor(points,value)) %>% 
+  arrange(-corr)
+
+```
+
+## Probability or strategy?
 
 The order in this game is crucial, since it gives you the power to decide the locations of your settlement, but been the last one is not the worst, because you become the first to put you second settlement in the map.
+
+```{r}
+
+catan_df %>% 
+  group_by(gameNum) %>% 
+  summarise(
+    diff = set_weight[winner == "Winner"] - max(set_weight,na.rm = TRUE)
+  ) %>% 
+  count(diff)
+  
+```
+
+## How good is the port?
+
+## 
+
+## 
