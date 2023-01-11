@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.520">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -34,7 +39,7 @@ ul.task-list{list-style: none;}
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,48 +70,55 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">vbfelix</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-about.html">About me</a>
+    <a class="nav-link" href="./header-about.html">
+ <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./header-publications.html" aria-current="page">Publications</a>
+    <a class="nav-link active" href="./header-publications.html" aria-current="page">
+ <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-certifications.html">Certifications</a>
+    <a class="nav-link" href="./header-certifications.html">
+ <span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-talks.html">Talks</a>
+    <a class="nav-link" href="./header-talks.html">
+ <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing"><i class="bi bi-file-earmark-person" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/vbfelix"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"><i class="bi bi-linkedin" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"><i class="bi bi-stack-overflow" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -119,7 +131,7 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -150,6 +162,7 @@ ul.task-list{list-style: none;}
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -161,16 +174,16 @@ ul.task-list{list-style: none;}
 <section id="scientific-magazines" class="level2">
 <h2 class="anchored" data-anchor-id="scientific-magazines">Scientific magazines</h2>
 <ol type="1">
-<li><p><a href="http://lattes.cnpq.br/0029713017048136">SOUZA, E. M</a>; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a><a href="http://lattes.cnpq.br/0029713017048136">.</a> <a href="https://www.scielo.br/j/tema/a/YFvqfzkcBJYgnLYc8MTnGHw/?lang=en&amp;format=pdf">Wavelet Cross-correlation in Bivariate Time-Series Analysis</a>. TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p.&nbsp;391-403, 2018.</p></li>
+<li><p><a href="http://lattes.cnpq.br/0029713017048136">SOUZA, E. M</a>; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a> <a href="https://www.scielo.br/j/tema/a/YFvqfzkcBJYgnLYc8MTnGHw/?lang=en&amp;format=pdf">Wavelet Cross-correlation in Bivariate Time-Series Analysis</a>. TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p.&nbsp;391-403, 2018.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/3911619582088894">MENEZES, A. F. B.</a> <a href="https://www.researchgate.net/publication/324877422_Comparisons_of_ten_corrections_methods_for_t-test_in_multiple_comparisons_via_Monte_Carlo_study">Comparisons of ten corrections methods for t-test in multiple comparisons via Monte Carlo study</a>. Electronic Journal of Applied Statistical Analysis<sup><img src="https://buscatextual.cnpq.br/buscatextual/images/curriculo/jcr.gif" class="img-fluid"></sup>, v. 11, p.&nbsp;1, 2018.</p></li>
-<li><p><a href="http://lattes.cnpq.br/3011323408047031">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> ; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; SCHMIDT, F.; GUERRA, N.; OLIVEIRA NETO, A. M. A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p.&nbsp;140-144, 2017.</p></li>
+<li><p><a href="http://lattes.cnpq.br/3011323408047031">HENRIQUES, M. J.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; SCHMIDT, F.; GUERRA, N.; OLIVEIRA NETO, A. M. A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p.&nbsp;140-144, 2017.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/7365405141909374">GONZATTO, O. A.</a>; <a href="http://lattes.cnpq.br/7817639261124081">ROSSONI, D. F.</a>; <a href="http://lattes.cnpq.br/3011323408047031">HENRIQUES, M. J.</a> <a href="https://periodicos.ufsm.br/cienciaenatura/article/view/21326/pdf">ESTIMADORES DE SEMIVARIÂNCIA: UMA REVISÃO</a>. CIÊNCIA E NATURA, v. 38, p.&nbsp;1157, 2016.</p></li>
 </ol>
 </section>
 <section id="magazines" class="level2">
 <h2 class="anchored" data-anchor-id="magazines">Magazines</h2>
 <ol type="1">
-<li><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/3956308653223427">FERNANDES, L. B.</a> ; POSE, R. A. Open Source, o novo jeito de fazer ciência. Revista Ser Médico.</li>
+<li><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/3956308653223427">FERNANDES, L. B.</a>; POSE, R. A. Open Source, o novo jeito de fazer ciência. Revista Ser Médico.</li>
 </ol>
 </section>
 </section>
@@ -179,8 +192,8 @@ ul.task-list{list-style: none;}
 <section id="complete-works" class="level2">
 <h2 class="anchored" data-anchor-id="complete-works">Complete works</h2>
 <ol type="1">
-<li><p><a href="http://lattes.cnpq.br/2374886805780530">AUGUSTO JUNIOR, S. N.</a> ; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a> <a href="https://periodicos.uff.br/anaisdoser/article/view/29231/16944">Survival analysis of the brazilian Spotify ranking: Differences between national and international artists.</a> In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.</p></li>
-<li><p><a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/2374886805780530">AUGUSTO JUNIOR, S. N.</a>; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a> <a href="https://periodicos.uff.br/anaisdoser/article/view/29231/16944">Survival analysis of the brazilian Spotify ranking: Differences between national and international artists.</a> In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.</p></li>
+<li><p><a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015.</p></li>
 </ol>
 </section>
 <section id="expanded-abstracts" class="level2">
@@ -188,13 +201,13 @@ ul.task-list{list-style: none;}
 <ol type="1">
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/3911619582088894">MENEZES, A. F. B.</a> Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; ALVARENGA, B.; <a href="http://lattes.cnpq.br/3956308653223427" title="Clique para visualizar o currículo">FERNANDES, L. B.</a> Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano. In: I Encontro de Modelagem Estatística, 2017, Maringá. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano, 2017.</p></li>
-<li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; GARCIA, F. ; <a href="http://lattes.cnpq.br/3956308653223427" title="Clique para visualizar o currículo">FERNANDES, L. B.</a> Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.</p></li>
+<li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; GARCIA, F.; <a href="http://lattes.cnpq.br/3956308653223427" title="Clique para visualizar o currículo">FERNANDES, L. B.</a> Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> Modelos Espaciais para Predição de Dados Batimétricos. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Modelos Espaciais para Predição de Dados Batimétricos, 2016.</p></li>
 <li><p><a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> ; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine, 2016.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> Correlação Múltipla Wavelet. In: XXV EAIC e V EAIC Jr, 2016, Maringá. Correlação Múltipla Wavelet, 2016.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/6155197091899789" title="Clique para visualizar o currículo">GUEDES, T. A.</a> O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada. In: I Workshop em Bioestatística, 2016, Maringá. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada, 2016.</p></li>
-<li><p><a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> ; SCHMIDT, F. ; OLIVEIRA NETO, A. M. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.</p></li>
-<li><p><a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> ; SAPUCCI, L. ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a>; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; SCHMIDT, F.; OLIVEIRA NETO, A. M. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a>; SAPUCCI, L.; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap. In: VI SEEMI - VI Simpósio de Estatística Espacial e Modelagem de Imagens, 2015, Toledo. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, Através de métodos bootstrap, 2015.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> Tópicos em Variância Wavelet. In: XXIV EAIC e IV EAIC Jr, 2015, Maringá. Tópicos em Variância Wavelet, 2015.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015.</p></li>
@@ -203,17 +216,17 @@ ul.task-list{list-style: none;}
 <section id="abstracts" class="level2">
 <h2 class="anchored" data-anchor-id="abstracts">Abstracts</h2>
 <ol type="1">
-<li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> ; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.</p></li>
-<li><p><a href="http://lattes.cnpq.br/3911619582088894" title="Clique para visualizar o currículo">MENEZES, A. F. B.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.</p></li>
+<li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a>; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.</p></li>
+<li><p><a href="http://lattes.cnpq.br/3911619582088894" title="Clique para visualizar o currículo">MENEZES, A. F. B.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/2695786323673324">FURRIEL, W. O.</a> Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014. In: XIII Semana da Estatística, 2016, Maringá. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014, 2016.</p></li>
-<li><p><a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.</p></li>
-<li><p><a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> ; <a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a> Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.</p></li>
-<li><p><a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> ; <a href="http://lattes.cnpq.br/8285827971934692" title="Clique para visualizar o currículo">SAPUCCI, L. F.</a> ; <a href="http://lattes.cnpq.br/3441145714823409" title="Clique para visualizar o currículo">NEGRI, T. T.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.</p></li>
-<li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> ; <a href="http://lattes.cnpq.br/3911619582088894" title="Clique para visualizar o currículo">MENEZES, A. F. B.</a> Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a>; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; <a href="http://lattes.cnpq.br/3011323408047031" title="Clique para visualizar o currículo">HENRIQUES, M. J.</a>; <a href="http://lattes.cnpq.br/6820390470508877"><strong>FÉLIX, V. B.</strong></a> Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a>; <a href="http://lattes.cnpq.br/8285827971934692" title="Clique para visualizar o currículo">SAPUCCI, L. F.</a>; <a href="http://lattes.cnpq.br/3441145714823409" title="Clique para visualizar o currículo">NEGRI, T. T.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.</p></li>
+<li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a>; <a href="http://lattes.cnpq.br/3911619582088894" title="Clique para visualizar o currículo">MENEZES, A. F. B.</a> Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA). In: XII Semana da Estatística, 2015, Maringá. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA), 2015.</p></li>
-<li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a> ; <a href="http://lattes.cnpq.br/3011323408047031">HENRIQUES, M. J.</a> ; <a href="http://lattes.cnpq.br/5589432074854512" title="Clique para visualizar o currículo">LANDGRAF, G. O.</a> ; ARAUJO, I. M. ; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.</p></li>
+<li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/7365405141909374" title="Clique para visualizar o currículo">GONZATTO, O. A.</a>; <a href="http://lattes.cnpq.br/3011323408047031">HENRIQUES, M. J.</a>; <a href="http://lattes.cnpq.br/5589432074854512" title="Clique para visualizar o currículo">LANDGRAF, G. O.</a>; ARAUJO, I. M.; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.</p></li>
 <li><p><a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a>; <a href="http://lattes.cnpq.br/0029713017048136" title="Clique para visualizar o currículo">SOUZA, E. M.</a> Correção Múltipla e Cruzada de Wavelets. In: XI Semana de Estatística, 2014, Maringá. Correção Múltipla e Cruzada de Wavelets, 2014.</p></li>
-<li><p><a href="http://lattes.cnpq.br/5589432074854512" title="Clique para visualizar o currículo">LANDGRAF, G. O.</a> ; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a> ; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013.</p></li>
+<li><p><a href="http://lattes.cnpq.br/5589432074854512" title="Clique para visualizar o currículo">LANDGRAF, G. O.</a>; <a href="http://lattes.cnpq.br/7817639261124081" title="Clique para visualizar o currículo">ROSSONI, D. F.</a>; <a href="http://lattes.cnpq.br/6820390470508877" title="Clique para visualizar o currículo"><strong>FÉLIX, V. B.</strong></a> Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013.</p></li>
 </ol>
 
 
@@ -223,6 +236,24 @@ ul.task-list{list-style: none;}
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -244,7 +275,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -272,31 +320,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
