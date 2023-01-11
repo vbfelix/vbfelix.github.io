@@ -1,9 +1,0 @@
----
-title: "Fancy-header Example"
-filters:
-  - fancy-header
----
-
-## Heading
-
-This filter adds formatting to heading text.
