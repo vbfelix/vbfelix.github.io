@@ -1,5 +1,6 @@
 ---
-title: "Blog"
+title: "Welcome to my personal website!"
+subtitle: "Here there will be posts about statistics on the blog, as well as some personal information."
 about:
   template: jolla
   image-width: 70%
@@ -14,3 +15,5 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
+
+### 

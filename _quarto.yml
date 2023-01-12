@@ -10,7 +10,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Blog
       - header-about.qmd
       - header-publications.qmd
       - header-certifications.qmd
