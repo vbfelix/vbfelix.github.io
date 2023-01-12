@@ -4,6 +4,8 @@ title: "About me"
 
 ![](perfil.png){fig-align="left" width="206"}
 
+My name is Vinícius. I am a statistician with experience in both technical and management positions.
+
 ## Professional Experience
 
 ![](images/ga_logo.jpg){width="31"} \[04/2022 - Present\] GA + Intergado \| Strategy Manager
