@@ -13,13 +13,16 @@ suppressWarnings(library(ggplot2))
 suppressWarnings(library(relper))
 suppressWarnings(library(dplyr))
 suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
 ```
 
 # Context
 
 Settlers of Catan, or just [Catan](https://www.catan.com/) is a board game designed by [Klaus Teuber](https://en.wikipedia.org/wiki/Klaus_Teuber "Klaus Teuber"). In the game we take the role of settlers.
 
-![Catan set. Source: catan.com](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){alt="Catan set. Source: catan.com" width="279"}
+![Catan set. Source: catan.com.](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){alt="Catan set. Source: catan.com" width="279"}
 
 The game has 19 locations, where:
 
@@ -32,15 +35,15 @@ The game has 19 locations, where:
 | Forest   | Lumber   | 4                   |
 | Desert   | None     | 1                   |
 
-Each location, with the exception of the desert will have a number, this number is one the possible results of the sum of two dices, so they will vary from 2 to 12, where the number 7 we will result in the action of the robber, where you can choose to block 1 location and rob 1 random resource from a player located there.
+With the exception of the desert, each location will have a number. This number is one of the possible outcomes of the sum of two dice, so they can range from 2 to 12. The number 7 will result in the action of the robber, where you can choose to block one location and steal one random resource from a player who is present there.
 
 The main goal of the game is to achieve 10 points (**P**), to achieve points we have structures:
 
--   **Road**: 1 brick + 1 lumber
+-   **Road**: 1 brick + 1 lumber;
 
--   **(1P) Settlement**: 1 Brick + 1 lumber + 1 wool + 1 grain
+-   **(1P) Settlement**: 1 Brick + 1 lumber + 1 wool + 1 grain;
 
--   **(2P) City**: 3 ores + 2 grains
+-   **(2P) City**: 3 ores + 2 grains.
 
 We also have the **development card**: 1 ore + 1 wool + 1 grain, which you draw randomly from a deck of cards with different effects, one of them been cards that award you **1P.**
 
@@ -112,6 +115,12 @@ catan_df <-
     set1_weight = set1_l1_num + set1_l2_num + set1_l3_num,
     set2_weight = set2_l1_num + set2_l2_num + set2_l3_num,
     set_weight = set1_weight + set2_weight
+  ) %>% 
+  #port
+  mutate(
+    Port = if_any(
+      .cols = ends_with("_res"),
+      .fns = ~substr(.,1,1) %in% c("2","3"))
   )
 
 ```
@@ -120,13 +129,13 @@ catan_df <-
 
 For the analysis we will use the dataset [My Settlers of Catan Games](https://www.kaggle.com/datasets/lumins/settlers-of-catan-games) from the user Lumin of Kaggle.
 
-A disclaimer: this dataset has only 50 observations, with one of the players always being the same, and with a winrate of 50%, so the goal here is simply to look at the data and test some hypotheses, rather than to do an inference or study about the game.
+> **Disclaimer:** this dataset has only 50 observations, with one of the players always being the same, and with a winrate of 50%, so the goal here is simply to look at the data and test some hypotheses, rather than to do an inference or study about the game.
 
 ## Is the dice fair?
 
-The first analysis will about the dice rolls, every turn each player roll 2 dices and use the sum of them so the respective location will give resources.
+Every turn, each player rolls two dice and adds their totals together to determine which location will grant resources to players who have cities or settlements there. This will be the subject of the first analysis.
 
-Considering that for each dice we have 6 possible outcomes we will consider a probability of 1/6 to each result, and we will compute the probability of each result for the sum of two dices.
+We will compute the probability of each result for the sum of the two dices, taking into account that there are six possible outcomes for each face of each die.
 
 ```{r, echo = FALSE}
 two_dices <-
@@ -152,10 +161,16 @@ two_dices %>%
   plt_theme_xy(base_size = 12)+
   scale_fill_brewer(type = "seq",palette = 7,direction = -1)+
   guides(fill=guide_legend(nrow=1,byrow=TRUE))+
-  theme(panel.grid.major = element_blank())
+  theme(panel.grid.major = element_blank())+
+  coord_equal()+
+  plt_flip_y_title
 ```
 
-In the figure above we can see an graph where in each axis is the result of each dice, and we can we see all possible results of the sum of those dices, than we can see that some results appears more frequenty than others, e.g., the number 7 is the most frequent result, since it appears 6 times. Another interesting result is that we can see a simmetry in the results, let's take a look using another visual form.
+In the picture above, we can see a graph where each axis represents the outcome of a single die, and we can also see all possible outcomes of the sum of those dices.
+
+Some outcomes are more common than others, for example, the number 7 is the most common outcome because it appears six times.
+
+Another intriguing finding is that the results exhibit symmetry; to further explore this, let's use another visual representation.
 
 ```{r, echo = FALSE}
 two_dice_sum <-
@@ -190,9 +205,9 @@ two_dice_sum %>%
 plt_two_dice_sum
 ```
 
-As previously stated, the results are simmetry centred on the number 7, and the extreme results are 2 and 12, with only one combination possible for each.
+The extreme results, 2, and 12, with only one combination for each, are symmetrical and center on the number 7, as was previously mentioned.
 
-So now we will take a look at the observed data versus the expected outcome.
+We will now compare the observed data to the predicted result.
 
 ```{r, echo = F}
 
@@ -240,7 +255,7 @@ real_prev_dice %>%
     x = "Sum of two dice",
     title = "Expected and observed results of the sum of two dice.",
     subtitle = "Difference between observed and expected proportion.",
-    caption = "Source: @vbfelix.",
+    caption = "Source: @vbfelix and @lumin (Kaggle).",
     fill = ""
   )+
   geom_text(
@@ -251,9 +266,9 @@ real_prev_dice %>%
   scale_fill_manual(values = c("grey75","royalblue2"))
 ```
 
-Comparing the observed values from the real dataset we can see that the results from dice seems pretty fair, since is very similar to our expected outcome, the largest difference was from the number 4 where the observed values were 1.02 percentual points below the probabilty.
+When comparing the observed values from the real dataset, we can see that the dice results appear to be fairly random because they closely resemble our anticipated result. The number 4 had the biggest discrepancy, with observed values 1.02 percentage points below the predicted probability.
 
-## Spending money to make money
+## "Spending money to make money."
 
 In the dataset we have the following concepts, as described by the author:
 
@@ -277,7 +292,7 @@ Also we have the ways to loss cards
 
 First of all, let's see how the total gain and loss relate.
 
-```{r}
+```{r, echo = F, message =  F, warning = FALSE}
 catan_df %>%
   ggplot(aes(totalLoss, totalGain,col = winner))+
   geom_point()+
@@ -291,7 +306,8 @@ catan_df %>%
     alpha = "",
     col = "",
     x = "Total loss",
-    y = "Total gain"
+    y = "Total gain",
+    caption = "Source: @lumin (Kaggle)."
     )+
   scale_x_continuous(breaks = seq(0,200,10))+
   scale_y_continuous(breaks = seq(0,200,20))+
@@ -301,15 +317,15 @@ catan_df %>%
 
 We see in the figure above that:
 
-1.  The loss and gain are positive correlated;
+1.  The loss and gain are positive correlated, that means that players that gained more also lost more cards;
 
 2.  There is no player that lost more than gained, as no point is below the identity line;
 
-3.  The winner gained a lot more than player that lost.
+3.  The winners gained a lot more cards than player that lost.
 
 To take a better look at the third point, let's plot the gain/loss cards ratio.
 
-```{r}
+```{r, echo = F, message =  F, warning = FALSE}
 catan_df %>%
   mutate(GainLoss = totalGain/totalLoss) %>% 
   ggplot(aes(GainLoss,fill = winner))+
@@ -319,7 +335,8 @@ catan_df %>%
   labs(
     fill = "",
     y = "Density",
-    x = "(Total gain) / (Total loss)"
+    x = "(Total gain) / (Total loss)",
+    caption = "Source: @lumin (Kaggle)."
     )+
   scale_x_continuous(
     breaks = 1:10,
@@ -338,39 +355,163 @@ Looking at the gain/loss ratio density plot, we see that:
 
 -   The density is positive skewed, for winners or losers;
 
--   The losers have a more concentrated density, using the peak of the density as a metric, winners gain 2.31 cards to every card lost, whereas losers gain 2.15 cards.
+-   The losers have a more concentrated density, using the peak value of the density as a metric, winners gain 2.31 cards to every card lost, whereas losers gain 2.15 cards.
 
-## More Cards = More Points?
+## "The last will be first, and the first last."
 
-Even though we have a lot of metric about cards gain and loss, what matters to win are the points, so let's take a look how correlated are they.
+The playing order is important in this game because it gives you the ability to choose the locations of your settlement, but being the last one is not the worst, since you become the first to choose your second settlement in the map.
 
-```{r}
-catan_df %>% 
-  select(points,production:totalLoss) %>% 
-  pivot_longer(cols = -points) %>% 
-  group_by(name) %>% 
-  summarise(corr = cor(points,value)) %>% 
-  arrange(-corr)
+To make the analysis of the importance of the locations choosen, we will use the dice sum results and define as weights, e.g., if the number is 12 the weight will be 1, since the the probability of this results is 1/36, as we saw in the dice analysis.
 
-```
+Then we will sum the weights of the initial two settlements of each player ($wt$), and we will do the different of the total weight of the winner minus the maximum weight of that game, given by:
 
-## Probability or strategy?
+$$
+wt_{\mathrm{winner}} - \max(wt).
+$$
 
-The order in this game is crucial, since it gives you the power to decide the locations of your settlement, but been the last one is not the worst, because you become the first to put you second settlement in the map.
-
-```{r}
-
+```{r, echo = F, message =  F, warning = FALSE}
 catan_df %>% 
   group_by(gameNum) %>% 
   summarise(
-    diff = set_weight[winner == "Winner"] - max(set_weight,na.rm = TRUE)
+    Difference = set_weight[winner == "Winner"] - max(set_weight,na.rm = TRUE)
   ) %>% 
-  count(diff)
+  count(Difference,name = "Frequency") %>% 
+  knitr::kable(align = 'c', booktabs = TRUE) %>% 
+  kableExtra::kable_styling(full_width = F)
   
 ```
 
-## How good is the port?
+A difference of zero means that the winner was the player with the best location, at least probability-wise. So in almost half of the games the winner had the best location.
 
-## 
+## "If your ship doesn\'t come in, swim out and meet it."
 
-## 
+```{r, echo = F, message =  F, warning = FALSE}
+
+port_df <- 
+catan_df %>% 
+  select(gameNum,winner,ends_with("_res"),production,tradeGain,tradeLoss) %>% 
+  pivot_longer(ends_with("_res")) %>% 
+  mutate(value = if_else(substr(value,1,1) %in% c("2","3") , "Port", "Resource")) 
+```
+
+The port is a unique location. Normally, you can exchange 4 identical resources for another resource at the bank, but with a port you can lower this trade rate, but you lose one resource location in the process.
+
+```{r, echo = F, message =  F, warning = FALSE}
+port_df %>% 
+  count(Location = value,name = "Locations") %>% 
+  mutate(Percentage = as_perc(Locations,TRUE)) %>% 
+  adorn_totals() %>% 
+  mutate(
+    Locations = format_num(Locations,0),
+    Percentage = format_num(Percentage,2)
+    ) %>% 
+  knitr::kable(align = 'c', booktabs = TRUE) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+So of all the 1,200 initial settlements just 35 of them were ports, so it is not a popular strategy.
+
+```{r, echo = F, message =  F, warning = FALSE}
+
+port_df %>% 
+  filter(value == "Port") %>% 
+  group_by(Player = winner) %>% 
+  summarise(Games = n_distinct(gameNum)) %>% 
+  mutate(Percentage = as_perc(Games,TRUE)) %>% 
+  adorn_totals() %>% 
+  mutate(
+    Games = format_num(Games,0),
+    Percentage = format_num(Percentage,2)
+    ) %>% 
+  knitr::kable(align = 'c', booktabs = TRUE) %>% 
+  kableExtra::kable_styling(full_width = F)
+  
+```
+
+Those 35 port initial locations were in 33 games, where in only 6 of them the player was the winner, let's explore why.
+
+```{r, echo = F, message =  F, warning = FALSE}
+catan_df %>% 
+  ggplot(aes(tradeLoss,tradeGain,col = Port))+
+  geom_point(alpha = .75)+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  geom_abline(aes(slope = 1,intercept = 0, alpha = "Identity line"),
+              linetype = "dashed")+
+  geom_smooth(method = "lm", se = FALSE)+
+  scale_alpha_manual(values = c(1,1))+
+  labs(
+    alpha = "",
+    col = "Initial port:",
+    x = "Trade loss",
+    y = "Trade gain",
+    caption = "Source: @lumin (Kaggle)."
+    )+
+  scale_x_continuous(breaks = seq(0,200,5))+
+  scale_y_continuous(breaks = seq(0,200,4))+
+  scale_color_manual(values = c("purple","darkgoldenrod2"))
+```
+
+Looking at the trading behavior we see that in average player with a initial port gained more, so let's take a look at the trade ratio (gain/loss).
+
+```{r, echo = F, message =  F, warning = FALSE}
+catan_df %>%
+  mutate(TradeGainLoss = tradeGain/tradeLoss) %>% 
+  # group_by(Port) %>% 
+  # summarise(calc_peak_density(TradeGainLoss))
+  ggplot(aes(TradeGainLoss,fill = Port))+
+  geom_density(alpha = .7)+
+  plt_theme_x()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  labs(
+    y = "Density",
+    fill = "Initial port:",
+    x = "(Trade gain) / (Trade loss)",
+    caption = "Source: @lumin (Kaggle)."
+  )+
+  scale_x_continuous(
+    breaks = seq(0,2,.1),
+    expand = c(0,0),
+    sec.axis = sec_axis(
+      trans = ~.,
+      breaks = c(0.461,0.553),
+      labels = c("0.461\n|","0.553\n|"))
+  )+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.ticks.x.top = element_blank())+
+  scale_fill_manual(values = c("purple","darkgoldenrod2"))
+```
+
+Players that had a initial port had a higher ratio, that can sound counterintuitive, since we expect they had a better trade-off with the ports advantage, a possibility is the lower quantity of resources making the players make actually worst trade for other resources, since they give up one location when choosing this strategy, but how impactful is that?
+
+```{r, echo = F, message =  F, warning = FALSE}
+catan_df %>%
+  # group_by(Port) %>%
+  # summarise(calc_peak_density(production))
+  ggplot(aes(production,fill = Port))+
+  geom_density(alpha = .7)+
+  plt_theme_x()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  labs(
+    y = "Density",
+    fill = "Initial port:",
+    x = "Production from structures",
+    caption = "Source: @lumin (Kaggle)."
+  )+
+  scale_x_continuous(
+    breaks = seq(0,100,10),
+    expand = c(0,0),
+    sec.axis = sec_axis(
+      trans = ~.,
+      breaks = c(54.6,38.7),
+      labels = c("54.6\n|","38.7\n|"))
+  )+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.ticks.x.top = element_blank())+
+  scale_fill_manual(values = c("purple","darkgoldenrod2"))
+```
+
+Lastly, when can see how impactful was the production of cards from structures based on the initial port. The result was a lot lower for players with a initial port, with almost 16 cards of difference from players that choosed 3 resources locations.
