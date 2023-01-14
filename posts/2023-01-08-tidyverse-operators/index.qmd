@@ -1,0 +1,250 @@
+---
+title: "An intro to tidyverse operators"
+author: "Vinícius Félix"
+date: "2023-01-08"
+categories: [Intro to, Tools, R]
+image: "intro-to-tidyverse-operators.png"
+---
+
+In this post of the series **Intro to**, I'll give an introduction to the tidyverse operators and how we can make functions with them.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+```
+
+# Context
+
+The [tidyverse](https://www.tidyverse.org/) is an ecosystem of R packages that revolutionized how data is handled in the language. It provides amazing and famous libraries such as [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/), that have great functions, for example, we covered the [across](https://vbfelix.github.io/posts/2023-01-01-dplyr-across/) function from [dplyr](https://dplyr.tidyverse.org/).
+
+But, we can have the need to create our own functions using the tidyverse functions inside them, and a problem may surge as the tidyverse works based on a dataframe, and how to pass the arguments can be a issue.
+
+So, to make it easier to create this functions, some special operators were created, in a way that we can pass an input as an argument to functions that will work based on a dataframe, even if we just pass the column name.
+
+First of all, let's do something in tidyverse:
+
+```{r penguins-base-example}
+
+library(palmerpenguins)
+library(dplyr)
+
+penguins %>% 
+  filter(!is.na(sex)) %>% 
+  group_by(species,sex) %>%
+  summarise(
+    n = n(),
+    mean_body_mass_g = mean(body_mass_g,na.rm = TRUE)
+    ) %>% 
+  group_by(species) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+```
+
+In the example above we used the dataframe `penguins`, where we did some actions:
+
+1.  Removed the observations with missing values for the variable `sex`;
+
+2.  Computed the count of penguin's, by `species` and `sex`;
+
+3.  Computed the mean of the penguin's body mass (in grams), by `species` and `sex`;
+
+4.  Computed the proportion of the penguin's `sex`, by `species`.
+
+Ok, that was very simple and effective, but what if we want to transform this in a function called `penguin_summary`?
+
+# Operators
+
+## {{}} Curly-curly
+
+The first operator we will learn is the `curly-curly`, using the command `{{}}`, the goal of this operator is to allow us to have an argument passed to our function refering to a column inside a dataframe.
+
+So, we will create the function `penguin_summary`, where the variable used to count the penguins, in the example before `species`, will be generalized By the argument `grp_var`.
+
+```{r}
+penguin_summary <- function(grp_var){
+  penguins %>% 
+  filter(!is.na(sex)) %>% 
+  group_by({{grp_var}},sex) %>%
+  summarise(
+    n = n(),
+    mean_body_mass_g = mean(body_mass_g,na.rm = TRUE)
+    ) %>% 
+  group_by({{grp_var}}) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+We can see that inside the `dplyr` verbs we write the argument `grp_var` inside the operator `{{}}` in the verb `group_by`.
+
+Let's now apply the variable `species` to see if the result is the same as before.
+
+```{r}
+penguin_summary(grp_var = species)
+```
+
+Yes! We got the same result, but there is also another interesting fact, the variable `species` was passed without quotes, so no need to use functions such as `quo`, `enquote`, etc.
+
+And now we can pass other variable to our function, let's give it a try.
+
+```{r}
+penguin_summary(grp_var = island)
+```
+
+Ok, after generalizing the `species` variable, we will do the same for the `body_mass_g` creating another argument, `num_var`.
+
+```{r}
+penguin_summary <- function(grp_var,num_var){
+  penguins %>% 
+  filter(!is.na(sex)) %>% 
+  group_by({{grp_var}},sex) %>%
+  summarise(
+    n = n(),
+    mean = mean({{num_var}},na.rm = TRUE)
+    ) %>% 
+  group_by({{grp_var}}) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+```{r}
+penguin_summary(
+  grp_var = species,
+  num_var = body_mass_g
+  )
+```
+
+Okay, we kind of succeeded, but we had to give the new variable for the mean a generic name; to make this dynamic, we'll need the assistance of another operator.
+
+## := Walrus
+
+The second operator is the `walrus`, using the command `:=`, the goal of this operator is to allow us to create new variables using the argument dynamically in the name of the variable created.
+
+```{r}
+penguin_summary <- function(grp_var,num_var){
+  penguins %>% 
+  filter(!is.na(sex)) %>% 
+  group_by({{grp_var}},sex) %>%
+  summarise(
+    n = n(),
+    "mean_{{num_var}}" := mean({{num_var}},na.rm = TRUE)
+    ) %>% 
+  group_by({{grp_var}}) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+```{r}
+penguin_summary(
+  grp_var = species,
+  num_var = body_mass_g
+  )
+```
+
+The walrus operator substitute the `=` operator, and we can use the argument `num_var` inside the `{{}}` operator to generalize our variable name, not only that, but we can also set other characters such as a prefix or suffix.
+
+Now that we've finished our function, what if we want to make it even more generalized? For example, our dataframe and the variable `sex` are still inside the function, that is easy we just need create two more arguments:
+
+```{r}
+penguin_summary <- function(df = penguins,main_var = sex,grp_var,num_var){
+  df %>% 
+  filter(!is.na({{main_var}})) %>% 
+  group_by({{grp_var}},{{main_var}}) %>%
+  summarise(
+    n = n(),
+    "mean_{{num_var}}" := mean({{num_var}},na.rm = TRUE)
+    ) %>% 
+  group_by({{grp_var}}) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+```{r}
+penguin_summary(
+  grp_var = species,
+  num_var = body_mass_g
+  )
+```
+
+So we created an argument called `df` to be our data.frame, without any operator since it is been called "*directly*", and already left the `penguins` dataset as the default. We did the same with the `sex` variable with the argument `main_var`.
+
+And even though we created a function called `penguin_summary` now we can apply it to another dataframe:
+
+```{r}
+penguin_summary(
+  df = mtcars,
+  main_var = vs,
+  grp_var = cyl,
+  num_var = drat
+  )
+```
+
+Ok, now we got a function that is completely generalized, with only arguments inside of it, but there is still way to make an even more powerful function, let's say we want to apply our function to two numerical variables.
+
+```{r}
+penguin_summary(
+  grp_var = species,
+  num_var = c(body_mass_g,bill_depth_mm)
+  )
+```
+
+So it is not what we expected, right? To pass multiple variables into a single argument, we will need the help of an old friend.
+
+# Across
+
+So let's recur to `across`, because it allows together with the `curly-curly` operator to pass multiple variables into one argument.
+
+```{r}
+penguin_summary <- function(df = penguins,main_var = sex,grp_var,num_var){
+  df %>% 
+  filter(!is.na({{main_var}})) %>% 
+  group_by(across({{grp_var}}),{{main_var}}) %>%
+  summarise(
+    n = n(),
+    "mean_{{num_var}}" := mean({{num_var}},na.rm = TRUE)
+    ) %>% 
+  group_by(across({{grp_var}})) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+```{r}
+penguin_summary(
+  grp_var = c(species, island),
+  num_var = body_mass_g
+  )
+```
+
+Now we passed both `species` and `island` variables to `group_by`, but to do the same to the `num_var` argument we can benefit from `across` arguments, as we saw in our post [An intro to dplyr::across](https://vbfelix.github.io/posts/2023-01-01-dplyr-across/).
+
+```{r}
+penguin_summary <- function(df = penguins,main_var = sex,grp_var,num_var){
+  df %>% 
+  filter(!is.na({{main_var}})) %>% 
+  group_by(across({{grp_var}}),{{main_var}}) %>%
+  summarise(
+    n = n(),
+    across(.cols = {{num_var}},
+           .fns = ~mean(.,na.rm = TRUE),
+           .names = "mean_{.col}")
+    ) %>% 
+  group_by(across({{grp_var}})) %>% 
+  mutate(p = n/sum(n,na.rm = TRUE))
+}
+```
+
+```{r}
+penguin_summary(
+  grp_var = species,
+  num_var = c(body_mass_g,bill_depth_mm)
+  )
+```
+
+We can now compute the mean for multiple numeric variables and also group by any number of variables we want:
+
+```{r}
+penguin_summary(
+  grp_var = c(species,island),
+  num_var = c(body_mass_g,bill_depth_mm)
+  )
+```

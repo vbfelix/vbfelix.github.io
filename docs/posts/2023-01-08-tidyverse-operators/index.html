@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+<meta name="dcterms.date" content="2023-01-08">
+
+<title>vbfelix - An intro to tidyverse operators</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">vbfelix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-about.html">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html">
+ <span class="menu-text">Certifications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing"><i class="bi bi-file-earmark-person" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"><i class="bi bi-stack-overflow" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">An intro to tidyverse operators</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Intro to</div>
+                <div class="quarto-category">Tools</div>
+                <div class="quarto-category">R</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 8, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators">Operators</a>
+  <ul class="collapse">
+  <li><a href="#curly-curly" id="toc-curly-curly" class="nav-link" data-scroll-target="#curly-curly">{{}} Curly-curly</a></li>
+  <li><a href="#walrus" id="toc-walrus" class="nav-link" data-scroll-target="#walrus">:= Walrus</a></li>
+  </ul></li>
+  <li><a href="#across" id="toc-across" class="nav-link" data-scroll-target="#across">Across</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>In this post of the series <strong>Intro to</strong>, I’ll give an introduction to the tidyverse operators and how we can make functions with them.</p>
+<div class="cell">
+
+</div>
+<section id="context" class="level1">
+<h1>Context</h1>
+<p>The <a href="https://www.tidyverse.org/">tidyverse</a> is an ecosystem of R packages that revolutionized how data is handled in the language. It provides amazing and famous libraries such as <a href="https://dplyr.tidyverse.org/">dplyr</a> and <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, that have great functions, for example, we covered the <a href="https://vbfelix.github.io/posts/2023-01-01-dplyr-across/">across</a> function from <a href="https://dplyr.tidyverse.org/">dplyr</a>.</p>
+<p>But, we can have the need to create our own functions using the tidyverse functions inside them, and a problem may surge as the tidyverse works based on a dataframe, and how to pass the arguments can be a issue.</p>
+<p>So, to make it easier to create this functions, some special operators were created, in a way that we can pass an input as an argument to functions that will work based on a dataframe, even if we just pass the column name.</p>
+<p>First of all, let’s do something in tidyverse:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species,sex) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_body_mass_g =</span> <span class="fu">mean</span>(body_mass_g,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n mean_body_mass_g     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73            3369. 0.5  
+2 Adelie    male      73            4043. 0.5  
+3 Chinstrap female    34            3527. 0.5  
+4 Chinstrap male      34            3939. 0.5  
+5 Gentoo    female    58            4680. 0.487
+6 Gentoo    male      61            5485. 0.513</code></pre>
+</div>
+</div>
+<p>In the example above we used the dataframe <code>penguins</code>, where we did some actions:</p>
+<ol type="1">
+<li><p>Removed the observations with missing values for the variable <code>sex</code>;</p></li>
+<li><p>Computed the count of penguin’s, by <code>species</code> and <code>sex</code>;</p></li>
+<li><p>Computed the mean of the penguin’s body mass (in grams), by <code>species</code> and <code>sex</code>;</p></li>
+<li><p>Computed the proportion of the penguin’s <code>sex</code>, by <code>species</code>.</p></li>
+</ol>
+<p>Ok, that was very simple and effective, but what if we want to transform this in a function called <code>penguin_summary</code>?</p>
+</section>
+<section id="operators" class="level1">
+<h1>Operators</h1>
+<section id="curly-curly" class="level2">
+<h2 class="anchored" data-anchor-id="curly-curly">{{}} Curly-curly</h2>
+<p>The first operator we will learn is the <code>curly-curly</code>, using the command <code>{{}}</code>, the goal of this operator is to allow us to have an argument passed to our function refering to a column inside a dataframe.</p>
+<p>So, we will create the function <code>penguin_summary</code>, where the variable used to count the penguins, in the example before <code>species</code>, will be generalized By the argument <code>grp_var</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(grp_var){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}},sex) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_body_mass_g =</span> <span class="fu">mean</span>(body_mass_g,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}}) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can see that inside the <code>dplyr</code> verbs we write the argument <code>grp_var</code> inside the operator <code>{{}}</code> in the verb <code>group_by</code>.</p>
+<p>Let’s now apply the variable <code>species</code> to see if the result is the same as before.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(<span class="at">grp_var =</span> species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n mean_body_mass_g     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73            3369. 0.5  
+2 Adelie    male      73            4043. 0.5  
+3 Chinstrap female    34            3527. 0.5  
+4 Chinstrap male      34            3939. 0.5  
+5 Gentoo    female    58            4680. 0.487
+6 Gentoo    male      61            5485. 0.513</code></pre>
+</div>
+</div>
+<p>Yes! We got the same result, but there is also another interesting fact, the variable <code>species</code> was passed without quotes, so no need to use functions such as <code>quo</code>, <code>enquote</code>, etc.</p>
+<p>And now we can pass other variable to our function, let’s give it a try.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(<span class="at">grp_var =</span> island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'island'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   island [3]
+  island    sex        n mean_body_mass_g     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 Biscoe    female    80            4319. 0.491
+2 Biscoe    male      83            5105. 0.509
+3 Dream     female    61            3446. 0.496
+4 Dream     male      62            3987. 0.504
+5 Torgersen female    24            3396. 0.511
+6 Torgersen male      23            4035. 0.489</code></pre>
+</div>
+</div>
+<p>Ok, after generalizing the <code>species</code> variable, we will do the same for the <code>body_mass_g</code> creating another argument, <code>num_var</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(grp_var,num_var){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}},sex) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>({{num_var}},<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}}) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> species,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> body_mass_g</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n  mean     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73 3369. 0.5  
+2 Adelie    male      73 4043. 0.5  
+3 Chinstrap female    34 3527. 0.5  
+4 Chinstrap male      34 3939. 0.5  
+5 Gentoo    female    58 4680. 0.487
+6 Gentoo    male      61 5485. 0.513</code></pre>
+</div>
+</div>
+<p>Okay, we kind of succeeded, but we had to give the new variable for the mean a generic name; to make this dynamic, we’ll need the assistance of another operator.</p>
+</section>
+<section id="walrus" class="level2">
+<h2 class="anchored" data-anchor-id="walrus">:= Walrus</h2>
+<p>The second operator is the <code>walrus</code>, using the command <code>:=</code>, the goal of this operator is to allow us to create new variables using the argument dynamically in the name of the variable created.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(grp_var,num_var){</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}},sex) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_{{num_var}}"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>({{num_var}},<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}}) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> species,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> body_mass_g</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n mean_body_mass_g     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73            3369. 0.5  
+2 Adelie    male      73            4043. 0.5  
+3 Chinstrap female    34            3527. 0.5  
+4 Chinstrap male      34            3939. 0.5  
+5 Gentoo    female    58            4680. 0.487
+6 Gentoo    male      61            5485. 0.513</code></pre>
+</div>
+</div>
+<p>The walrus operator substitute the <code>=</code> operator, and we can use the argument <code>num_var</code> inside the <code>{{}}</code> operator to generalize our variable name, not only that, but we can also set other characters such as a prefix or suffix.</p>
+<p>Now that we’ve finished our function, what if we want to make it even more generalized? For example, our dataframe and the variable <code>sex</code> are still inside the function, that is easy we just need create two more arguments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> penguins,<span class="at">main_var =</span> sex,grp_var,num_var){</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>({{main_var}})) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}},{{main_var}}) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_{{num_var}}"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>({{num_var}},<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>({{grp_var}}) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> species,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> body_mass_g</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n mean_body_mass_g     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73            3369. 0.5  
+2 Adelie    male      73            4043. 0.5  
+3 Chinstrap female    34            3527. 0.5  
+4 Chinstrap male      34            3939. 0.5  
+5 Gentoo    female    58            4680. 0.487
+6 Gentoo    male      61            5485. 0.513</code></pre>
+</div>
+</div>
+<p>So we created an argument called <code>df</code> to be our data.frame, without any operator since it is been called “<em>directly</em>”, and already left the <code>penguins</code> dataset as the default. We did the same with the <code>sex</code> variable with the argument <code>main_var</code>.</p>
+<p>And even though we created a function called <code>penguin_summary</code> now we can apply it to another dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">df =</span> mtcars,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">main_var =</span> vs,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> cyl,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> drat</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'cyl'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 x 5
+# Groups:   cyl [3]
+    cyl    vs     n mean_drat      p
+  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+1     4     0     1      4.43 0.0909
+2     4     1    10      4.04 0.909 
+3     6     0     3      3.81 0.429 
+4     6     1     4      3.42 0.571 
+5     8     0    14      3.23 1     </code></pre>
+</div>
+</div>
+<p>Ok, now we got a function that is completely generalized, with only arguments inside of it, but there is still way to make an even more powerful function, let’s say we want to apply our function to two numerical variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> species,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> <span class="fu">c</span>(body_mass_g,bill_depth_mm)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   species [3]
+  species   sex        n `mean_c(body_mass_g, bill_depth_mm)`     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;                                &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73                                1693. 0.5  
+2 Adelie    male      73                                2031. 0.5  
+3 Chinstrap female    34                                1772. 0.5  
+4 Chinstrap male      34                                1979. 0.5  
+5 Gentoo    female    58                                2347. 0.487
+6 Gentoo    male      61                                2750. 0.513</code></pre>
+</div>
+</div>
+<p>So it is not what we expected, right? To pass multiple variables into a single argument, we will need the help of an old friend.</p>
+</section>
+</section>
+<section id="across" class="level1">
+<h1>Across</h1>
+<p>So let’s recur to <code>across</code>, because it allows together with the <code>curly-curly</code> operator to pass multiple variables into one argument.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> penguins,<span class="at">main_var =</span> sex,grp_var,num_var){</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>({{main_var}})) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">across</span>({{grp_var}}),{{main_var}}) <span class="sc">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_{{num_var}}"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>({{num_var}},<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">across</span>({{grp_var}})) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> <span class="fu">c</span>(species, island),</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> body_mass_g</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species', 'island'. You can override using
+the `.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 x 6
+# Groups:   species, island [5]
+   species   island    sex        n mean_body_mass_g     p
+   &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt; &lt;dbl&gt;
+ 1 Adelie    Biscoe    female    22            3369. 0.5  
+ 2 Adelie    Biscoe    male      22            4050  0.5  
+ 3 Adelie    Dream     female    27            3344. 0.491
+ 4 Adelie    Dream     male      28            4046. 0.509
+ 5 Adelie    Torgersen female    24            3396. 0.511
+ 6 Adelie    Torgersen male      23            4035. 0.489
+ 7 Chinstrap Dream     female    34            3527. 0.5  
+ 8 Chinstrap Dream     male      34            3939. 0.5  
+ 9 Gentoo    Biscoe    female    58            4680. 0.487
+10 Gentoo    Biscoe    male      61            5485. 0.513</code></pre>
+</div>
+</div>
+<p>Now we passed both <code>species</code> and <code>island</code> variables to <code>group_by</code>, but to do the same to the <code>num_var</code> argument we can benefit from <code>across</code> arguments, as we saw in our post <a href="https://vbfelix.github.io/posts/2023-01-01-dplyr-across/">An intro to dplyr::across</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>penguin_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> penguins,<span class="at">main_var =</span> sex,grp_var,num_var){</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>({{main_var}})) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">across</span>({{grp_var}}),{{main_var}}) <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="at">.cols =</span> {{num_var}},</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">.fns =</span> <span class="sc">~</span><span class="fu">mean</span>(.,<span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">.names =</span> <span class="st">"mean_{.col}"</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">across</span>({{grp_var}})) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n<span class="sc">/</span><span class="fu">sum</span>(n,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> species,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> <span class="fu">c</span>(body_mass_g,bill_depth_mm)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 6
+# Groups:   species [3]
+  species   sex        n mean_body_mass_g mean_bill_depth_mm     p
+  &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt;              &lt;dbl&gt; &lt;dbl&gt;
+1 Adelie    female    73            3369.               17.6 0.5  
+2 Adelie    male      73            4043.               19.1 0.5  
+3 Chinstrap female    34            3527.               17.6 0.5  
+4 Chinstrap male      34            3939.               19.3 0.5  
+5 Gentoo    female    58            4680.               14.2 0.487
+6 Gentoo    male      61            5485.               15.7 0.513</code></pre>
+</div>
+</div>
+<p>We can now compute the mean for multiple numeric variables and also group by any number of variables we want:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">penguin_summary</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">grp_var =</span> <span class="fu">c</span>(species,island),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_var =</span> <span class="fu">c</span>(body_mass_g,bill_depth_mm)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species', 'island'. You can override using
+the `.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 x 7
+# Groups:   species, island [5]
+   species   island    sex        n mean_body_mass_g mean_bill_depth_mm     p
+   &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;int&gt;            &lt;dbl&gt;              &lt;dbl&gt; &lt;dbl&gt;
+ 1 Adelie    Biscoe    female    22            3369.               17.7 0.5  
+ 2 Adelie    Biscoe    male      22            4050                19.0 0.5  
+ 3 Adelie    Dream     female    27            3344.               17.6 0.491
+ 4 Adelie    Dream     male      28            4046.               18.8 0.509
+ 5 Adelie    Torgersen female    24            3396.               17.6 0.511
+ 6 Adelie    Torgersen male      23            4035.               19.4 0.489
+ 7 Chinstrap Dream     female    34            3527.               17.6 0.5  
+ 8 Chinstrap Dream     male      34            3939.               19.3 0.5  
+ 9 Gentoo    Biscoe    female    58            4680.               14.2 0.487
+10 Gentoo    Biscoe    male      61            5485.               15.7 0.513</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>   
+  </div>
+</footer>
+
+
+
+</body></html>
