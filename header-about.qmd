@@ -30,21 +30,21 @@ My name is Vinícius. I am a statistician with experience in both technical and 
 
 ### \[2013-2017\] Graduation
 
-During my graduate studies I focused mainly on time-series, geostatistics, and data visualization. I received a scholarship for the Brazilian Program of Scientific Initiation (PBIC), which required students to conduct a research and present them in a congress after one year, and I completed two of them:
+During my graduate studies I focused mainly on time-series, geostatistics, and data visualization. I received two scholarships for the Brazilian Program of Scientific Initiation (PBIC), which required students to conduct a research and present them in a congress after one year, and I completed both of them:
 
 1.  \[2014\] Topics on wavelet variance;
 
 2.  \[2015\] Wavelet multiple cross-correlation.
 
-Besides that I was also a member of the study group of spatial and temporal statistics, having worked with techniques to apply in time series and geostatistics, then I decided to do a final paper about clustering methods for temporal, spatio, and spatio-temporal data.
+Besides that, I was also a member of the study group of spatial and temporal statistics, having worked with techniques to apply in time series and geostatistics, then I decided to do a final paper about clustering methods for temporal, spatio, and spatio-temporal data.
 
 #### \[2013-2015\] Junior enterprise
 
 In addition, I was one of the founders of Estats Consultoria in 2013, a statistics junior enterprise, where I served as Marketing Director and, later, President, for three years.
 
-During projects I also worked as a data analyst, and later as I was a senior in college I helped with the training of the freshmen.
+In the projects I also worked as a data analyst, and later when I became a senior in college I also helped with the training of the freshmen.
 
-In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census.
+In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior entreprises in the region.
 
 ### \[2017-2019\] Post graduation
 
