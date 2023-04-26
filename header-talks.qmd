@@ -1,6 +1,8 @@
 ---
-title: "Talks"
+title: "Events"
 ---
+
+# Talks
 
 ## 2022
 
@@ -59,3 +61,15 @@ title: "Talks"
 -   ![](images/bra.png){width="20"} Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
 
 -   ![](images/bra.png){width="20"} Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
+
+# Hackathon
+
+## 2019
+
+-   ![](images/bra.png){width="20"} Mentor at Nasa Space Apps - Maringá - Brazil
+
+## 2018
+
+-   ![](images/bra.png){width="20"} Mentor at Nasa Space Apps - Maringá - Brazil
+
+-   ![](images/bra.png){width="20"} Participant at Hackathon Romagnole - Maringá - Brazil (2th place)

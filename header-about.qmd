@@ -8,7 +8,9 @@ My name is Vinícius. I am a statistician with experience in both technical and 
 
 ## Professional Experience
 
-![](images/ga_logo.jpg){width="31"} \[04/2022 - Present\] GA + Intergado \| Strategy Manager
+![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Installation and Support Manager
+
+![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
 
 ![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| Head of R&D
 
@@ -102,10 +104,14 @@ Later, in the end of that year, I was given a promotion to lead the whole R&D di
 
 In order to offer better actions through data science, GA merged with Intergado in 2022, a company that makes hardware for accurately automating data collection, such as individual animal weight.
 
-As the company's new strategy manager, my current responsibilities are:
+As the company's new strategy manager, my current responsibilities were:
 
 -   Managing the implementation of corporate strategy across all products;
 
 -   Keeping track of project status and identifying risks;
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
+
+### \[2023-2023\] Installation and Support Manager
+
+I am responsible for managing the teams that handle hardware installation, software deployment, and support for our solutions. My job involves creating processes and adopting tools that optimize the process.
