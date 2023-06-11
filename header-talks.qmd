@@ -64,6 +64,10 @@ title: "Events"
 
 # Hackathon
 
+## 2023
+
+-   ![](images/bra.png){width="20"} Mentor at InovaAgro Hackathon - Maringá - Brazil
+
 ## 2019
 
 -   ![](images/bra.png){width="20"} Mentor at Nasa Space Apps - Maringá - Brazil
