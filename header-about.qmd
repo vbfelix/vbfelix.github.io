@@ -8,7 +8,7 @@ My name is Vinícius. I am a statistician with experience in both technical and 
 
 ## Professional Experience
 
-![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Installation and Support Manager
+![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Services Manager
 
 ![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
 
@@ -112,6 +112,18 @@ As the company's new strategy manager, my current responsibilities were:
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
 
-### \[2023-2023\] Installation and Support Manager
+### \[2023-2023\] Service Manager
 
-I am responsible for managing the teams that handle hardware installation, software deployment, and support for our solutions. My job involves creating processes and adopting tools that optimize the process.
+I oversee hardware installations, software implementation, consultancy and technical support, while leading a team and driving continuous improvement efforts.
+
+1.  **Hardware installation coordination**: Managing the procurement, scheduling, and quality assurance of hardware installations.
+
+2.  **Software implementation oversight**: Selecting and deploying appropriate software solutions, providing user training, and managing licenses.
+
+3.  **Consultancy**: Derive insights, identify trends, and help make informed decisions. Providing consultancy services based on data analysis to clients.
+
+4.  **Technical support management**: Establishing support procedures, handling inquiries and troubleshooting, and coordinating issue resolution with cross-functional teams.
+
+5.  **Team leadership**: Leading and managing a team of technicians, assigning tasks, evaluating performance, and fostering effective communication and collaboration.
+
+6.  **Continuous improvement**: Staying updated with technology trends, implementing process enhancements, gathering feedback, and promoting best practices and standardization.
