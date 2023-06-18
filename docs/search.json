@@ -95,7 +95,7 @@
     "href": "index.html",
     "title": "Welcome to my personal website!",
     "section": "",
-    "text": "An analysis of Settlers of Catan\n\n\n\n\n\n\nAn analysis of\n\n\n\n\n\n\n\n\n\n\n\nJan 14, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to tidyverse operators\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 8, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to logarithmic scale\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nDataViz\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to chi-square test\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nHypothesis test\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to dplyr::across\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\nNo matching items"
+    "text": "An intro to normal distribution\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\n\n\n\n\n\n\n\n\n\nJun 18, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn analysis of Settlers of Catan\n\n\n\n\n\n\nAn analysis of\n\n\n\n\n\n\n\n\n\n\n\nJan 14, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to tidyverse operators\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 8, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to logarithmic scale\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nDataViz\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to chi-square test\n\n\n\n\n\n\nIntro to\n\n\nTheory\n\n\nHypothesis test\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\n  \n\n\n\n\nAn intro to dplyr::across\n\n\n\n\n\n\nIntro to\n\n\nTools\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2023\n\n\nVinícius Félix\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-01-01-chi-square-test/index.html",
@@ -257,5 +257,40 @@
     "title": "An analysis of Settlers of Catan",
     "section": "“If your ship doesn't come in, swim out and meet it.”",
     "text": "“If your ship doesn't come in, swim out and meet it.”\n\n\n\nThe port is a unique location. Normally, you can exchange 4 identical resources for another resource at the bank, but with a port you can lower this trade rate, but you lose one resource location in the process.\n\n\n\n\n \n  \n    Location \n    Locations \n    Percentage \n  \n \n\n  \n    Port \n    35 \n    2.92 \n  \n  \n    Resource \n    1,165 \n    97.08 \n  \n  \n    Total \n    1,200 \n    100.00 \n  \n\n\n\n\n\nSo of all the 1,200 initial settlements just 35 of them were ports, so it is not a popular strategy.\n\n\n\n\n \n  \n    Player \n    Games \n    Percentage \n  \n \n\n  \n    Loser \n    27 \n    81.82 \n  \n  \n    Winner \n    6 \n    18.18 \n  \n  \n    Total \n    33 \n    100.00 \n  \n\n\n\n\n\nThose 35 port initial locations were in 33 games, where in only 6 of them the player was the winner, let’s explore why.\n\n\n\n\n\nLooking at the trading behavior we see that in average player with a initial port gained more, so let’s take a look at the trade ratio (gain/loss).\n\n\n\n\n\nPlayers that had a initial port had a higher ratio, that can sound counterintuitive, since we expect they had a better trade-off with the ports advantage, a possibility is the lower quantity of resources making the players make actually worst trade for other resources, since they give up one location when choosing this strategy, but how impactful is that?\n\n\n\n\n\nLastly, when can see how impactful was the production of cards from structures based on the initial port. The result was a lot lower for players with a initial port, with almost 16 cards of difference from players that choosed 3 resources locations."
+  },
+  {
+    "objectID": "posts/2023-06-18-normal-distribution/index.html",
+    "href": "posts/2023-06-18-normal-distribution/index.html",
+    "title": "An intro to normal distribution",
+    "section": "",
+    "text": "In this post of the series Intro to, I’ll give an introduction to the normal distribution."
+  },
+  {
+    "objectID": "posts/2023-06-18-normal-distribution/index.html#standard-normal",
+    "href": "posts/2023-06-18-normal-distribution/index.html#standard-normal",
+    "title": "An intro to normal distribution",
+    "section": "Standard normal",
+    "text": "Standard normal\nThe simplest case of a normal distribution is a \\(\\mathcal{N}(0,1)\\), also called a standard normal distribution or Z-distribution:\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}}\\mathcal{e}^{-\\frac{x^2}{2}}.\n\\tag{2}\\]"
+  },
+  {
+    "objectID": "posts/2023-06-18-normal-distribution/index.html#simmetry",
+    "href": "posts/2023-06-18-normal-distribution/index.html#simmetry",
+    "title": "An intro to normal distribution",
+    "section": "Simmetry",
+    "text": "Simmetry\nThe normal distribution has a balanced and mirror-like shape around its center, which is characterized by its symmetry and central tendency. Because of its symmetry, values on either side of the mean have equal probabilities, and the alignment of the mean, median, and mode at the center.\nHere an example of a standard normal distribution:"
+  },
+  {
+    "objectID": "posts/2023-06-18-normal-distribution/index.html#bell-shape-curve",
+    "href": "posts/2023-06-18-normal-distribution/index.html#bell-shape-curve",
+    "title": "An intro to normal distribution",
+    "section": "Bell-shape curve",
+    "text": "Bell-shape curve\nThe shape of the normal distribution is also characterized by gradually decreasing probabilities as the values move away equally from the mean in both directions.\nEven tough it has zero skewness the variance can imply in a kurtosis change, here a few example:"
+  },
+  {
+    "objectID": "posts/2023-06-18-normal-distribution/index.html#chebyshevs-inequality",
+    "href": "posts/2023-06-18-normal-distribution/index.html#chebyshevs-inequality",
+    "title": "An intro to normal distribution",
+    "section": "Chebyshev’s inequality",
+    "text": "Chebyshev’s inequality\nChebyshev’s inequality is a mathematical inequality that can be applied to any probability distribution with defined mean and variance. It gives us an bound on the likelihood that a random variable deviates from its mean by a certain amount.\n\\[\nP(|X-\\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}, \\quad k >0; \\quad k \\in \\mathbb{R},\n\\tag{3}\\]\nwhere:\n\n\\(X\\) is a random variable with variance \\(\\sigma^2\\) and expected value \\(\\mu\\);\n\\(\\sigma\\) is a finite non-zero standard deviation;\n\\(\\mu\\) is a finite expected value;\n\\(k\\) is a given real number greater then zero.\n\nWhen applied to the normal distribution we have that:\n\n\n\n\n\nApproximately 68% of values in a normal distribution are within one standard deviation (\\(\\sigma\\)) of the mean, 95% are within two standard deviations, and 99.7% are within three standard deviations."
   }
 ]
