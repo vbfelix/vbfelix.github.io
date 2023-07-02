@@ -12,15 +12,17 @@ In this post of the series **Intro to**, I'll give an introduction to the functi
 
 As described in their site, [Tidyverse](https://www.tidyverse.org/) is an opinionated collection of R packages developed for data applications. One of the ecosystem main packages is [dplyr](https://dplyr.tidyverse.org/), which offers a consistent set of verbs to assist you in resolving data manipulation problems.
 
-In June of 2020 we had the official release of [dplyr 1.0.0](https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/) where a new function was introduced to us, opening new possibilities to data manipulation, that was the birth of `across` one of the most powerful and versatily functions to work with data, before talking about it let's see how we used to work before.
+In June of 2020 we had the official release of [dplyr 1.0.0](https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/) where a new function was introduced to us, opening new possibilities to data manipulation, that was the birth of `across` one of the most powerful and versatily functions to work with data.
+
+Before talking about it, let's see how we used to work before.
 
 ## Before across
 
-As one of thre greatest R packages `dplyr` possesses a lot functions, but it has two main verbs to manipulate data, they are:
+As one of thre greatest R packages, `dplyr` possesses a lot functions, but it has two main verbs to manipulate data, they are:
 
--   `summarise`: allows us to apply a transformation that reduce the number of observations, e.g., mean;
+-   `summarise`: allows us to apply a transformation to data that reduce the number of observations, e.g., mean;
 
--   `mutate`: allows us to apply transformation to our existing variables or even creating new ones with the same size, e.g., multiplying one variable by another.
+-   `mutate`: allows us to apply a transformation to our existing variables or even creating new ones with the same size, e.g., multiplying one variable by 2.
 
 Let's see how they work in practice:
 

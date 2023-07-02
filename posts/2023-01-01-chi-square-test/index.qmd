@@ -17,7 +17,7 @@ We can test how likely a variable is to come from a specified distribution in th
 
 -   $H_0:$ The variable follows a specific distribution;
 
--   $H_1:$ The variable does not follows a specific distribution.
+-   $H_1:$ The variable does not follow a specific distribution.
 
 Despite Pearson's primary goal, the chi-square test is most commonly used to test the association or independence of two categorical variables. To do so, we look at how common a particular categorical feature is among two or more groups. So we can establish the hypotheses as:
 

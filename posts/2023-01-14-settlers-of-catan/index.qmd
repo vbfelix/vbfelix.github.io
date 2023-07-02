@@ -129,7 +129,7 @@ catan_df <-
 
 For the analysis we will use the dataset [My Settlers of Catan Games](https://www.kaggle.com/datasets/lumins/settlers-of-catan-games) from the user Lumin of Kaggle.
 
-> **Disclaimer:** this dataset has only 50 observations, with one of the players always being the same, and with a winrate of 50%, so the goal here is simply to look at the data and test some hypotheses, rather than to do an inference or study about the game.
+> **Disclaimer:** this dataset has only 50 observations, with one of the players always being the same, and with a winrate of 50%, so the goal here is simply to look at the data and check some hypotheses, rather than to do an inference or study about the game.
 
 ## Is the dice fair?
 
@@ -383,7 +383,7 @@ catan_df %>%
 
 A difference of zero means that the winner was the player with the best location, at least probability-wise. So in almost half of the games the winner had the best location.
 
-## "If your ship doesn\'t come in, swim out and meet it."
+## "If your ship doesn't come in, swim out and meet it."
 
 ```{r, echo = F, message =  F, warning = FALSE}
 
