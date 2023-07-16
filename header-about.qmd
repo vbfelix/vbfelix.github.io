@@ -8,7 +8,7 @@ My name is Vinícius. I am a statistician with experience in both technical and 
 
 ## Professional Experience
 
-![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Service Manager
+![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Services Manager
 
 ![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
 
@@ -76,7 +76,7 @@ I updated the course topics by changing the material to a more modern and applie
 
 ### \[2020-2020\] Head of Data
 
-In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA is a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
+In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
 
 -   Hiring data scientists and data engineers;
 
@@ -102,7 +102,7 @@ Later, in the end of that year, I was given a promotion to lead the whole R&D di
 
 ### \[2022-2023\] Strategy Manager
 
-In order to offer better actions through data science, GA merged with Intergado in 2022, a company that makes hardware for accurately automating data collection, such as individual animal weight.
+In order to offer better actions through data science, GA merged with Intergado in 2022, a company that made hardware for accurately automating data collection, such as individual animal weight and provided software with the use of intelligence to make data-driven decisions easier.
 
 As the company's new strategy manager, my current responsibilities were:
 
@@ -112,18 +112,24 @@ As the company's new strategy manager, my current responsibilities were:
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
 
-### \[2023-2023\] Service Manager
+### \[2023-2023\] Services Manager
 
-I oversee hardware installations, software implementation, consultancy and technical support, while leading a team and driving continuous improvement efforts.
+I am in charge of overseeing service delivery within the organization. My responsibilities includes managing service teams, coordinating operations, and ensuring high-quality service delivery to meet customer needs and organizational goals, such as:
 
 1.  **Hardware installation coordination**: Managing the procurement, scheduling, and quality assurance of hardware installations.
 
 2.  **Software implementation oversight**: Selecting and deploying appropriate software solutions, providing user training, and managing licenses.
 
-3.  **Consultancy**: Derive insights, identify trends, and help make informed decisions. Providing consultancy services based on data analysis to clients.
+3.  **Consultancy**: Deriving insights, identify trends, and help make informed decisions. Providing consultancy services based on data analysis to clients.
 
 4.  **Technical support management**: Establishing support procedures, handling inquiries and troubleshooting, and coordinating issue resolution with cross-functional teams.
 
-5.  **Team leadership**: Leading and managing a team of technicians, assigning tasks, evaluating performance, and fostering effective communication and collaboration.
+My primary activities are:
 
-6.  **Continuous improvement**: Staying updated with technology trends, implementing process enhancements, gathering feedback, and promoting best practices and standardization.
+-   **Team leadership**: Leading and managing a team of technicians, assigning tasks, evaluating performance, and fostering effective communication and collaboration.
+
+-   **Continuous improvement**: Staying updated with technology trends, implementing process enhancements, gathering feedback, and promoting best practices and standardization.
+
+-   **Knowledge management**: Systematic process of creating, organizing, and sharing knowledge to drive innovation and improve organizational performance to the whole team.
+
+
