@@ -1,0 +1,184 @@
+---
+title: "An intro to Benford's Law"
+author: "Vinícius Félix"
+date: "2023-08-19"
+categories: [Intro to, Theory]
+image: "intro-to-benford-law.png"
+---
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+
+first_digit <- function(x){
+  as.numeric(strsplit(as.character(x),split = "")[[1]][1])
+}
+
+benford <- function(x){
+  log(x = (x+1)/x,base = 10)
+}
+```
+
+In this post of the series **Intro to**, I'll give an introduction to the Benford's Law.
+
+# Introduction
+
+The Benford's Law, also known as the first-digit law, studies the distribution of numerical data's leading digits.
+
+It reveals that the probability of a number having a specific first digit is not uniform in many naturally occurring datasets, as a result, this law emphasizes the inherent characteristics and tendencies of numbers in our numerical system, revealing natural patterns.
+
+Benford's law equation is given by:
+
+$$
+\log_{10}\left( \frac{x+1}{x}\right),
+$$
+
+where $x$ is the first digit of a number. So let's see how the law is comparison to our simulation.
+
+# Simulated application
+
+## Exponential distribution
+
+First let's simulate a set of random numbers from a exponential distribution with a rate of 0.25.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+set.seed(123);numbers <- round(rexp(n = 10000,rate = .25),digits = 0)
+
+exp_data <-
+  tibble(numbers) %>% 
+  filter(numbers > 0) %>% 
+  rowwise() %>% 
+  mutate(
+    first_digit = as.numeric(strsplit(as.character(numbers),split = "")[[1]][1])
+  ) %>% 
+  count(first_digit) %>% 
+  mutate(
+    benford_law = benford(first_digit)
+  )
+
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+tibble(numbers) %>% 
+  ggplot(aes(numbers))+
+  geom_density(fill = "royalblue3")+
+  plt_theme_x()+
+  scale_x_continuous(expand = c(0,0), breaks = seq(0,35,5), limits = c(0,25))+
+  scale_y_continuous(expand = c(0,0))+
+  plt_water_mark(vfx_watermark)+
+  labs(
+    x = "Number",
+    y = "",
+    subtitle = "Density of a random set of numbers",
+    caption = "Simulation from a exponential distribution with a rate of 0.25."
+  )
+```
+
+Next, we extract the first digit of each number and calculate the frequency of each one.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+plot_data  <-
+exp_data %>% 
+  ggplot(aes(first_digit,n/sum(n)))+
+  geom_col(fill = "royalblue3")+
+  plt_theme_y()+
+  scale_x_continuous(breaks = 1:19)+
+  scale_y_continuous(expand = c(0,0), limits = c(0,.35),breaks = seq(0,.35,.05))+
+  labs(
+    x = "First digit",
+    y = "",
+    col = "",
+    subtitle = "First digit relative frequency of a random set of numbers"
+  )+
+  plt_water_mark(vfx_watermark)
+
+plot_data
+```
+
+As we see in the figure above, smaller digits are more common, and as the digit grows larger, the frequency decreases. Now let's compare to the expected result.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+plot_data +
+  geom_line(aes(y = benford_law, col = "Benford's Law"),size = .8)+
+  geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
+  scale_color_manual(values = palette_qua("legion")[3])
+
+```
+
+As we can see Benford's Law is very similar to our data, but is this always the case?
+
+## Uniform distribution
+
+Now let's simulate a set of random numbers from a uniform distribution with a range from 1 to 100.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+set.seed(123);numbers <- round(runif(n = 10000,min = 1,max = 99),digits = 0)
+
+
+uni_data <-
+  tibble(numbers) %>% 
+  # filter(numbers > 0) %>% 
+  rowwise() %>% 
+  mutate(
+    first_digit = as.numeric(strsplit(as.character(numbers),split = "")[[1]][1])
+  ) %>% 
+  count(first_digit) %>% 
+  mutate(
+    benford_law = benford(first_digit)
+  )
+```
+
+Here we can the simulated data:
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+
+tibble(numbers) %>% 
+  ggplot(aes(numbers))+
+  geom_density(fill = "royalblue3")+
+  plt_theme_x()+
+  scale_x_continuous(expand = c(0,0), breaks = seq(0,100,10), limits = c(0,100))+
+  scale_y_continuous(expand = c(0,0))+
+  plt_water_mark(vfx_watermark_white)+
+  labs(
+    x = "Number",
+    y = "",
+    subtitle = "Density of a random set of numbers",
+    caption = "Simulation from a uniform distribution with range from 1 to 100."
+  )
+```
+
+Now let's calculate the frequency of the first digits.
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+uni_data %>% 
+  ggplot(aes(first_digit,n/sum(n)))+
+  geom_col(fill = "royalblue3")+
+  plt_theme_y()+
+  scale_x_continuous(breaks = 1:19)+
+  scale_y_continuous(expand = c(0,0), limits = c(0,.35),breaks = seq(0,.35,.05))+
+  labs(
+    x = "First digit",
+    y = "",
+    col = "",
+    subtitle = "First digit relative frequency of a random set of numbers"
+  )+
+  plt_water_mark(vfx_watermark)+
+  geom_line(aes(y = benford_law, col = "Benford's Law"),size = .8)+
+  geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
+  scale_color_manual(values = palette_qua("legion")[3])
+
+```
+
+We can now see that the law deviates from the simulated data, but why? Because we are sampling from a set of numbers where the first digit pool is equal, the probability of the law working increases as the range increases and includes only a portion of the numbers in the first digit or the data is random.
+
+# Considerations
