@@ -6,11 +6,11 @@ title: "Events"
 
 ## 2023
 
--   ![](images/bra.png){width="20"} #8 Na Ponta da Língua | Gestão orientada a dados
+-   ![](images/bra.png){width="20"} Gestão orientada a dados - *Podcast*: Na Ponta da Língua #8
+
 ```{=html}
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2yGOaRhg8LgYEh5tFOwjni?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 ```
-
 ## 2022
 
 -   ![](images/bra.png){width="20"} Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr.

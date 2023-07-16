@@ -71,7 +71,7 @@ In addition from the testaments, the bible is also divided in books and verses.
 |-----------|--------|------------|--------------|
 | Old       | 39     | 23,145     | 593.4615     |
 | New       | 27     | 7,957      | 294.7037     |
-| **Total** | **66** | **31,102** | 471.2424     |
+| **Total** | **66** | **31,102** | **471.2424** |
 
 : As we can see, the old testament has books with twice as many verses as the new testament. But, when we look by book, are the numbers of verses consistent?
 
@@ -180,7 +180,7 @@ stop_data%>%
   # geom_abline(color = "gray40", lty = 2)+ 
   geom_point()+
   geom_text(aes(label = word,color = abs(`new_testament`-`old_testament`)),
-            check_overlap = TRUE, vjust = 1.5,size=5.5,show.legend = FALSE)+
+            check_overlap = TRUE, vjust = 1.5,size=5,show.legend = FALSE)+
   # scale_color_gradient(limits = c(0, 1), low = "darkslategray4", high = "gray75") +
   theme(legend.position="none") +
   labs(
@@ -239,7 +239,7 @@ We see that most books of the old testament have a negative sentiment, with a hu
 
     ------------------------------------------------------------------------
 
-:    *It is a poetic dialogue between a bride and her beloved in which they express their deep affection and longing for one another through metaphorical language. The book celebrates the beauty of romantic love and is frequently interpreted as an allegory for God's love relationship with His people. It contains vivid imagery and has sparked controversy due to its explicit content. Overall, it delves into themes of love, desire, and the beauty of human relationships, challenging readers to consider the nature of love and intimacy.*
+:   *It is a poetic dialogue between a bride and her beloved in which they express their deep affection and longing for one another through metaphorical language. The book celebrates the beauty of romantic love and is frequently interpreted as an allegory for God's love relationship with His people. It contains vivid imagery and has sparked controversy due to its explicit content. Overall, it delves into themes of love, desire, and the beauty of human relationships, challenging readers to consider the nature of love and intimacy.*
 
     ------------------------------------------------------------------------
 
