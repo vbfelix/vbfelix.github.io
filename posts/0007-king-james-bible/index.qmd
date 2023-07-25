@@ -193,7 +193,8 @@ stop_data%>%
   scale_y_continuous(breaks = seq(0,5,.5), limits = c(-.5,3.5))+
   plt_theme_xy()+
   plt_identity_line()+
-  coord_fixed(expand = FALSE)
+  coord_fixed(expand = FALSE)+
+  plt_water_mark(vfx_watermark)
 
 ```
 
