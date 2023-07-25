@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2023-08-19">
+<meta name="dcterms.date" content="2023-07-25">
 
 <title>vbfelix - An intro to Benford’s Law</title>
 <style>
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 19, 2023</p>
+        <p class="date">July 25, 2023</p>
       </div>
     </div>
     
@@ -192,19 +192,20 @@ ul.task-list li input[type="checkbox"] {
 <p>In this post of the series <strong>Intro to</strong>, I’ll give an introduction to the Benford’s Law.</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>The Benford’s Law, also known as the first-digit law, studies the distribution of numerical data’s leading digits.</p>
-<p>It reveals that the probability of a number having a specific first digit is not uniform in many naturally occurring datasets, as a result, this law emphasizes the inherent characteristics and tendencies of numbers in our numerical system, revealing natural patterns.</p>
+<p>The Benford’s Law, also known as the first-digit law, investigates the distribution of leading digits in numerical data.</p>
+<p>It reveals that in many naturally occurring datasets, the probability of a number having a specific first digit is not uniform; as a result, this law emphasizes the inherent characteristics and tendencies of numbers in our numerical system, revealing natural patterns.</p>
 <p>Benford’s law equation is given by:</p>
-<p><span class="math display">\[
-\log_{10}\left( \frac{x+1}{x}\right),
-\]</span></p>
-<p>where <span class="math inline">\(x\)</span> is the first digit of a number. So let’s see how the law is comparison to our simulation.</p>
+<p><span id="eq-benford-law"><span class="math display">\[
+\log_{10}\left( 1+\frac{1}{x}\right),
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(x\)</span> is the first digit of a number.</p>
+<p>Let’s see how the law compares to our simulations now.</p>
 </section>
 <section id="simulated-application" class="level1">
 <h1>Simulated application</h1>
 <section id="exponential-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="exponential-distribution">Exponential distribution</h2>
-<p>First let’s simulate a set of random numbers from a exponential distribution with a rate of 0.25.</p>
+<p>First let’s simulate a set of 10,000 random numbers from a exponential distribution with a rate of 0.25.</p>
 <div class="cell">
 
 </div>
@@ -219,37 +220,41 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As we see in the figure above, smaller digits are more common, and as the digit grows larger, the frequency decreases. Now let’s compare to the expected result.</p>
+<p>Smaller digits are more common, as shown in the graph above, and as the digit grows larger, the frequency decreases. Let us now compare the actual result to the expected result.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As we can see Benford’s Law is very similar to our data, but is this always the case?</p>
+<p>As we can see, Benford’s Law and our data are very similar, but is this always the case?</p>
 </section>
 <section id="uniform-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="uniform-distribution">Uniform distribution</h2>
-<p>Now let’s simulate a set of random numbers from a uniform distribution with a range from 1 to 100.</p>
+<p>Let’s run a simulation of 10,000 random numbers drawn from a uniform distribution with a range of 1 to 100.</p>
 <div class="cell">
 
 </div>
-<p>Here we can the simulated data:</p>
+<p>The simulated data is shown below:</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Now let’s calculate the frequency of the first digits.</p>
+<p>Let us now compute the frequency of the first digits.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can now see that the law deviates from the simulated data, but why? Because we are sampling from a set of numbers where the first digit pool is equal, the probability of the law working increases as the range increases and includes only a portion of the numbers in the first digit or the data is random.</p>
+<p>We can see now that the law differs from the simulated data, but why? Because we are sampling from a set of numbers where the first digit pool is uniform.</p>
 </section>
 </section>
 <section id="considerations" class="level1">
 <h1>Considerations</h1>
+<p>Benford’s Law is applicable to datasets with broad value ranges but may not work well with datasets with narrow value ranges.</p>
+<p>Because its distribution patterns are sensitive to data scale, it is less effective when data is not spread across multiple orders of magnitude. Intentional data manipulation can reduce the accuracy of fraud detection, necessitating the use of additional investigative techniques.</p>
+<p>While it primarily analyzes first digits, it can also analyze second and subsequent digits, though with potentially less robust results.</p>
+<p>Benford’s Law should be used with caution, taking into account the specific data context, because different data types exhibit different statistical patterns, and blind application may result in incorrect conclusions.</p>
 
 
 </section>
