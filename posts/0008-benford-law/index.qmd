@@ -2,7 +2,7 @@
 title: "An intro to Benford's Law"
 author: "Vinícius Félix"
 date: "2023-07-25"
-categories: [Intro to, Theory]
+categories: [Intro to, Theory, Probability]
 image: "intro-to-benford-law.png"
 ---
 
@@ -111,7 +111,7 @@ Smaller digits are more common, as shown in the graph above, and as the digit gr
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 
 plot_data +
-  geom_line(aes(y = benford_law, col = "Benford's Law"),linewith = .8)+
+  geom_line(aes(y = benford_law, col = "Benford's Law"),linewidth = .8)+
   geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
   scale_color_manual(values = palette_qua("legion")[3])
 
@@ -177,7 +177,7 @@ uni_data %>%
     caption = "Simulation from a uniform distribution with range from 1 to 100."
   )+
   plt_water_mark(vfx_watermark)+
-  geom_line(aes(y = benford_law, col = "Benford's Law"),linewith = .8)+
+  geom_line(aes(y = benford_law, col = "Benford's Law"),linewidth = .8)+
   geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
   scale_color_manual(values = palette_qua("legion")[3])
 

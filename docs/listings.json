@@ -2,14 +2,15 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/2023-07-25-benford-law/index.html",
-      "/posts/2023-07-16-king-james-bible/index.html",
-      "/posts/2023-06-18-normal-distribution/index.html",
-      "/posts/2023-01-14-settlers-of-catan/index.html",
-      "/posts/2023-01-08-tidyverse-operators/index.html",
-      "/posts/2023-01-07-log-scale/index.html",
-      "/posts/2023-01-01-chi-square-test/index.html",
-      "/posts/2023-01-01-dplyr-across/index.html"
+      "/posts/0009-monty-hall/index.html",
+      "/posts/0008-benford-law/index.html",
+      "/posts/0007-king-james-bible/index.html",
+      "/posts/0006-normal-distribution/index.html",
+      "/posts/0005-settlers-of-catan/index.html",
+      "/posts/0004-tidyverse-operators/index.html",
+      "/posts/0003-log-scale/index.html",
+      "/posts/0001-chi-square-test/index.html",
+      "/posts/0002-dplyr-across/index.html"
     ]
   }
 ]

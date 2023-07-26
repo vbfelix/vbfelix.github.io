@@ -2,7 +2,7 @@
 title: "An analysis of The King James Bible"
 author: "Vinícius Félix"
 date: "2023-07-16"
-categories: [An analysis of]
+categories: [An analysis of, Text Mining]
 image: "intro-to-king-james-bible.png"
 ---
 
@@ -192,7 +192,7 @@ stop_data%>%
   scale_x_continuous(breaks = seq(0,5,.5), limits = c(-.5,3.5))+
   scale_y_continuous(breaks = seq(0,5,.5), limits = c(-.5,3.5))+
   plt_theme_xy()+
-  plt_identity_line()+
+  plt_identity_line(linewidth = .75)+
   coord_fixed(expand = FALSE)+
   plt_water_mark(vfx_watermark)
 
