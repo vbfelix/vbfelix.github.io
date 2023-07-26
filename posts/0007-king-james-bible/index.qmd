@@ -6,7 +6,7 @@ categories: [An analysis of, Text Mining]
 image: "intro-to-king-james-bible.png"
 ---
 
-In this post of the series **An analysis of**, I'll do a data analysis of my favorite board game, Settlers of Catan.
+In this post of the series **An analysis of**, I'll do a text analysis of The King James Bible.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))
