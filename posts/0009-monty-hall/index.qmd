@@ -2,7 +2,7 @@
 title: "An intro to Monty Hall problem"
 author: "Vinícius Félix"
 date: "2023-07-26"
-categories: [Intro to, Theory, Probability]
+categories: [Intro to, Probability, R, Theory]
 image: "intro-to-monty-hall.png"
 ---
 
@@ -54,6 +54,45 @@ That is not the case; instead, let us map each scenario, where we have three doo
 | C            | C          | A/B        | Lose            | Win            |
 
 Switching the door reveals 6 winning outcomes out of the 9 possibilities, whereas sticking with the original choice offers only 3 winning scenarios. This means that switching has a higher chance of success, with a 2/3 chance of success.
+
+# Still skeptical?
+
+For those who are still skeptical, here we simulate 200,000 games in R, where I chose to stay with the first door in the first half and switch the door in the second half.
+
+```{r}
+
+doors <- c("A","B","C")
+
+monty_hall <- function(stay = TRUE){
+  
+  prize_door <- sample(x = doors,size = 1)
+  
+  initial_door <- sample(x = doors,size = 1)
+  
+  if(prize_door == initial_door){
+    switch_door <- sample(doors[doors != prize_door],1)
+  }else{
+    switch_door <- prize_door
+  }
+  
+  if(stay){
+    output <- initial_door == prize_door
+  }else{
+    output <- switch_door == prize_door
+  }
+  
+  return(output)  
+}
+
+#Probability of winning, by keeping the initial door
+set.seed(1234);mean(replicate(100000,monty_hall(stay = TRUE)))
+
+#Probability of winning, by switching the initial door
+set.seed(1234);mean(replicate(100000,monty_hall(stay = FALSE)))
+
+```
+
+As we can see, the simulation's success probability is nearly equal to the previously calculated.
 
 # Considerations
 
