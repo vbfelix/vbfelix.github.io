@@ -1,5 +1,5 @@
 ---
-title: "An intro to normal distribution"
+title: "An intro to Normal Distribution"
 author: "Vinícius Félix"
 date: "2023-06-18"
 categories: [Intro to, Theory]

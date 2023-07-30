@@ -1,8 +1,8 @@
 ---
-title: "An intro to logarithmic scale"
+title: "An intro to Logarithmic Scale"
 author: "Vinícius Félix"
 date: "2023-01-07"
-categories: [Intro to, Theory, DataViz]
+categories: [Intro to, DataViz, Theory]
 image: "intro-to-log-scale.png"
 bibliography: references.bib
 ---

@@ -1,8 +1,8 @@
 ---
 title: "An intro to dplyr::across"
 author: "Vinícius Félix"
-date: "2023-01-01"
-categories: [Intro to, Tools, R]
+date: "2023-01-02"
+categories: [Intro to, R, Tools]
 image: "intro-to-dplyr-across.png"
 ---
 
