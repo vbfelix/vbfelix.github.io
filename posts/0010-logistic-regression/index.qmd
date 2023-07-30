@@ -252,9 +252,9 @@ model_summary %>%
 
 First of all we see the estimate of the coefficients ($\beta_i$) for each variable, and because all variables are categoricals, we have a baseline for each one that serves as the reference level. But what do these figures mean?
 
-## Odds ratios
+## Odds ratio
 
-To better understand the practical implications of the coefficients, we can apply the coefficients' exponential to obtain the odds ratios.
+To better understand the practical implications of the coefficients, we can apply the exponential function to the coefficients to obtain the odds ratios.
 
 ------------------------------------------------------------------------
 
@@ -323,7 +323,3 @@ Logistic regression is an effective method for modeling binary phenomena.
 Its ease of use and interpretability make it an appealing option for estimating probabilities and understanding the relationships between predictors and odds.
 
 However, it is important to note that logistic regression assumes independence and linearity, which limits its applicability to complex nonlinear relationships and dependent data. When using logistic regression in practical scenarios, it is critical to carefully consider these benefits and drawbacks, especially when using to predict/classify something.
-
-
-
-
