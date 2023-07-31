@@ -48,6 +48,10 @@ title: "Certifications"
 
 ## Theory
 
+### Data
+
+![](images/download-01.png){width="31"} [Data Literacy Professional](https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234)
+
 ![](images/download-01.png){width="31"} [Data Storystelling](https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35)
 
 ### Machine Learning
