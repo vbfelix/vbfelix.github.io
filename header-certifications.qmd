@@ -48,6 +48,8 @@ title: "Certifications"
 
 ## Theory
 
+![](images/download-01.png){width="31"} [Data Storystelling](https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35)
+
 ### Machine Learning
 
 ![](images/coursera-blog-image-01.png){width="31" height="30"} [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
