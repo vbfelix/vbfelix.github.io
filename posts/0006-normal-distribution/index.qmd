@@ -163,6 +163,6 @@ For this theorem to work we have three key assumptions for the random variables:
 
 In simpler terms, the CLT allows us to approximate the normal distribution when dealing with large sample sizes and sums of random variables.
 
-A simple application is used in my previous post, where we see that the [sum of two dices is approximately a normal distribution](https://vbfelix.github.io/posts/2023-01-14-settlers-of-catan/#is-the-dice-fair).
+A simple application is used in my previous post, where we see that [the sum of two dices is approximately a normal distribution](https://vbfelix.github.io/posts/0005-settlers-of-catan/#is-the-dice-fair).
 
 ## 

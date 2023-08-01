@@ -32,7 +32,7 @@
     "href": "header-certifications.html",
     "title": "Certifications",
     "section": "",
-    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n\n\n\n Data Scientist with R\n\n\n\n R Programmer\n\n\n\n\n\n\n Data Analysis with Python\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals\n\n\n\n Data Manipulation with R\n Data Visualization with R\n\n\n\n SQL Fundamentals\n\n\n\n\n\n\n Data Literacy Professional\n Data Storystelling\n\n\n\n AI Fundamentals\n How Google does Machine Learning"
+    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n\n\n\n Data Scientist with R\n\n\n\n R Programmer\n\n\n\n\n\n\n Data Analysis with Python\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals\n\n\n\n Data Manipulation with R\n Data Visualization with R\n\n\n\n SQL Fundamentals\n\n\n\n\n\n\n AI Fundamentals\n How Google does Machine Learning\n\n\n\n Data Literacy Professional\n Data Storystelling"
   },
   {
     "objectID": "header-participations.html",
@@ -261,35 +261,35 @@
   {
     "objectID": "posts/0006-normal-distribution/index.html",
     "href": "posts/0006-normal-distribution/index.html",
-    "title": "An intro to normal distribution",
+    "title": "An intro to Normal Distribution",
     "section": "",
     "text": "In this post of the series Intro to, I’ll give an introduction to the normal distribution."
   },
   {
     "objectID": "posts/0006-normal-distribution/index.html#standard-normal",
     "href": "posts/0006-normal-distribution/index.html#standard-normal",
-    "title": "An intro to normal distribution",
+    "title": "An intro to Normal Distribution",
     "section": "Standard normal",
     "text": "Standard normal\nThe simplest case of a normal distribution is a \\(\\mathcal{N}(0,1)\\), also called a standard normal distribution or Z-distribution:\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}}\\mathcal{e}^{-\\frac{x^2}{2}}.\n\\tag{2}\\]"
   },
   {
     "objectID": "posts/0006-normal-distribution/index.html#simmetry",
     "href": "posts/0006-normal-distribution/index.html#simmetry",
-    "title": "An intro to normal distribution",
+    "title": "An intro to Normal Distribution",
     "section": "Simmetry",
     "text": "Simmetry\nThe normal distribution has a balanced and mirror-like shape around its center, which is characterized by its symmetry and central tendency. Because of its symmetry, values on either side of the mean have equal probabilities, and the alignment of the mean, median, and mode at the center.\nHere an example of a standard normal distribution:"
   },
   {
     "objectID": "posts/0006-normal-distribution/index.html#bell-shape-curve",
     "href": "posts/0006-normal-distribution/index.html#bell-shape-curve",
-    "title": "An intro to normal distribution",
+    "title": "An intro to Normal Distribution",
     "section": "Bell-shape curve",
     "text": "Bell-shape curve\nThe shape of the normal distribution is also characterized by gradually decreasing probabilities as the values move away equally from the mean in both directions.\nEven tough it has zero skewness the variance can imply in a kurtosis change, here a few example:"
   },
   {
     "objectID": "posts/0006-normal-distribution/index.html#chebyshevs-inequality",
     "href": "posts/0006-normal-distribution/index.html#chebyshevs-inequality",
-    "title": "An intro to normal distribution",
+    "title": "An intro to Normal Distribution",
     "section": "Chebyshev’s inequality",
     "text": "Chebyshev’s inequality\nChebyshev’s inequality is a mathematical inequality that can be applied to any probability distribution with defined mean and variance. It gives us an bound on the likelihood that a random variable deviates from its mean by a certain amount.\n\\[\nP(|X-\\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}, \\quad k >0; \\quad k \\in \\mathbb{R},\n\\tag{3}\\]\nwhere:\n\n\\(X\\) is a random variable with variance \\(\\sigma^2\\) and expected value \\(\\mu\\);\n\\(\\sigma\\) is a finite non-zero standard deviation;\n\\(\\mu\\) is a finite expected value;\n\\(k\\) is a given real number greater then zero.\n\nWhen applied to the normal distribution we have that:\n\n\n\n\n\nApproximately 68% of values in a normal distribution are within one standard deviation (\\(\\sigma\\)) of the mean, 95% are within two standard deviations, and 99.7% are within three standard deviations."
   },
