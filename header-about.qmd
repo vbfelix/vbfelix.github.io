@@ -114,9 +114,9 @@ As the company's new strategy manager, my current responsibilities were:
 
 ### \[2023-2023\] Services Manager
 
-I am in charge of overseeing service delivery within the organization. My responsibilities includes managing service teams, coordinating operations, and ensuring high-quality service delivery to meet customer needs and organizational goals, such as:
+I am in charge of overseeing the organization's service delivery. My responsibilities include managing service teams, coordinating operations, and ensuring high-quality service delivery in order to meet the needs of customers and organizational goals, such as:
 
-1.  **Hardware installation coordination**: Managing the procurement, scheduling, and quality assurance of hardware installations.
+1.  **Hardware installation oversight**: Managing the procurement, scheduling, and quality assurance of hardware installations.
 
 2.  **Software implementation oversight**: Selecting and deploying appropriate software solutions, providing user training, and managing licenses.
 
