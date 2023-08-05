@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2023-08-06">
+<meta name="dcterms.date" content="2023-08-05">
 
 <title>vbfelix - An intro to Birthday Paradox</title>
 <style>
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 6, 2023</p>
+        <p class="date">August 5, 2023</p>
       </div>
     </div>
     
@@ -207,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 <p>where:</p>
 <ul>
 <li><p><span class="math inline">\(n\)</span> is the number of observations;</p></li>
-<li><p><span class="math inline">\(r!\)</span> is the the number of observatiosn to be grouped.</p></li>
+<li><p><span class="math inline">\(r\)</span> is the the number of observations to be selected.</p></li>
 </ul>
 <p>So we can apply the <a href="#eq-combination">Equation&nbsp;1</a> to our example:</p>
 <p><span id="eq-pair-23"><span class="math display">\[
@@ -221,18 +221,18 @@ ul.task-list li input[type="checkbox"] {
 &amp;= 253. \\
 \end{align}
 \tag{2}\]</span></span></p>
-<p>As seen, we have a total of 253 pairs.</p>
+<p>As seen in <a href="#eq-pair-23">Equation&nbsp;2</a>, we have a total of 253 pairs.</p>
 </section>
 <section id="when-statistics-blow-out-the-candles" class="level2">
 <h2 class="anchored" data-anchor-id="when-statistics-blow-out-the-candles">When Statistics Blow Out the Candles</h2>
-<p>Considering that a year has 365 days, given that the first person born in a single day, the other person just need to be born in any other day, so the chance of two people having different birthday is:</p>
+<p>Given that a year has 365 days, if the first person is born on a single day, the second person only needs to be born on any other day, so the likelihood of two people having different birthdays is:</p>
 <p><span id="eq-prob-diff-birthday"><span class="math display">\[
 \frac{364}{365} \approx 0.9972.
 \tag{3}\]</span></span></p>
 <p>Taking this probability into account for each pair, we can compute the probability of all pairs having different birthdays:</p>
 <p><span id="eq-prob-pair-diff-birthday"><span class="math display">\[
 \left(\frac{364}{365}\right)^{253} \approx 0.4995.
-\tag{4}\]</span></span> Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of <a href="#eq-prob-diff-birthday">Equation&nbsp;3</a>:</p>
+\tag{4}\]</span></span> Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of <a href="#eq-prob-pair-diff-birthday">Equation&nbsp;4</a>:</p>
 <p><span id="eq-pair-same-birthday"><span class="math display">\[
 1 - \left(\frac{364}{365}\right)^{253} \approx 0.5005.
 \tag{5}\]</span></span> So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday.</p>
@@ -240,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-more-the-merrier" class="level1">
 <h1>The more the merrier?</h1>
-<p>But what if we want to calculate this probability for a pair in a group of more or fewer people? We can generalize the <a href="#eq-pair-23">Equation&nbsp;2</a> to</p>
+<p>But what if we want to calculate this probability for a pair in a group of more or fewer people? We can generalize the <a href="#eq-pair-23">Equation&nbsp;2</a> to:</p>
 <p><span id="eq-pair-n"><span class="math display">\[
 \begin{align}
 \frac{n!}{r!(n-r)!}

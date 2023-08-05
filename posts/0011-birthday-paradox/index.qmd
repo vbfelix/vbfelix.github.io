@@ -72,7 +72,7 @@ Taking this probability into account for each pair, we can compute the probabili
 $$
 \left(\frac{364}{365}\right)^{253} \approx 0.4995.
 $$ {#eq-prob-pair-diff-birthday}
-Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of @eq-prob-diff-birthday:
+Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of @eq-prob-pair-diff-birthday:
 
 $$
 1 - \left(\frac{364}{365}\right)^{253} \approx 0.5005.
@@ -81,7 +81,7 @@ So, in a group of only 23 people, there is a greater than 50% chance that at lea
 
 # The more the merrier?
 
-But what if we want to calculate this probability for a pair in a group of more or fewer people? We can generalize the @eq-pair-23 to
+But what if we want to calculate this probability for a pair in a group of more or fewer people? We can generalize the @eq-pair-23 to:
 
 $$
 \begin{align}
