@@ -6,6 +6,10 @@ title: "Certifications"
 
 ## Career tracks
 
+### Business Analyst
+
+![](images/download-01.png){width="31"} [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
+
 ### Data Analyst
 
 ![](images/download-01.png){width="31"} [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
