@@ -71,13 +71,11 @@ Taking this probability into account for each pair, we can compute the probabili
 
 $$
 \left(\frac{364}{365}\right)^{253} \approx 0.4995.
-$$ {#eq-prob-pair-diff-birthday}
-Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of @eq-prob-pair-diff-birthday:
+$$ {#eq-prob-pair-diff-birthday} Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of @eq-prob-pair-diff-birthday:
 
 $$
 1 - \left(\frac{364}{365}\right)^{253} \approx 0.5005.
-$$ {#eq-pair-same-birthday}
-So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday.
+$$ {#eq-pair-same-birthday} So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday.
 
 # The more the merrier?
 
