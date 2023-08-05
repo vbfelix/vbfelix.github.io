@@ -1,0 +1,131 @@
+---
+title: "An intro to Birthday Paradox"
+author: "Vinícius Félix"
+date: "2023-08-05"
+categories: [Intro to, Probability]
+image: "intro-to-birthday-paradox.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post of the series **Intro to**, I'll give an introduction to the Birthday Paradox.
+
+# Introduction
+
+The birthday paradox is a well-known and somewhat perplexing probability problem that concerns the likelihood of two people in a group sharing their birthday.
+
+The results frequently surprise people due to their initial probability assumptions, which is why it is referred to as a paradox.
+
+# When birthdays collide
+
+What is the probability that two people in a room with 23 random people share the same birthday?
+
+## Twice the wishes
+
+First, we compute the total number of pairs using the combinations with no repeat formula, which is given by:
+
+$$
+\frac{n!}{r!(n-r)!},
+$$ {#eq-combination}
+
+where:
+
+-   $n$ is the number of observations;
+
+-   $r$ is the the number of observations to be selected.
+
+So we can apply the @eq-combination to our example:
+
+$$
+\begin{align}
+\frac{n!}{r!(n-r)!}
+&= \frac{23!}{2!(23-2)!} \\
+&= \frac{23!}{2!\times21!} \\
+&= \frac{23\times22\times21!}{2!\times21!} \\
+&= \frac{23\times22}{2} \\
+&= \frac{506}{2} \\
+&= 253. \\
+\end{align}
+$$ {#eq-pair-23}
+
+As seen in @eq-pair-23, we have a total of 253 pairs.
+
+## When Statistics Blow Out the Candles
+
+Given that a year has 365 days, if the first person is born on a single day, the second person only needs to be born on any other day, so the likelihood of two people having different birthdays is:
+
+$$
+\frac{364}{365} \approx 0.9972.
+$$ {#eq-prob-diff-birthday}
+
+Taking this probability into account for each pair, we can compute the probability of all pairs having different birthdays:
+
+$$
+\left(\frac{364}{365}\right)^{253} \approx 0.4995.
+$$ {#eq-prob-pair-diff-birthday}
+Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of @eq-prob-diff-birthday:
+
+$$
+1 - \left(\frac{364}{365}\right)^{253} \approx 0.5005.
+$$ {#eq-pair-same-birthday}
+So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday.
+
+# The more the merrier?
+
+But what if we want to calculate this probability for a pair in a group of more or fewer people? We can generalize the @eq-pair-23 to
+
+$$
+\begin{align}
+\frac{n!}{r!(n-r)!}
+&= \frac{n!}{2!(n-2)!}  \\
+&= \frac{n\times(n-1)\times(n-2)!}{2(n-2)!} \\
+&= \frac{n\times(n-1)}{2}. \\
+\end{align}
+$$ {#eq-pair-n}
+
+Then, we use the @eq-pair-n in @eq-pair-same-birthday:
+
+$$
+1 - \left(\frac{364}{365}\right)^{\frac{n\times(n-1)}{2}}.
+$$ {#eq-birthday-paradox}
+
+Finally, with @eq-birthday-paradox we can see the probability behavior as the group size changes.
+
+```{r, echo = FALSE}
+same_birth <- function(n = 23){
+  p <- 364/365
+  power <-  n*(n-1)/2
+  1- (p^power)
+}
+
+tibble(n = 2:50) %>% 
+  mutate(p = same_birth(n)) %>% 
+  ggplot(aes(n,p))+
+  geom_line()+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  scale_x_continuous(
+    expand = c(0,0),breaks = seq(2,50,4),
+    sec.axis = sec_axis(trans = ~.,breaks = 23)
+      )+
+  plt_scale_y_mirror(breaks = seq(0,1,.1))+
+  labs(
+    x = "Group size",
+    y = "",
+    subtitle = "Probability of a pair having the same birthday in a group"
+  )+
+  geom_vline(xintercept = 23, linetype = "dashed",col = "firebrick3")+
+  geom_hline(yintercept = .5, linetype = "dashed",col = "firebrick3")+
+  annotate(geom = "point",x = 23,y = .5,col = "firebrick3", size = 3)
+
+
+```
