@@ -115,7 +115,7 @@ tibble(n = 2:50) %>%
     expand = c(0,0),breaks = seq(2,50,4),
     sec.axis = sec_axis(trans = ~.,breaks = 23)
       )+
-  plt_scale_y_mirror(breaks = seq(0,1,.1), labels = seq(0,1,.1) )+
+  plt_scale_y_mirror(breaks = seq(0,1,.1))+
   labs(
     x = "Group size",
     y = "",
