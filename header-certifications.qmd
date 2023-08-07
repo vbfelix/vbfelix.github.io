@@ -48,6 +48,10 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
 
+![](images/hackerrank-01.png){width="32"} [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+
+![](images/hackerrank-01.png){width="32"} [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+
 ## Theory
 
 ### AI
