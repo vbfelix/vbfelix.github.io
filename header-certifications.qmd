@@ -2,11 +2,9 @@
 title: "Certifications"
 ---
 
-# Courses
+# Career tracks
 
-## Career tracks
-
-### Data Analyst
+## Data Analyst
 
 ![](images/download-01.png){width="31"} [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
 
@@ -16,17 +14,17 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
 
-### Data Scientist
+## Data Scientist
 
 ![](images/download-01.png){width="31"} [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
 
-### Developer
+## Developer
 
 ![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
 
-## Skill tracks
+# Skill tracks
 
-### Python
+## Python
 
 ![](images/download%20(1).png){width="31"} [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
 
@@ -38,13 +36,15 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [Python Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1)
 
-### R
+## R
 
 ![](images/download-01.png){width="31"} [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
 
 ![](images/download-01.png){width="31"} [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
 
-### SQL
+![](images/hackerrank-01.png){width="32"} [R (Basic)](https://www.hackerrank.com/certificates/c49e8229f339)
+
+## SQL
 
 ![](images/download-01.png){width="31"} [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
 
@@ -52,15 +52,17 @@ title: "Certifications"
 
 ![](images/hackerrank-01.png){width="32"} [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
-## Theory
+![](images/hackerrank-01.png){width="32"} [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
 
-### AI
+# Theory
+
+## AI
 
 ![](images/download-01.png){width="31"} [AI Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1)
 
 ![](images/coursera-blog-image-01.png){width="31" height="30"} [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
 
-### Data concepts
+## Data concepts
 
 ![](images/download-01.png){width="31"} [Data Literacy Professional](https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234)
 

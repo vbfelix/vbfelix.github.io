@@ -32,7 +32,7 @@
     "href": "header-certifications.html",
     "title": "Certifications",
     "section": "",
-    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n SQL for Business Analysts\n\n\n\n Data Scientist with R\n\n\n\n R Programmer\n\n\n\n\n\n\n Data Analysis with Python\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals\n\n\n\n Data Manipulation with R\n Data Visualization with R\n\n\n\n SQL Fundamentals\n SQL (Basic)\n SQL (Intermediate)\n\n\n\n\n\n\n AI Fundamentals\n How Google does Machine Learning\n\n\n\n Data Literacy Professional\n Data Storystelling"
+    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n SQL for Business Analysts\n\n\n\n Data Scientist with R\n\n\n\n R Programmer"
   },
   {
     "objectID": "header-participations.html",
@@ -362,5 +362,40 @@
     "title": "An intro to Birthday Paradox",
     "section": "When Statistics Blow Out the Candles",
     "text": "When Statistics Blow Out the Candles\nGiven that a year has 365 days, if the first person is born on a single day, the second person only needs to be born on any other day, so the likelihood of two people having different birthdays is:\n\\[\n\\frac{364}{365} \\approx 0.9972.\n\\tag{3}\\]\nTaking this probability into account for each pair, we can compute the probability of all pairs having different birthdays:\n\\[\n\\left(\\frac{364}{365}\\right)^{253} \\approx 0.4995.\n\\tag{4}\\] Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of Equation 4:\n\\[\n1 - \\left(\\frac{364}{365}\\right)^{253} \\approx 0.5005.\n\\tag{5}\\] So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday."
+  },
+  {
+    "objectID": "header-certifications.html#python",
+    "href": "header-certifications.html#python",
+    "title": "Certifications",
+    "section": "Python",
+    "text": "Python\n Data Analysis with Python\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals"
+  },
+  {
+    "objectID": "header-certifications.html#r",
+    "href": "header-certifications.html#r",
+    "title": "Certifications",
+    "section": "R",
+    "text": "R\n Data Manipulation with R\n Data Visualization with R\n R (Basic)"
+  },
+  {
+    "objectID": "header-certifications.html#sql",
+    "href": "header-certifications.html#sql",
+    "title": "Certifications",
+    "section": "SQL",
+    "text": "SQL\n SQL Fundamentals\n SQL (Basic)\n SQL (Intermediate)\n SQL (Advanced)"
+  },
+  {
+    "objectID": "header-certifications.html#ai",
+    "href": "header-certifications.html#ai",
+    "title": "Certifications",
+    "section": "AI",
+    "text": "AI\n AI Fundamentals\n How Google does Machine Learning"
+  },
+  {
+    "objectID": "header-certifications.html#data-concepts",
+    "href": "header-certifications.html#data-concepts",
+    "title": "Certifications",
+    "section": "Data concepts",
+    "text": "Data concepts\n Data Literacy Professional\n Data Storystelling"
   }
 ]
