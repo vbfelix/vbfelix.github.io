@@ -397,5 +397,12 @@
     "title": "An intro to Birthday Paradox",
     "section": "When Statistics Blow Out the Candles",
     "text": "When Statistics Blow Out the Candles\nGiven that a year has 365 days, if the first person is born on a single day, the second person only needs to be born on any other day, so the likelihood of two people having different birthdays is:\n\\[\n\\frac{364}{365} \\approx 0.9972.\n\\tag{3}\\]\nTaking this probability into account for each pair, we can compute the probability of all pairs having different birthdays:\n\\[\n\\left(\\frac{364}{365}\\right)^{253} \\approx 0.4995.\n\\tag{4}\\] Then, we can quickly compute the probability of a pair matching their birthday by doing the complementary event of Equation 4:\n\\[\n1 - \\left(\\frac{364}{365}\\right)^{253} \\approx 0.5005.\n\\tag{5}\\] So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday."
+  },
+  {
+    "objectID": "header-certifications.html#atlassian",
+    "href": "header-certifications.html#atlassian",
+    "title": "Certifications",
+    "section": "Atlassian",
+    "text": "Atlassian\n Confluence Fundamentals"
   }
 ]
