@@ -188,7 +188,7 @@ According to the survival rate, 32.30% of passengers survived the disaster, whil
 
 This graph sheds light on the demographics of the Titanic passengers, but our main goal here is to try to discover survival patterns based on those characteristics, so let's first look at the survival rate for each level and variable.
 
-```{r, echo = FALSE}
+```{r, echo = FALSE,fig.width=9}
 
 titanic_survival %>% 
   ggplot(aes(value,perc))+
@@ -197,7 +197,8 @@ titanic_survival %>%
     col = "black",
     position = position_dodge2(width = 0.8, preserve = "single")
     )+
-  facet_grid(cols =  vars(name),scales = "free",space = "free")+
+    facet_wrap(facets = vars(name,value),scales = "free", ncol = 8)+
+  # facet_grid(cols =  vars(name),scales = "free",space = "free")+
   plt_theme_y()+
   plt_water_mark(vfx_watermark)+
   scale_y_continuous(expand = c(0,0),breaks = seq(0,100,10), limits = c(0,75))+
