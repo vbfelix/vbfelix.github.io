@@ -91,7 +91,7 @@ Looking at the figure above we can see some interesting behaviors:
 -   $b^n = 1$ when $b = 1$, for all $n$;
 -   $b^n = 1$ when $b = -1$ and $n$ is even;
 -   $b^n = -1$ when $b = -1$ and $n$ is odd;
--   $b^n > 0$ when $n$ is even, since multiplying an negative value for an even number of times yields a positive result;
+-   $b^n > 0$ when $n$ is even, since multiplying a negative value for an even number of times yields a positive result;
 -   $b^n > b$ when $1 > b > 0$, to help our visualization of this behavior, we will plot a identity line dashed with the color red, i.e., $b^n = b$.
 
 ```{r, echo = FALSE}
