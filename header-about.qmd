@@ -4,9 +4,13 @@ title: "About me"
 
 ![](perfil.png){fig-align="left" width="206"}
 
-My name is Vinícius. I am a statistician with experience in both technical and management positions.
+My name is Vinícius Félix, a seasoned statistician with experience in both technical and managerial positions. My Master of Biostatistics and Bachelor of Statistics degrees provided me with a solid foundation in time-series analysis, geostatistics, and data visualization.
 
-## Professional Experience
+As a co-founder of H0 Consultoria, I've contributed to over 350 scientific studies and 40 business surveys, giving organizations valuable insights. With previous roles as Head of R&D, Data and Strategy Manager, and Services Manager, I am now in charge of service delivery.
+
+My goal is to empower organizations with data-driven decisions and optimize their operations through statistical insights, and I am passionate about bridging theory and real-world applications.
+
+# Professional Experience
 
 ![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Services Manager
 
@@ -22,13 +26,13 @@ My name is Vinícius. I am a statistician with experience in both technical and 
 
 ![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
 
-## Academic Education
+# Academic Education
 
 ![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
 
 ![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2017\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
 
-## More about me
+# More about me
 
 ### \[2013-2017\] Graduation
 
