@@ -17,69 +17,105 @@ suppressWarnings(library(kableExtra))
 suppressWarnings(library(forcats))
 ```
 
+```{r, echo = FALSE}
+
+# usual data
+ex0 <- c(1,2,2,3,3,3,4,5,5,5,7)
+
+# small value
+ex1 <- c(.1,2,2,3,3,3,4,5,5,5,7)
+
+# large value
+ex2 <- c(1,2,2,3,3,3,4,5,5,5,100)
+
+# skewed values
+
+set.seed(123);ex3 <- tibble(x = rexp(n = 1000,rate = .5)) %>% 
+  filter(x < 10)
+
+# normal values
+
+set.seed(123);ex4 <- tibble(x = rnorm(n = 1000)) %>% 
+  filter(x != 0)
+
+
+```
+
 In this post of the series **Intro to**, I'll navigate the Land of the Averages**.**
 
 # **The Meme That Everyone Gets**
 
-The arithmetic mean, also known as the "*mean*," is a fundamental concept in mathematics and statistics that represents the average value of a set of numbers. It is widely used to summarize data in a variety of fields.
+The arithmetic mean, also known as "*the* *mean*," is a fundamental concept in statistics that represents the average value of a set of numbers. It is widely used to summarize data in a variety of fields.
 
 To calculate it, add up all of the numbers in a dataset and divide by the total count, yielding a central value that evenly distributes the data points on a number line.
 
 ## The simple
 
-The simple arithmetic mean, is given by:
-$$
+The simple arithmetic mean, is given by: $$
 \frac{1}{n}\sum_\limits{i=1}^{n} x_i,
 $$ {#eq-arithmetic}
 
 where:
 
--    $x_i$ is a numeric vector of length $n$.
+-   $x_i$ is a numeric vector of length $n$.
 
 Because the arithmetic mean is simple to calculate and understand, it is accessible to a wide range of audiences, since it just entails the fundamental arithmetic operations of addition and division.
 
-### **Outlier impact**
+People frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they'd take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31, or 29 minutes, so intuitively they'd do the simple arithmetic mean.
+
+```{r, echo = FALSE}
+
+ex0
+
+tibble(arithmetic = calc_mean(ex0,"arithmetic")) %>% 
+  kable()
+```
+
+So the simple arithmetic mean is 3.636364, now let's see how outliers impact.
+
+### **Ex. 1: Small values**
+
+In this example, we change the first value to a smaller fractional value.
+
+```{r, echo = FALSE}
+
+ex1
+
+tibble(arithmetic = calc_mean(ex1,"arithmetic")) %>% 
+  kable()
+```
+
+We can see that the mean has shifted slightly.
+
+### **Ex. 2: Large values**
 
 The arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.
 
 Consider the following example. To begin, we will compute the mean of a given vector of numbers.
 
 ```{r, echo = FALSE}
-x1 <- c(1,2,2,3,3,3,4,5,5,5,7)
 
-x1
+ex2
 
-mean(x1)
-```
-
-So the simple arithmetic mean is 3.636364, now we will change the last number to an extreme value.
-
-```{r, echo = FALSE}
-x2 <- c(1,2,2,3,3,3,4,5,5,5,100)
-
-x2
-
-mean(x2)
+tibble(arithmetic = calc_mean(ex2,"arithmetic")) %>% 
+  kable()
 ```
 
 As we can see, the mean increases significantly, resulting in a distorted and unrepresentative metric of the data.
 
-### **May Not Reflect True Center**
+### **Ex. 3: May Not Reflect True Center**
 
 In skewed distributions, the mean may not accurately represent the typical value experienced by the majority of data points. The mean can be pushed towards the distribution's tail.
 
 Let's take a look at an example from a dataset from a exponential distribution.
 
 ```{r, echo = FALSE}
-set.seed(123);exp_data <- tibble(x = rexp(n = 1000,rate = .5)) %>% 
-  filter(x < 10)
+ex3_amean <- mean(ex3$x)
+ex3_gmean <- relper::calc_mean(ex3$x,"geometric")
+ex3_hmean <- relper::calc_mean(ex3$x,"harmonic")
 
-amean <- mean(exp_data$x)
-gmean <- relper::calc_mean(exp_data$x,"geometric")
-hmean <- relper::calc_mean(exp_data$x,"harmonic")
-
-plot <-
-exp_data %>% 
+ex3_plot <-
+ex3 %>% 
   ggplot(aes(x = x))+
   geom_density(fill = "grey45", alpha = .5)+
   plt_theme_x(margin = .6)+
@@ -96,13 +132,49 @@ exp_data %>%
     col = "",
     subtitle = "Density of a exponential distribution"
   )+
-  geom_vline(aes(xintercept = amean,col = "Arithmetic"), linewidth = 1)+
+  geom_vline(aes(xintercept = ex3_amean,col = "Arithmetic"), linewidth = 1)+
   scale_color_manual(values = palette_qua("ted_lasso",F))
 
-plot
+ex3_plot
 ```
 
 As we can see, the mean is dragged far away from the peak density value by the larger values.
+
+### **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+
+Next we apply the mean to data from a normal distribution centered around zero.
+
+```{r, echo = FALSE}
+
+ex4_amean <- mean(ex4$x)
+ex4_gmean <- relper::calc_mean(ex4$x,"geometric")
+ex4_hmean <- relper::calc_mean(ex4$x,"harmonic") 
+
+ex4_plot <-
+ex4 %>% 
+  ggplot(aes(x = x))+
+  geom_density(fill = "grey45", alpha = .5)+
+  plt_theme_x(margin = .6)+
+  plt_water_mark(vfx_watermark)+
+  scale_x_continuous(
+    # limits = c(0,10),
+    expand = c(0,0),
+    breaks = -10:10
+    )+
+  scale_y_continuous(expand = c(0,0))+
+  labs(
+    x = "",
+    y = "",
+    col = "",
+    subtitle = "Density of a normal  distribution"
+  )+
+  geom_vline(aes(xintercept = ex4_amean,col = "Arithmetic"), linewidth = 1)+
+  scale_color_manual(values = palette_qua("ted_lasso",F))
+
+ex4_plot
+```
+
+Because the arithmetic mean uses sum as the base for calculation, a simmetric distribution around negative and positive values will produce a mean close to or equal to zero, which can be misleading, especially when dealing with an error variable, because the mean can be interpreted as having no error at all, which is why the absolute function is commonly used in this scenario.
 
 ## The weighted
 
@@ -116,9 +188,9 @@ $$ {#eq-weighted}
 
 where:
 
--    $x_i$ is a numeric vector of length $n$;
+-   $x_i$ is a numeric vector of length $n$;
 
--    $w_i$ is a numeric vector of length $n$, with the respectives weights for the values of $x_i$.
+-   $w_i$ is a numeric vector of length $n$, with the respectives weights for the values of $x_i$.
 
 A practical application is in academic grading, the weighted mean of exam scores might be used, where different exams carry different weights based on their importance.
 
@@ -132,8 +204,7 @@ When applying @eq-proportion-sum to @eq-weighted we have that:
 
 $$
 \sum_\limits{i=1}^{n} w_ix_i.
-$$ {#eq-weighted-proportion}
-Even if it is an interesting application, assigning weights to data points is frequently subjective and can be influenced by personal judgment or assumptions. The weighted mean's accuracy is heavily dependent on the appropriateness of the weights chosen.
+$$ {#eq-weighted-proportion} Even if it is an interesting application, assigning weights to data points is frequently subjective and can be influenced by personal judgment or assumptions. The weighted mean's accuracy is heavily dependent on the appropriateness of the weights chosen.
 
 In addition, calculating the weighted mean requires an extra step when compared to the simple arithmetic mean, which may complicate the analysis and calculations, particularly when dealing with large datasets. In some cases, the rationale for assigning specific weights may not be transparent or well-documented, which can make replicating or validating the analysis difficult.
 
@@ -143,24 +214,24 @@ A trimmed arithmetic mean is a statistical measure that computes the mean of a d
 
 The amount of trimming can be adjusted to strike a balance between retaining meaningful data and reducing the impact of outliers.
 
-Let's go back to our previous outlier example.
+Let's go back to our previous outlier example, but now applying a trim of 10% in both ends of the data.
 
 ```{r, echo = FALSE}
 
-x2
+ex2
 
-mean(x2,trim = .1)
+tibble(trimmed = mean(ex2,trim = .1)) %>% kable()
 ```
 
-That is the same as applying a simple arithmetic mean to
+That is the same as applying a simple arithmetic mean to:
 
 ```{r, echo =FALSE}
 
-x3 <- c(2,2,3,3,3,4,5,5,5)
+trimmed <- c(2,2,3,3,3,4,5,5,5)
 
-x3
+trimmed
 
-mean(x3)
+tibble(arithmetic  = mean(trimmed)) %>% kable()
 ```
 
 As the data is trimmed, we achieve a more representative metric for our data, but this is due to an intentional loss of information, which may result in an incomplete representation of the data's full range. Important insights or trends within the data may be overlooked depending on the extent of trimming.
@@ -177,7 +248,7 @@ $$ {#eq-geometric}
 
 where:
 
--    $x_i$ is a numeric vector of length $n$.
+-   $x_i$ is a numeric vector of length $n$.
 
 Another way to write the @eq-geometric is:
 
@@ -194,57 +265,56 @@ $$ {#eq-geometric-log}
 
 So we can see that the geometric mean can be written as the exponetial of the simple arithmetic mean (@eq-arithmetic) of the logarithmic of $x_i$.
 
+------------------------------------------------------------------------
+
 ***Logarithmic scale***
 
 :   [*If you're unfamiliar with the logarithmic function and its functions, check out our introduction post about it.*](https://vbfelix.github.io/posts/0003-log-scale/)
+
+------------------------------------------------------------------------
 
 Let's go back to our first example and see in comparison to the arithmetic mean.
 
 ```{r, echo = FALSE}
 
-x1
+ex0
 
 tibble(
-  arithmetic = relper::calc_mean(x1,"arithmetic"),
-  geometric = relper::calc_mean(x1,"geometric")
+  arithmetic = relper::calc_mean(ex0,"arithmetic"),
+  geometric = relper::calc_mean(ex0,"geometric")
 ) %>% 
   kable()
 ```
 
-We can see that the geometric mean yields a slightly lower value.
-
-## **Accurate Representation of Growth**
-
-When using the geometric mean with fractional values, the result represents the *"average growth factor"* between the values. It indicates the factor by which you need to multiply each value to obtain the overall product.
+We can see that the geometric mean yields a slightly lower value. When using the geometric mean with fractional values, the result represents the *"average growth factor"* between the values. It indicates the factor by which you need to multiply each value to obtain the overall product.
 
 ```{r, echo = FALSE}
 
-x5 <- c(.1,.2,.3,.05,.004)
+ex_growth <- c(.1,.2,.3,.05,.004)
 
-x5
+ex_growth
 
 tibble(
-  arithmetic = relper::calc_mean(x5,"arithmetic"),
-  geometric = relper::calc_mean(x5,"geometric")
+  arithmetic = relper::calc_mean(ex_growth,"arithmetic"),
+  geometric = relper::calc_mean(ex_growth,"geometric")
 ) %>% 
   kable()
 
 ```
 
-## **Sensitivity to Small Values**
+## **Ex. 1: Small values**
 
 The geometric mean is sensitive to small values in the dataset. This sensitivity can be advantageous when you want to emphasize the impact of small values or identify trends that might be overshadowed by larger values.
 
 Let's add a small value instead of the first value in our first example.
 
 ```{r, echo = FALSE}
-x4 <- c(.1,2,2,3,3,3,4,5,5,5,7)
 
-x4
+ex1
 
 tibble(
-  arithmetic = relper::calc_mean(x4,"arithmetic"),
-  geometric = relper::calc_mean(x4,"geometric")
+  arithmetic = relper::calc_mean(ex1,"arithmetic"),
+  geometric = relper::calc_mean(ex1,"geometric")
 ) %>% 
   kable()
 
@@ -252,7 +322,7 @@ tibble(
 
 As we can see, the presence of the smaller value severely "*penalizes"* the geometric value.
 
-## **Outlier Impact**
+## **Ex. 2: Large values**
 
 Unlike the arithmetic mean, the geometric mean is less affected by outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.
 
@@ -260,35 +330,41 @@ Let's go back to our outlier example.
 
 ```{r, echo = FALSE}
 
-x2
+ex2
 
 tibble(
-  arithmetic = relper::calc_mean(x2,"arithmetic"),
-  geometric = relper::calc_mean(x2,"geometric")
+  arithmetic = relper::calc_mean(ex2,"arithmetic"),
+  geometric = relper::calc_mean(ex2,"geometric")
 ) %>% 
   kable()
 ```
 
 As we can see, the geometric mean has a significant less impact of the larger value.
 
-## **Zero Gravity: When Geometric Mean Gets Lost in Space**
-
-When a zero value is present in a dataset, calculating the geometric mean becomes problematic because the value will always be zero, since it is the product of values.
-
-## **Undefined for Negative Values**
-
-Because a negative number raised to a non-integer exponent can produce complex results, the concept of a geometric mean for negative values is meaningless in the realm of real numbers.
-
-## **May Not Reflect True Center**
+## **Ex. 3: May Not Reflect True Center**
 
 ```{r, echo = FALSE}
 
-plot+
-  geom_vline(aes(xintercept = gmean,col = "Geometric"), linewidth = 1)
+ex3_plot+
+  geom_vline(aes(xintercept = ex3_gmean,col = "Geometric"), linewidth = 1)
 
 ```
 
 In this scenario, the geometric mean approaches the peak value of the density in the example because it is more resistant to larger values and more sensitive to smaller data.
+
+## **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+
+When a zero value is present in a dataset, calculating the geometric mean becomes problematic because the value will always be zero, since it is the product of values.
+
+But let's take a look in our previous example where the data follows a normal distribution around zero.
+
+```{r, echo = FALSE}
+
+ex4_plot+
+  geom_vline(aes(xintercept = ex4_gmean,col = "Geometric"), linewidth = 1)
+```
+
+The geometric mean results in value larger than zero, that is because it does not consider negative values, because a negative number raised to a non-integer exponent can produce complex results, the concept of a geometric mean for negative values is meaningless in the realm of real numbers.
 
 # **The Odd One Out in the Mean Squad**
 
@@ -300,50 +376,52 @@ $$ {#eq-harmonic}
 
 where:
 
--    $x_i$ is a numeric vector of length $n$.
+-   $x_i$ is a numeric vector of length $n$.
 
 Let's compare it to the other approaches.
 
 ```{r, echo = FALSE}
 
-x1
+ex0
 
 tibble(
-  arithmetic = relper::calc_mean(x1,"arithmetic"),
-  geometric = relper::calc_mean(x1,"geometric"),
-  harmonic = relper::calc_mean(x1,"harmonic")
+  arithmetic = relper::calc_mean(ex0,"arithmetic"),
+  geometric = relper::calc_mean(ex0,"geometric"),
+  harmonic = relper::calc_mean(ex0,"harmonic")
 ) %>% 
   kable()
 ```
 
 We can see that harmonic provided a smaller value to our fist example.
 
-## **Sensitivity to Small Values**
+## **Ex. 1: Small values**
 
 Since the harmonic mean takes the inverse of the original value, it is even more sensitive to small values than the geometric mean, leading to extremely large results for values close to zero.
 
 ```{r, echo = FALSE}
 
-x4
+ex1
 
 tibble(
-  arithmetic = relper::calc_mean(x4,"arithmetic"),
-  geometric = relper::calc_mean(x4,"geometric"),
-  harmonic = relper::calc_mean(x4,"harmonic")
+  arithmetic = relper::calc_mean(ex1,"arithmetic"),
+  geometric = relper::calc_mean(ex1,"geometric"),
+  harmonic = relper::calc_mean(ex1,"harmonic")
 ) %>% 
   kable()
 ```
 
-## Outlier impact
+## **Ex. 2: Large values**
+
+Next, we see how it is impacted byu larger value.
 
 ```{r, echo = FALSE}
 
-x2
+ex2
 
 tibble(
-  arithmetic = relper::calc_mean(x2,"arithmetic"),
-  geometric = relper::calc_mean(x2,"geometric"),
-  harmonic = relper::calc_mean(x2,"harmonic")
+  arithmetic = relper::calc_mean(ex2,"arithmetic"),
+  geometric = relper::calc_mean(ex2,"geometric"),
+  harmonic = relper::calc_mean(ex2,"harmonic")
 
 ) %>% 
   kable()
@@ -351,21 +429,32 @@ tibble(
 
 At the same time, a larger value has less of an impact on the method.
 
-## **Zero Gravity: When Harmonic Mean Gets Lost in Space**
-
-Calculating the harmonic mean when there is a zero value in a dataset becomes difficult because the value is undefined since it is the sum of the inverse of the values and there is no division by zero.
-
-## **May Not Reflect True Center**
+## **Ex. 3: May Not Reflect True Center**
 
 ```{r, echo = FALSE}
 
-plot+
-  geom_vline(aes(xintercept = gmean,col = "Geometric"), linewidth = 1)+
-  geom_vline(aes(xintercept = hmean,col = "Harmonic"), linewidth = 1)
+ex3_plot+
+  geom_vline(aes(xintercept = ex3_gmean,col = "Geometric"), linewidth = 1)+
+  geom_vline(aes(xintercept = ex3_hmean,col = "Harmonic"), linewidth = 1)
 
 ```
 
 Because the harmonic mean is more robust to larger values and more sensitive to smaller data, it provides a lower value in the example above than the other methods.
+
+## **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+
+Calculating the harmonic mean when there is a zero value in a dataset becomes difficult because the value is undefined since it is the sum of the inverse of the values and there is no division by zero.
+
+But let's take a look in our previous example where the data follows a normal distribution around zero.
+
+```{r, echo = FALSE}
+
+ex4_plot+
+  geom_vline(aes(xintercept = ex4_gmean,col = "Geometric"), linewidth = 1)+
+  geom_vline(aes(xintercept = ex4_hmean,col = "Harmonic"), linewidth = 1)
+```
+
+The harmonic mean provides a value even more distant from the center than the geometric mean.
 
 # **Time Travelers' Guide**
 
@@ -437,3 +526,35 @@ ma_plot +
 The moving average can improve data smoothing, noise reduction, and trend identification by highlighting underlying patterns by averaging subsets of data points. However, due to the equal weighting of all data points, it introduces a lag in detecting rapid changes, is sensitive to window size, and may not accurately capture recent trends.
 
 While moving averages are effective for regular patterns, they may be ineffective for irregular data or abrupt shifts, potentially leading to oversimplification and loss of detail in the analysis.
+
+# How to apply in R
+
+In R we have the `mean` function that compute the simple arithmetic mean, and also we have the `trim` argument to compute the trimmed arithmetic mean. Also we have the `weighted.mean` where we can pass the weights in the `w` argument to compute the weighted arithmetic mean.
+
+However, there is no native way to compute the geometric or hamonic means, so [I created a function in my package relper that encompasses all possibilities](https://vbfelix.github.io/relper/articles/functions_calc.html#calc_mean).
+
+```{r}
+x <- c(.001,2,2,2,2,2,3,3,4,4,4,5,5,5,5,70)
+
+#simple arithmetic mean 
+relper::calc_mean(x = x,type = "arithmetic")
+
+#weighted arithmetic mean 
+relper::calc_mean(x = x,type = "arithmetic",weight = 1:16)
+
+#trimmed arithmetic mean 
+relper::calc_mean(x = x,type = "arithmetic",trim = .1)
+
+#geometric mean 
+relper::calc_mean(x = x,type = "geometric")
+
+#trimmed geometric mean 
+relper::calc_mean(x = x,type = "geometric",trim = .1)
+
+#harmonic mean 
+relper::calc_mean(x = x,type = "harmonic")
+
+#trimmed harmonic mean 
+relper::calc_mean(x = x,type = "harmonic",trim = .1)
+
+```
