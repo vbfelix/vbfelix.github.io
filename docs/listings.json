@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/0012-mean/index.html",
       "/posts/0011-birthday-paradox/index.html",
       "/posts/0010-logistic-regression/index.html",
       "/posts/0009-monty-hall/index.html",
