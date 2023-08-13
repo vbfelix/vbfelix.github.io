@@ -417,7 +417,7 @@
     "href": "posts/0012-mean/index.html#the-simple",
     "title": "An intro to Mean",
     "section": "The simple",
-    "text": "The simple\nThe simple arithmetic mean, is given by: \\[\n\\frac{1}{n}\\sum_\\limits{i=1}^{n} x_i,\n\\tag{1}\\]\nwhere:\n\n\\(x_i\\) is a numeric vector of length \\(n\\).\n\nBecause the arithmetic mean is simple to calculate and understand, it is accessible to a wide range of audiences, since it just entails the fundamental arithmetic operations of addition and division.\nPeople frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they’d take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31, or 29 minutes, so intuitively they’d do the simple arithmetic mean.\n\n\n [1] 1 2 2 3 3 3 4 5 5 5 7\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    3.636364 \n  \n\n\n\n\n\nSo the simple arithmetic mean is 3.636364, now let’s see how outliers impact.\n\nEx. 1: Small values\nIn this example, we change the first value to a smaller fractional value.\n\n\n [1] 0.1 2.0 2.0 3.0 3.0 3.0 4.0 5.0 5.0 5.0 7.0\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    3.554546 \n  \n\n\n\n\n\nWe can see that the mean has shifted slightly.\n\n\nEx. 2: Large values\nThe arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.\nConsider the following example. To begin, we will compute the mean of a given vector of numbers.\n\n\n [1]   1   2   2   3   3   3   4   5   5   5 100\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    12.09091 \n  \n\n\n\n\n\nAs we can see, the mean increases significantly, resulting in a distorted and unrepresentative metric of the data.\n\n\nEx. 3: May Not Reflect True Center\nIn skewed distributions, the mean may not accurately represent the typical value experienced by the majority of data points. The mean can be pushed towards the distribution’s tail.\nLet’s take a look at an example from a dataset from a exponential distribution.\n\n\n\n\n\nAs we can see, the mean is dragged far away from the peak density value by the larger values.\n\n\nEx. 4: Zero Gravity: When Means Gets Lost in Space\nNext we apply the mean to data from a normal distribution centered around zero.\n\n\nWarning in warn_any_logic(x = x, operator = `<`, value = 0, warning = \"Negative\nvalues will be ignored.\"): Negative values will be ignored.\n\n\n\n\n\nBecause the arithmetic mean uses sum as the base for calculation, a simmetric distribution around negative and positive values will produce a mean close to or equal to zero, which can be misleading, especially when dealing with an error variable, because the mean can be interpreted as having no error at all, which is why the absolute function is commonly used in this scenario."
+    "text": "The simple\nThe simple arithmetic mean, is given by: \\[\n\\frac{1}{n}\\sum_\\limits{i=1}^{n} x_i,\n\\tag{1}\\]\nwhere:\n\n\\(x_i\\) is a numeric vector of length \\(n\\).\n\nBecause the arithmetic mean is simple to calculate and understand, it is accessible to a wide range of audiences, since it just entails the fundamental arithmetic operations of addition and division.\nPeople frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they’d take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31, or 29 minutes, so intuitively they’d do the simple arithmetic mean.\n\n\n [1] 1 2 2 3 3 3 4 5 5 5 7\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    3.636364 \n  \n\n\n\n\n\nSo the simple arithmetic mean is 3.636364, now let’s see how outliers impact.\n\nEx. 1: Small but savage\nIn this example, we change the first value to a smaller fractional value.\n\n\n [1] 0.1 2.0 2.0 3.0 3.0 3.0 4.0 5.0 5.0 5.0 7.0\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    3.554546 \n  \n\n\n\n\n\nWe can see that the mean has shifted slightly.\n\n\nEx. 2: When numbers go big\nThe arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.\nConsider the following example. To begin, we will compute the mean of a given vector of numbers.\n\n\n [1]   1   2   2   3   3   3   4   5   5   5 100\n\n\n\n\n \n  \n    arithmetic \n  \n \n\n  \n    12.09091 \n  \n\n\n\n\n\nAs we can see, the mean increases significantly, resulting in a distorted and unrepresentative metric of the data.\n\n\nEx. 3: May not reflect true center\nIn skewed distributions, the mean may not accurately represent the typical value experienced by the majority of data points. The mean can be pushed towards the distribution’s tail.\nLet’s take a look at an example from a dataset from a exponential distribution.\n\n\n\n\n\nAs we can see, the mean is dragged far away from the peak density value by the larger values.\n\n\nEx. 4: Zero gravity, when means gets lost in space\nNext we apply the mean to data from a normal distribution centered around zero.\n\n\n\n\n\nBecause the arithmetic mean uses sum as the base for calculation, a simmetric distribution around negative and positive values will produce a mean close to or equal to zero, which can be misleading, especially when dealing with an error variable, because the mean can be interpreted as having no error at all, which is why the absolute function is commonly used in this scenario.\n\n\nEx. 5: A tale of average and variance\nLet’s run the normal distribution again, but this time with different variances.\n\n\n\n\n\nWe can see that even though the distribution for each data set is very different, we would be in trouble if we only based our decision on the mean."
   },
   {
     "objectID": "posts/0012-mean/index.html#the-weighted",
@@ -528,15 +528,15 @@
     "objectID": "posts/0012-mean/index.html#ex.-3-may-not-reflect-true-center-1",
     "href": "posts/0012-mean/index.html#ex.-3-may-not-reflect-true-center-1",
     "title": "An intro to Mean",
-    "section": "Ex. 3: May Not Reflect True Center",
-    "text": "Ex. 3: May Not Reflect True Center\n\n\n\n\n\nIn this scenario, the geometric mean approaches the peak value of the density in the example because it is more resistant to larger values and more sensitive to smaller data."
+    "section": "Ex. 3: May not reflect true center",
+    "text": "Ex. 3: May not reflect true center\n\n\n\n\n\nIn this scenario, the geometric mean approaches the peak value of the density in the example because it is more resistant to larger values and more sensitive to smaller data."
   },
   {
     "objectID": "posts/0012-mean/index.html#ex.-4-zero-gravity-when-means-gets-lost-in-space-1",
     "href": "posts/0012-mean/index.html#ex.-4-zero-gravity-when-means-gets-lost-in-space-1",
     "title": "An intro to Mean",
-    "section": "Ex. 4: Zero Gravity: When Means Gets Lost in Space",
-    "text": "Ex. 4: Zero Gravity: When Means Gets Lost in Space\nWhen a zero value is present in a dataset, calculating the geometric mean becomes problematic because the value will always be zero, since it is the product of values.\nBut let’s take a look in our previous example where the data follows a normal distribution around zero.\n\n\n\n\n\nThe geometric mean results in value larger than zero, that is because it does not consider negative values, because a negative number raised to a non-integer exponent can produce complex results, the concept of a geometric mean for negative values is meaningless in the realm of real numbers."
+    "section": "Ex. 4: Zero gravity, when means gets lost in space",
+    "text": "Ex. 4: Zero gravity, when means gets lost in space\nWhen a zero value is present in a dataset, calculating the geometric mean becomes problematic because the value will always be zero, since it is the product of values.\nBut let’s take a look in our previous example where the data follows a normal distribution around zero.\n\n\n\n\n\nThe geometric mean results in value larger than zero, that is because it does not consider negative values, because a negative number raised to a non-integer exponent can produce complex results, the concept of a geometric mean for negative values is meaningless in the realm of real numbers."
   },
   {
     "objectID": "posts/0012-mean/index.html#ex.-1-small-values-2",
@@ -556,14 +556,63 @@
     "objectID": "posts/0012-mean/index.html#ex.-3-may-not-reflect-true-center-2",
     "href": "posts/0012-mean/index.html#ex.-3-may-not-reflect-true-center-2",
     "title": "An intro to Mean",
-    "section": "Ex. 3: May Not Reflect True Center",
-    "text": "Ex. 3: May Not Reflect True Center\n\n\n\n\n\nBecause the harmonic mean is more robust to larger values and more sensitive to smaller data, it provides a lower value in the example above than the other methods."
+    "section": "Ex. 3: May not reflect true center",
+    "text": "Ex. 3: May not reflect true center\n\n\n\n\n\nBecause the harmonic mean is more robust to larger values and more sensitive to smaller data, it provides a lower value in the example above than the other methods."
   },
   {
     "objectID": "posts/0012-mean/index.html#ex.-4-zero-gravity-when-means-gets-lost-in-space-2",
     "href": "posts/0012-mean/index.html#ex.-4-zero-gravity-when-means-gets-lost-in-space-2",
     "title": "An intro to Mean",
-    "section": "Ex. 4: Zero Gravity: When Means Gets Lost in Space",
-    "text": "Ex. 4: Zero Gravity: When Means Gets Lost in Space\nCalculating the harmonic mean when there is a zero value in a dataset becomes difficult because the value is undefined since it is the sum of the inverse of the values and there is no division by zero.\nBut let’s take a look in our previous example where the data follows a normal distribution around zero.\n\n\n\n\n\nThe harmonic mean provides a value even more distant from the center than the geometric mean."
+    "section": "Ex. 4: Zero gravity, when means gets lost in space",
+    "text": "Ex. 4: Zero gravity, when means gets lost in space\nCalculating the harmonic mean when there is a zero value in a dataset becomes difficult because the value is undefined since it is the sum of the inverse of the values and there is no division by zero.\nBut let’s take a look in our previous example where the data follows a normal distribution around zero.\n\n\n\n\n\nThe harmonic mean provides a value even more distant from the center than the geometric mean."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-5-a-tale-of-average-and-variance-1",
+    "href": "posts/0012-mean/index.html#ex.-5-a-tale-of-average-and-variance-1",
+    "title": "An intro to Mean",
+    "section": "Ex. 5: A Tale of average and variance",
+    "text": "Ex. 5: A Tale of average and variance\nLet’s run the normal distribution again, but this time with different variances.\n\n\n\n\n\nWe get a similar result, but in a more variable distribution, the mean becomes more skewed toward the peak density."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-5-a-tale-of-average-and-variance-2",
+    "href": "posts/0012-mean/index.html#ex.-5-a-tale-of-average-and-variance-2",
+    "title": "An intro to Mean",
+    "section": "Ex. 5: A tale of average and variance",
+    "text": "Ex. 5: A tale of average and variance\nLet’s run the normal distribution again, but this time with different variances.\n\n\n\n\n\nThe harmonic mean achieves nearly the same result as the arithmetic mean, where the metrics are all centered around 50 when the variance is ignored."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-1-small-but-savage-1",
+    "href": "posts/0012-mean/index.html#ex.-1-small-but-savage-1",
+    "title": "An intro to Mean",
+    "section": "Ex. 1: Small but savage",
+    "text": "Ex. 1: Small but savage\nThe geometric mean is sensitive to small values in the dataset. This sensitivity can be advantageous when you want to emphasize the impact of small values or identify trends that might be overshadowed by larger values.\nLet’s add a small value instead of the first value in our first example.\n\n\n [1] 0.1 2.0 2.0 3.0 3.0 3.0 4.0 5.0 5.0 5.0 7.0\n\n\n\n\n \n  \n    arithmetic \n    geometric \n  \n \n\n  \n    3.554546 \n    2.606968 \n  \n\n\n\n\n\nAs we can see, the presence of the smaller value severely “penalizes” the geometric value."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-2-when-numbers-go-big-1",
+    "href": "posts/0012-mean/index.html#ex.-2-when-numbers-go-big-1",
+    "title": "An intro to Mean",
+    "section": "Ex. 2: When numbers go big",
+    "text": "Ex. 2: When numbers go big\nUnlike the arithmetic mean, the geometric mean is less affected by outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.\nLet’s go back to our outlier example.\n\n\n [1]   1   2   2   3   3   3   4   5   5   5 100\n\n\n\n\n \n  \n    arithmetic \n    geometric \n  \n \n\n  \n    12.09091 \n    4.092944 \n  \n\n\n\n\n\nAs we can see, the geometric mean has a significant less impact of the larger value."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-1-small-but-savage-2",
+    "href": "posts/0012-mean/index.html#ex.-1-small-but-savage-2",
+    "title": "An intro to Mean",
+    "section": "Ex. 1: Small but savage",
+    "text": "Ex. 1: Small but savage\nSince the harmonic mean takes the inverse of the original value, it is even more sensitive to small values than the geometric mean, leading to extremely large results for values close to zero.\n\n\n [1] 0.1 2.0 2.0 3.0 3.0 3.0 4.0 5.0 5.0 5.0 7.0\n\n\n\n\n \n  \n    arithmetic \n    geometric \n    harmonic \n  \n \n\n  \n    3.554546 \n    2.606968 \n    0.846619"
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-2-large-values",
+    "href": "posts/0012-mean/index.html#ex.-2-large-values",
+    "title": "An intro to Mean",
+    "section": "Ex. 2: Large values",
+    "text": "Ex. 2: Large values\nNext, we see how it is impacted byu larger value.\n\n\n [1]   1   2   2   3   3   3   4   5   5   5 100\n\n\n\n\n \n  \n    arithmetic \n    geometric \n    harmonic \n  \n \n\n  \n    12.09091 \n    4.092944 \n    2.849741 \n  \n\n\n\n\n\nAt the same time, a larger value has less of an impact on the method."
+  },
+  {
+    "objectID": "posts/0012-mean/index.html#ex.-2-when-numbers-go-big-2",
+    "href": "posts/0012-mean/index.html#ex.-2-when-numbers-go-big-2",
+    "title": "An intro to Mean",
+    "section": "Ex. 2: When numbers go big",
+    "text": "Ex. 2: When numbers go big\nNext, we see how it is impacted byu larger value.\n\n\n [1]   1   2   2   3   3   3   4   5   5   5 100\n\n\n\n\n \n  \n    arithmetic \n    geometric \n    harmonic \n  \n \n\n  \n    12.09091 \n    4.092944 \n    2.849741 \n  \n\n\n\n\n\nAt the same time, a larger value has less of an impact on the method."
   }
 ]

@@ -17,7 +17,7 @@ suppressWarnings(library(kableExtra))
 suppressWarnings(library(forcats))
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE,message=FALSE,warning=FALSE}
 
 # usual data
 ex0 <- c(1,2,2,3,3,3,4,5,5,5,7)
@@ -37,6 +37,24 @@ set.seed(123);ex3 <- tibble(x = rexp(n = 1000,rate = .5)) %>%
 
 set.seed(123);ex4 <- tibble(x = rnorm(n = 1000)) %>% 
   filter(x != 0)
+
+ex4_amean <- mean(ex4$x)
+ex4_gmean <- relper::calc_mean(ex4$x,"geometric")
+ex4_hmean <- relper::calc_mean(ex4$x,"harmonic") 
+
+# normal values
+
+set.seed(123);ex5 <- 
+  tibble(
+    x = c(rnorm(n = 1000,mean = 50,sd = 5),
+          rnorm(n = 1000,mean = 50,sd = 10),
+          rnorm(n = 1000,mean = 50,sd = 20)),
+    g = rep(LETTERS[1:3],each = 1000)
+  ) 
+
+ex5_amean <- ex5 %>% group_by(g) %>% summarise(m = calc_mean(x)) %>%  pull(m)
+ex5_gmean <- ex5 %>% group_by(g) %>% summarise(m = calc_mean(x,"geo")) %>%  pull(m)
+ex5_hmean <- ex5 %>% group_by(g) %>% summarise(m = calc_mean(x,"h")) %>%  pull(m)
 
 
 ```
@@ -73,7 +91,7 @@ tibble(arithmetic = calc_mean(ex0,"arithmetic")) %>%
 
 So the simple arithmetic mean is 3.636364, now let's see how outliers impact.
 
-### **Ex. 1: Small values**
+### **Ex. 1:** Small but savage
 
 In this example, we change the first value to a smaller fractional value.
 
@@ -87,7 +105,7 @@ tibble(arithmetic = calc_mean(ex1,"arithmetic")) %>%
 
 We can see that the mean has shifted slightly.
 
-### **Ex. 2: Large values**
+### **Ex. 2:** When numbers go big
 
 The arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.
 
@@ -103,7 +121,7 @@ tibble(arithmetic = calc_mean(ex2,"arithmetic")) %>%
 
 As we can see, the mean increases significantly, resulting in a distorted and unrepresentative metric of the data.
 
-### **Ex. 3: May Not Reflect True Center**
+### **Ex. 3:** May not reflect true center
 
 In skewed distributions, the mean may not accurately represent the typical value experienced by the majority of data points. The mean can be pushed towards the distribution's tail.
 
@@ -140,15 +158,11 @@ ex3_plot
 
 As we can see, the mean is dragged far away from the peak density value by the larger values.
 
-### **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+### **Ex. 4:** Zero gravity, when means gets lost in space
 
 Next we apply the mean to data from a normal distribution centered around zero.
 
 ```{r, echo = FALSE}
-
-ex4_amean <- mean(ex4$x)
-ex4_gmean <- relper::calc_mean(ex4$x,"geometric")
-ex4_hmean <- relper::calc_mean(ex4$x,"harmonic") 
 
 ex4_plot <-
 ex4 %>% 
@@ -166,7 +180,7 @@ ex4 %>%
     x = "",
     y = "",
     col = "",
-    subtitle = "Density of a normal  distribution"
+    subtitle = "Density of a normal distribution"
   )+
   geom_vline(aes(xintercept = ex4_amean,col = "Arithmetic"), linewidth = 1)+
   scale_color_manual(values = palette_qua("ted_lasso",F))
@@ -175,6 +189,41 @@ ex4_plot
 ```
 
 Because the arithmetic mean uses sum as the base for calculation, a simmetric distribution around negative and positive values will produce a mean close to or equal to zero, which can be misleading, especially when dealing with an error variable, because the mean can be interpreted as having no error at all, which is why the absolute function is commonly used in this scenario.
+
+### **Ex. 5:** A tale of average and variance
+
+Let's run the normal distribution again, but this time with different variances.
+
+```{r, echo = FALSE}
+ex5_plot <-
+ex5 %>% 
+  ggplot(aes(x = x))+
+  geom_density(aes(fill = g),alpha = .5, show.legend = FALSE)+
+  plt_theme_x(margin = .6)+
+  plt_water_mark(vfx_watermark)+
+  scale_x_continuous(
+    # limits = c(0,10),
+    expand = c(0,0),
+    breaks = seq(0,200,10)
+    )+
+  scale_y_continuous(expand = c(0,0))+
+  labs(
+    x = "",
+    y = "",
+    col = "",
+    subtitle = "Density of a normal distribution"
+  )+
+  scale_color_manual(values = palette_qua("kick_ass",F))+
+  scale_fill_manual(values = palette_qua("kick_ass",F))
+
+
+ex5_plot+
+    geom_vline(xintercept = ex5_amean,
+               linetype = "dashed", col = palette_qua("kick_ass",F)[1:3])
+
+```
+
+We can see that even though the distribution for each data set is very different, we would be in trouble if we only based our decision on the mean.
 
 ## The weighted
 
@@ -302,7 +351,7 @@ tibble(
 
 ```
 
-## **Ex. 1: Small values**
+## **Ex. 1:** Small but savage
 
 The geometric mean is sensitive to small values in the dataset. This sensitivity can be advantageous when you want to emphasize the impact of small values or identify trends that might be overshadowed by larger values.
 
@@ -322,7 +371,7 @@ tibble(
 
 As we can see, the presence of the smaller value severely "*penalizes"* the geometric value.
 
-## **Ex. 2: Large values**
+## **Ex. 2:** When numbers go big
 
 Unlike the arithmetic mean, the geometric mean is less affected by outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.
 
@@ -341,7 +390,7 @@ tibble(
 
 As we can see, the geometric mean has a significant less impact of the larger value.
 
-## **Ex. 3: May Not Reflect True Center**
+## **Ex. 3:** May not reflect true center
 
 ```{r, echo = FALSE}
 
@@ -352,7 +401,7 @@ ex3_plot+
 
 In this scenario, the geometric mean approaches the peak value of the density in the example because it is more resistant to larger values and more sensitive to smaller data.
 
-## **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+## **Ex. 4:** Zero gravity, when means gets lost in space
 
 When a zero value is present in a dataset, calculating the geometric mean becomes problematic because the value will always be zero, since it is the product of values.
 
@@ -366,12 +415,25 @@ ex4_plot+
 
 The geometric mean results in value larger than zero, that is because it does not consider negative values, because a negative number raised to a non-integer exponent can produce complex results, the concept of a geometric mean for negative values is meaningless in the realm of real numbers.
 
+## **Ex. 5:** A Tale of average and variance
+
+Let's run the normal distribution again, but this time with different variances.
+
+```{r, echo = FALSE}
+
+ex5_plot+
+    geom_vline(xintercept = ex5_gmean, linetype = "dashed",
+               col = palette_qua("kick_ass",F)[1:3])
+```
+
+We get a similar result, but in a more variable distribution, the mean becomes more skewed toward the peak density.
+
 # **The Odd One Out in the Mean Squad**
 
 The harmonic mean is a statistical measure of central tendency used to calculate the average of a set of values when their reciprocal (inverses) is more important than their arithmetic mean.
 
 $$
-\frac{n}{\sum_\limits{i=1}^{n}\frac{1}{x_i}}
+\frac{n}{\sum_\limits{i=1}^{n}\frac{1}{x_i}},
 $$ {#eq-harmonic}
 
 where:
@@ -394,7 +456,7 @@ tibble(
 
 We can see that harmonic provided a smaller value to our fist example.
 
-## **Ex. 1: Small values**
+## **Ex. 1:** Small but savage
 
 Since the harmonic mean takes the inverse of the original value, it is even more sensitive to small values than the geometric mean, leading to extremely large results for values close to zero.
 
@@ -410,7 +472,7 @@ tibble(
   kable()
 ```
 
-## **Ex. 2: Large values**
+## **Ex. 2:** When numbers go big
 
 Next, we see how it is impacted byu larger value.
 
@@ -429,7 +491,7 @@ tibble(
 
 At the same time, a larger value has less of an impact on the method.
 
-## **Ex. 3: May Not Reflect True Center**
+## **Ex. 3:** May not reflect true center
 
 ```{r, echo = FALSE}
 
@@ -441,7 +503,7 @@ ex3_plot+
 
 Because the harmonic mean is more robust to larger values and more sensitive to smaller data, it provides a lower value in the example above than the other methods.
 
-## **Ex. 4: Zero Gravity: When Means Gets Lost in Space**
+## **Ex. 4:** Zero gravity, when means gets lost in space
 
 Calculating the harmonic mean when there is a zero value in a dataset becomes difficult because the value is undefined since it is the sum of the inverse of the values and there is no division by zero.
 
@@ -455,6 +517,19 @@ ex4_plot+
 ```
 
 The harmonic mean provides a value even more distant from the center than the geometric mean.
+
+## **Ex. 5:** A tale of average and variance
+
+Let's run the normal distribution again, but this time with different variances.
+
+```{r, echo = FALSE}
+
+ex5_plot+
+    geom_vline(xintercept = ex5_hmean, linetype = "dashed",
+               col = palette_qua("kick_ass",F)[1:3])
+```
+
+The harmonic mean achieves nearly the same result as the arithmetic mean, where the metrics are all centered around 50 when the variance is ignored.
 
 # **Time Travelers' Guide**
 
