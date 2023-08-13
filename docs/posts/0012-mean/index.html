@@ -294,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(x_i\)</span> is a numeric vector of length <span class="math inline">\(n\)</span>.</li>
 </ul>
 <p>Because the arithmetic mean is simple to calculate and understand, it is accessible to a wide range of audiences, since it just entails the fundamental arithmetic operations of addition and division.</p>
-<p>People frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they’d take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31, or 29 minutes, so intuitively they’d do the simple arithmetic mean.</p>
+<p>People frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they’d take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31 or 29 minutes, so intuitively they’d do the simple arithmetic mean.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1 2 2 3 3 3 4 5 5 5 7</code></pre>
@@ -341,12 +341,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<p>We can see that the mean has shifted slightly.</p>
+<p>We can see that the mean has shifted slightly to a smaller value.</p>
 </section>
 <section id="ex.-2-when-numbers-go-big" class="level3">
 <h3 class="anchored" data-anchor-id="ex.-2-when-numbers-go-big"><strong>Ex. 2:</strong> When numbers go big</h3>
 <p>The arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.</p>
-<p>Consider the following example. To begin, we will compute the mean of a given vector of numbers.</p>
+<p>Now we change the last value to a larger value.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   1   2   2   3   3   3   4   5   5   5 100</code></pre>
@@ -393,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="ex.-5-a-tale-of-average-and-variance" class="level3">
 <h3 class="anchored" data-anchor-id="ex.-5-a-tale-of-average-and-variance"><strong>Ex. 5:</strong> A tale of average and variance</h3>
-<p>Let’s run the normal distribution again, but this time with different variances.</p>
+<p>Let’s run the normal distribution simulation again, but with different variances this time.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -498,7 +498,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &amp;= \mathcal{e}^{\frac{1}{n}\sum_\limits{i=1}^{n}\mathcal{ln}(x_i)}.
 \end{align}
 \tag{6}\]</span></span></p>
-<p>So we can see that the geometric mean can be written as the exponetial of the simple arithmetic mean (<a href="#eq-arithmetic">Equation&nbsp;1</a>) of the logarithmic of <span class="math inline">\(x_i\)</span>.</p>
+<p>So we can see that the geometric mean can be written as the exponential of the simple arithmetic mean (<a href="#eq-arithmetic">Equation&nbsp;1</a>) of the logarithmic of <span class="math inline">\(x_i\)</span>.</p>
 <hr>
 <dl>
 <dt><strong><em>Logarithmic scale</em></strong></dt>
@@ -558,7 +558,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="ex.-1-small-but-savage-1" class="level2">
 <h2 class="anchored" data-anchor-id="ex.-1-small-but-savage-1"><strong>Ex. 1:</strong> Small but savage</h2>
 <p>The geometric mean is sensitive to small values in the dataset. This sensitivity can be advantageous when you want to emphasize the impact of small values or identify trends that might be overshadowed by larger values.</p>
-<p>Let’s add a small value instead of the first value in our first example.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.1 2.0 2.0 3.0 3.0 3.0 4.0 5.0 5.0 5.0 7.0</code></pre>
@@ -586,7 +585,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="ex.-2-when-numbers-go-big-1" class="level2">
 <h2 class="anchored" data-anchor-id="ex.-2-when-numbers-go-big-1"><strong>Ex. 2:</strong> When numbers go big</h2>
-<p>Unlike the arithmetic mean, the geometric mean is less affected by outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.</p>
+<p>Unlike the arithmetic mean, the geometric mean is less affected by larger outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.</p>
 <p>Let’s go back to our outlier example.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -641,7 +640,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We get a similar result, but in a more variable distribution, the mean becomes more skewed toward the peak density.</p>
+<p>We get a similar result, but in the higher variance distribution, the mean becomes more skewed toward the peak density.</p>
 </section>
 </section>
 <section id="the-odd-one-out-in-the-mean-squad" class="level1">
@@ -712,7 +711,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="ex.-2-when-numbers-go-big-2" class="level2">
 <h2 class="anchored" data-anchor-id="ex.-2-when-numbers-go-big-2"><strong>Ex. 2:</strong> When numbers go big</h2>
-<p>Next, we see how it is impacted byu larger value.</p>
+<p>Next, we see how it is impacted by a larger value.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   1   2   2   3   3   3   4   5   5   5 100</code></pre>
@@ -738,7 +737,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<p>At the same time, a larger value has less of an impact on the method.</p>
+<p>At the same time that it is most sensitive to small values, it is also the most robust to larger values.</p>
 </section>
 <section id="ex.-3-may-not-reflect-true-center-2" class="level2">
 <h2 class="anchored" data-anchor-id="ex.-3-may-not-reflect-true-center-2"><strong>Ex. 3:</strong> May not reflect true center</h2>
@@ -758,7 +757,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The harmonic mean provides a value even more distant from the center than the geometric mean.</p>
+<p>Because we are using a dataset with a small magnitude, the harmonic mean provides a value that is even further away from the center than the geometric mean.</p>
 </section>
 <section id="ex.-5-a-tale-of-average-and-variance-2" class="level2">
 <h2 class="anchored" data-anchor-id="ex.-5-a-tale-of-average-and-variance-2"><strong>Ex. 5:</strong> A tale of average and variance</h2>
@@ -773,25 +772,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="time-travelers-guide" class="level1">
 <h1><strong>Time Travelers’ Guide</strong></h1>
-<p>A moving average is a statistical technique used to smooth out fluctuations in time series or sequential data by averaging a subset of data points within a moving window. It reduces noise to reveal underlying trends and patterns, and it is available in a variety of forms, including the simple moving average, weighted moving average, and exponential moving average.</p>
-<p>Moving averages are used to detect trends and reduce noise in fields such as finance, economics, signal processing, and climate science. However, because of the lag in detecting rapid changes and the potential impact of outliers, the moving average type and window size should be chosen based on data characteristics and analysis objectives.</p>
+<p>In time series we can have some special patterns in data, the two most common are trends, which represent long-term consistent movements in data, whether upward, downward, or flat, and seasonality, which refers to recurring and predictable patterns that repeat at regular intervals, linked to specific calendar periods.</p>
 <div class="cell">
 
 </div>
-<p>In time series we can have some special patterns in data, the two most common are trends, which represent long-term consistent movements in data, whether upward, downward, or flat, and seasonality, which refers to recurring and predictable patterns that repeat at regular intervals, linked to specific calendar periods.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>When we apply the mean to the entire period, the result can be meaningless. To use the moving average, we must first define the interval over which the average will be calculated; in the example below, we will first display the moving average for each 10 units of time.</p>
+<p>When the mean is applied to the entire period, the result can be meaningless. So, how do we arrive at a representative metric?</p>
+<p>A moving average is a statistical technique used to smooth out fluctuations in time series or sequential data by averaging a subset of data points within a moving window. It reduces noise to reveal underlying trends and patterns, and it is available in a variety of forms, including the simple moving average, weighted moving average, and exponential moving average.</p>
+<p>To use the moving average, we must first define the interval over which the average will be calculated; in the example below, we will first display the moving average for each 10 units of time.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The moving average can improve data smoothing, noise reduction, and trend identification by highlighting underlying patterns by averaging subsets of data points. However, due to the equal weighting of all data points, it introduces a lag in detecting rapid changes, is sensitive to window size, and may not accurately capture recent trends.</p>
-<p>While moving averages are effective for regular patterns, they may be ineffective for irregular data or abrupt shifts, potentially leading to oversimplification and loss of detail in the analysis.</p>
+<p>While moving averages are effective for regular patterns, they may be ineffective for irregular data or abrupt shifts, potentially leading to oversimplification and loss of detail in the analysis. Because of the lag in detecting rapid changes and the potential impact of outliers, the moving average type and window size should be chosen based on data characteristics and analysis objectives.</p>
 </section>
 <section id="how-to-apply-in-r" class="level1">
 <h1>How to apply in R</h1>

@@ -79,7 +79,7 @@ where:
 
 Because the arithmetic mean is simple to calculate and understand, it is accessible to a wide range of audiences, since it just entails the fundamental arithmetic operations of addition and division.
 
-People frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they'd take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31, or 29 minutes, so intuitively they'd do the simple arithmetic mean.
+People frequently employ the concept, even if they do not formally comprehend it. In my classes, I used to ask how long it usually takes you to get to work. Then someone said they'd take 30 minutes, for example, and I asked if that meant every day would be exactly 30 minutes, and my students said no, that some times would be 30, 31 or 29 minutes, so intuitively they'd do the simple arithmetic mean.
 
 ```{r, echo = FALSE}
 
@@ -103,13 +103,13 @@ tibble(arithmetic = calc_mean(ex1,"arithmetic")) %>%
   kable()
 ```
 
-We can see that the mean has shifted slightly.
+We can see that the mean has shifted slightly to a smaller value.
 
 ### **Ex. 2:** When numbers go big
 
 The arithmetic mean can be significantly influenced by extreme values. A single value that is unusually high or low can skew the result, resulting in an inaccurate representation of the central tendency. Extreme values in small samples can have a greater impact on the mean than extreme values in large samples.
 
-Consider the following example. To begin, we will compute the mean of a given vector of numbers.
+Now we change the last value to a larger value.
 
 ```{r, echo = FALSE}
 
@@ -192,7 +192,7 @@ Because the arithmetic mean uses sum as the base for calculation, a simmetric di
 
 ### **Ex. 5:** A tale of average and variance
 
-Let's run the normal distribution again, but this time with different variances.
+Let's run the normal distribution simulation again, but with different variances this time.
 
 ```{r, echo = FALSE}
 ex5_plot <-
@@ -312,7 +312,7 @@ $$
 \end{align}
 $$ {#eq-geometric-log}
 
-So we can see that the geometric mean can be written as the exponetial of the simple arithmetic mean (@eq-arithmetic) of the logarithmic of $x_i$.
+So we can see that the geometric mean can be written as the exponential of the simple arithmetic mean (@eq-arithmetic) of the logarithmic of $x_i$.
 
 ------------------------------------------------------------------------
 
@@ -355,8 +355,6 @@ tibble(
 
 The geometric mean is sensitive to small values in the dataset. This sensitivity can be advantageous when you want to emphasize the impact of small values or identify trends that might be overshadowed by larger values.
 
-Let's add a small value instead of the first value in our first example.
-
 ```{r, echo = FALSE}
 
 ex1
@@ -373,7 +371,7 @@ As we can see, the presence of the smaller value severely "*penalizes"* the geom
 
 ## **Ex. 2:** When numbers go big
 
-Unlike the arithmetic mean, the geometric mean is less affected by outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.
+Unlike the arithmetic mean, the geometric mean is less affected by larger outliers. This is due to the fact that the geometric mean is equivalent to taking the arithmetic mean of the logarithms of the values. This property has the effect of compressing the data, making extreme values contribute less to the final result.
 
 Let's go back to our outlier example.
 
@@ -426,7 +424,7 @@ ex5_plot+
                col = palette_qua("kick_ass",F)[1:3])
 ```
 
-We get a similar result, but in a more variable distribution, the mean becomes more skewed toward the peak density.
+We get a similar result, but in the higher variance distribution, the mean becomes more skewed toward the peak density.
 
 # **The Odd One Out in the Mean Squad**
 
@@ -474,7 +472,7 @@ tibble(
 
 ## **Ex. 2:** When numbers go big
 
-Next, we see how it is impacted byu larger value.
+Next, we see how it is impacted by a larger value.
 
 ```{r, echo = FALSE}
 
@@ -489,7 +487,7 @@ tibble(
   kable()
 ```
 
-At the same time, a larger value has less of an impact on the method.
+At the same time that it is most sensitive to small values, it is also the most robust to larger values.
 
 ## **Ex. 3:** May not reflect true center
 
@@ -516,7 +514,7 @@ ex4_plot+
   geom_vline(aes(xintercept = ex4_hmean,col = "Harmonic"), linewidth = 1)
 ```
 
-The harmonic mean provides a value even more distant from the center than the geometric mean.
+Because we are using a dataset with a small magnitude, the harmonic mean provides a value that is even further away from the center than the geometric mean.
 
 ## **Ex. 5:** A tale of average and variance
 
@@ -533,9 +531,7 @@ The harmonic mean achieves nearly the same result as the arithmetic mean, where 
 
 # **Time Travelers' Guide**
 
-A moving average is a statistical technique used to smooth out fluctuations in time series or sequential data by averaging a subset of data points within a moving window. It reduces noise to reveal underlying trends and patterns, and it is available in a variety of forms, including the simple moving average, weighted moving average, and exponential moving average.
-
-Moving averages are used to detect trends and reduce noise in fields such as finance, economics, signal processing, and climate science. However, because of the lag in detecting rapid changes and the potential impact of outliers, the moving average type and window size should be chosen based on data characteristics and analysis objectives.
+In time series we can have some special patterns in data, the two most common are trends, which represent long-term consistent movements in data, whether upward, downward, or flat, and seasonality, which refers to recurring and predictable patterns that repeat at regular intervals, linked to specific calendar periods.
 
 ```{r, echo = FALSE}
 n <- 100
@@ -559,8 +555,6 @@ tibble(
   ungroup()
 ```
 
-In time series we can have some special patterns in data, the two most common are trends, which represent long-term consistent movements in data, whether upward, downward, or flat, and seasonality, which refers to recurring and predictable patterns that repeat at regular intervals, linked to specific calendar periods.
-
 ```{r, echo = FALSE}
 
 ma_plot<-
@@ -577,7 +571,11 @@ ma_data %>%
 ma_plot
 ```
 
-When we apply the mean to the entire period, the result can be meaningless. To use the moving average, we must first define the interval over which the average will be calculated; in the example below, we will first display the moving average for each 10 units of time.
+When the mean is applied to the entire period, the result can be meaningless. So, how do we arrive at a representative metric?
+
+A moving average is a statistical technique used to smooth out fluctuations in time series or sequential data by averaging a subset of data points within a moving window. It reduces noise to reveal underlying trends and patterns, and it is available in a variety of forms, including the simple moving average, weighted moving average, and exponential moving average.
+
+To use the moving average, we must first define the interval over which the average will be calculated; in the example below, we will first display the moving average for each 10 units of time.
 
 ```{r, echo = FALSE}
 ma_aux <-
@@ -600,7 +598,7 @@ ma_plot +
 
 The moving average can improve data smoothing, noise reduction, and trend identification by highlighting underlying patterns by averaging subsets of data points. However, due to the equal weighting of all data points, it introduces a lag in detecting rapid changes, is sensitive to window size, and may not accurately capture recent trends.
 
-While moving averages are effective for regular patterns, they may be ineffective for irregular data or abrupt shifts, potentially leading to oversimplification and loss of detail in the analysis.
+While moving averages are effective for regular patterns, they may be ineffective for irregular data or abrupt shifts, potentially leading to oversimplification and loss of detail in the analysis. Because of the lag in detecting rapid changes and the potential impact of outliers, the moving average type and window size should be chosen based on data characteristics and analysis objectives.
 
 # How to apply in R
 
