@@ -1,12 +1,12 @@
 ---
-title: "An intro to Tidyverse Operators"
+title: "An intro to: Tidyverse Operators"
 author: "Vinícius Félix"
 date: "2023-01-08"
 categories: [Intro to, R, Tools]
 image: "intro-to-tidyverse-operators.png"
 ---
 
-In this post of the series **Intro to**, I'll give an introduction to the tidyverse operators and how we can make functions with them.
+In this post you will learn that a walrus is not just a animal.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))

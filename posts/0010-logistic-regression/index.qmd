@@ -1,5 +1,5 @@
 ---
-title: "An intro to Logistic Regression"
+title: "An intro to: Logistic Regression"
 author: "Vinícius Félix"
 date: "2023-07-30"
 categories: [Intro to, Probability, Theory]
@@ -18,7 +18,7 @@ suppressWarnings(library(kableExtra))
 suppressWarnings(library(forcats))
 ```
 
-In this post of the series **Intro to**, I'll give an introduction to the Logistic Regression.
+In this post, we will board the S.S. Logistic and learn about the Titanic passengers' survival.
 
 # Introduction
 

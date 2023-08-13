@@ -1,5 +1,5 @@
 ---
-title: "An intro to Mean"
+title: "An intro to: Mean"
 author: "Vinícius Félix"
 date: "2023-08-13"
 categories: [Intro to,Theory]
@@ -59,7 +59,7 @@ ex5_hmean <- ex5 %>% group_by(g) %>% summarise(m = calc_mean(x,"h")) %>%  pull(m
 
 ```
 
-In this post of the series **Intro to**, I'll navigate the Land of the Averages**.**
+In this post, we will navigate the Land of the Averages**.**
 
 # **The Meme That Everyone Gets**
 

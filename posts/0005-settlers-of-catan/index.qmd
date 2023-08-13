@@ -1,12 +1,12 @@
 ---
-title: "An analysis of Settlers of Catan"
+title: "An analysis of: Settlers of Catan"
 author: "Vinícius Félix"
 date: "2023-01-14"
 categories: [An analysis of, Probability]
 image: "an-analysis-of-settlers-of-catan.png"
 ---
 
-In this post of the series **An analysis of**, I'll do a data analysis of my favorite board game, Settlers of Catan.
+In this post you will learn how statistics and probability can help you to win a board game.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))

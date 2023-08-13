@@ -9,7 +9,7 @@
 <meta name="author" content="Vinícius Félix">
 <meta name="dcterms.date" content="2023-08-05">
 
-<title>vbfelix - An intro to Birthday Paradox</title>
+<title>vbfelix - An intro to: Birthday Paradox</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">An intro to Birthday Paradox</h1>
+      <h1 class="title">An intro to: Birthday Paradox</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Intro to</div>
                 <div class="quarto-category">Probability</div>
@@ -172,11 +172,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#when-birthdays-collide" id="toc-when-birthdays-collide" class="nav-link" data-scroll-target="#when-birthdays-collide">When birthdays collide</a>
-  <ul class="collapse">
   <li><a href="#twice-the-wishes" id="toc-twice-the-wishes" class="nav-link" data-scroll-target="#twice-the-wishes">Twice the wishes</a></li>
   <li><a href="#when-statistics-blow-out-the-candles" id="toc-when-statistics-blow-out-the-candles" class="nav-link" data-scroll-target="#when-statistics-blow-out-the-candles">When Statistics Blow Out the Candles</a></li>
-  </ul></li>
   <li><a href="#the-more-the-merrier" id="toc-the-more-the-merrier" class="nav-link" data-scroll-target="#the-more-the-merrier">The more the merrier?</a></li>
   </ul>
 </nav>
@@ -190,17 +187,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<p>In this post of the series <strong>Intro to</strong>, I’ll give an introduction to the Birthday Paradox.</p>
+<p>In this post, we will learn about the likelihood of birthdays colliding.</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>The birthday paradox is a well-known and somewhat perplexing probability problem that concerns the likelihood of two people in a group sharing their birthday.</p>
 <p>The results frequently surprise people due to their initial probability assumptions, which is why it is referred to as a paradox.</p>
-</section>
-<section id="when-birthdays-collide" class="level1">
-<h1>When birthdays collide</h1>
 <p>What is the probability that two people in a room with 23 random people share the same birthday?</p>
-<section id="twice-the-wishes" class="level2">
-<h2 class="anchored" data-anchor-id="twice-the-wishes">Twice the wishes</h2>
+</section>
+<section id="twice-the-wishes" class="level1">
+<h1>Twice the wishes</h1>
 <p>First, we compute the total number of pairs using the combinations with no repeat formula, which is given by:</p>
 <p><span id="eq-combination"><span class="math display">\[
 \frac{n!}{r!(n-r)!},
@@ -224,8 +219,8 @@ ul.task-list li input[type="checkbox"] {
 \tag{2}\]</span></span></p>
 <p>As seen in <a href="#eq-pair-23">Equation&nbsp;2</a>, we have a total of 253 pairs.</p>
 </section>
-<section id="when-statistics-blow-out-the-candles" class="level2">
-<h2 class="anchored" data-anchor-id="when-statistics-blow-out-the-candles">When Statistics Blow Out the Candles</h2>
+<section id="when-statistics-blow-out-the-candles" class="level1">
+<h1>When Statistics Blow Out the Candles</h1>
 <p>Given that a year has 365 days, if the first person is born on a single day, the second person only needs to be born on any other day, so the likelihood of two people having different birthdays is:</p>
 <p><span id="eq-prob-diff-birthday"><span class="math display">\[
 \frac{364}{365} \approx 0.9972.
@@ -237,7 +232,6 @@ ul.task-list li input[type="checkbox"] {
 <p><span id="eq-pair-same-birthday"><span class="math display">\[
 1 - \left(\frac{364}{365}\right)^{253} \approx 0.5005.
 \tag{5}\]</span></span> So, in a group of only 23 people, there is a greater than 50% chance that at least two of them have the same birthday.</p>
-</section>
 </section>
 <section id="the-more-the-merrier" class="level1">
 <h1>The more the merrier?</h1>

@@ -1,5 +1,5 @@
 ---
-title: "An intro to Chi-square Test"
+title: "An intro to: Chi-square Test"
 author: "Vinícius Félix"
 date: "2023-01-01"
 categories: [Intro to, Hypothesis test, Theory]
@@ -7,7 +7,7 @@ bibliography: references.bib
 image: "intro-to-chi-square-test.png"
 ---
 
-In this post of the series **Intro to**, I'll give an introduction to the chi-square test, one of the most well-known statistical tests.
+In this post you will learn how to solve the mystery of the Chi-Square, spoiler alert: It's significant!
 
 # Context
 

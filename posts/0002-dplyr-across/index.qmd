@@ -1,12 +1,12 @@
 ---
-title: "An intro to dplyr::across"
+title: "An intro to: dplyr::across"
 author: "Vinícius Félix"
 date: "2023-01-02"
 categories: [Intro to, R, Tools]
 image: "intro-to-dplyr-across.png"
 ---
 
-In this post of the series **Intro to**, I'll give an introduction to the function `across` of the R package `dplyr`.
+In this post you will learn to never repeat a function again inside a `dplyr` pipeline.
 
 # Context
 

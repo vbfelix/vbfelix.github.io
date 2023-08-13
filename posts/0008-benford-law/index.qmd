@@ -1,5 +1,5 @@
 ---
-title: "An intro to Benford's Law"
+title: "An intro to: Benford's Law"
 author: "Vinícius Félix"
 date: "2023-07-25"
 categories: [Intro to, Probability, Theory]
@@ -25,7 +25,7 @@ benford <- function(x){
 }
 ```
 
-In this post of the series **Intro to**, I'll give an introduction to the Benford's Law.
+In this post you will learn how to fraud a fraud detection.
 
 # Introduction
 

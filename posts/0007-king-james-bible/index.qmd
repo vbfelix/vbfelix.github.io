@@ -1,12 +1,12 @@
 ---
-title: "An analysis of The King James Bible"
+title: "An analysis of: The King James Bible"
 author: "Vinícius Félix"
 date: "2023-07-16"
 categories: [An analysis of, Text Mining]
 image: "intro-to-king-james-bible.png"
 ---
 
-In this post of the series **An analysis of**, I'll do a text analysis of The King James Bible.
+In this post you will learn the hallelujah highs and lament lows of the bible.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))

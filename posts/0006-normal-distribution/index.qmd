@@ -1,12 +1,12 @@
 ---
-title: "An intro to Normal Distribution"
+title: "An intro to: Normal Distribution"
 author: "Vinícius Félix"
 date: "2023-06-18"
 categories: [Intro to, Theory]
 image: "intro-to-normal-distribution.png"
 ---
 
-In this post of the series **Intro to**, I'll give an introduction to the normal distribution.
+In this post you will learn what bell, Gauss and simmetry have in common.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 suppressWarnings(library(ggplot2))
