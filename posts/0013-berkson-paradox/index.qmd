@@ -1,0 +1,123 @@
+---
+title: "An intro to: Berkson's paradox"
+author: "Vinícius Félix"
+date: "2023-08-20"
+categories: [Intro to,Theory]
+image: "intro-berkson-paradox.png"
+bibliography: references.bib
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+```{r, echo = FALSE,message=FALSE,warning=FALSE}
+
+set.seed(125);df <-
+  relper::rpearson(n = 100,pearson = .825,tol = .05,mean = 4, sd = 2) %>% 
+  mutate(aux = if_else( (y>(7-x)) & (y<(9-x)),TRUE,FALSE))
+
+```
+
+In this post, we will see how a selection can invert a relationship**.**
+
+# Context
+
+It was described by Joseph Berkson [@berkson1946] when two attributes that are individually positively correlated, but given a third variable or a baised selection, they appear to have a negative correlation when examined together.
+
+This counterintuitive phenomenon occurs as a result of data collection selection bias. Patients with multiple health conditions, for example, are more likely to be admitted in a hospital setting, resulting in a skewed sample that does not reflect the general population.
+
+# Example
+
+Assume we have two numerical variables.
+
+```{r, echo = FALSE}
+
+col1 <- palette_two("hightown")[2]
+col2 <- palette_two("hightown")[1]  
+  
+p0 <-
+df %>% 
+  ggplot(aes(x,y))+
+  geom_point(size = 2.5,col = col1)+
+  plt_theme_xy()+
+  plt_no_labels+
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )+
+  plt_water_mark(vfx_watermark)+
+  NULL
+
+p0
+```
+
+As shown in the figure above, they have a strong positive linear relationship with a pearson correlation coefficient of 0.859.
+
+```{r, echo = FALSE}
+
+p1 <-
+  p0 +
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    formula = "y~x",
+    linewidth = 1,
+    col = col1
+  )
+  
+p1
+```
+
+Now, we will do a selection of a determined section of our data.
+
+```{r, echo = FALSE}
+
+p2 <-  
+  p1+
+  geom_abline(slope = -1,intercept = 7, linewidth = 1, col = col2)+
+  geom_abline(slope = -1,intercept = 9, linewidth = 1, col = col2)
+
+p2
+```
+
+We can see that the overall relationship between the variables differs if we only look at the data in the new section.
+
+```{r, echo = FALSE}
+
+p3 <-
+p2 +
+  geom_point(aes(col = aux), show.legend = FALSE, size = 2.5)+
+  scale_fill_manual(values = c(col1,col2))+
+  scale_color_manual(values = c(col1,col2))
+
+p3
+```
+
+With a pearson coefficient of -0.389, the correlation is now negative, reversing the original relationship.
+
+```{r, echo = FALSE}
+
+p3 + 
+  geom_smooth(
+    data = df %>% 
+      filter(aux == TRUE),
+    method = "lm",
+    se = FALSE,
+    formula = "y~x",
+    col = col2
+    )
+```
+
+# Considerations
+
+This paradox highlights the importance of understanding underlying biases and data selection processes. It emphasizes the risks of drawing conclusions solely from observational data, particularly when complex variables are involved.
+
+To accurately interpret relationships between variables in their studies, researchers must be cautious, taking into account the nuances of their data and accounting for alternative explanations.

@@ -1,0 +1,16 @@
+{
+  "hash": "2d962d1f1cb4536966ec5cdaea5078ff",
+  "result": {
+    "markdown": "---\ntitle: \"An intro to: Berkson's paradox\"\nauthor: \"Vinícius Félix\"\ndate: \"2023-08-20\"\ncategories: [Intro to,Theory]\nimage: \"intro-berkson-paradox.png\"\nbibliography: references.bib\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\nIn this post, we will see how a selection can invert a relationship**.**\n\n# Context\n\nIt was described by Joseph Berkson [@berkson1946] when two attributes that are individually positively correlated, but given a third variable or a baised selection, they appear to have a negative correlation when examined together.\n\nThis counterintuitive phenomenon occurs as a result of data collection selection bias. Patients with multiple health conditions, for example, are more likely to be admitted in a hospital setting, resulting in a skewed sample that does not reflect the general population.\n\n# Example\n\nAssume we have two numerical variables.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\nAs shown in the figure above, they have a strong positive linear relationship with a pearson correlation coefficient of 0.859.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\nNow, we will do a selection of a determined section of our data.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\nWe can see that the overall relationship between the variables differs if we only look at the data in the new section.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n\nWith a pearson coefficient of -0.389, the correlation is now negative, reversing the original relationship.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n\n\n# Considerations\n\nThis paradox highlights the importance of understanding underlying biases and data selection processes. It emphasizes the risks of drawing conclusions solely from observational data, particularly when complex variables are involved.\n\nTo accurately interpret relationships between variables in their studies, researchers must be cautious, taking into account the nuances of their data and accounting for alternative explanations.\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
