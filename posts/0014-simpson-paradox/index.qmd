@@ -1,0 +1,105 @@
+---
+title: "An intro to: Simpson's paradox"
+author: "Vinícius Félix"
+date: "2023-08-20"
+categories: [Intro to,Theory]
+image: "intro-simpson-paradox.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+```{r, echo = FALSE,message=FALSE,warning=FALSE}
+
+n <- 100
+
+set.seed(123);data <-
+rpearson(n = n,pearson = .75,sd = 2) %>% 
+  bind_rows(
+    rpearson(n = n,pearson = .75,sd = 2) %>% 
+    mutate(x = x - 2, y = y + 2)
+  ) %>% 
+  bind_rows(
+    rpearson(n = n,pearson = .75,sd = 2) %>% 
+      mutate(x = x - 4, y = y + 4)
+  ) %>% 
+  bind_rows(
+    rpearson(n = n,pearson = .75,sd = 2) %>% 
+      mutate(x = x - 6, y = y + 6)
+  ) %>% 
+  bind_rows(
+    rpearson(n = n,pearson = .75,sd = 2) %>% 
+      mutate(x = x - 8, y = y + 8)
+  ) %>% 
+  mutate(g = rep(letters[1:5],each = n))  
+
+base_plot <-
+  data %>% 
+  ggplot(aes(x,y))+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  plt_no_labels+
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+```
+
+In this post, we will see how a third party can show us the truth about a relationship**.**
+
+# Context
+
+Simpson's Paradox is a statistical phenomenon that occurs when an observed correlation between two variables in separate groups of data is reversed when compared to the overall correlation without taking the group into account.
+
+When analyzing data, this phenomenon, named after statistician Edward Simpson, can lead to incorrect conclusions. Despite Simpson's discovery in 1951, the concept had previously been noted by other researchers.
+
+# Example
+
+Assume we have two numerical variables.
+
+```{r, echo = FALSE}
+
+base_plot+
+  geom_point(size = 2.5)+
+  geom_smooth(se = FALSE, method = "lm", formula = "y~x", col = "black", linewidth = 1.5)
+```
+
+As shown in the figure above, they have a moderate negative linear relationship with a pearson correlation coefficient of -0.589.
+
+```{r, echo = FALSE}
+
+base_plot+
+  geom_point(aes(fill = g), shape = 21,size = 2.5, show.legend = FALSE)+
+  geom_smooth(se = FALSE, method = "lm", formula = "y~x", col = "black")+
+  scale_fill_manual(values = palette_qua("bojack_horseman"))
+```
+
+Now, we look at the data with a third categorical variable in mind, and we see that the correlation is positive for each level of this variable for each subgroup of data.
+
+```{r, echo = FALSE}
+
+base_plot+
+  geom_point(aes(fill = g), shape = 21,size = 2.5, show.legend = FALSE)+
+  geom_smooth(aes(col = g),se = FALSE, method = "lm", formula = "y~x", show.legend = FALSE)+
+  geom_smooth(se = FALSE, method = "lm", formula = "y~x", col = "black")+
+  scale_fill_manual(values = palette_qua("bojack_horseman"))+
+  scale_colour_manual(values = palette_qua("bojack_horseman"))
+```
+
+# Considerations
+
+This paradox highlights the importance of understanding biases and data selection in research, warning against drawing conclusions solely from observational data, particularly when dealing with complex variables. A lurking or hidden variable (confounder) is frequently to blame for the paradox. Be aware that this confounder has the potential to distort the apparent relationship between variables, resulting in counterintuitive results.
+
+To ensure accurate interpretations of variable relationships, researchers must be cautious, taking into account data complexities and alternative explanations. Incorporate domain expertise as well to identify potential confounders or factors that may contribute to the paradox. Unexpected outcomes can be explained with a thorough understanding of the subject.
+
+\
+
