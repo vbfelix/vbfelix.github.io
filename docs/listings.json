@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/0015-combination/index.html",
       "/posts/0013-berkson-paradox/index.html",
       "/posts/0014-simpson-paradox/index.html",
       "/posts/0012-mean/index.html",

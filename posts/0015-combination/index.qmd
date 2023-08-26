@@ -1,0 +1,251 @@
+---
+title: "An intro to: Combination and Permutation"
+author: "Vinícius Félix"
+date: "2023-08-27"
+categories: [Intro to,Probability,R,Theory]
+image: "intro-combination-permutation.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, we will see that with just four questions we can easily understand which formula to apply.
+
+# Context
+
+Permutations and combinations are basic mathematical concepts with numerous real-world applications.
+
+Combinations are the process of selecting objects without regard to order, whereas permutations are the process of arranging objects in specific orders, with each arrangement being unique.
+
+These principles underpin fields ranging from cryptography to genetics, allowing for problem-solving across multiple domains, and understanding their distinctions is critical for solving a wide range of puzzles and challenges accurately.
+
+# How to know which formula to use
+
+To calculate the total number of combinations/permutations, you must first answer the following questions:
+
+1.  **Order matter?**
+
+2.  **There is repetition?**
+
+3.  **What is the number of total observations?**
+
+4.  **What is the number of observations to be selected?**
+
+## Example 1: Order matter with repetition
+
+Assume we want to know the number of password combinations with only numbers in a four-digit password, such as 1234.
+
+1.  **Order matters?**
+
+    Yes, because a password such as 1234 differs from a 4321.
+
+2.  **There is repetition?**
+
+    Yes, because a password could be 1111.
+
+3.  **What is the number of total observations?**
+
+    Is 10 because we have the options 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+
+4.  **What is the number of observations to be selected?**
+
+    Is 4, because the password will have four digits.
+
+If we can repeat the numbers and have ten options, the total number of passwords is 10x10x10x10 = 1.000.
+
+The we can generalize this to:
+
+$$
+n_{[1]} \times n_{[2]} \times ...\times n_{[r-1]} \times n_{[r]} = n^r, 
+$$ {#eq-permutation-with-repetition}
+
+where:
+
+-   $n$ is the total number of observations;
+
+-   $r$ is the number of observations to be selected.
+
+## Example 2: Order matter without repetition
+
+Assume we want to know the number of combinations in a lottery ticket with six numbers drawn from 1 to 60 in the correct order.
+
+1.  **Order matters?**
+
+    Yes, because you have to guess the correct order, 123456 is not the same as 654321.
+
+2.  **There is repetition?**
+
+    No, because each drawn number cannot be drawn again.
+
+3.  **What is the number of total observations?**
+
+    Is 60, because that is the total number to be drawn from.
+
+4.  **What is the number of observations to be selected?**
+
+    Is 6 because it is the number of numbers to be chosen.
+
+So we have 60 for the first option, then 59 for the second, then 58, 57, 56, 55, for a total of 60x59x58x57x56x55 = 36,045,979,200 combinations.
+
+The we can generalize this to:
+
+$$
+\begin{align}
+n \times (n-1) \times ...\times [n-(r-1)] 
+&=  n \times (n-1) \times ...\times (n-r+1) \\ 
+&=  \frac{n \times (n-1)  \times ...\times(n-r+1) \times... \times  2 \times 1}{(n-r)\times(n-r-1)\times...\times2\times 1}\\ 
+&= \frac{n!}{(n-r)!},
+\end{align}
+$$ {#eq-permutation-without-repetition}
+
+where:
+
+-   $n$ is the total number of observations;
+
+-   $r$ is the number of observations to be selected.
+
+## Example 3: Order does not matter without repetition
+
+Assume we have a deck of 52 cards and want to know how many combinations exist in a three-card hand.
+
+1.  **Order matters?**
+
+    No, because only the cards themselves are important, not the order.
+
+2.  **There is repetition?**
+
+    No, since each card is unique in the deck.
+
+3.  **What is the number of total observations?**
+
+    Is 52, because the total number of cards to be drawn is 52.
+
+4.  **What is the number of observations to be selected?**
+
+    Is three because that is the number of cards in a hand.
+
+Using @eq-permutation-without-repetition we would have 132,600 combinations. But let's take a single hand with the cards 1, 2 and 3, also applying @eq-permutation-without-repetition to this subset, that would mean a total of 6 combinations considering the order:
+
+-   1 - 2 - 3
+
+-   1 - 3 - 2
+
+-   2 - 1 - 3
+
+-   2 - 3 - 1
+
+-   3 - 1 - 2
+
+-   3 - 2 - 1
+
+So, for example, all of these six hands are actually one, scince order is irrelevant, so the true number of hands is acutally 132,600/6 = 22,100.
+
+The we can generalize this to:
+
+$$
+\begin{align}
+\frac{\frac{n!}{(n-r)!}}{\frac{r!}{(r-r)!}}
+&= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{(0)!}} \\
+&= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{1}} \\
+&= \frac{n!}{r!(n-r)!},
+\end{align}
+$$ {#eq-combination-without-repetition}
+
+where:
+
+-   $n$ is the total number of observations;
+
+-   $r$ is the number of observations to be selected.
+
+## Example 4: Order does not matter with repetition
+
+Let's say we need to add four extra ingredients to an Açai Bowl delivery and have five options to choose from:
+
+1.  \[B\] Banana
+
+2.  \[S\] Strawberry
+
+3.  \[G\] Grape
+
+4.  \[C\] Chocolate
+
+5.  \[O\] Oat
+
+So, combinations such as \[B,B,B,B\], \[B,B,B,C\] or \[B,S,C,G\] can be made.
+
+1.  **Order matters?**
+
+    No, because we only care about the ingredients used.
+
+2.  **There is repetition?**
+
+    Yes, because we can reuse the ingredient.
+
+3.  **What is the number of total observations?**
+
+    Is 5, because the number of ingredient options is five.
+
+4.  **What is the number of observations to be selected?**
+
+    Is three because that is the number of ingredients to be added.
+
+Applying @eq-combination-without-repetition we would have5 combinations: \[B,S,G,C\], \[B,S,G,O\], \[B,G,S,C\], \[B,G,O,C\] and \[S,G,C,O\]. But now we need to take in consideration the repeated ingredients.
+
+So, how should we think about the repetition? Now we must consider the repetitions, using Banana as an example:
+
+-   4 bananas = \[B,B,B,B\]
+
+-   3 bananas = \[B,B,B,S\] \[B,B,B,G\] \[B,B,B,C\] \[B,B,B,O\]
+
+-   2 bananas and 2 unique ingredientes = \[B,B,S,G\] \[B,B,S,C\] \[B,B,S,O\] \[B,B,G,C\] \[B,B,G,O\] \[B,B,C,O\]
+
+-   2 bananas and 2 identical ingredientes = \[B,B,S,S\] \[B,B,G,G\] \[B,B,C,C\] \[B,B,O,O\]
+
+-   1 bananas and 3 identical ingredientes = \[B,S,S,S\] \[B,G,G,G\] \[B,C,C,C\] \[B,O,O,O\]
+
+-   1 bananas and 3 unique ingredientes = \[B,S,G,C\] \[B,S,G,O\] \[B,G,S,C\] \[B,G,O,C\]
+
+-   1 bananas and 2 identical ingredientes = \[B,S,S,G\] \[B,S,S,C\] \[B,S,S,O\] \[B,G,G,S\] \[B,G,G,C\] \[B,G,G,O\] \[B,C,C,S\] \[B,C,C,G\] \[B,C,C,O\] \[B,O,O,S\] \[B,O,O,G\] \[B,O,O,C\]
+
+So, we have 1 + 4 + 6 + 4 + 4 + 4 + 12 = 35 combinations, which means we must do 35 x 5? No, because some combinations would be repeated, and in this case, the order is irrelevant.
+
+$$
+\begin{align}
+\frac{(n+r-1)!}{r![(n+r-1)-r]!} 
+&= \frac{(n+r-1)!}{r!(n-1)!} ,
+\end{align}
+$$ {#eq-combination-with-repetition}
+
+where:
+
+-   $n$ is the total number of observations;
+
+-   $r$ is the number of observations to be selected.
+
+# Where is this implemented?
+
+All of these functions are already implemented in my R package [relper](https://vbfelix.github.io/relper/index.html#installation):
+
+```{r}
+library(relper)
+
+#Example 1
+calc_combination(n = 10,r = 4,order_matter = TRUE,with_repetition = TRUE)
+
+#Example 2
+calc_combination(n = 60,r = 6,order_matter = TRUE,with_repetition = FALSE)
+
+#Example 3
+calc_combination(n = 52,r = 3,order_matter = FALSE,with_repetition = FALSE)
+
+#Example 4
+calc_combination(n = 5,r = 4,order_matter = FALSE,with_repetition = TRUE)
+```
