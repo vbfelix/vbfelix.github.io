@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#example-3-order-does-not-matter-without-repetition" id="toc-example-3-order-does-not-matter-without-repetition" class="nav-link" data-scroll-target="#example-3-order-does-not-matter-without-repetition">Example 3: Order does not matter without repetition</a></li>
   <li><a href="#example-4-order-does-not-matter-with-repetition" id="toc-example-4-order-does-not-matter-with-repetition" class="nav-link" data-scroll-target="#example-4-order-does-not-matter-with-repetition">Example 4: Order does not matter with repetition</a></li>
   </ul></li>
-  <li><a href="#where-is-this-implemented" id="toc-where-is-this-implemented" class="nav-link" data-scroll-target="#where-is-this-implemented">Where is this implemented?</a></li>
+  <li><a href="#and-where-is-this-implemented" id="toc-and-where-is-this-implemented" class="nav-link" data-scroll-target="#and-where-is-this-implemented">And where is this implemented?</a></li>
   </ul>
 </nav>
     </div>
@@ -396,6 +396,7 @@ n \times (n-1) \times ...\times [n-(r-1)]
 <li><p>1 bananas and 2 identical ingredientes = [B,S,S,G] [B,S,S,C] [B,S,S,O] [B,G,G,S] [B,G,G,C] [B,G,G,O] [B,C,C,S] [B,C,C,G] [B,C,C,O] [B,O,O,S] [B,O,O,G] [B,O,O,C]</p></li>
 </ul>
 <p>So, we have 1 + 4 + 6 + 4 + 4 + 4 + 12 = 35 combinations, which means we must do 35 x 5? No, because some combinations would be repeated, and in this case, the order is irrelevant.</p>
+<p>We can use <a href="#eq-combination-without-repetition">Equation&nbsp;3</a> but considering <span class="math inline">\(n\)</span> as <span class="math inline">\(n+r-1\)</span>.</p>
 <p><span id="eq-combination-with-repetition"><span class="math display">\[
 \begin{align}
 \frac{(n+r-1)!}{r![(n+r-1)-r]!}
@@ -409,8 +410,8 @@ n \times (n-1) \times ...\times [n-(r-1)]
 </ul>
 </section>
 </section>
-<section id="where-is-this-implemented" class="level1">
-<h1>Where is this implemented?</h1>
+<section id="and-where-is-this-implemented" class="level1">
+<h1>And where is this implemented?</h1>
 <p>All of these functions are already implemented in my R package <a href="https://vbfelix.github.io/relper/index.html#installation">relper</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(relper)</span>

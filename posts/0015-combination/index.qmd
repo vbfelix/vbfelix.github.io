@@ -217,6 +217,8 @@ So, how should we think about the repetition? Now we must consider the repetitio
 
 So, we have 1 + 4 + 6 + 4 + 4 + 4 + 12 = 35 combinations, which means we must do 35 x 5? No, because some combinations would be repeated, and in this case, the order is irrelevant.
 
+We can use @eq-combination-without-repetition but considering $n$ as $n+r-1$.
+
 $$
 \begin{align}
 \frac{(n+r-1)!}{r![(n+r-1)-r]!} 
@@ -230,7 +232,7 @@ where:
 
 -   $r$ is the number of observations to be selected.
 
-# Where is this implemented?
+# And where is this implemented?
 
 All of these functions are already implemented in my R package [relper](https://vbfelix.github.io/relper/index.html#installation):
 
