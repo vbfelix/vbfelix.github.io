@@ -250,4 +250,6 @@ calc_combination(n = 52,r = 3,order_matter = FALSE,with_repetition = FALSE)
 
 #Example 4
 calc_combination(n = 5,r = 4,order_matter = FALSE,with_repetition = TRUE)
+
+calc_combination(n = 8,r = 4,order_matter = FALSE,with_repetition = FALSE)
 ```
