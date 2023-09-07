@@ -1,0 +1,298 @@
+---
+title: "An intro to: Linear and log models"
+author: "Vinícius Félix"
+date: "2023-09-06"
+categories: [Intro to,Probability,R,Theory]
+image: "intro-models-and-logs.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+# https://library.virginia.edu/data/articles/interpreting-log-transformations-in-a-linear-model
+#https://www.dummies.com/article/business-careers-money/business/economics/the-linear-log-model-in-econometrics-156470/
+```
+
+In this post, we will see how we can combine log with models to help our interpretation.
+
+```{r, echo = FALSE}
+
+animals_df <- 
+  MASS::Animals %>% 
+  tibble::rownames_to_column(var = "animal")
+
+set.seed(123);human_df <-
+  rpearson(n = 100,pearson = .85,mean = 1.7,sd = .5) %>% 
+  mutate(
+    y = 100*format_scale(y,new_min = 1.55,new_max = 1.95),
+    x = 50 + (x*15)
+  )
+  
+
+```
+
+# Linear-Linear
+
+A linear model (LM) is given by:
+
+$$
+Y_i = \beta_0 + \beta_1x_1 + ...+\beta_nx_n + \varepsilon_i,
+$$ {#eq-linear-linear}
+
+where:
+
+-   $Y_i$ is the response variable;
+
+-   $\beta_0$ is the intercept;
+
+-   $\beta_1$ is the slope coefficient of the explanatory variable $x_1$ ;
+
+-   $\beta_n$ is the slope coefficient of theexplanatory variable $x_n$ ;
+
+-   $\varepsilon_i$ is the error term
+
+To understand how the model behavior let's see in a simple regression model
+
+$$
+Y_i = \beta_0 + \beta_1x_1 + \varepsilon_i.
+$$ {#eq-linear-linear-simple}
+
+A 1 unit increase in $x_1$ impact in $Y_i$ is:
+
+$$
+\begin{align}
+\beta_1(x_1+1) - \beta_1x_1
+& = \beta_1x_1+\beta_1 - \beta_1x_1 \\
+& = \beta_1.
+\end{align}
+$$ {#eq-linear-linear-coef}
+
+## Example
+
+So, for example, if we adjust a linear model of human weight and height, first let's see how they behave.
+
+```{r, echo = FALSE}
+human_df %>% 
+  ggplot(aes(y,x))+
+  geom_point()+
+  plt_regression_line(color = "firebrick2")+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  labs(
+    y = "Weight (Kg)",
+    x = "Height (cm)"
+  )
+```
+
+Because we see a linear relationship between the variables, a linear model is not absurd; after adjusting a linear model, we get:
+
+$$
+\mathrm{weight} = -47.6283 + 0.6995*\mathrm{height},
+$$ {#eq-linear-linear-example}
+
+That is, for every centimeter a person grows taller, they are estimated to be 0.6995 kg heavier. As a result, a one-unit increase in height results in a 0.6995-unit increase in weight.
+
+```{r, echo = FALSE, include = FALSE}
+lm(data = human_df,formula =x~y)
+
+```
+
+However, there are times when the relationship between our variables is not linear or additive. Given its properties, the logarithmic scale can be very useful, for more details check my post [An intro to: Logarithmic Scale](https://vbfelix.github.io/posts/0003-log-scale/).
+
+# Log-Linear
+
+A log-linear model implies that we apply the log to the response variable ($Y_i$),
+
+$$
+\log{(Y_i)} = \beta_0 + \beta_1x_1 + ...+\beta_nx_n + \varepsilon_i,
+$$ {#eq-log-linear}
+
+To understand how the model behavior let's see in a simple regression model
+
+$$
+\log{(Y_i)} = \beta_0 + \beta_1x_1 + \varepsilon_i,
+$$ {#eq-log-linear-simple}
+
+To see how a 1 unit increase in $x_1$ implies in $Y_i$, we have to exponentiate it
+
+$$
+\begin{align}
+Y_i
+& = e^{\log{(Y_i)}} \\
+& = e^{\beta_0 + \beta_1x_1 + \varepsilon_i}\\
+& = e^{\beta_0}e^{\beta_1x_1}e^{\varepsilon_i}.
+\end{align}
+$$ {#eq-log-linear-exp}
+
+A 1 unit increase in $x_1$ impact in $Y_i$ is:
+
+$$
+\begin{align}
+\varepsilon^{\beta_1(x_1+1)} - \varepsilon^{\beta_1x_1}
+& = \varepsilon^{\beta_1x_1+\beta_1} - \varepsilon^{\beta_1x_1} \\
+& = \varepsilon^{\beta_1x_1+\beta_1-\beta_1x_1} \\
+& = \varepsilon^{\beta_1}. 
+\end{align}
+$$ {#eq-log-linear-coef}
+
+For small values we have that
+
+$$
+\varepsilon^\beta \approx 1 + \beta.
+$$ {#eq-exp-approx}
+
+Using the approximation of @eq-exp-approx in @eq-log-linear-coef we can say that for a positive coefficient $\beta_1$, a one-unit increase in $x_1$ is associated with an approximate increase in $Y_i$ of
+
+$$
+\begin{align}
+[100*(e^{\beta_1}-1)]\% 
+& \approx [100*(1+ \beta_1-1)]\% \\
+& \approx (100*\beta_1)\%. 
+\end{align}
+$$ {#eq-log-linear-coef-pos}
+
+For a negative coefficient $\beta_1$, a one-unit increase is associated with an approximate decrease in $Y_i$ of
+
+$$
+\begin{align}
+[100*(1-e^{\beta_1})]\% 
+& \approx [100*(1- 1 - \beta_1)]\% \\
+& \approx -(100*\beta_1)\%. 
+\end{align}
+$$ {#eq-log-linear-coef-neg}
+
+# Linear-log
+
+A linear-log model implies that we apply the log to one or more explanatory variables ($x_i$),
+
+$$
+Y_i = \beta_0 + \beta_1\log{(x_1)} + ...+\beta_n\log{(x_n)} + \varepsilon_i,
+$$ {#eq-linear-log}
+
+To understand how the model behavior let's see in a simple regression model
+
+$$
+Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
+$$ {#eq-linear-log-simple}
+
+Let's see how a 1 unit change in the log of $x_1$, considering $x_2 = x_1+1$,
+
+\
+$$
+\begin{align}
+\log{(x_2)} - \log{(x_1)}
+& = \log{\left(\frac{x_2}{x_1}\right)}. \\
+\end{align}
+$$ {#eq-log-diff}
+
+To see how the percent change is a linear approximation of the log difference, consider two values, $a$ and $b$, where the percent change is given by:
+
+$$
+\frac{b-a}{a}.
+$$ {#eq-percent-change}
+
+Considering the first order of the Taylor expansion of $\log{(z)}$ around $z=1$ we have that
+
+$$
+\log{(z)} \approx z - 1.
+$$ {#eq-log-taylor-diff}
+
+Assuming that $\frac{b}{a} \approx 1$, we can apply the concept of @eq-log-taylor-diff to @eq-log-diff
+
+$$
+\begin{align}
+\log{\left(\frac{x_2}{x_1}\right)} 
+& \approx \frac{x_2}{x_1} - 1 \\
+& \approx \frac{x_2-x_1}{x_1}  \\
+& \approx \frac{(x_1+1)-x_1}{x_1}.  \\
+\end{align}
+$$ {#eq-log-diff-approx-to-percent-change}
+
+Applying the @eq-percent-change in the @eq-log-diff-approx-to-percent-change, that is the equivalent to a 1 percent change, so for every 1% increase in $x_1$, $Y_i$ increases by about $\beta_1/100$.
+
+# Log-log
+
+A linear-log model implies that we apply the log to both response ($Y_i$) and explanatory ($x_i$),
+
+$$
+\log{(Y_i)} = \beta_0 + \beta_1\log{(x_1)} + ...+\beta_n\log{(x_n)} + \varepsilon_i,
+$$ {#eq-log-log}
+
+To understand how the model behavior let's see in a simple regression model
+
+$$
+\log{(Y_i)} = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
+$$ {#eq-log-log-simple}
+
+Since the log is applied to $x_1$ we can apply the same logic of @eq-log-diff-approx-to-percent-change and @eq-log-linear-coef-pos, for every 1% increase in $x_1$, $Y_i$ increases by $\beta_1\%$.
+
+## Example
+
+To understand in an example, we will use a data with the average brain and body weights for 28 species of land animals.
+
+First, we will do a scatter plot of the two variables.
+
+```{r, echo = FALSE}
+animals_df %>% 
+  ggplot(aes(body,brain))+
+  geom_point()+
+  # plt_regression_line(color = "firebrick2")+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  labs(
+    x = "Body Weight, in Kg",
+    y = "Brain Weight, in g"
+  )
+```
+
+The relationship between the two variables is difficult to discern, as shown in the figure above, because some of the animals are outliers in terms of brain and body weight. As a result, we can "compress" this difference using the logarithm.
+
+```{r, echo = FALSE}
+animals_df %>% 
+  ggplot(aes(log(body),log(brain)))+
+  geom_point()+
+  plt_regression_line(color = "firebrick2")+
+  plt_theme_xy()+
+  plt_water_mark(vfx_watermark)+
+  plt_flip_y_title+
+  labs(
+    x = "log(Body Weight), in Kg",
+    y = "log(Brain Weight), g"
+  )
+```
+
+After applying the logarithm, we can see in the log-log scale that the relationship between the animals' body and brain weight is linear. As a result, we will model them using a linear model, and for the sake of the example, we will use the brain as the response variable.
+
+```{r, echo = FALSE, include = FALSE}
+
+animals_model <-
+  lm(data = animals_df,formula = log(brain) ~ log(body))
+
+summary(animals_model)
+
+```
+
+$$
+\log{(\mathrm{brain})} = 2.555 + 0.496*\log{(\mathrm{body})} ,
+$$
+
+So for every 1% increase in body weight, the brain weight increases by 0.496%.
+
+# Considerations
+
+To summarize we can we how the interpretation change for change scale
+
+| Scale         | Example                                                      | Interpretation                                                                           |
+|-----------------|----------------------------|----------------------------|
+| Linear-linear | $Y_i = \beta_0 + \beta_1x_1 + \varepsilon_i$                 | A 1 unit increase in $x_1$ implies in a $\beta_1$ increase in $Y_i$.                     |
+| Log-Linear    | $\log{(Y_i)} = \beta_0 + \beta_1x_1 + \varepsilon_i$         | A 1 percent increase in $x_1$ implies in a $\beta_1/100$ approximate increase in $Y_i$.  |
+| Linear-log    | $Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i$         | A 1 unit increase in $x_1$ implies in a $(100*\beta_1)\%$ approximate increase in $Y_i$. |
+| Log-log       | $\log{(Y_i)} = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i$ | A 1 percent increase in $x_1$ implies in a $\beta_1\%$ approximate increase in $Y_i$.    |
