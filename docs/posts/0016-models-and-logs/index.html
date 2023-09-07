@@ -207,8 +207,10 @@ Y_i = \beta_0 + \beta_1x_1 + ...+\beta_nx_n + \varepsilon_i,
 <ul>
 <li><p><span class="math inline">\(Y_i\)</span> is the response variable;</p></li>
 <li><p><span class="math inline">\(\beta_0\)</span> is the intercept;</p></li>
+<li><p><span class="math inline">\(x_1\)</span> is one explanatory variable;</p></li>
 <li><p><span class="math inline">\(\beta_1\)</span> is the slope coefficient of the explanatory variable <span class="math inline">\(x_1\)</span> ;</p></li>
-<li><p><span class="math inline">\(\beta_n\)</span> is the slope coefficient of theexplanatory variable <span class="math inline">\(x_n\)</span> ;</p></li>
+<li><p><span class="math inline">\(x_n\)</span> is one explanatory variable;</p></li>
+<li><p><span class="math inline">\(\beta_n\)</span> is the slope coefficient of the explanatory variable <span class="math inline">\(x_n\)</span> ;</p></li>
 <li><p><span class="math inline">\(\varepsilon_i\)</span> is the error term</p></li>
 </ul>
 <p>To understand how the model behavior let’s see in a simple regression model</p>
@@ -352,9 +354,9 @@ Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
 </div>
 </div>
 <p>After applying the logarithm, we can see in the log-log scale that the relationship between the animals’ body and brain weight is linear. As a result, we will model them using a linear model, and for the sake of the example, we will use the brain as the response variable.</p>
-<p><span class="math display">\[
-\log{(\mathrm{brain})} = 2.555 + 0.496*\log{(\mathrm{body})} ,
-\]</span></p>
+<p><span id="eq-log-log-example"><span class="math display">\[
+\log{(\mathrm{brain})} = 2.555 + 0.496*\log{(\mathrm{body})}.
+\tag{20}\]</span></span></p>
 <p>So for every 1% increase in body weight, the brain weight increases by 0.496%.</p>
 </section>
 </section>
