@@ -4,11 +4,11 @@ title: "About me"
 
 ![](perfil.png){fig-align="left" width="206"}
 
-My name is Vinícius Félix, a seasoned statistician with experience in both technical and managerial positions. My Master of Biostatistics and Bachelor of Statistics degrees provided me with a solid foundation in time-series analysis, geostatistics, and data visualization.
+My name is Vinícius Félix, and I am a seasoned statistician with technical and managerial experience, as well as a solid background in time-series analysis, geostatistics, and data visualization gained while pursuing a Bachelor of Statistics and a Master of Biostatistics.
 
-As a co-founder of H0 Consultoria, I've contributed to over 350 scientific studies and 40 business surveys, giving organizations valuable insights. With previous roles as Head of R&D, Data and Strategy Manager, and Services Manager, I am now in charge of service delivery.
+While co-founder of H0 Consultoria, I've contributed to over 350 scientific studies and 40 business surveys, providing valuable insights to organizations. Following my hands-on technical phase, I advanced to management positions such as R&D, Data and Strategy Manager, and now Services Manager.
 
-My goal is to empower organizations with data-driven decisions and optimize their operations through statistical insights, and I am passionate about bridging theory and real-world applications.
+As I am passionate about bridging theory and real-world applications, my goal is to empower organizations to make data-driven decisions and optimize their operations using statistical insights.
 
 # Professional Experience
 
@@ -16,9 +16,9 @@ My goal is to empower organizations with data-driven decisions and optimize thei
 
 ![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
 
-![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| Head of R&D
+![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| R&D Manager
 
-![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Head of Data
+![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Data Manager
 
 ![](images/unicesumar_logo-01.png){width="31"} \[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
 
@@ -116,7 +116,9 @@ As the company's new strategy manager, my current responsibilities were:
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
 
-### \[2023-2023\] Services Manager
+### \[2023-Now\] Services Manager
+
+Following the merger of GA and Intergado, which was rebranded as Ponta, I was given charge of a new area of the company with the goal of expanding and exploring our technical team in order to provide value to our clients beyond our products.
 
 I am in charge of overseeing the organization's service delivery. My responsibilities include managing service teams, coordinating operations, and ensuring high-quality service delivery in order to meet the needs of customers and organizational goals, such as:
 
