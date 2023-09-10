@@ -22,6 +22,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -340,7 +359,7 @@ Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
 <p>Since the log is applied to <span class="math inline">\(x_1\)</span> we can apply the same logic of <a href="#eq-log-diff-approx-to-percent-change">Equation&nbsp;17</a> and <a href="#eq-log-linear-coef-pos">Equation&nbsp;10</a>, for every 1% increase in <span class="math inline">\(x_1\)</span>, <span class="math inline">\(Y_i\)</span> increases by <span class="math inline">\(\beta_1\%\)</span>.</p>
 <section id="example-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-1">Example</h2>
-<p>To understand in an example, we will use a data with the average brain and body weights for 28 species of land animals.</p>
+<p>To understand in an example, we will use a dataset <span class="citation" data-cites="seheult1989">(<a href="#ref-seheult1989" role="doc-biblioref">Seheult et al. 1989</a>)</span> with the average brain and body weights for 28 species of land animals.</p>
 <p>First, we will do a scatter plot of the two variables.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -365,9 +384,9 @@ Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
 <p>To summarize we can we how the interpretation change for change scale</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 37%">
-<col style="width: 37%">
+<col style="width: 20%">
+<col style="width: 31%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -401,9 +420,14 @@ Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i,
 </table>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-seheult1989" class="csl-entry" role="doc-biblioentry">
+Seheult, A. H., P. J. Green, P. J. Rousseeuw, and A. M. Leroy. 1989. <span>“Robust Regression and Outlier Detection.”</span> <em>Journal of the Royal Statistical Society. Series A (Statistics in Society)</em> 152 (1): 133. <a href="https://doi.org/10.2307/2982847">https://doi.org/10.2307/2982847</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
