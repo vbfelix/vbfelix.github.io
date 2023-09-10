@@ -50,6 +50,8 @@ title: "Certifications"
 
 ## SQL
 
+![](https://coursera-university-assets.s3.amazonaws.com/05/353594a7964fdeaff4e10615de58c0/MongoDBSquareLogo.png){width="32"} [MongoDB for SQL Professionals](https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/b63aba26-47a6-4417-a539-1b74a88a0b86-vincius-flix-0e0b9438-a1a8-4fc0-8ad3-bc1777d92c1d-certificate.pdf)
+
 ![](images/download-01.png){width="31"} [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
 
 ![](images/hackerrank-01.png){width="32"} [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)

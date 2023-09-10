@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/0018-getting-started-with-sql/index.html",
       "/posts/0017-i-robot/index.html",
       "/posts/0016-models-and-logs/index.html",
       "/posts/0015-combination/index.html",
