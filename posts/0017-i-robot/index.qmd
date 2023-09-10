@@ -20,7 +20,15 @@ Isaac Asimov (1920--1992) was a science fiction author, best known for his influ
 
 We'll go over the stories of I, Robot chapter by chapter, comparing them to modern artificial intelligence and tech development in real life.
 
-![](https://m.media-amazon.com/images/I/912SgN89fHL._AC_UF1000,1000_QL80_.jpg){fig-align="center" width="222"}
+![](https://aodisseia.b-cdn.net/wp-content/uploads/2020/02/eu-robo-capa.jpg)
+
+------------------------------------------------------------------------
+
+Disclaimer
+
+:   *I read the portguese version of I, Robot (Eu Robô), so the terms here are translated and may differ from the original.*
+
+------------------------------------------------------------------------
 
 # 1.Robbie
 
@@ -42,7 +50,7 @@ Speedy appears to be stuck in a loop, repeating a series of instructions but fai
 
 ------------------------------------------------------------------------
 
-*The Three Laws of Robotics* 
+*The Three Laws of Robotics*
 
 :   1.  *A robot may not harm a human being or, through inaction, allow a human being to come to harm.*
 
@@ -80,7 +88,7 @@ Unlike the previous chapters, there is no dilemma or conflict with robotic laws 
 
 In this chapter, our characters change to the heads of departments at US Robots and Mechanical Men, Inc.:
 
--   **Susan Calvin**, roboopsychologist;
+-   **Susan Calvin**, robopsychologist;
 
 -   **Alfred Lanning**, research;
 
@@ -135,3 +143,15 @@ Years later, Stephen Byerley returns as a global leader. In the future, Machines
 The story teaches us that the first law was extended to humanity as a whole, and that the alleged flaws were calculated decisions that took into account the overall balance of the world, so that each action was preceded by a larger consideration.
 
 The Machines did not confirm this because revealing that humans had lost their "free will" would be detrimental to them. Stephen is horrified, whereas Susan is amazed, because conflicts would be avoided as The Machines were unavoidable in the first place.
+
+# Considerations
+
+Through narratives ranging from the bond between a young girl and her caregiver robot to philosophical debates with self-aware robots and ethical quandaries arising from AI advancements, Asimov delves into various themes of technology, ethics, and human nature.
+
+Given that the book was published in 1950, we can see that Asimov predicted some significant events.
+
+**New areas and jobs**. We see that our main character, Susan Calvin, is a robopsychologist, and that exploring space with robots is also possible, but Asimov does not address one of the most pressing issues of the day, which is how AI is making some jobs obsolete, resulting in a higher unemployment rate.
+
+**Radicalism**. Throughout the story, some organizations appear that are completely against robots. As there are many people today who defend AI advancement without regard for social considerations, there are also those who believe that we will be in a Terminator situation tomorrow.
+
+**Profits beyond everything**. Following US Robots, we see some stories that put profits ahead of human health, such as chapters six and seven, or how engineers are placed in extremely dangerous situations to test new technology. On the other hand, we see in the final chapter that humanity achieved a kind of utopia, but not because of them.
