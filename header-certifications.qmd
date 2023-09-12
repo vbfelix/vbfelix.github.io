@@ -60,6 +60,10 @@ title: "Certifications"
 
 ![](images/hackerrank-01.png){width="32"} [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
 
+# Soft skills
+
+![](images/paste-B8EC21E4.png){width="32"} [Leadership](https://drive.conqueronline.com.br/CertificadosTeste/Forma%C3%A7%C3%A3o%20em%20Lideran%C3%A7a/1694472263631-6e861d53-9a55-43ba-8fe6-2315939a3569.jpeg)
+
 # Theory
 
 ## AI
