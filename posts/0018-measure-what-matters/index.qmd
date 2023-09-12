@@ -1,0 +1,97 @@
+---
+title: "Unveiling the pages: Measure what matters"
+author: "Vinícius Félix"
+date: "2023-09-17"
+categories: [Unveiling the pages]
+image: "0018-measure-what-matters.png"
+---
+
+In this post, we will dive into the pages of John Doerr's book Measure What Matters.
+
+# Context
+
+John Doerr is a well-known American venture capitalist who works for Kleiner Perkins, a leading venture capital firm. He rose to prominence as an early investor in technology companies such as Google, Amazon, and Netscape.
+
+Doerr is also associated with popularizing the Objectives and Key Results (OKR) goal-setting system, which is covered in the book and will be discussed in depth in this post.
+
+![](https://m.media-amazon.com/images/I/415r-iEVg1L.jpg){fig-align="center"}
+
+------------------------------------------------------------------------
+
+Disclaimer
+
+:   *Because I read the portuguese version, the terms used here are translated and may differ from the original.*
+
+------------------------------------------------------------------------
+
+# 1.OKR's in Action
+
+## 1.01.Google, Meet OKR's
+
+------------------------------------------------------------------------
+
+Yogi Berra
+
+:   *If you don't know where you are going, you might wind up someplace else.*
+
+------------------------------------------------------------------------
+
+John begins this chapter by telling us how he invested in Google when it was still a startup. He goes on to explain how, despite being disruptive and having a lot of potential due to the technological advantage (PageRank algorithm), they lacked management experience.
+
+Then he introduces the OKR methodology, which he used at Intel and saved him at Sun Microsystems. He describes it as a protocol for defining goals that is useful for businesses, teams, and individuals. Even though he uses the term "saves", the methodology is merely a guide, not a replacement for aspects such as leadership, creative culture, and common sense.
+
+An objective (O) is a goal that must be met. Because it can be a broad statement, key results (KR) will be used to monitor and predict when the goal will be met, and they must then be measured and concisely expressed in a number.
+
+Beyond being a monitoring tool, the book includes examples of how clear goals can have positive environmental consequences, such as satisfaction and transparency.
+
+## 1.02.The Father of OKR's
+
+------------------------------------------------------------------------
+
+Andy Grove
+
+:   *There are so many people working so hard and achieving so little.*
+
+------------------------------------------------------------------------
+
+## 1.03.Operation Crush: An Intel Story
+
+## 1.04.Superpower#1: Focus and Commit to Priorities
+
+## 1.05.Focus: The Remind Story
+
+## 1.06.Commit: The Nuna Story
+
+## 1.07.Superpower#2: Align and Connect for Teamwork
+
+## 1.08.Align: The MyFitnessPal Story
+
+## 1.09.Connect: The Intuit Story
+
+## 1.10.Superpower#3: Track for Accountability
+
+## 1.11.Track: The Gates Foundation Story
+
+## 1.12.Superpower#4: Stretch for Amazing
+
+## 1.13.Stretch: The Google Chrome Story
+
+## 1.14.Stretch: The Youtube Story
+
+# 2.The New World of Work
+
+## 2.01.Continuous Performance Management: OKR's and CFR's
+
+## 2.02.Ditching Annual Performance Reviews: The Adobe Story
+
+## 2.03.Baking Better Every Day: The Zume Pizza Story
+
+## 2.04.Culture
+
+## 2.05.Culture Change: The Lumeris Story
+
+## 2.06.Culture Change: Bono's ONE Campaing Story
+
+## 2.07.The Goals to Come
+
+# Considerations
