@@ -54,6 +54,24 @@ Andy Grove
 
 ------------------------------------------------------------------------
 
+In this chapter, John tells us about the start of his professional career and how he got into Intel and met Andy Grove.
+
+After that, he goes through the management history, beginning with Ford-Taylor, Drucker's MBO (management by objectives), and Grove's OKR.
+
+Finally, he provides some pointers for using OKR:
+
+-   **Less is more**, a few (3 to 5) good objectives are enough, and with of 5 KR maximum each;
+
+-   **From the ground up**, begin defining goals from the ground up, rather than from the top;
+
+-   **Team play,** you can impose goals, but discuss the key results**;**
+
+-   **Be brave**, comfortable goals can be a safe zone for the team;
+
+-   **Be adaptable**;if external factors change, why not update our OKRs?
+
+-   **Not a weapon**, OKR's are tools to monitor our goals, and they should not be used as performance indicators.
+
 ## 1.03.Operation Crush: An Intel Story
 
 ## 1.04.Superpower#1: Focus and Commit to Priorities
