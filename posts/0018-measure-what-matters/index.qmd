@@ -74,7 +74,33 @@ Finally, he provides some pointers for using OKR:
 
 ## 1.03.Operation Crush: An Intel Story
 
+This chapter recounts Intel's efforts to reclaim market leadership. In this case, the company restructures the marketing and sales teams in order to capitalize on their strengths and shift their sales focus away from programmers and toward CEOs.
+
+We can see that the OKRs provided cohesion and transparency to the company operation, creating a sense of urgency but not despair, and they were able to reclaim their position as number one through this organization.
+
 ## 1.04.Superpower#1: Focus and Commit to Priorities
+
+This chapter begins with a query:
+
+*What is the most important thing for the next three (or six, or twelve) months?*
+
+Answering this question is a starting point for truly understanding what matters; clarity in understanding the objective follows.
+
+Aside from that, the key results must be measurable, either in terms of quantities to measure and achieve, or in terms of factual accomplishments that can be checked to see if they were completed or not by a yes or no question.
+
+He cautions us not to become overly focused on unidimensional OKRs, as this may cause us to overlook other points of view. However, excessively greedy OKRs increase the risk of overlooking a critical aspect.
+
+Some tips:
+
+-   In dynamic markets, OKRs can be set every three months, but the period is flexible and must be tailored to each situation;
+
+-   Measure both the effect and the side effect to avoid unanticipated consequences of achieving your goal;
+
+-   To avoid the implication of having only a number to achieve, link a quantitative goal to a qualitative one;
+
+-   Set three levels of OKR goals: achievable, possible challenge, and desire.
+
+-   Avoid the temptation to have multiple objectives by limiting them to the most important ones.
 
 ## 1.05.Focus: The Remind Story
 
