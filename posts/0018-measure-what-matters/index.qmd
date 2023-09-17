@@ -42,8 +42,6 @@ Then he introduces the OKR methodology, which he used at Intel and saved him at 
 
 An objective (O) is a goal that must be met. Because it can be a broad statement, key results (KR) will be used to monitor and predict when the goal will be met, and they must then be measured and concisely expressed in a number.
 
-Beyond being a monitoring tool, the book includes examples of how clear goals can have positive environmental consequences, such as satisfaction and transparency.
-
 ## 1.02.The Father of OKR's
 
 ------------------------------------------------------------------------
@@ -58,7 +56,7 @@ In this chapter, John tells us about the start of his professional career and ho
 
 After that, he goes through the management history, beginning with Ford-Taylor, Drucker's MBO (management by objectives), and Grove's OKR.
 
-Finally, he provides some pointers for using OKR:
+What I learned:
 
 -   **Less is more**, a few (3 to 5) good objectives are enough, and with of 5 KR maximum each;
 
@@ -76,7 +74,9 @@ Finally, he provides some pointers for using OKR:
 
 This chapter recounts Intel's efforts to reclaim market leadership. In this case, the company restructures the marketing and sales teams in order to capitalize on their strengths and shift their sales focus away from programmers and toward CEOs.
 
-We can see that the OKRs provided cohesion and transparency to the company operation, creating a sense of urgency but not despair, and they were able to reclaim their position as number one through this organization.
+What I learned:
+
+-   OKRs provided cohesion and transparency to the company operation, creating a sense of urgency but not despair, and they were able to reclaim their position as number one through this organization.
 
 ## 1.04.Superpower#1: Focus and Commit to Priorities
 
@@ -90,7 +90,7 @@ Aside from that, the key results must be measurable, either in terms of quantiti
 
 He cautions us not to become overly focused on unidimensional OKRs, as this may cause us to overlook other points of view. However, excessively greedy OKRs increase the risk of overlooking a critical aspect.
 
-Some tips:
+What I learned:
 
 -   In dynamic markets, OKRs can be set every three months, but the period is flexible and must be tailored to each situation;
 
@@ -112,7 +112,7 @@ This chapter tells the story of Brett Kopf, who struggled with traditional educa
 
 3.  Talk with your users.
 
-Some tips:
+What I learned:
 
 -   You will not get everything right the first time, but you must begin;
 
@@ -120,9 +120,43 @@ Some tips:
 
 ## 1.06.Commit: The Nuna Story
 
+Following Jini Kim and her company Nuna's, we now move on to healthcare.
+
+What I learned:
+
+-   Do not try to implement OKR at all levels at the same time; it must be viewed as a tool rather than a necessary evil, so the high level must embrace it and it will spread organically;
+
+-   If a goal is too difficult to achieve, it is easier to give up on him;
+
+-   Perhaps the first attempt will fail, but keep trying and correcting previous errors.
+
 ## 1.07.Superpower#2: Align and Connect for Teamwork
 
+------------------------------------------------------------------------
+
+Steve Jobs
+
+:   *It doesn't make sense to hire smart people and tell them what to do. We hire smart people so they can tell us what to do.*
+
+------------------------------------------------------------------------
+
+This chapter shows how public goals can increase transparency while also facilitating corrections and criticism. This reduces redundancy, which is especially important in larger organizations where two people working on the same task can be common.
+
+What I learned:
+
+-   A KR can also be an objective in another level of OKR, but do so with caution because we risk losing velocity and flexibility, as well as the horizontal aspect, because the vertical approach will be used to establish the levels hierarchy.
+
 ## 1.08.Align: The MyFitnessPal Story
+
+In this chapter we return to healthcare, following the story of Mike Lee and his company MyFitnessPal.
+
+What I learned:
+
+-   Do not treat OKRs as islands; they are interconnected, so it is critical to share and discuss the goal, particularly when it impacts or is impacted by another area;
+
+-   Companies that frequently change priorities may find the method useful, since it can give you the focus;
+
+-   You can assign an owner to the OKR and be the primary person to discuss it.
 
 ## 1.09.Connect: The Intuit Story
 
