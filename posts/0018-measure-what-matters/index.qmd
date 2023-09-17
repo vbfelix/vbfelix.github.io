@@ -160,6 +160,14 @@ What I learned:
 
 ## 1.09.Connect: The Intuit Story
 
+In this chapter we follow Atticus Tysen story, the CIO of Intuit.
+
+What I learned:
+
+-   You will have a great tool to connect your entire organization if you automate your OKR;
+
+-   If a prioritization is required, raise the importance of the relevant OKR to demonstrate your seriousness while also ensuring that the methodology is accurate.
+
 ## 1.10.Superpower#3: Track for Accountability
 
 ## 1.11.Track: The Gates Foundation Story
