@@ -170,6 +170,32 @@ What I learned:
 
 ## 1.10.Superpower#3: Track for Accountability
 
+------------------------------------------------------------------------
+
+William Edwards Deming
+
+:   *In God we trust. All others must bring data.*
+
+------------------------------------------------------------------------
+
+What I learned:
+
+-   OKR are living organisms that can be born, changed, adapted, stopped, and died. Even though they allow for this flexibility, understanding why each action is taken is critical.
+
+-   It is fundamental to regularly review your OKRs and have a plan in place in case some of them fail;
+
+-   To gain a sense of progress and a better understanding of your overall objective reality, you can assign partial achievement to your KRs.
+
+-   Because metrics cannot show the entire story, it is critical to self-assess your progress with the context. Here are some questions to help:
+
+    -   What factors contributed to my success?
+
+    -   What challenges did I face if I failed?
+
+    -   What would I change if I could rewrite a completed goal?
+
+    -   What did I learn that will change my approach to OKRs in the next cycle?
+
 ## 1.11.Track: The Gates Foundation Story
 
 ## 1.12.Superpower#4: Stretch for Amazing
