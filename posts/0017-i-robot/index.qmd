@@ -20,7 +20,7 @@ Isaac Asimov (1920--1992) was a science fiction author, best known for his influ
 
 We'll go over the stories of I, Robot chapter by chapter, comparing them to modern artificial intelligence and tech development in real life.
 
-![](https://aodisseia.b-cdn.net/wp-content/uploads/2020/02/eu-robo-capa.jpg)
+![](images/eu-robo-capa.jpg)
 
 ------------------------------------------------------------------------
 
