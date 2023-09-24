@@ -240,6 +240,42 @@ What I learned:
 
 ## 2.01.Continuous Performance Management: OKR's and CFR's
 
+------------------------------------------------------------------------
+
+Sheryl Sandberg
+
+:   *Talking can transform minds, which can transform behaviors, which can transform institutions.*
+
+------------------------------------------------------------------------
+
+What I learned:
+
+-   Numbers are wonderful, but they can easily fail when used to measure people;
+
+-   CFR stands for "Conversations, Feedback, and Recognition" and refers to a one-on-one conversation between employees and their managers;
+
+-   Separate OKR and performance evaluation because they have and require different rituals;
+
+-   Conversations, the leader to:
+
+    -   promote discussion, define and remember goals, and reflect on them;
+
+    -   talk about performance and must be updated on a regular basis;
+
+    -   update and discuss the development of one's career.
+
+-   Feedback:
+
+    -   it must be incorporated into culture and progress;
+
+    -   it is necessary to be specific as well as constructive, rather than focusing solely on negative or positive aspects.
+
+-   Recognition:
+
+    -   establish recognition among colleagues as part of the culture, and not just for the leader. Make it frequent and friendly to accomplish this;
+
+    -   if at all possible, connect it to the company's goals.
+
 ## 2.02.Ditching Annual Performance Reviews: The Adobe Story
 
 ## 2.03.Baking Better Every Day: The Zume Pizza Story
@@ -251,5 +287,3 @@ What I learned:
 ## 2.06.Culture Change: Bono's ONE Campaing Story
 
 ## 2.07.The Goals to Come
-
-# Considerations
