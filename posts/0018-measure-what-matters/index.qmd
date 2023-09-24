@@ -298,23 +298,21 @@ What I learned:
 
 ## 2.04.Culture
 
-------------------------------------------------------------------------
-
-Jeff Bezos
-
-:   *Talking can transform minds, which can transform behaviors, which can transform institutions.*
-
-------------------------------------------------------------------------
-
 What I learned:
 
--   
+-   Culture is difficult to change, and while it is related to goals, they are not the same;
+
+    A company's culture is what moves and signifies its work; a bad culture can stymie any methodology's ability to work.
 
 ## 2.05.Culture Change: The Lumeris Story
 
 What I learned:
 
--   
+-   A culture change may be required before implementing a major process change (e.g., OKR);
+
+    OKR require action; simply collecting data and analyzing metrics will not result in any changes;
+
+    Big changes do not happen overnight.
 
 ## 2.06.Culture Change: Bono's ONE Campaing Story
 
