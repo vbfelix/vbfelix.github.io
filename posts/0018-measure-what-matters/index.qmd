@@ -1,7 +1,7 @@
 ---
 title: "Unveiling the pages: Measure what matters"
 author: "Vinícius Félix"
-date: "2023-09-17"
+date: "2023-09-24"
 categories: [Unveiling the pages]
 image: "0018-measure-what-matters.png"
 ---
@@ -36,11 +36,11 @@ Yogi Berra
 
 ------------------------------------------------------------------------
 
-John begins this chapter by telling us how he invested in Google when it was still a startup. He goes on to explain how, despite being disruptive and having a lot of potential due to the technological advantage (PageRank algorithm), they lacked management experience.
+What I learned:
 
-Then he introduces the OKR methodology, which he used at Intel and saved him at Sun Microsystems. He describes it as a protocol for defining goals that is useful for businesses, teams, and individuals. Even though he uses the term "saves", the methodology is merely a guide, not a replacement for aspects such as leadership, creative culture, and common sense.
+-   An objective (O) is a goal that must be met. Because it can be a broad statement, key results (KR) will be used to monitor and predict when the goal will be met, and they must then be measured and concisely expressed in a number.
 
-An objective (O) is a goal that must be met. Because it can be a broad statement, key results (KR) will be used to monitor and predict when the goal will be met, and they must then be measured and concisely expressed in a number.
+-   OKR is a protocol for defining goals that is useful for businesses, teams, and individuals. Even though he uses the term "saves", the methodology is merely a guide, not a replacement for aspects such as leadership, creative culture, and common sense.
 
 ## 1.02.The Father of OKR's
 
@@ -51,10 +51,6 @@ Andy Grove
 :   *There are so many people working so hard and achieving so little.*
 
 ------------------------------------------------------------------------
-
-In this chapter, John tells us about the start of his professional career and how he got into Intel and met Andy Grove.
-
-After that, he goes through the management history, beginning with Ford-Taylor, Drucker's MBO (management by objectives), and Grove's OKR.
 
 What I learned:
 
@@ -72,25 +68,17 @@ What I learned:
 
 ## 1.03.Operation Crush: An Intel Story
 
-This chapter recounts Intel's efforts to reclaim market leadership. In this case, the company restructures the marketing and sales teams in order to capitalize on their strengths and shift their sales focus away from programmers and toward CEOs.
-
 What I learned:
 
 -   OKRs provided cohesion and transparency to the company operation, creating a sense of urgency but not despair, and they were able to reclaim their position as number one through this organization.
 
 ## 1.04.Superpower#1: Focus and Commit to Priorities
 
-This chapter begins with a query:
-
-*What is the most important thing for the next three (or six, or twelve) months?*
-
-Answering this question is a starting point for truly understanding what matters; clarity in understanding the objective follows.
-
-Aside from that, the key results must be measurable, either in terms of quantities to measure and achieve, or in terms of factual accomplishments that can be checked to see if they were completed or not by a yes or no question.
-
-He cautions us not to become overly focused on unidimensional OKRs, as this may cause us to overlook other points of view. However, excessively greedy OKRs increase the risk of overlooking a critical aspect.
-
 What I learned:
+
+-   Key results must be measurable, either in terms of quantities to measure and achieve, or in terms of factual accomplishments that can be checked to see if they were completed or not by a yes or no question;
+
+-   To not become overly focused on unidimensional OKRs, as this may cause us to overlook other points of view. However, excessively greedy OKRs increase the risk of overlooking a critical aspect;
 
 -   In dynamic markets, OKRs can be set every three months, but the period is flexible and must be tailored to each situation;
 
@@ -104,23 +92,21 @@ What I learned:
 
 ## 1.05.Focus: The Remind Story
 
-This chapter tells the story of Brett Kopf, who struggled with traditional education and decided to help others in similar circumstances with his company, Remind. As an entrepreneur, he offers us three preliminary steps:
-
-1.  Solve a problem;
-
-2.  Build a simple product;
-
-3.  Talk with your users.
-
 What I learned:
+
+-   Three preliminary steps to create a businness:
+
+    -   Solve a problem;
+
+    -   Build a simple product;
+
+    -   Talk with your users.
 
 -   You will not get everything right the first time, but you must begin;
 
 -   Consider your capabilities and be realistic when setting your goals.
 
 ## 1.06.Commit: The Nuna Story
-
-Following Jini Kim and her company Nuna's, we now move on to healthcare.
 
 What I learned:
 
@@ -140,15 +126,13 @@ Steve Jobs
 
 ------------------------------------------------------------------------
 
-This chapter shows how public goals can increase transparency while also facilitating corrections and criticism. This reduces redundancy, which is especially important in larger organizations where two people working on the same task can be common.
-
 What I learned:
+
+-   Public goals can increase transparency while also facilitating corrections and criticism. This reduces redundancy, which is especially important in larger organizations where two people working on the same task can be common;
 
 -   A KR can also be an objective in another level of OKR, but do so with caution because we risk losing velocity and flexibility, as well as the horizontal aspect, because the vertical approach will be used to establish the levels hierarchy.
 
 ## 1.08.Align: The MyFitnessPal Story
-
-In this chapter we return to healthcare, following the story of Mike Lee and his company MyFitnessPal.
 
 What I learned:
 
@@ -159,8 +143,6 @@ What I learned:
 -   You can assign an owner to the OKR and be the primary person to discuss it.
 
 ## 1.09.Connect: The Intuit Story
-
-In this chapter we follow Atticus Tysen story, the CIO of Intuit.
 
 What I learned:
 
@@ -310,18 +292,30 @@ What I learned:
 
 -   A culture change may be required before implementing a major process change (e.g., OKR);
 
-    OKR require action; simply collecting data and analyzing metrics will not result in any changes;
+-   OKR require action; simply collecting data and analyzing metrics will not result in any changes;
 
-    Big changes do not happen overnight.
+-   Big changes do not happen overnight.
 
 ## 2.06.Culture Change: Bono's ONE Campaing Story
 
 What I learned:
 
--   
+-   Although culture is required for OKR to work, it can also change the culture once implemented;
+
+-   You must listen to and understand your client;
+
+-   Take care not to let the OKR suffocate you and prevent innovation.
 
 ## 2.07.The Goals to Come
 
+------------------------------------------------------------------------
+
+Muhammad Ali
+
+:   *What keeps me going is goals.*
+
+------------------------------------------------------------------------
+
 What I learned:
 
--   
+-   Although the concept of OKR is simple, successfully implementing it requires a significant amount of effort and involvement, and when done correctly, can provide substantial returns.
