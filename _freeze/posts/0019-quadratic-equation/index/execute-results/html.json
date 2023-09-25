@@ -1,0 +1,16 @@
+{
+  "hash": "3eab3c812ab9e96a99eee82bfa283489",
+  "result": {
+    "markdown": "---\ntitle: \"Getting proof: Quadratic equation\"\nauthor: \"Vinícius Félix\"\ndate: \"2023-10-01\"\ncategories: [Getting Proof]\nimage: \"banner.png\"\n---\n\n::: {.cell}\n\n:::\n\n\nIn this post, we explore the quadratic equation and the Bhaskara formula.\n\n# Context\n\nThe quadratic equation is given by:\n\n$$\nax^2 + bx + c,\n$$ {#eq-quadratic}\n\nwhere:\n\n-   $x$ is the variable;\n\n-   $a,b,c$ are the coefficients.\n\nHere an example of a quadratic function:\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n# Proof\n\nThe goal of this post is to proof the formula of roots of the quadratic equation (i.e., Bhaskara formula), so:\n\n$$\nax^2 + bx + c = 0.\n$$ {#eq-quadratic-proof-01}\n\nIn the @eq-quadratic-proof-01, we divide by the term $a$:\n\n$$\nx^2 + \\frac{bx}{a} + \\frac{c}{a} = 0.\n$$ {#eq-quadratic-proof-02}\n\nIn the @eq-quadratic-proof-02, we subtract the term $-\\frac{c}{a}$:\n\n$$\nx^2 + \\frac{bx}{a} = -\\frac{c}{a}.\n$$ {#eq-quadratic-proof-03}\n\nThrough a math property, we have that:\n\n$$\n(a+b)^2 = a^2+2ab + b^2.\n$$ {#eq-math-01}\n\nIn the @eq-quadratic-proof-03, to achieve the property in @eq-math-01 we can add the term $\\frac{b^2}{4a^2}-\\frac{b^2}{4a^2}$:\n\n$$\nx^2 + \\frac{bx}{a} +\\left(\\frac{b^2}{4a^2}-\\frac{b^2}{4a^2}\\right)= -\\frac{c}{a}.\n$$ {#eq-quadratic-proof-04}\n\nIn the @eq-quadratic-proof-04, we add the term $\\frac{b^2}{4a^2}$:\n\n$$\nx^2 + \\frac{bx}{a} +\\frac{b^2}{4a^2}= -\\frac{c}{a} + \\frac{b^2}{4a^2}.\n$$ {#eq-quadratic-proof-05}\n\nIn the @eq-quadratic-proof-05, we can see now that the left side is a case of @eq-math-01, then we apply it:\n\n$$\n\\left(x + \\frac{b}{2a}\\right)^2= -\\frac{c}{a} + \\frac{b^2}{4a^2}.\n$$ {#eq-quadratic-proof-06}\n\nIn the @eq-quadratic-proof-06, now we will put the right side in the same denominator\n\n$$\n\\left(x + \\frac{b}{2a}\\right)^2= \\frac{b^2-4ac}{4a^2}.\n$$ {#eq-quadratic-proof-07}\n\nIn the @eq-quadratic-proof-07, we take the square root:\n\n$$\nx + \\frac{b}{2a}= \\pm \\sqrt{\\frac{b^2-4ac}{4a^2}}.\n$$ {#eq-quadratic-proof-08}\n\nIn the @eq-quadratic-proof-08, we can apply the square root separately to the demonimator and numerator:\n\n$$\nx + \\frac{b}{2a}= \\pm \\frac{\\sqrt{b^2-4ac}}{\\sqrt{4a^2}}.\n$$ {#eq-quadratic-proof-09}\n\nIn the @eq-quadratic-proof-09, we can solve the denominator, since $\\sqrt{4a^2} = 2a$.\n\n$$\nx + \\frac{b}{2a}= \\pm\\frac{ \\sqrt{b^2-4ac}}{2a}.\n$$ {#eq-quadratic-proof-10}\n\nIn the @eq-quadratic-proof-10, we will move subtract the term $\\frac{b}{2a}$.\n\n$$\nx = -\\frac{b}{2a} \\pm \\frac{\\sqrt{b^2-4ac}}{2a}.\n$$ {#eq-quadratic-proof-11}\n\nIn the @eq-quadratic-proof-11, we just put all terms in the same denominator.\n\n$$\nx =  \\frac{-b \\pm\\sqrt{b^2-4ac}}{2a}.\n$$ {#eq-quadratic-proof-12}\n\nFinally, we reached the Bhaskara formula in the @eq-quadratic-proof-12.\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
