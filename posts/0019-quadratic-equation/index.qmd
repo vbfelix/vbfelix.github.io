@@ -1,5 +1,5 @@
 ---
-title: "Getting proof: Quadratic equation"
+title: "Getting proof: Bhaskara formula"
 author: "Vinícius Félix"
 date: "2023-10-01"
 categories: [Getting Proof]
@@ -17,7 +17,7 @@ suppressWarnings(library(kableExtra))
 suppressWarnings(library(forcats))
 ```
 
-In this post, we explore the quadratic equation and the Bhaskara formula.
+In this post, we explore the root of the quadratic equation, i.e., Bhaskara formula.
 
 # Context
 
@@ -40,23 +40,87 @@ base <-
   ggplot() +
   plt_theme_x()+
   plt_water_mark(vfx_watermark)+
-  labs(y = "")
+  labs(y = "")+
+  scale_x_continuous(
+    breaks = seq(-10,10,2),
+    expand = c(.01,0),
+    limits = c(-10,10)
+  )+
+  plt_pinpoint(0,0)
 
 quad <- function(x,a,b,c){a*(x^2)+b*x+c} 
 
 base + 
   geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
                 linewidth = 1)+
-  labs(title = expression(paste(y,' = ',x^2)))+
-  scale_x_continuous(
-    breaks = seq(-10,10,2),
-    expand = c(.01,0),
-    limits = c(-10,10)
-    )+
-  plt_pinpoint(0,0)
+  labs(title = expression(paste(y,' = ',x^2)))
   
 
 ```
+
+In the example above $b$ and $c$ are zero, meaning that the function will display a simetric result around zero.
+
+Now, let's say what happens when $a$ is negative.
+
+```{r, echo = FALSE}
+base + 
+  geom_function(fun = quad,args = list(a = -1,b = 0, c = 0),
+                linewidth = 1)+
+  labs(title = expression(paste(y,' = -',x^2)))
+```
+
+In the example above $b$ and $c$ are zero, meaning that the function will display a simetric result around zero, but now the effect is inverted, where the values decreases as $x$ increases.
+
+Now, let's say what happens when $b$ changes.
+
+```{r, echo = FALSE}
+base + 
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
+                linewidth = 1, mapping = aes(colour = "a"))+
+  geom_function(fun = quad,args = list(a = 1,b = 5, c = 0),
+                linewidth = 1, mapping = aes(colour = "b"))+
+  geom_function(fun = quad,args = list(a = 1,b = -5, c = 0),
+                linewidth = 1, mapping = aes(colour = "d"))+
+  scale_colour_manual(
+    values = c('a' = 'black',
+               'b' = 'royalblue3',
+               "d" = "purple"),
+    name = '',
+    labels = expression(
+      paste(y,' = ',x^2),
+      paste(y,' = ',x^2,'+ 5x'),
+      paste(y,' = ',x^2,'- 5x')
+      )
+    )
+
+```
+
+In the example above when $b > 0$, $y$ increases more for $x > 0$. At the same time when $b < 0$, $y$ increases more for $x < 0$.
+
+Now, let's say what happens when $c$ changes.
+
+```{r, echo = FALSE}
+base+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
+                linewidth = 1, mapping = aes(colour = "a"))+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 50),
+                linewidth = 1, mapping = aes(colour = "b"))+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = -50),
+                linewidth = 1, mapping = aes(colour = "d"))+
+  scale_colour_manual(
+    values = c('a' = 'black',
+               'b' = 'firebrick3',
+               "d" = "darkgoldenrod2"),
+    name = '',
+    labels = expression(
+      paste(y,' = ',x^2),
+      paste(y,' = ',x^2,'+ 50'),
+      paste(y,' = ',x^2,'- 50')
+      )
+    )
+```
+
+In the example above we see that $c$ is just a incremental term, moving the function, but not changing its behavior.
 
 # Proof
 
