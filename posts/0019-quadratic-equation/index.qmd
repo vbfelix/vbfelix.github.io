@@ -1,0 +1,205 @@
+---
+title: "Getting proof: Bhaskara formula"
+author: "Vinícius Félix"
+date: "2023-10-01"
+categories: [Getting Proof]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, we explore the root of the quadratic equation, i.e., Bhaskara formula.
+
+# Context
+
+The quadratic equation is given by:
+
+$$
+ax^2 + bx + c,
+$$ {#eq-quadratic}
+
+where:
+
+-   $x$ is the variable;
+
+-   $a,b,c$ are the coefficients.
+
+Here an example of a quadratic function:
+
+```{r, echo = FALSE}
+base <-
+  ggplot() +
+  plt_theme_x()+
+  plt_water_mark(vfx_watermark)+
+  labs(y = "")+
+  scale_x_continuous(
+    breaks = seq(-10,10,2),
+    expand = c(.01,0),
+    limits = c(-10,10)
+  )+
+  plt_pinpoint(0,0)
+
+quad <- function(x,a,b,c){a*(x^2)+b*x+c} 
+
+base + 
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
+                linewidth = 1)+
+  labs(title = expression(paste(y,' = ',x^2)))
+  
+
+```
+
+In the example above $b$ and $c$ are zero, meaning that the function will display a simetric result around zero.
+
+Now, let's say what happens when $a$ is negative.
+
+```{r, echo = FALSE}
+base + 
+  geom_function(fun = quad,args = list(a = -1,b = 0, c = 0),
+                linewidth = 1)+
+  labs(title = expression(paste(y,' = -',x^2)))
+```
+
+In the example above $b$ and $c$ are zero, meaning that the function will display a simetric result around zero, but now the effect is inverted, where the values decreases as $x$ increases.
+
+Now, let's say what happens when $b$ changes.
+
+```{r, echo = FALSE}
+base + 
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
+                linewidth = 1, mapping = aes(colour = "a"))+
+  geom_function(fun = quad,args = list(a = 1,b = 5, c = 0),
+                linewidth = 1, mapping = aes(colour = "b"))+
+  geom_function(fun = quad,args = list(a = 1,b = -5, c = 0),
+                linewidth = 1, mapping = aes(colour = "d"))+
+  scale_colour_manual(
+    values = c('a' = 'black',
+               'b' = 'royalblue3',
+               "d" = "purple"),
+    name = '',
+    labels = expression(
+      paste(y,' = ',x^2),
+      paste(y,' = ',x^2,'+ 5x'),
+      paste(y,' = ',x^2,'- 5x')
+      )
+    )
+
+```
+
+In the example above when $b > 0$, $y$ increases more for $x > 0$. At the same time when $b < 0$, $y$ increases more for $x < 0$.
+
+Now, let's say what happens when $c$ changes.
+
+```{r, echo = FALSE}
+base+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 0),
+                linewidth = 1, mapping = aes(colour = "a"))+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = 50),
+                linewidth = 1, mapping = aes(colour = "b"))+
+  geom_function(fun = quad,args = list(a = 1,b = 0, c = -50),
+                linewidth = 1, mapping = aes(colour = "d"))+
+  scale_colour_manual(
+    values = c('a' = 'black',
+               'b' = 'firebrick3',
+               "d" = "darkgoldenrod2"),
+    name = '',
+    labels = expression(
+      paste(y,' = ',x^2),
+      paste(y,' = ',x^2,'+ 50'),
+      paste(y,' = ',x^2,'- 50')
+      )
+    )
+```
+
+In the example above we see that $c$ is just a incremental term, moving the function, but not changing its behavior.
+
+# Proof
+
+The goal of this post is to proof the formula of roots of the quadratic equation (i.e., Bhaskara formula), so:
+
+$$
+ax^2 + bx + c = 0.
+$$ {#eq-quadratic-proof-01}
+
+In the @eq-quadratic-proof-01, we divide by the term $a$:
+
+$$
+x^2 + \frac{bx}{a} + \frac{c}{a} = 0.
+$$ {#eq-quadratic-proof-02}
+
+In the @eq-quadratic-proof-02, we subtract the term $-\frac{c}{a}$:
+
+$$
+x^2 + \frac{bx}{a} = -\frac{c}{a}.
+$$ {#eq-quadratic-proof-03}
+
+Through a math property, we have that:
+
+$$
+(a+b)^2 = a^2+2ab + b^2.
+$$ {#eq-math-01}
+
+In the @eq-quadratic-proof-03, to achieve the property in @eq-math-01 we can add the term $\frac{b^2}{4a^2}-\frac{b^2}{4a^2}$:
+
+$$
+x^2 + \frac{bx}{a} +\left(\frac{b^2}{4a^2}-\frac{b^2}{4a^2}\right)= -\frac{c}{a}.
+$$ {#eq-quadratic-proof-04}
+
+In the @eq-quadratic-proof-04, we add the term $\frac{b^2}{4a^2}$:
+
+$$
+x^2 + \frac{bx}{a} +\frac{b^2}{4a^2}= -\frac{c}{a} + \frac{b^2}{4a^2}.
+$$ {#eq-quadratic-proof-05}
+
+In the @eq-quadratic-proof-05, we can see now that the left side is a case of @eq-math-01, then we apply it:
+
+$$
+\left(x + \frac{b}{2a}\right)^2= -\frac{c}{a} + \frac{b^2}{4a^2}.
+$$ {#eq-quadratic-proof-06}
+
+In the @eq-quadratic-proof-06, now we will put the right side in the same denominator
+
+$$
+\left(x + \frac{b}{2a}\right)^2= \frac{b^2-4ac}{4a^2}.
+$$ {#eq-quadratic-proof-07}
+
+In the @eq-quadratic-proof-07, we take the square root:
+
+$$
+x + \frac{b}{2a}= \pm \sqrt{\frac{b^2-4ac}{4a^2}}.
+$$ {#eq-quadratic-proof-08}
+
+In the @eq-quadratic-proof-08, we can apply the square root separately to the demonimator and numerator:
+
+$$
+x + \frac{b}{2a}= \pm \frac{\sqrt{b^2-4ac}}{\sqrt{4a^2}}.
+$$ {#eq-quadratic-proof-09}
+
+In the @eq-quadratic-proof-09, we can solve the denominator, since $\sqrt{4a^2} = 2a$.
+
+$$
+x + \frac{b}{2a}= \pm\frac{ \sqrt{b^2-4ac}}{2a}.
+$$ {#eq-quadratic-proof-10}
+
+In the @eq-quadratic-proof-10, we will move subtract the term $\frac{b}{2a}$.
+
+$$
+x = -\frac{b}{2a} \pm \frac{\sqrt{b^2-4ac}}{2a}.
+$$ {#eq-quadratic-proof-11}
+
+In the @eq-quadratic-proof-11, we just put all terms in the same denominator.
+
+$$
+x =  \frac{-b \pm\sqrt{b^2-4ac}}{2a}.
+$$ {#eq-quadratic-proof-12}
+
+Finally, we reached the Bhaskara formula in the @eq-quadratic-proof-12.
