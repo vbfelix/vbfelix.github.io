@@ -1,0 +1,100 @@
+---
+title: "Intro to: Better Presentations"
+author: "Vinícius Félix"
+date: "2023-10-01"
+categories: [Intro to]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, I describe some notes on how to develop better presentations.
+
+# Context
+
+Presentations are necessary regardless of your field or role, but to achieve a great result, you must leave an impression on your audience. This post is based on my notes from a course on developing better public presentations.
+
+# Know and trust yourself
+
+It is normal and common for people to feel nervous before giving a public presentation. To break through this barrier, you must first understand yourself and your target audience in order to craft an effective message.
+
+To begin, you must identify your strong points in order to incorporate them into a more authentic presentation.
+
+Following that, you must understand how your personality and beliefs influence your behavior; a good way to do so is to visualize the action cycle, in which you must act, reflect on the consequences, and choose based on those actions.
+
+# Mental triggers
+
+These are shortcuts that we use to reach quick conclusions; here, we will look at some triggers that have a greater impact.
+
+## The why
+
+You can be more convincing when you give a reason, even if you are being obvious, so always state the motive.
+
+## Scarcity
+
+Because the fear of losing something generates more engagement than the opportunity to win something, messages with a due date, scarcity quantities, rivalry, and information exclusivity can create a sense of urgency.
+
+## Social proof
+
+The herd effect describes the collective behavior of individuals in a group acting without centralized direction. Most people follow, so when we have initiators, the majority usually copies them. Then, we can employ practices such as use customer logos, influencer testimonies, and numbers that demonstrate results.
+
+## Authority
+
+Image, role, qualification create a sense of importance to the public. Show the expertise in the theme
+
+## Affinity
+
+Empathy and identification create more engagement. Focus in your public, so they feel important. Focus on the reasons and why, ask questions and connect.\
+
+# Good practices
+
+We have the Triune Brain theory from Paul MacLean, where three brains layers are described as:
+
+-   **Lizard**: instincts;
+
+-   **Mammal**: emotions, memories and habits;
+
+-   **Human**: language, thought, imagination and rationalising.
+
+We can use them as a reference to reach the public in differente aspects.
+
+**Be Simple**
+
+-   Avoid long/complex text
+
+-   Use images, graphs, icons and relevant color schemes
+
+-   Be clear and direct
+
+**Be Emotional**
+
+-   Use elements that connect the public to the theme
+
+-   Avoid impersonal data
+
+-   Use stories, examples and analogies
+
+-   Smile, when presenting something positive
+
+**Be Intelligent**
+
+-   Use elements to stimulate the learning
+
+-   Use data and facts, with the referenced source
+
+-   Provoke the thinking
+
+# Be influential
+
+# Be a creator
+
+# Body
