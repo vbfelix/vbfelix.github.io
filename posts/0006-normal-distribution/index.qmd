@@ -2,7 +2,7 @@
 title: "An intro to: Normal Distribution"
 author: "Vinícius Félix"
 date: "2023-06-18"
-categories: [Intro to, Theory]
+categories: [Intro to]
 image: "intro-to-normal-distribution.png"
 ---
 
@@ -88,7 +88,7 @@ ggplot(data = data.frame(x = c(-3, 3)), aes(x, col = "1.00")) +
   scale_x_continuous(breaks = seq(-5,5,1), limits = c(-5,5),expand = c(0,0))+
   geom_vline(xintercept = 0,col = "red",linetype = "dashed")+
   plt_theme_x()+
-  scale_color_manual(values = palette_seq(name = "cyberpunk"))+
+  scale_color_manual(values = pal_seq(name = "cyberpunk"))+
   plt_water_mark(vfx_watermark)
 ```
 

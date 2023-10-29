@@ -2,7 +2,7 @@
 title: "An analysis of: The King James Bible"
 author: "Vinícius Félix"
 date: "2023-07-16"
-categories: [An analysis of, Text Mining]
+categories: [An analysis of]
 image: "intro-to-king-james-bible.png"
 ---
 
@@ -96,7 +96,7 @@ data %>%
     title = "Number of verses for each book"
   )+
   plt_water_mark(vfx_watermark)+
-  scale_fill_manual(values = palette_seq("breaking_bad")[c(1,3)])
+  scale_fill_manual(values = pal_seq("breaking_bad")[c(1,3)])
   
 ```
 
@@ -228,7 +228,7 @@ stop_data %>%
     title = "Sentimental score by book"
   )+
   plt_water_mark(vfx_watermark)+
-  scale_fill_manual(values = palette_seq("breaking_bad")[c(1,3)])
+  scale_fill_manual(values = pal_seq("breaking_bad")[c(1,3)])
 
 ```
 

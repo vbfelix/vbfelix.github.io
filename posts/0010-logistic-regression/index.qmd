@@ -80,7 +80,7 @@ logit <- function(x){log(x/(1-x))}
 
 tibble(p = p,logit = logit(p)) %>% 
   ggplot(aes(p,logit))+
-  geom_line(linewidth = .8, col = palette_two(name = "boba_fett")[1])+
+  geom_line(linewidth = .8, col = pal_two(name = "boba_fett")[1])+
   plt_theme_xy()+
   geom_hline(yintercept = 0.0,linetype = "dashed")+
   geom_vline(xintercept = 0.5,linetype = "dashed")+
@@ -161,7 +161,7 @@ titanic %>%
   ) %>% 
   ggplot(aes(value,perc))+
   geom_col(
-    fill = palette_two("the_english")[1],
+    fill = pal_two("the_english")[1],
     col = "black",
     position = position_dodge2(width = 0.8, preserve = "single")
   )+
@@ -176,7 +176,7 @@ titanic %>%
     subtitle = "Relative frequency of each level, by variable"
   )+
   theme(
-    strip.background = element_rect(fill = palette_two("the_english")[2]),
+    strip.background = element_rect(fill = pal_two("the_english")[2]),
     strip.text = element_text(colour = "white")
   )+
   plt_flip_y_title
@@ -193,7 +193,7 @@ This graph sheds light on the demographics of the Titanic passengers, but our ma
 titanic_survival %>% 
   ggplot(aes(value,perc))+
   geom_col(
-    fill = palette_two("the_english")[1],
+    fill = pal_two("the_english")[1],
     col = "black",
     position = position_dodge2(width = 0.8, preserve = "single")
     )+
@@ -209,7 +209,7 @@ titanic_survival %>%
     subtitle = "Survival rate by variable and level"
   )+
   theme(
-    strip.background = element_rect(fill = palette_two("the_english")[2]),
+    strip.background = element_rect(fill = pal_two("the_english")[2]),
     strip.text = element_text(colour = "white")
     )+
   plt_flip_y_title

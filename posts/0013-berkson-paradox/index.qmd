@@ -2,7 +2,7 @@
 title: "An intro to: Berkson's paradox"
 author: "Vinícius Félix"
 date: "2023-08-20"
-categories: [Intro to,Theory]
+categories: [Intro to]
 image: "intro-berkson-paradox.png"
 bibliography: references.bib
 ---
@@ -40,8 +40,8 @@ Assume we have two numerical variables.
 
 ```{r, echo = FALSE}
 
-col1 <- palette_two("hightown")[2]
-col2 <- palette_two("hightown")[1]  
+col1 <- pal_two("hightown")[2]
+col2 <- pal_two("hightown")[1]  
   
 p0 <-
 df %>% 

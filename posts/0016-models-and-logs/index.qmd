@@ -2,7 +2,7 @@
 title: "An intro to: Linear and log models"
 author: "Vinícius Félix"
 date: "2023-09-06"
-categories: [Intro to,Theory]
+categories: [Intro to]
 image: "intro-models-and-logs.png"
 bibliography: references.bib
 ---
@@ -295,7 +295,7 @@ So for every 1% increase in body weight, the brain weight increases by 0.496%.
 To summarize we can we how the interpretation change for change scale
 
 | Scale         | Example                                                      | Interpretation                                                                           |
-|---------------|-----------------------|----------------------------------|
+|-----------------|----------------------|---------------------------------|
 | Linear-linear | $Y_i = \beta_0 + \beta_1x_1 + \varepsilon_i$                 | A 1 unit increase in $x_1$ implies in a $\beta_1$ increase in $Y_i$.                     |
 | Log-Linear    | $\log{(Y_i)} = \beta_0 + \beta_1x_1 + \varepsilon_i$         | A 1 percent increase in $x_1$ implies in a $\beta_1/100$ approximate increase in $Y_i$.  |
 | Linear-log    | $Y_i = \beta_0 + \beta_1\log{(x_1)} + \varepsilon_i$         | A 1 unit increase in $x_1$ implies in a $(100*\beta_1)\%$ approximate increase in $Y_i$. |

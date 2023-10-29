@@ -2,7 +2,7 @@
 title: "An intro to: Simpson's paradox"
 author: "Vinícius Félix"
 date: "2023-08-20"
-categories: [Intro to,Theory]
+categories: [Intro to]
 image: "intro-simpson-paradox.png"
 ---
 
@@ -80,7 +80,7 @@ As shown in the figure above, they have a moderate negative linear relationship 
 base_plot+
   geom_point(aes(fill = g), shape = 21,size = 2.5, show.legend = FALSE)+
   geom_smooth(se = FALSE, method = "lm", formula = "y~x", col = "black")+
-  scale_fill_manual(values = palette_qua("bojack_horseman"))
+  scale_fill_manual(values = pal_qua("bojack_horseman"))
 ```
 
 Now, we look at the data with a third categorical variable in mind, and we see that the correlation is positive for each level of this variable for each subgroup of data.
@@ -91,8 +91,8 @@ base_plot+
   geom_point(aes(fill = g), shape = 21,size = 2.5, show.legend = FALSE)+
   geom_smooth(aes(col = g),se = FALSE, method = "lm", formula = "y~x", show.legend = FALSE)+
   geom_smooth(se = FALSE, method = "lm", formula = "y~x", col = "black")+
-  scale_fill_manual(values = palette_qua("bojack_horseman"))+
-  scale_colour_manual(values = palette_qua("bojack_horseman"))
+  scale_fill_manual(values = pal_qua("bojack_horseman"))+
+  scale_colour_manual(values = pal_qua("bojack_horseman"))
 ```
 
 # Considerations
@@ -102,4 +102,3 @@ This paradox highlights the importance of understanding biases and data selectio
 To ensure accurate interpretations of variable relationships, researchers must be cautious, taking into account data complexities and alternative explanations. Incorporate domain expertise as well to identify potential confounders or factors that may contribute to the paradox. Unexpected outcomes can be explained with a thorough understanding of the subject.
 
 \
-

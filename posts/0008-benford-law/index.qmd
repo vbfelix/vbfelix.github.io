@@ -113,7 +113,7 @@ Smaller digits are more common, as shown in the graph above, and as the digit gr
 plot_data +
   geom_line(aes(y = benford_law, col = "Benford's Law"),linewidth = .8)+
   geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
-  scale_color_manual(values = palette_qua("legion")[3])
+  scale_color_manual(values = pal_qua("legion")[3])
 
 ```
 
@@ -179,7 +179,7 @@ uni_data %>%
   plt_water_mark(vfx_watermark)+
   geom_line(aes(y = benford_law, col = "Benford's Law"),linewidth = .8)+
   geom_point(aes(y = benford_law, col = "Benford's Law"), size = 2.5)+
-  scale_color_manual(values = palette_qua("legion")[3])
+  scale_color_manual(values = pal_qua("legion")[3])
 
 ```
 

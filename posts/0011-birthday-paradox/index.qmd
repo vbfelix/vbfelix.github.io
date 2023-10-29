@@ -2,7 +2,7 @@
 title: "An intro to: Birthday Paradox"
 author: "Vinícius Félix"
 date: "2023-08-05"
-categories: [Intro to, Probability, Theory]
+categories: [Intro to]
 image: "intro-to-birthday-paradox.png"
 ---
 

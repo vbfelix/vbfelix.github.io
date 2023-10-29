@@ -2,7 +2,7 @@
 title: "An intro to: Mean"
 author: "Vinícius Félix"
 date: "2023-08-13"
-categories: [Intro to,Theory]
+categories: [Intro to]
 image: "intro-to-mean.png"
 ---
 
@@ -151,7 +151,7 @@ ex3 %>%
     subtitle = "Density of a exponential distribution"
   )+
   geom_vline(aes(xintercept = ex3_amean,col = "Arithmetic"), linewidth = 1)+
-  scale_color_manual(values = palette_qua("ted_lasso",F))
+  scale_color_manual(values = pal_qua("ted_lasso",F))
 
 ex3_plot
 ```
@@ -183,7 +183,7 @@ ex4 %>%
     subtitle = "Density of a normal distribution"
   )+
   geom_vline(aes(xintercept = ex4_amean,col = "Arithmetic"), linewidth = 1)+
-  scale_color_manual(values = palette_qua("ted_lasso",F))
+  scale_color_manual(values = pal_qua("ted_lasso",F))
 
 ex4_plot
 ```
@@ -213,13 +213,13 @@ ex5 %>%
     col = "",
     subtitle = "Density of a normal distribution"
   )+
-  scale_color_manual(values = palette_qua("kick_ass",F))+
-  scale_fill_manual(values = palette_qua("kick_ass",F))
+  scale_color_manual(values = pal_qua("kick_ass",F))+
+  scale_fill_manual(values = pal_qua("kick_ass",F))
 
 
 ex5_plot+
     geom_vline(xintercept = ex5_amean,
-               linetype = "dashed", col = palette_qua("kick_ass",F)[1:3])
+               linetype = "dashed", col = pal_qua("kick_ass",F)[1:3])
 
 ```
 
@@ -421,7 +421,7 @@ Let's run the normal distribution again, but this time with different variances.
 
 ex5_plot+
     geom_vline(xintercept = ex5_gmean, linetype = "dashed",
-               col = palette_qua("kick_ass",F)[1:3])
+               col = pal_qua("kick_ass",F)[1:3])
 ```
 
 We get a similar result, but in the higher variance distribution, the mean becomes more skewed toward the peak density.
@@ -524,7 +524,7 @@ Let's run the normal distribution again, but this time with different variances.
 
 ex5_plot+
     geom_vline(xintercept = ex5_hmean, linetype = "dashed",
-               col = palette_qua("kick_ass",F)[1:3])
+               col = pal_qua("kick_ass",F)[1:3])
 ```
 
 The harmonic mean achieves nearly the same result as the arithmetic mean, where the metrics are all centered around 50 when the variance is ignored.
