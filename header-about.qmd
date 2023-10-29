@@ -34,88 +34,6 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 # More about me
 
-### \[2013-2017\] Graduation
-
-During my graduate studies I focused mainly on time-series, geostatistics, and data visualization. I received two scholarships for the Brazilian Program of Scientific Initiation (PBIC), which required students to conduct a research and present them in a congress after one year, and I completed both of them:
-
-1.  \[2014\] Topics on wavelet variance;
-
-2.  \[2015\] Wavelet multiple cross-correlation.
-
-Besides that, I was also a member of the study group of spatial and temporal statistics, having worked with techniques to apply in time series and geostatistics, then I decided to do a final paper about clustering methods for temporal, spatio, and spatio-temporal data.
-
-#### \[2013-2015\] Junior enterprise
-
-In addition, I was one of the founders of Estats Consultoria in 2013, a statistics junior enterprise, where I served as Marketing Director and, later, President, for three years.
-
-In the projects I also worked as a data analyst, and later when I became a senior in college I also helped with the training of the freshmen.
-
-In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior entreprises in the region.
-
-### \[2017-2019\] Post graduation
-
-I decided to pursue a master's degree in Biostatistics after graduating in the beginning of 2017. My dissertation was about spatio-temporal geostatistics models, that was a natural choice since I had developed projects on temporal and spatial statistics during graduation, so I decided to unite them.
-
-Also, I assisted one of my advisors in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
-
-Lastly, I chose psychometrics as my optional credit in an applied area.
-
-### \[2016-2020\] Data Science Consultant
-
-In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, where we collaborated on over 350 scientific studies and more than 40 business surveys for corporations. We were responsible for assisting others in making the most of statistics, such as doing:
-
--   Sampling design;
-
--   Data analysis;
-
--   Questionnaire review;
-
--   Statistics training.
-
-### \[2018-2019\] Statistics Professor
-
-As I gained notoriety as a consultant, I was invited to teach statistics in the master of business administration program for business intelligence at Unicesumar.
-
-I updated the course topics by changing the material to a more modern and applied concept of statistics; despite the fact that it was only an introduction class, I used my hands-on experience to demonstrate real-world application of theoretical concepts.
-
-### \[2020-2020\] Head of Data
-
-In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
-
--   Hiring data scientists and data engineers;
-
--   Establishing a project methodology;
-
--   Helping in the overall design of the data architeture;
-
--   Starting a data-driven culture within the company.
-
-Also as I learned more about software development, I also created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
-
-### \[2021-2022\] Head of R&D
-
-Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsabilities were:
-
--   Implementing automation projects using robots (Jira Automation), web scraping data (Python/R), and improving data monitoring (Metabase) and data-driven decision-making (Dremio);
-
--   Applying agile methodologies and software development concepts in the execution of R&D projects (Jira Software) to drive continuous process improvement;
-
--   Managing the department's budget and expenses while analyzing and reporting on key performance indicators and project outcomes to the board of directors;
-
--   Building project teams, developing schedules, and setting goals to meet overall needs.
-
-### \[2022-2023\] Strategy Manager
-
-In order to offer better actions through data science, GA merged with Intergado in 2022, a company that made hardware for accurately automating data collection, such as individual animal weight and provided software with the use of intelligence to make data-driven decisions easier.
-
-As the company's new strategy manager, my current responsibilities were:
-
--   Managing the implementation of corporate strategy across all products;
-
--   Keeping track of project status and identifying risks;
-
--   Coordinating between technical and non-technical teams to align priorities and goals.
-
 ### \[2023-Now\] Services Manager
 
 Following the merger of GA and Intergado, which was rebranded as Ponta, I was given charge of a new area of the company with the goal of expanding and exploring our technical team in order to provide value to our clients beyond our products.
@@ -137,3 +55,89 @@ My primary activities are:
 -   **Continuous improvement**: Staying updated with technology trends, implementing process enhancements, gathering feedback, and promoting best practices and standardization.
 
 -   **Knowledge management**: Systematic process of creating, organizing, and sharing knowledge to drive innovation and improve organizational performance to the whole team.
+
+### \[2022-2023\] Strategy Manager
+
+In order to offer better actions through data science, GA merged with Intergado in 2022, a company that made hardware for accurately automating data collection, such as individual animal weight and provided software with the use of intelligence to make data-driven decisions easier.
+
+As the company's new strategy manager, my current responsibilities were:
+
+-   Managing the implementation of corporate strategy across all products;
+
+-   Keeping track of project status and identifying risks;
+
+-   Coordinating between technical and non-technical teams to align priorities and goals.
+
+### \[2021-2022\] Head of R&D
+
+Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsabilities were:
+
+-   Implementing automation projects using robots (Jira Automation), web scraping data (Python/R), and improving data monitoring (Metabase) and data-driven decision-making (Dremio);
+
+-   Applying agile methodologies and software development concepts in the execution of R&D projects (Jira Software) to drive continuous process improvement;
+
+-   Managing the department's budget and expenses while analyzing and reporting on key performance indicators and project outcomes to the board of directors;
+
+-   Building project teams, developing schedules, and setting goals to meet overall needs.
+
+### \[2020-2020\] Head of Data
+
+In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
+
+-   Hiring data scientists and data engineers;
+
+-   Establishing a project methodology;
+
+-   Helping in the overall design of the data architeture;
+
+-   Starting a data-driven culture within the company.
+
+Also as I learned more about software development, I also created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
+
+### \[2016-2020\] Data Science Consultant
+
+In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, where we collaborated on over 350 scientific studies and more than 40 business surveys for corporations. We were responsible for assisting others in making the most of statistics, such as doing:
+
+-   Sampling design;
+
+-   Data analysis;
+
+-   Questionnaire review;
+
+-   Statistics training.
+
+#### \[2018-2019\] Statistics Professor
+
+As I gained notoriety as a consultant, I was invited to teach statistics in the master of business administration program for business intelligence at Unicesumar.
+
+I updated the course topics by changing the material to a more modern and applied concept of statistics; despite the fact that it was only an introduction class, I used my hands-on experience to demonstrate real-world application of theoretical concepts.
+
+#### \[2017-2019\] Post graduation
+
+I decided to pursue a master's degree in Biostatistics after graduating in the beginning of 2017. My dissertation was about spatio-temporal geostatistics models, that was a natural choice since I had developed projects on temporal and spatial statistics during graduation, so I decided to unite them.
+
+Also, I assisted one of my advisors in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
+
+Lastly, I chose psychometrics as my optional credit in an applied area.
+
+### \[2013-2016\] Graduation
+
+During my graduate studies I focused mainly on time-series, geostatistics, and data visualization. I received two scholarships for the Brazilian Program of Scientific Initiation (PBIC), which required students to conduct a research and present them in a congress after one year, and I completed both of them:
+
+1.  \[2014\] Topics on wavelet variance;
+
+2.  \[2015\] Wavelet multiple cross-correlation.
+
+Besides that, I was also a member of the study group of spatial and temporal statistics, having worked with techniques to apply in time series and geostatistics, then I decided to do a final paper about clustering methods for temporal, spatio, and spatio-temporal data.
+
+#### \[2013-2015\] Junior enterprise
+
+In addition, I was one of the founders of Estats Consultoria in 2013, a statistics junior enterprise, where I served as Marketing Director and, later, President, for three years.
+
+In the projects I also worked as a data analyst, and later when I became a senior in college I also helped with the training of the freshmen.
+
+In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior entreprises in the region.
+
+### 
+
+### 
