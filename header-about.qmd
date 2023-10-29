@@ -26,7 +26,7 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 ![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
 
-# Academic Education
+# Academic Experience
 
 ![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
 
@@ -92,7 +92,7 @@ In 2020 I received an invitation to start and grow the data team within GA's Res
 
 -   Starting a data-driven culture within the company.
 
-Also as I learned more about software development, I also created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
+Also as I learned more about software development, I created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
 
 ### \[2016-2020\] Data Science Consultant
 
@@ -118,7 +118,7 @@ I decided to pursue a master's degree in Biostatistics after graduating in the b
 
 Also, I assisted one of my advisors in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
 
-Lastly, I chose psychometrics as my optional credit in an applied area.
+Finally, for my optional credits, I chose psychometrics and epidemiology.
 
 ### \[2013-2016\] Graduation
 
