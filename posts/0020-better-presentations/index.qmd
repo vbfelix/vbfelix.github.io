@@ -1,0 +1,200 @@
+---
+title: "Some notes: Better Presentations"
+author: "Vinícius Félix"
+date: "2023-10-29"
+categories: [Some notes]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, I describe some notes I took after taking a course to improve my presentation skills.
+
+# Context
+
+Presentations are required in any field or role, but to achieve a great result, you must leave an impression on your audience. This post is based on my notes from a public speaking and presentation skills course.
+
+# Know and trust yourself
+
+It is natural for people to be nervous before giving a public presentation. In order to break through this barrier, you must first understand yourself and your target audience so that you can craft an effective message.
+
+To begin, identify your strongest points so that you can incorporate them into a more authentic presentation.
+
+Following that, you must comprehend how your personality and beliefs influence your behavior; a good way to do so is to visualize the action cycle, in which you must act, reflect on the consequences, and make decisions based on those actions. There is a reaction to every emotion. Everything you say causes someone to feel something.
+
+# Mental triggers
+
+These are shortcuts that we use to reach quick conclusions; here, we will look at some triggers that can casuse a greater impact when used in a message.
+
+## The why
+
+Even if you are being obvious, giving a reason can make you more convincing, so always state the motive.
+
+## Scarcity
+
+Messages with a due date, scarcity quantities, rivalry, and information exclusivity can create a sense of urgency because the fear of losing something generates more engagement than the opportunity to win something.
+
+## Social proof
+
+The collective behavior of individuals in a group acting without centralized direction is described by the herd effect. Because the majority of people follow, when we have initiators, the majority usually copies them. Then we can use techniques like customer logos, influencer testimonials, and numbers to demonstrate results.
+
+## Authority
+
+The public perceives importance based on image, role, and qualification. Demonstrate your knowledge of the subject.
+
+## Affinity
+
+Empathy and identification lead to increased engagement. Concentrate on your audience so that they feel important. Focus on the whys and why nots, ask questions, and connect.
+
+# Building a presentation
+
+## To present is to plan
+
+Do not wait until the last minute to prepare your presentation; know the location, the audience, the environment, the size of the audience, and their profile. Gather as much information as possible so that you can prepare the most effective format and also adapt your message to the best.
+
+Overestimation of timing is a common error. Pauses should be planned, and remember to include your estimate if there are a question section. Simulating the presentation is a good way to see what works and what doesn't, as well as how long it takes.
+
+However, this does not cover the audience effect, so you must anticipate what reactions your presentation will provoke. For example, if you have a funny slide that can cause laughter, you should plan a pause to accommodate that.
+
+## Starts with a boom
+
+It is very common nowadays to lose one's attention, so you must captivate your audience from the start.
+
+Pass your overall message at the outset, explain why you're giving the presentation and why the audience should listen to you, and use an element to really emphasize that.
+
+But be careful not to show off all of your content in the first act; save the thriller for the final act.
+
+## The four acts
+
+A method based on the hero's journey can be used to build your presentation in four distinct moments.
+
+### The Connection
+
+To make a genuine connection, you must connect your message to the needs of your audience, so first determine who you are speaking to.
+
+Ask yourself why someone needs to stop their life to listen to you.
+
+It is difficult to respond to this question for the general public; no one pleases everyone, so create a persona that represents your target audience. Then, modify your language, references, and examples.
+
+Aside from the context, you should also be mindful of physical elements such as facial expression, voice tone, and eye contact. Be present; avoid displaying behaviors such as crossing your arms or losing focus.
+
+Finally, try to create empathy between yourself and your public need by using a personal example.
+
+### The Villain
+
+In this act, you highlight the issue, pain, or impediment that is causing your audience to suffer.
+
+There are three elements that can help you:
+
+-   **Statistics**, use numbers that showcase the problem or the consequences of not resolving it;
+
+-   **Audiente pain**, tell your message in a way that the villain is a common enemy for you and your public;
+
+-   **Emotional reactions**,use visual elements that emphasize the villain or even try to personify it.
+
+### The Hero
+
+In this act, you highlight how to defeat the villain, so how to solve the problem.
+
+There are elements that can help you:
+
+-   **Be objetive**, use short phrases;
+
+-   **Avoid the obvious**, try to innovate and surprise when showing your solution;
+
+-   **Credibility**, bring proof of your solution, such as data or even people testominy, the social proof and authority mental triggers are both welcome.
+
+### The Story Moral
+
+In the final act, you must conclude your presentation with a single message that summarizes the story you have told up to this point.
+
+This element, like a slogan, must be captivating, easy to remember, brief, and create an identification.
+
+There are elements that can help you:
+
+-   **Rhyme**, rhymed phrase can be catchy;
+
+-   **Ambiguity**, double meaning can spark interest and debate;
+
+-   **Irony**, this can surprise the public;
+
+-   **Juxtaposition**, the contrast of ideas can generate discussion;
+
+-   **Repetition**, you can use a element that repeat the message passed in the other acts.
+
+After the message has been delivered, conclude your presentation as assertively as possible; do not linger, show videos, mention others, or even say that your time is up.
+
+Finally, include a call to action message in which you ask your audience to follow you, click a link, or do something.
+
+# How to engage more
+
+## The three layers
+
+We have the Triune Brain theory from Paul MacLean, where three brains layers are described as:
+
+-   **Lizard**: instincts;
+
+-   **Mammal**: emotions, memories and habits;
+
+-   **Human**: language, thought, imagination and rationalising.
+
+We can use them as a reference to reach the public in differente aspects.
+
+**Be Simple**
+
+-   Avoid long/complex text;
+
+-   Use images, graphs, icons and relevant color schemes;
+
+-   Be clear and direct.
+
+**Be Emotional**
+
+-   Use elements that connect the public to the theme;
+
+-   Avoid impersonal data;
+
+-   Use stories, examples and analogies;
+
+-   Smile, when presenting something positive.
+
+**Be Intelligent**
+
+-   Use elements to stimulate the learning;
+
+-   Use data and facts, with the referenced source;
+
+-   Provoke the thinking.
+
+## The layout
+
+One of the most difficult aspects is the presentation's aesthetic; even if you minimize the effect, every visual aspect matters.
+
+A common error is to include everything in your presentation; most information can be spoken and does not need to be shown, avoiding polluted slides and redudancy.
+
+A few techniques can be used to better show information:
+
+-   **Synthesization**, avoid redundancy and keep things as simples as possible;
+
+-   **Hierarquization**, separate and organize your information based on their structure;
+
+-   **Contrast**, showcase elements that are opposite.
+
+You must pay close attention to the use of visual elements to aid in the transmission of your message:
+
+-   **Background**, avoid polluted ones, and if you must use an image, consider its resolution;
+
+-   **Color**, be cautious when combining because there is both harmony and contrast between them; try to match your message to the choice;
+
+-   **Shapes**, they are typically used to attract attention, particularly with texts. They can also be used in conjunction with numbers to emphasize their magnitude.
+
+-   **Typography**, use caution when selecting and sizing fonts, and avoid using multiple fonts; a font already has a family with variants.
