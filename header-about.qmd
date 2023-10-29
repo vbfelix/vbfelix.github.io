@@ -60,7 +60,7 @@ My primary activities are:
 
 In order to offer better actions through data science, GA merged with Intergado in 2022, a company that made hardware for accurately automating data collection, such as individual animal weight and provided software with the use of intelligence to make data-driven decisions easier.
 
-As the company's new strategy manager, my current responsibilities were:
+As the company's new strategy manager, my responsibilities were:
 
 -   Managing the implementation of corporate strategy across all products;
 
@@ -68,7 +68,7 @@ As the company's new strategy manager, my current responsibilities were:
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
 
-### \[2021-2022\] Head of R&D
+### \[2021-2022\] R&D Manager
 
 Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsabilities were:
 
@@ -80,7 +80,7 @@ Later, in the end of that year, I was given a promotion to lead the whole R&D di
 
 -   Building project teams, developing schedules, and setting goals to meet overall needs.
 
-### \[2020-2020\] Head of Data
+### \[2020-2020\] Data Manager
 
 In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
 
