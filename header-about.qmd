@@ -6,13 +6,15 @@ title: "About me"
 
 My name is Vinícius Félix, and I am a seasoned statistician with technical and managerial experience, as well as a solid background in time-series analysis, geostatistics, and data visualization gained while pursuing a Bachelor of Statistics and a Master of Biostatistics.
 
-While co-founder of H0 Consultoria, I've contributed to over 350 scientific studies and 40 business surveys, providing valuable insights to organizations. Following my hands-on technical phase, I advanced to management positions such as R&D, Data and Strategy Manager, and now Services Manager.
+While co-founder of H0 Consultoria, I've contributed to over 350 scientific studies and 40 business surveys, providing valuable insights to organizations. Following my hands-on technical phase, I advanced to management positions such as R&D, Data and Strategy Manager, Services Manager, and now Head of Data.
 
 As I am passionate about bridging theory and real-world applications, my goal is to empower organizations to make data-driven decisions and optimize their operations using statistical insights.
 
 # Professional Experience
 
-![](images/ponta.jfif){width="31"} \[02/2023 - Present\] Ponta \| Services Manager
+![](images/icon-black-rounder.webp){width="31"} \[01/2024 - Present\] Datlo \| Head of Data
+
+![](images/ponta.jfif){width="31"} \[02/2023 - 12/2023\] Ponta \| Services Manager
 
 ![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
 
@@ -34,11 +36,17 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 # More about me
 
-### \[2023-Now\] Services Manager
+### \[2024-Present\] Head of Data
+
+Datlo is a location intelligence platform for go-to-market and expansion teams. As head of data my responsibilities cover every aspect of the data ecosystem, such as technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional cooperation, customer consultation, regulatory compliance, and ongoing platform improvement.
+
+I work with teams to extract actionable information by utilizing my knowledge in geospatial analytics, making sure customers make decisions that improve their business efforts. In general, I help companies succeed by offering a strong basis for spatial data-driven decision-making.
+
+### \[2023-2023\] Services Manager
 
 Following the merger of GA and Intergado, which was rebranded as Ponta, I was given charge of a new area of the company with the goal of expanding and exploring our technical team in order to provide value to our clients beyond our products.
 
-I am in charge of overseeing the organization's service delivery. My responsibilities include managing service teams, coordinating operations, and ensuring high-quality service delivery in order to meet the needs of customers and organizational goals, such as:
+I was in charge of overseeing the organization's service delivery. My responsibilities included managing service teams, coordinating operations, and ensuring high-quality service delivery in order to meet the needs of customers and organizational goals, such as:
 
 1.  **Hardware installation oversight**: Managing the procurement, scheduling, and quality assurance of hardware installations.
 
@@ -48,7 +56,7 @@ I am in charge of overseeing the organization's service delivery. My responsibil
 
 4.  **Technical support management**: Establishing support procedures, handling inquiries and troubleshooting, and coordinating issue resolution with cross-functional teams.
 
-My primary activities are:
+My primary activities were:
 
 -   **Team leadership**: Leading and managing a team of technicians, assigning tasks, evaluating performance, and fostering effective communication and collaboration.
 

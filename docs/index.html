@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -90,6 +91,7 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
@@ -106,53 +108,55 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">vbfelix</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-about.html">
+    <a class="nav-link" href="./header-about.html" rel="" target="">
  <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-publications.html">
+    <a class="nav-link" href="./header-publications.html" rel="" target="">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-certifications.html">
+    <a class="nav-link" href="./header-certifications.html" rel="" target="">
  <span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-participations.html">
+    <a class="nav-link" href="./header-participations.html" rel="" target="">
  <span class="menu-text">Participations</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/vbfelix"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"><i class="bi bi-stack-overflow" role="img">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="" target=""><i class="bi bi-stack-overflow" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://vbfelix.github.io/relper"><i class="bi bi-box-seam" role="img">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="" target=""><i class="bi bi-box-seam" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -171,11 +175,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  </ul>
+</nav>
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="An analysis of">An analysis of <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Getting Proof">Getting Proof <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Intro to">Intro to <span class="quarto-category-count">(14)</span></div><div class="category" data-category="Some notes">Some notes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Unveiling the pages">Unveiling the pages <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <div class="quarto-about-jolla column-page-left">
  <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 <section id="section" class="level3">
 <h3 data-anchor-id="section"></h3>
 
@@ -183,9 +193,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Some notes" data-listing-date-sort="1698548400000" data-listing-file-modified-sort="1698620543423" data-listing-reading-time-sort="6.515">
+<div class="quarto-post image-right" data-index="0" data-categories="Some notes" data-listing-date-sort="1698548400000" data-listing-file-modified-sort="1702079266893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
 <div class="thumbnail">
-<p><a href="./posts/0020-better-presentations/index.html"> <img src="./posts/0020-better-presentations/banner.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0020-better-presentations/index.html"> <img src="./posts/0020-better-presentations/banner.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0020-better-presentations/index.html">
@@ -217,9 +227,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Getting Proof" data-listing-date-sort="1696129200000" data-listing-file-modified-sort="1696183246124" data-listing-reading-time-sort="4.615">
+<div class="quarto-post image-right" data-index="1" data-categories="Getting Proof" data-listing-date-sort="1696129200000" data-listing-file-modified-sort="1702079266891" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
-<p><a href="./posts/0019-quadratic-equation/index.html"> <img src="./posts/0019-quadratic-equation/banner.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0019-quadratic-equation/index.html"> <img src="./posts/0019-quadratic-equation/banner.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0019-quadratic-equation/index.html">
@@ -251,9 +261,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Unveiling the pages" data-listing-date-sort="1695524400000" data-listing-file-modified-sort="1695580312839" data-listing-reading-time-sort="9.25">
+<div class="quarto-post image-right" data-index="2" data-categories="Unveiling the pages" data-listing-date-sort="1695524400000" data-listing-file-modified-sort="1702079266890" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
 <div class="thumbnail">
-<p><a href="./posts/0018-measure-what-matters/index.html"> <img src="./posts/0018-measure-what-matters/0018-measure-what-matters.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0018-measure-what-matters/index.html"> <img src="./posts/0018-measure-what-matters/0018-measure-what-matters.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0018-measure-what-matters/index.html">
@@ -285,9 +295,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Unveiling the pages" data-listing-date-sort="1694228400000" data-listing-file-modified-sort="1695580312830" data-listing-reading-time-sort="9.385">
+<div class="quarto-post image-right" data-index="3" data-categories="Unveiling the pages" data-listing-date-sort="1694228400000" data-listing-file-modified-sort="1702079266889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
 <div class="thumbnail">
-<p><a href="./posts/0017-i-robot/index.html"> <img src="./posts/0017-i-robot/i-robot.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0017-i-robot/index.html"> <img src="./posts/0017-i-robot/i-robot.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0017-i-robot/index.html">
@@ -319,9 +329,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Intro to" data-listing-date-sort="1693969200000" data-listing-file-modified-sort="1698620614597" data-listing-reading-time-sort="6.495">
+<div class="quarto-post image-right" data-index="4" data-categories="Intro to" data-listing-date-sort="1693969200000" data-listing-file-modified-sort="1702079266885" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
 <div class="thumbnail">
-<p><a href="./posts/0016-models-and-logs/index.html"> <img src="./posts/0016-models-and-logs/intro-models-and-logs.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0016-models-and-logs/index.html"> <img src="./posts/0016-models-and-logs/intro-models-and-logs.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0016-models-and-logs/index.html">
@@ -353,9 +363,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Intro to" data-listing-date-sort="1693105200000" data-listing-file-modified-sort="1698620630709" data-listing-reading-time-sort="5.62">
+<div class="quarto-post image-right" data-index="5" data-categories="Intro to" data-listing-date-sort="1693105200000" data-listing-file-modified-sort="1702079266884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/0015-combination/index.html"> <img src="./posts/0015-combination/intro-combination-permutation.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0015-combination/index.html"> <img src="./posts/0015-combination/intro-combination-permutation.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0015-combination/index.html">
@@ -387,9 +397,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Intro to" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1698620942500" data-listing-reading-time-sort="2.175">
+<div class="quarto-post image-right" data-index="6" data-categories="Intro to" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1702079266881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/0013-berkson-paradox/index.html"> <img src="./posts/0013-berkson-paradox/intro-berkson-paradox.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0013-berkson-paradox/index.html"> <img src="./posts/0013-berkson-paradox/intro-berkson-paradox.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0013-berkson-paradox/index.html">
@@ -421,9 +431,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Intro to" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1698620942508" data-listing-reading-time-sort="2.645">
+<div class="quarto-post image-right" data-index="7" data-categories="Intro to" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1702079266883" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/0014-simpson-paradox/index.html"> <img src="./posts/0014-simpson-paradox/intro-simpson-paradox.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0014-simpson-paradox/index.html"> <img src="./posts/0014-simpson-paradox/intro-simpson-paradox.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0014-simpson-paradox/index.html">
@@ -455,9 +465,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Intro to" data-listing-date-sort="1691895600000" data-listing-file-modified-sort="1698620942494" data-listing-reading-time-sort="15.42">
+<div class="quarto-post image-right" data-index="8" data-categories="Intro to" data-listing-date-sort="1691895600000" data-listing-file-modified-sort="1702079266881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16">
 <div class="thumbnail">
-<p><a href="./posts/0012-mean/index.html"> <img src="./posts/0012-mean/intro-to-mean.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0012-mean/index.html"> <img src="./posts/0012-mean/intro-to-mean.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0012-mean/index.html">
@@ -489,9 +499,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="Intro to" data-listing-date-sort="1691204400000" data-listing-file-modified-sort="1698620749110" data-listing-reading-time-sort="2.29">
+<div class="quarto-post image-right" data-index="9" data-categories="Intro to" data-listing-date-sort="1691204400000" data-listing-file-modified-sort="1702079266879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/0011-birthday-paradox/index.html"> <img src="./posts/0011-birthday-paradox/intro-to-birthday-paradox.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0011-birthday-paradox/index.html"> <img src="./posts/0011-birthday-paradox/intro-to-birthday-paradox.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0011-birthday-paradox/index.html">
@@ -523,9 +533,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Intro to" data-listing-date-sort="1690686000000" data-listing-file-modified-sort="1698621286396" data-listing-reading-time-sort="9.105">
+<div class="quarto-post image-right" data-index="10" data-categories="Intro to" data-listing-date-sort="1690686000000" data-listing-file-modified-sort="1702079266878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
 <div class="thumbnail">
-<p><a href="./posts/0010-logistic-regression/index.html"> <img src="./posts/0010-logistic-regression/intro-to-logistic-regression.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0010-logistic-regression/index.html"> <img src="./posts/0010-logistic-regression/intro-to-logistic-regression.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0010-logistic-regression/index.html">
@@ -557,9 +567,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="Intro to" data-listing-date-sort="1690340400000" data-listing-file-modified-sort="1698621256226" data-listing-reading-time-sort="4.985">
+<div class="quarto-post image-right" data-index="11" data-categories="Intro to" data-listing-date-sort="1690340400000" data-listing-file-modified-sort="1702079266876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
-<p><a href="./posts/0009-monty-hall/index.html"> <img src="./posts/0009-monty-hall/intro-to-monty-hall.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0009-monty-hall/index.html"> <img src="./posts/0009-monty-hall/intro-to-monty-hall.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0009-monty-hall/index.html">
@@ -591,9 +601,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="Intro to" data-listing-date-sort="1690254000000" data-listing-file-modified-sort="1698621314395" data-listing-reading-time-sort="4.08">
+<div class="quarto-post image-right" data-index="12" data-categories="Intro to" data-listing-date-sort="1690254000000" data-listing-file-modified-sort="1702079266872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
-<p><a href="./posts/0008-benford-law/index.html"> <img src="./posts/0008-benford-law/intro-to-benford-law.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0008-benford-law/index.html"> <img src="./posts/0008-benford-law/intro-to-benford-law.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0008-benford-law/index.html">
@@ -625,9 +635,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="An analysis of" data-listing-date-sort="1689476400000" data-listing-file-modified-sort="1698620942447" data-listing-reading-time-sort="8.045">
+<div class="quarto-post image-right" data-index="13" data-categories="An analysis of" data-listing-date-sort="1689476400000" data-listing-file-modified-sort="1702079266872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
 <div class="thumbnail">
-<p><a href="./posts/0007-king-james-bible/index.html"> <img src="./posts/0007-king-james-bible/intro-to-king-james-bible.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0007-king-james-bible/index.html"> <img src="./posts/0007-king-james-bible/intro-to-king-james-bible.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0007-king-james-bible/index.html">
@@ -659,9 +669,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="Intro to" data-listing-date-sort="1687057200000" data-listing-file-modified-sort="1698620942438" data-listing-reading-time-sort="5.305">
+<div class="quarto-post image-right" data-index="14" data-categories="Intro to" data-listing-date-sort="1687057200000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/0006-normal-distribution/index.html"> <img src="./posts/0006-normal-distribution/intro-to-normal-distribution.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0006-normal-distribution/index.html"> <img src="./posts/0006-normal-distribution/intro-to-normal-distribution.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0006-normal-distribution/index.html">
@@ -693,9 +703,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="An analysis of" data-listing-date-sort="1673665200000" data-listing-file-modified-sort="1698620808078" data-listing-reading-time-sort="15.395">
+<div class="quarto-post image-right" data-index="15" data-categories="An analysis of" data-listing-date-sort="1673665200000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16">
 <div class="thumbnail">
-<p><a href="./posts/0005-settlers-of-catan/index.html"> <img src="./posts/0005-settlers-of-catan/an-analysis-of-settlers-of-catan.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0005-settlers-of-catan/index.html"> <img src="./posts/0005-settlers-of-catan/an-analysis-of-settlers-of-catan.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0005-settlers-of-catan/index.html">
@@ -727,9 +737,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="Intro to" data-listing-date-sort="1673146800000" data-listing-file-modified-sort="1698620821487" data-listing-reading-time-sort="5.78">
+<div class="quarto-post image-right" data-index="16" data-categories="Intro to" data-listing-date-sort="1673146800000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/0004-tidyverse-operators/index.html"> <img src="./posts/0004-tidyverse-operators/intro-to-tidyverse-operators.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0004-tidyverse-operators/index.html"> <img src="./posts/0004-tidyverse-operators/intro-to-tidyverse-operators.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0004-tidyverse-operators/index.html">
@@ -761,9 +771,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="Intro to" data-listing-date-sort="1673060400000" data-listing-file-modified-sort="1698620852104" data-listing-reading-time-sort="16.12">
+<div class="quarto-post image-right" data-index="17" data-categories="Intro to" data-listing-date-sort="1673060400000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
 <div class="thumbnail">
-<p><a href="./posts/0003-log-scale/index.html"> <img src="./posts/0003-log-scale/intro-to-log-scale.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0003-log-scale/index.html"> <img src="./posts/0003-log-scale/intro-to-log-scale.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0003-log-scale/index.html">
@@ -795,9 +805,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="Intro to" data-listing-date-sort="1672628400000" data-listing-file-modified-sort="1698620871917" data-listing-reading-time-sort="9.77">
+<div class="quarto-post image-right" data-index="18" data-categories="Intro to" data-listing-date-sort="1672628400000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
 <div class="thumbnail">
-<p><a href="./posts/0002-dplyr-across/index.html"> <img src="./posts/0002-dplyr-across/intro-to-dplyr-across.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0002-dplyr-across/index.html"> <img src="./posts/0002-dplyr-across/intro-to-dplyr-across.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0002-dplyr-across/index.html">
@@ -829,9 +839,9 @@ Vinícius Félix
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="Intro to" data-listing-date-sort="1672542000000" data-listing-file-modified-sort="1698620886819" data-listing-reading-time-sort="10.09">
+<div class="quarto-post image-right" data-index="19" data-categories="Intro to" data-listing-date-sort="1672542000000" data-listing-file-modified-sort="1702079266856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
 <div class="thumbnail">
-<p><a href="./posts/0001-chi-square-test/index.html"> <img src="./posts/0001-chi-square-test/intro-to-chi-square-test.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/0001-chi-square-test/index.html"> <img src="./posts/0001-chi-square-test/intro-to-chi-square-test.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/0001-chi-square-test/index.html">
@@ -890,9 +900,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -957,6 +981,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1000,6 +1110,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
 
