@@ -12,33 +12,29 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 # Professional Experience
 
-![](images/icon-black-rounder.webp){width="31"} \[01/2024 - Present\] Datlo \| Head of Data
-
-![](images/ponta.jfif){width="31"} \[02/2023 - 12/2023\] Ponta \| Services Manager
-
-![](images/ga_logo.jpg){width="31"} \[04/2022 - 01/2023\] GA + Intergado \| Strategy Manager
-
-![](images/ga_logo.jpg){width="31"} \[01/2021 - 03/2022\] GA \| R&D Manager
-
-![](images/ga_logo.jpg){width="31"} \[09/2020 - 12/2020\] GA \| Data Manager
-
-![](images/unicesumar_logo-01.png){width="31"} \[10/2018 - 11/2019\] Unicesumar \| Statistics Professor
-
-![](images/h0_logo.jpg){width="31"} \[09/2016 - 08/2020\] H0 \| Data Scientist Consultant and Co-founder
-
-![](images/estats_logo-01.jpg){width="31"} \[07/2013 - 12/2015\] Estats Consultoria \| Data Analyst and Co-founder
+| Company                                                   |      Period       | Role                                     |
+|:-------------------|:------------------:|:-------------------------------|
+| ![](images/icon-black-rounder.webp){width="31"} Datlo     | 01/2024 - Present | Head of Data                             |
+| ![](images/ponta.jfif){width="31"} Ponta                  | 02/2023 - 12/2023 | Services Manager                         |
+| ![](images/ga_intergado.jfif){width="31"} GA + Intergado  | 04/2022 - 01/2023 | Strategy Manager                         |
+| ![](images/ga_logo.jpg){width="31"} GA                    | 01/2021 - 03/2022 | R&D Manager                              |
+| ![](images/ga_logo.jpg){width="31"} GA                    | 09/2020 - 12/2020 | Data Manager                             |
+| ![](images/unicesumar_logo-01.png){width="31"} Unicesumar | 10/2018 - 11/2019 | Statistics Professor                     |
+| ![](images/h0_logo.jpg){width="31"} H0 Consultoria        | 09/2016 - 08/2020 | Data Scientist Consultant and Co-founder |
+| ![](images/estats_logo.jpg){width="31"} Estats Consultoria         | 07/2013 - 12/2015 | Data Analyst and Co-founder              |
 
 # Academic Experience
 
-![](images/uem_logo.jpg){width="31" height="33"} \[2017 - 2019\] Master of Science in Biostatistics -- State University of Maringá -- Brazil -- [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf)
-
-![](images/uem_logo.jpg){width="31" height="33"} \[2013 - 2016\] Bachelor of Science in Statistics -- State University of Maringá -- Brazil
+| University                                                                       | Period            | Degree                             | Final paper                                                                                                                                                                                                                                                             |
+|----------------|----------------|----------------|-------------------------|
+| ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2017 - 02/2019 | Master of Science in Biostatistics | [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
+| ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2013 - 12/2016 | Bachelor of Science in Statistics  | Temporal, spatial, and spatio-temporal clustering processes and techniques                                                                                                                                                                                              |
 
 # More about me
 
 ### \[2024-Present\] Head of Data
 
-Datlo is a location intelligence platform for go-to-market and expansion teams. As head of data my responsibilities cover every aspect of the data ecosystem, such as technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional cooperation, customer consultation, regulatory compliance, and ongoing platform improvement.
+Datlo is a location intelligence platform for go-to-market and expansion teams. As Head of Data my responsibilities cover every aspect of the data ecosystem, such as technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional cooperation, customer consultation, regulatory compliance, and ongoing platform improvement.
 
 I work with teams to extract actionable information by utilizing my knowledge in geospatial analytics, making sure customers make decisions that improve their business efforts. In general, I help companies succeed by offering a strong basis for spatial data-driven decision-making.
 
@@ -78,7 +74,7 @@ As the company's new strategy manager, my responsibilities were:
 
 ### \[2021-2022\] R&D Manager
 
-Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsabilities were:
+Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsibilities were:
 
 -   Implementing automation projects using robots (Jira Automation), web scraping data (Python/R), and improving data monitoring (Metabase) and data-driven decision-making (Dremio);
 
@@ -96,7 +92,7 @@ In 2020 I received an invitation to start and grow the data team within GA's Res
 
 -   Establishing a project methodology;
 
--   Helping in the overall design of the data architeture;
+-   Helping in the overall design of the data architecture;
 
 -   Starting a data-driven culture within the company.
 
@@ -124,7 +120,7 @@ I updated the course topics by changing the material to a more modern and applie
 
 I decided to pursue a master's degree in Biostatistics after graduating in the beginning of 2017. My dissertation was about spatio-temporal geostatistics models, that was a natural choice since I had developed projects on temporal and spatial statistics during graduation, so I decided to unite them.
 
-Also, I assisted one of my advisors in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
+Also, I assisted one of my advisers in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
 
 Finally, for my optional credits, I chose psychometrics and epidemiology.
 
@@ -144,7 +140,7 @@ In addition, I was one of the founders of Estats Consultoria in 2013, a statisti
 
 In the projects I also worked as a data analyst, and later when I became a senior in college I also helped with the training of the freshmen.
 
-In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior entreprises in the region.
+In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior enterprises in the region.
 
 ### 
 
