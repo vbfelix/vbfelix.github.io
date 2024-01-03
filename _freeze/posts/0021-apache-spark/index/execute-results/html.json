@@ -1,0 +1,14 @@
+{
+  "hash": "84a625d7fe6e7bc2fa62df858f819591",
+  "result": {
+    "markdown": "---\ntitle: \"Intro to: Spache Spark\"\nauthor: \"Vinícius Félix\"\ndate: \"2023-10-29\"\ncategories: [Some notes]\nimage: \"banner.png\"\n---\n\n::: {.cell}\n\n:::\n\n\nIn this post, I will give a quick introduction to an open-source distributed system for data processing.\n\n# Context\n\nThe history of [Apache Spark](https://spark.apache.org/) initially began in 2009 as a research project by Matei Zaharia and academics at UC Berkeley's AMPLab. Its goal was to get past the constraints of Hadoop MapReduce, and in 2010 it was made available to the public.\n\nAfter becoming a member of the Apache Software Foundation in 2013, Spark advanced to the Apache Incubator and, in 2014, became a Top-Level Apache Project, demonstrating its maturity. DataFrames and Datasets were added to Spark 2.0 (2016) to improve usability.\n\nAs it continues to add new features and enhancements, Apache Spark is still a well-known big data framework, with SQL analytics capabilities, which outperforms many conventional data warehouses in executing quick, distributed ANSI SQL queries for tasks like dashboarding and *ad hoc* reporting.\n\n# Why use Spark?\n\n## **Speed and Performance**\n\n-   ***In-memory processing**:* Spark utilizes in-memory processing, accelerating data manipulation by storing data in memory, leading to faster data pipelines compared to disk-based systems.\n\n-   ***Unified Engine**:* Spark offers a unified engine for batch processing, streaming, and machine learning, eliminating the need to switch between different tools and reducing overall processing time.\n\n-   ***Fault tolerance**:* Spark is designed to be fault-tolerant, automatically recovering from failures and ensuring reliable data processing.\n\n## **Flexibility and Scalability**\n\n-   ***Supports various data sources**:* Spark can integrate with diverse data sources, including files, databases, cloud storage, and real-time streams, enhancing flexibility for data ingestion and analysis.\n\n-   ***Runs on various platforms**:* Spark is adaptable to different hardware configurations, running on single machines, clusters, and cloud platforms, ensuring scalability.\n\n-   ***Supports multiple programming languages**:* Spark has support for Scala, Python, Java, and R allows developers to choose the language they are most comfortable with, enhancing flexibility.\n\n## **Other Benefits**\n\n-   ***Active community**:* Spark boasts a large and active community, providing ample resources and support for learning and troubleshooting.\n\n-   ***Open source**:* Spark is an open-source software, freely available for use and modification, reducing licensing costs and fostering community collaboration.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

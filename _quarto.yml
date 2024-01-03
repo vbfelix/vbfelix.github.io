@@ -15,6 +15,7 @@ website:
       - header-publications.qmd
       - header-certifications.qmd
       - header-participations.qmd
+      - header-awards.qmd
       # - icon: file-earmark-person
         # href: https://drive.google.com/file/d/1JM_2MsfXULoBUMGnwgSNfanp10crVyP7/view?usp=sharing  
       - icon: github
