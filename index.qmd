@@ -1,6 +1,6 @@
 ---
 title: "Welcome to my personal website!"
-subtitle: "Here you will find posts about statistics, as well as some information about me."
+subtitle: "Here you will find posts about statistics and random stuff that I like, as well as some information about me."
 about:
   template: jolla
   image-width: 70%
