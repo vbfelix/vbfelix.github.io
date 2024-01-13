@@ -28,6 +28,8 @@ title: "Certifications"
 
 ![](images/paste-2BF0ACDA.png){width="32"} [Confluence Fundamentals](https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1)
 
+![](images/paste-2BF0ACDA.png){width="32"} [Jira Service Management Fundamentals](https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG)
+
 ![](images/paste-2BF0ACDA.png){width="32"} [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
 
 ## Python
