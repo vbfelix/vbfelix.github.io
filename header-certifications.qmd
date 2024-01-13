@@ -28,6 +28,8 @@ title: "Certifications"
 
 ![](images/paste-2BF0ACDA.png){width="32"} [Confluence Fundamentals](https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1)
 
+![](images/paste-2BF0ACDA.png){width="32"} [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
+
 ## Python
 
 ![](images/download%20(1).png){width="31"} [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
