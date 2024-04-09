@@ -12,21 +12,21 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 # Professional Experience
 
-| Company                                                   |      Period       | Role                                     |
+| Company                                                    |      Period       | Role                                     |
 |:-------------------|:------------------:|:-------------------------------|
-| ![](images/icon-black-rounder.webp){width="31"} Datlo     | 01/2024 - Present | Head of Data                             |
-| ![](images/ponta.jfif){width="31"} Ponta                  | 02/2023 - 12/2023 | Services Manager                         |
-| ![](images/ga_intergado.jfif){width="31"} GA + Intergado  | 04/2022 - 01/2023 | Strategy Manager                         |
-| ![](images/ga_logo.jpg){width="31"} GA                    | 01/2021 - 03/2022 | R&D Manager                              |
-| ![](images/ga_logo.jpg){width="31"} GA                    | 09/2020 - 12/2020 | Data Manager                             |
-| ![](images/unicesumar_logo-01.png){width="31"} Unicesumar | 10/2018 - 11/2019 | Statistics Professor                     |
-| ![](images/h0_logo.jpg){width="31"} H0 Consultoria        | 09/2016 - 08/2020 | Data Scientist Consultant and Co-founder |
-| ![](images/estats_logo.jpg){width="31"} Estats Consultoria         | 07/2013 - 12/2015 | Data Analyst and Co-founder              |
+| ![](images/icon-black-rounder.webp){width="31"} Datlo      | 01/2024 - Present | Head of Data                             |
+| ![](images/ponta.jfif){width="31"} Ponta                   | 02/2023 - 12/2023 | Services Manager                         |
+| ![](images/ga_intergado.jfif){width="31"} GA + Intergado   | 04/2022 - 01/2023 | Strategy Manager                         |
+| ![](images/ga_logo.jpg){width="31"} GA                     | 01/2021 - 03/2022 | R&D Manager                              |
+| ![](images/ga_logo.jpg){width="31"} GA                     | 09/2020 - 12/2020 | Data Manager                             |
+| ![](images/unicesumar_logo-01.png){width="31"} Unicesumar  | 10/2018 - 11/2019 | Statistics Professor                     |
+| ![](images/h0_logo.jpg){width="31"} H0 Consultoria         | 09/2016 - 08/2020 | Data Scientist Consultant and Co-founder |
+| ![](images/estats_logo.jpg){width="31"} Estats Consultoria | 07/2013 - 12/2015 | Data Analyst and Co-founder              |
 
 # Academic Experience
 
 | University                                                                       | Period            | Degree                             | Final paper                                                                                                                                                                                                                                                             |
-|----------------|----------------|----------------|-------------------------|
+|-----------------|-----------------|-----------------|-----------------------|
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2017 - 02/2019 | Master of Science in Biostatistics | [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2013 - 12/2016 | Bachelor of Science in Statistics  | Temporal, spatial, and spatio-temporal clustering processes and techniques                                                                                                                                                                                              |
 
@@ -34,9 +34,9 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 ### \[2024-Present\] Head of Data
 
-Datlo is a location intelligence platform for go-to-market and expansion teams. As Head of Data my responsibilities cover every aspect of the data ecosystem, such as technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional cooperation, customer consultation, regulatory compliance, and ongoing platform improvement.
+Datlo has a location intelligence platform for go-to-market and expansion teams. As Head of Data for a data-driven product, my responsibilities include technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional collaboration, customer consultation, regulatory compliance, and ongoing platform improvement.
 
-I work with teams to extract actionable information by utilizing my knowledge in geospatial analytics, making sure customers make decisions that improve their business efforts. In general, I help companies succeed by offering a strong basis for spatial data-driven decision-making.
+I work with teams to extract relevant information using my geospatial analytics expertise, ensuring that customers make decisions that benefit their company operations. In general, I help firms flourish by providing a solid foundation for geographic data-driven decision-making.
 
 ### \[2023-2023\] Services Manager
 
@@ -74,7 +74,7 @@ As the company's new strategy manager, my responsibilities were:
 
 ### \[2021-2022\] R&D Manager
 
-Later, in the end of that year, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsibilities were:
+Later, in the end of 2020, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsibilities were:
 
 -   Implementing automation projects using robots (Jira Automation), web scraping data (Python/R), and improving data monitoring (Metabase) and data-driven decision-making (Dremio);
 
@@ -86,7 +86,7 @@ Later, in the end of that year, I was given a promotion to lead the whole R&D di
 
 ### \[2020-2020\] Data Manager
 
-In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Head of Data were:
+In 2020 I received an invitation to start and grow the data team within GA's Research & Development (R&D) division in 2020, GA was a Brazilian animal science tech company, that I consulted for some years. My main tasks as Data Manager were:
 
 -   Hiring data scientists and data engineers;
 
@@ -112,7 +112,7 @@ In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, wh
 
 #### \[2018-2019\] Statistics Professor
 
-As I gained notoriety as a consultant, I was invited to teach statistics in the master of business administration program for business intelligence at Unicesumar.
+As I gained notoriety as a consultant, I was invited to teach statistics in the master of business administration (MBA) program for business intelligence at Unicesumar.
 
 I updated the course topics by changing the material to a more modern and applied concept of statistics; despite the fact that it was only an introduction class, I used my hands-on experience to demonstrate real-world application of theoretical concepts.
 
@@ -122,25 +122,25 @@ I decided to pursue a master's degree in Biostatistics after graduating in the b
 
 Also, I assisted one of my advisers in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
 
-Finally, for my optional credits, I chose psychometrics and epidemiology.
+Finally, for my optional credits, I chose psychometrics and epidemiology courses.
 
 ### \[2013-2016\] Graduation
 
 During my graduate studies I focused mainly on time-series, geostatistics, and data visualization. I received two scholarships for the Brazilian Program of Scientific Initiation (PBIC), which required students to conduct a research and present them in a congress after one year, and I completed both of them:
 
-1.  \[2014\] Topics on wavelet variance;
+-   \[2014\] Topics on wavelet variance;
 
-2.  \[2015\] Wavelet multiple cross-correlation.
+-   \[2015\] Wavelet multiple cross-correlation.
 
 Besides that, I was also a member of the study group of spatial and temporal statistics, having worked with techniques to apply in time series and geostatistics, then I decided to do a final paper about clustering methods for temporal, spatio, and spatio-temporal data.
 
 #### \[2013-2015\] Junior enterprise
 
-In addition, I was one of the founders of Estats Consultoria in 2013, a statistics junior enterprise, where I served as Marketing Director and, later, President, for three years.
-
-In the projects I also worked as a data analyst, and later when I became a senior in college I also helped with the training of the freshmen.
-
-In my last year I decided to enter the regional Junior Enterprises Nucleus, to help create a census for the junior enterprises in the region.
+Additionally, in 2013, I co-founded Estats Consultoria, a statistics junior enterprise, where I served as Marketing Director and, eventually, President for three years.\
+\
+In the projects, I also worked as a data analyst, and later, as a senior in college, I assisted with freshman training in statistics.\
+\
+In my last year, I opted to join the regional Junior Enterprises Nucleus (NEJ) to help establish a census in the region.
 
 ### 
 
