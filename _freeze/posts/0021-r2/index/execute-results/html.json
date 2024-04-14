@@ -1,0 +1,16 @@
+{
+  "hash": "4c2de18724f23cc573ef3207151e8a62",
+  "result": {
+    "markdown": "---\ntitle: \"Intro to: R²\"\nauthor: \"Vinícius Félix\"\ndate: \"2023-10-01\"\ncategories: [Getting Proof]\nimage: \"banner.png\"\n---\n\n::: {.cell}\n\n:::\n\n\nIn this post, we explore the infamous metric R².\n\n# Context\n\nThe R² or the coefficient of determination is a metric commonly used to measure the goodness of fit of a model, it is given by:\n\n$$\nR^2 = 1- \\frac{SS_{\\mathrm{res}}}{SS_{\\mathrm{tot}}},\n$$ {#eq-r2}\n\nwhere:\n\n-   $SS_{\\mathrm{res}}$ is the sum of squares of residuals;\n\n-   $SS_{\\mathrm{tot}}$ is the total sum of squares.\n\nThe sum of squares of residuals is given by: $$\nSS_{\\mathrm{res}} = \\sum_\\limits{i=1}^{n}(y_i - \\hat{y}_i)^2,\n$$ {#eq-ssres}\n\nwhere:\n\n-   $y_i$ is the response variable;\n\n-   $\\hat{y}_i$ is the fitted value for $y_i$.\n\nThe graphic below shows the difference between the original values and the model ($y_i - \\hat{y}_i$).\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\nThe total sum of squares is given by: $$\nSS_{\\mathrm{tot}} = \\sum_\\limits{i=1}^{n}(y_i - \\bar{y})^2,\n$$\n\nwhere:\n\n-   $y_i$ is the response variable;\n\n-   $\\bar{y}$ is the average value of $y$.\n\nThe graphic below shows the difference between the response variable's original values and its mean ($y_i - \\bar{y}$).\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\nTo put it simply, the coefficient measures the relative difference between the sum of squares of your model compared to a simplistic model (the average), where its values is considered good if it equals 1, meaning that the $SS_{\\mathrm{res}}$ is close to 0 and is considered bad as it approaches 0, since the squared sum of the residuals would be close as using the average as a model.\n\n## \nWhen R² = (r)²\n\n# Adjusted R²\n\n# Why it can be a poor choice \n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

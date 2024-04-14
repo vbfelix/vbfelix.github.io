@@ -1,0 +1,111 @@
+---
+title: "Intro to: R²"
+author: "Vinícius Félix"
+date: "2023-10-01"
+categories: [Getting Proof]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+
+set.seed(123);data <- rpearson(n = 10,pearson = .75,mean = 5,sd = 10)
+
+data_model <- 
+  lm(formula = y~x,data = data) %>% 
+  broom::augment()
+
+y_avg <- mean(data$y)
+
+```
+
+In this post, we explore the infamous metric R².
+
+# Context
+
+The R² or the coefficient of determination is a metric commonly used to measure the goodness of fit of a model, it is given by:
+
+$$
+R^2 = 1- \frac{SS_{\mathrm{res}}}{SS_{\mathrm{tot}}},
+$$ {#eq-r2}
+
+where:
+
+-   $SS_{\mathrm{res}}$ is the sum of squares of residuals;
+
+-   $SS_{\mathrm{tot}}$ is the total sum of squares.
+
+The sum of squares of residuals is given by: $$
+SS_{\mathrm{res}} = \sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2,
+$$ {#eq-ssres}
+
+where:
+
+-   $y_i$ is the response variable;
+
+-   $\hat{y}_i$ is the fitted value for $y_i$.
+
+The graphic below shows the difference between the original values and the model ($y_i - \hat{y}_i$).
+
+```{r, echo = FALSE}
+
+data_model %>% 
+  ggplot(aes(x,y))+
+  plt_theme_xy()+
+  plt_regression_line(color = "royalblue4",linetype = "solid")+
+  geom_point(size = 2)+
+  geom_segment(aes(x = x,xend = x,y = .fitted,yend = y), linetype = "dashed")+
+  plt_flip_y_title+
+  scale_x_continuous(breaks = 1:10)+
+  scale_y_continuous(breaks = 1:10)
+
+```
+
+The total sum of squares is given by: $$
+SS_{\mathrm{tot}} = \sum_\limits{i=1}^{n}(y_i - \bar{y})^2,
+$$ {#eq-sstot}
+
+where:
+
+-   $y_i$ is the response variable;
+
+-   $\bar{y}$ is the average value of $y$.
+
+The graphic below shows the difference between the response variable's original values and its mean ($y_i - \bar{y}$).
+
+```{r, echo = FALSE}
+data_model %>% 
+  ggplot(aes(x,y))+
+  plt_theme_xy()+
+  geom_hline(yintercept = y_avg, col = "firebrick3")+
+  geom_point(size = 2)+
+  geom_segment(aes(x = x,xend = x,y = y_avg,yend = y), linetype = "dashed")+
+  plt_flip_y_title+
+  scale_x_continuous(breaks = 1:10)+
+  scale_y_continuous(breaks = 1:10)
+  
+```
+
+To put it simply, the coefficient measures the relative difference between the sum of squares of your model compared to a simplistic model (the average), where its values is considered good if it equals 1, meaning that the $SS_{\mathrm{res}}$ is close to 0 and is considered bad as it approaches 0, since the squared sum of the residuals would be close as using the average as a model.
+
+## 
+When R² = (r)²
+
+# Adjusted R²
+
+# Why it can be a poor choice 
+
+<https://en.wikipedia.org/wiki/Coefficient_of_determination>
+
+<https://getrecast.com/r-squared/>
+
+<https://www.quantics.co.uk/blog/r-we-squared-yet-why-r-squared-is-a-poor-metric-for-goodness-of-fit/>
+
+<https://towardsdatascience.com/avoid-r-squared-to-judge-regression-model-performance-5c2bc53c8e2e>
