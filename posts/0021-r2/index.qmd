@@ -84,23 +84,135 @@ The graphic below shows the difference between the response variable's original 
 data_model %>% 
   ggplot(aes(x,y))+
   plt_theme_xy()+
-  geom_hline(yintercept = y_avg, col = "firebrick3")+
+  geom_hline(aes(yintercept = y_avg,col = "Average"))+
   geom_point(size = 2)+
   geom_segment(aes(x = x,xend = x,y = y_avg,yend = y), linetype = "dashed")+
   plt_flip_y_title+
   scale_x_continuous(breaks = 1:10)+
-  scale_y_continuous(breaks = 1:10)
+  scale_y_continuous(breaks = 1:10)+
+  labs(col = "")+
+  scale_color_manual(values = "firebrick3")
   
 ```
 
 To put it simply, the coefficient measures the relative difference between the sum of squares of your model compared to a simplistic model (the average), where its values is considered good if it equals 1, meaning that the $SS_{\mathrm{res}}$ is close to 0 and is considered bad as it approaches 0, since the squared sum of the residuals would be close as using the average as a model.
 
 ## 
-When R² = (r)²
+
+## When R² = (r)²?
+
+To show the relationship between the $R^2$ and $r$ , first we have that
+
+$$
+SS_{\mathrm{tot}} = SS_{\mathrm{res}} + SS_{\mathrm{reg}}.  
+$$ {#eq-sstot-ssres-ssreg}
+
+where $SS_{\mathrm{reg}}$ is the sum of squares due to regression, also known as the explained sum of squares, giving by:
+
+$$
+SS_{\mathrm{reg}} = \sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2.
+$$ {#eq-ssreg}
+
+Or graphically
+
+```{r, echo = FALSE}
+data_model %>% 
+  ggplot(aes(x,y))+
+  plt_theme_xy()+
+  plt_regression_line(color = "royalblue4",linetype = "solid")+
+  geom_hline(aes(yintercept = y_avg,col = "Average"))+
+  geom_point(size = 2)+
+  geom_segment(aes(x = x,xend = x,y = .fitted,yend = y_avg), linetype = "dashed")+
+  plt_flip_y_title+
+  scale_x_continuous(breaks = 1:10)+
+  scale_y_continuous(breaks = 1:10)+
+  labs(col = "")+
+  scale_color_manual(values = "firebrick3")
+
+```
+
+Then, applying @eq-sstot-ssred-ssreg to @eq-r2
+
+$$
+\begin{align}
+R^2
+&=  1- \frac{SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&=  \frac{SS_{\mathrm{tot}}}{SS_{\mathrm{tot}}}- \frac{SS_{\mathrm{res}}}
+{SS_{\mathrm{tot}}}\\
+&=  \frac{SS_{\mathrm{tot}} - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&=  \frac{SS_{\mathrm{reg}} + SS_{\mathrm{res} } - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}.\\
+\end{align}
+$$ {#eq-r2-to-ssreg}
+
+Applying @eq-ssreg in the @eq-r2-to-ssreg we have that
+
+$$ \begin{align} R^2 &=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}\\ &=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2},\\ \end{align} $$ {#eq-r2-as-ssreg}
+
+In the case of a simple linear regression, we can see that coefficient of determination is equal to the square of the Pearson linear correlation coefficient.
+
+$$
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i.
+$$ {#eq-pred-value}
+
+where:
+
+-   $\hat{\beta}_0$ is the estimated value of the intercept;
+
+-   $\hat{\beta}_1$ is the estimated value of the slope coefficient;
+
+-   $x_i$ is the explanatory variable.
+
+Applying @eq-pred-value in the @eq-r2-as-ssreg we have that
+
+$$
+\begin{align}
+R^2
+&=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+\end{align}
+$$
+
+We also have that for the ordinary least squares that
+
+$$
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x},
+$$
+
+So
+
+$$
+\begin{align}
+R^2
+&=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(\bar{y} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+\end{align}
+$$
+
+Since we have that the variance of $x$ is giving by
+
+$$
+s_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2
+$$ {#eq-sx}
+
+we can divide both terms of the equation by $n-1$ and use @eq-sx to rewrite that
+
+$$
+\begin{align}
+R^2
+&=  \hat{\beta}^2_1\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
+&=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
+\end{align}
+$$
 
 # Adjusted R²
 
-# Why it can be a poor choice 
+# Why it can be a poor choice
 
 <https://en.wikipedia.org/wiki/Coefficient_of_determination>
 
