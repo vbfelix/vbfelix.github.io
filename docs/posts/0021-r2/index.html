@@ -62,14 +62,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+</head><body class="nav-fixed">\usepackage{amsmath}
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-</head>
 
-<body class="nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -261,7 +262,7 @@ R^2
 &amp;=  \frac{SS_{\mathrm{tot}}}{SS_{\mathrm{tot}}}- \frac{SS_{\mathrm{res}}}
 {SS_{\mathrm{tot}}}\\
 &amp;=  \frac{SS_{\mathrm{tot}} - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
-&amp;=  \frac{SS_{\mathrm{reg}} + SS_{\mathrm{res} } - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&amp;=  \frac{SS_{\mathrm{reg}} + \cancel{{SS_{\mathrm{res} } - SS_{\mathrm{res}}}}}{SS_{\mathrm{tot}}}\\
 &amp;=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}.\\
 \end{align}
 \tag{6}\]</span></span></p>
@@ -290,39 +291,39 @@ R^2
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}.
 \tag{10}\]</span></span></p>
 <p>So the <a href="#eq-b0">Equation&nbsp;10</a> applied to the <a href="#eq-r2-as-yhat">Equation&nbsp;9</a> results in:</p>
-<p><span id="eq-r2-as-b0"><span class="math display">\[
+<p><span class="math display">\[
 \begin{align}
 R^2
 &amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}(\bar{y} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}(\cancel{\bar{y}} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \cancel{\bar{y}})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &amp;=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &amp;=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &amp;=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
+&amp;=  \hat{\beta}^2_1\left(\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right).
 \end{align}
-\tag{11}\]</span></span></p>
+\]</span></p>
 <p>Since we have that the variance of <span class="math inline">\(x\)</span> is given by</p>
 <p><span id="eq-sx"><span class="math display">\[
 s^2_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2.
-\tag{12}\]</span></span></p>
-<p>We can divide both terms of the <a href="#eq-r2-as-b0">Equation&nbsp;11</a> by <span class="math inline">\((n-1)\)</span> and usethe <a href="#eq-sx">Equation&nbsp;12</a> to rewrite it as</p>
+\tag{11}\]</span></span></p>
+<p>We can divide both terms of the <strong>?@eq-r2-as-b0</strong> by <span class="math inline">\((n-1)\)</span> and usethe <a href="#eq-sx">Equation&nbsp;11</a> to rewrite it as</p>
 <p><span id="eq-r2-as-sx-sy"><span class="math display">\[
 \begin{align}
 R^2
-&amp;=  \hat{\beta}^2_1\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \hat{\beta}^2_1\left(\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right)\\
 &amp;=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
 &amp;=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
 \end{align}
-\tag{13}\]</span></span></p>
+\tag{12}\]</span></span></p>
 <p>Such as we have a result for <span class="math inline">\(\hat{\beta}_0\)</span> in the <a href="#eq-b0">Equation&nbsp;10</a>, we also have one for <span class="math inline">\(\hat{\beta}_1\)</span></p>
 <p><span id="eq-b1"><span class="math display">\[
-\hat{\beta}_1 = \frac{s_{xy}}{s^2x},
-\tag{14}\]</span></span></p>
+\hat{\beta}_1 = \frac{s_{xy}}{s^2_x},
+\tag{13}\]</span></span></p>
 <p>where</p>
 <ul>
 <li><span class="math inline">\(s_{xy}\)</span> is the covariance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
 </ul>
-<p>Finally, applying the <a href="#eq-b1">Equation&nbsp;14</a> to the <a href="#eq-r2-as-sx-sy">Equation&nbsp;13</a></p>
+<p>Finally, applying the <a href="#eq-b1">Equation&nbsp;13</a> to the <a href="#eq-r2-as-sx-sy">Equation&nbsp;12</a></p>
 <p><span id="eq-r2-as-r2"><span class="math display">\[
 \begin{align}
 R^2
@@ -331,8 +332,8 @@ R^2
 &amp;=  \left(\frac{s_{xy}}{s_xs_y}\right)^2\\
 &amp;=  (r)^2.\\
 \end{align}
-\tag{15}\]</span></span></p>
-<p>At last in <a href="#eq-r2-as-r2">Equation&nbsp;15</a> we can show that for the simple linear regression that <span class="math inline">\(R^2 = (r)^2\)</span>.</p>
+\tag{14}\]</span></span></p>
+<p>At last in <a href="#eq-r2-as-r2">Equation&nbsp;14</a> we can show that for the simple linear regression that <span class="math inline">\(R^2 = (r)^2\)</span>.</p>
 </section>
 </section>
 <section id="adjusted-r²" class="level1">
@@ -341,16 +342,16 @@ R^2
 <p>To attempt that, instead of only the sum of squares we divide the terms by their respectives degrees of freedom:</p>
 <p><span id="eq-s2-tot"><span class="math display">\[
 \frac{SS_{\mathrm{tot}}}{n-1},
-\tag{16}\]</span></span></p>
+\tag{15}\]</span></span></p>
 <p>and</p>
 <p><span id="eq-s2-res"><span class="math display">\[
 \frac{SS_{\mathrm{res}}}{n-p-1},
-\tag{17}\]</span></span></p>
+\tag{16}\]</span></span></p>
 <p>where</p>
 <ul>
 <li><span class="math inline">\(p\)</span> is the number of explanatory variables.</li>
 </ul>
-<p>Then using both <a href="#eq-s2-tot">Equation&nbsp;16</a> and <a href="#eq-s2-res">Equation&nbsp;17</a> applied to <a href="#eq-r2">Equation&nbsp;1</a> we can compute the adjusted version:</p>
+<p>Then using both <a href="#eq-s2-tot">Equation&nbsp;15</a> and <a href="#eq-s2-res">Equation&nbsp;16</a> applied to <a href="#eq-r2">Equation&nbsp;1</a> we can compute the adjusted version:</p>
 <p><span id="eq-r2-adj"><span class="math display">\[
 \begin{align}
 R^2_{\mathrm{adj}}
@@ -358,7 +359,7 @@ R^2_{\mathrm{adj}}
 &amp;= 1 - \left(\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right) \left(\frac{n-1}{n-p-1}\right)\\
 &amp;= 1 - \left(1- R^2\right) \left(\frac{n-1}{n-p-1}\right).
 \end{align}
-\tag{18}\]</span></span></p>
+\tag{17}\]</span></span></p>
 </section>
 <section id="why-it-can-be-a-poor-choice" class="level1">
 <h1>Why it can be a poor choice</h1>

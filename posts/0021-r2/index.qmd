@@ -4,6 +4,8 @@ author: "Vinícius Félix"
 date: "2024-04-16"
 categories: [Intro to]
 image: "banner.png"
+header-includes:
+  \usepackage{amsmath}
 ---
 
 ```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
@@ -68,7 +70,8 @@ base_plot <-
   scale_x_continuous(breaks = 1:10, limits = c(1,10))+
   scale_y_continuous(breaks = 1:10, limits = c(1,7))+
   scale_color_manual(values = "firebrick3")+
-  labs(col = "")
+  labs(col = "")+
+  plt_water_mark(vfx_watermark)
 
 base_plot+
   geom_segment(aes(x = x,xend = x,y = .fitted,yend = y), linetype = "dashed")
@@ -133,7 +136,7 @@ R^2
 &=  \frac{SS_{\mathrm{tot}}}{SS_{\mathrm{tot}}}- \frac{SS_{\mathrm{res}}}
 {SS_{\mathrm{tot}}}\\
 &=  \frac{SS_{\mathrm{tot}} - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
-&=  \frac{SS_{\mathrm{reg}} + SS_{\mathrm{res} } - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&=  \frac{SS_{\mathrm{reg}} + \cancel{{SS_{\mathrm{res} } - SS_{\mathrm{res}}}}}{SS_{\mathrm{tot}}}\\
 &=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}.\\
 \end{align}
 $$ {#eq-r2-to-ssreg}
@@ -178,13 +181,13 @@ $$
 \begin{align}
 R^2
 &=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&=  \frac{\sum_\limits{i=1}^{n}(\bar{y} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(\cancel{\bar{y}} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \cancel{\bar{y}})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
+&=  \hat{\beta}^2_1\left(\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right).
 \end{align}
-$$ {#eq-r2-as-b0}
+$$
 
 Since we have that the variance of $x$ is given by
 
@@ -197,7 +200,7 @@ We can divide both terms of the @eq-r2-as-b0 by $(n-1)$ and usethe @eq-sx to rew
 $$
 \begin{align}
 R^2
-&=  \hat{\beta}^2_1\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \hat{\beta}^2_1\left(\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right)\\
 &=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
 &=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
 \end{align}
@@ -206,7 +209,7 @@ $$ {#eq-r2-as-sx-sy}
 Such as we have a result for $\hat{\beta}_0$ in the @eq-b0, we also have one for $\hat{\beta}_1$
 
 $$
-\hat{\beta}_1 = \frac{s_{xy}}{s^2x},
+\hat{\beta}_1 = \frac{s_{xy}}{s^2_x},
 $$ {#eq-b1}
 
 where
