@@ -4,8 +4,6 @@ author: "Vinícius Félix"
 date: "2024-04-16"
 categories: [Intro to]
 image: "banner.png"
-header-includes:
-  \usepackage{amsmath}
 ---
 
 ```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
@@ -181,13 +179,13 @@ $$
 \begin{align}
 R^2
 &=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&=  \frac{\sum_\limits{i=1}^{n}(\cancel{\bar{y}} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \cancel{\bar{y}})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(\cancel{\bar{y}} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i \cancel{-\bar{y}})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \hat{\beta}^2_1\left(\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right).
 \end{align}
-$$
+$${#eq-r2-as-b0}
 
 Since we have that the variance of $x$ is given by
 
@@ -195,7 +193,7 @@ $$
 s^2_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2.
 $$ {#eq-sx}
 
-We can divide both terms of the @eq-r2-as-b0 by $(n-1)$ and usethe @eq-sx to rewrite it as
+We can divide both terms of the @eq-r2-as-b0 by $(n-1)$ and use the @eq-sx to rewrite it as
 
 $$
 \begin{align}
