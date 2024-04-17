@@ -1,0 +1,130 @@
+---
+title: "Intro to: AHP"
+author: "Vinícius Félix"
+date: "2024-04-16"
+categories: [Intro to]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, we explore the consistency indecis for a analytics hierarchy process (AHP).
+
+# Context
+
+The AHP is a structured approach to organizing and comprehending decision-making in a multifactor scenario. It was created by Thomas L. Saaty in the 1970s and is used in a variety of domains to help in decision-making, resource allocation, and risk analysis.
+
+It consist on the following steps
+
+1.  Breaking down a decision problem into a hierarchical structure of:
+
+    -   **Criteria**, i.e., the variables to consider and evaluate
+
+    -   **Alternative**, i.e., the options being evaluated by the criteria
+
+2.  Making a pairwise comparison between the criterias, where each variable is compared to another, usually with a scale from 1 to 9, where 1 means equality between the criterias and 9 a higher relevance from criteria to another
+
+3.  After the comparison we can measure the consistency of the evaluation, and review then if a evidence of inconsistency appears
+
+4.  Then weights are calculated for each criteria
+
+5.  Finally, we can rank the alternatives
+
+# Pairwise comparison
+
+Let's say we have $n$ criterias then making a pairwise comparison we have $\frac{n(n-1)}{2}$ comparisons between the criterias .
+
+$$
+\begin{bmatrix}
+c_{11} & c_{12} & ... & c_{1n} \\
+c_{21} & c_{22} & ... & c_{2n} \\ 
+\vdots & \vdots & \ddots & \vdots \\
+c_{n1} & c_{n2} & ... & c_{nn} \\ 
+\end{bmatrix}
+$$
+
+where $c_{11}$ would be the comparison between the criteria $c_1$ and $c_1$, $c_{12}$ would be the comparison between the criteria $c_1$ and $c_2$, and so on.
+
+Then we can compute some results, such as:
+
+$$
+c_{ii} = 1.
+$$
+
+Because the criterias are the same. Also we have that:
+
+$$
+c_{ij} = \frac{1}{c_{ji}}.
+$$
+
+Since we compare a criteria in comparison to another, such as $c_1$ in relation to $c_2$ we do not need to evalutate $c_2$ compared to $c_1$.
+
+# Consistency indexes
+
+## Approximate eigenvector
+
+After establishing the comparison matrix we compute the sum for each column:
+
+$$
+c_{.j} = \sum\limits_{i=1}^{n} c_{ij}.
+$$
+
+And then we normalize the matrix
+
+$$
+\begin{bmatrix}
+c_{11}/c_{.1} & c_{12}/c_{.2} & ... & c_{1n}/c_{.n} \\
+c_{21}/c_{.1} & c_{22}/c_{.2} & ... & c_{2n}/c_{.n} \\ 
+\vdots & \vdots & \ddots & \vdots \\
+c_{n1}/c_{.1} & c_{n2}/c_{.2} & ... & c_{nn}/c_{.n} \\ 
+\end{bmatrix}
+$$
+
+Considering the normalized value as
+
+$$w_{ij} = c_{ij}/c_{.j},$$
+
+we can compute each $i$ value of an approximate eigenvector as
+
+$$
+w_{i.} = \sum\limits_{j=1}^{n} w_{ij}.
+$$
+
+Then the maximym eigenvalue ($\lambda_{\mathrm{max}}$) can be computed as
+
+$$
+\lambda_{\mathrm{max}} = \sum\limits_{k=1}^{n} w_{k.}c_{.k}.
+$$
+
+At last the consistency index ($CI$) is described as
+
+$$
+CI = \frac{\lambda_{\mathrm{max}} - n}{n-1}.
+$$
+
+It is also possible to consider a consistency rate ($CR$)
+
+$$
+CR = \frac{CI}{RI},
+$$
+
+where
+
+-   $RI$ is the random index, a fixed number based on the calculation from random matrices of different sizes.
+
+## Geometric mean
+
+As we evaluate one criterion in comparison to another, we can s
+
+[**For more detail**](https://www.mdpi.com/2227-7390/10/8/1206)
+
+-   <https://www.mdpi.com/2227-7390/10/8/1206>
