@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2023-10-01">
+<meta name="dcterms.date" content="2024-04-16">
 
 <title>vbfelix - Intro to: R²</title>
 <style>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-title column-body">
       <h1 class="title">Intro to: R²</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Getting Proof</div>
+                <div class="quarto-category">Intro to</div>
               </div>
                   </div>
   </div>
@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 1, 2023</p>
+        <p class="date">April 16, 2024</p>
       </div>
     </div>
     
@@ -180,6 +180,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a>
   <ul class="collapse">
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#when-r²-r²" id="toc-when-r²-r²" class="nav-link" data-scroll-target="#when-r²-r²">When R² = (r)²?</a></li>
   </ul></li>
   <li><a href="#adjusted-r²" id="toc-adjusted-r²" class="nav-link" data-scroll-target="#adjusted-r²">Adjusted R²</a></li>
   <li><a href="#why-it-can-be-a-poor-choice" id="toc-why-it-can-be-a-poor-choice" class="nav-link" data-scroll-target="#why-it-can-be-a-poor-choice">Why it can be a poor choice</a></li>
@@ -218,9 +219,9 @@ SS_{\mathrm{res}} = \sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2,
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The total sum of squares is given by: <span class="math display">\[
+<p>The total sum of squares is given by: <span id="eq-sstot"><span class="math display">\[
 SS_{\mathrm{tot}} = \sum_\limits{i=1}^{n}(y_i - \bar{y})^2,
-\]</span></p>
+\tag{3}\]</span></span></p>
 <p>where:</p>
 <ul>
 <li><p><span class="math inline">\(y_i\)</span> is the response variable;</p></li>
@@ -235,14 +236,146 @@ SS_{\mathrm{tot}} = \sum_\limits{i=1}^{n}(y_i - \bar{y})^2,
 <p>To put it simply, the coefficient measures the relative difference between the sum of squares of your model compared to a simplistic model (the average), where its values is considered good if it equals 1, meaning that the <span class="math inline">\(SS_{\mathrm{res}}\)</span> is close to 0 and is considered bad as it approaches 0, since the squared sum of the residuals would be close as using the average as a model.</p>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
-<p>When R² = (r)²</p>
+</section>
+<section id="when-r²-r²" class="level2">
+<h2 class="anchored" data-anchor-id="when-r²-r²">When R² = (r)²?</h2>
+<p>A well-known fact is that for simple linear regression, we have a direct relationship between the coefficient of determination and the Pearson linear correlation coefficient. To show the relationship between the <span class="math inline">\(R^2\)</span> and <span class="math inline">\(r\)</span> , first we have that</p>
+<p><span id="eq-sstot-ssres-ssreg"><span class="math display">\[
+SS_{\mathrm{tot}} = SS_{\mathrm{res}} + SS_{\mathrm{reg}}.  
+\tag{4}\]</span></span></p>
+<p>where <span class="math inline">\(SS_{\mathrm{reg}}\)</span> is the sum of squares due to regression, also known as the explained sum of squares, giving by:</p>
+<p><span id="eq-ssreg"><span class="math display">\[
+SS_{\mathrm{reg}} = \sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2.
+\tag{5}\]</span></span></p>
+<p>Or graphically,</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Then, applying the <a href="#eq-sstot-ssres-ssreg">Equation&nbsp;4</a> to the <a href="#eq-r2">Equation&nbsp;1</a> :</p>
+<p><span id="eq-r2-to-ssreg"><span class="math display">\[
+\begin{align}
+R^2
+&amp;=  1- \frac{SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&amp;=  \frac{SS_{\mathrm{tot}}}{SS_{\mathrm{tot}}}- \frac{SS_{\mathrm{res}}}
+{SS_{\mathrm{tot}}}\\
+&amp;=  \frac{SS_{\mathrm{tot}} - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&amp;=  \frac{SS_{\mathrm{reg}} + SS_{\mathrm{res} } - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
+&amp;=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}.\\
+\end{align}
+\tag{6}\]</span></span></p>
+<p>So with the <a href="#eq-ssreg">Equation&nbsp;5</a> applied to the <a href="#eq-r2-to-ssreg">Equation&nbsp;6</a>, we have that</p>
+<p><span id="eq-r2-as-ssreg"><span class="math display">\[ \begin{align} R^2 &amp;=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}\\ &amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}. \end{align}  \tag{7}\]</span></span></p>
+<p>For a simple linear regression, we can compute the fitted value as</p>
+<p><span id="eq-pred-value"><span class="math display">\[
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i,
+\tag{8}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta}_0\)</span> is the estimated value of the intercept;</p></li>
+<li><p><span class="math inline">\(\hat{\beta}_1\)</span> is the estimated value of the slope coefficient;</p></li>
+<li><p><span class="math inline">\(x_i\)</span> is the explanatory variable.</p></li>
+</ul>
+<p>Applying the <a href="#eq-pred-value">Equation&nbsp;8</a> in the <a href="#eq-r2-as-ssreg">Equation&nbsp;7</a> we have that</p>
+<p><span id="eq-r2-as-yhat"><span class="math display">\[
+\begin{align}
+R^2
+&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
+\end{align}
+\tag{9}\]</span></span></p>
+<p>We also have a result for the ordinary least squares of the simple linear regresson that:</p>
+<p><span id="eq-b0"><span class="math display">\[
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}.
+\tag{10}\]</span></span></p>
+<p>So the <a href="#eq-b0">Equation&nbsp;10</a> applied to the <a href="#eq-r2-as-yhat">Equation&nbsp;9</a> results in:</p>
+<p><span id="eq-r2-as-b0"><span class="math display">\[
+\begin{align}
+R^2
+&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}(\bar{y} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
+\end{align}
+\tag{11}\]</span></span></p>
+<p>Since we have that the variance of <span class="math inline">\(x\)</span> is given by</p>
+<p><span id="eq-sx"><span class="math display">\[
+s^2_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2.
+\tag{12}\]</span></span></p>
+<p>We can divide both terms of the <a href="#eq-r2-as-b0">Equation&nbsp;11</a> by <span class="math inline">\((n-1)\)</span> and usethe <a href="#eq-sx">Equation&nbsp;12</a> to rewrite it as</p>
+<p><span id="eq-r2-as-sx-sy"><span class="math display">\[
+\begin{align}
+R^2
+&amp;=  \hat{\beta}^2_1\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&amp;=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
+&amp;=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
+\end{align}
+\tag{13}\]</span></span></p>
+<p>Such as we have a result for <span class="math inline">\(\hat{\beta}_0\)</span> in the <a href="#eq-b0">Equation&nbsp;10</a>, we also have one for <span class="math inline">\(\hat{\beta}_1\)</span></p>
+<p><span id="eq-b1"><span class="math display">\[
+\hat{\beta}_1 = \frac{s_{xy}}{s^2x},
+\tag{14}\]</span></span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(s_{xy}\)</span> is the covariance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+</ul>
+<p>Finally, applying the <a href="#eq-b1">Equation&nbsp;14</a> to the <a href="#eq-r2-as-sx-sy">Equation&nbsp;13</a></p>
+<p><span id="eq-r2-as-r2"><span class="math display">\[
+\begin{align}
+R^2
+&amp;=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2\\
+&amp;=  \left(\frac{s_{xy}}{s^2_x}\frac{s_x}{s_y}\right)^2\\
+&amp;=  \left(\frac{s_{xy}}{s_xs_y}\right)^2\\
+&amp;=  (r)^2.\\
+\end{align}
+\tag{15}\]</span></span></p>
+<p>At last in <a href="#eq-r2-as-r2">Equation&nbsp;15</a> we can show that for the simple linear regression that <span class="math inline">\(R^2 = (r)^2\)</span>.</p>
 </section>
 </section>
 <section id="adjusted-r²" class="level1">
 <h1>Adjusted R²</h1>
+<p>Another version of R², is the ajusted version, where it tries to correct the overestimation, by penalizing the number of variables used in the model.</p>
+<p>To attempt that, instead of only the sum of squares we divide the terms by their respectives degrees of freedom:</p>
+<p><span id="eq-s2-tot"><span class="math display">\[
+\frac{SS_{\mathrm{tot}}}{n-1},
+\tag{16}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-s2-res"><span class="math display">\[
+\frac{SS_{\mathrm{res}}}{n-p-1},
+\tag{17}\]</span></span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(p\)</span> is the number of explanatory variables.</li>
+</ul>
+<p>Then using both <a href="#eq-s2-tot">Equation&nbsp;16</a> and <a href="#eq-s2-res">Equation&nbsp;17</a> applied to <a href="#eq-r2">Equation&nbsp;1</a> we can compute the adjusted version:</p>
+<p><span id="eq-r2-adj"><span class="math display">\[
+\begin{align}
+R^2_{\mathrm{adj}}
+&amp;= 1 - \frac{\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{n-p-1}}{\frac{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}{n-1}}\\
+&amp;= 1 - \left(\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right) \left(\frac{n-1}{n-p-1}\right)\\
+&amp;= 1 - \left(1- R^2\right) \left(\frac{n-1}{n-p-1}\right).
+\end{align}
+\tag{18}\]</span></span></p>
 </section>
 <section id="why-it-can-be-a-poor-choice" class="level1">
 <h1>Why it can be a poor choice</h1>
+<p>Despite being one of the most well-known metrics in modeling, it is also one of the most criticized, for a variety of reasons, such as:</p>
+<ul>
+<li><p>Can be arbitrarily low even if the model follows the assumptions and makes sense; similarly, it can be arbitrarily close to 1 when the model is erroneous. A good example is when nonlinear models achieve a high R² for linear data;</p></li>
+<li><p>Sensitivity to the number of predictors, which increases with the number of predictors, even if the predictors are irrelevant to the outcome. As we saw earlier,. the adjusted version helps to mitigate this issue;</p></li>
+<li><p>Because it relies primarily on the mean, outliers can have a significant impact;</p></li>
+<li><p>A poor prediction indicator because it compares the error of your model to the error of the average;</p></li>
+<li><p>It cannot be compared across datasets since it can only be compared when several models are fitted to the same data set with the same untransformed response variable.</p></li>
+</ul>
+<p><strong>For more details on the points above:</strong></p>
+<ul>
+<li><p><a href="https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/10/lecture-10.pdf">Lecture 10: F-Tests, R², and Other Distractions</a></p></li>
+<li><p><a href="https://www.quantics.co.uk/blog/r-we-squared-yet-why-r-squared-is-a-poor-metric-for-goodness-of-fit/"><em>Why</em> is R<sup>2</sup> not a measure of goodness-of-fit?</a></p></li>
+<li><p><a href="https://getrecast.com/r-squared/">Why R-squared is worse than useless</a></p></li>
+</ul>
 
 
 </section>

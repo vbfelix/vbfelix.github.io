@@ -1,8 +1,8 @@
 ---
 title: "Intro to: R²"
 author: "Vinícius Félix"
-date: "2023-10-01"
-categories: [Getting Proof]
+date: "2024-04-16"
+categories: [Intro to]
 image: "banner.png"
 ---
 
@@ -56,15 +56,23 @@ The graphic below shows the difference between the original values and the model
 
 ```{r, echo = FALSE}
 
-data_model %>% 
+base_plot <-
+  
+  data_model %>% 
   ggplot(aes(x,y))+
   plt_theme_xy()+
   plt_regression_line(color = "royalblue4",linetype = "solid")+
+  geom_hline(aes(yintercept = y_avg,col = "Average"))+
   geom_point(size = 2)+
-  geom_segment(aes(x = x,xend = x,y = .fitted,yend = y), linetype = "dashed")+
   plt_flip_y_title+
-  scale_x_continuous(breaks = 1:10)+
-  scale_y_continuous(breaks = 1:10)
+  scale_x_continuous(breaks = 1:10, limits = c(1,10))+
+  scale_y_continuous(breaks = 1:10, limits = c(1,7))+
+  scale_color_manual(values = "firebrick3")+
+  labs(col = "")
+
+base_plot+
+  geom_segment(aes(x = x,xend = x,y = .fitted,yend = y), linetype = "dashed")
+
 
 ```
 
@@ -81,17 +89,11 @@ where:
 The graphic below shows the difference between the response variable's original values and its mean ($y_i - \bar{y}$).
 
 ```{r, echo = FALSE}
-data_model %>% 
-  ggplot(aes(x,y))+
-  plt_theme_xy()+
-  geom_hline(aes(yintercept = y_avg,col = "Average"))+
-  geom_point(size = 2)+
-  geom_segment(aes(x = x,xend = x,y = y_avg,yend = y), linetype = "dashed")+
-  plt_flip_y_title+
-  scale_x_continuous(breaks = 1:10)+
-  scale_y_continuous(breaks = 1:10)+
-  labs(col = "")+
-  scale_color_manual(values = "firebrick3")
+
+base_plot+
+    geom_segment(aes(x = x,xend = x,y = y_avg,yend = y), linetype = "dashed")
+
+
   
 ```
 
@@ -101,7 +103,7 @@ To put it simply, the coefficient measures the relative difference between the s
 
 ## When R² = (r)²?
 
-To show the relationship between the $R^2$ and $r$ , first we have that
+A well-known fact is that for simple linear regression, we have a direct relationship between the coefficient of determination and the Pearson linear correlation coefficient. To show the relationship between the $R^2$ and $r$ , first we have that
 
 $$
 SS_{\mathrm{tot}} = SS_{\mathrm{res}} + SS_{\mathrm{reg}}.  
@@ -113,25 +115,16 @@ $$
 SS_{\mathrm{reg}} = \sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2.
 $$ {#eq-ssreg}
 
-Or graphically
+Or graphically,
 
 ```{r, echo = FALSE}
-data_model %>% 
-  ggplot(aes(x,y))+
-  plt_theme_xy()+
-  plt_regression_line(color = "royalblue4",linetype = "solid")+
-  geom_hline(aes(yintercept = y_avg,col = "Average"))+
-  geom_point(size = 2)+
-  geom_segment(aes(x = x,xend = x,y = .fitted,yend = y_avg), linetype = "dashed")+
-  plt_flip_y_title+
-  scale_x_continuous(breaks = 1:10)+
-  scale_y_continuous(breaks = 1:10)+
-  labs(col = "")+
-  scale_color_manual(values = "firebrick3")
+base_plot + 
+    geom_segment(aes(x = x,xend = x,y = .fitted,yend = y_avg), linetype = "dashed")
+
 
 ```
 
-Then, applying @eq-sstot-ssred-ssreg to @eq-r2
+Then, applying the @eq-sstot-ssres-ssreg to the @eq-r2 :
 
 $$
 \begin{align}
@@ -145,14 +138,14 @@ R^2
 \end{align}
 $$ {#eq-r2-to-ssreg}
 
-Applying @eq-ssreg in the @eq-r2-to-ssreg we have that
+So with the @eq-ssreg applied to the @eq-r2-to-ssreg, we have that
 
-$$ \begin{align} R^2 &=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}\\ &=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2},\\ \end{align} $$ {#eq-r2-as-ssreg}
+$$ \begin{align} R^2 &=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}\\ &=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}. \end{align} $$ {#eq-r2-as-ssreg}
 
-In the case of a simple linear regression, we can see that coefficient of determination is equal to the square of the Pearson linear correlation coefficient.
+For a simple linear regression, we can compute the fitted value as
 
 $$
-\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i.
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i,
 $$ {#eq-pred-value}
 
 where:
@@ -163,23 +156,23 @@ where:
 
 -   $x_i$ is the explanatory variable.
 
-Applying @eq-pred-value in the @eq-r2-as-ssreg we have that
+Applying the @eq-pred-value in the @eq-r2-as-ssreg we have that
 
 $$
 \begin{align}
 R^2
 &=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
 \end{align}
-$$
+$$ {#eq-r2-as-yhat}
 
-We also have that for the ordinary least squares that
+We also have a result for the ordinary least squares of the simple linear regresson that:
 
 $$
-\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x},
-$$
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}.
+$$ {#eq-b0}
 
-So
+So the @eq-b0 applied to the @eq-r2-as-yhat results in:
 
 $$
 \begin{align}
@@ -189,17 +182,17 @@ R^2
 &=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
+&=  \hat{\beta}^2_1\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
 \end{align}
-$$
+$$ {#eq-r2-as-b0}
 
-Since we have that the variance of $x$ is giving by
+Since we have that the variance of $x$ is given by
 
 $$
-s_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2
+s^2_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2.
 $$ {#eq-sx}
 
-we can divide both terms of the equation by $n-1$ and use @eq-sx to rewrite that
+We can divide both terms of the @eq-r2-as-b0 by $(n-1)$ and usethe @eq-sx to rewrite it as
 
 $$
 \begin{align}
@@ -208,16 +201,81 @@ R^2
 &=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
 &=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
 \end{align}
+$$ {#eq-r2-as-sx-sy}
+
+Such as we have a result for $\hat{\beta}_0$ in the @eq-b0, we also have one for $\hat{\beta}_1$
+
 $$
+\hat{\beta}_1 = \frac{s_{xy}}{s^2x},
+$$ {#eq-b1}
+
+where
+
+-   $s_{xy}$ is the covariance between $x$ and $y$.
+
+Finally, applying the @eq-b1 to the @eq-r2-as-sx-sy
+
+$$
+\begin{align}
+R^2
+&=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2\\
+&=  \left(\frac{s_{xy}}{s^2_x}\frac{s_x}{s_y}\right)^2\\
+&=  \left(\frac{s_{xy}}{s_xs_y}\right)^2\\
+&=  (r)^2.\\
+\end{align}
+$$ {#eq-r2-as-r2}
+
+At last in @eq-r2-as-r2 we can show that for the simple linear regression that $R^2 = (r)^2$.
 
 # Adjusted R²
 
+Another version of R², is the ajusted version, where it tries to correct the overestimation, by penalizing the number of variables used in the model.
+
+To attempt that, instead of only the sum of squares we divide the terms by their respectives degrees of freedom:
+
+$$
+\frac{SS_{\mathrm{tot}}}{n-1},
+$$ {#eq-s2-tot}
+
+and
+
+$$
+\frac{SS_{\mathrm{res}}}{n-p-1},
+$$ {#eq-s2-res}
+
+where
+
+-   $p$ is the number of explanatory variables.
+
+Then using both @eq-s2-tot and @eq-s2-res applied to @eq-r2 we can compute the adjusted version:
+
+$$
+\begin{align}
+R^2_{\mathrm{adj}}
+&= 1 - \frac{\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{n-p-1}}{\frac{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}{n-1}}\\
+&= 1 - \left(\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right) \left(\frac{n-1}{n-p-1}\right)\\
+&= 1 - \left(1- R^2\right) \left(\frac{n-1}{n-p-1}\right).
+\end{align}
+$$ {#eq-r2-adj}
+
 # Why it can be a poor choice
 
-<https://en.wikipedia.org/wiki/Coefficient_of_determination>
+Despite being one of the most well-known metrics in modeling, it is also one of the most criticized, for a variety of reasons, such as:
 
-<https://getrecast.com/r-squared/>
+-   Can be arbitrarily low even if the model follows the assumptions and makes sense; similarly, it can be arbitrarily close to 1 when the model is erroneous. A good example is when nonlinear models achieve a high R² for linear data;
 
-<https://www.quantics.co.uk/blog/r-we-squared-yet-why-r-squared-is-a-poor-metric-for-goodness-of-fit/>
+-   Sensitivity to the number of predictors, which increases with the number of predictors, even if the predictors are irrelevant to the outcome. As we saw earlier,. the adjusted version helps to mitigate this issue;
 
-<https://towardsdatascience.com/avoid-r-squared-to-judge-regression-model-performance-5c2bc53c8e2e>
+-   Because it relies primarily on the mean, outliers can have a significant impact;
+
+-   A poor prediction indicator because it compares the error of your model to the error of the average;
+
+-   It cannot be compared across datasets since it can only be compared when several models are fitted to the same data set with the same untransformed response variable.
+
+**For more details on the points above:**
+
+-   [Lecture 10: F-Tests, R², and Other Distractions](https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/10/lecture-10.pdf)
+
+-   [*Why* is R^2^ not a measure of goodness-of-fit?](https://www.quantics.co.uk/blog/r-we-squared-yet-why-r-squared-is-a-poor-metric-for-goodness-of-fit/)
+
+-   [Why R-squared is worse than useless](https://getrecast.com/r-squared/)
