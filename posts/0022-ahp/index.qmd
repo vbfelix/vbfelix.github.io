@@ -1,0 +1,171 @@
+---
+title: "Intro to: AHP"
+author: "Vinícius Félix"
+date: "2024-04-22"
+categories: [Intro to]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post, we explore the consistency indexes (CI) for a analytics hierarchy process (AHP).
+
+```{r, echo = FALSE, eval=FALSE, include = FALSE}
+nround <- 4
+# data <- c(1,4,2,.25,1,8,.5,.125,1)
+# data <- c(1,7,3,1/7,1,1/3,1/3,3,1)
+data <- c(1,8,1,.12,1,1,1,1,1)
+m0 <- matrix(data,nrow = 3,byrow = T);m0
+#passo1
+col_sum <- round(apply(m0,MARGIN = 2,sum),digits = nround);col_sum
+#passo2
+m1 <- round(m0/matrix(rep(col_sum,3),nrow = 3,byrow =T),digits = nround);m1
+#passo3
+row_mean <- round(apply(m1,MARGIN = 1,FUN = mean),digits = nround);row_mean
+#passo4
+m2 <- round(m0*matrix(rep(row_mean,3),nrow = 3,byrow =T),digits = nround);m2
+#passo5
+row_sum <- round(apply(m1,MARGIN = 1,FUN = sum),digits = nround);row_sum
+
+l_max <- mean(row_sum/row_mean);l_max
+
+ci <- (l_max-3)/(3-1);ci
+
+
+```
+
+# Context
+
+The AHP is a structured approach to organizing and comprehending decision-making in a multifactor scenario. It was created by Thomas L. Saaty in the 1970s and is used in a variety of domains to help in decision-making, resource allocation and risk analysis.
+
+It consist on the following steps
+
+1.  Breaking down a decision problem into a hierarchical structure of:
+
+    -   **Criteria**, i.e., the variables to consider and evaluate
+
+    -   **Alternative**, i.e., the options being evaluated by the criteria
+
+2.  Making a pairwise comparison between the criterias. where each variable is compared to another, usually with a scale from 1 to 9, where 1 means equality between the criterias and 9 a higher relevance from criteria to another
+
+3.  After the comparison we can measure the consistency of the evaluation, and review if a evidence of inconsistency appears
+
+4.  Then with the priority weights for each criteria and we can rank the alternatives
+
+# Pairwise comparison
+
+Let's say we have $n$ criterias then making a pairwise comparison we have $\frac{n(n-1)}{2}$ comparisons between the criterias.
+
+$$
+\begin{bmatrix}
+c_{11} & c_{12} & ... & c_{1n} \\
+c_{21} & c_{22} & ... & c_{2n} \\ 
+\vdots & \vdots & \ddots & \vdots \\
+c_{n1} & c_{n2} & ... & c_{nn} \\ 
+\end{bmatrix}
+$$ {#eq-m0}
+
+where $c_{11}$ would be the comparison between the criteria $c_1$ and $c_1$. $c_{12}$ would be the comparison between the criteria $c_1$ and $c_2$. and so on.
+
+For this matrix we have some established results, such as:
+
+$$
+c_{ii} = 1: i = j.
+$$ {#eq-cii}
+
+The comparison of the same criterias (matrix diagonal) imply in no relevance between them. We also have that:
+
+$$
+c_{ij} = \frac{1}{c_{ji}}.
+$$ {#eq-cij-cji}
+
+Since we compare a criteria in comparison to another, such as $c_1$ in relation to $c_2$ we do not need to evalutate $c_2$ compared to $c_1$, so we consider the inverse of the original evaluation.
+
+# Consistency indexes
+
+## Approximate eigenvector
+
+After establishing the comparison matrix we compute the sum for each column:
+
+$$
+c_{.j} = \sum\limits_{i=1}^{n} c_{ij}.
+$$ {#eq-colsum}
+
+And then we normalize the matrix by dividing each value by the respective column sum (@eq-colsum):
+
+$$
+\begin{bmatrix}
+c_{11}/c_{.1} & c_{12}/c_{.2} & ... & c_{1n}/c_{.n} \\
+c_{21}/c_{.1} & c_{22}/c_{.2} & ... & c_{2n}/c_{.n} \\ 
+\vdots & \vdots & \ddots & \vdots \\
+c_{n1}/c_{.1} & c_{n2}/c_{.2} & ... & c_{nn}/c_{.n} \\ 
+\end{bmatrix}
+$$ {#eq-mnormalized}
+
+Considering the normalized value as
+
+$$w_{ij} = c_{ij}/c_{.j},$$ {#eq-wij}
+
+we can compute the mean for each row:
+
+$$
+p_{i} = \frac{1}{n}\sum\limits_{j=1}^{n} w_{ij},
+$$ {#eq-pi}
+
+where $p_i$ is the priority value of the respective criteria. Then we can multiply the values of each original criteria by their respective priority:
+
+$$
+\lambda_{\mathrm{max}} = \frac{1}{n}\sum\limits_{i=1}^{n} \left[\frac{1}{p_i}\sum\limits_{j=1}^{n} c_{ij}\right].
+$$ {#eq-lmax}
+
+At last the consistency index ($CI$) is computed as
+
+$$
+CI = \frac{\lambda_{\mathrm{max}} - n}{n-1}.
+$$ {#eq-ci}
+
+It is also possible to consider a consistency rate ($CR$)
+
+$$
+CR = \frac{CI}{RI}.
+$$ {#eq-cr}
+
+where the $RI$ is the random index, a fixed number based on the calculation from random matrices of different sizes (Saaty, 1980):
+
+| $n$ | $RI$ |
+|-----|------|
+| 1   | 0    |
+| 2   | 0    |
+| 3   | 0.58 |
+| 4   | 0.90 |
+| 5   | 1.12 |
+| 6   | 1.24 |
+| 7   | 1.32 |
+| 8   | 1.41 |
+| 9   | 1.45 |
+| 10  | 1.49 |
+
+# Final considerations
+
+The $CR$ can be used to measure in numeric terms how consistency is the evalutation between the criterias, for example let's say we evaluate that:
+
+-   $c_1$ is 8x more relevant than $c_2$
+
+-   $c_1$ is 2x more relevant than $c_3$
+
+-   $c_2$ is equaly relevant in comparison to $c_3$
+
+The $CR$ is computed as 22,7%, giving an evidence of inconsistency, since $c_2$ and $c_3$ are considered equal, but $c_1$ is much more relevant to $c_2$ than $c_3$.
+
+But how much can be considered a consistent index? In the literature a $CR < 10\%$ is considered consistent (Saaty, 1980).
+
+Want to give a try? Checkout this free web application of an [AHP priority calculator](https://bpmsg.com/ahp/ahp-calc.php).

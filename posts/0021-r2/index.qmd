@@ -265,11 +265,9 @@ Despite being one of the most well-known metrics in modeling, it is also one of 
 
 -   Can be arbitrarily low even if the model follows the assumptions and makes sense; similarly, it can be arbitrarily close to 1 when the model is erroneous. A good example is when nonlinear models achieve a high R² for linear data;
 
--   Sensitivity to the number of predictors, which increases with the number of predictors, even if the predictors are irrelevant to the outcome. As we saw earlier,. the adjusted version helps to mitigate this issue;
+-   Sensitivity to the number of predictors, which increases with the number of predictors, even if the predictors are irrelevant to the outcome. As we saw earlier, the adjusted version helps to mitigate this issue;
 
--   Because it relies primarily on the mean, outliers can have a significant impact;
-
--   A poor prediction indicator because it compares the error of your model to the error of the average;
+-   Because it relies primarily on the mean, outliers can have a substantial impact, making it also a poor prediction indication since it compares your model's error to the error of the average model;
 
 -   It cannot be compared across datasets since it can only be compared when several models are fitted to the same data set with the same untransformed response variable.
 

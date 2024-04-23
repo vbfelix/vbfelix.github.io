@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2024-04-16">
+<meta name="dcterms.date" content="2024-04-22">
 
-<title>vbfelix - Intro to: R²</title>
+<title>vbfelix - Intro to: AHP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Intro to: R²</h1>
+      <h1 class="title">Intro to: AHP</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Intro to</div>
               </div>
@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 16, 2024</p>
+        <p class="date">April 22, 2024</p>
       </div>
     </div>
     
@@ -177,13 +177,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#pairwise-comparison" id="toc-pairwise-comparison" class="nav-link" data-scroll-target="#pairwise-comparison">Pairwise comparison</a></li>
+  <li><a href="#consistency-indexes" id="toc-consistency-indexes" class="nav-link" data-scroll-target="#consistency-indexes">Consistency indexes</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#when-r²-r²" id="toc-when-r²-r²" class="nav-link" data-scroll-target="#when-r²-r²">When R² = (r)²?</a></li>
+  <li><a href="#approximate-eigenvector" id="toc-approximate-eigenvector" class="nav-link" data-scroll-target="#approximate-eigenvector">Approximate eigenvector</a></li>
   </ul></li>
-  <li><a href="#adjusted-r²" id="toc-adjusted-r²" class="nav-link" data-scroll-target="#adjusted-r²">Adjusted R²</a></li>
-  <li><a href="#why-it-can-be-a-poor-choice" id="toc-why-it-can-be-a-poor-choice" class="nav-link" data-scroll-target="#why-it-can-be-a-poor-choice">Why it can be a poor choice</a></li>
+  <li><a href="#final-considerations" id="toc-final-considerations" class="nav-link" data-scroll-target="#final-considerations">Final considerations</a></li>
   </ul>
 </nav>
     </div>
@@ -193,188 +193,143 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>In this post, we explore the infamous metric R².</p>
+<p>In this post, we explore the consistency indexes (CI) for a analytics hierarchy process (AHP).</p>
 <section id="context" class="level1">
 <h1>Context</h1>
-<p>The R² or the coefficient of determination is a metric commonly used to measure the goodness of fit of a model, it is given by:</p>
-<p><span id="eq-r2"><span class="math display">\[
-R^2 = 1- \frac{SS_{\mathrm{res}}}{SS_{\mathrm{tot}}},
+<p>The AHP is a structured approach to organizing and comprehending decision-making in a multifactor scenario. It was created by Thomas L. Saaty in the 1970s and is used in a variety of domains to help in decision-making, resource allocation and risk analysis.</p>
+<p>It consist on the following steps</p>
+<ol type="1">
+<li><p>Breaking down a decision problem into a hierarchical structure of:</p>
+<ul>
+<li><p><strong>Criteria</strong>, i.e., the variables to consider and evaluate</p></li>
+<li><p><strong>Alternative</strong>, i.e., the options being evaluated by the criteria</p></li>
+</ul></li>
+<li><p>Making a pairwise comparison between the criterias. where each variable is compared to another, usually with a scale from 1 to 9, where 1 means equality between the criterias and 9 a higher relevance from criteria to another</p></li>
+<li><p>After the comparison we can measure the consistency of the evaluation, and review if a evidence of inconsistency appears</p></li>
+<li><p>Then with the priority weights for each criteria and we can rank the alternatives</p></li>
+</ol>
+</section>
+<section id="pairwise-comparison" class="level1">
+<h1>Pairwise comparison</h1>
+<p>Let’s say we have <span class="math inline">\(n\)</span> criterias then making a pairwise comparison we have <span class="math inline">\(\frac{n(n-1)}{2}\)</span> comparisons between the criterias.</p>
+<p><span id="eq-m0"><span class="math display">\[
+\begin{bmatrix}
+c_{11} &amp; c_{12} &amp; ... &amp; c_{1n} \\
+c_{21} &amp; c_{22} &amp; ... &amp; c_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+c_{n1} &amp; c_{n2} &amp; ... &amp; c_{nn} \\
+\end{bmatrix}
 \tag{1}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(SS_{\mathrm{res}}\)</span> is the sum of squares of residuals;</p></li>
-<li><p><span class="math inline">\(SS_{\mathrm{tot}}\)</span> is the total sum of squares.</p></li>
-</ul>
-<p>The sum of squares of residuals is given by: <span id="eq-ssres"><span class="math display">\[
-SS_{\mathrm{res}} = \sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2,
+<p>where <span class="math inline">\(c_{11}\)</span> would be the comparison between the criteria <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_1\)</span>. <span class="math inline">\(c_{12}\)</span> would be the comparison between the criteria <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>. and so on.</p>
+<p>For this matrix we have some established results, such as:</p>
+<p><span id="eq-cii"><span class="math display">\[
+c_{ii} = 1: i = j.
 \tag{2}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(y_i\)</span> is the response variable;</p></li>
-<li><p><span class="math inline">\(\hat{y}_i\)</span> is the fitted value for <span class="math inline">\(y_i\)</span>.</p></li>
-</ul>
-<p>The graphic below shows the difference between the original values and the model (<span class="math inline">\(y_i - \hat{y}_i\)</span>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>The total sum of squares is given by: <span id="eq-sstot"><span class="math display">\[
-SS_{\mathrm{tot}} = \sum_\limits{i=1}^{n}(y_i - \bar{y})^2,
+<p>The comparison of the same criterias (matrix diagonal) imply in no relevance between them. We also have that:</p>
+<p><span id="eq-cij-cji"><span class="math display">\[
+c_{ij} = \frac{1}{c_{ji}}.
 \tag{3}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(y_i\)</span> is the response variable;</p></li>
-<li><p><span class="math inline">\(\bar{y}\)</span> is the average value of <span class="math inline">\(y\)</span>.</p></li>
-</ul>
-<p>The graphic below shows the difference between the response variable’s original values and its mean (<span class="math inline">\(y_i - \bar{y}\)</span>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>To put it simply, the coefficient measures the relative difference between the sum of squares of your model compared to a simplistic model (the average), where its values is considered good if it equals 1, meaning that the <span class="math inline">\(SS_{\mathrm{res}}\)</span> is close to 0 and is considered bad as it approaches 0, since the squared sum of the residuals would be close as using the average as a model.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Since we compare a criteria in comparison to another, such as <span class="math inline">\(c_1\)</span> in relation to <span class="math inline">\(c_2\)</span> we do not need to evalutate <span class="math inline">\(c_2\)</span> compared to <span class="math inline">\(c_1\)</span>, so we consider the inverse of the original evaluation.</p>
 </section>
-<section id="when-r²-r²" class="level2">
-<h2 class="anchored" data-anchor-id="when-r²-r²">When R² = (r)²?</h2>
-<p>A well-known fact is that for simple linear regression, we have a direct relationship between the coefficient of determination and the Pearson linear correlation coefficient. To show the relationship between the <span class="math inline">\(R^2\)</span> and <span class="math inline">\(r\)</span> , first we have that</p>
-<p><span id="eq-sstot-ssres-ssreg"><span class="math display">\[
-SS_{\mathrm{tot}} = SS_{\mathrm{res}} + SS_{\mathrm{reg}}.  
+<section id="consistency-indexes" class="level1">
+<h1>Consistency indexes</h1>
+<section id="approximate-eigenvector" class="level2">
+<h2 class="anchored" data-anchor-id="approximate-eigenvector">Approximate eigenvector</h2>
+<p>After establishing the comparison matrix we compute the sum for each column:</p>
+<p><span id="eq-colsum"><span class="math display">\[
+c_{.j} = \sum\limits_{i=1}^{n} c_{ij}.
 \tag{4}\]</span></span></p>
-<p>where <span class="math inline">\(SS_{\mathrm{reg}}\)</span> is the sum of squares due to regression, also known as the explained sum of squares, giving by:</p>
-<p><span id="eq-ssreg"><span class="math display">\[
-SS_{\mathrm{reg}} = \sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2.
+<p>And then we normalize the matrix by dividing each value by the respective column sum (<a href="#eq-colsum">Equation&nbsp;4</a>):</p>
+<p><span id="eq-mnormalized"><span class="math display">\[
+\begin{bmatrix}
+c_{11}/c_{.1} &amp; c_{12}/c_{.2} &amp; ... &amp; c_{1n}/c_{.n} \\
+c_{21}/c_{.1} &amp; c_{22}/c_{.2} &amp; ... &amp; c_{2n}/c_{.n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+c_{n1}/c_{.1} &amp; c_{n2}/c_{.2} &amp; ... &amp; c_{nn}/c_{.n} \\
+\end{bmatrix}
 \tag{5}\]</span></span></p>
-<p>Or graphically,</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Then, applying the <a href="#eq-sstot-ssres-ssreg">Equation&nbsp;4</a> to the <a href="#eq-r2">Equation&nbsp;1</a> :</p>
-<p><span id="eq-r2-to-ssreg"><span class="math display">\[
-\begin{align}
-R^2
-&amp;=  1- \frac{SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
-&amp;=  \frac{SS_{\mathrm{tot}}}{SS_{\mathrm{tot}}}- \frac{SS_{\mathrm{res}}}
-{SS_{\mathrm{tot}}}\\
-&amp;=  \frac{SS_{\mathrm{tot}} - SS_{\mathrm{res}}}{SS_{\mathrm{tot}}}\\
-&amp;=  \frac{SS_{\mathrm{reg}} + \cancel{{SS_{\mathrm{res} } - SS_{\mathrm{res}}}}}{SS_{\mathrm{tot}}}\\
-&amp;=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}.\\
-\end{align}
-\tag{6}\]</span></span></p>
-<p>So with the <a href="#eq-ssreg">Equation&nbsp;5</a> applied to the <a href="#eq-r2-to-ssreg">Equation&nbsp;6</a>, we have that</p>
-<p><span id="eq-r2-as-ssreg"><span class="math display">\[ \begin{align} R^2 &amp;=  \frac{SS_{\mathrm{reg}}}{SS_{\mathrm{tot}}}\\ &amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}. \end{align}  \tag{7}\]</span></span></p>
-<p>For a simple linear regression, we can compute the fitted value as</p>
-<p><span id="eq-pred-value"><span class="math display">\[
-\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i,
+<p>Considering the normalized value as</p>
+<p><span id="eq-wij"><span class="math display">\[w_{ij} = c_{ij}/c_{.j}, \tag{6}\]</span></span></p>
+<p>we can compute the mean for each row:</p>
+<p><span id="eq-pi"><span class="math display">\[
+p_{i} = \frac{1}{n}\sum\limits_{j=1}^{n} w_{ij},
+\tag{7}\]</span></span></p>
+<p>where <span class="math inline">\(p_i\)</span> is the priority value of the respective criteria. Then we can multiply the values of each original criteria by their respective priority:</p>
+<p><span id="eq-lmax"><span class="math display">\[
+\lambda_{\mathrm{max}} = \frac{1}{n}\sum\limits_{i=1}^{n} \left[\frac{1}{p_i}\sum\limits_{j=1}^{n} c_{ij}\right].
 \tag{8}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(\hat{\beta}_0\)</span> is the estimated value of the intercept;</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_1\)</span> is the estimated value of the slope coefficient;</p></li>
-<li><p><span class="math inline">\(x_i\)</span> is the explanatory variable.</p></li>
-</ul>
-<p>Applying the <a href="#eq-pred-value">Equation&nbsp;8</a> in the <a href="#eq-r2-as-ssreg">Equation&nbsp;7</a> we have that</p>
-<p><span id="eq-r2-as-yhat"><span class="math display">\[
-\begin{align}
-R^2
-&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{y}_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}.
-\end{align}
+<p>At last the consistency index (<span class="math inline">\(CI\)</span>) is computed as</p>
+<p><span id="eq-ci"><span class="math display">\[
+CI = \frac{\lambda_{\mathrm{max}} - n}{n-1}.
 \tag{9}\]</span></span></p>
-<p>We also have a result for the ordinary least squares of the simple linear regresson that:</p>
-<p><span id="eq-b0"><span class="math display">\[
-\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}.
+<p>It is also possible to consider a consistency rate (<span class="math inline">\(CR\)</span>)</p>
+<p><span id="eq-cr"><span class="math display">\[
+CR = \frac{CI}{RI}.
 \tag{10}\]</span></span></p>
-<p>So the <a href="#eq-b0">Equation&nbsp;10</a> applied to the <a href="#eq-r2-as-yhat">Equation&nbsp;9</a> results in:</p>
-<p><span id="eq-r2-as-b0"><span class="math display">\[
-\begin{align}
-R^2
-&amp;=  \frac{\sum_\limits{i=1}^{n}(\hat{\beta}_0 + \hat{\beta}_1x_i - \bar{y})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}(\cancel{\bar{y}} - \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i \cancel{-\bar{y}})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}(- \hat{\beta}_1\bar{x} + \hat{\beta}_1x_i)^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}[\hat{\beta}_1 (x_i- \bar{x})]^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
-&amp;=  \hat{\beta}^2_1\left(\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right).
-\end{align}
-\tag{11}\]</span></span></p>
-<p>Since we have that the variance of <span class="math inline">\(x\)</span> is given by</p>
-<p><span id="eq-sx"><span class="math display">\[
-s^2_x = \frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2.
-\tag{12}\]</span></span></p>
-<p>We can divide both terms of the <a href="#eq-r2-as-b0">Equation&nbsp;11</a> by <span class="math inline">\((n-1)\)</span> and use the <a href="#eq-sx">Equation&nbsp;12</a> to rewrite it as</p>
-<p><span id="eq-r2-as-sx-sy"><span class="math display">\[
-\begin{align}
-R^2
-&amp;=  \hat{\beta}^2_1\left(\frac{\frac{1}{n-1}\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{\frac{1}{n-1} \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right)\\
-&amp;=  \hat{\beta}^2_1\frac{s^2_x}{s^2_y}\\
-&amp;=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2.\\
-\end{align}
-\tag{13}\]</span></span></p>
-<p>Such as we have a result for <span class="math inline">\(\hat{\beta}_0\)</span> in the <a href="#eq-b0">Equation&nbsp;10</a>, we also have one for <span class="math inline">\(\hat{\beta}_1\)</span></p>
-<p><span id="eq-b1"><span class="math display">\[
-\hat{\beta}_1 = \frac{s_{xy}}{s^2_x},
-\tag{14}\]</span></span></p>
-<p>where</p>
-<ul>
-<li><span class="math inline">\(s_{xy}\)</span> is the covariance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
-</ul>
-<p>Finally, applying the <a href="#eq-b1">Equation&nbsp;14</a> to the <a href="#eq-r2-as-sx-sy">Equation&nbsp;13</a></p>
-<p><span id="eq-r2-as-r2"><span class="math display">\[
-\begin{align}
-R^2
-&amp;=  \left(\hat{\beta}_1\frac{s_x}{s_y}\right)^2\\
-&amp;=  \left(\frac{s_{xy}}{s^2_x}\frac{s_x}{s_y}\right)^2\\
-&amp;=  \left(\frac{s_{xy}}{s_xs_y}\right)^2\\
-&amp;=  (r)^2.\\
-\end{align}
-\tag{15}\]</span></span></p>
-<p>At last in <a href="#eq-r2-as-r2">Equation&nbsp;15</a> we can show that for the simple linear regression that <span class="math inline">\(R^2 = (r)^2\)</span>.</p>
+<p>where the <span class="math inline">\(RI\)</span> is the random index, a fixed number based on the calculation from random matrices of different sizes (Saaty, 1980):</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(RI\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0.58</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0.90</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1.12</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>1.24</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>1.32</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>1.41</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>1.45</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>1.49</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="adjusted-r²" class="level1">
-<h1>Adjusted R²</h1>
-<p>Another version of R², is the ajusted version, where it tries to correct the overestimation, by penalizing the number of variables used in the model.</p>
-<p>To attempt that, instead of only the sum of squares we divide the terms by their respectives degrees of freedom:</p>
-<p><span id="eq-s2-tot"><span class="math display">\[
-\frac{SS_{\mathrm{tot}}}{n-1},
-\tag{16}\]</span></span></p>
-<p>and</p>
-<p><span id="eq-s2-res"><span class="math display">\[
-\frac{SS_{\mathrm{res}}}{n-p-1},
-\tag{17}\]</span></span></p>
-<p>where</p>
+<section id="final-considerations" class="level1">
+<h1>Final considerations</h1>
+<p>The <span class="math inline">\(CR\)</span> can be used to measure in numeric terms how consistency is the evalutation between the criterias, for example let’s say we evaluate that:</p>
 <ul>
-<li><span class="math inline">\(p\)</span> is the number of explanatory variables.</li>
+<li><p><span class="math inline">\(c_1\)</span> is 8x more relevant than <span class="math inline">\(c_2\)</span></p></li>
+<li><p><span class="math inline">\(c_1\)</span> is 2x more relevant than <span class="math inline">\(c_3\)</span></p></li>
+<li><p><span class="math inline">\(c_2\)</span> is equaly relevant in comparison to <span class="math inline">\(c_3\)</span></p></li>
 </ul>
-<p>Then using both <a href="#eq-s2-tot">Equation&nbsp;16</a> and <a href="#eq-s2-res">Equation&nbsp;17</a> applied to <a href="#eq-r2">Equation&nbsp;1</a> we can compute the adjusted version:</p>
-<p><span id="eq-r2-adj"><span class="math display">\[
-\begin{align}
-R^2_{\mathrm{adj}}
-&amp;= 1 - \frac{\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{n-p-1}}{\frac{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}{n-1}}\\
-&amp;= 1 - \left(\frac{\sum_\limits{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right) \left(\frac{n-1}{n-p-1}\right)\\
-&amp;= 1 - \left(1- R^2\right) \left(\frac{n-1}{n-p-1}\right).
-\end{align}
-\tag{18}\]</span></span></p>
-</section>
-<section id="why-it-can-be-a-poor-choice" class="level1">
-<h1>Why it can be a poor choice</h1>
-<p>Despite being one of the most well-known metrics in modeling, it is also one of the most criticized, for a variety of reasons, such as:</p>
-<ul>
-<li><p>Can be arbitrarily low even if the model follows the assumptions and makes sense; similarly, it can be arbitrarily close to 1 when the model is erroneous. A good example is when nonlinear models achieve a high R² for linear data;</p></li>
-<li><p>Sensitivity to the number of predictors, which increases with the number of predictors, even if the predictors are irrelevant to the outcome. As we saw earlier, the adjusted version helps to mitigate this issue;</p></li>
-<li><p>Because it relies primarily on the mean, outliers can have a substantial impact, making it also a poor prediction indication since it compares your model’s error to the error of the average model;</p></li>
-<li><p>It cannot be compared across datasets since it can only be compared when several models are fitted to the same data set with the same untransformed response variable.</p></li>
-</ul>
-<p><strong>For more details on the points above:</strong></p>
-<ul>
-<li><p><a href="https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/10/lecture-10.pdf">Lecture 10: F-Tests, R², and Other Distractions</a></p></li>
-<li><p><a href="https://www.quantics.co.uk/blog/r-we-squared-yet-why-r-squared-is-a-poor-metric-for-goodness-of-fit/"><em>Why</em> is R<sup>2</sup> not a measure of goodness-of-fit?</a></p></li>
-<li><p><a href="https://getrecast.com/r-squared/">Why R-squared is worse than useless</a></p></li>
-</ul>
+<p>The <span class="math inline">\(CR\)</span> is computed as 22,7%, giving an evidence of inconsistency, since <span class="math inline">\(c_2\)</span> and <span class="math inline">\(c_3\)</span> are considered equal, but <span class="math inline">\(c_1\)</span> is much more relevant to <span class="math inline">\(c_2\)</span> than <span class="math inline">\(c_3\)</span>.</p>
+<p>But how much can be considered a consistent index? In the literature a <span class="math inline">\(CR &lt; 10\%\)</span> is considered consistent (Saaty, 1980).</p>
+<p>Want to give a try? Checkout this free web application of an <a href="https://bpmsg.com/ahp/ahp-calc.php">AHP priority calculator</a>.</p>
 
 
 </section>
