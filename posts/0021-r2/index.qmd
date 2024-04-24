@@ -185,7 +185,7 @@ R^2
 &=  \frac{\sum_\limits{i=1}^{n}\hat{\beta}^2_1(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\\
 &=  \hat{\beta}^2_1\left(\frac{\sum_\limits{i=1}^{n}(x_i- \bar{x})^2}{ \sum_\limits{i=1}^{n}(y_i - \bar{y})^2}\right).
 \end{align}
-$${#eq-r2-as-b0}
+$$ {#eq-r2-as-b0}
 
 Since we have that the variance of $x$ is given by
 
