@@ -12,21 +12,21 @@ As I am passionate about bridging theory and real-world applications, my goal is
 
 # Professional Experience
 
-| Company                                                    |      Period       | Role                                     |
-|:-----------------------------------------------------------|:-----------------:|:-----------------------------------------|
-| ![](images/icon-black-rounder.webp){width="31"} Datlo      | 01/2024 - Present | Head of Data                             |
-| ![](images/ponta.jfif){width="31"} Ponta                   | 02/2023 - 12/2023 | Services Manager                         |
-| ![](images/ga_intergado.jfif){width="31"} GA + Intergado   | 04/2022 - 01/2023 | Strategy Manager                         |
-| ![](images/ga_logo.jpg){width="31"} GA                     | 01/2021 - 03/2022 | R&D Manager                              |
-| ![](images/ga_logo.jpg){width="31"} GA                     | 09/2020 - 12/2020 | Data Manager                             |
-| ![](images/unicesumar_logo-01.png){width="31"} Unicesumar  | 10/2018 - 11/2019 | Statistics Professor                     |
-| ![](images/h0_logo.jpg){width="31"} H0 Consultoria         | 09/2016 - 08/2020 | Data Scientist Consultant and Co-founder |
-| ![](images/estats_logo.jpg){width="31"} Estats Consultoria | 07/2013 - 12/2015 | Data Analyst and Co-founder              |
+| Company                                                    |      Period       | Role                       | Summary                                                                          |
+|:---------------|:---------:|:-------------|--------------------------------|
+| ![](images/icon-black-rounder.webp){width="31"} Datlo      | 01/2024 - Present | Head of Data               | Developing a new data ecosystem throughout the firm                              |
+| ![](images/ponta.jfif){width="31"} Ponta                   | 02/2023 - 12/2023 | Services Manager           | Oversaw service delivery teams, establishing new revenue streams                 |
+| ![](images/ga_intergado.jfif){width="31"} GA + Intergado   | 04/2022 - 01/2023 | Strategy Manager           | Implemented the company's strategy for multi-platform products after the merger  |
+| ![](images/ga_logo.jpg){width="31"} GA                     | 01/2021 - 03/2022 | R&D Manager                | Managed the whole R&D department, unifying the data and software teams processes |
+| ![](images/ga_logo.jpg){width="31"} GA                     | 09/2020 - 12/2020 | Data Manager               | Established the data team within the R&D department                              |
+| ![](images/unicesumar_logo-01.png){width="31"} Unicesumar  | 10/2018 - 11/2019 | Professor                  | Restructured the statistics class in the business intelligence MBA.              |
+| ![](images/h0_logo.jpg){width="31"} H0 Consultoria         | 09/2016 - 08/2020 | Data Scientist Consultant  | Co-founded a data consulting firm for data-driven businesses and researchers     |
+| ![](images/estats_logo.jpg){width="31"} Estats Consultoria | 07/2013 - 12/2015 | Data Analyst               | Co-founded the statistics junior enterprise                                      |
 
 # Academic Experience
 
 | University                                                                       | Period            | Degree                             | Final paper                                                                                                                                                                                                                                                             |
-|----------------------------------------------------------------------------------|-------------------|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------|-----------|-----------|---------------------------------------|
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2017 - 02/2019 | Master of Science in Biostatistics | [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2013 - 12/2016 | Bachelor of Science in Statistics  | Temporal, spatial, and spatio-temporal clustering processes and techniques                                                                                                                                                                                              |
 
