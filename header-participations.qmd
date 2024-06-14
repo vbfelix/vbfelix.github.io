@@ -4,6 +4,10 @@ title: "Participations"
 
 # Talks
 
+## 2024
+
+-   ![](images/bra.png){width="20"} IA utilizada para auxílio na tomada de decisão - 1° Semana Paranaense de Inteligência Artificial
+
 ## 2023
 
 -   ![](images/bra.png){width="20"} Gestão orientada a dados - Podcast Na Ponta da Língua #8
