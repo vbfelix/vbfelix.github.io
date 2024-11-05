@@ -18,7 +18,11 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
 
-## Developer
+## Head of Data
+
+![](images/strides-02.png){width="40"} [Head of Data & Analytics 5.0](https://www.strides.com.br/)
+
+## Programmer
 
 ![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
 

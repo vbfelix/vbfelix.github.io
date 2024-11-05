@@ -6,6 +6,7 @@ title: "Participations"
 
 ## 2024
 
+-   ![](images/bra.png){width="20"} Gerando inteligência a partir de dados públicos - SECOMP 2024
 -   ![](images/bra.png){width="20"} IA utilizada para auxílio na tomada de decisão - 1° Semana Paranaense de Inteligência Artificial
 
 ## 2023
