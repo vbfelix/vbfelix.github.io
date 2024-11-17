@@ -13,7 +13,7 @@ As I am passionate about bridging theory and real-world applications, my goal is
 # Professional Experience
 
 | Company                                                    |      Period       | Role                      | Summary                                                                          |
-|:--------------|:---------------:|:----------------|-----------------------|
+|:--------------------|:---------------------:|:---------------|----------------------------------|
 | ![](images/icon-black-rounder.webp){width="31"} Datlo      | 08/2024 - Present | Chief Product Officer     | Creating and evolving different data products                                    |
 | ![](images/icon-black-rounder.webp){width="31"} Datlo      | 01/2024 - 07/2024 | Head of Data              | Developed a new data ecosystem throughout the firm                               |
 | ![](images/ponta.jfif){width="31"} Ponta                   | 02/2023 - 12/2023 | Services Manager          | Oversaw service delivery teams, establishing new revenue streams                 |
@@ -27,7 +27,7 @@ As I am passionate about bridging theory and real-world applications, my goal is
 # Academic Experience
 
 | University                                                                       | Period            | Degree                             | Final paper                                                                                                                                                                                                                                                             |
-|---------------|---------------|---------------|-----------------------------|
+|-----------|-----------|-----------|---------------------------------------|
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2017 - 02/2019 | Master of Science in Biostatistics | [Spatio-temporal geostatistics: modelling of natural phenomena in spacetime](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
 | ![](images/uem.png){width="31" height="34"} State University of Maringá (Brazil) | 02/2013 - 12/2016 | Bachelor of Science in Statistics  | Temporal, spatial, and spatio-temporal clustering processes and techniques                                                                                                                                                                                              |
 
@@ -43,9 +43,11 @@ I work closely with analytics and data governance to secure various datasets and
 
 ### \[2024-2024\] Head of Data
 
-Datlo has a location intelligence platform for go-to-market and expansion teams. As Head of Data for a data-driven product, my responsibilities included technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional collaboration, customer consultation, regulatory compliance, and ongoing platform improvement.
+As Head of Data for a data-driven product, my responsibilities included technology integration, advanced analytics, data governance, obtaining a variety of datasets, cross-functional collaboration, customer consultation, regulatory compliance, and ongoing platform improvement.
 
-To do this, I implemented a data architecture that could enable automation extraction, tests, and a standard set of tools and procedures for 100+ data sources.
+**Achievements**
+
+-   Oversaw the implementation of data architecture that could enable automation extraction, tests, and a standard set of tools and procedures for 100+ data sources and dozens of pipelines.
 
 ### \[2023-2023\] Services Manager
 
@@ -53,21 +55,19 @@ Following the merger of GA and Intergado, which was rebranded as Ponta, I was gi
 
 I was in charge of overseeing the organization's service delivery. My responsibilities included managing service teams, coordinating operations, and ensuring high-quality service delivery in order to meet the needs of customers and organizational goals, such as:
 
-1.  **Hardware installation oversight**: Managing the procurement, scheduling, and quality assurance of hardware installations.
+1.  **Hardware installation oversight**: Managing the procurement, scheduling, and quality assurance of hardware installations;
 
-2.  **Software implementation oversight**: Selecting and deploying appropriate software solutions, providing user training, and managing licenses.
+2.  **Software implementation oversight**: Selecting and deploying appropriate software solutions, providing user training, and managing licenses;
 
-3.  **Consultancy**: Deriving insights, identify trends, and help make informed decisions. Providing consultancy services based on data analysis to clients.
+3.  **Consultancy**: Deriving insights, identify trends, and help make informed decisions. Providing consultancy services based on data analysis to clients;
 
 4.  **Technical support management**: Establishing support procedures, handling inquiries and troubleshooting, and coordinating issue resolution with cross-functional teams.
 
-My primary activities were:
+**Achievements**
 
--   **Team leadership**: Leading and managing a team of technicians, assigning tasks, evaluating performance, and fostering effective communication and collaboration.
+-   Improved support metrics by reducing service level agreement violations to less than 2%, from 40% when I first started;
 
--   **Continuous improvement**: Staying updated with technology trends, implementing process enhancements, gathering feedback, and promoting best practices and standardization.
-
--   **Knowledge management**: Systematic process of creating, organizing, and sharing knowledge to drive innovation and improve organizational performance to the whole team.
+-   Implemented an internal knowledge base, with over 300 articles written in a year.
 
 ### \[2022-2023\] Strategy Manager
 
@@ -81,17 +81,23 @@ As the company's new strategy manager, my responsibilities were:
 
 -   Coordinating between technical and non-technical teams to align priorities and goals.
 
+**Achievements**
+
+-   Improved backlog management and facilitated cross-functional collaboration within the R&D Department, resulting in an 80% reduction in sprint stoppage.
+
 ### \[2021-2022\] R&D Manager
 
 Later, in the end of 2020, I was given a promotion to lead the whole R&D division in 2021, and as such, I was also in charge of the software development team in addition to the data, my responsibilities were:
-
--   Implementing automation projects using robots (Jira Automation), web scraping data (Python/R), and improving data monitoring (Metabase) and data-driven decision-making (Dremio);
 
 -   Applying agile methodologies and software development concepts in the execution of R&D projects (Jira Software) to drive continuous process improvement;
 
 -   Managing the department's budget and expenses while analyzing and reporting on key performance indicators and project outcomes to the board of directors;
 
 -   Building project teams, developing schedules, and setting goals to meet overall needs.
+
+**Achievements**
+
+-   Implemented automation in projects with robots (Jira Automation), better data monitoring (Metabase), and data-driven decision-making (Dremio), reducing human tasks by around 30%.
 
 ### \[2020-2020\] Data Manager
 
@@ -105,11 +111,17 @@ In 2020 I received an invitation to start and grow the data team within GA's Res
 
 -   Starting a data-driven culture within the company.
 
-Also as I learned more about software development, I created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
+**Achievements**
+
+-   As I learned more about software development, I created my own R library for various functions to aid in data cleaning and visualization. The library is named [relper](https://github.com/vbfelix/relper), and it is available as an open source package to anyone who is interested.
+
+-   Developed a methodology for internal and external data projects within the organization.
+
+-   Oversaw the development of a data architecture utilizing AWS Athena and Python, and implemented tools such as Dremio and Metabase to spread the data-driven culture throughout the company, resulting in a 50% reduction in the consumption of the data analysts team by other departments.
 
 ### \[2016-2020\] Data Science Consultant
 
-In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, where we collaborated on over 350 scientific studies and more than 40 business surveys for corporations. We were responsible for assisting others in making the most of statistics, such as doing:
+In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, where we were responsible for assisting others in making the most of statistics, such as doing:
 
 -   Sampling design;
 
@@ -119,19 +131,29 @@ In 2016, I co-founded the data consulting firm H0 Consultoria with a partner, wh
 
 -   Statistics training.
 
+**Achievements**
+
+-   Statistical review and analysis on over 350 scholarly studies;
+
+-   Consulting on over 40 business surveys for companies.
+
 #### \[2018-2019\] Statistics Professor
 
 As I gained notoriety as a consultant, I was invited to teach statistics in the master of business administration (MBA) program for business intelligence at Unicesumar.
 
-I updated the course topics by changing the material to a more modern and applied concept of statistics; despite the fact that it was only an introduction class, I used my hands-on experience to demonstrate real-world application of theoretical concepts.
+**Achievements**
+
+-   I updated the course topics by changing the material to a more modern and applied concept of statistics; despite the fact that it was only an introduction class, I used my hands-on experience to demonstrate real-world application of theoretical concepts.
 
 #### \[2017-2019\] Post graduation
 
 I decided to pursue a master's degree in Biostatistics after graduating in the beginning of 2017. My dissertation was about spatio-temporal geostatistics models, that was a natural choice since I had developed projects on temporal and spatial statistics during graduation, so I decided to unite them.
 
-Also, I assisted one of my advisers in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
-
 Finally, for my optional credits, I chose psychometrics and epidemiology courses.
+
+**Achievements**
+
+-   I assisted one of my advisers in the development of the [geotoolsR](https://github.com/cran/geotoolsR) R package, providing code to apply bootstrap techniques in the context of geostatistics.
 
 ### \[2013-2016\] Graduation
 
