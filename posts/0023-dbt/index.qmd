@@ -1,0 +1,129 @@
+---
+title: "Some notes: Introduction to dbt"
+author: "Vinícius Félix"
+date: "2024-11-24"
+categories: [Some notes]
+image: "banner.png"
+---
+
+# Context
+
+This are my notes, from the Data Camp course [Introduction to dbt](https://app.datacamp.com/learn/courses/introduction-to-dbt).
+
+In modern data workflows, dbt (data build tool) has become a go-to solution for managing and transforming data warehouses. It focuses on the "T" in ELT (Extract, Load, Transform) processes, offering teams of analysts and engineers a structured way to handle data transformations across platforms like Snowflake, BigQuery, Postgres, and DuckDB.
+
+### What Sets dbt Apart?
+
+At its core, dbt enables users to design data models and transformations using SQL in a source-controlled environment, which can be difficult without the proper tools. By designing and carrying out these modifications, dbt ensures that data pipelines are maintained and adaptive. Recent versions even support Python, however SQL remains the core language.
+
+### Key Features of dbt
+
+-   **SQL-Based Transformations**: Define and manage data models, including relationships and dependencies.
+
+-   **Cross-Dialect Compatibility**: Automatically translates SQL to connect with various warehouses.
+
+-   **Data Testing and Validation**: Ensures data quality by checking against user-defined requirements.
+
+-   **Command-Line Tool**: Open-source and available across Mac, Windows, and Linux.
+
+-   **Adapters for Integration**: Extensible through adapters like dbt-snowflake and dbt-bigquery, maintained by both the core project and external contributors.
+
+# A dbt project
+
+A dbt project is the foundation for organizing and managing data transformations in dbt. It includes all of the necessary (and optional) components for properly managing your data. Here is a summary of what constitutes a dbt project:
+
+## Key Elements of a dbt Project
+
+1.  **Configuration**: Includes settings like the project name and folder structure, which serve as the organizational backbone.
+
+2.  **Data Sources and Destinations**: Defines where source data originates and the target data warehouse for transformed data.
+
+3.  **SQL Queries and Templates**: Contains the SQL code and transformation logic to structure data into desired formats.
+
+4.  **Documentation**: Offers a space to describe the data models and their relationships, aiding collaboration and transparency.
+
+5.  **Folder Structure**: Implemented as a directory on your machine, making it easy to copy, modify, or integrate with source control.
+
+## Key Aspects of dbt Profiles
+
+Profiles are another dbt option. Development, staging, testing, and production deployment scenarios can be managed via profiles.
+
+Profiles enhance workflows across the data lifecycle by customizing data warehouse configurations for each environment.
+
+1.  **Deployment Scenarios**: Profiles let you define configurations for various environments (e.g., dev, staging, prod) within the same dbt project.
+
+2.  **Customizable Settings**: The settings for each profile are specified in a `profiles.yml` file, which is not automatically created in new projects but is essential for managing environments.
+
+3.  **Multiple Profiles in One Project**: A project can have multiple profiles, allowing seamless transitions between environments by selecting a target environment.
+
+4.  **Warehouse Selection**: Profiles enable users to choose the most suitable warehouse for each scenario. For example, you might use **DuckDB** for local development and testing due to its simplicity and speed, while opting for **BiqQuery** in production to accommodate multi-user access and scalability.
+
+# A dbt model
+
+A dbt model represents data transformations, working with dbt models allows you to separate a large transformation, such as a large query, into multiple models, making it easier to update, debug, and understand. In dbt, models follow a hierarchy that shows how one model depends on another's data.
+
+A DAG (Directed Acyclic Graph) or lineage graph displays data flow from raw sources to converted outputs and how each dbt model depends on its upstream models’ completion before being built or modified.
+
+## Key Points of dbt's DAG
+
+-   **Model Dependencies**: The DAG ensures that models are built in the correct order, respecting their dependencies.
+
+-   **Automatic Execution Order**: Without the DAG, dbt would build models alphabetically, potentially leading to errors.
+
+-   **Lineage and Traceability**: The lineage graph provides transparency and clarity about the data flow, making it easier to understand how transformations are linked and how changes in one model might affect others.
+
+## Jinja
+
+Jinja is a templating engine, used in dbt, that generates SQL queries dynamically. It enables the insertion of logic, variables, loops, and other programmatic features in SQL code, increasing its flexibility and reusability.
+
+## Key Features of Jinja in dbt
+
+-   **Dynamic SQL**: Jinja enables the creation of SQL queries that can change based on input variables, conditions, or other dynamic factors. This is useful for creating reusable models and tests.
+
+-   **Variables**: You can define and pass variables into your SQL templates to customize queries based on different environments or scenarios.
+
+-   **Loops and Conditionals**: Jinja supports loops and conditionals, allowing you to execute parts of your SQL only when certain conditions are met or to iterate over lists of items.
+
+-   **Built-In Functions**: Jinja comes with many built-in functions (such as `tojson`, `join`, `length`, etc.) that simplify common tasks like formatting strings or working with lists.
+
+# A dbt test
+
+An important feature of dbt is its ability to automatically test data conversions, specially in SQL. dbt features 4 built-in tests:
+
+-   **Unique**, which verifies all values in a column are unique.
+
+-   **not_null**, which verifies all values in a column are not null.
+
+-   **accepted_values,** which verifies all values are within a specific list.
+
+-   **relationships**, which verifies connection of an object to a specific table or column.
+
+## Singular test
+
+A **singular test** in dbt is the simplest form of a custom data test, designed to check specific conditions within your data, for example, if a variable if greater than another.
+
+You can create singular test to specific models, but also reusable tests using Jinja.
+
+# A dbt build
+
+Finally, we can build our entire project, the dbt build is designed to handle more complex situations, especially in production environments, by ensuring that all components of your dbt project are properly validated and executed in the correct order.
+
+#### Key Features of build
+
+1.  **Comprehensive Execution**: `dbt build` runs all necessary subcommands, such as: models, tests, snapshots, and seeds—as a complete pipeline, ensuring that all components are up-to-date before any production changes are made.
+
+2.  **Dependency Management**: It automatically determines the order in which dependencies need to be executed, ensuring that models are built with the latest source data and transformations.
+
+3.  **Pre-Execution Testing**: Before making updates, `dbt build` runs all tests, ensuring data quality and consistency. This helps catch potential issues early, reducing the risk of errors in the production environment.
+
+4.  **Production-Ready**: It's ideal for production workflows, where it's critical to validate the data and ensure all changes are tracked and tested.
+
+# Other components
+
+dbt has additional components not addressed in this article, such as:
+
+-   Documents
+
+-   Seeds
+
+-   Snapshots
