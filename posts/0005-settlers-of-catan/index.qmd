@@ -2,7 +2,7 @@
 title: "An analysis of: Settlers of Catan"
 author: "Vinícius Félix"
 date: "2023-01-14"
-categories: [An analysis of]
+categories: [analysis, statistics]
 image: "an-analysis-of-settlers-of-catan.png"
 ---
 
@@ -22,7 +22,7 @@ suppressWarnings(library(kableExtra))
 
 Settlers of Catan, or just [Catan](https://www.catan.com/) is a board game designed by [Klaus Teuber](https://en.wikipedia.org/wiki/Klaus_Teuber "Klaus Teuber"). In the game we take the role of settlers.
 
-![Catan set. Source: catan.com.](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){alt="Catan set. Source: catan.com" width="279"}
+![Catan set. Source: catan.com](https://www.catan.com/sites/default/files/2021-06/dye_catan_150407_0564.jpg){width="279"}
 
 The game has 19 locations, where:
 
@@ -398,9 +398,13 @@ The port is a unique location. Normally, you can exchange 4 identical resources 
 
 ```{r, echo = F, message =  F, warning = FALSE}
 port_df %>% 
-  count(Location = value,name = "Locations") %>% 
-  mutate(Percentage = as_perc(Locations,TRUE)) %>% 
+  calc_perc(value) %>% 
   adorn_totals() %>% 
+  rename(
+    Location = value,
+    Locations = n,
+    Percentage = perc
+  ) %>% 
   mutate(
     Locations = format_num(Locations,0),
     Percentage = format_num(Percentage,2)
@@ -417,7 +421,8 @@ port_df %>%
   filter(value == "Port") %>% 
   group_by(Player = winner) %>% 
   summarise(Games = n_distinct(gameNum)) %>% 
-  mutate(Percentage = as_perc(Games,TRUE)) %>% 
+  ungroup() %>% 
+  mutate(Percentage = 100*Games/sum(Games)) %>% 
   adorn_totals() %>% 
   mutate(
     Games = format_num(Games,0),

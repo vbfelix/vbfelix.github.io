@@ -2,7 +2,7 @@
 title: "Some notes: Introduction to dbt"
 author: "Vinícius Félix"
 date: "2024-11-24"
-categories: [Some notes]
+categories: [data engineering]
 image: "banner.png"
 ---
 

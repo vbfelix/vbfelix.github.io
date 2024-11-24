@@ -2,7 +2,7 @@
 title: "An intro to: Simpson's paradox"
 author: "Vinícius Félix"
 date: "2023-08-20"
-categories: [Intro to]
+categories: [statistics]
 image: "intro-simpson-paradox.png"
 ---
 

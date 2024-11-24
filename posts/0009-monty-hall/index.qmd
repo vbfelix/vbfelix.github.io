@@ -2,7 +2,7 @@
 title: "An intro to: Monty Hall problem"
 author: "Vinícius Félix"
 date: "2023-07-26"
-categories: [Intro to]
+categories: [probability, math]
 image: "intro-to-monty-hall.png"
 ---
 

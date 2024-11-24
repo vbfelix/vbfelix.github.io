@@ -2,7 +2,7 @@
 title: "Unveiling the pages: Measure what matters"
 author: "Vinícius Félix"
 date: "2023-09-24"
-categories: [Unveiling the pages]
+categories: [book review, soft skills]
 image: "0018-measure-what-matters.png"
 ---
 

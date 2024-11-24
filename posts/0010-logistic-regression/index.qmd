@@ -2,7 +2,7 @@
 title: "An intro to: Logistic Regression"
 author: "Vinícius Félix"
 date: "2023-07-30"
-categories: [Intro to]
+categories: [math,statistics]
 image: "intro-to-logistic-regression.png"
 bibliography: references.bib
 ---

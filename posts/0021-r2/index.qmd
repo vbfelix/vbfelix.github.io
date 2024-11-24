@@ -2,7 +2,7 @@
 title: "Intro to: R²"
 author: "Vinícius Félix"
 date: "2024-04-16"
-categories: [Intro to]
+categories: [math, statistics]
 image: "banner.png"
 ---
 

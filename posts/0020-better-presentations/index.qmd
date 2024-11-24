@@ -2,7 +2,7 @@
 title: "Some notes: Better Presentations"
 author: "Vinícius Félix"
 date: "2023-10-29"
-categories: [Some notes]
+categories: [soft skills]
 image: "banner.png"
 ---
 

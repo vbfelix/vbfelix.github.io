@@ -2,7 +2,7 @@
 title: "An intro to: dplyr::across"
 author: "Vinícius Félix"
 date: "2023-01-02"
-categories: [Intro to]
+categories: [r]
 image: "intro-to-dplyr-across.png"
 ---
 

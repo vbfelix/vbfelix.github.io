@@ -2,7 +2,7 @@
 title: "An intro to: Benford's Law"
 author: "Vinícius Félix"
 date: "2023-07-25"
-categories: [Intro to]
+categories: [math]
 image: "intro-to-benford-law.png"
 ---
 
