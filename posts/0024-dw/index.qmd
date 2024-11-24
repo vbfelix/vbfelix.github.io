@@ -1,0 +1,245 @@
+---
+title: "Some notes: Datawarehouse concepts"
+author: "Vinícius Félix"
+date: "2024-11-24"
+categories: [data engineering]
+image: "banner.png"
+---
+
+# Context
+
+This are my notes, from the Data Camp course [Datawarehouse concepts](https://campus.datacamp.com/courses/data-warehousing-concepts).
+
+A data warehouse (DW) is a centralized system for gathering, integrating, and storing data from multiple parts of a business.\
+\
+It functions as a repository for analysis and reporting, much like a physical warehouse that keeps things for future use. By combining data from numerous sources, businesses may support business intelligence efforts, extract key performance indicators, and deliver actionable insights that promote informed decision-making and innovation.
+
+One of the most important reasons to have a DW is to avoid overloading transactional databases from sources, which have a different aim.
+
+# Layers of a Data Warehouse
+
+A data warehouse operates through multiple layers, each with distinct functions, ensuring that data flows seamlessly from raw inputs to actionable insights.
+
+## **Data Source Layer**
+
+This layer gathers all the raw data used by the warehouse from various sources. It includes diverse data types such as:
+
+-   Files (e.g., spreadsheets or flat files)
+
+-   Databases (e.g., transactional databases recording sales or HR events)
+
+-   Other systems or external sources
+
+## **Data Staging Layer**
+
+In this layer, raw data is processed and prepared for storage and analysis.
+
+-   **Data cleaning** ensures uniformity, while transformations convert unstructured formats into structured rows and columns (e.g., extracting email addresses from text).
+
+-   **Data transformation**: include cleaning but also applying business rules (e.g., aggregating rows or standardizing formats), and Loaded into temporary staging tables.
+
+## **Data Storage Layer**
+
+This is the central repository where cleaned and processed data is stored. The storage layer includes:
+
+-   **Data Warehouse**: A comprehensive system storing integrated and historical data.
+
+-   **Data Marts**: Smaller, domain-specific subsets tailored for particular departments or purposes.
+
+Depending on the design, data may flow directly into the data warehouse and then into marts, or the reverse.
+
+## **Data Presentation Layer**
+
+The final layer enables users to interact with the stored data and perform analyses.
+
+-   Business Intelligence (BI) tools for reporting and visualization.
+
+-   Data mining tools for uncovering patterns and trends.
+
+-   Direct queries with user-friendly graphical interfaces for real-time insights.
+
+# Data Warehouse Architectures
+
+Data warehouse architectures define how data is organized, processed, and delivered within the system.
+
+## **Inmon - Top-Down Approach**
+
+Popularized by **Bill Inmon**, this method views the data warehouse as the organization's central repository for all data.
+
+-   **Data Cleaning Before Storage**: Data is standardized, validated, and cleaned before entering the warehouse. This involves aligning on naming conventions, definitions, and conflict resolutions across the organization.
+
+-   **Normalized Storage**: Data is stored in a normalized format, reducing redundancy and improving quality.
+
+-   **Data Marts**: After normalization, data is distributed to department-specific data marts for querying and analysis.
+
+### **Pros**
+
+-   Creates a **single source of truth** by ensuring consistency in data definitions.
+
+-   Normalization reduces storage requirements.
+
+-   Easy to create additional data marts.
+
+### **Cons**
+
+-   Normalized data requires complex joins for analysis, which can slow down queries.
+
+-   Requires significant upfront effort to align data definitions, leading to higher initial costs.
+
+## **Kimball - Bottom-Up Approach**
+
+This architecture, developed by **Ralph Kimball**, focuses on rapid delivery and user-friendly data. Key characteristics include:
+
+-   **Denormalized Data**: Data is stored in a **star schema**, simplifying query writing and improving performance.
+
+-   **Incremental Implementation**: Data from a single department is cleaned, organized, and loaded into a data mart. Once complete, another department’s data is integrated, and so on.
+
+-   **Integrated Data Warehouse**: Over time, data marts are connected and integrated into a full-scale data warehouse.
+
+### **Pros**
+
+-   Lower upfront costs due to the incremental approach.
+
+-   Quick setup for reporting and analysis.
+
+-   Denormalized data is easier for users to consume.
+
+### **Cons**
+
+-   Denormalization increases ETL processing time and storage requirements.
+
+-   Can lead to **data duplication**, reducing trust in the data as a single source of truth.
+
+-   Additional maintenance is required as new departments or processes are added.
+
+# Data systems
+
+## **OLAP** 
+
+**Online Analytical Processing (OLAP)** is designed for high-speed multidimensional analysis of large data volumes from sources like data warehouses or marts.
+
+-   **Multidimensional Data Analysis**: OLAP systems reorganize two-dimensional data (rows and columns) into a multidimensional format. This format allows analysts to perform operations like "slicing and dicing" to explore data from different perspectives, such as sales by region, time, and product.
+
+-   **OLAP Cube**: At the core of OLAP is the **OLAP cube**, a multidimensional database structure. Each edge or dimension (e.g., region, time, and product) intersects to display aggregate values (e.g., total sales).
+
+    -   Cubes with more than three dimensions are referred to as **hypercubes**.
+
+    -   The cube enables **drill-down** (finer detail) and **aggregation** (higher-level summaries).
+
+## **OLTP** 
+
+**Online Transaction Processing (OLTP)** systems are optimized for executing a high volume of simple database transactions quickly. These systems focus on recording and managing day-to-day operational data.
+
+-   **Efficient Transaction Processing**: OLTP systems handle operations such as inserting, updating, and deleting rows.
+
+-   **Limited Query Scope**: OLTP queries typically affect a small number of rows and are designed for speed rather than analysis.
+
+# Data Models
+
+Data models are the foundation of how data is organized and accessed in a data warehouse, especially in the **bottom-up Kimball approach**.
+
+## Tables
+
+### **Fact Tables**
+
+Fact tables store **quantitative data** or metrics related to organizational processes. Each row represents a specific transaction or event.
+
+-   **Measures**: Metrics such as quantity sold, total sales, or taxes collected.
+
+-   **Foreign Keys**: References to dimension tables that provide additional details about the transaction.
+
+Fact tables focus on metrics for analysis, while details (like whether a customer is strategic) reside in dimension tables.
+
+### **Dimension Tables**
+
+Dimension tables hold **descriptive attributes** that provide context to the data in fact tables. These attributes are called **dimensions** and allow for richer analysis.
+
+Dimension tables enrich fact tables by offering more perspectives for data analysis.
+
+## Schemas
+
+### **Star Schema**
+
+The **star schema** organizes a fact table at its center, surrounded by one or more directly related dimension tables.
+
+-   This structure is simple and efficient for querying.
+
+-   Few joins required, leading to fast query performance.
+
+-   Intuitive layout for end users.
+
+### **Snowflake Schema**
+
+The **snowflake schema** extends the star schema by adding more relationships between dimension tables, creating a more normalized structure.
+
+-   Some dimension tables join indirectly with the fact table via other dimension tables.
+
+-   Allows for richer datasets and more complex analysis.
+
+-   Requires additional joins, which can slow down queries.
+
+# Data Transformation
+
+Another key concept is to decide the strategy to transform your data.
+
+Both **ETL (Extract, Transform, Load)** and **ELT (Extract, Load, Transform)** are processes for integrating data into a **data warehouse**, but they differ in the order of their steps:
+
+-   **ETL**: Data is transformed and cleaned *before* being loaded into the data warehouse.
+
+-   **ELT**: Data is extracted, loaded into the warehouse in its raw form, and transformed *afterwards*.
+
+Both methods aim to deliver clean and usable data for analysis, but their workflows and system requirements differ.
+
+## **ETL**
+
+1.  **Extract**: Data is retrieved from source systems.
+
+2.  **Transform**: Data is cleaned, validated, and prepared according to organizational rules.
+
+3.  **Load**: Transformed data is loaded into the warehouse.
+
+### **Pros**
+
+-   Lower storage costs: Only transformed data is stored.
+
+-   Easier compliance: Sensitive PII data can be excluded before reaching the warehouse.
+
+-   Many ETL tools meet government security certifications.
+
+### **Cons**
+
+-   Errors in transformation require re-extracting data from source systems.
+
+-   Operating a separate ETL system incurs extra costs.
+
+-   Large batch processing can strain source systems.
+
+## ELT
+
+1.  **Extract**: Data is pulled from source systems.
+
+2.  **Load**: Raw data is loaded directly into the data warehouse.
+
+3.  **Transform**: Data is transformed within the warehouse itself.
+
+### **Pros**
+
+-   Eliminates the need for a separate system for transformations.
+
+-   Rerunning transformations does not affect source systems.
+
+-   Well-suited for near real-time data processing as transformations can occur independently of loading times.
+
+### **Cons**
+
+-   Higher storage requirements to maintain raw data copies.
+
+-   Extra measures are needed to meet compliance when handling sensitive PII data.
+
+### **ELT** popularity **rise**
+
+The popularity of **ELT** has surged with the rise of **cloud-based data warehouses**, which offer:
+
+-   **Unlimited storage**: Organizations can afford to keep raw and transformed data.
+
+-   **Vast computing power**: Parallel processing accelerates transformations.

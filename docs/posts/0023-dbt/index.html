@@ -188,8 +188,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#a-dbt-model" id="toc-a-dbt-model" class="nav-link" data-scroll-target="#a-dbt-model">A dbt model</a>
   <ul class="collapse">
   <li><a href="#key-points-of-dbts-dag" id="toc-key-points-of-dbts-dag" class="nav-link" data-scroll-target="#key-points-of-dbts-dag">Key Points of dbt’s DAG</a></li>
-  <li><a href="#jinja" id="toc-jinja" class="nav-link" data-scroll-target="#jinja">Jinja</a></li>
+  <li><a href="#jinja" id="toc-jinja" class="nav-link" data-scroll-target="#jinja">Jinja</a>
+  <ul class="collapse">
   <li><a href="#key-features-of-jinja-in-dbt" id="toc-key-features-of-jinja-in-dbt" class="nav-link" data-scroll-target="#key-features-of-jinja-in-dbt">Key Features of Jinja in dbt</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#a-dbt-test" id="toc-a-dbt-test" class="nav-link" data-scroll-target="#a-dbt-test">A dbt test</a>
   <ul class="collapse">
@@ -265,15 +267,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="jinja" class="level2">
 <h2 class="anchored" data-anchor-id="jinja">Jinja</h2>
 <p>Jinja is a templating engine, used in dbt, that generates SQL queries dynamically. It enables the insertion of logic, variables, loops, and other programmatic features in SQL code, increasing its flexibility and reusability.</p>
-</section>
-<section id="key-features-of-jinja-in-dbt" class="level2">
-<h2 class="anchored" data-anchor-id="key-features-of-jinja-in-dbt">Key Features of Jinja in dbt</h2>
+<section id="key-features-of-jinja-in-dbt" class="level3">
+<h3 class="anchored" data-anchor-id="key-features-of-jinja-in-dbt">Key Features of Jinja in dbt</h3>
 <ul>
 <li><p><strong>Dynamic SQL</strong>: Jinja enables the creation of SQL queries that can change based on input variables, conditions, or other dynamic factors. This is useful for creating reusable models and tests.</p></li>
 <li><p><strong>Variables</strong>: You can define and pass variables into your SQL templates to customize queries based on different environments or scenarios.</p></li>
 <li><p><strong>Loops and Conditionals</strong>: Jinja supports loops and conditionals, allowing you to execute parts of your SQL only when certain conditions are met or to iterate over lists of items.</p></li>
 <li><p><strong>Built-In Functions</strong>: Jinja comes with many built-in functions (such as <code>tojson</code>, <code>join</code>, <code>length</code>, etc.) that simplify common tasks like formatting strings or working with lists.</p></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="a-dbt-test" class="level1">
