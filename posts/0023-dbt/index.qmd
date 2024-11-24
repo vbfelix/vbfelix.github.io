@@ -76,7 +76,7 @@ A DAG (Directed Acyclic Graph) or lineage graph displays data flow from raw sour
 
 Jinja is a templating engine, used in dbt, that generates SQL queries dynamically. It enables the insertion of logic, variables, loops, and other programmatic features in SQL code, increasing its flexibility and reusability.
 
-## Key Features of Jinja in dbt
+### Key Features of Jinja in dbt
 
 -   **Dynamic SQL**: Jinja enables the creation of SQL queries that can change based on input variables, conditions, or other dynamic factors. This is useful for creating reusable models and tests.
 
