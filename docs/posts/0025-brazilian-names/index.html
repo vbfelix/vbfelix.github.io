@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2024-11-24">
+<meta name="dcterms.date" content="2024-11-25">
 
-<title>vbfelix - Some notes: Datawarehouse concepts</title>
+<title>vbfelix - An analysis of: Brazilian names</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,9 +139,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Some notes: Datawarehouse concepts</h1>
+      <h1 class="title">An analysis of: Brazilian names</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">data engineering</div>
+                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">statistics</div>
               </div>
                   </div>
   </div>
@@ -159,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 24, 2024</p>
+        <p class="date">November 25, 2024</p>
       </div>
     </div>
     
@@ -176,58 +177,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
-  <li><a href="#layers-of-a-data-warehouse" id="toc-layers-of-a-data-warehouse" class="nav-link" data-scroll-target="#layers-of-a-data-warehouse">Layers of a Data Warehouse</a>
-  <ul class="collapse">
-  <li><a href="#data-source-layer" id="toc-data-source-layer" class="nav-link" data-scroll-target="#data-source-layer"><strong>Data Source Layer</strong></a></li>
-  <li><a href="#data-staging-layer" id="toc-data-staging-layer" class="nav-link" data-scroll-target="#data-staging-layer"><strong>Data Staging Layer</strong></a></li>
-  <li><a href="#data-storage-layer" id="toc-data-storage-layer" class="nav-link" data-scroll-target="#data-storage-layer"><strong>Data Storage Layer</strong></a></li>
-  <li><a href="#data-presentation-layer" id="toc-data-presentation-layer" class="nav-link" data-scroll-target="#data-presentation-layer"><strong>Data Presentation Layer</strong></a></li>
-  </ul></li>
-  <li><a href="#data-warehouse-architectures" id="toc-data-warehouse-architectures" class="nav-link" data-scroll-target="#data-warehouse-architectures">Data Warehouse Architectures</a>
-  <ul class="collapse">
-  <li><a href="#inmon---top-down-approach" id="toc-inmon---top-down-approach" class="nav-link" data-scroll-target="#inmon---top-down-approach"><strong>Inmon - Top-Down Approach</strong></a>
-  <ul class="collapse">
-  <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros"><strong>Pros</strong></a></li>
-  <li><a href="#cons" id="toc-cons" class="nav-link" data-scroll-target="#cons"><strong>Cons</strong></a></li>
-  </ul></li>
-  <li><a href="#kimball---bottom-up-approach" id="toc-kimball---bottom-up-approach" class="nav-link" data-scroll-target="#kimball---bottom-up-approach"><strong>Kimball - Bottom-Up Approach</strong></a>
-  <ul class="collapse">
-  <li><a href="#pros-1" id="toc-pros-1" class="nav-link" data-scroll-target="#pros-1"><strong>Pros</strong></a></li>
-  <li><a href="#cons-1" id="toc-cons-1" class="nav-link" data-scroll-target="#cons-1"><strong>Cons</strong></a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#data-systems" id="toc-data-systems" class="nav-link" data-scroll-target="#data-systems">Data systems</a>
-  <ul class="collapse">
-  <li><a href="#olap" id="toc-olap" class="nav-link" data-scroll-target="#olap"><strong>OLAP</strong></a></li>
-  <li><a href="#oltp" id="toc-oltp" class="nav-link" data-scroll-target="#oltp"><strong>OLTP</strong></a></li>
-  </ul></li>
-  <li><a href="#data-models" id="toc-data-models" class="nav-link" data-scroll-target="#data-models">Data Models</a>
-  <ul class="collapse">
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a>
-  <ul class="collapse">
-  <li><a href="#fact-tables" id="toc-fact-tables" class="nav-link" data-scroll-target="#fact-tables"><strong>Fact Tables</strong></a></li>
-  <li><a href="#dimension-tables" id="toc-dimension-tables" class="nav-link" data-scroll-target="#dimension-tables"><strong>Dimension Tables</strong></a></li>
-  </ul></li>
-  <li><a href="#schemas" id="toc-schemas" class="nav-link" data-scroll-target="#schemas">Schemas</a>
-  <ul class="collapse">
-  <li><a href="#star-schema" id="toc-star-schema" class="nav-link" data-scroll-target="#star-schema"><strong>Star Schema</strong></a></li>
-  <li><a href="#snowflake-schema" id="toc-snowflake-schema" class="nav-link" data-scroll-target="#snowflake-schema"><strong>Snowflake Schema</strong></a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data Transformation</a>
-  <ul class="collapse">
-  <li><a href="#etl" id="toc-etl" class="nav-link" data-scroll-target="#etl"><strong>ETL</strong></a>
-  <ul class="collapse">
-  <li><a href="#pros-2" id="toc-pros-2" class="nav-link" data-scroll-target="#pros-2"><strong>Pros</strong></a></li>
-  <li><a href="#cons-2" id="toc-cons-2" class="nav-link" data-scroll-target="#cons-2"><strong>Cons</strong></a></li>
-  </ul></li>
-  <li><a href="#elt" id="toc-elt" class="nav-link" data-scroll-target="#elt">ELT</a>
-  <ul class="collapse">
-  <li><a href="#pros-3" id="toc-pros-3" class="nav-link" data-scroll-target="#pros-3"><strong>Pros</strong></a></li>
-  <li><a href="#cons-3" id="toc-cons-3" class="nav-link" data-scroll-target="#cons-3"><strong>Cons</strong></a></li>
-  <li><a href="#elt-popularity-rise" id="toc-elt-popularity-rise" class="nav-link" data-scroll-target="#elt-popularity-rise"><strong>ELT</strong> popularity <strong>rise</strong></a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#biblical-roots" id="toc-biblical-roots" class="nav-link" data-scroll-target="#biblical-roots">Biblical Roots</a></li>
+  <li><a href="#maria-what" id="toc-maria-what" class="nav-link" data-scroll-target="#maria-what">_maria what?</a></li>
+  <li><a href="#how-high-can-you-go" id="toc-how-high-can-you-go" class="nav-link" data-scroll-target="#how-high-can-you-go">How “high” can you go?</a></li>
+  <li><a href="#sex-dynamics-in-names" id="toc-sex-dynamics-in-names" class="nav-link" data-scroll-target="#sex-dynamics-in-names">Sex dynamics in names</a></li>
   </ul>
 </nav>
     </div>
@@ -237,237 +190,57 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p>In this analysis, we seek to discover how the Brazilian population’s names were till 2010.</p>
 <section id="context" class="level1">
 <h1>Context</h1>
-<p>This are my notes, from the Data Camp course <a href="https://campus.datacamp.com/courses/data-warehousing-concepts">Datawarehouse concepts</a>.</p>
-<p>A data warehouse (DW) is a centralized system for gathering, integrating, and storing data from multiple parts of a business.<br>
-<br>
-It functions as a repository for analysis and reporting, much like a physical warehouse that keeps things for future use. By combining data from numerous sources, businesses may support business intelligence efforts, extract key performance indicators, and deliver actionable insights that promote informed decision-making and innovation.</p>
-<p>One of the most important reasons to have a DW is to avoid overloading transactional databases from sources, which have a different aim.</p>
+<p>The national institute of geography and statistics (IBGE) provided a dataset with the population’s frequency and first name as part of the 2010 Brazilian Census, this dataset was extracted from <a href="https://brasil.io/home/">Brasil.io</a>.</p>
 </section>
-<section id="layers-of-a-data-warehouse" class="level1">
-<h1>Layers of a Data Warehouse</h1>
-<p>A data warehouse operates through multiple layers, each with distinct functions, ensuring that data flows seamlessly from raw inputs to actionable insights.</p>
-<section id="data-source-layer" class="level2">
-<h2 class="anchored" data-anchor-id="data-source-layer"><strong>Data Source Layer</strong></h2>
-<p>This layer gathers all the raw data used by the warehouse from various sources. It includes diverse data types such as:</p>
+<section id="biblical-roots" class="level1">
+<h1>Biblical Roots</h1>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/top10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Maria and José are the most common names in Brazil because of their Christian roots and cultural history.</p>
+<p>These names represent the country’s largely Catholic faith, which was established during Portuguese colonization, when naming children after biblical figures became customary. Religious celebrations honoring Santa Maria (Saint Mary) and São José (Saint Joseph) increase their significance. Not only that, but other popular names are also biblical, such as: João (John), Paulo (Paul), Pedro (Peter) and others.</p>
+<p>Even with this effect is clear how Maria is more common than others names, a reason is that Maria is commonly used as the first name of a compound name, such as Maria Luiza, Maria José, and others.</p>
+</section>
+<section id="maria-what" class="level1">
+<h1>_maria what?</h1>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/top10_maria-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In Brazil, laws regulate naming children to protect them from embarrassment or ridicule. Civil registries can reject names deemed offensive, overly complex, or difficult to spell or pronounce, while foreign and culturally influenced names are allowed, they should align with Brazilian phonetics.</p>
+<p>Even with these restrictions, there is still a lot of room for creativity, thus adding maria as a component of the name is an option; this is not included in the Maria frequency analysis above, but still shows the impact of the name Maria.</p>
+</section>
+<section id="how-high-can-you-go" class="level1">
+<h1>How “high” can you go?</h1>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/nchar-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>When looking at the distribution of the number of letters in a name, we see that we have names with 3 from 14 letters, to give the most popular examples from this extremes, we have:</p>
 <ul>
-<li><p>Files (e.g., spreadsheets or flat files)</p></li>
-<li><p>Databases (e.g., transactional databases recording sales or HR events)</p></li>
-<li><p>Other systems or external sources</p></li>
+<li><p>3 letters, for example: Ana, Eva, Ivo, Eli and Ari.</p></li>
+<li><p>14 letters, for example: Cristianderson and Vandercleisson.</p></li>
 </ul>
+<p>Besides this, names with five to seven letters cover almost 70% of names in the population.</p>
 </section>
-<section id="data-staging-layer" class="level2">
-<h2 class="anchored" data-anchor-id="data-staging-layer"><strong>Data Staging Layer</strong></h2>
-<p>In this layer, raw data is processed and prepared for storage and analysis.</p>
-<ul>
-<li><p><strong>Data cleaning</strong> ensures uniformity, while transformations convert unstructured formats into structured rows and columns (e.g., extracting email addresses from text).</p></li>
-<li><p><strong>Data transformation</strong>: include cleaning but also applying business rules (e.g., aggregating rows or standardizing formats), and Loaded into temporary staging tables.</p></li>
-</ul>
-</section>
-<section id="data-storage-layer" class="level2">
-<h2 class="anchored" data-anchor-id="data-storage-layer"><strong>Data Storage Layer</strong></h2>
-<p>This is the central repository where cleaned and processed data is stored. The storage layer includes:</p>
-<ul>
-<li><p><strong>Data Warehouse</strong>: A comprehensive system storing integrated and historical data.</p></li>
-<li><p><strong>Data Marts</strong>: Smaller, domain-specific subsets tailored for particular departments or purposes.</p></li>
-</ul>
-<p>Depending on the design, data may flow directly into the data warehouse and then into marts, or the reverse.</p>
-</section>
-<section id="data-presentation-layer" class="level2">
-<h2 class="anchored" data-anchor-id="data-presentation-layer"><strong>Data Presentation Layer</strong></h2>
-<p>The final layer enables users to interact with the stored data and perform analyses.</p>
-<ul>
-<li><p>Business Intelligence (BI) tools for reporting and visualization.</p></li>
-<li><p>Data mining tools for uncovering patterns and trends.</p></li>
-<li><p>Direct queries with user-friendly graphical interfaces for real-time insights.</p></li>
-</ul>
-</section>
-</section>
-<section id="data-warehouse-architectures" class="level1">
-<h1>Data Warehouse Architectures</h1>
-<p>Data warehouse architectures define how data is organized, processed, and delivered within the system.</p>
-<section id="inmon---top-down-approach" class="level2">
-<h2 class="anchored" data-anchor-id="inmon---top-down-approach"><strong>Inmon - Top-Down Approach</strong></h2>
-<p>Popularized by <strong>Bill Inmon</strong>, this method views the data warehouse as the organization’s central repository for all data.</p>
-<ul>
-<li><p><strong>Data Cleaning Before Storage</strong>: Data is standardized, validated, and cleaned before entering the warehouse. This involves aligning on naming conventions, definitions, and conflict resolutions across the organization.</p></li>
-<li><p><strong>Normalized Storage</strong>: Data is stored in a normalized format, reducing redundancy and improving quality.</p></li>
-<li><p><strong>Data Marts</strong>: After normalization, data is distributed to department-specific data marts for querying and analysis.</p></li>
-</ul>
-<section id="pros" class="level3">
-<h3 class="anchored" data-anchor-id="pros"><strong>Pros</strong></h3>
-<ul>
-<li><p>Creates a <strong>single source of truth</strong> by ensuring consistency in data definitions.</p></li>
-<li><p>Normalization reduces storage requirements.</p></li>
-<li><p>Easy to create additional data marts.</p></li>
-</ul>
-</section>
-<section id="cons" class="level3">
-<h3 class="anchored" data-anchor-id="cons"><strong>Cons</strong></h3>
-<ul>
-<li><p>Normalized data requires complex joins for analysis, which can slow down queries.</p></li>
-<li><p>Requires significant upfront effort to align data definitions, leading to higher initial costs.</p></li>
-</ul>
-</section>
-</section>
-<section id="kimball---bottom-up-approach" class="level2">
-<h2 class="anchored" data-anchor-id="kimball---bottom-up-approach"><strong>Kimball - Bottom-Up Approach</strong></h2>
-<p>This architecture, developed by <strong>Ralph Kimball</strong>, focuses on rapid delivery and user-friendly data. Key characteristics include:</p>
-<ul>
-<li><p><strong>Denormalized Data</strong>: Data is stored in a <strong>star schema</strong>, simplifying query writing and improving performance.</p></li>
-<li><p><strong>Incremental Implementation</strong>: Data from a single department is cleaned, organized, and loaded into a data mart. Once complete, another department’s data is integrated, and so on.</p></li>
-<li><p><strong>Integrated Data Warehouse</strong>: Over time, data marts are connected and integrated into a full-scale data warehouse.</p></li>
-</ul>
-<section id="pros-1" class="level3">
-<h3 class="anchored" data-anchor-id="pros-1"><strong>Pros</strong></h3>
-<ul>
-<li><p>Lower upfront costs due to the incremental approach.</p></li>
-<li><p>Quick setup for reporting and analysis.</p></li>
-<li><p>Denormalized data is easier for users to consume.</p></li>
-</ul>
-</section>
-<section id="cons-1" class="level3">
-<h3 class="anchored" data-anchor-id="cons-1"><strong>Cons</strong></h3>
-<ul>
-<li><p>Denormalization increases ETL processing time and storage requirements.</p></li>
-<li><p>Can lead to <strong>data duplication</strong>, reducing trust in the data as a single source of truth.</p></li>
-<li><p>Additional maintenance is required as new departments or processes are added.</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="data-systems" class="level1">
-<h1>Data systems</h1>
-<section id="olap" class="level2">
-<h2 class="anchored" data-anchor-id="olap"><strong>OLAP</strong></h2>
-<p><strong>Online Analytical Processing (OLAP)</strong> is designed for high-speed multidimensional analysis of large data volumes from sources like data warehouses or marts.</p>
-<ul>
-<li><p><strong>Multidimensional Data Analysis</strong>: OLAP systems reorganize two-dimensional data (rows and columns) into a multidimensional format. This format allows analysts to perform operations like “slicing and dicing” to explore data from different perspectives, such as sales by region, time, and product.</p></li>
-<li><p><strong>OLAP Cube</strong>: At the core of OLAP is the <strong>OLAP cube</strong>, a multidimensional database structure. Each edge or dimension (e.g., region, time, and product) intersects to display aggregate values (e.g., total sales).</p>
-<ul>
-<li><p>Cubes with more than three dimensions are referred to as <strong>hypercubes</strong>.</p></li>
-<li><p>The cube enables <strong>drill-down</strong> (finer detail) and <strong>aggregation</strong> (higher-level summaries).</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="oltp" class="level2">
-<h2 class="anchored" data-anchor-id="oltp"><strong>OLTP</strong></h2>
-<p><strong>Online Transaction Processing (OLTP)</strong> systems are optimized for executing a high volume of simple database transactions quickly. These systems focus on recording and managing day-to-day operational data.</p>
-<ul>
-<li><p><strong>Efficient Transaction Processing</strong>: OLTP systems handle operations such as inserting, updating, and deleting rows.</p></li>
-<li><p><strong>Limited Query Scope</strong>: OLTP queries typically affect a small number of rows and are designed for speed rather than analysis.</p></li>
-</ul>
-</section>
-</section>
-<section id="data-models" class="level1">
-<h1>Data Models</h1>
-<p>Data models are the foundation of how data is organized and accessed in a data warehouse, especially in the <strong>bottom-up Kimball approach</strong>.</p>
-<section id="tables" class="level2">
-<h2 class="anchored" data-anchor-id="tables">Tables</h2>
-<section id="fact-tables" class="level3">
-<h3 class="anchored" data-anchor-id="fact-tables"><strong>Fact Tables</strong></h3>
-<p>Fact tables store <strong>quantitative data</strong> or metrics related to organizational processes. Each row represents a specific transaction or event.</p>
-<ul>
-<li><p><strong>Measures</strong>: Metrics such as quantity sold, total sales, or taxes collected.</p></li>
-<li><p><strong>Foreign Keys</strong>: References to dimension tables that provide additional details about the transaction.</p></li>
-</ul>
-<p>Fact tables focus on metrics for analysis, while details (like whether a customer is strategic) reside in dimension tables.</p>
-</section>
-<section id="dimension-tables" class="level3">
-<h3 class="anchored" data-anchor-id="dimension-tables"><strong>Dimension Tables</strong></h3>
-<p>Dimension tables hold <strong>descriptive attributes</strong> that provide context to the data in fact tables. These attributes are called <strong>dimensions</strong> and allow for richer analysis.</p>
-<p>Dimension tables enrich fact tables by offering more perspectives for data analysis.</p>
-</section>
-</section>
-<section id="schemas" class="level2">
-<h2 class="anchored" data-anchor-id="schemas">Schemas</h2>
-<section id="star-schema" class="level3">
-<h3 class="anchored" data-anchor-id="star-schema"><strong>Star Schema</strong></h3>
-<p>The <strong>star schema</strong> organizes a fact table at its center, surrounded by one or more directly related dimension tables.</p>
-<ul>
-<li><p>This structure is simple and efficient for querying.</p></li>
-<li><p>Few joins required, leading to fast query performance.</p></li>
-<li><p>Intuitive layout for end users.</p></li>
-</ul>
-</section>
-<section id="snowflake-schema" class="level3">
-<h3 class="anchored" data-anchor-id="snowflake-schema"><strong>Snowflake Schema</strong></h3>
-<p>The <strong>snowflake schema</strong> extends the star schema by adding more relationships between dimension tables, creating a more normalized structure.</p>
-<ul>
-<li><p>Some dimension tables join indirectly with the fact table via other dimension tables.</p></li>
-<li><p>Allows for richer datasets and more complex analysis.</p></li>
-<li><p>Requires additional joins, which can slow down queries.</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="data-transformation" class="level1">
-<h1>Data Transformation</h1>
-<p>Another key concept is to decide the strategy to transform your data.</p>
-<p>Both <strong>ETL (Extract, Transform, Load)</strong> and <strong>ELT (Extract, Load, Transform)</strong> are processes for integrating data into a <strong>data warehouse</strong>, but they differ in the order of their steps:</p>
-<ul>
-<li><p><strong>ETL</strong>: Data is transformed and cleaned <em>before</em> being loaded into the data warehouse.</p></li>
-<li><p><strong>ELT</strong>: Data is extracted, loaded into the warehouse in its raw form, and transformed <em>afterwards</em>.</p></li>
-</ul>
-<p>Both methods aim to deliver clean and usable data for analysis, but their workflows and system requirements differ.</p>
-<section id="etl" class="level2">
-<h2 class="anchored" data-anchor-id="etl"><strong>ETL</strong></h2>
-<ol type="1">
-<li><p><strong>Extract</strong>: Data is retrieved from source systems.</p></li>
-<li><p><strong>Transform</strong>: Data is cleaned, validated, and prepared according to organizational rules.</p></li>
-<li><p><strong>Load</strong>: Transformed data is loaded into the warehouse.</p></li>
-</ol>
-<section id="pros-2" class="level3">
-<h3 class="anchored" data-anchor-id="pros-2"><strong>Pros</strong></h3>
-<ul>
-<li><p>Lower storage costs: Only transformed data is stored.</p></li>
-<li><p>Easier compliance: Sensitive PII data can be excluded before reaching the warehouse.</p></li>
-<li><p>Many ETL tools meet government security certifications.</p></li>
-</ul>
-</section>
-<section id="cons-2" class="level3">
-<h3 class="anchored" data-anchor-id="cons-2"><strong>Cons</strong></h3>
-<ul>
-<li><p>Errors in transformation require re-extracting data from source systems.</p></li>
-<li><p>Operating a separate ETL system incurs extra costs.</p></li>
-<li><p>Large batch processing can strain source systems.</p></li>
-</ul>
-</section>
-</section>
-<section id="elt" class="level2">
-<h2 class="anchored" data-anchor-id="elt">ELT</h2>
-<ol type="1">
-<li><p><strong>Extract</strong>: Data is pulled from source systems.</p></li>
-<li><p><strong>Load</strong>: Raw data is loaded directly into the data warehouse.</p></li>
-<li><p><strong>Transform</strong>: Data is transformed within the warehouse itself.</p></li>
-</ol>
-<section id="pros-3" class="level3">
-<h3 class="anchored" data-anchor-id="pros-3"><strong>Pros</strong></h3>
-<ul>
-<li><p>Eliminates the need for a separate system for transformations.</p></li>
-<li><p>Rerunning transformations does not affect source systems.</p></li>
-<li><p>Well-suited for near real-time data processing as transformations can occur independently of loading times.</p></li>
-</ul>
-</section>
-<section id="cons-3" class="level3">
-<h3 class="anchored" data-anchor-id="cons-3"><strong>Cons</strong></h3>
-<ul>
-<li><p>Higher storage requirements to maintain raw data copies.</p></li>
-<li><p>Extra measures are needed to meet compliance when handling sensitive PII data.</p></li>
-</ul>
-</section>
-<section id="elt-popularity-rise" class="level3">
-<h3 class="anchored" data-anchor-id="elt-popularity-rise"><strong>ELT</strong> popularity <strong>rise</strong></h3>
-<p>The popularity of <strong>ELT</strong> has surged with the rise of <strong>cloud-based data warehouses</strong>, which offer:</p>
-<ul>
-<li><p><strong>Unlimited storage</strong>: Organizations can afford to keep raw and transformed data.</p></li>
-<li><p><strong>Vast computing power</strong>: Parallel processing accelerates transformations.</p></li>
-</ul>
+<section id="sex-dynamics-in-names" class="level1">
+<h1>Sex dynamics in names</h1>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can see that the majority of the names (almost 90%) are practically connected with names either completely associated to females or males.</p>
+<p>Furthermore, only names that are less prevalent have a more evenly distributed male and female population, such as Edir, Darcy, and Tainan.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
