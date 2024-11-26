@@ -1,0 +1,16 @@
+{
+  "hash": "e6df6d093ab213bdf0f88a9ff6fd6e64",
+  "result": {
+    "markdown": "---\ntitle: \"An analysis of: Brazilian names\"\nauthor: \"Vinícius Félix\"\ndate: \"2024-11-25\"\ncategories: [analysis,statistics]\nimage: \"banner.png\"\n---\n\n::: {.cell}\n\n:::\n\n\n# Context\n\nIn this analysis, we seek to discover how the Brazilian population's names were till 2010.\\\n\\\nThe national institute of geography and statistics (IBGE) provided a dataset with the population's frequency and first name as part of the 2010 Brazilian Census, this dataset was extracted from [Brasil.io](https://brasil.io/home/).\n\n\n\n\n\n# Biblical Roots\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/top10-1.png){width=672}\n:::\n:::\n\n\nMaria and José are the most common names in Brazil because of their Christian roots and cultural history.\n\nThese names represent the country's largely Catholic faith, which was established during Portuguese colonization, when naming children after biblical figures became customary. Religious celebrations honoring Santa Maria (Saint Mary) and São José (Saint Joseph) increase their significance. Not only that, but other popular names are also biblical, such as: João (John), Paulo (Paul), Pedro (Peter) and others.\n\nEven with this effect is clear how Maria is more common than others names, a reason is that Maria is commonly used as the first name of a compound name, such as Maria Luiza, Maria José, and others.\n\n# \\_maria what?\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/top10_maria-1.png){width=672}\n:::\n:::\n\n\nIn Brazil, laws regulate naming children to protect them from embarrassment or ridicule. Civil registries can reject names deemed offensive, overly complex, or difficult to spell or pronounce, while foreign and culturally influenced names are allowed, they should align with Brazilian phonetics.\n\nEven with these restrictions, there is still a lot of room for creativity, thus adding maria as a component of the name is an option; this is not included in the Maria frequency analysis above, but still shows the impact of the name Maria.\n\n# How \"high\" can you go?\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/nchar-1.png){width=672}\n:::\n:::\n\n\nWhen looking at the distribution of the number of letters in a name, we see that we have names with 3 from 14 letters, to give the most popular examples from this extremes, we have:\n\n-   3 letters, for example: Ana, Eva, Ivo, Eli and Ari.\n\n-   14 letters, for example: Cristianderson and Vandercleisson.\n\nBesides this, names with five to seven letters cover almost 70% of names in the population.\n\n\n\n\n\n# Sex dynamics in names\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\nWe can see that the majority of the names (almost 90%) are practically connected with names either completely associated to females or males.\n\nFurthermore, only names that are less prevalent have a more evenly distributed male and female population, such as Edir, Darcy, and Tainan.\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

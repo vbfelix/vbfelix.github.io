@@ -1,245 +1,253 @@
 ---
-title: "Some notes: Datawarehouse concepts"
+title: "An analysis of: Brazilian names"
 author: "Vinícius Félix"
-date: "2024-11-24"
-categories: [data engineering]
+date: "2024-11-25"
+categories: [analysis,statistics]
 image: "banner.png"
 ---
 
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(stringr))
+suppressWarnings(library(forcats))
+```
+
 # Context
 
-This are my notes, from the Data Camp course [Datawarehouse concepts](https://campus.datacamp.com/courses/data-warehousing-concepts).
-
-A data warehouse (DW) is a centralized system for gathering, integrating, and storing data from multiple parts of a business.\
+In this analysis, we seek to discover how the Brazilian population's names were till 2010.\
 \
-It functions as a repository for analysis and reporting, much like a physical warehouse that keeps things for future use. By combining data from numerous sources, businesses may support business intelligence efforts, extract key performance indicators, and deliver actionable insights that promote informed decision-making and innovation.
-
-One of the most important reasons to have a DW is to avoid overloading transactional databases from sources, which have a different aim.
-
-# Layers of a Data Warehouse
-
-A data warehouse operates through multiple layers, each with distinct functions, ensuring that data flows seamlessly from raw inputs to actionable insights.
-
-## **Data Source Layer**
-
-This layer gathers all the raw data used by the warehouse from various sources. It includes diverse data types such as:
-
--   Files (e.g., spreadsheets or flat files)
-
--   Databases (e.g., transactional databases recording sales or HR events)
-
--   Other systems or external sources
-
-## **Data Staging Layer**
-
-In this layer, raw data is processed and prepared for storage and analysis.
-
--   **Data cleaning** ensures uniformity, while transformations convert unstructured formats into structured rows and columns (e.g., extracting email addresses from text).
-
--   **Data transformation**: include cleaning but also applying business rules (e.g., aggregating rows or standardizing formats), and Loaded into temporary staging tables.
-
-## **Data Storage Layer**
-
-This is the central repository where cleaned and processed data is stored. The storage layer includes:
-
--   **Data Warehouse**: A comprehensive system storing integrated and historical data.
-
--   **Data Marts**: Smaller, domain-specific subsets tailored for particular departments or purposes.
-
-Depending on the design, data may flow directly into the data warehouse and then into marts, or the reverse.
-
-## **Data Presentation Layer**
-
-The final layer enables users to interact with the stored data and perform analyses.
-
--   Business Intelligence (BI) tools for reporting and visualization.
-
--   Data mining tools for uncovering patterns and trends.
-
--   Direct queries with user-friendly graphical interfaces for real-time insights.
-
-# Data Warehouse Architectures
-
-Data warehouse architectures define how data is organized, processed, and delivered within the system.
-
-## **Inmon - Top-Down Approach**
-
-Popularized by **Bill Inmon**, this method views the data warehouse as the organization's central repository for all data.
-
--   **Data Cleaning Before Storage**: Data is standardized, validated, and cleaned before entering the warehouse. This involves aligning on naming conventions, definitions, and conflict resolutions across the organization.
-
--   **Normalized Storage**: Data is stored in a normalized format, reducing redundancy and improving quality.
-
--   **Data Marts**: After normalization, data is distributed to department-specific data marts for querying and analysis.
-
-### **Pros**
-
--   Creates a **single source of truth** by ensuring consistency in data definitions.
-
--   Normalization reduces storage requirements.
-
--   Easy to create additional data marts.
-
-### **Cons**
-
--   Normalized data requires complex joins for analysis, which can slow down queries.
-
--   Requires significant upfront effort to align data definitions, leading to higher initial costs.
-
-## **Kimball - Bottom-Up Approach**
-
-This architecture, developed by **Ralph Kimball**, focuses on rapid delivery and user-friendly data. Key characteristics include:
-
--   **Denormalized Data**: Data is stored in a **star schema**, simplifying query writing and improving performance.
-
--   **Incremental Implementation**: Data from a single department is cleaned, organized, and loaded into a data mart. Once complete, another department’s data is integrated, and so on.
-
--   **Integrated Data Warehouse**: Over time, data marts are connected and integrated into a full-scale data warehouse.
-
-### **Pros**
-
--   Lower upfront costs due to the incremental approach.
-
--   Quick setup for reporting and analysis.
-
--   Denormalized data is easier for users to consume.
-
-### **Cons**
-
--   Denormalization increases ETL processing time and storage requirements.
-
--   Can lead to **data duplication**, reducing trust in the data as a single source of truth.
-
--   Additional maintenance is required as new departments or processes are added.
-
-# Data systems
-
-## **OLAP** 
-
-**Online Analytical Processing (OLAP)** is designed for high-speed multidimensional analysis of large data volumes from sources like data warehouses or marts.
-
--   **Multidimensional Data Analysis**: OLAP systems reorganize two-dimensional data (rows and columns) into a multidimensional format. This format allows analysts to perform operations like "slicing and dicing" to explore data from different perspectives, such as sales by region, time, and product.
-
--   **OLAP Cube**: At the core of OLAP is the **OLAP cube**, a multidimensional database structure. Each edge or dimension (e.g., region, time, and product) intersects to display aggregate values (e.g., total sales).
-
-    -   Cubes with more than three dimensions are referred to as **hypercubes**.
-
-    -   The cube enables **drill-down** (finer detail) and **aggregation** (higher-level summaries).
-
-## **OLTP** 
-
-**Online Transaction Processing (OLTP)** systems are optimized for executing a high volume of simple database transactions quickly. These systems focus on recording and managing day-to-day operational data.
-
--   **Efficient Transaction Processing**: OLTP systems handle operations such as inserting, updating, and deleting rows.
-
--   **Limited Query Scope**: OLTP queries typically affect a small number of rows and are designed for speed rather than analysis.
-
-# Data Models
-
-Data models are the foundation of how data is organized and accessed in a data warehouse, especially in the **bottom-up Kimball approach**.
-
-## Tables
-
-### **Fact Tables**
-
-Fact tables store **quantitative data** or metrics related to organizational processes. Each row represents a specific transaction or event.
-
--   **Measures**: Metrics such as quantity sold, total sales, or taxes collected.
-
--   **Foreign Keys**: References to dimension tables that provide additional details about the transaction.
-
-Fact tables focus on metrics for analysis, while details (like whether a customer is strategic) reside in dimension tables.
-
-### **Dimension Tables**
-
-Dimension tables hold **descriptive attributes** that provide context to the data in fact tables. These attributes are called **dimensions** and allow for richer analysis.
-
-Dimension tables enrich fact tables by offering more perspectives for data analysis.
-
-## Schemas
-
-### **Star Schema**
-
-The **star schema** organizes a fact table at its center, surrounded by one or more directly related dimension tables.
-
--   This structure is simple and efficient for querying.
-
--   Few joins required, leading to fast query performance.
-
--   Intuitive layout for end users.
-
-### **Snowflake Schema**
-
-The **snowflake schema** extends the star schema by adding more relationships between dimension tables, creating a more normalized structure.
-
--   Some dimension tables join indirectly with the fact table via other dimension tables.
-
--   Allows for richer datasets and more complex analysis.
-
--   Requires additional joins, which can slow down queries.
-
-# Data Transformation
-
-Another key concept is to decide the strategy to transform your data.
-
-Both **ETL (Extract, Transform, Load)** and **ELT (Extract, Load, Transform)** are processes for integrating data into a **data warehouse**, but they differ in the order of their steps:
-
--   **ETL**: Data is transformed and cleaned *before* being loaded into the data warehouse.
-
--   **ELT**: Data is extracted, loaded into the warehouse in its raw form, and transformed *afterwards*.
-
-Both methods aim to deliver clean and usable data for analysis, but their workflows and system requirements differ.
-
-## **ETL**
-
-1.  **Extract**: Data is retrieved from source systems.
-
-2.  **Transform**: Data is cleaned, validated, and prepared according to organizational rules.
-
-3.  **Load**: Transformed data is loaded into the warehouse.
-
-### **Pros**
-
--   Lower storage costs: Only transformed data is stored.
-
--   Easier compliance: Sensitive PII data can be excluded before reaching the warehouse.
-
--   Many ETL tools meet government security certifications.
-
-### **Cons**
-
--   Errors in transformation require re-extracting data from source systems.
-
--   Operating a separate ETL system incurs extra costs.
-
--   Large batch processing can strain source systems.
-
-## ELT
-
-1.  **Extract**: Data is pulled from source systems.
-
-2.  **Load**: Raw data is loaded directly into the data warehouse.
-
-3.  **Transform**: Data is transformed within the warehouse itself.
-
-### **Pros**
-
--   Eliminates the need for a separate system for transformations.
-
--   Rerunning transformations does not affect source systems.
-
--   Well-suited for near real-time data processing as transformations can occur independently of loading times.
-
-### **Cons**
-
--   Higher storage requirements to maintain raw data copies.
-
--   Extra measures are needed to meet compliance when handling sensitive PII data.
-
-### **ELT** popularity **rise**
-
-The popularity of **ELT** has surged with the rise of **cloud-based data warehouses**, which offer:
-
--   **Unlimited storage**: Organizations can afford to keep raw and transformed data.
-
--   **Vast computing power**: Parallel processing accelerates transformations.
+The national institute of geography and statistics (IBGE) provided a dataset with the population's frequency and first name as part of the 2010 Brazilian Census, this dataset was extracted from [Brasil.io](https://brasil.io/home/).
+
+```{r download_data, echo = FALSE,include = F}
+
+url <- "https://data.brasil.io/dataset/genero-nomes/nomes.csv.gz"
+
+temp_gz  <- tempfile(fileext = ".gz")
+download.file(url, temp_gz, mode = "wb")
+data_or <- read.csv(gzfile(temp_gz))
+
+data <- 
+  data_or %>% 
+    as_tibble() %>% 
+    mutate(
+      first_name = str_to_title(first_name),
+      n_char = nchar(first_name),
+      frequency_total = frequency_total/(10^6),
+      frequency_male = frequency_male/(10^6),
+      frequency_female = frequency_female/(10^6),
+      frequency_male = relper::replace_na(frequency_male,0),
+      frequency_female = relper::replace_na(frequency_female,0),
+      perc_male = 100*frequency_male/frequency_total,
+      perc_female = 100*frequency_female/frequency_total,
+      male_female = 100*(perc_male/perc_female)
+    ) %>% 
+  glimpse()
+
+caption <- "Source: Censo 2010 (IBGE) + Brasil.io"
+
+n_names <- data %>% summarise(n = sum(frequency_total,na.rm = TRUE)) %>% pull(n)
+
+
+```
+
+# Biblical Roots
+
+```{r top10, echo = FALSE}
+data_top10 <-
+  data %>% 
+  mutate(perc = 100*frequency_total/sum(frequency_total)) %>% 
+  arrange(-frequency_total) %>% 
+  slice(1:10) %>% 
+  mutate(
+    first_name = fct_reorder(first_name,frequency_total),
+    frequency_total = frequency_total,
+    lbl = format_num(frequency_total,3,br_mark = FALSE)
+    )
+  
+top10_labs <-
+  labs(
+    x = "Frequency, in millions",
+    y = "",
+    caption = caption,
+    title = "Top 10 popular names"
+    # subtitle = paste0("*População = ",format_num(n_nomes,digits = 0,br_mark = TRUE)) 
+  )
+
+plot_top10 <-
+data_top10 %>% 
+  ggplot(aes(frequency_total,first_name))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_x = -.5, fontface = "bold",col = "white")+
+  top10_labs+
+  plt_theme_x(margin = .5)+
+  scale_x_continuous(breaks = 0:15, expand = c(0,0), limits = c(0,12))+
+  plt_water_mark(vfx_watermark)
+
+plot_top10
+
+```
+
+Maria and José are the most common names in Brazil because of their Christian roots and cultural history.
+
+These names represent the country's largely Catholic faith, which was established during Portuguese colonization, when naming children after biblical figures became customary. Religious celebrations honoring Santa Maria (Saint Mary) and São José (Saint Joseph) increase their significance. Not only that, but other popular names are also biblical, such as: João (John), Paulo (Paul), Pedro (Peter) and others.
+
+Even with this effect is clear how Maria is more common than others names, a reason is that Maria is commonly used as the first name of a compound name, such as Maria Luiza, Maria José, and others.
+
+# \_maria what?
+
+```{r top10_maria, echo = FALSE}
+
+data_maria <-
+  data %>% 
+  filter(n_char > 5) %>% 
+  filter(str_sub(first_name,-5,-1) == "maria") %>% 
+  arrange(-frequency_total) %>% 
+  slice(1:10) %>% 
+  mutate(
+    prefix = str_sub(first_name,1,n_char-5),
+    first_name = fct_reorder(first_name,frequency_total),
+    frequency_total = frequency_total*(10^6),
+    lbl = format_num(frequency_total,digits = 0,br_mark = TRUE)
+  )
+
+maria_labs <-
+  labs(
+    x = "Frequency",
+    y = "",
+    caption = caption,
+    title = "Top 10 names that ends with 'maria'"
+    # subtitle = ""
+  )
+
+maria_xaxis <- seq(0,3000,500)
+maria_xlbls <- maria_xaxis %>% format_num(.,digits = 0,br_mark = TRUE)
+
+plot_maria <-
+  data_maria %>% 
+  ggplot(aes(frequency_total,first_name))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_x = -100, fontface = "bold", col = "white")+
+  maria_labs+
+  plt_theme_x(margin = .5)+
+  scale_x_continuous(breaks = maria_xaxis,
+                     label = maria_xlbls,
+                     expand = c(0,0),
+                     limits = c(0,3000)
+                     )+
+  plt_water_mark(vfx_watermark)
+
+plot_maria
+```
+
+In Brazil, laws regulate naming children to protect them from embarrassment or ridicule. Civil registries can reject names deemed offensive, overly complex, or difficult to spell or pronounce, while foreign and culturally influenced names are allowed, they should align with Brazilian phonetics.
+
+Even with these restrictions, there is still a lot of room for creativity, thus adding maria as a component of the name is an option; this is not included in the Maria frequency analysis above, but still shows the impact of the name Maria.
+
+# How "high" can you go?
+
+```{r nchar, echo = FALSE}
+data_nchar <-
+  data %>% 
+  count(n_char,wt = frequency_total) %>% 
+  mutate(
+    perc = 100*n/sum(n),
+    lbl = if_else(perc < .01,"<0,01",format_num(perc,digits = 2,br_mark = TRUE))
+    )
+
+nchar_labs <-
+  labs(
+    x = "Number of letters in a name",
+    y = "%",
+    caption = caption,
+    title = "Distribution of the number of letters in a name",
+    # subtitle = ""
+  )
+
+pop_lbls <- format_num(seq(0,25,5)/100*n_names/(10^6),br_mark = TRUE)
+
+plot_nchar <-
+data_nchar %>% 
+  ggplot(aes(n_char,perc))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_y = 1, fontface = "bold")+
+  plt_theme_y(margin = .5)+
+  scale_x_continuous(expand = c(0.01,0),breaks = 3:14)+
+  scale_y_continuous(expand = c(0,0), limits = c(0,25), breaks = seq(0,25,5)
+                     # sec.axis = sec_axis(~.,name = "#Milhões",labels = pop_lbls)
+                     )+
+  nchar_labs+
+  plt_flip_y_title+
+  theme(axis.title.y.right = element_text(angle = 0,vjust = 1))+
+  plt_water_mark(vfx_watermark)
+
+plot_nchar
+```
+
+When looking at the distribution of the number of letters in a name, we see that we have names with 3 from 14 letters, to give the most popular examples from this extremes, we have:
+
+-   3 letters, for example: Ana, Eva, Ivo, Eli and Ari.
+
+-   14 letters, for example: Cristianderson and Vandercleisson.
+
+Besides this, names with five to seven letters cover almost 70% of names in the population.
+
+```{r, echo = FALSE,include = F}
+data %>% 
+  filter(n_char == 3 | n_char == 14) %>% 
+  group_by(n_char) %>%
+  mutate(rank = rank(-frequency_total)) %>% 
+  arrange(rank) %>% 
+  select(rank,first_name,frequency_total)
+```
+
+# Sex dynamics in names
+
+```{r, echo = FALSE}
+
+mf_labs <-
+  labs(
+    subtitle = "Frequency, in millions (log scale)",
+    y = "",
+    caption = caption,
+    x = "Percentage of the name occurrence for males"
+  )
+
+data %>% 
+  ggplot(aes(perc_male,frequency_total))+
+  geom_point(alpha = .15, col = "royalblue4")+
+  scale_y_log10(
+    breaks = c(0.0001,0.001,0.01,0.1,1,10),
+    labels = c("0.0001","0.001","0.01","0.1","1","10") 
+  )+
+  plt_theme_y(margin = .5)+
+  mf_labs+
+  plt_water_mark(vfx_watermark)+
+  geom_vline(xintercept = 50,col = "red", linetype = "dashed")
+```
+
+We can see that the majority of the names (almost 90%) are practically connected with names either completely associated to females or males.
+
+Furthermore, only names that are less prevalent have a more evenly distributed male and female population, such as Edir, Darcy, and Tainan.
+
+```{r, echo = FALSE,include = F}
+data %>% 
+  filter(between(perc_male,49,51)) %>% 
+  arrange(-frequency_total) %>% 
+  select(first_name,frequency_total,perc_male)
+
+data %>% 
+  filter(!(only = perc_male == 100 | perc_male == 0)) %>% 
+  arrange(-frequency_total) %>% 
+  select(first_name,perc_male,frequency_total)
+
+data %>% 
+  count(between(perc_male,97.5,100)|between(perc_male,0,2.5)) %>% 
+  mutate(perc = 100*n/sum(n))
+
+```
