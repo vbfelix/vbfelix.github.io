@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+<meta name="dcterms.date" content="2024-11-28">
+
+<title>vbfelix - An intro to: AARRR framework</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">vbfelix</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-about.html" rel="" target="">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html" rel="" target="">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html" rel="" target="">
+ <span class="menu-text">Certifications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-participations.html" rel="" target="">
+ <span class="menu-text">Participations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-awards.html" rel="" target="">
+ <span class="menu-text">Awards</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="" target=""><i class="bi bi-stack-overflow" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="" target=""><i class="bi bi-box-seam" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">An intro to: AARRR framework</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">product</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 28, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#acquisition" id="toc-acquisition" class="nav-link" data-scroll-target="#acquisition">Acquisition</a>
+  <ul class="collapse">
+  <li><a href="#traffic-metrics" id="toc-traffic-metrics" class="nav-link" data-scroll-target="#traffic-metrics"><strong>Traffic Metrics</strong></a></li>
+  <li><a href="#engagement-metrics" id="toc-engagement-metrics" class="nav-link" data-scroll-target="#engagement-metrics"><strong>Engagement Metrics</strong></a></li>
+  <li><a href="#conversion-metrics" id="toc-conversion-metrics" class="nav-link" data-scroll-target="#conversion-metrics"><strong>Conversion Metrics</strong></a></li>
+  <li><a href="#paid-campaign-metrics" id="toc-paid-campaign-metrics" class="nav-link" data-scroll-target="#paid-campaign-metrics"><strong>Paid Campaign Metrics</strong></a></li>
+  <li><a href="#seo-metrics" id="toc-seo-metrics" class="nav-link" data-scroll-target="#seo-metrics"><strong>SEO Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#activation" id="toc-activation" class="nav-link" data-scroll-target="#activation">Activation</a>
+  <ul class="collapse">
+  <li><a href="#engagement-metrics-1" id="toc-engagement-metrics-1" class="nav-link" data-scroll-target="#engagement-metrics-1"><strong>Engagement Metrics</strong></a></li>
+  <li><a href="#interaction-metrics" id="toc-interaction-metrics" class="nav-link" data-scroll-target="#interaction-metrics"><strong>Interaction Metrics</strong></a></li>
+  <li><a href="#conversion-metrics-1" id="toc-conversion-metrics-1" class="nav-link" data-scroll-target="#conversion-metrics-1"><strong>Conversion Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#retention" id="toc-retention" class="nav-link" data-scroll-target="#retention">Retention</a>
+  <ul class="collapse">
+  <li><a href="#user-retention-metrics" id="toc-user-retention-metrics" class="nav-link" data-scroll-target="#user-retention-metrics"><strong>User Retention Metrics</strong></a></li>
+  <li><a href="#engagement-metrics-2" id="toc-engagement-metrics-2" class="nav-link" data-scroll-target="#engagement-metrics-2"><strong>Engagement Metrics</strong></a></li>
+  <li><a href="#customer-behavior-metrics" id="toc-customer-behavior-metrics" class="nav-link" data-scroll-target="#customer-behavior-metrics"><strong>Customer Behavior Metrics</strong></a></li>
+  <li><a href="#value-based-metrics" id="toc-value-based-metrics" class="nav-link" data-scroll-target="#value-based-metrics"><strong>Value-Based Metrics</strong></a></li>
+  <li><a href="#proactive-retention-metrics" id="toc-proactive-retention-metrics" class="nav-link" data-scroll-target="#proactive-retention-metrics"><strong>Proactive Retention Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#revenue" id="toc-revenue" class="nav-link" data-scroll-target="#revenue">Revenue</a>
+  <ul class="collapse">
+  <li><a href="#monetization-metrics" id="toc-monetization-metrics" class="nav-link" data-scroll-target="#monetization-metrics"><strong>Monetization Metrics</strong></a></li>
+  <li><a href="#recurring-revenue-metrics" id="toc-recurring-revenue-metrics" class="nav-link" data-scroll-target="#recurring-revenue-metrics"><strong>Recurring Revenue Metrics</strong></a></li>
+  <li><a href="#sales-metrics" id="toc-sales-metrics" class="nav-link" data-scroll-target="#sales-metrics"><strong>Sales Metrics</strong></a></li>
+  <li><a href="#profitability-metrics" id="toc-profitability-metrics" class="nav-link" data-scroll-target="#profitability-metrics"><strong>Profitability Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#referral" id="toc-referral" class="nav-link" data-scroll-target="#referral">Referral</a>
+  <ul class="collapse">
+  <li><a href="#referral-program-metrics" id="toc-referral-program-metrics" class="nav-link" data-scroll-target="#referral-program-metrics"><strong>Referral Program Metrics</strong></a></li>
+  <li><a href="#viral-growth-metrics" id="toc-viral-growth-metrics" class="nav-link" data-scroll-target="#viral-growth-metrics"><strong>Viral Growth Metrics</strong></a></li>
+  <li><a href="#user-engagement-metrics" id="toc-user-engagement-metrics" class="nav-link" data-scroll-target="#user-engagement-metrics"><strong>User Engagement Metrics</strong></a></li>
+  <li><a href="#incentive-impact-metrics" id="toc-incentive-impact-metrics" class="nav-link" data-scroll-target="#incentive-impact-metrics"><strong>Incentive Impact Metrics</strong></a></li>
+  <li><a href="#growth-metrics" id="toc-growth-metrics" class="nav-link" data-scroll-target="#growth-metrics"><strong>Growth Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#final-considerations" id="toc-final-considerations" class="nav-link" data-scroll-target="#final-considerations">Final considerations</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>In this post we cover a bit of the pirate metrics framework, AARRR.</p>
+<section id="context" class="level1">
+<h1>Context</h1>
+<p>The AARRR framework, also known as the Pirate Metrics, is a model created by Dave McClure to help companies focus on actionable metrics that drive business growth.</p>
+<p>Designed for simplicity and clarity, AARRR stands for Acquisition, Activation, Retention, Revenue, and Referral.</p>
+<p>These five stages represent the customer lifecycle and the key areas where the executives should concentrate their efforts to achieve sustainable growth. By breaking down the customer journey into these stages, the framework provides a roadmap to identify, measure, and optimize the factors that truly impact their success.</p>
+</section>
+<section id="acquisition" class="level1">
+<h1>Acquisition</h1>
+<p>Acquisition focuses on how a company draws in new clients or users to its goods or services.<br>
+<br>
+This stage focuses on raising awareness and motivating people to visit a website, download an app, or subscribe to a newsletter as the first step in interacting with the business. Search engine optimization (SEO), social media campaigns, sponsored ads, content marketing, partnerships, and other measures that raise awareness and spark interest are frequently used in acquisition attempts.</p>
+<section id="traffic-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="traffic-metrics"><strong>Traffic Metrics</strong></h2>
+<ul>
+<li><p><strong>Website Traffic</strong>: Total visits to your website or landing pages.</p></li>
+<li><p><strong>Unique Visitors</strong>: The number of distinct individuals visiting your site.</p></li>
+<li><p><strong>Traffic Source Breakdown</strong>: Visits segmented by channel (e.g., organic search, paid ads, social media, referrals).</p></li>
+</ul>
+</section>
+<section id="engagement-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="engagement-metrics"><strong>Engagement Metrics</strong></h2>
+<ul>
+<li><p><strong>Click-Through Rate (CTR)</strong>: Percentage of users who clicked a link compared to those who viewed it.</p></li>
+<li><p><strong>Cost Per Click (CPC)</strong>: Average cost for each click on a paid ad.</p></li>
+<li><p><strong>Bounce Rate</strong>: Percentage of visitors who leave after viewing only one page.</p></li>
+</ul>
+</section>
+<section id="conversion-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="conversion-metrics"><strong>Conversion Metrics</strong></h2>
+<ul>
+<li><p><strong>Sign-Up Rate</strong>: Percentage of visitors who register or sign up.</p></li>
+<li><p><strong>Lead Conversion Rate</strong>: Percentage of visitors who become leads (e.g., filling out a form or downloading a resource).</p></li>
+<li><p><strong>Cost Per Lead (CPL)</strong>: Average cost of acquiring one lead.</p></li>
+</ul>
+</section>
+<section id="paid-campaign-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="paid-campaign-metrics"><strong>Paid Campaign Metrics</strong></h2>
+<ul>
+<li><p><strong>Cost Per Acquisition (CPA)</strong>: Cost of acquiring a paying customer or a qualified lead.</p></li>
+<li><p><strong>Ad Impressions</strong>: Number of times an ad is displayed to users.</p></li>
+<li><p><strong>Return on Ad Spend (ROAS)</strong>: Revenue generated per dollar spent on advertising.</p></li>
+</ul>
+</section>
+<section id="seo-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="seo-metrics"><strong>SEO Metrics</strong></h2>
+<ul>
+<li><p><strong>Search Engine Ranking</strong>: Position in search engine results for key terms.</p></li>
+<li><p><strong>Organic Traffic</strong>: Visitors arriving through unpaid search engine results.</p></li>
+<li><p><strong>Keyword Click-Through Rates</strong>: CTR for targeted keywords in search results.</p></li>
+</ul>
+</section>
+</section>
+<section id="activation" class="level1">
+<h1>Activation</h1>
+<p>Activation focuses on the moment a user has their first successful interaction with your product or service. This phase gauges how well you’re providing a favorable first impression that highlights the worth of the goods.</p>
+<p>This metrics are important because it sets the tone for subsequent interactions by allowing consumers to determine whether your product satisfies their needs and expectations.</p>
+<section id="engagement-metrics-1" class="level2">
+<h2 class="anchored" data-anchor-id="engagement-metrics-1"><strong>Engagement Metrics</strong></h2>
+<ul>
+<li><p><strong>Time to First Value (TTFV)</strong>: The time it takes for a user to experience the product’s value.</p></li>
+<li><p><strong>User Onboarding Completion Rate</strong>: Percentage of users who complete the onboarding process.</p></li>
+<li><p><strong>Feature Adoption Rate</strong>: Percentage of users engaging with specific key features.</p></li>
+</ul>
+</section>
+<section id="interaction-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-metrics"><strong>Interaction Metrics</strong></h2>
+<ul>
+<li><p><strong>Sign-Up Completion Rate</strong>: Percentage of users who complete account creation.</p></li>
+<li><p><strong>Product Usage Rate</strong>: Percentage of users actively using the product within a defined period (e.g., first 24 hours).</p></li>
+<li><p><strong>Number of Actions Per Session</strong>: How many meaningful actions a user takes in their first session.</p></li>
+</ul>
+</section>
+<section id="conversion-metrics-1" class="level2">
+<h2 class="anchored" data-anchor-id="conversion-metrics-1"><strong>Conversion Metrics</strong></h2>
+<ul>
+<li><p><strong>Trial-to-Paid Conversion Rate</strong>: Percentage of trial users who convert to paying customers.</p></li>
+<li><p><strong>Activation Rate</strong>: Percentage of users reaching a predefined activation milestone (e.g., completing a tutorial or creating their first project).</p></li>
+</ul>
+</section>
+</section>
+<section id="retention" class="level1">
+<h1>Retention</h1>
+<p>Retention focuses on keeping users engaged over time. It gauges how well a company keeps clients when they are first activated.</p>
+<p>Because keeping current customers is usually less expensive than getting new ones, retention is crucial, and good retention rates are sometimes a sign of a well-fitting product. Delivering consistent value and fostering habits that motivate consumers to return frequently are the objectives at this point.</p>
+<section id="user-retention-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="user-retention-metrics"><strong>User Retention Metrics</strong></h2>
+<ul>
+<li><p><strong>Retention Rate</strong>: Percentage of users returning to the product after a specific period (e.g., Day 7, Day 30).</p></li>
+<li><p><strong>Churn Rate</strong>: Percentage of users who stop using the product over a given time frame.</p></li>
+<li><p><strong>Repeat Usage Rate</strong>: Percentage of users engaging with the product multiple times within a set period.</p></li>
+</ul>
+</section>
+<section id="engagement-metrics-2" class="level2">
+<h2 class="anchored" data-anchor-id="engagement-metrics-2"><strong>Engagement Metrics</strong></h2>
+<ul>
+<li><p><strong>Active User Rate</strong>: Percentage of users actively interacting with the product (daily, weekly, or monthly).</p></li>
+<li><p><strong>Session Frequency</strong>: How often users return to the product over a given period.</p></li>
+<li><p><strong>Stickiness Ratio</strong>: Ratio of daily active users (DAU) to monthly active users (MAU), indicating habitual usage.</p></li>
+</ul>
+</section>
+<section id="customer-behavior-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="customer-behavior-metrics"><strong>Customer Behavior Metrics</strong></h2>
+<ul>
+<li><p><strong>Cohort Retention Analysis</strong>: Tracking user retention across different groups (e.g., by sign-up date).</p></li>
+<li><p><strong>Feature Retention Rate</strong>: Percentage of users consistently using specific features over time.</p></li>
+<li><p><strong>Engagement Drop-Off Points</strong>: Identifying stages where users tend to stop engaging.</p></li>
+</ul>
+</section>
+<section id="value-based-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="value-based-metrics"><strong>Value-Based Metrics</strong></h2>
+<ul>
+<li><p><strong>Customer Lifetime Value (CLV)</strong>: Total revenue expected from a user during their relationship with the product.</p></li>
+<li><p><strong>Net Promoter Score (NPS)</strong>: A measure of customer loyalty and satisfaction over time.</p></li>
+<li><p><strong>Customer Satisfaction (CSAT)</strong>: Feedback on specific aspects of the product or service.</p></li>
+</ul>
+</section>
+<section id="proactive-retention-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="proactive-retention-metrics"><strong>Proactive Retention Metrics</strong></h2>
+<ul>
+<li><p><strong>Reactivation Rate</strong>: Percentage of churned users who return after re-engagement campaigns.</p></li>
+<li><p><strong>Success Rate of Retention Campaigns</strong>: Effectiveness of targeted efforts like promotions, updates, or personalized outreach.</p></li>
+<li><p><strong>Support Interaction Impact</strong>: How resolving customer support tickets influences retention.</p></li>
+</ul>
+</section>
+</section>
+<section id="revenue" class="level1">
+<h1>Revenue</h1>
+<p>Revenue focuses on the monetization of users and transforming engaged customers into paying customers. At this stage, the goal is to ensure that the business is generating income through its product or service. It includes various strategies for converting free users into paying users, maximizing the value of each customer, and optimizing pricing models. Successful revenue generation is often a key indicator that the product has found product-market fit and that users are willing to pay for the value it provides.</p>
+<p>This metrics help businesses assess the effectiveness of their pricing strategies, sales tactics, and customer segmentation. A strong revenue stage isn’t just about increasing transactions; it’s about understanding customer willingness to pay and developing strategies that maximize customer lifetime value (CLV), recurring revenue, and profitability.</p>
+<section id="monetization-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="monetization-metrics"><strong>Monetization Metrics</strong></h2>
+<ul>
+<li><p><strong>Revenue Per User (RPU)</strong>: The average revenue generated per user over a specific period.</p></li>
+<li><p><strong>Average Revenue Per User (ARPU)</strong>: The average revenue generated per active user, often segmented by different customer types or products.</p></li>
+<li><p><strong>Conversion Rate (Free to Paid)</strong>: Percentage of free users who upgrade to a paid plan.</p></li>
+<li><p><strong>Trial-to-Paid Conversion Rate</strong>: Percentage of users who convert from a free trial to a paid subscription.</p></li>
+<li><p><strong>Cost Per Acquisition (CPA)</strong>: The cost of acquiring a customer, including marketing and sales expenses.</p></li>
+</ul>
+</section>
+<section id="recurring-revenue-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="recurring-revenue-metrics"><strong>Recurring Revenue Metrics</strong></h2>
+<ul>
+<li><p><strong>Monthly Recurring Revenue (MRR)</strong>: The predictable revenue generated each month from subscriptions or other recurring billing models.</p></li>
+<li><p><strong>Annual Recurring Revenue (ARR)</strong>: The revenue generated annually from customers with recurring payments.</p></li>
+<li><p><strong>Churned MRR</strong>: The total amount of recurring revenue lost due to customer cancellations or downgrades.</p></li>
+<li><p><strong>Expansion MRR</strong>: Revenue gained through upsells, cross-sells, or customer upgrades.</p></li>
+</ul>
+</section>
+<section id="sales-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="sales-metrics"><strong>Sales Metrics</strong></h2>
+<ul>
+<li><p><strong>Sales Growth Rate</strong>: The percentage increase in sales over a specific period.</p></li>
+<li><p><strong>Customer Acquisition Cost (CAC)</strong>: The total cost of acquiring a new customer, including marketing, sales, and promotional expenses.</p></li>
+<li><p><strong>Sales Conversion Rate</strong>: The percentage of leads or prospects that convert into paying customers.</p></li>
+</ul>
+</section>
+<section id="profitability-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="profitability-metrics"><strong>Profitability Metrics</strong></h2>
+<ul>
+<li><p><strong>Gross Profit Margin</strong>: The difference between revenue and the cost of goods sold (COGS), divided by revenue.</p></li>
+<li><p><strong>Customer Lifetime Value (CLV or LTV)</strong>: The total revenue a customer is expected to generate over their entire relationship with the business.</p></li>
+<li><p><strong>LTV:CAC Ratio</strong>: The ratio of a customer’s lifetime value to the cost of acquiring that customer, which indicates the efficiency of acquisition efforts.</p></li>
+</ul>
+</section>
+</section>
+<section id="referral" class="level1">
+<h1>Referral</h1>
+<p>Referral focuses on leveraging your existing customers or users to help acquire new ones. The referral stage is important because it taps into the power of word-of-mouth marketing, encouraging users to spread the word about your product or service to their networks.</p>
+<p>Referral programs, incentivized sharing, and viral loops can amplify growth and create a community-driven acquisition strategy. If users are highly satisfied with your product, they are more likely to recommend it to others, which can drive high-quality traffic with a lower cost per acquisition.</p>
+<p>Successful strategies often include offering rewards (like discounts or bonuses) to users who refer friends, providing easy sharing tools, and creating viral content that encourages people to spread the word. The goal is to maximize user engagement in referrals and make it a sustainable growth lever.</p>
+<section id="referral-program-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="referral-program-metrics"><strong>Referral Program Metrics</strong></h2>
+<ul>
+<li><p><strong>Referral Rate</strong>: Percentage of users who refer at least one other person.</p></li>
+<li><p><strong>Invite-to-Sign-Up Conversion Rate</strong>: Percentage of people who sign up after receiving an invite or referral.</p></li>
+<li><p><strong>Referral Conversion Rate</strong>: Percentage of referred users who become active or paying customers.</p></li>
+</ul>
+</section>
+<section id="viral-growth-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="viral-growth-metrics"><strong>Viral Growth Metrics</strong></h2>
+<ul>
+<li><p><strong>Viral Coefficient</strong>: The number of new users that each existing user generates through referrals. If the viral coefficient is greater than 1, the user base grows exponentially.</p></li>
+<li><p><strong>Viral Cycle Time</strong>: The time it takes for a referral to convert into a new user.</p></li>
+<li><p><strong>Referral Traffic</strong>: The number of new users or visitors that come from referral links or codes.</p></li>
+</ul>
+</section>
+<section id="user-engagement-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="user-engagement-metrics"><strong>User Engagement Metrics</strong></h2>
+<ul>
+<li><p><strong>Active Referrers</strong>: The number of users who are actively participating in the referral program by sharing their referral links.</p></li>
+<li><p><strong>Referral Program Participation Rate</strong>: Percentage of users who are aware of and actively participate in the referral program.</p></li>
+<li><p><strong>Referral Engagement Rate</strong>: The frequency and volume of shares or invites per active user.</p></li>
+</ul>
+</section>
+<section id="incentive-impact-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="incentive-impact-metrics"><strong>Incentive Impact Metrics</strong></h2>
+<ul>
+<li><p><strong>Referral Reward Redemption Rate</strong>: Percentage of users who claim rewards after referring someone.</p></li>
+<li><p><strong>Cost Per Referral (CPR)</strong>: The cost to the business for each successful referral, including incentives and rewards offered.</p></li>
+<li><p><strong>Referral-Generated Revenue</strong>: Total revenue generated from referred customers.</p></li>
+</ul>
+</section>
+<section id="growth-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="growth-metrics"><strong>Growth Metrics</strong></h2>
+<ul>
+<li><p><strong>Referral-Driven Growth Rate</strong>: The percentage of overall customer growth that comes from referral sources.</p></li>
+<li><p><strong>Referral-to-Paid Conversion Rate</strong>: Percentage of referred users who become paying customers.</p></li>
+</ul>
+</section>
+</section>
+<section id="final-considerations" class="level1">
+<h1>Final considerations</h1>
+<p>The framework addresses the full customer journey, making sure no step is missed, and simplifies growth into five manageable stages that teams can take action on.<br>
+<br>
+Using metrics that can be tailored to different industries and business models, from SaaS to e-commerce, and selecting the most appropriate indicators for each stage, it also promotes monitoring important metrics to guide decisions and steer clear of vanity metrics.</p>
+<p>However, the framework might oversimplify difficult situations like customer segmentation or niche-specific challenges, which may call for more nuanced methods, even while it offers a clear and actionable structure.<br>
+<br>
+Furthermore, teams run the danger of being overburdened and experiencing analysis paralysis due to the emphasis on monitoring several metrics at every stage. Its focus on immediate performance indicators may obscure the significance of qualitative insights and long-term brand development.</p>
+<p>Additionally, to compute and monitor this many metrics require a environment to ingest many sources of data to allow a complete analysis.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
