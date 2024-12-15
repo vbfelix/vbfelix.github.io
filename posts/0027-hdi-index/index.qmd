@@ -1,0 +1,163 @@
+---
+title: "An intro to: Human Development Index"
+author: "Vinícius Félix"
+date: "2024-12-28"
+categories: [product]
+image: "banner.png"
+---
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+
+```
+
+In this post we explore the formula of the Human Development Index (HDI).
+
+# Context
+
+The Human Development Index (HDI) is a composite statisticused to rank and gauge the social and economic development of nations. As part of its yearly Human Development Report, the United Nations Development Programme (UNDP) created it.
+
+In 2010 a new version was published, combining three dimensions:
+
+-   Health
+
+-   Education
+
+-   Economy
+
+# Health
+
+To measure Health the metric choosen was the Life Expectancy Index (LEI), given by:
+
+$$
+\begin{align}
+\mathrm{LEI}
+&=  \frac{\mathrm{LE}-20}{65},\\
+\end{align}
+$$ {#eq-lei}
+
+where:
+
+-   LE = Life expectancy at birth, in years;
+
+-   20 = Minimum life expectancy threshold, historically observed globally;
+
+-   85 = Maximum life expectancy threshold, historically observed globally.
+
+Given the @eq-lei, a LE of 85 years would mean a LEI of 1, and if the LE is 20 the LEI is zero.
+
+```{r, echo = FALSE}
+
+lei_function <- function(x){(x-20)/65}
+ilei_function <- function(x){(x*65)+20}
+
+le  <- 1:100
+lei <- lei_function(le)
+
+health_df <- 
+  tibble(
+    le = le,
+    lei = lei
+  )
+
+health_df %>% 
+  ggplot(aes(le,lei))+
+  geom_line(linewidth = 1)+
+  plt_theme_xy()+
+  plt_flip_y_title+
+  plt_pinpoint(y = c(0,1), x = ilei_function(c(0,1)))+
+  scale_x_continuous(breaks = c(seq(0,100,10),85), expand = c(.01,0))+
+  scale_y_continuous(breaks = seq(-1,2,.1), expand = c(.01,0))+
+  labs(x = "LE", y = "LEI")+
+  plt_water_mark(vfx_watermark)
+```
+
+# Education
+
+To measure Education the metric choosen was the Education Index (EI), to understand it, first we need to explore two other metrics.
+
+First, the Mean Years of Schooling Index (MYSI) given by:
+
+$$ \begin{align} \mathrm{MYSI} &=  \frac{\mathrm{MYS}}{15},\\ \end{align} $$ {#eq-mysi}
+
+where
+
+-   $\mathrm{MYS}$ = Mean Years of Schooling, i.e., refers to the average number of completed years of formal education by people aged 25 and older;
+
+-   15 is the projected maximum of this indicator for 2025.
+
+Next, the Expected Years of Schooling Index (EYSI), given by:
+
+$$ \begin{align} \mathrm{EYSI} &=  \frac{\mathrm{EYS}}{18},\\ \end{align} $$ {#eq-eysi}
+
+where
+
+-   $\mathrm{EYS}$ = Expected Years of Schooling, i.e., refers to the number of years a child of school entrance age is expected to spend at school, or university, including years spent on repetition.
+
+-   18 is equivalent to achieving a master's degree in most countries.
+
+Finally, the EI is given by the mean of MYSI and EYSI:
+
+$$ \begin{align} \mathrm{EI} &=  \frac{\mathrm{MYSI}+\mathrm{EYSI}}{2},\\ \end{align} $$ {#eq-ei}
+
+where:
+
+-   $\mathrm{MYSI}$ = Mean Years of Schooling Index;
+
+-   $\mathrm{EYSI}$ = Expected Years of Schooling Index.
+
+# Economy
+
+To measure Economy the metric choosen was the Income Index (II), given by:
+
+$$ \begin{align} \mathrm{II} &=  \frac{\ln(\mathrm{GNI_{pc}})-\ln(100)}{\ln(75000)-\ln(100)},\\ \end{align} $$
+
+where:
+
+-   $\ln$ = natural logarithm function;
+
+-   $\mathrm{GNI_{pc}}$ = Gross national income at purchasing power parity per capita, in dollars.
+
+So, the Income Index is 1 when $\mathrm{GNI_{pc}}$ is US\$75,000 and 0 when is US\$100.
+
+```{r, echo = FALSE}
+
+ii_function <- function(x){(log(x)-log(100))/log(750) }
+
+gni_pc  <- seq(100,100000,by = 100)
+
+gni_ref <-  c(100,75000)
+
+economy_df <- 
+  tibble(
+    gni_pc = gni_pc,
+    ii = ii_function(gni_pc)
+  )
+
+economy_df %>% 
+  ggplot(aes(gni_pc,ii))+
+  geom_line(linewidth = 1)+
+  plt_theme_xy()+
+  plt_flip_y_title+
+  plt_pinpoint(y = ii_function(gni_ref), x = gni_ref)+
+  scale_x_continuous(
+    breaks = seq(0,100000,by = 20000),
+    labels = seq(0,100000,by = 20000) %>%  format_num(digits = 0),
+    expand = c(.05,0),
+    sec.axis = sec_axis(trans = ~.,breaks = gni_ref, labels = format_num(gni_ref,digits = 0))
+    )+
+  scale_y_continuous(
+    breaks = seq(-1,2,.1),
+    expand = c(.01,0)
+    )+
+  labs(x = "Gross national income at purchasing power parity per capita, in dollars", y = "II")+
+  plt_water_mark(vfx_watermark)
+
+```

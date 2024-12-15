@@ -1,0 +1,16 @@
+{
+  "hash": "7431684f39508737a781bc5cfa1b30dd",
+  "result": {
+    "markdown": "---\ntitle: \"An intro to: Human Development Index\"\nauthor: \"Vinícius Félix\"\ndate: \"2024-12-28\"\ncategories: [product]\nimage: \"banner.png\"\n---\n\n::: {.cell}\n\n:::\n\n\nIn this post we explore the formula of the Human Development Index (HDI).\n\n# Context\n\nThe Human Development Index (HDI) is a composite statisticused to rank and gauge the social and economic development of nations. As part of its yearly Human Development Report, the United Nations Development Programme (UNDP) created it.\n\nIn 2010 a new version was published, combining three dimensions:\n\n-   Health\n\n-   Education\n\n-   Economy\n\n# Health\n\nTo measure Health the metric choosen was the Life Expectancy Index, given by:\n\n$$\n\\begin{align}\n\\mathrm{LEI}\n&=  \\frac{\\mathrm{LE}-20}{65},\\\\\n\\end{align}\n$$ {#eq-lei}\n\nwhere:\n\n-   LE = Life expectancy at birth, in years;\n\n-   20 = Minimum life expectancy threshold, historically observed globally;\n\n-   85 = Maximum life expectancy threshold, historically observed globally.\n\nGiven the @eq-lei a LE of 85 years would mean a LEI of 1, and if a LE is 20 the LEI is zero.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
