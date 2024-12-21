@@ -2,7 +2,7 @@
 title: "An intro to: Human Development Index"
 author: "Vinícius Félix"
 date: "2024-12-21"
-categories: [product]
+categories: [math, statistics]
 image: "banner.png"
 ---
 
