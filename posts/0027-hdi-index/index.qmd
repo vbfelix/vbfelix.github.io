@@ -1,7 +1,7 @@
 ---
 title: "An intro to: Human Development Index"
 author: "Vinícius Félix"
-date: "2024-12-28"
+date: "2024-12-21"
 categories: [product]
 image: "banner.png"
 ---
@@ -22,9 +22,11 @@ In this post we explore the formula of the Human Development Index (HDI).
 
 # Context
 
-The Human Development Index (HDI) is a composite statisticused to rank and gauge the social and economic development of nations. As part of its yearly Human Development Report, the United Nations Development Programme (UNDP) created it.
+The Human Development Index (HDI) is a composite statistic used to rank and gauge the social and economic development of nations, created by the United Nations Development Programme (UNDP).
 
-In 2010 a new version was published, combining three dimensions:
+# HDI
+
+The HDI consists of the combination from three dimensions:
 
 -   Health
 
@@ -32,9 +34,28 @@ In 2010 a new version was published, combining three dimensions:
 
 -   Economy
 
-# Health
+In this article we will cover the post 2010 version of the metric, given by:
 
-To measure Health the metric choosen was the Life Expectancy Index (LEI), given by:
+$$
+\begin{align}
+\mathrm{HDI}
+&=  \sqrt[3]{\mathrm{LEI}\times \mathrm{EI} \times \mathrm{II}},\\
+\end{align}
+$$
+
+where:
+
+-   $\mathrm{LEI}$ = Life expectancy index;
+
+-   $\mathrm{EI}$ = Economy index;
+
+-   $\mathrm{II}$ = Income index.
+
+Next, we will show how each index it is calculated.
+
+## Health
+
+To measure Health the metric choosen was the life expectancy index (LEI), given by:
 
 $$
 \begin{align}
@@ -45,11 +66,11 @@ $$ {#eq-lei}
 
 where:
 
--   LE = Life expectancy at birth, in years;
+-   $\mathrm{LE}$ = Life expectancy at birth, in years;
 
--   20 = Minimum life expectancy threshold, historically observed globally;
+-   20 = Minimum life expectancy threshold, historically observed;
 
--   85 = Maximum life expectancy threshold, historically observed globally.
+-   85 = Maximum life expectancy threshold, historically observed.
 
 Given the @eq-lei, a LE of 85 years would mean a LEI of 1, and if the LE is 20 the LEI is zero.
 
@@ -79,9 +100,9 @@ health_df %>%
   plt_water_mark(vfx_watermark)
 ```
 
-# Education
+## Education
 
-To measure Education the metric choosen was the Education Index (EI), to understand it, first we need to explore two other metrics.
+To measure Education the metric choosen was the education index (EI), to understand it, first we need to explore two other metrics.
 
 First, the Mean Years of Schooling Index (MYSI) given by:
 
@@ -113,9 +134,9 @@ where:
 
 -   $\mathrm{EYSI}$ = Expected Years of Schooling Index.
 
-# Economy
+## Economy
 
-To measure Economy the metric choosen was the Income Index (II), given by:
+To measure Economy the metric choosen was the income index (II), given by:
 
 $$ \begin{align} \mathrm{II} &=  \frac{\ln(\mathrm{GNI_{pc}})-\ln(100)}{\ln(75000)-\ln(100)},\\ \end{align} $$
 
@@ -161,3 +182,9 @@ economy_df %>%
   plt_water_mark(vfx_watermark)
 
 ```
+
+# Final considerations
+
+The HDI provides a broad measure of development by incorporating health, education, and living standards, moving beyond purely economic indicators like GDP. Its simplicity and comparability make it a valuable tool for identifying disparities and and raising awareness about global development challenges.
+
+However, the HDI has limitations, such as ignoring inequality within countries, oversimplifying complex issues, and excluding critical factors like environmental sustainability, political freedoms, and cultural diversity. Its reliance on national averages can obscure significant regional or demographic disparities, and the quality of its insights depends on reliable data, which may be lacking in some contexts. While the HDI is a useful starting point, it should be complemented with other metrics to fully capture the multifaceted nature of human development.
