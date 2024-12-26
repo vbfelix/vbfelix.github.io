@@ -2,90 +2,98 @@
 title: "Certifications"
 ---
 
-# Career tracks
+## 2024
 
-## Data Analyst
+![](images/iftl_edu_logo.jpeg){width="32"} \[12/24\] CPO mentorship
 
-![](images/download-01.png){width="31"} [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
+![](images/strides-02.png){width="32"} \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
 
-![](images/download-01.png){width="31"} [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
+![](images/download-01.png){width="31"} \[11/24\] [Introduction to dbt](https://www.datacamp.com/statement-of-accomplishment/course/ea5544b954398142b0c8a38208966770420e2f9d?raw=1)
 
-![](images/download-01.png){width="31"} [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
+![](images/paste-2BF0ACDA.png){width="32"} \[01/24\] [Jira Service Management Fundamentals](https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG)
 
-![](images/download-01.png){width="31"} [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
+![](images/paste-2BF0ACDA.png){width="32"} \[01/24\] [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
 
-## Data Scientist
+## 2023
 
-![](images/download-01.png){width="31"} [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
+![](images/paste-B8EC21E4.png){width="32"} \[11/23\] [Presentation](https://www.conquerplus.com.br/certificates/fae527b1-bcf3-4843-8901-43eba90fbffc?enrollment=7585023)
 
-## Head of Data
+![](images/paste-B8EC21E4.png){width="32"} \[09/23\] [Leadership](https://drive.conqueronline.com.br/CertificadosTeste/Forma%C3%A7%C3%A3o%20em%20Lideran%C3%A7a/1694472263631-6e861d53-9a55-43ba-8fe6-2315939a3569.jpeg)
 
-![](images/strides-02.png){width="40"} [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
+![](https://coursera-university-assets.s3.amazonaws.com/05/353594a7964fdeaff4e10615de58c0/MongoDBSquareLogo.png){width="32"} \[09/23\] [MongoDB for SQL Professionals](https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/b63aba26-47a6-4417-a539-1b74a88a0b86-vincius-flix-0e0b9438-a1a8-4fc0-8ad3-bc1777d92c1d-certificate.pdf)
 
-## Programmer
+![](images/paste-2BF0ACDA.png){width="32"} \[08/23\] [Confluence Fundamentals](https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1)
 
-![](images/download-01.png){width="31"} [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
+![](images/download-01.png){width="31"} \[08/23\] [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
 
-# Hard skills
+![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
-## Atlassian
+![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
-![](images/paste-2BF0ACDA.png){width="32"} [Confluence Fundamentals](https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1)
+![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
 
-![](images/paste-2BF0ACDA.png){width="32"} [Jira Service Management Fundamentals](https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG)
+![](images/hackerrank-01.png){width="32"} \[08/23\] [R (Basic)](https://www.hackerrank.com/certificates/c49e8229f339)
 
-![](images/paste-2BF0ACDA.png){width="32"} [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
+![](images/download-01.png){width="31"} \[07/23\] [AI Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1)
 
-## Python
+![](images/download-01.png){width="31"} \[07/23\] [Data Literacy Professional](https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234)
 
-![](images/download%20(1).png){width="31"} [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
+![](images/download-01.png){width="31"} \[07/23\] [Data Storytelling](https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35)
 
-![](images/download%20(2).png){width="31" height="21"} [Data Analysis with Python](https://www.freecodecamp.org/certification/fcc9e7d893e-6799-4c57-a0c9-c8f664ec685a/data-analysis-with-python-v7)
+![](images/download%20(2).png){width="31" height="21"} \[01/23\] [Data Analysis with Python](https://www.freecodecamp.org/certification/fcc9e7d893e-6799-4c57-a0c9-c8f664ec685a/data-analysis-with-python-v7)
 
-![](images/download-01.png){width="31"} [Data Manipulation with Python](https://www.datacamp.com/statement-of-accomplishment/track/e24f579f704adfa1882ff2f859aaf2c34fb334ac)
+## 2022
 
-![](images/download%20(1).png){width="31"} [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
+![](images/download-01.png){width="31"} \[12/22\] [Data Manipulation with Python](https://www.datacamp.com/statement-of-accomplishment/track/e24f579f704adfa1882ff2f859aaf2c34fb334ac)
 
-![](images/download-01.png){width="31"} [Python Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1)
+![](images/download-01.png){width="31"} \[12/22\] [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
 
-## R
+![](images/download-01.png){width="31"} \[11/22\] [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
 
-![](images/download-01.png){width="31"} [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
+![](images/download-01.png){width="31"} \[11/22\] [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
 
-![](images/download-01.png){width="31"} [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
+![](images/download-01.png){width="31"} \[11/22\] [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
 
-![](images/hackerrank-01.png){width="32"} [R (Basic)](https://www.hackerrank.com/certificates/c49e8229f339)
+![](images/download-01.png){width="31"} \[11/22\] [Python Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1)
 
-## SQL
+![](images/download-01.png){width="31"} \[11/22\] [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
 
-![](https://coursera-university-assets.s3.amazonaws.com/05/353594a7964fdeaff4e10615de58c0/MongoDBSquareLogo.png){width="32"} [MongoDB for SQL Professionals](https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/b63aba26-47a6-4417-a539-1b74a88a0b86-vincius-flix-0e0b9438-a1a8-4fc0-8ad3-bc1777d92c1d-certificate.pdf)
+## 2020
 
-![](images/download-01.png){width="31"} [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
+![](images/alura.png){width="32"} \[06/20\] Machine Learning Part 2: Optimization with Random Exploration
 
-![](images/hackerrank-01.png){width="32"} [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+![](images/alura.png){width="32"} \[06/20\] Machine Learning Part 1: Model Optimization through Hyperparameters
 
-![](images/hackerrank-01.png){width="32"} [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+![](images/alura.png){width="32"} \[06/20\] Machine Learning: Classification behind the scenes
 
-![](images/hackerrank-01.png){width="32"} [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
+![](images/alura.png){width="32"} \[06/20\] Machine Learning: Dealing with multidimensional data
 
-# Soft skills
+![](images/alura.png){width="32"} \[06/20\] Machine Learning: Introduction to Unsupervised Algorithms
 
-![](images/paste-B8EC21E4.png){width="32"} [Leadership](https://drive.conqueronline.com.br/CertificadosTeste/Forma%C3%A7%C3%A3o%20em%20Lideran%C3%A7a/1694472263631-6e861d53-9a55-43ba-8fe6-2315939a3569.jpeg)
+![](images/alura.png){width="32"} \[06/20\] Machine Learning: Supervised Learning
 
-![](images/paste-B8EC21E4.png){width="32"} [Presentation](https://www.conquerplus.com.br/certificates/fae527b1-bcf3-4843-8901-43eba90fbffc?enrollment=7585023)
+![](images/alura.png){width="32"} \[06/20\] Natural Language Part 2: Continuing with Sentiment Analysis
 
-# Theory
+![](images/alura.png){width="32"} \[06/20\] Natural Language Part 1: Introduction to NLP with sentiment analysis
 
-## AI
+## 2019
 
-![](images/download-01.png){width="31"} [AI Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1)
+![](images/download-01.png){width="31"} \[02/19\] [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
 
-![](images/coursera-blog-image-01.png){width="31" height="30"} [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
+![](images/download-01.png){width="31"} \[01/19\] [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
 
-## Data concepts
+![](images/download-01.png){width="31"} \[01/19\] [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
 
-![](images/download-01.png){width="31"} [Data Literacy Professional](https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234)
+![](images/download%20(1).png){width="31"} \[01/19\] [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
 
-![](images/download-01.png){width="31"} [Data Storytelling](https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35)
+![](images/download%20(1).png){width="31"} \[01/19\] [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
 
-### 
+![](images/coursera-blog-image-01.png){width="31" height="30"} \[01/19\] [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
+
+## 2018
+
+![](images/download-02.png){width="32" height="38"} \[06/18\] Machine Learning Study Jam
+
+## 2016
+
+![](images/download.jpeg){width="32" height="32"} \[12/16\] Introduction to Sentiment Analysis

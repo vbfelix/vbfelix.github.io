@@ -291,56 +291,56 @@
     "href": "header-certifications.html",
     "title": "Certifications",
     "section": "",
-    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n SQL for Business Analysts\n\n\n\n Data Scientist with R\n\n\n\n Head of Data & Analytics 5.0\n\n\n\n R Programmer"
+    "text": "[12/24] CPO mentorship\n [11/24] Head of Data & Analytics 5.0\n [11/24] Introduction to dbt\n [01/24] Jira Service Management Fundamentals\n [01/24] Jira Software Fundamentals"
   },
   {
     "objectID": "header-certifications.html#data-analyst",
     "href": "header-certifications.html#data-analyst",
     "title": "Certifications",
     "section": "",
-    "text": "Data Analyst in SQL\n Data Analyst with Python\n Data Analyst with R\n SQL for Business Analysts"
+    "text": "[11/22] Data Analyst in SQL\n [12/22] Data Analyst with Python\n [01/19] Data Analyst with R\n [08/23] SQL for Business Analysts"
   },
   {
     "objectID": "header-certifications.html#data-scientist",
     "href": "header-certifications.html#data-scientist",
     "title": "Certifications",
     "section": "",
-    "text": "Data Scientist with R"
+    "text": "[01/19] Data Scientist with R"
   },
   {
     "objectID": "header-certifications.html#head-of-data",
     "href": "header-certifications.html#head-of-data",
     "title": "Certifications",
     "section": "",
-    "text": "Head of Data & Analytics 5.0"
+    "text": "[11/24] Head of Data & Analytics 5.0"
   },
   {
     "objectID": "header-certifications.html#programmer",
     "href": "header-certifications.html#programmer",
     "title": "Certifications",
     "section": "",
-    "text": "R Programmer"
+    "text": "[02/19] R Programmer"
   },
   {
     "objectID": "header-certifications.html#atlassian",
     "href": "header-certifications.html#atlassian",
     "title": "Certifications",
     "section": "Atlassian",
-    "text": "Atlassian\n Confluence Fundamentals\n Jira Service Management Fundamentals\n Jira Software Fundamentals"
+    "text": "Atlassian\n [08/23] Confluence Fundamentals\n [01/24] Jira Service Management Fundamentals\n [01/24] Jira Software Fundamentals"
   },
   {
     "objectID": "header-certifications.html#python",
     "href": "header-certifications.html#python",
     "title": "Certifications",
     "section": "Python",
-    "text": "Python\n Data Analysis with Python\n Data Analysis with Python\n Data Manipulation with Python\n Data Visualization with Python\n Python Fundamentals"
+    "text": "Python\n [01/19] Data Analysis with Python\n [01/23] Data Analysis with Python\n [12/22] Data Manipulation with Python\n [01/19] Data Visualization with Python\n [11/22] Python Fundamentals"
   },
   {
     "objectID": "header-certifications.html#r",
     "href": "header-certifications.html#r",
     "title": "Certifications",
     "section": "R",
-    "text": "R\n Data Manipulation with R\n Data Visualization with R\n R (Basic)"
+    "text": "R\n [11/22] Data Manipulation with R\n [/11/22] Data Visualization with R\n [08/23] R (Basic)"
   },
   {
     "objectID": "header-certifications.html#sql",
@@ -1307,5 +1307,68 @@
     "title": "An intro to: Human Development Index",
     "section": "Economy",
     "text": "Economy\nTo measure Economy the metric choosen was the income index (II), given by:\n\\[ \\begin{align} \\mathrm{II} &=  \\frac{\\ln(\\mathrm{GNI_{pc}})-\\ln(100)}{\\ln(75000)-\\ln(100)},\\\\ \\end{align} \\]\nwhere:\n\n\\(\\ln\\) = natural logarithm function;\n\\(\\mathrm{GNI_{pc}}\\) = Gross national income at purchasing power parity per capita, in dollars.\n\nSo, the Income Index is 1 when \\(\\mathrm{GNI_{pc}}\\) is US$75,000 and 0 when is US$100."
+  },
+  {
+    "objectID": "header-certifications.html#chief-product-officer",
+    "href": "header-certifications.html#chief-product-officer",
+    "title": "Certifications",
+    "section": "",
+    "text": "[12/24] CPO mentorship"
+  },
+  {
+    "objectID": "header-certifications.html#section",
+    "href": "header-certifications.html#section",
+    "title": "Certifications",
+    "section": "",
+    "text": "[12/24] CPO mentorship\n [11/24] Head of Data & Analytics 5.0\n [11/24] Introduction to dbt\n [01/24] Jira Service Management Fundamentals\n [01/24] Jira Software Fundamentals"
+  },
+  {
+    "objectID": "header-certifications.html#section-1",
+    "href": "header-certifications.html#section-1",
+    "title": "Certifications",
+    "section": "2023",
+    "text": "2023\n [11/23] Presentation\n [09/23] Leadership\n [09/23] MongoDB for SQL Professionals\n [08/23] Confluence Fundamentals\n [08/23] SQL for Business Analysts\n [08/23] SQL (Basic)\n [08/23] SQL (Intermediate)\n [08/23] SQL (Advanced)\n [08/23] R (Basic)\n [07/23] AI Fundamentals\n [07/23] Data Literacy Professional\n [07/23] Data Storytelling\n [01/23] Data Analysis with Python"
+  },
+  {
+    "objectID": "header-certifications.html#section-2",
+    "href": "header-certifications.html#section-2",
+    "title": "Certifications",
+    "section": "2022",
+    "text": "2022\n [12/22] Data Manipulation with Python\n [12/22] Data Analyst with Python\n [11/22] Data Analyst in SQL\n [11/22] Data Manipulation with R\n [11/22] Data Visualization with R\n [11/22] Python Fundamentals\n [11/22] SQL Fundamentals"
+  },
+  {
+    "objectID": "header-certifications.html#section-3",
+    "href": "header-certifications.html#section-3",
+    "title": "Certifications",
+    "section": "2020",
+    "text": "2020\n [06/20] Machine Learning Part 2: Optimization with Random Exploration\n [06/20] Machine Learning Part 1: Model Optimization through Hyperparameters\n [06/20] Machine Learning: Classification behind the scenes\n [06/20] Machine Learning: Dealing with multidimensional data\n [06/20] Machine Learning: Introduction to Unsupervised Algorithms\n [06/20] Machine Learning: Supervised Learning\n [06/20] Natural Language Part 2: Continuing with Sentiment Analysis\n [06/20] Natural Language Part 1: Introduction to NLP with sentiment analysis"
+  },
+  {
+    "objectID": "header-certifications.html#section-4",
+    "href": "header-certifications.html#section-4",
+    "title": "Certifications",
+    "section": "2019",
+    "text": "2019\n [02/19] R Programmer\n [01/19] Data Analyst with R\n [01/19] Data Scientist with R\n [01/19] Data Analysis with Python\n [01/19] Data Visualization with Python\n [01/19] How Google does Machine Learning"
+  },
+  {
+    "objectID": "header-certifications.html#section-5",
+    "href": "header-certifications.html#section-5",
+    "title": "Certifications",
+    "section": "2018",
+    "text": "2018\n [06/18] Machine Learning Study Jam"
+  },
+  {
+    "objectID": "header-certifications.html#section-6",
+    "href": "header-certifications.html#section-6",
+    "title": "Certifications",
+    "section": "2016",
+    "text": "2016\n [12/16] Introduction to Sentiment Analysis"
+  },
+  {
+    "objectID": "header-certifications.html#section-7",
+    "href": "header-certifications.html#section-7",
+    "title": "Certifications",
+    "section": "",
+    "text": "[12/16] Introduction to Sentiment Analysis"
   }
 ]
