@@ -10,6 +10,8 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} \[11/24\] [Introduction to dbt](https://www.datacamp.com/statement-of-accomplishment/course/ea5544b954398142b0c8a38208966770420e2f9d?raw=1)
 
+![](images/somostera_logo.jpeg){width="32"} \[01/24\] [Introduction to Product Analytics](https://credentials.somostera.com/b46091c6436b1bed45816cf96dc90fb0)
+
 ![](images/paste-2BF0ACDA.png){width="32"} \[01/24\] [Jira Service Management Fundamentals](https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG)
 
 ![](images/paste-2BF0ACDA.png){width="32"} \[01/24\] [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
