@@ -4,6 +4,8 @@ title: "Certifications"
 
 ## 2024
 
+![](images/alura.png){width="32"} \[12/24\] [Product Manager](https://cursos.alura.com.br/certificate/vbfelix/product-manager-jornada-gestao-produto?lang=en)
+
 ![](images/iftl_edu_logo.jpeg){width="32"} \[12/24\] CPO mentorship
 
 ![](images/strides-02.png){width="32"} \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
