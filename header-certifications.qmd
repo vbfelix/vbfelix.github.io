@@ -30,11 +30,11 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} \[08/23\] [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
 
 ![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
+![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
 ![](images/hackerrank-01.png){width="32"} \[08/23\] [R (Basic)](https://www.hackerrank.com/certificates/c49e8229f339)
 
@@ -64,21 +64,30 @@ title: "Certifications"
 
 ## 2020
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning Part 2: Optimization with Random Exploration
+![](images/alura.png){width="32"} \[06/20\] Machine Learning
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning Part 1: Model Optimization through Hyperparameters
+-   [Optimization with Random Exploration](https://cursos.alura.com.br/certificate/0a798847-c27f-4a30-b8c8-66d517dbe343?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning: Classification behind the scenes
+-   [Model Optimization through Hyperparameters](https://cursos.alura.com.br/certificate/20c2d1a3-d750-41c7-a5ca-24520ffc171b?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning: Dealing with multidimensional data
+-   [Classification behind the scenes](https://cursos.alura.com.br/certificate/50ace2ab-dcc1-4aa6-8851-305dda8f09d1?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning: Introduction to Unsupervised Algorithms
+-   [Dealing with multidimensional data](https://cursos.alura.com.br/certificate/597324cf-6e9b-4911-bb25-9cbdaa327686?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Machine Learning: Supervised Learning
+-   [Introduction to Unsupervised Algorithms](https://cursos.alura.com.br/certificate/f8358536-a454-4de7-9b5d-f796ae08bb8b?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Natural Language Part 2: Continuing with Sentiment Analysis
+-   [Model Validation](https://cursos.alura.com.br/certificate/1cd3e02b-770c-45cf-b34b-376dc549c403?lang=en)
 
-![](images/alura.png){width="32"} \[06/20\] Natural Language Part 1: Introduction to NLP with sentiment analysis
+-   [Supervised Learning](https://cursos.alura.com.br/certificate/65b8311a-c168-47c8-ab8d-0bb90c481bf6?lang=en)
+
+![](images/alura.png){width="32"} \[06/20\] Natural Language Processing (NLP)
+
+-   [Continuing with Sentiment Analysis](https://cursos.alura.com.br/certificate/63f52670-68b7-491e-a12a-0f33b229dd0f?lang=en)
+
+```{=html}
+<!-- -->
+```
+-   [Introduction to NLP with sentiment analysis](https://cursos.alura.com.br/certificate/51674e55-66d7-44b0-b558-778467f0153b?lang=en)
 
 ## 2019
 
