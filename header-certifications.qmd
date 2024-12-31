@@ -4,9 +4,22 @@ title: "Certifications"
 
 ## 2024
 
-![](images/alura.png){width="32"} \[12/24\] [Product Manager](https://cursos.alura.com.br/certificate/vbfelix/product-manager-jornada-gestao-produto?lang=en)
+![](images/alura.png){width="32"} \[12/24\] [Product Management](https://cursos.alura.com.br/user/vbfelix/course/product-manager-jornada-gestao-produto/certificate?lang=en)
 
-![](images/iftl_edu_logo.jpeg){width="32"} \[12/24\] CPO mentorship
+-   [Digital product acceleration](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-aceleracao/certificate?lang=en)
+
+-   [Digital product validation](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-validacao/certificate?lang=en)
+
+-   [Digital product priorization](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)
+
+-   [Digital product ](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)[discovery](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-product-discovery/certificate?lang=en)
+
+-   [Design Sprint](https://cursos.alura.com.br/user/vbfelix/course/design-sprint/certificate?lang=en)
+
+-   [How to create and maintain the product roadmap\
+    ](https://cursos.alura.com.br/user/vbfelix/course/roadmap-criar-manter-mapa-produto/certificate?lang=en)
+
+![](images/iftl_edu_logo.jpeg){width="32"} \[12/24\] Chief Product Officer (CPO) Mentorship
 
 ![](images/strides-02.png){width="32"} \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
 
@@ -30,13 +43,17 @@ title: "Certifications"
 
 ![](images/download-01.png){width="31"} \[08/23\] [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Advanced)](https://www.hackerrank.com/certificates/a2283f2bf638)
+![](images/hackerrank-01.png){width="32"} \[08/23\] SQL Certificate
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Intermediate)](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+-   [Advanced](https://www.hackerrank.com/certificates/a2283f2bf638)
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [SQL (Basic)](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+-   [Intermediate](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
 
-![](images/hackerrank-01.png){width="32"} \[08/23\] [R (Basic)](https://www.hackerrank.com/certificates/c49e8229f339)
+-   [Basic](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+
+![](images/hackerrank-01.png){width="32"} \[08/23\] R Certificate
+
+-   [Basic](https://www.hackerrank.com/certificates/c49e8229f339)
 
 ![](images/download-01.png){width="31"} \[07/23\] [AI Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1)
 
@@ -84,9 +101,8 @@ title: "Certifications"
 
 -   [Continuing with Sentiment Analysis](https://cursos.alura.com.br/certificate/63f52670-68b7-491e-a12a-0f33b229dd0f?lang=en)
 
-```{=html}
 <!-- -->
-```
+
 -   [Introduction to NLP with sentiment analysis](https://cursos.alura.com.br/certificate/51674e55-66d7-44b0-b558-778467f0153b?lang=en)
 
 ## 2019
