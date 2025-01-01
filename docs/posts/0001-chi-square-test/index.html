@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
 <meta name="dcterms.date" content="2023-01-01">
 
-<title>vbfelix - An intro to: Chi-square Test</title>
+<title>An intro to: Chi-square Test – vbfelix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -60,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -101,7 +102,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -110,14 +117,42 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -125,68 +160,68 @@ div.csl-indent {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">vbfelix</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-about.html" rel="" target="">
- <span class="menu-text">About me</span></a>
+    <a class="nav-link" href="../../header-about.html"> 
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-certifications.html" rel="" target="">
- <span class="menu-text">Certifications</span></a>
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-participations.html" rel="" target="">
- <span class="menu-text">Participations</span></a>
+    <a class="nav-link" href="../../header-participations.html"> 
+<span class="menu-text">Participations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-awards.html" rel="" target="">
- <span class="menu-text">Awards</span></a>
+    <a class="nav-link" href="../../header-awards.html"> 
+<span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/vbfelix" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/vbfelix"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="" target=""><i class="bi bi-stack-overflow" role="img">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"> <i class="bi bi-stack-overflow" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="" target=""><i class="bi bi-box-seam" role="img">
+    <a class="nav-link" href="https://vbfelix.github.io/relper"> <i class="bi bi-box-seam" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -254,6 +289,7 @@ div.csl-indent {
 
 
 
+
 <p>In this post I’ll solve the mystery of the Chi-Square, spoiler alert: It’s significant!</p>
 <section id="context" class="level1">
 <h1>Context</h1>
@@ -272,7 +308,7 @@ div.csl-indent {
 </section>
 <section id="math" class="level1">
 <h1>Math</h1>
-<p>To begin the math, we will dissect the test statistic, given by the <a href="#eq-chi-square-stat">Equation&nbsp;1</a>:</p>
+<p>To begin the math, we will dissect the test statistic, given by the <a href="#eq-chi-square-stat" class="quarto-xref">Equation&nbsp;1</a>:</p>
 <p><span id="eq-chi-square-stat"><span class="math display">\[
 \begin{equation}
 X^2 = \sum_{i = 1}^{k} \frac{(O_i - E_i)^2}{E_i},
@@ -335,7 +371,7 @@ Z_1^2 + Z_2^2 = \chi_2^2.
 <p><span id="eq-normal-chi-square"><span class="math display">\[
 \sum_{i = 1}^{q} Z_i^2  = \chi_q^2,
 \tag{8}\]</span></span></p>
-<p>Now using <a href="#eq-clt">Equation&nbsp;4</a> and <a href="#eq-normal-to-binomial">Equation&nbsp;5</a> we can write that:</p>
+<p>Now using <a href="#eq-clt" class="quarto-xref">Equation&nbsp;4</a> and <a href="#eq-normal-to-binomial" class="quarto-xref">Equation&nbsp;5</a> we can write that:</p>
 <p><span id="eq-z"><span class="math display">\[
 \begin{align}
 Z
@@ -343,7 +379,7 @@ Z
 &amp;=  \frac{O_i - np_i}{\sqrt{np_i(1-p_i)}}. \\
 \end{align}
 \tag{9}\]</span></span></p>
-<p>So having a variable <span class="math inline">\(X_1 = Z^2\)</span>, we apply the results from <a href="#eq-normal-chi-square">Equation&nbsp;8</a> and <a href="#eq-z">Equation&nbsp;9</a> :</p>
+<p>So having a variable <span class="math inline">\(X_1 = Z^2\)</span>, we apply the results from <a href="#eq-normal-chi-square" class="quarto-xref">Equation&nbsp;8</a> and <a href="#eq-z" class="quarto-xref">Equation&nbsp;9</a> :</p>
 <p><span id="eq-x1"><span class="math display">\[
 \begin{align}
 Z^2
@@ -364,7 +400,7 @@ X_1 = n - X_2 \longrightarrow X_2 = n-X_1,
 <p><span id="eq-p2"><span class="math display">\[
 p_1 = 1- p_2 \longrightarrow p_2 = 1 - p_1.
 \tag{12}\]</span></span></p>
-<p>We apply the <a href="#eq-x2">Equation&nbsp;11</a> and <a href="#eq-p2">Equation&nbsp;12</a> to <a href="#eq-x1">Equation&nbsp;10</a> and continue our desmonstration:</p>
+<p>We apply the <a href="#eq-x2" class="quarto-xref">Equation&nbsp;11</a> and <a href="#eq-p2" class="quarto-xref">Equation&nbsp;12</a> to <a href="#eq-x1" class="quarto-xref">Equation&nbsp;10</a> and continue our desmonstration:</p>
 <p><span id="eq-z2"><span class="math display">\[
 \begin{align}
 Z^2
@@ -378,8 +414,8 @@ Z^2
 &amp;= \sum_{i=1}^{2}\frac{ (O_i - E_i)^2}{E_i}.    \\
 \end{align}
 \tag{13}\]</span></span></p>
-<p>So we show that the sum of chi-squared variables results in the same formula as the test statistic, as shown in <a href="#eq-chi-square-stat">Equation&nbsp;1</a>.</p>
-<p>Lastly, since we can also rewrite our statistic in <a href="#eq-chi-square-stat">Equation&nbsp;1</a>, using <a href="#eq-binomial-mean">Equation&nbsp;2</a>:</p>
+<p>So we show that the sum of chi-squared variables results in the same formula as the test statistic, as shown in <a href="#eq-chi-square-stat" class="quarto-xref">Equation&nbsp;1</a>.</p>
+<p>Lastly, since we can also rewrite our statistic in <a href="#eq-chi-square-stat" class="quarto-xref">Equation&nbsp;1</a>, using <a href="#eq-binomial-mean" class="quarto-xref">Equation&nbsp;2</a>:</p>
 <p><span id="eq-chi-square-stat-alt"><span class="math display">\[
 \begin{align} &amp;= \sum_{i = 1}^{k} \left[ \frac{(O_i - E_i)^2}{E_i} \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} - \frac{E_i^2}{E_i} \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} -  E_i \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} \right] - \sum_{i = 1}^{k}\left[ E_i \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} \right] - \sum_{i = 1}^{k}\left[ n\times p_i \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} \right] - n\sum_{i = 1}^{k}\left[ p_i \right] \\ &amp; = \sum_{i = 1}^{k} \left[  \frac{O_i^2}{E_i} \right] - n. \\ \end{align}
 \tag{14}\]</span></span></p>
@@ -390,7 +426,7 @@ Z^2
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>After all of these equations, we’ll perform a real-world example.</p>
 <p>Let’s say we have 200 animals in our random sample, and we want to see if race has anything to do with frame size. In order to see our observed values in each class, i.e., race x frame, we will first look at a contingency table with the absolute frequency of animals:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Frame</th>
@@ -434,7 +470,7 @@ Z^2
 </section>
 <section id="test-statistic" class="level2">
 <h2 class="anchored" data-anchor-id="test-statistic">Test statistic</h2>
-<p>To compute our statistic, as given by the equation <a href="#eq-chi-square-stat">Equation&nbsp;1</a>, we have to:</p>
+<p>To compute our statistic, as given by the equation <a href="#eq-chi-square-stat" class="quarto-xref">Equation&nbsp;1</a>, we have to:</p>
 <ol type="1">
 <li><p>Compute the expected value for each class (cell in terms of a contingency table);</p></li>
 <li><p>Compute the component <span class="math inline">\(\frac{(O_i -E_i)^2}{E_i}\)</span> fo each class;</p></li>
@@ -455,7 +491,7 @@ E_1 = (40 \times 60)/200 = 12.
 \end{align}
 \tag{16}\]</span></span></p>
 <p>Now we apply the calculus to each cell, computing the expected value for every class:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Frame</th>
@@ -486,7 +522,7 @@ E_1 = (40 \times 60)/200 = 12.
 </tbody>
 </table>
 <p>And then we can also compute <span class="math inline">\(\frac{(O_i -E_i)^2}{E_i}\)</span> for each one:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Frame</th>
@@ -545,7 +581,11 @@ P(\chi_4^2 &gt; X^2|H_0),
 <p>or the probability that a value is larger than <span class="math inline">\(X^2\)</span> given a <span class="math inline">\(\chi_4^2\)</span> distribution and a true null hypothesis, as we can see in the figure below:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>With a p value of 0.0716, we have that the p value is greater than 0.05, so we do not reject the null hypothesis, i.e., we do not have sample evidence to reject the null hypothesis that race and size frame are independent..</p>
@@ -635,7 +675,7 @@ X-squared = 8.6111, df = 4, p-value = 0.07159</code></pre>
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-cam1986" class="csl-entry" role="listitem">
 Cam, L. Le. 1986. <span>“The Central Limit Theorem Around 1935.”</span> <em>Statistical Science</em> 1 (1). <a href="https://doi.org/10.1214/ss/1177013818">https://doi.org/10.1214/ss/1177013818</a>.
 </div>
@@ -678,18 +718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -721,11 +750,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -735,8 +803,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -748,7 +825,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -792,6 +992,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -817,6 +1018,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -879,7 +1106,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>   
+    <div class="nav-footer-left">
+<p>Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -888,6 +1117,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

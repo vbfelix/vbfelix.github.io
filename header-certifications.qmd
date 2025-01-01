@@ -6,13 +6,13 @@ title: "Certifications"
 
 ![](images/alura.png){width="32"} \[12/24\] [Product Management](https://cursos.alura.com.br/user/vbfelix/course/product-manager-jornada-gestao-produto/certificate?lang=en)
 
--   [Digital product acceleration](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-aceleracao/certificate?lang=en)
+-   [Digital Product Acceleration](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-aceleracao/certificate?lang=en)
 
--   [Digital product validation](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-validacao/certificate?lang=en)
+-   [Digital Product Validation](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-validacao/certificate?lang=en)
 
--   [Digital product priorization](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)
+-   [Digital Product Priorization](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)
 
--   [Digital product ](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)[discovery](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-product-discovery/certificate?lang=en)
+-   [Digital Product](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en) [Discovery](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-product-discovery/certificate?lang=en)
 
 -   [Design Sprint](https://cursos.alura.com.br/user/vbfelix/course/design-sprint/certificate?lang=en)
 
