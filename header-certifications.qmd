@@ -2,6 +2,10 @@
 title: "Certifications"
 ---
 
+## 2025
+
+![](images/hubspot-1.svg){width="32"} \[12/24\] [Service Hub ](https://app.hubspot.com/academy/achievements/v1rmqssq/en/1/vinicius-felix/service-hub-software)
+
 ## 2024
 
 ![](images/alura.png){width="32"} \[12/24\] [Product Management](https://cursos.alura.com.br/user/vbfelix/course/product-manager-jornada-gestao-produto/certificate?lang=en)
