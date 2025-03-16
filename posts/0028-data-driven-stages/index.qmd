@@ -1,0 +1,51 @@
+---
+title: "Some notes: Data driven stages"
+author: "Vinícius Félix"
+date: "2025-03-17"
+categories: [non-technical]
+image: "banner.png"
+---
+
+In this post we explore stages of a data driven decision.
+
+# Context
+
+In addition to technical expertise, a company culture that values analysis and encourages the development of this attitude in management is necessary to create a data-driven mindset in decision-making.
+
+# Data stages
+
+## Data Denial: Those who distrust and avoid using data
+
+The "denier" views data analysis as purely ornamental and does not trust it. They might even refuse to use reports altogether. Only intuition is used to make decisions. Due to the restricted availability of data and analytical capabilities in the past, this management style is out of date.\
+\
+In this scenario, their choice would be wholly subjective and based only on how they felt about the matter.
+
+## Data Indifferent: Those who do not care about data
+
+The "indifferent", as in the last example, this manager does not place a high priority on data usage. They are not explicitly opposed to it, but they also don't see the need to use it. They choose to ignore evidence rather than contest it on principle.\
+\
+In this scenario, they would make their choice solely based on their sector knowledge and experience.
+
+## Data Informed: Those who use data only when it supports their opinions
+
+The "informed" ignore contradicting evidence and selectively interpret data ("cherry picking"), primarily to support their preconceived notions.\
+\
+In this scenario, they would make a biased and maybe dangerous conclusion based only on particular studies that support their preconceived notion.
+
+## Data Blind: Those who blindly trust data
+
+::: callout-note
+"In god we trust. All others must bring data."
+:::
+
+The "over-reliant", blindly follows data without questioning its accuracy, context, or limitations. They trust every report and model output without applying skepticism or domain knowledge to interpret the results critically.
+
+In this scenario, they would take the data at face value and make decisions solely based on the numbers presented, without considering external market factors, data quality issues, or domain expertise.
+
+## Data Driven: Those who use data to shape and inform decisions
+
+The “analytical”, utilizes data impartially, they seek to understand what is happening within the company by thoroughly analyzing results. After the initial analysis, they blend analytical skills, technical expertise, and intuition to establish possible actions for better decision-making. Finally, they use further analysis to validate and refine their decisions.
+
+In this scenario, they would not make a hasty decision. They would formulate hypotheses, apply experiments and data analysis to support their choice.
+
+# 
