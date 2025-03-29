@@ -4,6 +4,8 @@ title: "Certifications"
 
 ## 2025
 
+![](images/download-01.png){width="31"} \[03/25\] [Intermediate dbt](https://www.datacamp.com/statement-of-accomplishment/course/9bac22996d315d3b93ffc9c9efd43a575ad6cbf8?raw=1)
+
 ![](images/hubspot-1.svg){width="32"} \[01/25\] [Service Hub](https://app.hubspot.com/academy/achievements/v1rmqssq/en/1/vinicius-felix/service-hub-software)
 
 ## 2024
@@ -104,9 +106,6 @@ title: "Certifications"
 ![](images/alura.png){width="32"} \[06/20\] Natural Language Processing (NLP)
 
 -   [Continuing with Sentiment Analysis](https://cursos.alura.com.br/certificate/63f52670-68b7-491e-a12a-0f33b229dd0f?lang=en)
-
-<!-- -->
-
 -   [Introduction to NLP with sentiment analysis](https://cursos.alura.com.br/certificate/51674e55-66d7-44b0-b558-778467f0153b?lang=en)
 
 ## 2019

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2025-03-17">
+<meta name="dcterms.date" content="2025-03-29">
 
-<title>Some notes: Data driven stages – vbfelix</title>
+<title>Intro: dbt testing – vbfelix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -146,9 +180,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Some notes: Data driven stages</h1>
+      <h1 class="title">Intro: dbt testing</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">non-technical</div>
+                <div class="quarto-category">data engineering</div>
               </div>
                   </div>
   </div>
@@ -166,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 17, 2025</p>
+        <p class="date">March 29, 2025</p>
       </div>
     </div>
     
@@ -183,13 +217,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
-  <li><a href="#data-stages" id="toc-data-stages" class="nav-link" data-scroll-target="#data-stages">Data stages</a>
+  <li><a href="#built-in-tests" id="toc-built-in-tests" class="nav-link" data-scroll-target="#built-in-tests">Built-in tests</a>
   <ul class="collapse">
-  <li><a href="#data-denial-those-who-distrust-and-avoid-using-data" id="toc-data-denial-those-who-distrust-and-avoid-using-data" class="nav-link" data-scroll-target="#data-denial-those-who-distrust-and-avoid-using-data">Data Denial: Those who distrust and avoid using data</a></li>
-  <li><a href="#data-indifferent-those-who-do-not-care-about-data" id="toc-data-indifferent-those-who-do-not-care-about-data" class="nav-link" data-scroll-target="#data-indifferent-those-who-do-not-care-about-data">Data Indifferent: Those who do not care about data</a></li>
-  <li><a href="#data-informed-those-who-use-data-only-when-it-supports-their-opinions" id="toc-data-informed-those-who-use-data-only-when-it-supports-their-opinions" class="nav-link" data-scroll-target="#data-informed-those-who-use-data-only-when-it-supports-their-opinions">Data Informed: Those who use data only when it supports their opinions</a></li>
-  <li><a href="#data-blind-those-who-blindly-trust-data" id="toc-data-blind-those-who-blindly-trust-data" class="nav-link" data-scroll-target="#data-blind-those-who-blindly-trust-data">Data Blind: Those who blindly trust data</a></li>
-  <li><a href="#data-driven-those-who-use-data-to-shape-and-inform-decisions" id="toc-data-driven-those-who-use-data-to-shape-and-inform-decisions" class="nav-link" data-scroll-target="#data-driven-those-who-use-data-to-shape-and-inform-decisions">Data Driven: Those who use data to shape and inform decisions</a></li>
+  <li><a href="#unique" id="toc-unique" class="nav-link" data-scroll-target="#unique">unique</a></li>
+  <li><a href="#not_null" id="toc-not_null" class="nav-link" data-scroll-target="#not_null"><strong>not_null</strong></a></li>
+  <li><a href="#accepted_values" id="toc-accepted_values" class="nav-link" data-scroll-target="#accepted_values">accepted_values</a></li>
+  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships">relationships</a></li>
+  </ul></li>
+  <li><a href="#custom-tests" id="toc-custom-tests" class="nav-link" data-scroll-target="#custom-tests">Custom tests</a>
+  <ul class="collapse">
+  <li><a href="#singular-test" id="toc-singular-test" class="nav-link" data-scroll-target="#singular-test">Singular test</a></li>
+  <li><a href="#generic-test" id="toc-generic-test" class="nav-link" data-scroll-target="#generic-test">Generic test</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -201,33 +239,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>In this post we explore stages of a data driven decision.</p>
+<p>In this post we talk about dbt testing.</p>
 <section id="context" class="level1">
 <h1>Context</h1>
-<p>In addition to technical expertise, a company culture that values analysis and encourages the development of this attitude in management is necessary to create a data-driven mindset in decision-making.</p>
-</section>
-<section id="data-stages" class="level1">
-<h1>Data stages</h1>
-<section id="data-denial-those-who-distrust-and-avoid-using-data" class="level2">
-<h2 class="anchored" data-anchor-id="data-denial-those-who-distrust-and-avoid-using-data">Data Denial: Those who distrust and avoid using data</h2>
-<p>The “denier” views data analysis as purely ornamental and does not trust it. They might even refuse to use reports altogether. Only intuition is used to make decisions. Due to the restricted availability of data and analytic capabilities in the past, this management style is out of date.<br>
-<br>
-In this scenario, their choice would be wholly subjective and based only on how they felt about the matter.</p>
-</section>
-<section id="data-indifferent-those-who-do-not-care-about-data" class="level2">
-<h2 class="anchored" data-anchor-id="data-indifferent-those-who-do-not-care-about-data">Data Indifferent: Those who do not care about data</h2>
-<p>The “indifferent”, as in the last example, this manager does not place a high priority on data usage. They are not explicitly opposed to it, but they also don’t see the need to use it. They choose to ignore evidence rather than contest it on principle.<br>
-<br>
-In this scenario, they would make their choice solely based on their sector knowledge and experience.</p>
-</section>
-<section id="data-informed-those-who-use-data-only-when-it-supports-their-opinions" class="level2">
-<h2 class="anchored" data-anchor-id="data-informed-those-who-use-data-only-when-it-supports-their-opinions">Data Informed: Those who use data only when it supports their opinions</h2>
-<p>The “informed” ignore contradicting evidence and selectively interpret data (“cherry picking”), primarily to support their preconceived notions.<br>
-<br>
-In this scenario, they would make a biased and maybe dangerous conclusion based only on particular studies that support their preconceived notion.</p>
-</section>
-<section id="data-blind-those-who-blindly-trust-data" class="level2">
-<h2 class="anchored" data-anchor-id="data-blind-those-who-blindly-trust-data">Data Blind: Those who blindly trust data</h2>
+<p>After introducing dbt testing, in my previous post <a href="https://vbfelix.github.io/posts/0023-dbt/">Some notes: Introduction to dbt</a>, now I go into detail about the kinds of tests and how to use them.</p>
+<p>A test is an assertion or validation that is done to different dbt objects in order to guarantee the dependability and integrity of the data, that can be applied to models, sources, seeds, and snapshots.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -238,16 +254,129 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“In god we trust. All others must bring data.”</p>
+<p>Tests are essential to data quality since they confirm that our data matches the expected circumstances.</p>
 </div>
 </div>
-<p>The “over-reliant”, blindly follows data without questioning its accuracy, context, or limitations. They trust every report and model output without applying skepticism or domain knowledge to interpret the results critically.</p>
-<p>In this scenario, they would take the data at face value and make decisions solely based on the numbers presented, without considering external market factors, data quality issues, or domain expertise.</p>
+<p>In dbt it is possible to use four built-in tests, but also to create custom-made tests.</p>
 </section>
-<section id="data-driven-those-who-use-data-to-shape-and-inform-decisions" class="level2">
-<h2 class="anchored" data-anchor-id="data-driven-those-who-use-data-to-shape-and-inform-decisions">Data Driven: Those who use data to shape and inform decisions</h2>
-<p>The “analytical”, utilizes data impartially, they seek to understand what is happening within the company by thoroughly analyzing results. After the initial analysis, they blend analytic skills, technical expertise, and intuition to establish possible actions for better decision-making. Finally, they use further analysis to validate and refine their decisions.</p>
-<p>In this scenario, they would not make a hasty decision. They would formulate hypotheses, apply experiments and data analysis to support their choice.</p>
+<section id="built-in-tests" class="level1">
+<h1>Built-in tests</h1>
+<section id="unique" class="level2">
+<h2 class="anchored" data-anchor-id="unique">unique</h2>
+<ul>
+<li>Ensures that all values in a column are <strong>distinct</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li>Useful for <strong>primary keys</strong> or fields where duplication is not expected</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">unique</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">column_name</span><span class="kw">:</span><span class="at"> id</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="not_null" class="level2">
+<h2 class="anchored" data-anchor-id="not_null"><strong>not_null</strong></h2>
+<ul>
+<li><p>Ensures that a column <strong>does not contain NULL values</strong></p></li>
+<li><p>Essential for required fields that ought to be fully covered, such as primary keys or required attributes</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">not_null</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">column_name</span><span class="kw">:</span><span class="at"> company_id</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="accepted_values" class="level2">
+<h2 class="anchored" data-anchor-id="accepted_values">accepted_values</h2>
+<ul>
+<li>Ensures that a column contains only a <strong>specific set of values</strong>.</li>
+</ul>
+<!-- -->
+<ul>
+<li>Useful for <strong>categorical fields</strong>, such as status columns, that have a narrow range of options values possible</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">accepted_values</span><span class="kw">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">column_name</span><span class="kw">:</span><span class="at"> status</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">values</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'active'</span><span class="kw">,</span><span class="at"> </span><span class="st">'inactive'</span><span class="kw">,</span><span class="at"> </span><span class="st">'suspended'</span><span class="kw">]</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="relationships" class="level2">
+<h2 class="anchored" data-anchor-id="relationships">relationships</h2>
+<ul>
+<li>Ensures that a column in one table <strong>correctly references a column in another table</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li>Helps enforce <strong>foreign key relationships</strong> between tables</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">relationships</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">column_name</span><span class="kw">:</span><span class="at"> company_id</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">to</span><span class="kw">:</span><span class="at"> ref('company')</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">field</span><span class="kw">:</span><span class="at"> id</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="custom-tests" class="level1">
+<h1>Custom tests</h1>
+<section id="singular-test" class="level2">
+<h2 class="anchored" data-anchor-id="singular-test">Singular test</h2>
+<p>A custom single test in dbt is a user-defined SQL test that provides more freedom in data validation than the built-in tests do. Singular tests are often written as standalone <em>.sql</em> files in the tests directory, returning rows that fail the test. If the query produces any results, the test is considered unsuccessful.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A singular test should be written as a <strong>query</strong> that <strong>identifies</strong> <strong>invalid records</strong>.</p>
+</div>
+</div>
+<p>For example, suppose we wish to test that the variable <strong>income</strong> is always positive. First, you write a query:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> {{ <span class="fu">ref</span>(<span class="st">'account'</span>) }}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> income <span class="op">&lt;</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then save it as <code>tests/positive_income.sql</code> and add it to your <strong>schema</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> positive_income</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="generic-test" class="level2">
+<h2 class="anchored" data-anchor-id="generic-test">Generic test</h2>
+<p>A <strong>generic test</strong> in dbt is a reusable test that can be applied to multiple models and columns. Unlike <strong>singular tests</strong>, which check specific logic for one model, generic tests accept <strong>parameters</strong>.</p>
+<p>Let’s rewrite our last example, but creating a generic test to identify negative values:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>{%test is_negative(model, column_name)%}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> {{ <span class="fu">ref</span>(model) }}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> {{ column_name }} <span class="op">&lt;</span> <span class="dv">0</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>{%endtest %}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then save it as <code>tests/is_negative.sql</code> and add it to your <strong>schema</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> account</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> income</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> is_negative</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> age</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> is_negative</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

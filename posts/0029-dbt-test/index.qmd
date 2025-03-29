@@ -1,0 +1,151 @@
+---
+title: "Intro: dbt testing"
+author: "Vinícius Félix"
+date: "2025-03-29"
+categories: [data engineering]
+image: "banner.png"
+---
+
+In this post we talk about dbt testing.
+
+# Context
+
+After introducing dbt testing, in my previous post [Some notes: Introduction to dbt](https://vbfelix.github.io/posts/0023-dbt/), now I go into detail about the kinds of tests and how to use them.
+
+A test is an assertion or validation that is done to different dbt objects in order to guarantee the dependability and integrity of the data, that can be applied to models, sources, seeds, and snapshots.
+
+::: callout-note
+Tests are essential to data quality since they confirm that our data matches the expected circumstances.
+:::
+
+In dbt it is possible to use four built-in tests, but also to create custom-made tests.
+
+# Built-in tests
+
+## unique
+
+-   Ensures that all values in a column are **distinct**
+
+<!-- -->
+
+-   Useful for **primary keys** or fields where duplication is not expected
+
+``` yaml
+---
+models:
+  - name: account
+    tests:
+      - unique:
+          column_name: id
+---
+```
+
+## **not_null**
+
+-   Ensures that a column **does not contain NULL values**
+
+-   Essential for required fields that ought to be fully covered, such as primary keys or required attributes
+
+``` yaml
+---
+models:
+  - name: account
+    tests:
+      - not_null:
+          column_name: company_id
+---
+```
+
+## accepted_values
+
+-   Ensures that a column contains only a **specific set of values**.
+
+<!-- -->
+
+-   Useful for **categorical fields**, such as status columns, that have a narrow range of options values possible
+
+``` yaml
+---
+models:
+  - name: account
+    tests:
+      - accepted_values:
+          column_name: status
+          values: ['active', 'inactive', 'suspended']
+---
+```
+
+## relationships
+
+-   Ensures that a column in one table **correctly references a column in another table**
+
+<!-- -->
+
+-   Helps enforce **foreign key relationships** between tables
+
+``` yaml
+---
+models:
+  - name: account
+    tests:
+      - relationships:
+          column_name: company_id
+          to: ref('company')
+          field: id
+---
+```
+
+# Custom tests
+
+## Singular test
+
+A custom single test in dbt is a user-defined SQL test that provides more freedom in data validation than the built-in tests do. Singular tests are often written as standalone *.sql* files in the tests directory, returning rows that fail the test. If the query produces any results, the test is considered unsuccessful.
+
+::: callout-note
+A singular test should be written as a **query** that **identifies** **invalid records**.
+:::
+
+For example, suppose we wish to test that the variable **income** is always positive. First, you write a query:
+
+``` sql
+SELECT *
+FROM {{ ref('account') }}
+WHERE income < 0
+```
+
+Then save it as `tests/positive_income.sql` and add it to your **schema:**
+
+``` yaml
+models:
+  - name: account
+    tests:
+      - positive_income
+```
+
+## Generic test
+
+A **generic test** in dbt is a reusable test that can be applied to multiple models and columns. Unlike **singular tests**, which check specific logic for one model, generic tests accept **parameters**.
+
+Let's rewrite our last example, but creating a generic test to identify negative values:
+
+``` sql
+{%test is_negative(model, column_name)%}
+SELECT *
+FROM {{ ref(model) }}
+WHERE {{ column_name }} < 0
+{%endtest %}
+```
+
+Then save it as `tests/is_negative.sql` and add it to your **schema:**
+
+``` yaml
+models:
+  - name: account
+    columns:
+      - name: income
+        tests:
+          - is_negative
+      - name: age
+        tests:
+          - is_negative
+```

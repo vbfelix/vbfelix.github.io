@@ -16,7 +16,7 @@ In addition to technical expertise, a company culture that values analysis and e
 
 ## Data Denial: Those who distrust and avoid using data
 
-The "denier" views data analysis as purely ornamental and does not trust it. They might even refuse to use reports altogether. Only intuition is used to make decisions. Due to the restricted availability of data and analytical capabilities in the past, this management style is out of date.\
+The "denier" views data analysis as purely ornamental and does not trust it. They might even refuse to use reports altogether. Only intuition is used to make decisions. Due to the restricted availability of data and analytic capabilities in the past, this management style is out of date.\
 \
 In this scenario, their choice would be wholly subjective and based only on how they felt about the matter.
 
@@ -44,8 +44,6 @@ In this scenario, they would take the data at face value and make decisions sole
 
 ## Data Driven: Those who use data to shape and inform decisions
 
-The “analytical”, utilizes data impartially, they seek to understand what is happening within the company by thoroughly analyzing results. After the initial analysis, they blend analytical skills, technical expertise, and intuition to establish possible actions for better decision-making. Finally, they use further analysis to validate and refine their decisions.
+The “analytical”, utilizes data impartially, they seek to understand what is happening within the company by thoroughly analyzing results. After the initial analysis, they blend analytic skills, technical expertise, and intuition to establish possible actions for better decision-making. Finally, they use further analysis to validate and refine their decisions.
 
 In this scenario, they would not make a hasty decision. They would formulate hypotheses, apply experiments and data analysis to support their choice.
-
-# 
