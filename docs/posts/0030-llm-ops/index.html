@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+<meta name="dcterms.date" content="2025-03-30">
+
+<title>Some notes: LLMOps – vbfelix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">vbfelix</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-about.html"> 
+<span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certifications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-participations.html"> 
+<span class="menu-text">Participations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-awards.html"> 
+<span class="menu-text">Awards</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix"> <i class="bi bi-stack-overflow" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper"> <i class="bi bi-box-seam" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Some notes: LLMOps</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data engineering</div>
+                <div class="quarto-category">AI</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 30, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#llm-lyfecycle" id="toc-llm-lyfecycle" class="nav-link" data-scroll-target="#llm-lyfecycle">LLM Lyfecycle</a>
+  <ul class="collapse">
+  <li><a href="#ideation-phase" id="toc-ideation-phase" class="nav-link" data-scroll-target="#ideation-phase">Ideation phase</a></li>
+  <li><a href="#development-phase" id="toc-development-phase" class="nav-link" data-scroll-target="#development-phase">Development Phase</a></li>
+  <li><a href="#operational-phase" id="toc-operational-phase" class="nav-link" data-scroll-target="#operational-phase"><strong>Operational Phase</strong></a></li>
+  </ul></li>
+  <li><a href="#prompt-engineering" id="toc-prompt-engineering" class="nav-link" data-scroll-target="#prompt-engineering"><strong>Prompt engineering</strong></a></li>
+  <li><a href="#chains-x-agents" id="toc-chains-x-agents" class="nav-link" data-scroll-target="#chains-x-agents">Chains x Agents</a>
+  <ul class="collapse">
+  <li><a href="#chains" id="toc-chains" class="nav-link" data-scroll-target="#chains"><strong>Chains</strong></a></li>
+  <li><a href="#agents" id="toc-agents" class="nav-link" data-scroll-target="#agents"><strong>Agents</strong></a></li>
+  </ul></li>
+  <li><a href="#rag-x-fine-tuning" id="toc-rag-x-fine-tuning" class="nav-link" data-scroll-target="#rag-x-fine-tuning">RAG x Fine-tuning</a>
+  <ul class="collapse">
+  <li><a href="#retrieval-augmented-generation-rag" id="toc-retrieval-augmented-generation-rag" class="nav-link" data-scroll-target="#retrieval-augmented-generation-rag"><strong>Retrieval Augmented Generation (RAG)</strong></a></li>
+  <li><a href="#fine-tuning" id="toc-fine-tuning" class="nav-link" data-scroll-target="#fine-tuning">Fine-tuning</a></li>
+  </ul></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
+  <ul class="collapse">
+  <li><a href="#step-1-building-a-test-set" id="toc-step-1-building-a-test-set" class="nav-link" data-scroll-target="#step-1-building-a-test-set"><strong>Step 1: Building a Test Set</strong></a></li>
+  <li><a href="#step-2-choosing-the-right-metric" id="toc-step-2-choosing-the-right-metric" class="nav-link" data-scroll-target="#step-2-choosing-the-right-metric"><strong>Step 2: Choosing the Right Metric</strong></a></li>
+  <li><a href="#step-3-defining-optional-secondary-metrics" id="toc-step-3-defining-optional-secondary-metrics" class="nav-link" data-scroll-target="#step-3-defining-optional-secondary-metrics"><strong>Step 3: Defining Optional Secondary Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment">Deployment</a>
+  <ul class="collapse">
+  <li><a href="#step-1-choice-of-hosting" id="toc-step-1-choice-of-hosting" class="nav-link" data-scroll-target="#step-1-choice-of-hosting"><strong>Step 1: Choice of Hosting</strong></a></li>
+  <li><a href="#step-2-api-design" id="toc-step-2-api-design" class="nav-link" data-scroll-target="#step-2-api-design"><strong>Step 2: API Design</strong></a></li>
+  <li><a href="#step-3-how-to-run" id="toc-step-3-how-to-run" class="nav-link" data-scroll-target="#step-3-how-to-run"><strong>Step 3: How to Run</strong></a></li>
+  </ul></li>
+  <li><a href="#scaling" id="toc-scaling" class="nav-link" data-scroll-target="#scaling">Scaling</a></li>
+  <li><a href="#monitoring-and-observability" id="toc-monitoring-and-observability" class="nav-link" data-scroll-target="#monitoring-and-observability">Monitoring and Observability</a>
+  <ul class="collapse">
+  <li><a href="#input-monitoring" id="toc-input-monitoring" class="nav-link" data-scroll-target="#input-monitoring"><strong>Input Monitoring</strong></a></li>
+  <li><a href="#functional-monitoring" id="toc-functional-monitoring" class="nav-link" data-scroll-target="#functional-monitoring"><strong>Functional Monitoring</strong></a></li>
+  <li><a href="#output-monitoring" id="toc-output-monitoring" class="nav-link" data-scroll-target="#output-monitoring"><strong>Output Monitoring</strong></a></li>
+  <li><a href="#cost-metrics" id="toc-cost-metrics" class="nav-link" data-scroll-target="#cost-metrics"><strong>Cost Metrics</strong></a></li>
+  </ul></li>
+  <li><a href="#cost-management" id="toc-cost-management" class="nav-link" data-scroll-target="#cost-management">Cost management</a>
+  <ul class="collapse">
+  <li><a href="#choose-the-right-model" id="toc-choose-the-right-model" class="nav-link" data-scroll-target="#choose-the-right-model"><strong>Choose the Right Model</strong></a></li>
+  <li><a href="#optimize-prompts" id="toc-optimize-prompts" class="nav-link" data-scroll-target="#optimize-prompts"><strong>Optimize Prompts</strong></a></li>
+  <li><a href="#optimize-the-number-of-calls" id="toc-optimize-the-number-of-calls" class="nav-link" data-scroll-target="#optimize-the-number-of-calls"><strong>Optimize the Number of Calls</strong></a></li>
+  </ul></li>
+  <li><a href="#governance" id="toc-governance" class="nav-link" data-scroll-target="#governance"><strong>Governance</strong></a>
+  <ul class="collapse">
+  <li><a href="#access-control" id="toc-access-control" class="nav-link" data-scroll-target="#access-control"><strong>Access Control</strong></a></li>
+  <li><a href="#prompt-injection" id="toc-prompt-injection" class="nav-link" data-scroll-target="#prompt-injection"><strong>Prompt Injection</strong></a></li>
+  <li><a href="#output-manipulation" id="toc-output-manipulation" class="nav-link" data-scroll-target="#output-manipulation"><strong>Output Manipulation</strong></a></li>
+  <li><a href="#denial-of-service-dos" id="toc-denial-of-service-dos" class="nav-link" data-scroll-target="#denial-of-service-dos"><strong>Denial-of-Service (DoS)</strong></a></li>
+  <li><a href="#data-poisoning" id="toc-data-poisoning" class="nav-link" data-scroll-target="#data-poisoning"><strong>Data Poisoning</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="context" class="level1">
+<h1>Context</h1>
+<p>This are my notes, from the Data Camp course <a href="https://app.datacamp.com/learn/courses/llmops-concepts">LLMOps concepts</a>.</p>
+<p>As organizations increasingly integrate Large Language Models (LLMs) into their operations and decision-making processes, the necessity of <strong>LLMOps</strong> becomes evident.</p>
+<p>LLMOps facilitates the seamless incorporation of LLMs into existing workflows, ensuring a structured and efficient transition across all phases of the model lifecycle, from ideation and development to deployment. Beyond integration, it provides a robust framework for scalable, efficient, and risk-mitigated management of LLM applications, enabling organizations to optimize benefits while minimizing operational risks.</p>
+<p>LLMOps focuses on managing large-scale, text-centric models that frequently leverage pre-trained architectures, whereas MLOps is <strong>usually</strong> concerned with smaller, task-specific models applied across diverse data types. Performance optimization in LLMOps typically involves <strong>prompt engineering</strong> and <strong>fine-tuning</strong>, in contrast to MLOps, which emphasizes <strong>feature engineering</strong> and <strong>model selection</strong>.</p>
+<p>Furthermore, LLMs exhibit greater complexity and generalization capacity but are inherently more unpredictable, often generating incorrect outputs known as <strong>hallucinations</strong>. In contrast, traditional machine learning models are typically more constrained in scope, producing structured and task-specific outputs with greater reliability. While LLMOps and MLOps share common operational methodologies, they diverge significantly in their focus, implementation strategies, and the challenges they address.</p>
+</section>
+<section id="llm-lyfecycle" class="level1">
+<h1>LLM Lyfecycle</h1>
+<section id="ideation-phase" class="level2">
+<h2 class="anchored" data-anchor-id="ideation-phase">Ideation phase</h2>
+<p>The <strong>ideation phase</strong> is the foundation of the LLM lifecycle, where the problem space is defined, and key decisions are made regarding the application’s objectives.</p>
+<p>🔹 <strong>Use Case Definition</strong> – Clearly identifying the business problem and determining whether an LLM is the appropriate solution. This involves assessing <strong>task feasibility, expected outcomes, and alignment with business needs</strong>.</p>
+<p>🔹 <strong>Model Selection Strategy</strong> – Evaluating different LLM architectures, including <strong>pre-trained models, fine-tuned models, and open-source alternatives</strong>, based on <strong>performance, cost, and compliance considerations</strong>.</p>
+<p>🔹 <strong>Data Strategy</strong> – Outlining how the application will use <strong>external and internal data sources</strong>, ensuring <strong>quality, availability, and adherence to data privacy regulations (e.g., GDPR, LGPD)</strong>.</p>
+<p>🔹 <strong>Ethical and Compliance Considerations</strong> – Assessing potential <strong>bias, fairness, and transparency issues</strong> to ensure responsible AI usage and compliance with regulatory frameworks.</p>
+</section>
+<section id="development-phase" class="level2">
+<h2 class="anchored" data-anchor-id="development-phase">Development Phase</h2>
+<p>The <strong>development phase</strong> focuses on designing, refining, and preparing the LLM application for production.</p>
+<p>🔹 <strong>Prompt Engineering</strong> – Crafting effective prompts to guide the model’s outputs and ensure relevance and accuracy. Iterative testing refines these prompts for optimal performance.</p>
+<p>🔹 <strong>Architectural Design</strong> – Selecting the right system architecture, which may involve <strong>LLM chains</strong> (sequential interactions with the model) or <strong>agents</strong> (dynamic, autonomous interactions).</p>
+<p>🔹 <strong>Performance Optimization</strong> – Implementing <strong>Retrieval-Augmented Generation (RAG)</strong> to improve accuracy using external data sources, as well as <strong>fine-tuning</strong> to adapt pre-trained models to specific tasks.</p>
+<p>🔹 <strong>Testing &amp; Validation</strong> – Conducting rigorous <strong>evaluation and benchmarking</strong> to measure accuracy, reliability, and robustness before moving to production.</p>
+</section>
+<section id="operational-phase" class="level2">
+<h2 class="anchored" data-anchor-id="operational-phase"><strong>Operational Phase</strong></h2>
+<p>Once development is complete, the <strong>operational phase</strong> ensures that the LLM application runs efficiently, remains cost-effective, and meets governance standards.</p>
+<p>🔹 <strong>Deployment</strong> – Transitioning from development to production with a focus on <strong>scalability, performance, and reliability</strong>. Infrastructure choices (e.g., cloud-based or on-premise) impact operational efficiency.</p>
+<p>🔹 <strong>Monitoring &amp; Observability</strong> – Implementing <strong>real-time tracking of model behavior</strong> to detect issues such as model drift, hallucinations, or latency spikes.</p>
+<p>🔹 <strong>Cost Management</strong> – Optimizing resource usage through <strong>dynamic scaling, caching strategies, and API rate limits</strong> to reduce operational expenses.</p>
+<p>🔹 <strong>Governance &amp; Security</strong> – Enforcing <strong>access controls, compliance measures, and threat mitigation</strong> to protect against unauthorized use and ensure regulatory adherence.</p>
+</section>
+</section>
+<section id="prompt-engineering" class="level1">
+<h1><strong>Prompt engineering</strong></h1>
+<p>Prompt engineering is a critical technique for enhancing the performance, some practices includes:</p>
+<p>🔹<strong>Improve Accuracy</strong> – Providing <strong>clear, structured instructions</strong> helps LLMs generate more precise and relevant responses.<br>
+🔹<strong>Gain Control Over Outputs</strong> – Well-defined prompts allow us to <strong>steer the model’s responses</strong> toward a desired format or content style.<br>
+🔹<strong>Reduce Errors and Bias</strong> – LLMs can produce incorrect information or biased outputs. <strong>Optimized prompts</strong> help mitigate these risks.</p>
+<p>But how do we design the perfect prompt? A <strong>well-structured prompt</strong> consists of four key elements:</p>
+<ol type="1">
+<li><p><strong>Instruction</strong> – Clearly define the task for the model.</p></li>
+<li><p><strong>Examples &amp; Context</strong> – Provide relevant data to help the model understand patterns.</p></li>
+<li><p><strong>Input Data</strong> – Specify the actual input for the task.</p></li>
+<li><p><strong>Output Indicator</strong> – Guide the model on the expected format of the response.</p></li>
+</ol>
+<p><strong>Prompt example:</strong></p>
+<pre><code>Task: Estimate the calories of a dish based on its ingredients.
+
+Example Dishes:
+- Grilled Chicken Salad (150g chicken, 50g lettuce, 30g tomatoes, 10g dressing) → 250 kcal
+- Spaghetti Carbonara (200g pasta, 50g bacon, 30g parmesan, 1 egg) → 600 kcal
+
+Input Dish: Vegetable Stir-Fry (100g tofu, 50g bell peppers, 30g carrots, 10g soy sauce)
+Output: 250 kcal</code></pre>
+</section>
+<section id="chains-x-agents" class="level1">
+<h1>Chains x Agents</h1>
+<section id="chains" class="level2">
+<h2 class="anchored" data-anchor-id="chains"><strong>Chains</strong></h2>
+<p>A <strong>chain</strong> (also referred to as a pipeline or flow) consists of a series of connected steps that sequentially take inputs and produce outputs. In LLMOps, chains help streamline processes by organizing tasks into a predictable sequence.</p>
+<p><strong>Example: Dish Calorie Prediction Chain</strong></p>
+<ul>
+<li><p><strong>Input</strong>: Dish description (e.g., “Vegetable Stir-Fry (100g tofu, 50g bell peppers, 30g carrots, 10g soy sauce)”).</p></li>
+<li><p><strong>Step 1</strong>: Search for similar dishes in the database.</p></li>
+<li><p><strong>Step 2</strong>: Combine the dish description with example dishes and the calorie prediction template.</p></li>
+<li><p><strong>Step 3</strong>: Feed the combined input into the LLM.</p></li>
+<li><p><strong>Step 4</strong>: Extract the predicted calorie count from the model’s output.</p></li>
+</ul>
+<p>Chains allow us to</p>
+<p>🔹 <strong>Enable Complex Applications</strong> – Chains allow for sophisticated interactions with external systems, enabling the automation of tasks like data retrieval and processing.</p>
+<p>🔹 <strong>Promote Scalability</strong> – By establishing modular designs, chains ensure that systems can grow efficiently. As new tasks are added, additional steps can be incorporated into the existing chain.</p>
+<p>🔹 <strong>Enhance Customization</strong> – Chains provide flexibility in defining specific workflows tailored to different use cases.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Chains</strong> are ideal for predictable, step-by-step processes. They are suited for tasks where inputs and outputs are well-defined, and where operational efficiency and consistency are key.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="agents" class="level2">
+<h2 class="anchored" data-anchor-id="agents"><strong>Agents</strong></h2>
+<p>An <strong>agent</strong> in LLMOps is a more adaptive architecture compared to chains. It can decide which actions to take, based on the situation and available information. This capability is especially useful when the optimal sequence of actions is unknown, or the inputs are uncertain.</p>
+<p><strong>Example: Dish Calorie Prediction with Agents</strong><br>
+In the case of predicting calories for a dish, if the initial data is insufficient (e.g., missing ingredients or quantities), an agent can perform the following actions:</p>
+<ul>
+<li><p><strong>Action 1</strong>: Fetch more detailed information about the dish (e.g., look up ingredient quantities).</p></li>
+<li><p><strong>Action 2</strong>: Retrieve additional similar dishes to better estimate the calorie count.</p></li>
+</ul>
+<p>The agent evaluates these options and determines the best course of action. Unlike a chain, where steps are predefined, agents <strong>adaptively select actions</strong>, allowing them to handle <strong>uncertain or incomplete inputs</strong> and dynamically adjust as needed.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Agents</strong> are better suited for <strong>dynamic, uncertain environments</strong>. They excel when multiple potential actions exist, and the optimal sequence is unclear or highly dependent on evolving inputs.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="rag-x-fine-tuning" class="level1">
+<h1>RAG x Fine-tuning</h1>
+<section id="retrieval-augmented-generation-rag" class="level2">
+<h2 class="anchored" data-anchor-id="retrieval-augmented-generation-rag"><strong>Retrieval Augmented Generation (RAG)</strong></h2>
+<p><strong>RAG</strong> is a design pattern commonly used in LLMOps to enhance the capabilities of Large Language Models (LLMs) by combining the model’s reasoning power with external factual knowledge. The RAG process typically consists of three main steps:</p>
+<ol type="1">
+<li><p><strong>Retrieve</strong>: The first step is to retrieve related documents or information from an external knowledge base. Given the vast size of knowledge databases, this step is crucial for ensuring the model has access to the right information. Vector databases are often used here, leveraging embeddings (numerical representations of text) to identify semantically similar documents.</p></li>
+<li><p><strong>Augment</strong>: The retrieved documents are then used to augment the original input prompt, adding external knowledge to the model’s query, which can improve the accuracy and relevance of the response.</p></li>
+<li><p><strong>Generate</strong>: Finally, the augmented prompt is fed into the LLM to generate the output. The integration of external information during this step allows the LLM to produce more informed and contextually relevant results.</p></li>
+</ol>
+<p>RAG is particularly useful when dealing with large knowledge bases, as it allows the LLM to remain lightweight by accessing relevant data without needing to store all information internally. It also ensures that the model can generate responses based on the latest available data, assuming the external knowledge base is regularly updated.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Use RAG</strong> when you need to incorporate <strong>external factual knowledge</strong> without altering the core capabilities of the LLM. It allows the model to access up-to-date information from a dynamic knowledge base and is easier to implement. However, it does require engineering to ensure that external data retrieval and augmentation are seamlessly integrated into the model.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="fine-tuning" class="level2">
+<h2 class="anchored" data-anchor-id="fine-tuning">Fine-tuning</h2>
+<p>Unlike RAG, which enhances the model’s outputs by integrating external knowledge, <strong>fine-tuning</strong> involves adjusting the weights of the LLM itself, tailoring it to specific tasks or domains. This process enables the model to improve its reasoning capabilities and better understand specialized fields, languages, or domains.</p>
+<p>There are two primary approaches to fine-tuning:</p>
+<ol type="1">
+<li><p><strong>Supervised Fine-Tuning</strong>: This method requires <strong>demonstration data</strong>, which includes input prompts paired with the desired output responses. The model is retrained using this data, effectively teaching it how to respond to similar inputs in the future.</p></li>
+<li><p><strong>Reinforcement Learning from Human Feedback (RLHF)</strong>: After supervised fine-tuning, RLHF is used to further refine the model. Human-labeled data, such as rankings or quality scores, are used to train a reward model that predicts output quality. The LLM is then optimized to maximize this reward, improving its performance based on human feedback.</p></li>
+</ol>
+<p>Fine-tuning offers <strong>full customization</strong> over the LLM’s behavior without adding external components. However, it comes with challenges, including the need for large amounts of labeled data and the risk of “<strong>catastrophic forgetting”</strong>—the model may forget previously learned information when retrained, and it may also exacerbate data biases.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Use Fine-Tuning</strong> when specializing the LLM for a specific <strong>domain</strong> or task. Fine-tuning offers full <strong>customizability</strong> over the model’s behavior and performance without relying on external components. However, it requires labeled data and can introduce challenges like <strong>bias amplification</strong> and “<strong>forgetting”</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="testing" class="level1">
+<h1>Testing</h1>
+<p>In traditional supervised machine learning (ML), testing involves evaluating the model’s ability to handle new, unseen data. This is done using labeled <strong>training data</strong> and <strong>testing data</strong>, where the model is trained on the training set and tested on the test set to measure its generalization ability.</p>
+<p>Unlike traditional ML models, <strong>LLM applications</strong> typically focus on evaluating the quality of the model’s output, rather than the accuracy of its predictions. Testing an LLM application involves creating a robust test set and choosing the appropriate evaluation metrics based on the nature of the output.</p>
+<section id="step-1-building-a-test-set" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-building-a-test-set"><strong>Step 1: Building a Test Set</strong></h3>
+<p>Building a comprehensive and representative <strong>test set</strong> is crucial for accurately evaluating LLM applications. This set should closely resemble real-world scenarios, ensuring that the model is tested on data it is likely to encounter in production. Test data can either be <strong>labeled</strong> (for precise evaluation) or <strong>unlabeled</strong> (to simulate typical inputs).</p>
+</section>
+<section id="step-2-choosing-the-right-metric" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-choosing-the-right-metric"><strong>Step 2: Choosing the Right Metric</strong></h3>
+<p>Selecting the correct evaluation <strong>metric</strong> is essential for assessing the model’s performance. The choice of metric depends on the specific application and the type of output generated by the model. The key options for metric selection are:</p>
+<ul>
+<li><p><strong>When the output has a correct answer</strong>: If the LLM’s output, such as a predicted label or numeric value, has a definitive correct answer, traditional ML metrics like <strong>accuracy</strong> or <strong>precision</strong> are appropriate.</p></li>
+<li><p><strong>When there is no definitive answer, but a reference is available</strong>: In cases where the LLM generates text without a single correct answer, but there is a reference to compare against, we use <strong>text comparison metrics</strong>.</p>
+<ul>
+<li><p><strong>Statistical methods</strong>, which compare the overlap between the predicted output and the reference text (e.g., BLEU, ROUGE).</p></li>
+<li><p><strong>Model-based methods</strong>, where a pre-trained LLM evaluates the similarity between the generated text and the reference. LLMs designed to assess other LLMs, often called <strong>LLM-judges</strong>, are a popular option for this task.</p></li>
+</ul></li>
+<li><p><strong>When there is no reference answer, but human feedback is available</strong>: If no reference exists but there is human feedback on the output, <strong>feedback score metrics</strong> are employed. Human raters assess text on aspects like <strong>quality</strong>, <strong>relevance</strong>, and <strong>coherence</strong>, although this can be resource-intensive. Alternatively, <strong>model-based feedback prediction</strong> uses past ratings to estimate the expected score, or <strong>LLM-judges</strong> can be used to predict whether feedback has been incorporated effectively.</p></li>
+<li><p><strong>When there is no reference answer and no human feedback</strong>: If neither a reference nor human feedback is available, <strong>unsupervised metrics</strong> can be used to assess attributes like <strong>text coherence</strong>, <strong>fluency</strong>, and <strong>diversity</strong>. These can be statistical or model-based techniques designed to evaluate these qualitative aspects.</p></li>
+</ul>
+</section>
+<section id="step-3-defining-optional-secondary-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-defining-optional-secondary-metrics"><strong>Step 3: Defining Optional Secondary Metrics</strong></h3>
+<p>In addition to the primary metric that focuses on the output quality, it’s also valuable to track <strong>secondary metrics</strong> that provide additional insights into the application’s performance. These can include:</p>
+<ul>
+<li><p><strong>Text characteristics</strong> such as <strong>bias</strong>, <strong>toxicity</strong>, and <strong>helpfulness</strong> to ensure the generated content adheres to ethical guidelines.</p></li>
+<li><p><strong>Operational metrics</strong> like <strong>latency</strong>, <strong>memory usage</strong>, and <strong>total incurred cost</strong> to assess the efficiency and scalability of the application.</p></li>
+</ul>
+</section>
+</section>
+<section id="deployment" class="level1">
+<h1>Deployment</h1>
+<section id="step-1-choice-of-hosting" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-choice-of-hosting"><strong>Step 1: Choice of Hosting</strong></h3>
+<p>The first step in deploying an LLM application involves choosing where to host its components. The decision depends on the organization’s requirements and resources.</p>
+<ul>
+<li><p><strong>Private cloud</strong> services, offering more control and security.</p></li>
+<li><p><strong>Public cloud</strong> services, which are more scalable and cost-effective for many applications.</p></li>
+<li><p><strong>On-premise hosting</strong>, which may be preferred for organizations requiring complete control over their infrastructure and data.</p></li>
+</ul>
+<p>Many cloud providers offer specialized solutions for hosting and deploying LLMs, simplifying this decision with their managed services.</p>
+</section>
+<section id="step-2-api-design" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-api-design"><strong>Step 2: API Design</strong></h3>
+<p>Next, we design the <strong>Application Programming Interface (API)</strong>, which defines how different components of the system communicate with each other.</p>
+<ul>
+<li><p><strong>Scalability</strong>: Designing endpoints for individual components (e.g., LLM, vector database) can improve scalability, though it may increase infrastructure costs.</p></li>
+<li><p><strong>Security</strong>: APIs should be protected using methods like API keys, especially when dealing with private data or sensitive operations.</p></li>
+<li><p><strong>Cost</strong>: More endpoints and more complex communication systems can increase infrastructure and operational costs.</p></li>
+</ul>
+</section>
+<section id="step-3-how-to-run" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-how-to-run"><strong>Step 3: How to Run</strong></h3>
+<p>After deciding where to host the application, the next step is determining how each component will be executed.</p>
+<ul>
+<li><p><strong>Containers</strong>: A flexible and scalable option where components are packaged into lightweight, self-contained units. Containers can be specialized for LLMs to optimize performance and resource usage.</p></li>
+<li><p><strong>Serverless functions</strong>: These allow automatic scaling based on demand but may not be suitable for large, resource-heavy LLMs.</p></li>
+<li><p><strong>Cloud-managed services</strong>: Many cloud providers offer specialized, managed services for LLM applications, providing scalability and convenience.</p></li>
+</ul>
+</section>
+</section>
+<section id="scaling" class="level1">
+<h1>Scaling</h1>
+<p>Once the application is running, scaling becomes a critical consideration, especially for LLM applications that often require substantial computational power.</p>
+<p>There are two main scaling strategies:</p>
+<ul>
+<li><p><strong>Horizontal scaling</strong>: Involves adding more machines to handle increasing traffic or demand, akin to adding more lanes to a highway.</p></li>
+<li><p><strong>Vertical scaling</strong>: Involves increasing the computational power of a single machine, similar to upgrading a car’s engine for better performance.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Horizontal scaling</strong> is ideal for applications with large traffic volumes, whereas <strong>vertical scaling</strong> is better suited for improving the performance and reliability of individual machines.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="monitoring-and-observability" class="level1">
+<h1>Monitoring and Observability</h1>
+<p>Monitoring and observability, though related, serve distinct roles in ensuring the health of a system. <strong>Monitoring</strong> continuously watches system behavior, identifying performance changes, while <strong>observability</strong> enables external observers to understand the system’s internal state by using data from all components.</p>
+<p>To enable effective observability, three primary data sources are utilized:</p>
+<ul>
+<li><p><strong>Logs</strong>: Chronological records of events, helpful for detailed investigation.</p></li>
+<li><p><strong>Metrics</strong>: Quantitative measurements of system performance, such as response times, throughput, and resource utilization.</p></li>
+<li><p><strong>Traces</strong>: Track the flow of requests across system components, helping understand interactions and bottlenecks.</p></li>
+</ul>
+<section id="input-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="input-monitoring"><strong>Input Monitoring</strong></h3>
+<p>Input monitoring focuses on tracking changes, errors, or malicious content in the input data. This is especially relevant in <strong>LLM applications</strong>, where inputs often come from human users, and malicious inputs can compromise system performance.</p>
+<ul>
+<li><p><strong>Malicious Input</strong>: Identifying and blocking harmful or adversarial inputs, which could manipulate the system’s output.</p></li>
+<li><p><strong>Data Drift</strong>: Over time, input data may change, leading to performance degradation. Monitoring the distribution of incoming data ensures we can address shifts that might negatively affect the model’s performance.</p></li>
+</ul>
+</section>
+<section id="functional-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="functional-monitoring"><strong>Functional Monitoring</strong></h3>
+<p>Functional monitoring ensures the overall health and performance of the application. Key metrics to track include:</p>
+<ul>
+<li><p><strong>Response Time</strong>: How quickly the system responds to requests.</p></li>
+<li><p><strong>Request Volume</strong>: The number of requests the system processes.</p></li>
+<li><p><strong>Error Rates</strong>: The frequency of errors encountered during requests.</p></li>
+<li><p><strong>System Resources</strong>: Monitoring GPU usage, memory, and CPU to ensure the system isn’t overwhelmed.</p></li>
+</ul>
+<p>For LLM-based applications, which often involve chains and agents, monitoring individual calls made to LLMs is crucial. These systems can involve multiple LLM invocations, so tracking the health of each component is vital. <strong>Cost monitoring</strong> is also essential, especially in resource-intensive LLM applications.</p>
+</section>
+<section id="output-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="output-monitoring"><strong>Output Monitoring</strong></h3>
+<p>Output monitoring ensures that the content generated by the application matches the expected results. This is measured using primary and secondary metrics, such as:</p>
+<ul>
+<li><p><strong>Unsupervised Metrics</strong>: Bias, toxicity, and helpfulness to evaluate the quality and ethical considerations of the output.</p></li>
+<li><p><strong>Model Drift</strong>: Unlike data drift, model drift occurs when the model’s performance degrades because the relationship between inputs and outputs changes over time. This could be due to external factors, like shifting trends or evolving user needs.</p></li>
+</ul>
+<p>Implementing <strong>feedback loops</strong> to refine the application using the latest data can mitigate model drift. Additionally, continuous output monitoring helps catch errors that could lead to negative consequences for the organization.</p>
+</section>
+<section id="cost-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="cost-metrics"><strong>Cost Metrics</strong></h3>
+<p>To understand and predict the cost implications, it’s essential to track relevant <strong>cost metrics</strong>:</p>
+<ul>
+<li><p><strong>Self-hosted models</strong>: Monitor the <strong>cost per machine per time unit</strong> (e.g., per hour or per day).</p></li>
+<li><p><strong>Externally hosted models</strong>: Track the <strong>cost per session</strong>, since a session can include multiple LLM calls, offering a better abstraction for billing.</p></li>
+</ul>
+</section>
+</section>
+<section id="cost-management" class="level1">
+<h1>Cost management</h1>
+<section id="choose-the-right-model" class="level3">
+<h3 class="anchored" data-anchor-id="choose-the-right-model"><strong>Choose the Right Model</strong></h3>
+<p>Rather than always opting for the highest-quality model, focus on finding the most <strong>cost-effective model</strong> that can still meet the requirements of the task. This could mean using <strong>multiple smaller, task-specific models</strong> instead of one large, complex model. For <strong>self-hosted models</strong>, techniques like <strong>model-size reduction</strong> can help optimize performance on less expensive hardware, ensuring that the model runs efficiently without sacrificing too much in terms of output quality.</p>
+</section>
+<section id="optimize-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="optimize-prompts"><strong>Optimize Prompts</strong></h3>
+<p>Shorter, more efficient prompts can significantly reduce the computational resources required for each request. <strong>Prompt compression tools</strong> can automatically streamline the wording by eliminating redundancies, and <strong>content reduction</strong> involves removing unnecessary information. For example, in <strong>chat applications</strong>, rather than passing entire conversation histories into the prompt (chat memory), only the most recent or relevant parts can be included.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Optimizing RAG pipelines</strong> to return fewer results can further streamline the input size.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="optimize-the-number-of-calls" class="level3">
+<h3 class="anchored" data-anchor-id="optimize-the-number-of-calls"><strong>Optimize the Number of Calls</strong></h3>
+<p>A practice called <strong>batching</strong> consolidates multiple prompts into a single call, reducing the frequency of interactions with the model. In environments where similar queries are frequently repeated, <strong>caching responses</strong> can help by storing results and reusing them, cutting down on LLM usage and speeding up response times. Since <strong>Agents</strong> typically involve multiple LLM calls, optimizing these workflows and imposing <strong>quotas</strong> and <strong>rate limits</strong> can prevent excessive costs, though you should ensure these limits don’t cause the application to stop functioning.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Consider using alternative methods for tasks that don’t require LLMs, such as <strong>summarization</strong> or <strong>text extraction</strong>, to offload work from the LLM.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="governance" class="level1">
+<h1><strong>Governance</strong></h1>
+<p>Neglecting <strong>governance</strong> and <strong>security</strong> in the development, deployment, and usage of LLMs can lead to significant consequences, such as data breaches, unauthorized access, or misuse of model outputs. Governance includes the establishment of policies and frameworks that guide LLM operations, while security focuses on implementing measures to protect the system from adversarial threats and unauthorized actions.</p>
+<section id="access-control" class="level3">
+<h3 class="anchored" data-anchor-id="access-control"><strong>Access Control</strong></h3>
+<p><strong>Role-based access control</strong> (RBAC) is a common approach to ensure security in LLM applications. In RBAC, <strong>permissions</strong> are assigned to specific roles, and <strong>users</strong> are then assigned to those roles, ensuring they only have access to the data or capabilities they are authorized for.</p>
+<p>A <strong>zero-trust security model</strong> is highly recommended, where every user and request is continuously validated for authentication and authorization, regardless of whether they are inside or outside the system’s perimeter. This model helps prevent unauthorized access to confidential information, especially in LLM interactions where different users may need different levels of access to external data (e.g., in RAG scenarios).</p>
+</section>
+<section id="prompt-injection" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-injection"><strong>Prompt Injection</strong></h3>
+<p><strong>Prompt injection</strong> occurs when attackers manipulate the input fields or prompts within an application to execute unauthorized commands. These <strong>adversarial attacks</strong> can severely impact the application’s security, such as causing reputational damage or legal consequences in chat applications.</p>
+<ul>
+<li><p><strong>Assume that LLMs can be untrusted users</strong> and treat them as such.</p></li>
+<li><p>Use tools designed to detect adversarial inputs and ensure that the application checks and filters these types of inputs.</p></li>
+<li><p><strong>Block known adversarial prompts</strong> to prevent them from affecting the system.</p></li>
+</ul>
+</section>
+<section id="output-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="output-manipulation"><strong>Output Manipulation</strong></h3>
+<p><strong>Output manipulation</strong> occurs when an attacker alters the LLM’s output to either compromise the system or execute malicious actions. This could involve using manipulated responses to trigger <strong>downstream attacks</strong>, where the application might carry out unintended actions on behalf of the attacker.</p>
+<ul>
+<li><p><strong>Limit the authority of the application</strong> to carry out potentially malicious actions.</p></li>
+<li><p><strong>Censor and block specific undesired outputs</strong>, preventing the model from generating harmful or malicious content.</p></li>
+</ul>
+</section>
+<section id="denial-of-service-dos" class="level3">
+<h3 class="anchored" data-anchor-id="denial-of-service-dos"><strong>Denial-of-Service (DoS)</strong></h3>
+<p><strong>DoS</strong> attacks involve flooding the system with excessive requests, which can lead to severe <strong>cost, availability, and performance issues</strong>, especially in complex LLM applications with multiple integrated components.</p>
+<ul>
+<li><p><strong>Limit request rates</strong> to prevent overload.</p></li>
+<li><p><strong>Cap resource usage</strong> per request to maintain application performance and avoid excessive costs.</p></li>
+</ul>
+</section>
+<section id="data-poisoning" class="level3">
+<h3 class="anchored" data-anchor-id="data-poisoning"><strong>Data Poisoning</strong></h3>
+<p><strong>Data poisoning</strong> involves injecting malicious or misleading data into the model’s training set, which can compromise its performance and security, especially if the poisoned data is used during <strong>fine-tuning</strong>. This type of attack can also occur unintentionally, such as including sensitive or copyrighted material.</p>
+<ul>
+<li><p><strong>Source data from trusted, verified origins</strong> to minimize the risk of poisoning.</p></li>
+<li><p>Use <strong>filters and detection mechanisms</strong> during training to identify and mitigate malicious or inaccurate data.</p></li>
+<li><p>Implement <strong>output censoring</strong> to block harmful or dangerous outputs generated by the model.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

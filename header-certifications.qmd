@@ -4,6 +4,8 @@ title: "Certifications"
 
 ## 2025
 
+![](images/download-01.png){width="31"} \[03/25\] [LLMOps](https://www.datacamp.com/statement-of-accomplishment/course/cda7c01ab5701f51a2c243b164f108ccb2295dad?raw=1)
+
 ![](images/download-01.png){width="31"} \[03/25\] [Intermediate dbt](https://www.datacamp.com/statement-of-accomplishment/course/9bac22996d315d3b93ffc9c9efd43a575ad6cbf8?raw=1)
 
 ![](images/hubspot-1.svg){width="32"} \[01/25\] [Service Hub](https://app.hubspot.com/academy/achievements/v1rmqssq/en/1/vinicius-felix/service-hub-software)
