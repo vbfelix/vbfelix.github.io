@@ -1,0 +1,371 @@
+---
+title: "Some notes: LLMOps"
+author: "Vinícius Félix"
+date: "2025-03-30"
+categories: [data engineering, AI]
+image: "banner.png"
+---
+
+# Context
+
+This are my notes, from the Data Camp course [LLMOps concepts](https://app.datacamp.com/learn/courses/llmops-concepts).
+
+As organizations increasingly integrate Large Language Models (LLMs) into their operations and decision-making processes, the necessity of **LLMOps** becomes evident.
+
+LLMOps facilitates the seamless incorporation of LLMs into existing workflows, ensuring a structured and efficient transition across all phases of the model lifecycle, from ideation and development to deployment. Beyond integration, it provides a robust framework for scalable, efficient, and risk-mitigated management of LLM applications, enabling organizations to optimize benefits while minimizing operational risks.
+
+LLMOps focuses on managing large-scale, text-centric models that frequently leverage pre-trained architectures, whereas MLOps is **usually** concerned with smaller, task-specific models applied across diverse data types. Performance optimization in LLMOps typically involves **prompt engineering** and **fine-tuning**, in contrast to MLOps, which emphasizes **feature engineering** and **model selection**.
+
+Furthermore, LLMs exhibit greater complexity and generalization capacity but are inherently more unpredictable, often generating incorrect outputs known as **hallucinations**. In contrast, traditional machine learning models are typically more constrained in scope, producing structured and task-specific outputs with greater reliability. While LLMOps and MLOps share common operational methodologies, they diverge significantly in their focus, implementation strategies, and the challenges they address.
+
+# LLM Lyfecycle
+
+## Ideation phase
+
+The **ideation phase** is the foundation of the LLM lifecycle, where the problem space is defined, and key decisions are made regarding the application’s objectives.
+
+🔹 **Use Case Definition** – Clearly identifying the business problem and determining whether an LLM is the appropriate solution. This involves assessing **task feasibility, expected outcomes, and alignment with business needs**.
+
+🔹 **Model Selection Strategy** – Evaluating different LLM architectures, including **pre-trained models, fine-tuned models, and open-source alternatives**, based on **performance, cost, and compliance considerations**.
+
+🔹 **Data Strategy** – Outlining how the application will use **external and internal data sources**, ensuring **quality, availability, and adherence to data privacy regulations (e.g., GDPR, LGPD)**.
+
+🔹 **Ethical and Compliance Considerations** – Assessing potential **bias, fairness, and transparency issues** to ensure responsible AI usage and compliance with regulatory frameworks.
+
+## Development Phase
+
+The **development phase** focuses on designing, refining, and preparing the LLM application for production.
+
+🔹 **Prompt Engineering** – Crafting effective prompts to guide the model’s outputs and ensure relevance and accuracy. Iterative testing refines these prompts for optimal performance.
+
+🔹 **Architectural Design** – Selecting the right system architecture, which may involve **LLM chains** (sequential interactions with the model) or **agents** (dynamic, autonomous interactions).
+
+🔹 **Performance Optimization** – Implementing **Retrieval-Augmented Generation (RAG)** to improve accuracy using external data sources, as well as **fine-tuning** to adapt pre-trained models to specific tasks.
+
+🔹 **Testing & Validation** – Conducting rigorous **evaluation and benchmarking** to measure accuracy, reliability, and robustness before moving to production.
+
+## **Operational Phase**
+
+Once development is complete, the **operational phase** ensures that the LLM application runs efficiently, remains cost-effective, and meets governance standards.
+
+🔹 **Deployment** – Transitioning from development to production with a focus on **scalability, performance, and reliability**. Infrastructure choices (e.g., cloud-based or on-premise) impact operational efficiency.
+
+🔹 **Monitoring & Observability** – Implementing **real-time tracking of model behavior** to detect issues such as model drift, hallucinations, or latency spikes.
+
+🔹 **Cost Management** – Optimizing resource usage through **dynamic scaling, caching strategies, and API rate limits** to reduce operational expenses.
+
+🔹 **Governance & Security** – Enforcing **access controls, compliance measures, and threat mitigation** to protect against unauthorized use and ensure regulatory adherence.
+
+# **Prompt engineering**
+
+Prompt engineering is a critical technique for enhancing the performance, some practices includes:
+
+🔹**Improve Accuracy** – Providing **clear, structured instructions** helps LLMs generate more precise and relevant responses.\
+🔹**Gain Control Over Outputs** – Well-defined prompts allow us to **steer the model’s responses** toward a desired format or content style.\
+🔹**Reduce Errors and Bias** – LLMs can produce incorrect information or biased outputs. **Optimized prompts** help mitigate these risks.
+
+But how do we design the perfect prompt? A **well-structured prompt** consists of four key elements:
+
+1.  **Instruction** – Clearly define the task for the model.
+
+2.  **Examples & Context** – Provide relevant data to help the model understand patterns.
+
+3.  **Input Data** – Specify the actual input for the task.
+
+4.  **Output Indicator** – Guide the model on the expected format of the response.
+
+**Prompt example:**
+
+```         
+Task: Estimate the calories of a dish based on its ingredients.
+
+Example Dishes:
+- Grilled Chicken Salad (150g chicken, 50g lettuce, 30g tomatoes, 10g dressing) → 250 kcal
+- Spaghetti Carbonara (200g pasta, 50g bacon, 30g parmesan, 1 egg) → 600 kcal
+
+Input Dish: Vegetable Stir-Fry (100g tofu, 50g bell peppers, 30g carrots, 10g soy sauce)
+Output: 250 kcal
+```
+
+# Chains x Agents
+
+## **Chains**
+
+A **chain** (also referred to as a pipeline or flow) consists of a series of connected steps that sequentially take inputs and produce outputs. In LLMOps, chains help streamline processes by organizing tasks into a predictable sequence.
+
+**Example: Dish Calorie Prediction Chain**
+
+-   **Input**: Dish description (e.g., “Vegetable Stir-Fry (100g tofu, 50g bell peppers, 30g carrots, 10g soy sauce)”).
+
+-   **Step 1**: Search for similar dishes in the database.
+
+-   **Step 2**: Combine the dish description with example dishes and the calorie prediction template.
+
+-   **Step 3**: Feed the combined input into the LLM.
+
+-   **Step 4**: Extract the predicted calorie count from the model’s output.
+
+Chains allow us to
+
+🔹 **Enable Complex Applications** – Chains allow for sophisticated interactions with external systems, enabling the automation of tasks like data retrieval and processing.
+
+🔹 **Promote Scalability** – By establishing modular designs, chains ensure that systems can grow efficiently. As new tasks are added, additional steps can be incorporated into the existing chain.
+
+🔹 **Enhance Customization** – Chains provide flexibility in defining specific workflows tailored to different use cases.
+
+::: {.callout-tip appearance="minimal"}
+**Chains** are ideal for predictable, step-by-step processes. They are suited for tasks where inputs and outputs are well-defined, and where operational efficiency and consistency are key.
+:::
+
+## **Agents**
+
+An **agent** in LLMOps is a more adaptive architecture compared to chains. It can decide which actions to take, based on the situation and available information. This capability is especially useful when the optimal sequence of actions is unknown, or the inputs are uncertain.
+
+**Example: Dish Calorie Prediction with Agents**\
+In the case of predicting calories for a dish, if the initial data is insufficient (e.g., missing ingredients or quantities), an agent can perform the following actions:
+
+-   **Action 1**: Fetch more detailed information about the dish (e.g., look up ingredient quantities).
+
+-   **Action 2**: Retrieve additional similar dishes to better estimate the calorie count.
+
+The agent evaluates these options and determines the best course of action. Unlike a chain, where steps are predefined, agents **adaptively select actions**, allowing them to handle **uncertain or incomplete inputs** and dynamically adjust as needed.
+
+::: {.callout-tip appearance="minimal"}
+**Agents** are better suited for **dynamic, uncertain environments**. They excel when multiple potential actions exist, and the optimal sequence is unclear or highly dependent on evolving inputs.
+:::
+
+# RAG x Fine-tuning
+
+## **Retrieval Augmented Generation (RAG)**
+
+**RAG** is a design pattern commonly used in LLMOps to enhance the capabilities of Large Language Models (LLMs) by combining the model's reasoning power with external factual knowledge. The RAG process typically consists of three main steps:
+
+1.  **Retrieve**: The first step is to retrieve related documents or information from an external knowledge base. Given the vast size of knowledge databases, this step is crucial for ensuring the model has access to the right information. Vector databases are often used here, leveraging embeddings (numerical representations of text) to identify semantically similar documents.
+
+2.  **Augment**: The retrieved documents are then used to augment the original input prompt, adding external knowledge to the model's query, which can improve the accuracy and relevance of the response.
+
+3.  **Generate**: Finally, the augmented prompt is fed into the LLM to generate the output. The integration of external information during this step allows the LLM to produce more informed and contextually relevant results.
+
+RAG is particularly useful when dealing with large knowledge bases, as it allows the LLM to remain lightweight by accessing relevant data without needing to store all information internally. It also ensures that the model can generate responses based on the latest available data, assuming the external knowledge base is regularly updated.
+
+::: {.callout-tip appearance="minimal"}
+**Use RAG** when you need to incorporate **external factual knowledge** without altering the core capabilities of the LLM. It allows the model to access up-to-date information from a dynamic knowledge base and is easier to implement. However, it does require engineering to ensure that external data retrieval and augmentation are seamlessly integrated into the model.
+:::
+
+## Fine-tuning
+
+Unlike RAG, which enhances the model’s outputs by integrating external knowledge, **fine-tuning** involves adjusting the weights of the LLM itself, tailoring it to specific tasks or domains. This process enables the model to improve its reasoning capabilities and better understand specialized fields, languages, or domains.
+
+There are two primary approaches to fine-tuning:
+
+1.  **Supervised Fine-Tuning**: This method requires **demonstration data**, which includes input prompts paired with the desired output responses. The model is retrained using this data, effectively teaching it how to respond to similar inputs in the future.
+
+2.  **Reinforcement Learning from Human Feedback (RLHF)**: After supervised fine-tuning, RLHF is used to further refine the model. Human-labeled data, such as rankings or quality scores, are used to train a reward model that predicts output quality. The LLM is then optimized to maximize this reward, improving its performance based on human feedback.
+
+Fine-tuning offers **full customization** over the LLM's behavior without adding external components. However, it comes with challenges, including the need for large amounts of labeled data and the risk of "**catastrophic forgetting"**—the model may forget previously learned information when retrained, and it may also exacerbate data biases.
+
+::: {.callout-tip appearance="minimal"}
+**Use Fine-Tuning** when specializing the LLM for a specific **domain** or task. Fine-tuning offers full **customizability** over the model’s behavior and performance without relying on external components. However, it requires labeled data and can introduce challenges like **bias amplification** and "**forgetting"**.
+:::
+
+# Testing
+
+In traditional supervised machine learning (ML), testing involves evaluating the model's ability to handle new, unseen data. This is done using labeled **training data** and **testing data**, where the model is trained on the training set and tested on the test set to measure its generalization ability.
+
+Unlike traditional ML models, **LLM applications** typically focus on evaluating the quality of the model's output, rather than the accuracy of its predictions. Testing an LLM application involves creating a robust test set and choosing the appropriate evaluation metrics based on the nature of the output.
+
+### **Step 1: Building a Test Set**
+
+Building a comprehensive and representative **test set** is crucial for accurately evaluating LLM applications. This set should closely resemble real-world scenarios, ensuring that the model is tested on data it is likely to encounter in production. Test data can either be **labeled** (for precise evaluation) or **unlabeled** (to simulate typical inputs).
+
+### **Step 2: Choosing the Right Metric**
+
+Selecting the correct evaluation **metric** is essential for assessing the model’s performance. The choice of metric depends on the specific application and the type of output generated by the model. The key options for metric selection are:
+
+-   **When the output has a correct answer**: If the LLM's output, such as a predicted label or numeric value, has a definitive correct answer, traditional ML metrics like **accuracy** or **precision** are appropriate.
+
+-   **When there is no definitive answer, but a reference is available**: In cases where the LLM generates text without a single correct answer, but there is a reference to compare against, we use **text comparison metrics**.
+
+    -   **Statistical methods**, which compare the overlap between the predicted output and the reference text (e.g., BLEU, ROUGE).
+
+    -   **Model-based methods**, where a pre-trained LLM evaluates the similarity between the generated text and the reference. LLMs designed to assess other LLMs, often called **LLM-judges**, are a popular option for this task.
+
+-   **When there is no reference answer, but human feedback is available**: If no reference exists but there is human feedback on the output, **feedback score metrics** are employed. Human raters assess text on aspects like **quality**, **relevance**, and **coherence**, although this can be resource-intensive. Alternatively, **model-based feedback prediction** uses past ratings to estimate the expected score, or **LLM-judges** can be used to predict whether feedback has been incorporated effectively.
+
+-   **When there is no reference answer and no human feedback**: If neither a reference nor human feedback is available, **unsupervised metrics** can be used to assess attributes like **text coherence**, **fluency**, and **diversity**. These can be statistical or model-based techniques designed to evaluate these qualitative aspects.
+
+### **Step 3: Defining Optional Secondary Metrics**
+
+In addition to the primary metric that focuses on the output quality, it's also valuable to track **secondary metrics** that provide additional insights into the application’s performance. These can include:
+
+-   **Text characteristics** such as **bias**, **toxicity**, and **helpfulness** to ensure the generated content adheres to ethical guidelines.
+
+-   **Operational metrics** like **latency**, **memory usage**, and **total incurred cost** to assess the efficiency and scalability of the application.
+
+# Deployment
+
+### **Step 1: Choice of Hosting**
+
+The first step in deploying an LLM application involves choosing where to host its components. The decision depends on the organization’s requirements and resources.
+
+-   **Private cloud** services, offering more control and security.
+
+-   **Public cloud** services, which are more scalable and cost-effective for many applications.
+
+-   **On-premise hosting**, which may be preferred for organizations requiring complete control over their infrastructure and data.
+
+Many cloud providers offer specialized solutions for hosting and deploying LLMs, simplifying this decision with their managed services.
+
+### **Step 2: API Design**
+
+Next, we design the **Application Programming Interface (API)**, which defines how different components of the system communicate with each other.
+
+-   **Scalability**: Designing endpoints for individual components (e.g., LLM, vector database) can improve scalability, though it may increase infrastructure costs.
+
+-   **Security**: APIs should be protected using methods like API keys, especially when dealing with private data or sensitive operations.
+
+-   **Cost**: More endpoints and more complex communication systems can increase infrastructure and operational costs.
+
+### **Step 3: How to Run**
+
+After deciding where to host the application, the next step is determining how each component will be executed.
+
+-   **Containers**: A flexible and scalable option where components are packaged into lightweight, self-contained units. Containers can be specialized for LLMs to optimize performance and resource usage.
+
+-   **Serverless functions**: These allow automatic scaling based on demand but may not be suitable for large, resource-heavy LLMs.
+
+-   **Cloud-managed services**: Many cloud providers offer specialized, managed services for LLM applications, providing scalability and convenience.
+
+# Scaling
+
+Once the application is running, scaling becomes a critical consideration, especially for LLM applications that often require substantial computational power.
+
+There are two main scaling strategies:
+
+-   **Horizontal scaling**: Involves adding more machines to handle increasing traffic or demand, akin to adding more lanes to a highway.
+
+-   **Vertical scaling**: Involves increasing the computational power of a single machine, similar to upgrading a car's engine for better performance.
+
+::: {.callout-tip appearance="minimal"}
+**Horizontal scaling** is ideal for applications with large traffic volumes, whereas **vertical scaling** is better suited for improving the performance and reliability of individual machines.
+:::
+
+# Monitoring and Observability
+
+Monitoring and observability, though related, serve distinct roles in ensuring the health of a system. **Monitoring** continuously watches system behavior, identifying performance changes, while **observability** enables external observers to understand the system’s internal state by using data from all components.
+
+To enable effective observability, three primary data sources are utilized:
+
+-   **Logs**: Chronological records of events, helpful for detailed investigation.
+
+-   **Metrics**: Quantitative measurements of system performance, such as response times, throughput, and resource utilization.
+
+-   **Traces**: Track the flow of requests across system components, helping understand interactions and bottlenecks.
+
+### **Input Monitoring**
+
+Input monitoring focuses on tracking changes, errors, or malicious content in the input data. This is especially relevant in **LLM applications**, where inputs often come from human users, and malicious inputs can compromise system performance.
+
+-   **Malicious Input**: Identifying and blocking harmful or adversarial inputs, which could manipulate the system's output.
+
+-   **Data Drift**: Over time, input data may change, leading to performance degradation. Monitoring the distribution of incoming data ensures we can address shifts that might negatively affect the model's performance.
+
+### **Functional Monitoring**
+
+Functional monitoring ensures the overall health and performance of the application. Key metrics to track include:
+
+-   **Response Time**: How quickly the system responds to requests.
+
+-   **Request Volume**: The number of requests the system processes.
+
+-   **Error Rates**: The frequency of errors encountered during requests.
+
+-   **System Resources**: Monitoring GPU usage, memory, and CPU to ensure the system isn't overwhelmed.
+
+For LLM-based applications, which often involve chains and agents, monitoring individual calls made to LLMs is crucial. These systems can involve multiple LLM invocations, so tracking the health of each component is vital. **Cost monitoring** is also essential, especially in resource-intensive LLM applications.
+
+### **Output Monitoring**
+
+Output monitoring ensures that the content generated by the application matches the expected results. This is measured using primary and secondary metrics, such as:
+
+-   **Unsupervised Metrics**: Bias, toxicity, and helpfulness to evaluate the quality and ethical considerations of the output.
+
+-   **Model Drift**: Unlike data drift, model drift occurs when the model's performance degrades because the relationship between inputs and outputs changes over time. This could be due to external factors, like shifting trends or evolving user needs.
+
+Implementing **feedback loops** to refine the application using the latest data can mitigate model drift. Additionally, continuous output monitoring helps catch errors that could lead to negative consequences for the organization.
+
+### **Cost Metrics** 
+
+To understand and predict the cost implications, it's essential to track relevant **cost metrics**:
+
+-    **Self-hosted models**: Monitor the **cost per machine per time unit** (e.g., per hour or per day).
+
+-    **Externally hosted models**: Track the **cost per session**, since a session can include multiple LLM calls, offering a better abstraction for billing.
+
+# Cost management
+
+### **Choose the Right Model**
+
+Rather than always opting for the highest-quality model, focus on finding the most **cost-effective model** that can still meet the requirements of the task. This could mean using **multiple smaller, task-specific models** instead of one large, complex model. For **self-hosted models**, techniques like **model-size reduction** can help optimize performance on less expensive hardware, ensuring that the model runs efficiently without sacrificing too much in terms of output quality.
+
+### **Optimize Prompts**
+
+Shorter, more efficient prompts can significantly reduce the computational resources required for each request. **Prompt compression tools** can automatically streamline the wording by eliminating redundancies, and **content reduction** involves removing unnecessary information. For example, in **chat applications**, rather than passing entire conversation histories into the prompt (chat memory), only the most recent or relevant parts can be included.
+
+::: {.callout-tip appearance="minimal"}
+**Optimizing RAG pipelines** to return fewer results can further streamline the input size.
+:::
+
+### **Optimize the Number of Calls**
+
+A practice called **batching** consolidates multiple prompts into a single call, reducing the frequency of interactions with the model. In environments where similar queries are frequently repeated, **caching responses** can help by storing results and reusing them, cutting down on LLM usage and speeding up response times. Since **Agents** typically involve multiple LLM calls, optimizing these workflows and imposing **quotas** and **rate limits** can prevent excessive costs, though you should ensure these limits don’t cause the application to stop functioning.
+
+::: {.callout-tip appearance="minimal"}
+Consider using alternative methods for tasks that don’t require LLMs, such as **summarization** or **text extraction**, to offload work from the LLM.
+:::
+
+# **Governance** 
+
+Neglecting **governance** and **security** in the development, deployment, and usage of LLMs can lead to significant consequences, such as data breaches, unauthorized access, or misuse of model outputs. Governance includes the establishment of policies and frameworks that guide LLM operations, while security focuses on implementing measures to protect the system from adversarial threats and unauthorized actions.
+
+### **Access Control**
+
+**Role-based access control** (RBAC) is a common approach to ensure security in LLM applications. In RBAC, **permissions** are assigned to specific roles, and **users** are then assigned to those roles, ensuring they only have access to the data or capabilities they are authorized for.
+
+A **zero-trust security model** is highly recommended, where every user and request is continuously validated for authentication and authorization, regardless of whether they are inside or outside the system’s perimeter. This model helps prevent unauthorized access to confidential information, especially in LLM interactions where different users may need different levels of access to external data (e.g., in RAG scenarios).
+
+### **Prompt Injection**
+
+**Prompt injection** occurs when attackers manipulate the input fields or prompts within an application to execute unauthorized commands. These **adversarial attacks** can severely impact the application’s security, such as causing reputational damage or legal consequences in chat applications.
+
+-    **Assume that LLMs can be untrusted users** and treat them as such.
+
+-   Use tools designed to detect adversarial inputs and ensure that the application checks and filters these types of inputs.
+
+-    **Block known adversarial prompts** to prevent them from affecting the system.
+
+### **Output Manipulation**
+
+**Output manipulation** occurs when an attacker alters the LLM’s output to either compromise the system or execute malicious actions. This could involve using manipulated responses to trigger **downstream attacks**, where the application might carry out unintended actions on behalf of the attacker.
+
+-    **Limit the authority of the application** to carry out potentially malicious actions.
+
+-   **Censor and block specific undesired outputs**, preventing the model from generating harmful or malicious content.
+
+### **Denial-of-Service (DoS)**
+
+**DoS** attacks involve flooding the system with excessive requests, which can lead to severe **cost, availability, and performance issues**, especially in complex LLM applications with multiple integrated components.
+
+-    **Limit request rates** to prevent overload.
+
+-    **Cap resource usage** per request to maintain application performance and avoid excessive costs.
+
+### **Data Poisoning**
+
+**Data poisoning** involves injecting malicious or misleading data into the model’s training set, which can compromise its performance and security, especially if the poisoned data is used during **fine-tuning**. This type of attack can also occur unintentionally, such as including sensitive or copyrighted material.
+
+-   **Source data from trusted, verified origins** to minimize the risk of poisoning.
+
+-    Use **filters and detection mechanisms** during training to identify and mitigate malicious or inaccurate data.
+
+-    Implement **output censoring** to block harmful or dangerous outputs generated by the model.
