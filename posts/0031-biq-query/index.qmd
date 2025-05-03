@@ -1,0 +1,141 @@
+---
+title: "Intro to: Big Query"
+author: "Vinícius Félix"
+date: "2025-05-03"
+categories: [data engineering]
+image: "banner.png"
+---
+
+# Context
+
+An Introduction to Google BigQuery: Fast, Serverless, and (Potentially) Costly.
+
+Google BigQuery is a powerful, serverless enterprise data warehouse designed for running large-scale SQL queries on terabytes or even petabytes of data.
+
+Launched in 2012, it leverages Google’s internal tools for storage and computing, enabling fast, distributed analytics. What sets BigQuery apart is its separation of compute and storage, allowing users to pay only for the resources they use.
+
+Compared to other modern data warehouses like Snowflake and Redshift, BigQuery excels in scheduled and large analytical workloads, whereas others may better support dynamic or real-time queries.
+
+Unlike traditional SQL databases built for transactions, BigQuery is optimized for online analytical processing, making it ideal for complex reports, periodic analyses, and ad-hoc data exploration.
+
+# **BigQuery Architecture**
+
+Google BigQuery’s architecture is designed for speed, scalability, and efficiency by separating storage and compute. At its core, BigQuery stores data in a **columnar format**, meaning each column is stored independently—ideal for read-heavy analytical queries.
+
+The **Capacitor** file format enhances this by efficiently storing semi-structured data with high compression. Underlying this is **Colossus**, Google’s distributed file system, which handles data replication and availability across data centers. Bridging storage and compute is **Jupiter**, Google’s high-speed network that moves vast amounts of data quickly. Queries are processed by **Dremel**, the execution engine that breaks queries into logical steps using a tree structure of **root**, **mixer**, and **leaf nodes**, enabling parallel processing. Orchestrating compute resources is **Borg**, which allocates CPU and ensures high availability even during failures.
+
+All queries are executed using **slots**, or units of compute, based on query complexity. Together, these components form a powerful and resilient engine: **Capacitor and Colossus handle storage**, **Jupiter and Borg manage compute**, and **Dremel handles query execution**—making BigQuery fast, scalable, and serverless by design.
+
+# **BigQuery Hierarchy**
+
+At the top of the hierarchy are **Projects**, which serve as the main containers for all Google Cloud Platform (GCP) resources, including BigQuery. A project is where billing, permissions, and API settings are configured. Users can have access to one or multiple projects, and this is the **first component in a BigQuery table name**.
+
+Within each project, you’ll find **Datasets**, which are similar to schemas in traditional databases. Datasets act as organizational containers for tables and views, and they have their own access controls. You can query across datasets if you have the right permissions, which makes them useful for structuring data by domain, department, or function. Datasets form the **second component of a BigQuery table name**.
+
+The **Table** is the third and final element in a BigQuery table reference. Tables are where the actual data lives, stored in BigQuery’s columnar format. Then, you access your table like this:
+
+``` sql
+SELECT *
+FROM project.dataset.table
+```
+
+Beyond the logical structure, it’s important to understand **Regions** in BigQuery. Each dataset is tied to a specific **geographic location**—either a single **region** (like `us-central1`) or a **multi-region** (such as `US` or `EU`). This reflects the physical location of Google’s data centers. Once a dataset is created in a region, that region **cannot be changed**, which is critical for planning storage, compliance, and cost optimization.
+
+# **BigQuery Query**
+
+While BigQuery supports **standard SQL**, there are a few important **differences and extensions** that set it apart from traditional relational database systems like MySQL or PostgreSQL. These differences exist because BigQuery is optimized for analytics on massive datasets, not transactional processing.
+
+### **STRUCTs and ARRAYs**
+
+BigQuery natively supports **nested and repeated fields**, represented using `STRUCT` (record) and `ARRAY` types. This makes it easier to work with **semi-structured data**, such as JSON, without needing to flatten everything in advance. For example:
+
+``` sql
+SELECT user.name, user.address.city
+FROM `project.dataset.users`
+```
+
+Here, `user` might be a `STRUCT` column. The, you can use **UNNEST** to work with arrays:
+
+``` sql
+SELECT name
+FROM UNNEST(["Alice", "Bob", "Carol"]) AS name
+```
+
+### **Safe Navigation Operators**
+
+BigQuery provides **safe navigation** with `SAFE.` functions to avoid errors like division by zero or parsing issues:
+
+``` sql
+SELECT SAFE_DIVIDE(numerator, denominator) AS result
+FROM dataset.table
+```
+
+### **ML, GIS, and JavaScript Extensions**
+
+BigQuery expands SQL with **non-traditional features** like:
+
+-   **BigQuery ML** to train machine learning models using SQL
+
+-   **BigQuery GIS** for geospatial functions like `ST_DISTANCE()`
+
+-   **JavaScript UDFs**, allowing custom logic in SQL using JavaScript
+
+### **Querying External Data**
+
+You can query external sources like Google Sheets, Cloud Storage (CSV, JSON, Parquet), or Cloud SQL directly via federated queries:
+
+``` sql
+SELECT * 
+FROM EXTERNAL_QUERY("connection_id", "SELECT * FROM mysql_table")
+```
+
+### **DATE, DATETIME, and TIMESTAMP**
+
+Handling **dates and times** is a crucial part of data analysis, and BigQuery provides multiple data types and functions to work with temporal data. While similar to standard SQL, BigQuery has a few **specific types and formatting rules** worth noting.
+
+#### **Key Temporal Data Types**
+
+-   `DATE`: Stores a calendar date (e.g., `2024-12-25`) with **no time or timezone**.
+
+-   `DATETIME`: Includes both **date and time**, but **no timezone** (e.g., `2024-12-25 14:30:00`).
+
+-   `TIMESTAMP`: Includes **date, time, and timezone**, stored in **UTC** (e.g., `2024-12-25 14:30:00 UTC`).
+
+#### **Date Functions**
+
+BigQuery has a robust set of functions for working with time:
+
+-   `CURRENT_DATE()` / `CURRENT_TIMESTAMP()`
+
+-   `DATE_DIFF(date1, date2, INTERVAL_UNIT)` –difference between dates in a given unit, such as, days or months
+
+-   `DATE_ADD()` / `DATE_SUB()` – add/subtract intervals
+
+-   `EXTRACT(part FROM date)` – get part of a date, such as: year, month or day
+
+# Final thoughts
+
+#### **Preview Before You Query**
+
+Before running a query, you can preview the table schema and sample rows, use the **"Preview" tab** in the BigQuery UI.
+
+#### **Use Partitioned and Clustered Tables**
+
+Partitioning and clustering improve query performance **and lower cost**:
+
+-   **Partitioning** splits data by a column (commonly a date), so queries only scan relevant partitions.
+
+-   **Clustering** organizes data within each partition based on the values of specific columns.
+
+#### **Use the Query Validator**
+
+BigQuery's UI shows **estimated data scanned** before execution—use it!
+
+#### **Use `TABLESAMPLE SYSTEM`**
+
+If available in your BigQuery environment, `TABLESAMPLE SYSTEM` lets you read a random percentage of data, reducing the cost!
+
+``` sql
+SELECT * 
+FROM `project.dataset.table` TABLESAMPLE SYSTEM (10 PERCENT)
+```

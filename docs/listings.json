@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/0031-biq-query/index.html",
       "/posts/0030-llm-ops/index.html",
       "/posts/0029-dbt-test/index.html",
       "/posts/0028-data-driven-stages/index.html",
