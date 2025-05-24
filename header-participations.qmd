@@ -4,6 +4,10 @@ title: "Participations"
 
 # Talks
 
+## 2025
+
+-   ![](images/bra.png){width="20"} IA não é mágica — é dado bem tratado (e um código decente) - The Developers Life Weekend
+
 ## 2024
 
 -   ![](images/bra.png){width="20"} Gerando inteligência a partir de dados públicos - SECOMP 2024
@@ -16,6 +20,7 @@ title: "Participations"
 ```{=html}
 <iframe style="border-radius:10px" src="https://open.spotify.com/embed/episode/2yGOaRhg8LgYEh5tFOwjni?utm_source=generator" width="80%" height="250" frameBorder="10" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 ```
+
 ## 2022
 
 -   ![](images/bra.png){width="20"} Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr.
