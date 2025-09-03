@@ -6,6 +6,8 @@ title: "Participations"
 
 ## 2025
 
+-   ![](images/bra.png){width="20"} EVOA Talks: O papel invisível da IA na construção do produto
+
 -   ![](images/bra.png){width="20"} Serratalks: Dados como ativo estratégico e base para tomada de decisões
 
 ```{=html}
