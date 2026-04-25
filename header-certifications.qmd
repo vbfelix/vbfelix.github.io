@@ -2,6 +2,10 @@
 title: "Certifications"
 ---
 
+## 2026
+
+![](images/images.png){width="31"} \[04/26\] Product Marketing Manager
+
 ## 2025
 
 ![](images/download-01.png){width="31"} \[03/25\] [LLMOps](https://www.datacamp.com/statement-of-accomplishment/course/cda7c01ab5701f51a2c243b164f108ccb2295dad?raw=1)
