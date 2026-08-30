@@ -4,6 +4,10 @@ title: "Participations"
 
 # Talks
 
+## 2026
+
+-   ![](images/bra.png){width="20"} Cloud Native Maringá #4: De dados caóticos a um produto de dados
+
 ## 2025
 
 -   ![](images/bra.png){width="20"} Technical Evaluator for the internal AI initiative MelhorAI at [Frete.com](https://www.frete.com/)
