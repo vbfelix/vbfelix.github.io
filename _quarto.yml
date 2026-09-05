@@ -9,8 +9,6 @@ website:
     left: "Blog made with [Quarto](https://quarto.org/), by [Vinícius Félix](https://github.com/vbfelix/vbfelix.github.io). License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
   navbar:
     left:
-      - href: index.qmd
-        text: Blog
       - header-about.qmd
       - header-publications.qmd
       - header-certifications.qmd
@@ -31,6 +29,7 @@ format:
   html:
     theme: custom_theme.scss
     css: styles.css
+    include-after-body: language-switcher.html
     toc: true
 
 editor: visual

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2023-08-27">
 
-<title>An intro to: Combination and Permutation – vbfelix</title>
+<title>Certificações – vbfelix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,60 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,88 +54,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">vbfelix</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../header-about.html"> 
+    <a class="nav-link" href="../header-about.html"> 
 <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-publications.html"> 
+    <a class="nav-link" href="../header-publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-certifications.html"> 
+    <a class="nav-link" href="../header-certifications.html"> 
 <span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-participations.html"> 
+    <a class="nav-link" href="../header-participations.html"> 
 <span class="menu-text">Participations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../header-awards.html"> 
+    <a class="nav-link" href="../header-awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item compact">
@@ -202,252 +137,143 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">An intro to: Combination and Permutation</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">Intro to</div>
-                <div class="quarto-category">Probability</div>
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">Theory</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Vinícius Félix </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">August 27, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
-  <li><a href="#how-to-know-which-formula-to-use" id="toc-how-to-know-which-formula-to-use" class="nav-link" data-scroll-target="#how-to-know-which-formula-to-use">How to know which formula to use</a>
-  <ul class="collapse">
-  <li><a href="#example-1-order-matter-with-repetition" id="toc-example-1-order-matter-with-repetition" class="nav-link" data-scroll-target="#example-1-order-matter-with-repetition">Example 1: Order matter with repetition</a></li>
-  <li><a href="#example-2-order-matter-without-repetition" id="toc-example-2-order-matter-without-repetition" class="nav-link" data-scroll-target="#example-2-order-matter-without-repetition">Example 2: Order matter without repetition</a></li>
-  <li><a href="#example-3-order-does-not-matter-without-repetition" id="toc-example-3-order-does-not-matter-without-repetition" class="nav-link" data-scroll-target="#example-3-order-does-not-matter-without-repetition">Example 3: Order does not matter without repetition</a></li>
-  <li><a href="#example-4-order-does-not-matter-with-repetition" id="toc-example-4-order-does-not-matter-with-repetition" class="nav-link" data-scroll-target="#example-4-order-does-not-matter-with-repetition">Example 4: Order does not matter with repetition</a></li>
-  </ul></li>
-  <li><a href="#and-where-is-this-implemented" id="toc-and-where-is-this-implemented" class="nav-link" data-scroll-target="#and-where-is-this-implemented">And where is this implemented?</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">2026</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2025</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2024</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2023</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2022</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2020</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2019</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">2018</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">2016</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Certificações</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<p>In this post, we will see that with just four questions we can easily understand which formula to apply.</p>
-<section id="context" class="level1">
-<h1>Context</h1>
-<p>Permutations and combinations are basic mathematical concepts with numerous real-world applications.</p>
-<p>Combinations are the process of selecting objects without regard to order, whereas permutations are the process of arranging objects in specific orders, with each arrangement being unique.</p>
-<p>These principles underpin fields ranging from cryptography to genetics, allowing for problem-solving across multiple domains, and understanding their distinctions is critical for solving a wide range of puzzles and challenges accurately.</p>
+</header>
+
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">2026</h2>
+<p><img src="..\images/images.png" class="img-fluid" width="31"> [04/26] Product Marketing Manager</p>
 </section>
-<section id="how-to-know-which-formula-to-use" class="level1">
-<h1>How to know which formula to use</h1>
-<p>To calculate the total number of combinations/permutations, you must first answer the following questions:</p>
-<ol type="1">
-<li><p><strong>Order matter?</strong></p></li>
-<li><p><strong>There is repetition?</strong></p></li>
-<li><p><strong>What is the number of total observations?</strong></p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p></li>
-</ol>
-<section id="example-1-order-matter-with-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-1-order-matter-with-repetition">Example 1: Order matter with repetition</h2>
-<p>Assume we want to know the number of password combinations with only numbers in a four-digit password, such as 1234.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>Yes, because a password such as 1234 differs from a 4321.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>Yes, because a password could be 1111.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 10 because we have the options 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is 4, because the password will have four digits.</p></li>
-</ol>
-<p>If we can repeat the numbers and have ten options, the total number of passwords is 10x10x10x10 = 1.000.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-permutation-with-repetition"><span class="math display">\[
-n_{[1]} \times n_{[2]} \times ...\times n_{[r-1]} \times n_{[r]} = n^r,
-\tag{1}\]</span></span></p>
-<p>where:</p>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">2025</h2>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [03/25] <a href="https://www.datacamp.com/statement-of-accomplishment/course/cda7c01ab5701f51a2c243b164f108ccb2295dad?raw=1">LLMOps</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [03/25] <a href="https://www.datacamp.com/statement-of-accomplishment/course/9bac22996d315d3b93ffc9c9efd43a575ad6cbf8?raw=1">Intermediate dbt</a></p>
+<p><img src="..\images/hubspot-1.svg" class="img-fluid" width="32"> [01/25] <a href="https://app.hubspot.com/academy/achievements/v1rmqssq/en/1/vinicius-felix/service-hub-software">Service Hub</a></p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">2024</h2>
+<p><img src="..\images/alura.png" class="img-fluid" width="32"> [12/24] <a href="https://cursos.alura.com.br/user/vbfelix/course/product-manager-jornada-gestao-produto/certificate?lang=en">Product Management</a></p>
 <ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-aceleracao/certificate?lang=en">Digital Product Acceleration</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-validacao/certificate?lang=en">Digital Product Validation</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en">Digital Product Priorization</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en">Digital Product</a> <a href="https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-product-discovery/certificate?lang=en">Discovery</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/design-sprint/certificate?lang=en">Design Sprint</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/user/vbfelix/course/roadmap-criar-manter-mapa-produto/certificate?lang=en">How to create and maintain the product roadmap<br>
+</a></p></li>
+</ul>
+<p><img src="..\images/iftl_edu_logo.jpeg" class="img-fluid" width="32"> [12/24] Chief Product Officer (CPO) Mentorship</p>
+<p><img src="..\images/strides-02.png" class="img-fluid" width="32"> [11/24] <a href="https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455">Head of Data &amp; Analytics 5.0</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/24] <a href="https://www.datacamp.com/statement-of-accomplishment/course/ea5544b954398142b0c8a38208966770420e2f9d?raw=1">Introduction to dbt</a></p>
+<p><img src="..\images/somostera_logo.jpeg" class="img-fluid" width="32"> [01/24] <a href="https://credentials.somostera.com/b46091c6436b1bed45816cf96dc90fb0">Introduction to Product Analytics</a></p>
+<p><img src="..\images/paste-2BF0ACDA.png" class="img-fluid" width="32"> [01/24] <a href="https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG">Jira Service Management Fundamentals</a></p>
+<p><img src="..\images/paste-2BF0ACDA.png" class="img-fluid" width="32"> [01/24] <a href="https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F">Jira Software Fundamentals</a></p>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">2023</h2>
+<p><img src="..\images/paste-B8EC21E4.png" class="img-fluid" width="32"> [11/23] <a href="https://www.conquerplus.com.br/certificates/fae527b1-bcf3-4843-8901-43eba90fbffc?enrollment=7585023">Presentation</a></p>
+<p><img src="..\images/paste-B8EC21E4.png" class="img-fluid" width="32"> [09/23] <a href="https://drive.conqueronline.com.br/CertificadosTeste/Forma%C3%A7%C3%A3o%20em%20Lideran%C3%A7a/1694472263631-6e861d53-9a55-43ba-8fe6-2315939a3569.jpeg">Leadership</a></p>
+<p><img src="https://coursera-university-assets.s3.amazonaws.com/05/353594a7964fdeaff4e10615de58c0/MongoDBSquareLogo.png" class="img-fluid" width="32"> [09/23] <a href="https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/b63aba26-47a6-4417-a539-1b74a88a0b86-vincius-flix-0e0b9438-a1a8-4fc0-8ad3-bc1777d92c1d-certificate.pdf">MongoDB for SQL Professionals</a></p>
+<p><img src="..\images/paste-2BF0ACDA.png" class="img-fluid" width="32"> [08/23] <a href="https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1">Confluence Fundamentals</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [08/23] <a href="https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2">SQL for Business Analysts</a></p>
+<p><img src="..\images/hackerrank-01.png" class="img-fluid" width="32"> [08/23] SQL Certificate</p>
+<ul>
+<li><p><a href="https://www.hackerrank.com/certificates/a2283f2bf638">Advanced</a></p></li>
+<li><p><a href="https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&amp;utm_source=mail_template_1393&amp;utm_campaign=hrc_skills_certificate">Intermediate</a></p></li>
+<li><p><a href="https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&amp;utm_source=mail_template_1393&amp;utm_campaign=hrc_skills_certificate">Basic</a></p></li>
+</ul>
+<p><img src="..\images/hackerrank-01.png" class="img-fluid" width="32"> [08/23] R Certificate</p>
+<ul>
+<li><a href="https://www.hackerrank.com/certificates/c49e8229f339">Basic</a></li>
+</ul>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [07/23] <a href="https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1">AI Fundamentals</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [07/23] <a href="https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234">Data Literacy Professional</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [07/23] <a href="https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35">Data Storytelling</a></p>
+<p><img src="..\images/download (2).png" width="31" height="21"> [01/23] <a href="https://www.freecodecamp.org/certification/fcc9e7d893e-6799-4c57-a0c9-c8f664ec685a/data-analysis-with-python-v7">Data Analysis with Python</a></p>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">2022</h2>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [12/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/e24f579f704adfa1882ff2f859aaf2c34fb334ac">Data Manipulation with Python</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [12/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9">Data Analyst with Python</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360">Data Analyst in SQL</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1">Data Manipulation with R</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c">Data Visualization with R</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1">Python Fundamentals</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [11/22] <a href="https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1">SQL Fundamentals</a></p>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">2020</h2>
+<p><img src="..\images/alura.png" class="img-fluid" width="32"> [06/20] Machine Learning</p>
+<ul>
+<li><p><a href="https://cursos.alura.com.br/certificate/0a798847-c27f-4a30-b8c8-66d517dbe343?lang=en">Optimization with Random Exploration</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/20c2d1a3-d750-41c7-a5ca-24520ffc171b?lang=en">Model Optimization through Hyperparameters</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/50ace2ab-dcc1-4aa6-8851-305dda8f09d1?lang=en">Classification behind the scenes</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/597324cf-6e9b-4911-bb25-9cbdaa327686?lang=en">Dealing with multidimensional data</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/f8358536-a454-4de7-9b5d-f796ae08bb8b?lang=en">Introduction to Unsupervised Algorithms</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/1cd3e02b-770c-45cf-b34b-376dc549c403?lang=en">Model Validation</a></p></li>
+<li><p><a href="https://cursos.alura.com.br/certificate/65b8311a-c168-47c8-ab8d-0bb90c481bf6?lang=en">Supervised Learning</a></p></li>
+</ul>
+<p><img src="..\images/alura.png" class="img-fluid" width="32"> [06/20] Natural Language Processing (NLP)</p>
+<ul>
+<li><a href="https://cursos.alura.com.br/certificate/63f52670-68b7-491e-a12a-0f33b229dd0f?lang=en">Continuing with Sentiment Analysis</a></li>
+<li><a href="https://cursos.alura.com.br/certificate/51674e55-66d7-44b0-b558-778467f0153b?lang=en">Introduction to NLP with sentiment analysis</a></li>
 </ul>
 </section>
-<section id="example-2-order-matter-without-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-2-order-matter-without-repetition">Example 2: Order matter without repetition</h2>
-<p>Assume we want to know the number of combinations in a lottery ticket with six numbers drawn from 1 to 60 in the correct order.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>Yes, because you have to guess the correct order, 123456 is not the same as 654321.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>No, because each drawn number cannot be drawn again.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 60, because that is the total number to be drawn from.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is 6 because it is the number of numbers to be chosen.</p></li>
-</ol>
-<p>So we have 60 for the first option, then 59 for the second, then 58, 57, 56, 55, for a total of 60x59x58x57x56x55 = 36,045,979,200 combinations.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-permutation-without-repetition"><span class="math display">\[
-\begin{align}
-n \times (n-1) \times ...\times [n-(r-1)]
-&amp;=  n \times (n-1) \times ...\times (n-r+1) \\
-&amp;=  \frac{n \times (n-1)  \times ...\times(n-r+1) \times... \times  2 \times 1}{(n-r)\times(n-r-1)\times...\times2\times 1}\\
-&amp;= \frac{n!}{(n-r)!},
-\end{align}
-\tag{2}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
-</ul>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">2019</h2>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [02/19] <a href="https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354">R Programmer</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [01/19] <a href="https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d">Data Analyst with R</a></p>
+<p><img src="..\images/download-01.png" class="img-fluid" width="31"> [01/19] <a href="https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43">Data Scientist with R</a></p>
+<p><img src="..\images/download (1).png" class="img-fluid" width="31"> [01/19] <a href="https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e">Data Analysis with Python</a></p>
+<p><img src="..\images/download (1).png" class="img-fluid" width="31"> [01/19] <a href="https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad">Data Visualization with Python</a></p>
+<p><img src="..\images/coursera-blog-image-01.png" width="31" height="30"> [01/19] <a href="https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK">How Google does Machine Learning</a></p>
 </section>
-<section id="example-3-order-does-not-matter-without-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-3-order-does-not-matter-without-repetition">Example 3: Order does not matter without repetition</h2>
-<p>Assume we have a deck of 52 cards and want to know how many combinations exist in a three-card hand.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>No, because only the cards themselves are important, not the order.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>No, since each card is unique in the deck.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 52, because the total number of cards to be drawn is 52.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is three because that is the number of cards in a hand.</p></li>
-</ol>
-<p>Using <a href="#eq-permutation-without-repetition" class="quarto-xref">Equation&nbsp;2</a> we would have 132,600 combinations. But let’s take a single hand with the cards 1, 2 and 3, also applying <a href="#eq-permutation-without-repetition" class="quarto-xref">Equation&nbsp;2</a> to this subset, that would mean a total of 6 combinations considering the order:</p>
-<ul>
-<li><p>1 - 2 - 3</p></li>
-<li><p>1 - 3 - 2</p></li>
-<li><p>2 - 1 - 3</p></li>
-<li><p>2 - 3 - 1</p></li>
-<li><p>3 - 1 - 2</p></li>
-<li><p>3 - 2 - 1</p></li>
-</ul>
-<p>So, for example, all of these six hands are actually one, scince order is irrelevant, so the true number of hands is acutally 132,600/6 = 22,100.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-combination-without-repetition"><span class="math display">\[
-\begin{align}
-\frac{\frac{n!}{(n-r)!}}{\frac{r!}{(r-r)!}}
-&amp;= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{(0)!}} \\
-&amp;= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{1}} \\
-&amp;= \frac{n!}{r!(n-r)!},
-\end{align}
-\tag{3}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
-</ul>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">2018</h2>
+<p><img src="..\images/download-02.png" width="32" height="38"> [06/18] Machine Learning Study Jam</p>
 </section>
-<section id="example-4-order-does-not-matter-with-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-4-order-does-not-matter-with-repetition">Example 4: Order does not matter with repetition</h2>
-<p>Let’s say we need to add four extra ingredients to an Açai Bowl delivery and have five options to choose from:</p>
-<ol type="1">
-<li><p>[B] Banana</p></li>
-<li><p>[S] Strawberry</p></li>
-<li><p>[G] Grape</p></li>
-<li><p>[C] Chocolate</p></li>
-<li><p>[O] Oat</p></li>
-</ol>
-<p>So, combinations such as [B,B,B,B], [B,B,B,C] or [B,S,C,G] can be made.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>No, because we only care about the ingredients used.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>Yes, because we can reuse the ingredient.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 5, because the number of ingredient options is five.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is three because that is the number of ingredients to be added.</p></li>
-</ol>
-<p>Applying <a href="#eq-combination-without-repetition" class="quarto-xref">Equation&nbsp;3</a> we would have5 combinations: [B,S,G,C], [B,S,G,O], [B,G,S,C], [B,G,O,C] and [S,G,C,O]. But now we need to take in consideration the repeated ingredients.</p>
-<p>So, how should we think about the repetition? Now we must consider the repetitions, using Banana as an example:</p>
-<ul>
-<li><p>4 bananas = [B,B,B,B]</p></li>
-<li><p>3 bananas = [B,B,B,S] [B,B,B,G] [B,B,B,C] [B,B,B,O]</p></li>
-<li><p>2 bananas and 2 unique ingredientes = [B,B,S,G] [B,B,S,C] [B,B,S,O] [B,B,G,C] [B,B,G,O] [B,B,C,O]</p></li>
-<li><p>2 bananas and 2 identical ingredientes = [B,B,S,S] [B,B,G,G] [B,B,C,C] [B,B,O,O]</p></li>
-<li><p>1 bananas and 3 identical ingredientes = [B,S,S,S] [B,G,G,G] [B,C,C,C] [B,O,O,O]</p></li>
-<li><p>1 bananas and 3 unique ingredientes = [B,S,G,C] [B,S,G,O] [B,G,S,C] [B,G,O,C]</p></li>
-<li><p>1 bananas and 2 identical ingredientes = [B,S,S,G] [B,S,S,C] [B,S,S,O] [B,G,G,S] [B,G,G,C] [B,G,G,O] [B,C,C,S] [B,C,C,G] [B,C,C,O] [B,O,O,S] [B,O,O,G] [B,O,O,C]</p></li>
-</ul>
-<p>So, we have 1 + 4 + 6 + 4 + 4 + 4 + 12 = 35 combinations, which means we must do 35 x 5? No, because some combinations would be repeated, and in this case, the order is irrelevant.</p>
-<p>We can use <a href="#eq-combination-without-repetition" class="quarto-xref">Equation&nbsp;3</a> but considering <span class="math inline">\(n\)</span> as <span class="math inline">\(n+r-1\)</span>.</p>
-<p><span id="eq-combination-with-repetition"><span class="math display">\[
-\begin{align}
-\frac{(n+r-1)!}{r![(n+r-1)-r]!}
-&amp;= \frac{(n+r-1)!}{r!(n-1)!} ,
-\end{align}
-\tag{4}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
-</ul>
-</section>
-</section>
-<section id="and-where-is-this-implemented" class="level1">
-<h1>And where is this implemented?</h1>
-<p>All of these functions are already implemented in my R package <a href="https://vbfelix.github.io/relper/index.html#installation">relper</a>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(relper)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 1</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">10</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">TRUE</span>,<span class="at">with_repetition =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 2</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">60</span>,<span class="at">r =</span> <span class="dv">6</span>,<span class="at">order_matter =</span> <span class="cn">TRUE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 36045979200</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 3</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">52</span>,<span class="at">r =</span> <span class="dv">3</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 22100</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 4</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">5</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 70</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">8</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 70</code></pre>
-</div>
-</div>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">2016</h2>
+<p><img src="..\images/download.jpeg" width="32" height="32"> [12/16] Introduction to Sentiment Analysis</p>
 
 
 </section>
@@ -612,12 +438,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiada");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiada");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
