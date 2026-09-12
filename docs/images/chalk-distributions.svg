@@ -13,6 +13,22 @@
 <text x="1100" y="845" transform="rotate(3 1100 845)">f(x) = λe<tspan baseline-shift="super" font-size="12">−λx</tspan><tspan> , x ≥ 0</tspan></text>
 <text x="680" y="1025">E[X] = np</text>
 </g>
+<g fill="#d5e2cd" font-family="Georgia,serif" font-style="italic" font-size="21" opacity=".18">
+<text x="410" y="78" transform="rotate(-3 410 78)">P(A | B) = P(B | A) P(A) / P(B)</text>
+<text x="875" y="110" transform="rotate(3 875 110)">E[X̄] = μ</text>
+<text x="42" y="422" transform="rotate(-4 42 422)">yᵢ = β₀ + β₁xᵢ + εᵢ</text>
+<text x="1090" y="490" transform="rotate(3 1090 490)">SE(X̄) = σ / √n</text>
+<text x="56" y="581" transform="rotate(-2 56 581)">ρ = Cov(X, Y) / (σₓσᵧ)</text>
+<text x="1090" y="655" transform="rotate(-3 1090 655)">S(t) = P(T &gt; t)</text>
+<text x="400" y="925" transform="rotate(2 400 925)">θ̂ = arg max L(θ)</text>
+<text x="760" y="955" transform="rotate(-3 760 955)">Var(X̄) = σ² / n</text>
+</g>
+<g fill="#e8d99a" font-family="Georgia,serif" font-style="italic" font-size="17" opacity=".15">
+<text x="48" y="460" transform="rotate(-4 48 460)">εᵢ ∼ N(0, σ²)</text>
+<text x="1090" y="528" transform="rotate(3 1090 528)">z = (x − μ) / σ</text>
+<text x="58" y="619" transform="rotate(-2 58 619)">Cov(X, Y) = E[XY] − E[X]E[Y]</text>
+<text x="1090" y="690" transform="rotate(-3 1090 690)">h(t) = f(t) / S(t)</text>
+</g>
 <g stroke="#d5e2cd" stroke-width="1.6" opacity=".18" stroke-linecap="round">
 <path d="M45 278H245M58 278V200M65 277C115 277 100 205 145 205S175 277 232 277"/>
 <path d="M1120 380H1305M1130 380V293M1155 378V346M1150 346H1160M1250 378V310M1245 310H1255"/>
