@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Conhecimento curado e um clone que questiona</title>
+<desc id="desc">Documentos passam pela curadoria e formam uma rede ligada a um assistente que questiona um projeto. Ilustração conceitual, sem resultados quantitativos.</desc>
+<defs>
+<radialGradient id="board"><stop stop-color="#214e41"/><stop offset="1" stop-color="#173f35"/></radialGradient>
+<pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".05"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#b8d9df" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#board)"/><rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke="#f2efe0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<!-- Sources and an explicit curation gate. No visible header text. -->
+<path d="M125 216v-47h116l30 30v146h-28M241 169v32h30"/>
+<path d="M105 216h112l28 29v150H105zM217 216v31h28M132 274h80m-80 30h64m-64 30h76m-76 30h47"/>
+<path d="M267 313h49" stroke="#b8d9df" marker-end="url(#arrow)"/>
+<circle cx="366" cy="313" r="34" stroke="#efd58e"/><path d="m350 313 12 12 22-26" stroke="#efd58e"/>
+<path d="M406 313h51" stroke="#b8d9df" marker-end="url(#arrow)"/>
+<!-- Connected knowledge, with one highlighted investigation path. -->
+<g stroke="#b8d9df"><path d="m494 314 61-117 101 27 35 112-73 108-124-130 162-90M555 197l63 247M494 314l197 22" stroke-opacity=".5"/>
+<circle cx="555" cy="197" r="18"/><circle cx="656" cy="224" r="18"/><circle cx="691" cy="336" r="18"/><circle cx="618" cy="444" r="18"/><circle cx="494" cy="314" r="18"/></g>
+<path d="m510 301 131-65m17 7 27 75" stroke="#efd58e"/>
+<path d="M720 336h57" stroke="#b8d9df" marker-end="url(#arrow)"/>
+<!-- Assistant silhouette and a question raised during project review. -->
+<path d="M824 389v-44c-31-21-35-66-16-96 17-27 60-38 91-21 26 14 34 36 34 62l23 34-25 10v36h-38v24M793 442c5-40 33-51 61-51s57 12 67 51"/>
+<path d="m826 278 27-20 29 20-10 31-35 2zM853 258l19 51m-46-31 56 0" stroke="#b8d9df"/>
+<path d="M933 204v-53q0-16 16-16h108q16 0 16 16v61q0 16-16 16h-72l-27 22v-22h-9q-16 0-16-16" stroke="#efd58e"/>
+<path d="M990 165c0-17 29-17 29 0 0 12-16 12-16 24m0 14v1" stroke="#efd58e"/>
+<rect x="942" y="377" width="126" height="139" rx="6"/><path d="M969 406h70m-70 27h51m-51 28h64" stroke="#b8d9df"/>
+<path d="M965 488l9 9 19-20" stroke="#efd58e"/>
+<path d="M939 529c-117 68-283 59-320-58" stroke="#b8d9df" stroke-dasharray="7 12" marker-end="url(#arrow)"/>
+</g>
+</svg>
