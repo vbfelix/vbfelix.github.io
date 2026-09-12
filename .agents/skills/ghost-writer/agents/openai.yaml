@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ghost Writer"
+  short_description: "Write bilingual site copy in Vinícius's voice"
+  default_prompt: "Use $ghost-writer to write or revise this site copy in en-US and pt-BR."

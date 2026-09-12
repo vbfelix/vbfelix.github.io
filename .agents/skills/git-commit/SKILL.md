@@ -7,6 +7,8 @@ description: Prepare and create focused Git commits from reviewed working-tree c
 
 Create reviewable commits while preserving unrelated user work.
 
+Read [CONTRIBUTING.md](../../../CONTRIBUTING.md) for this site's validation and generated-output rules. `docs/` is versioned publication output, so include the relevant regenerated files with their sources. Preserve `_freeze/`; do not exclude either directory indiscriminately as generated noise. Follow `AGENTS.md` for the final preview.
+
 ## Workflow
 
 1. Inspect `git status --short`, the active branch, and diffs for tracked and staged files. Treat all pre-existing changes as user-owned unless the current task clearly created them.
