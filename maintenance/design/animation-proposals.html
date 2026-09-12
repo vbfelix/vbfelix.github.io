@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estatística em movimento</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#12372e;color:#f2efe0;font:16px/1.6 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:40px 28px}h1{font:normal clamp(30px,4vw,48px)/1.15 Georgia,serif;margin:10px 0 28px}h2{font:normal 27px Georgia,serif}small,.muted{color:#bdcdbf}.layout{display:grid;grid-template-columns:340px 1fr;gap:42px;align-items:center}.choices{display:grid;gap:10px}.choice{background:transparent;border:1px solid #648477;color:inherit;text-align:left;padding:16px;cursor:pointer;font:inherit}.choice strong{display:block}.choice span{font-size:13px;color:#bdcdbf}.choice[aria-pressed=true]{border-color:#efd58e;background:#204a3e}.controls{display:flex;gap:12px;margin:22px 0}button:focus-visible{outline:2px solid #efd58e;outline-offset:4px}.control{font:inherit;border:1px solid #bdcdbf;padding:8px 16px;background:transparent;color:inherit;cursor:pointer}.stage{min-width:0}svg{width:100%;display:block}#status{font-size:13px;color:#bdcdbf;min-height:24px}#notes{max-width:60ch}.tag{letter-spacing:.13em;font-size:11px;text-transform:uppercase}footer{margin-top:30px;border-top:1px solid #648477;padding-top:18px;color:#bdcdbf;font-size:13px}@media(max-width:760px){.layout{grid-template-columns:1fr;gap:12px}main{padding:24px 18px}.choices{grid-template-columns:1fr}.stage{max-width:600px;margin:auto}}
+@media(max-width:760px){.layout{display:flex;flex-direction:column;gap:8px}.layout section{display:contents}.choices{display:grid;grid-template-columns:repeat(3,1fr);width:100%;order:0}.choice{padding:10px;font-size:13px}.choice span{display:none}.stage{order:1;width:min(100%,390px)}.controls{order:2;margin:4px 0}#status{order:3}#heading{order:4;margin:12px 0 0}#notes{order:5;margin:4px 0}#usage{order:6;margin:4px 0}h1{margin-bottom:18px}}
+canvas{width:100%;display:block;aspect-ratio:1}
+</style>
+<main>
+<div class="tag">Estudo de movimento · sem alterações na home</div>
+<h1>Estatística em movimento.</h1>
+<div class="layout">
+<section aria-label="Variações">
+<div class="choices">
+<button class="choice" data-mode="converge" aria-pressed="true"><strong>01 · Amostragem</strong><span>Os pontos da foto revelam o rosto</span></button>
+<button class="choice" data-mode="scan" aria-pressed="false"><strong>02 · Bootstrap</strong><span>Os mesmos pontos, sorteados com reposição</span></button>
+<button class="choice" data-mode="breathe" aria-pressed="false"><strong>03 · Erro de medição</strong><span>Ruído nas coordenadas do retrato</span></button>
+</div>
+<h2 id="heading">Os pontos da foto são a amostra.</h2>
+<p id="notes">A demonstração está carregando os pontos do retrato.</p>
+<p class="muted" id="usage">Na home: uma vez ao entrar na tela, em cerca de 3 segundos. Depois, a imagem permanece estática.</p>
+<div class="controls"><button class="control" id="play">Reproduzir</button><button class="control" id="pause" disabled>Pausar</button></div>
+<div id="status" role="status">Prévia estática. Reproduza para comparar.</div>
+</section>
+<div class="stage">
+<canvas id="photo-points" width="900" height="900" role="img" aria-label="Retrato reconstruído exclusivamente com pontos extraídos da imagem original. As variações alteram a seleção, os pesos ou as coordenadas desses mesmos pontos."></canvas>
+</div>
+</div>
+<footer>Estudos de movimento sobre o retrato atual. Todos os pontos visíveis são extraídos do retrato. Os sorteios e os erros de medição são simulados; não há uma segunda nuvem sobreposta. Todas as opções preservam a leitura do texto e respeitam a preferência por movimento reduzido.</footer>
+</main>
+<script src="animation-statistics.js"></script>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -9,7 +9,7 @@
 <meta name="author" content="Vinícius Félix">
 <meta name="dcterms.date" content="2023-08-20">
 
-<title>An intro to: Berkson’s paradox – vbfelix</title>
+<title>An intro to: Berkson’s paradox – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,22 +46,21 @@ div.csl-indent {
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../..//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
+<link href="../..//images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,6 +91,12 @@ div.csl-indent {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="An intro to: Berkson’s paradox – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:image" content="https://vbfelix.github.io/posts/0013-berkson-paradox/intro-berkson-paradox.png">
+<meta property="og:site_name" content="Vinícius Félix">
+<meta property="og:image:height" content="924">
+<meta property="og:image:width" content="1640">
 </head>
 
 <body class="nav-fixed">
@@ -102,7 +107,7 @@ div.csl-indent {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">vbfelix</span>
+    <span class="navbar-title">Vinícius Félix</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -112,24 +117,28 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../header-about.html"> 
-<span class="menu-text">About me</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../header-publications.html"> 
-<span class="menu-text">Publications</span></a>
+<span class="menu-text">Publicações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../header-certifications.html"> 
-<span class="menu-text">Certifications</span></a>
+<span class="menu-text">Certificações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../header-participations.html"> 
-<span class="menu-text">Participations</span></a>
+<span class="menu-text">Participações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../header-awards.html"> 
-<span class="menu-text">Awards</span></a>
+<span class="menu-text">Prêmios</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/vbfelix"> <i class="bi bi-github" role="img">
@@ -212,6 +221,7 @@ div.csl-indent {
 
 
 
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">An intro to: Berkson’s paradox</li></ol></nav>
 <p>In this post, we will see how a selection can invert a relationship<strong>.</strong></p>
 <section id="context" class="level1">
 <h1>Context</h1>
@@ -285,122 +295,6 @@ div.csl-indent {
 Berkson, Joseph. 1946. <span>“Limitations of the Application of Fourfold Table Analysis to Hospital Data.”</span> <em>Biometrics Bulletin</em> 2 (3): 47. <a href="https://doi.org/10.2307/3002000">https://doi.org/10.2307/3002000</a>.
 </div>
 </div></section></div></main> <!-- /main -->
-<script>
-(() => {
-  const STORAGE_KEY = "vbfelix-language";
-  const PORTUGUESE_SEGMENT = "/pt-br/";
-  const labels = {
-    "header-about.html": { en: "About me", pt: "Sobre mim" },
-    "header-publications.html": { en: "Publications", pt: "Publicações" },
-    "header-certifications.html": { en: "Certifications", pt: "Certificações" },
-    "header-participations.html": { en: "Participations", pt: "Participações" },
-    "header-awards.html": { en: "Awards", pt: "Prêmios" }
-  };
-
-  const nav = document.querySelector("#navbarCollapse .navbar-nav");
-  if (!nav) return;
-
-  const institutionalPages = new Set(Object.keys(labels));
-  const currentFilename = window.location.pathname.split("/").pop() || "index.html";
-  const isPortuguesePage = window.location.pathname.includes(PORTUGUESE_SEGMENT);
-
-  const getSavedLanguage = () => {
-    try {
-      return localStorage.getItem(STORAGE_KEY) === "pt-BR" ? "pt-BR" : "en";
-    } catch (_) {
-      return "en";
-    }
-  };
-
-  const saveLanguage = (language) => {
-    try {
-      localStorage.setItem(STORAGE_KEY, language);
-    } catch (_) {
-      // The switch still works when browser storage is unavailable.
-    }
-  };
-
-  const item = document.createElement("li");
-  item.className = "nav-item language-switcher-item";
-
-  const button = document.createElement("button");
-  button.className = "nav-link language-switcher";
-  button.type = "button";
-  item.appendChild(button);
-
-  const firstCompactItem = nav.querySelector(".nav-item.compact");
-  nav.insertBefore(item, firstCompactItem);
-
-  const applyLanguage = (language) => {
-    const isPortuguese = language === "pt-BR";
-
-    nav.querySelectorAll("a.nav-link[href]").forEach((link) => {
-      const url = new URL(link.href, window.location.href);
-      const filename = url.pathname.split("/").pop() || "index.html";
-      const translation = labels[filename];
-      const text = link.querySelector(".menu-text");
-
-      if (translation && text) {
-        text.textContent = isPortuguese ? translation.pt : translation.en;
-        if (isPortuguese && !url.pathname.includes(PORTUGUESE_SEGMENT)) {
-          url.pathname = url.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`);
-        } else if (!isPortuguese) {
-          url.pathname = url.pathname.replace(PORTUGUESE_SEGMENT, "/");
-        }
-        link.href = url.href;
-      }
-    });
-
-    const footer = document.querySelector(".nav-footer-left p");
-    if (footer) {
-      footer.dataset.english = footer.dataset.english || footer.innerHTML;
-      footer.innerHTML = isPortuguese
-        ? footer.dataset.english
-            .replace("Blog made with", "Blog criado com")
-            .replace(", by", ", por")
-            .replace("License:", "Licença:")
-        : footer.dataset.english;
-    }
-
-    button.innerHTML = isPortuguese
-      ? '<span aria-hidden="true">🇺🇸</span><span>EN</span>'
-      : '<span aria-hidden="true">🇧🇷</span><span>PT-BR</span>';
-    button.setAttribute(
-      "aria-label",
-      isPortuguese ? "Alterar o site para inglês" : "Alterar o site para português brasileiro"
-    );
-    button.dataset.language = language;
-  };
-
-  let language = isPortuguesePage ? "pt-BR" : getSavedLanguage();
-  if (isPortuguesePage) saveLanguage(language);
-
-  if (!isPortuguesePage && language === "pt-BR" && institutionalPages.has(currentFilename)) {
-    const target = new URL(window.location.href);
-    target.pathname = target.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`);
-    window.location.replace(target.href);
-    return;
-  }
-
-  applyLanguage(language);
-
-  button.addEventListener("click", () => {
-    language = language === "pt-BR" ? "en" : "pt-BR";
-    saveLanguage(language);
-
-    if (institutionalPages.has(currentFilename)) {
-      const target = new URL(window.location.href);
-      target.pathname = language === "pt-BR"
-        ? target.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`)
-        : target.pathname.replace(PORTUGUESE_SEGMENT, "/");
-      window.location.assign(target.href);
-      return;
-    }
-
-    applyLanguage(language);
-  });
-})();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -493,7 +387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -825,13 +719,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      &nbsp;
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Sobre</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/vbfelix">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
     </div>
   </div>
 </footer>

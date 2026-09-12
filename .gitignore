@@ -1,3 +1,9 @@
 /.quarto/
 .Rproj.user
 .Rhistory
+/_site/
+/site_libs/
+/index-listing.json
+__pycache__/
+*.pyc
+/.cache/

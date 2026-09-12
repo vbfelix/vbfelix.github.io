@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1080" fill="none">
+<g fill="#d5e2cd" font-family="Georgia,serif" font-style="italic" font-size="23" opacity=".22">
+<text x="45" y="120" transform="rotate(-5 45 120)">X ∼ N(μ, σ²)</text>
+<text x="1110" y="210" transform="rotate(4 1110 210)">X ∼ Bern(p)</text>
+<text x="54" y="730" transform="rotate(-3 54 730)">X ∼ Pois(λ)</text>
+<text x="1100" y="810" transform="rotate(3 1100 810)">X ∼ Exp(λ)</text>
+<text x="470" y="1030" transform="rotate(-2 470 1030)">X ∼ Bin(n, p)</text>
+</g>
+<g fill="#e8d99a" font-family="Georgia,serif" font-style="italic" font-size="18" opacity=".17">
+<text x="46" y="163" transform="rotate(-5 46 163)">E[X] = μ</text>
+<text x="1110" y="245" transform="rotate(4 1110 245)">Var(X) = p(1 − p)</text>
+<text x="52" y="765" transform="rotate(-3 52 765)">E[X] = Var(X) = λ</text>
+<text x="1100" y="845" transform="rotate(3 1100 845)">f(x) = λe<tspan baseline-shift="super" font-size="12">−λx</tspan><tspan> , x ≥ 0</tspan></text>
+<text x="680" y="1025">E[X] = np</text>
+</g>
+<g stroke="#d5e2cd" stroke-width="1.6" opacity=".18" stroke-linecap="round">
+<path d="M45 278H245M58 278V200M65 277C115 277 100 205 145 205S175 277 232 277"/>
+<path d="M1120 380H1305M1130 380V293M1155 378V346M1150 346H1160M1250 378V310M1245 310H1255"/>
+<path d="M55 897H249M65 897V804M88 897V866M110 897V839M133 897V820M156 897V833M179 897V853M202 897V878M225 897V887"/>
+<path d="M1112 963H1308M1125 963V881M1130 890C1160 931 1205 949 1300 958"/>
+</g>
+</svg>

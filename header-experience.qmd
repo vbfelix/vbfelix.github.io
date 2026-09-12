@@ -1,0 +1,8 @@
+---
+title: "Experiência"
+lang: pt-BR
+toc: true
+body-classes: experience-page
+---
+
+{{< include _content/header-experience.qmd >}}

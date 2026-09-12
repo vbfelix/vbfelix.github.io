@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Pesquisa de experiência com produtos físicos</title>
+<desc id="desc">Três mochilas ilustradas e um esquema de observação, escolha e análise. Ilustração conceitual sem dados do estudo.</desc>
+<defs>
+ <pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".09"/></pattern>
+ <g id="bag" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M-35-90v-20q35-35 70 0v20M-75-35q0-65 75-65t75 65v130q-75 25-150 0z"/>
+  <path d="M-75-30q75-40 150 0M-45 35q45-20 90 0v45h-90zM-75 10h-22v62h22M75 10h22v62H75"/>
+  <path d="M-30 45h60M-10-48h20"/>
+ </g>
+</defs>
+<rect width="1200" height="675" fill="#173f35"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<text x="80" y="88" fill="#b8d9df" font-family="monospace" font-size="21" letter-spacing="4">DELINEAMENTO · EXPERIÊNCIA DE USO</text>
+<path d="M80 115h1040" stroke="#648477"/>
+<g color="#f2efe0"><use href="#bag" transform="translate(280 320) rotate(-6)"/><use href="#bag" transform="translate(600 320)"/><use href="#bag" transform="translate(920 320) rotate(6)"/></g>
+<g fill="none" stroke="#efd58e" stroke-width="2" stroke-dasharray="5 8"><ellipse cx="280" cy="326" rx="127" ry="151"/><ellipse cx="600" cy="326" rx="127" ry="151"/><ellipse cx="920" cy="326" rx="127" ry="151"/></g>
+<path d="M280 497v38h640v-38M600 497v38" fill="none" stroke="#b8d9df" stroke-width="2"/>
+<g fill="#efd58e"><circle cx="280" cy="535" r="5"/><circle cx="600" cy="535" r="5"/><circle cx="920" cy="535" r="5"/></g>
+<g fill="#f2efe0" font-family="monospace" font-size="23" text-anchor="middle"><text x="280" y="592">OBSERVAR</text><text x="600" y="592">COMPARAR</text><text x="920" y="592">INVESTIGAR</text></g>
+</svg>

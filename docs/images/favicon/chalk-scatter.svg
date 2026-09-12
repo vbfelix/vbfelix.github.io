@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Vinícius Félix — Estatística</title>
+  <rect width="32" height="32" rx="7" fill="#173f35"/>
+  <path d="M7 7v18h19" fill="none" stroke="#b8d9df" stroke-width="1.5" stroke-linecap="round"/>
+  <g fill="#f2efe0">
+    <circle cx="12" cy="20" r="2"/>
+    <circle cx="16" cy="14" r="2"/>
+    <circle cx="21" cy="16" r="2"/>
+    <circle cx="25" cy="8" r="2"/>
+  </g>
+  <circle cx="21" cy="10" r="2" fill="#efd58e"/>
+</svg>

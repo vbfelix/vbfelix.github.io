@@ -1,0 +1,24 @@
+﻿# Vinícius Félix
+
+> Estatístico e mestre em Bioestatística. Perfil público, trajetória profissional, formação e produção acadêmica.
+
+O conteúdo está em português. O currículo é gerado das mesmas fontes das páginas públicas. Datas no JSON usam YYYY-MM; não implicam um dia específico. Consulte as fontes citadas para contexto e resultados. Cargos encerrados não são vínculos atuais.
+
+## Currículo
+
+- [Currículo em Markdown](https://vbfelix.github.io/curriculo.md): resumo da experiência profissional e formação acadêmica.
+- [Currículo em JSON](https://vbfelix.github.io/curriculo.json): experiência e formação em campos estruturados, com fontes.
+
+## Perfil e fontes
+
+- [Sobre Vinícius Félix](https://vbfelix.github.io/index.html.md): versão textual da página pública.
+- [Experiência profissional e acadêmica](https://vbfelix.github.io/header-experience.html.md): versão textual da página pública.
+- [Publicações](https://vbfelix.github.io/header-publications.html.md): versão textual da página pública.
+- [Certificações](https://vbfelix.github.io/header-certifications.html.md): versão textual da página pública.
+- [Participações](https://vbfelix.github.io/header-participations.html.md): versão textual da página pública.
+- [Prêmios](https://vbfelix.github.io/header-awards.html.md): versão textual da página pública.
+
+## Optional
+
+- [Acervo de artigos](https://vbfelix.github.io/writing.html): textos técnicos, distintos das publicações acadêmicas do currículo.
+- [Conteúdo completo para agentes](https://vbfelix.github.io/llms-full.txt): perfil, trajetória e documentos complementares na íntegra.

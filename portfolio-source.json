@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/vbfelix/ghost-writer.git",
+  "branch": "main",
+  "directory": "posts/portfolio",
+  "commit": "5bade69a49427ca2e64c5a3f09c40fba2f0d887b",
+  "files": {
+    "0032-ux-produtos-fisicos/index.qmd": "b9fa48e1636742c4d6914ad57eac31b1ff6e7e8a5809289542a00252733b6431",
+    "0033-sucesso-ia-iatf/index.qmd": "5d0dcf251bfd4c6d9e7e5ddad298b95c58dd9249e5aeeaa232bc55d34afb44cc",
+    "0034-zonas-de-manejo-satelites/index.qmd": "1be8784d14dd1461c992454e13b7c4d61e008a27d2a95da72c05efa6c01bd278",
+    "2026-09-12_como-criei-uma-metodologia-para-identificar-zonas-de-manejo-com-dados-de-satelites.md": "c716b1d2490e51b567368bf7605ee46d3340db9b7bd75beed328932f08caa324",
+    "2026-09-12_o-que-define-o-sucesso-da-ia-mas-nao-estou-falando-de-inteligencia-artificial.md": "22743ed5471df55865432dac56cc663732e871ad7b1688b8c662fedfb1a1b286",
+    "2026-09-12_ux-com-produtos-fisicos-o-puro-suco-da-estatistica.md": "7c1863ac495282d70fde91ebc1b05fa912e51fb503df3337d686ed79ece3ce90"
+  },
+  "pendingMigration": {}
+}

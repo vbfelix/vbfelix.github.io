@@ -1,0 +1,80 @@
+::: {.about-hero}
+::: {.about-hero__copy}
+
+
+# Meu trabalho começa com uma pergunta melhor.
+
+Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.
+
+Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
+
+Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora da apresentação.
+:::
+
+::: {.about-hero__portrait}
+```{=html}
+<figure class="portrait-plot" data-bootstrap aria-label="Retrato artístico de Vinícius Félix formado por pontos em um plano bivariado">
+<img src="/images/portrait-scatter-gray.png" alt="Vinícius Félix retratado em pontos de giz, como uma nuvem de dispersão." width="1254" height="1254">
+<svg viewBox="0 0 460 460" aria-hidden="true" focusable="false">
+<g class="portrait-plot__grid"><path d="M55 110H420M55 185H420M55 260H420M55 335H420M130 40V410M205 40V410M280 40V410M355 40V410"/></g>
+<g class="portrait-plot__axes"><path d="M55 35V410H425M50 110H60M50 185H60M50 260H60M50 335H60M130 405V415M205 405V415M280 405V415M355 405V415"/></g>
+<g class="portrait-plot__labels"><text x="433" y="416">x</text><text x="49" y="25">y</text><text x="39" y="429">0</text></g>
+</svg>
+</figure>
+<script src="/assets/js/portrait-bootstrap.js" defer></script>
+```
+:::
+:::
+
+
+::: {.about-principles}
+::: {.about-principles__intro}
+<p class="section-kicker">COMO EU TRABALHO · NA PRÁTICA</p>
+
+## Não coleciono cargos. Sigo problemas difíceis.
+
+Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.
+:::
+
+::: {.about-principles__list}
+::: {.about-principle}
+### A pergunta vem primeiro.
+
+Antes de construir, quero saber o que merece existir. Uma resposta precisa para o problema errado ainda é desperdício.
+:::
+
+::: {.about-principle}
+### Assumo o problema que ninguém quer.
+
+Fico perto o bastante para ver funcionar de ponta a ponta e digo o que é inconveniente quando o trabalho exige isso.
+:::
+
+::: {.about-principle}
+### O dado precisa sobreviver à realidade.
+
+Uso estatística para transformar opinião em teste. O método só importa quando funciona além da análise e dentro da operação.
+:::
+
+::: {.about-principle}
+### Contexto é trabalho humano.
+
+Ferramentas aceleram o trabalho. Estrutura, relações e julgamento ainda vêm de quem entende o problema.
+:::
+
+::: {.about-principle}
+### Aceitável não basta.
+
+Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a incerteza, testar a premissa e refazer o que não se sustenta.
+:::
+:::
+:::
+
+::: {.about-history #experience}
+## Experiência profissional
+
+
+{{< include _content/experience-table.qmd >}}
+
+:::
+
+[Ver experiência completa](/header-experience.qmd){.experience-link}

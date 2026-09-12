@@ -1,0 +1,552 @@
+﻿# Vinícius Félix: perfil e documentos completos
+
+## Sobre Vinícius Félix
+
+Fonte: https://vbfelix.github.io/index.html
+
+## Meu trabalho começa com uma pergunta melhor.
+
+Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.
+
+Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
+
+Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora da apresentação.
+
+COMO EU TRABALHO · NA PRÁTICA
+
+### Não coleciono cargos. Sigo problemas difíceis.
+
+Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.
+
+#### A pergunta vem primeiro.
+
+Antes de construir, quero saber o que merece existir. Uma resposta precisa para o problema errado ainda é desperdício.
+
+#### Assumo o problema que ninguém quer.
+
+Fico perto o bastante para ver funcionar de ponta a ponta e digo o que é inconveniente quando o trabalho exige isso.
+
+#### O dado precisa sobreviver à realidade.
+
+Uso estatística para transformar opinião em teste. O método só importa quando funciona além da análise e dentro da operação.
+
+#### Contexto é trabalho humano.
+
+Ferramentas aceleram o trabalho. Estrutura, relações e julgamento ainda vêm de quem entende o problema.
+
+#### Aceitável não basta.
+
+Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a incerteza, testar a premissa e refazer o que não se sustenta.
+
+### Experiência profissional
+
+| Período | Organização e função | Trabalho |
+|---|---|---|
+| 08/24 - 09/26 |  Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
+| 01/24 - 07/24 |  Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
+| 02/23 - 12/23 |  Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |
+| 04/22 - 01/23 |  GA + Intergado, Strategy Manager | Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints. |
+| 01/21 - 03/22 |  GA, R&D Manager | Liderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%. |
+| 09/20 - 12/20 |  GA, Data Manager | Criei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas. |
+| 10/18 - 11/19 |  Unicesumar, professor | Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria. |
+| 09/16 - 08/20 |  H0 Consultoria, consultor e cofundador | Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais. |
+| 07/13 - 12/15 |  Estats Consultoria, cofundador | Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes. |
+
+[Ver experiência completa](https://vbfelix.github.io/header-experience.html){.experience-link}
+
+## Experiência profissional e acadêmica
+
+Fonte: https://vbfelix.github.io/header-experience.html
+
+### Experiência profissional
+
+Em setembro de 2026, encerrei meu ciclo como CPO da Datlo para buscar uma carreira mais próxima da pesquisa e da resolução direta de problemas complexos.
+
+| Período | Organização e função | Trabalho |
+|---|---|---|
+| 08/24 - 09/26 |  Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
+| 01/24 - 07/24 |  Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
+| 02/23 - 12/23 |  Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |
+| 04/22 - 01/23 |  GA + Intergado, Strategy Manager | Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints. |
+| 01/21 - 03/22 |  GA, R&D Manager | Liderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%. |
+| 09/20 - 12/20 |  GA, Data Manager | Criei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas. |
+| 10/18 - 11/19 |  Unicesumar, professor | Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria. |
+| 09/16 - 08/20 |  H0 Consultoria, consultor e cofundador | Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais. |
+| 07/13 - 12/15 |  Estats Consultoria, cofundador | Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes. |
+
+### Experiência acadêmica
+
+| Universidade | Período | Formação | Trabalho final |
+|----|----|----|----|
+|  Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
+|  Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
+
+### Trajetória em detalhe
+
+#### [08/24 - 09/26] Chief Product Officer (CPO)
+
+Como CPO da Datlo, fui responsável pela direção estratégica e pelo desenvolvimento dos produtos de dados, desde a entrega de dados até os modelos de inteligência artificial.\
+\
+Minhas responsabilidades incluíam impulsionar a inovação de produtos, manter o alinhamento entre as capacidades de dados e as necessidades do mercado, gerenciar equipes multidisciplinares e promover a integração de tecnologias emergentes.\
+\
+Trabalhei com as áreas de analytics e governança para obter diferentes conjuntos de dados e melhorar os resultados dos clientes por meio de insights. Também ajudei organizações a tomar decisões geograficamente orientadas que aprimoram seu crescimento e suas operações.
+
+#### [01/24 - 07/24] Head of Data
+
+Como Head of Data de um produto orientado por dados, fui responsável pela integração de tecnologias, análises avançadas, governança, obtenção de dados, colaboração entre áreas, consultoria a clientes, conformidade regulatória e evolução contínua da plataforma.
+
+**Resultados**
+
+-   Liderei a implementação de uma arquitetura capaz de automatizar extrações e testes, com ferramentas e procedimentos padronizados para mais de 100 fontes de dados e dezenas de pipelines.
+
+#### [02/23 - 12/23] Gerente de Serviços
+
+Após a fusão da GA com a Intergado, que passou a se chamar Ponta, assumi uma nova área da empresa para ampliar a atuação da equipe técnica e gerar valor para os clientes para além dos produtos.
+
+Fui responsável pela entrega de serviços da organização. Minhas atribuições incluíam gerenciar equipes, coordenar operações e garantir entregas de alta qualidade, incluindo:
+
+1.  **Supervisão de instalações de hardware**: gestão de compras, cronogramas e qualidade das instalações;
+
+2.  **Supervisão da implementação de software**: seleção e implantação de soluções, treinamento de usuários e gestão de licenças;
+
+3.  **Consultoria**: geração de insights, identificação de tendências e apoio à tomada de decisão com base em dados;
+
+4.  **Gestão do suporte técnico**: definição de procedimentos, atendimento e solução de problemas com equipes multidisciplinares.
+
+**Resultados**
+
+-   Reduzi as violações de acordo de nível de serviço de 40% para menos de 2%;
+
+-   Implementei uma base interna de conhecimento com mais de 300 artigos produzidos em um ano.
+
+#### [04/22 - 01/23] Gerente de Estratégia
+
+Para oferecer melhores soluções por meio da ciência de dados, a GA se fundiu em 2022 com a Intergado, empresa que desenvolvia hardware para automatizar a coleta de dados, como o peso individual de animais, e software inteligente para facilitar decisões orientadas por dados.
+
+Minhas responsabilidades eram:
+
+-   Gerenciar a implementação da estratégia corporativa em todos os produtos;
+
+-   Acompanhar os projetos e identificar riscos;
+
+-   Coordenar equipes técnicas e não técnicas para alinhar prioridades e objetivos.
+
+**Resultados**
+
+-   Aprimorei a gestão do backlog e a colaboração entre as equipes de P&D, reduzindo em 80% as interrupções das sprints.
+
+#### [01/21 - 03/22] Gerente de P&D
+
+No fim de 2020, fui promovido para liderar toda a divisão de P&D. Além da equipe de dados, passei a ser responsável pelo desenvolvimento de software. Minhas atribuições incluíam:
+
+-   Aplicar metodologias ágeis e conceitos de desenvolvimento de software nos projetos com Jira, promovendo a melhoria contínua;
+
+-   Gerenciar o orçamento e as despesas, analisar indicadores e resultados e reportá-los ao conselho;
+
+-   Formar equipes, elaborar cronogramas e definir objetivos.
+
+**Resultados**
+
+-   Implementei automações com Jira Automation, monitoramento com Metabase e tomada de decisão com Dremio, reduzindo as tarefas manuais em aproximadamente 30%.
+
+#### [09/20 - 12/20] Gerente de Dados
+
+Em 2020, fui convidado a criar e desenvolver a equipe de dados na divisão de P&D da GA, empresa brasileira de tecnologia para ciências animais para a qual eu já prestava consultoria. Minhas principais atribuições eram:
+
+-   Contratar cientistas e engenheiros de dados;
+
+-   Estabelecer uma metodologia de projetos;
+
+-   Apoiar a concepção da arquitetura de dados;
+
+-   Iniciar uma cultura orientada por dados.
+
+**Resultados**
+
+-   Criei a biblioteca R [relper](https://github.com/vbfelix/relper), com funções para limpeza e visualização de dados, disponibilizada como pacote de código aberto.
+
+-   Desenvolvi uma metodologia para projetos de dados internos e externos.
+
+-   Liderei uma arquitetura com AWS Athena e Python e implementei Dremio e Metabase para disseminar a cultura de dados, reduzindo em 50% as demandas de outros departamentos sobre os analistas.
+
+#### [09/16 - 08/20] Consultor de Ciência de Dados
+
+Em 2016, cofundei a H0 Consultoria. A empresa ajudava pessoas e organizações a aproveitar melhor a Estatística por meio de:
+
+-   Planejamento amostral;
+-   Análise de dados;
+-   Revisão de questionários;
+-   Treinamentos em Estatística.
+
+**Resultados**
+
+-   Revisão e análise de mais de 350 estudos acadêmicos;
+-   Consultoria em mais de 40 pesquisas empresariais.
+
+##### [10/18 - 11/19] Professor de Estatística
+
+Com o reconhecimento conquistado como consultor, fui convidado a lecionar Estatística no MBA em Business Intelligence da Unicesumar.
+
+**Resultados**
+
+-   Atualizei os tópicos e materiais para uma abordagem mais moderna e aplicada, usando minha experiência prática para demonstrar aplicações reais dos conceitos teóricos.
+
+##### [02/17 - 02/19] Pós-graduação
+
+Após concluir a graduação no início de 2017, iniciei o mestrado em Bioestatística. Minha dissertação tratou de modelos geoestatísticos espaço-temporais, integrando as áreas temporal e espacial que eu havia estudado na graduação.
+
+Para os créditos optativos, escolhi disciplinas de psicometria e epidemiologia.
+
+**Resultados**
+
+-   Auxiliei um orientador no desenvolvimento do pacote R [geotoolsR](https://github.com/cran/geotoolsR), contribuindo com código para técnicas de bootstrap em geoestatística.
+
+#### [02/13 - 12/16] Graduação
+
+Durante a graduação, concentrei-me em séries temporais, geoestatística e visualização de dados. Recebi duas bolsas do Programa Brasileiro de Iniciação Científica (PBIC), que exigia a realização de uma pesquisa e sua apresentação em congresso:
+
+-   \[2014\] Tópicos em variância wavelet;
+-   \[2015\] Correlação cruzada múltipla wavelet.
+
+Também participei do grupo de estudos de Estatística Espacial e Temporal. Como trabalho final, escolhi estudar métodos de agrupamento para dados temporais, espaciais e espaço-temporais.
+
+##### [07/13 - 12/15] Empresa júnior
+
+Em 2013, cofundei a Estats Consultoria, empresa júnior de Estatística na qual atuei como diretor de Marketing e, posteriormente, presidente durante três anos.\
+\
+Nos projetos, trabalhei como analista de dados e ajudei na formação estatística dos novos integrantes.\
+\
+No último ano, participei do Núcleo Regional de Empresas Juniores (NEJ) para ajudar a realizar um censo na região.
+
+## Publicações
+
+Fonte: https://vbfelix.github.io/header-publications.html
+
+## Artigos
+
+### Periódicos científicos
+
+1.  [SOUZA, E. M](http://lattes.cnpq.br/0029713017048136); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) [Wavelet Cross-correlation in Bivariate Time-Series Analysis](https://www.scielo.br/j/tema/a/YFvqfzkcBJYgnLYc8MTnGHw/?lang=en&format=pdf). TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p. 391-403, 2018.
+
+2.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894) [Comparisons of ten corrections methods for t-test in multiple comparisons via Monte Carlo study](https://www.researchgate.net/publication/324877422_Comparisons_of_ten_corrections_methods_for_t-test_in_multiple_comparisons_via_Monte_Carlo_study). Electronic Journal of Applied Statistical Analysis^^, v. 11, p. 1, 2018.
+
+3.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo"); SCHMIDT, F.; GUERRA, N.; OLIVEIRA NETO, A. M. A influência de herbicidas na reinfestação de plantas daninhas: Uma abordagem Bayesiana. REVISTA DA ESTATÍSTICA UFOP, v. VI, p. 140-144, 2017.
+
+4.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374); [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081); [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031) [ESTIMADORES DE SEMIVARIÂNCIA: UMA REVISÃO](https://periodicos.ufsm.br/cienciaenatura/article/view/21326/pdf). CIÊNCIA E NATURA, v. 38, p. 1157, 2016.
+
+### Revistas
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427); POSE, R. A. Open Source, o novo jeito de fazer ciência. Revista Ser Médico.
+
+## Congressos
+
+### Trabalhos completos
+
+1.  [AUGUSTO JUNIOR, S. N.](http://lattes.cnpq.br/2374886805780530); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) [Survival analysis of the brazilian Spotify ranking: Differences between national and international artists.](https://periodicos.uff.br/anaisdoser/article/view/29231/16944) In: III International Seminar on Statistics with R, 2018, Rio de Janeiro. Survival analysis of the brazilian Spotify ranking: Differences between national and interionational artists, 2018.
+
+2.  [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Métodos Bootstrap Para Dados Com Dependência Espacial. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Métodos Bootstrap Para Dados Com Dependência Espacial, 2015.
+
+### Resumos expandidos
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894) Monte Carlo study of multiple comparisons corrections in t-test. In: 5th Workshop on Probabilistic and Statistical Methods, 2017, São Carlos. Monte Carlo study of multiple comparisons corrections in t-test, 2017.
+
+2.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); ALVARENGA, B.; [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427 "Clique para visualizar o currículo") Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano. In: I Encontro de Modelagem Estatística, 2017, Maringá. Impacto causal de uma visita técnica no processo de fornecimento de uma fazenda via modelo estrutural temporal Bayesiano, 2017.
+
+3.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); GARCIA, F.; [FERNANDES, L. B.](http://lattes.cnpq.br/3956308653223427 "Clique para visualizar o currículo") Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos. In: I Encontro de Modelagem Estatística, 2017, Maringá. Controle de consumo bovino com intervalos de tolerância via modelos não-paramétricos, 2017.
+
+4.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") Modelos Espaciais para Predição de Dados Batimétricos. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Modelos Espaciais para Predição de Dados Batimétricos, 2016.
+
+5.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo") ; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") ; [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo") Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine. In: VII Congresso Científico Da Região Centro-Ocidental Do Paraná - CONCCEPAR, 2016, Campo Mourão. Abordagem Bayesiana no Controle de Brachiaria Plantaginea, Euphorbia Heterophylla e Richardia Brasiliensis com o Uso de Flumioxazin, Amicarbazone, Clomazone e Atrazine, 2016.
+
+6.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") Correlação Múltipla Wavelet. In: XXV EAIC e V EAIC Jr, 2016, Maringá. Correlação Múltipla Wavelet, 2016.
+
+7.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GUEDES, T. A.](http://lattes.cnpq.br/6155197091899789 "Clique para visualizar o currículo") O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada. In: I Workshop em Bioestatística, 2016, Maringá. O impacto de diferentes concentrações de reguladores vegetais 2,4-D nos efeitos fisiológicos em Citrus sinensis com cancro cítrico, via regressão multivariada, 2016.
+
+8.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); SCHMIDT, F.; OLIVEIRA NETO, A. M. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. A Influência De Herbicidas Na Reinfestação De Plantas Daninhas: Uma Abordagem Bayesiana, 2015.
+
+9.  [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo"); SAPUCCI, L.; [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Inter-relation of time series from Cross Correlation Wavelets. In: XVI Escola de Séries Temporais e Econometria, 2015, Campos do Jordão. Inter-relation of time series from Cross Correlation Wavelets, 2015.
+
+10. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap. In: VI SEEMI - VI Simpósio de Estatística Espacial e Modelagem de Imagens, 2015, Toledo. Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, Através de métodos bootstrap, 2015.
+
+11. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") Tópicos em Variância Wavelet. In: XXIV EAIC e IV EAIC Jr, 2015, Maringá. Tópicos em Variância Wavelet, 2015.
+
+12. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") Análise De Variância Wavelet Aplicada Em Séries Temporais. In: 60ª Reunião Anual da Região Brasileira da Sociedade Internacional de Biometria (RBras) e o 16º Simpósio de Estatística Aplicada a Experimentação Agronômica (SEAGRO), 2015, Presidente Prudente. Análise De Variância Wavelet Aplicada Em Séries Temporais, 2015.
+
+### Resumos
+
+1.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo"); [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") Classes de modelos de covariância para Geoestatística espaço-temporal. In: XIV Semana da Estatística da UEM, 2018, Maringá. Classes de modelos de covariância para Geoestatística espaço-temporal, 2018.
+
+2.  [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Estudo de simulação Monte Carlo para testes post hoc. In: XIII Semana da Estatística, 2016, Maringá. Estudo de simulação Monte Carlo para testes post hoc, 2016.
+
+3.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877); [FURRIEL, W. O.](http://lattes.cnpq.br/2695786323673324) Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014. In: XIII Semana da Estatística, 2016, Maringá. Análise de perfil de Twitter dos 7 candidatos mais votados na eleição presidencial brasileira de 2014, 2016.
+
+4.  [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Uso do software R para análise da variabilidade espacial do teor de pH no solo em uma área experimental, 2015.
+
+5.  [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo"); [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental. In: VI Congresso Científico da Região Centro-Ocidental do Paraná, 2015, Campo Mourão. Análise da variabilidade espacial da quantidade de argila no solo em uma parcela experimental, 2015.
+
+6.  [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo"); [SAPUCCI, L. F.](http://lattes.cnpq.br/8285827971934692 "Clique para visualizar o currículo"); [NEGRI, T. T.](http://lattes.cnpq.br/3441145714823409 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events. In: 60th World Statistics Congress, 2015, Rio de Janeiro. Low cost GPS-wavelet-based methodologies to advertise climate and environmental extreme events, 2015.
+
+7.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo"); [MENEZES, A. F. B.](http://lattes.cnpq.br/3911619582088894 "Clique para visualizar o currículo") Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná. In: XII Semana da Estatística, 2015, Maringá. Análise de cluster para séries temporais de internações por bronquiolite nas Regionais de saúde do Paraná, 2015.
+
+8.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA). In: XII Semana da Estatística, 2015, Maringá. Análise de Intervenção na importação/exportação de combustível nos Estados Unidos da América (EUA), 2015.
+
+9.  [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [GONZATTO, O. A.](http://lattes.cnpq.br/7365405141909374 "Clique para visualizar o currículo"); [HENRIQUES, M. J.](http://lattes.cnpq.br/3011323408047031); [LANDGRAF, G. O.](http://lattes.cnpq.br/5589432074854512 "Clique para visualizar o currículo"); ARAUJO, I. M.; [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo") Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos. In: XI Semana da Estatística, 2014, Maringá. Comparação de Robustez dos Estimadores de Semivariância Aplicados a Dados Batimétricos, 2014.
+
+10. [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo"); [SOUZA, E. M.](http://lattes.cnpq.br/0029713017048136 "Clique para visualizar o currículo") Correção Múltipla e Cruzada de Wavelets. In: XI Semana de Estatística, 2014, Maringá. Correção Múltipla e Cruzada de Wavelets, 2014.
+
+11. [LANDGRAF, G. O.](http://lattes.cnpq.br/5589432074854512 "Clique para visualizar o currículo"); [ROSSONI, D. F.](http://lattes.cnpq.br/7817639261124081 "Clique para visualizar o currículo"); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877 "Clique para visualizar o currículo") Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?. In: 45ª reunião regional da ABE e X semana de Estatística, 2013, Maringá. Existe diferença em mapas preditos por interpolação produzidos por diferentes softwares?, 2013.
+
+## Certificações
+
+Fonte: https://vbfelix.github.io/header-certifications.html
+
+### 2026
+
+ \[04/26\] Product Marketing Manager
+
+### 2025
+
+ \[03/25\] [LLMOps](https://www.datacamp.com/statement-of-accomplishment/course/cda7c01ab5701f51a2c243b164f108ccb2295dad?raw=1)
+
+ \[03/25\] [Intermediate dbt](https://www.datacamp.com/statement-of-accomplishment/course/9bac22996d315d3b93ffc9c9efd43a575ad6cbf8?raw=1)
+
+ \[01/25\] [Service Hub](https://app.hubspot.com/academy/achievements/v1rmqssq/en/1/vinicius-felix/service-hub-software)
+
+### 2024
+
+ \[12/24\] [Product Management](https://cursos.alura.com.br/user/vbfelix/course/product-manager-jornada-gestao-produto/certificate?lang=en)
+
+-   [Digital Product Acceleration](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-aceleracao/certificate?lang=en)
+
+-   [Digital Product Validation](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-validacao/certificate?lang=en)
+
+-   [Digital Product Priorization](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en)
+
+-   [Digital Product](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-priorizacao/certificate?lang=en) [Discovery](https://cursos.alura.com.br/user/vbfelix/course/gestao-produtos-digitais-product-discovery/certificate?lang=en)
+
+-   [Design Sprint](https://cursos.alura.com.br/user/vbfelix/course/design-sprint/certificate?lang=en)
+
+-   [How to create and maintain the product roadmap\
+    ](https://cursos.alura.com.br/user/vbfelix/course/roadmap-criar-manter-mapa-produto/certificate?lang=en)
+
+ \[12/24\] Chief Product Officer (CPO) Mentorship
+
+ \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
+
+ \[11/24\] [Introduction to dbt](https://www.datacamp.com/statement-of-accomplishment/course/ea5544b954398142b0c8a38208966770420e2f9d?raw=1)
+
+ \[01/24\] [Introduction to Product Analytics](https://credentials.somostera.com/b46091c6436b1bed45816cf96dc90fb0)
+
+ \[01/24\] [Jira Service Management Fundamentals](https://university.atlassian.com/student/award/PaFxwB8zTHN2muDhJSaqpscG)
+
+ \[01/24\] [Jira Software Fundamentals](https://university.atlassian.com/student/award/FB7sG8yckBd3ATg7emmFgt9F)
+
+### 2023
+
+ \[11/23\] [Presentation](https://www.conquerplus.com.br/certificates/fae527b1-bcf3-4843-8901-43eba90fbffc?enrollment=7585023)
+
+ \[09/23\] [Leadership](https://drive.conqueronline.com.br/CertificadosTeste/Forma%C3%A7%C3%A3o%20em%20Lideran%C3%A7a/1694472263631-6e861d53-9a55-43ba-8fe6-2315939a3569.jpeg)
+
+ \[09/23\] [MongoDB for SQL Professionals](https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/b63aba26-47a6-4417-a539-1b74a88a0b86-vincius-flix-0e0b9438-a1a8-4fc0-8ad3-bc1777d92c1d-certificate.pdf)
+
+ \[08/23\] [Confluence Fundamentals](https://university.atlassian.com/student/award/VNroXeukepbpn1pXbfV6YZk1)
+
+ \[08/23\] [SQL for Business Analysts](https://www.datacamp.com/statement-of-accomplishment/track/3ee8b24604cfe40861c496bf0168416383e64be2)
+
+ \[08/23\] SQL Certificate
+
+-   [Advanced](https://www.hackerrank.com/certificates/a2283f2bf638)
+
+-   [Intermediate](https://www.hackerrank.com/certificates/ad67e9b31603?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+
+-   [Basic](https://www.hackerrank.com/certificates/a35f6899231b?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate)
+
+ \[08/23\] R Certificate
+
+-   [Basic](https://www.hackerrank.com/certificates/c49e8229f339)
+
+ \[07/23\] [AI Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/e7f701b0e0d3ece62feb4cbfca989df97f858186?raw=1)
+
+ \[07/23\] [Data Literacy Professional](https://www.datacamp.com/statement-of-accomplishment/track/b76f2f4a35ada06c2c31560cd8976f1da7527234)
+
+ \[07/23\] [Data Storytelling](https://www.datacamp.com/statement-of-accomplishment/track/d1b627859b9fd881031f7e47251ea73af46bdd35)
+
+.png){width="31" height="21"} \[01/23\] [Data Analysis with Python](https://www.freecodecamp.org/certification/fcc9e7d893e-6799-4c57-a0c9-c8f664ec685a/data-analysis-with-python-v7)
+
+### 2022
+
+ \[12/22\] [Data Manipulation with Python](https://www.datacamp.com/statement-of-accomplishment/track/e24f579f704adfa1882ff2f859aaf2c34fb334ac)
+
+ \[12/22\] [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
+
+ \[11/22\] [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
+
+ \[11/22\] [Data Manipulation with R](https://www.datacamp.com/statement-of-accomplishment/track/08db06b8f1609c50a23d7060788c2321dc81c48a?raw=1)
+
+ \[11/22\] [Data Visualization with R](https://www.datacamp.com/statement-of-accomplishment/track/a5aa6252e8ddb4e2c3414b757a4aaf802886824c)
+
+ \[11/22\] [Python Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/63ba119a0a2bfefcf034d87fc2b5d9a4e9463ed1)
+
+ \[11/22\] [SQL Fundamentals](https://www.datacamp.com/statement-of-accomplishment/track/2a986ff0cd3310f3e428264c62d13216ebd975a1?raw=1)
+
+### 2020
+
+ \[06/20\] Machine Learning
+
+-   [Optimization with Random Exploration](https://cursos.alura.com.br/certificate/0a798847-c27f-4a30-b8c8-66d517dbe343?lang=en)
+
+-   [Model Optimization through Hyperparameters](https://cursos.alura.com.br/certificate/20c2d1a3-d750-41c7-a5ca-24520ffc171b?lang=en)
+
+-   [Classification behind the scenes](https://cursos.alura.com.br/certificate/50ace2ab-dcc1-4aa6-8851-305dda8f09d1?lang=en)
+
+-   [Dealing with multidimensional data](https://cursos.alura.com.br/certificate/597324cf-6e9b-4911-bb25-9cbdaa327686?lang=en)
+
+-   [Introduction to Unsupervised Algorithms](https://cursos.alura.com.br/certificate/f8358536-a454-4de7-9b5d-f796ae08bb8b?lang=en)
+
+-   [Model Validation](https://cursos.alura.com.br/certificate/1cd3e02b-770c-45cf-b34b-376dc549c403?lang=en)
+
+-   [Supervised Learning](https://cursos.alura.com.br/certificate/65b8311a-c168-47c8-ab8d-0bb90c481bf6?lang=en)
+
+ \[06/20\] Natural Language Processing (NLP)
+
+-   [Continuing with Sentiment Analysis](https://cursos.alura.com.br/certificate/63f52670-68b7-491e-a12a-0f33b229dd0f?lang=en)
+-   [Introduction to NLP with sentiment analysis](https://cursos.alura.com.br/certificate/51674e55-66d7-44b0-b558-778467f0153b?lang=en)
+
+### 2019
+
+ \[02/19\] [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
+
+ \[01/19\] [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
+
+ \[01/19\] [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
+
+.png){width="31"} \[01/19\] [Data Analysis with Python](https://courses.cognitiveclass.ai/certificates/26bbd72010f44f0093e2551508bc444e)
+
+.png){width="31"} \[01/19\] [Data Visualization with Python](https://courses.cognitiveclass.ai/certificates/bd884f6c5d8d43318946570cda8eb9ad)
+
+ \[01/19\] [How Google does Machine Learning](https://www.coursera.org/account/accomplishments/verify/T2Z7F6MT9KQK)
+
+### 2018
+
+ \[06/18\] Machine Learning Study Jam
+
+### 2016
+
+ \[12/16\] Introduction to Sentiment Analysis
+
+## Participações
+
+Fonte: https://vbfelix.github.io/header-participations.html
+
+## Palestras
+
+### 2026
+
+-    Cloud Native Maringá #4: De dados caóticos a um produto de dados
+
+### 2025
+
+-    EVOA Talks: O papel invisível da IA na construção do produto
+
+-    Serratalks: Dados como ativo estratégico e base para tomada de decisões
+
+-    IA não é mágica, é dado bem tratado (e um código decente) - The Developers Life Weekend
+
+### 2024
+
+-    Gerando inteligência a partir de dados públicos - SECOMP 2024
+-    IA utilizada para auxílio na tomada de decisão - 1° Semana Paranaense de Inteligência Artificial
+
+### 2023
+
+-    Gestão orientada a dados - Podcast Na Ponta da Língua #8
+
+### 2022
+
+-    Pecuária orientada a dados - 2º Encontro de Consultores Zoo Jr.
+
+### 2021
+
+-    Confinamento de bovinos, interpretando as respostas nutricionais através de dados e informações - SEVAM 2021 (Semana de Extensão Veterinária da Anhembi Morumbi)
+
+### 2020
+
+-    A Era da Convergência: O Peso da Gestão Analítica - ECR 2020 (Encontro de Confinamento e de Recriadores)
+
+### 2019
+
+-    Ciência de dados e IA, como se preparar? - 1º Action Time
+
+-    Degustando ferramentas de BI - 5º PowerBI Maringá
+
+-    Gráficos: O Limiar entre uma mensagem e uma mentira - FrontIn Maringá
+
+-    Ciência de Dados: Um Alicerce para Pecuária de Precisão - TICNOVA 2019
+
+-    Validando seu produto: Evitando uma morte prematura com dados - IxDA Maringá #3
+
+-    A Pecuária de Precisão - Semana de Gestão de Confinamento 2019 (Zoo Jr. - UEM)
+
+-    Data-Driven Product Development ft. Luis Berns - FEMUG #23
+
+-    O cenário da tecnologia em números - 1º AfroTech MGA
+
+-    Estatística: Um Arsenal para Tomada de Decisão - Eureka Moment
+
+-    Dissecando Métricas Ágeis - Maringá Agile #4
+
+### 2018
+
+-    Músicas no Spotify: Como vivem? E quanto tempo sobrevivem? - Cerveja com Dados Maringá #1
+
+-    Data Science: Magia ou Ciência? - Semana do programador DB1
+
+-    Data Science: Magia ou Ciência? - GDG Maringá: Ciência de dados
+
+-    Trabalhando com Consultoria Estatística - VIII SEst UFSCar/USP
+
+### 2017
+
+### 2016
+
+-    Correlação Múltipla Wavelet - XXV EAIC e V EAIC Jr.
+
+-    The Concept of 4D Datasets - I Workshop em Bioestatística
+
+### 2015
+
+-    Tópicos em Variância Wavelet - XXIV EAIC e IV EAIC Jr.
+
+-    Avaliação de ajuste geoespacial robusto no semivariograma de dados batimétricos, através de métodos bootstrap - VI SEEMI
+
+## Hackathons
+
+### 2025
+
+-    Avaliador técnico da iniciativa interna de IA MelhorAI da [Frete.com](https://www.frete.com/)
+
+### 2023
+
+-    Mentor no Hackathon InovaAgro - Maringá - Brasil
+
+### 2019
+
+-    Mentor no Nasa Space Apps - Maringá - Brasil
+
+### 2018
+
+-    Mentor no Nasa Space Apps - Maringá - Brasil
+
+-    Participante do Hackathon Romagnole - Maringá - Brasil (2º lugar)
+
+## Prêmios
+
+Fonte: https://vbfelix.github.io/header-awards.html
+
+-   🥇2023 - 1º lugar — *Squad Ponta Firme* — Categoria Espírito Inovador
+
+-   🥈2018 - III Seminário Internacional de Estatística com R — Categoria Melhor Apresentação
+
+-   🥈2018 - Hackathon Romagnole
+
+-   🥉2012 - XV Olimpíada Brasileira de Astronomia e Astronáutica

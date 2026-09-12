@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to my personal website! – vbfelix</title>
+<title>Vinícius Félix · Sobre mim – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +24,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href=".//images/favicon/favicon-32x32.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<link href=".//images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -55,119 +53,75 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 25,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Vinícius Félix · Sobre mim">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/index.html">
+<meta name="description" content="Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/curriculo.json" title="Currículo estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":"ProfilePage","@id":"https://vbfelix.github.io/index.html#page","url":"https://vbfelix.github.io/index.html","name":"Sobre Vinícius Félix","inLanguage":"pt-BR","mainEntity":{"@id":"https://vbfelix.github.io/#person"}}]}</script>
+<!-- agent-metadata:end -->
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed about-page">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">vbfelix</span>
+    <span class="navbar-title">Vinícius Félix</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./header-about.html"> 
-<span class="menu-text">About me</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./header-publications.html"> 
-<span class="menu-text">Publications</span></a>
+<span class="menu-text">Publicações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./header-certifications.html"> 
-<span class="menu-text">Certifications</span></a>
+<span class="menu-text">Certificações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./header-participations.html"> 
-<span class="menu-text">Participations</span></a>
+<span class="menu-text">Participações</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./header-awards.html"> 
-<span class="menu-text">Awards</span></a>
+<span class="menu-text">Prêmios</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/vbfelix"> <i class="bi bi-github" role="img">
@@ -197,1225 +151,139 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Welcome to my personal website!</h1>
-            <p class="subtitle lead">Here you will find posts about statistics and random stuff that I like, as well as some information about me.</p>
-                      </div>
-  </div>
-  <div class="quarto-title-meta column-page-left">
-    </div>
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
-  </ul>
-</nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(31)</span></div><div class="category" data-category="AI">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(3)</span></div><div class="category" data-category="book review">book review <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data engineering">data engineering <span class="quarto-category-count">(5)</span></div><div class="category" data-category="math">math <span class="quarto-category-count">(12)</span></div><div class="category" data-category="non-technical">non-technical <span class="quarto-category-count">(2)</span></div><div class="category" data-category="probability">probability <span class="quarto-category-count">(3)</span></div><div class="category" data-category="product">product <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(2)</span></div><div class="category" data-category="soft skills">soft skills <span class="quarto-category-count">(2)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(11)</span></div></div></div>
+    
 <!-- main -->
-<div class="quarto-about-jolla column-page-left">
- <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-<section id="section" class="level3">
-<h3 data-anchor-id="section"></h3>
+<main class="content column-page" id="quarto-document-content">
 
 
+
+
+<div class="about-hero">
+<section id="meu-trabalho-começa-com-uma-pergunta-melhor." class="level1 about-hero__copy">
+<h1>Meu trabalho começa com uma pergunta melhor.</h1>
+<p>Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.</p>
+<p>Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.</p>
+<p>Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora da apresentação.</p>
 </section>
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="data engineering" data-listing-date-sort="1746241200000" data-listing-file-modified-sort="1746304203729" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
-<div class="thumbnail">
-<p><a href="./posts/0031-biq-query/index.html" class="no-external"></a></p><a href="./posts/0031-biq-query/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0031-biq-query/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0031-biq-query/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0031-biq-query/index.html" class="no-external">Intro to: Big Query</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0031-biq-query/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data engineering'); return false;">
-data engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0031-biq-query/index.html" class="no-external">An Introduction to Google BigQuery: Fast, Serverless, and (Potentially) Costly.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0031-biq-query/index.html" class="no-external">
-<div class="listing-date">
-May 3, 2025
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="data engineering,AI" data-listing-date-sort="1743303600000" data-listing-file-modified-sort="1746301782140" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3640">
-<div class="thumbnail">
-<p><a href="./posts/0030-llm-ops/index.html" class="no-external"></a></p><a href="./posts/0030-llm-ops/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0030-llm-ops/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0030-llm-ops/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0030-llm-ops/index.html" class="no-external">Some notes: LLMOps</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0030-llm-ops/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data engineering'); return false;">
-data engineering
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
-AI
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0030-llm-ops/index.html" class="no-external">This are my notes, from the Data Camp course LLMOps concepts.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0030-llm-ops/index.html" class="no-external">
-<div class="listing-date">
-Mar 30, 2025
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="data engineering" data-listing-date-sort="1743217200000" data-listing-file-modified-sort="1743252232501" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="616">
-<div class="thumbnail">
-<p><a href="./posts/0029-dbt-test/index.html" class="no-external"></a></p><a href="./posts/0029-dbt-test/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0029-dbt-test/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0029-dbt-test/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0029-dbt-test/index.html" class="no-external">Intro: dbt testing</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0029-dbt-test/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data engineering'); return false;">
-data engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0029-dbt-test/index.html" class="no-external">In this post we talk about dbt testing.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0029-dbt-test/index.html" class="no-external">
-<div class="listing-date">
-Mar 29, 2025
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="non-technical" data-listing-date-sort="1742180400000" data-listing-file-modified-sort="1743248923600" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="389">
-<div class="thumbnail">
-<p><a href="./posts/0028-data-driven-stages/index.html" class="no-external"></a></p><a href="./posts/0028-data-driven-stages/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0028-data-driven-stages/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0028-data-driven-stages/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0028-data-driven-stages/index.html" class="no-external">Some notes: Data driven stages</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0028-data-driven-stages/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('non-technical'); return false;">
-non-technical
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0028-data-driven-stages/index.html" class="no-external">In this post we explore stages of a data driven decision.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0028-data-driven-stages/index.html" class="no-external">
-<div class="listing-date">
-Mar 17, 2025
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="math,statistics" data-listing-date-sort="1734750000000" data-listing-file-modified-sort="1735760816393" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="740">
-<div class="thumbnail">
-<p><a href="./posts/0027-hdi-index/index.html" class="no-external"></a></p><a href="./posts/0027-hdi-index/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0027-hdi-index/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0027-hdi-index/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0027-hdi-index/index.html" class="no-external">An intro to: Human Development Index</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0027-hdi-index/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0027-hdi-index/index.html" class="no-external">In this post we explore the formula of the Human Development Index (HDI).</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0027-hdi-index/index.html" class="no-external">
-<div class="listing-date">
-Dec 21, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="product" data-listing-date-sort="1732762800000" data-listing-file-modified-sort="1735760816392" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1849">
-<div class="thumbnail">
-<p><a href="./posts/0026-aarrr-framework/index.html" class="no-external"></a></p><a href="./posts/0026-aarrr-framework/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0026-aarrr-framework/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0026-aarrr-framework/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0026-aarrr-framework/index.html" class="no-external">An intro to: AARRR framework</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0026-aarrr-framework/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('product'); return false;">
-product
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0026-aarrr-framework/index.html" class="no-external">In this post we cover a bit of the pirate metrics framework, AARRR.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0026-aarrr-framework/index.html" class="no-external">
-<div class="listing-date">
-Nov 28, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="analysis,statistics" data-listing-date-sort="1732503600000" data-listing-file-modified-sort="1735760816391" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1258">
-<div class="thumbnail">
-<p><a href="./posts/0025-brazilian-names/index.html" class="no-external"></a></p><a href="./posts/0025-brazilian-names/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0025-brazilian-names/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0025-brazilian-names/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0025-brazilian-names/index.html" class="no-external">An analysis of: Brazilian names</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0025-brazilian-names/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0025-brazilian-names/index.html" class="no-external">In this analysis, we seek to discover how the Brazilian population’s names were till 2010.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0025-brazilian-names/index.html" class="no-external">
-<div class="listing-date">
-Nov 25, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="data engineering" data-listing-date-sort="1732417200000" data-listing-file-modified-sort="1735760816389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1084">
-<div class="thumbnail">
-<p><a href="./posts/0023-dbt/index.html" class="no-external"></a></p><a href="./posts/0023-dbt/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0023-dbt/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0023-dbt/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0023-dbt/index.html" class="no-external">Some notes: Introduction to dbt</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0023-dbt/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data engineering'); return false;">
-data engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0023-dbt/index.html" class="no-external">This are my notes, from the Data Camp course Introduction to dbt.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0023-dbt/index.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="data engineering" data-listing-date-sort="1732417200000" data-listing-file-modified-sort="1735760816390" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1391">
-<div class="thumbnail">
-<p><a href="./posts/0024-dw/index.html" class="no-external"></a></p><a href="./posts/0024-dw/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0024-dw/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0024-dw/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0024-dw/index.html" class="no-external">Some notes: Datawarehouse concepts</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0024-dw/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data engineering'); return false;">
-data engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0024-dw/index.html" class="no-external">This are my notes, from the Data Camp course Datawarehouse concepts.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0024-dw/index.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="math" data-listing-date-sort="1713754800000" data-listing-file-modified-sort="1735760816388" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="722">
-<div class="thumbnail">
-<p><a href="./posts/0022-ahp/index.html" class="no-external"></a></p><a href="./posts/0022-ahp/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0022-ahp/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0022-ahp/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0022-ahp/index.html" class="no-external">Intro to: AHP</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0022-ahp/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0022-ahp/index.html" class="no-external">In this post, we explore the consistency indexes (CI) for a analytics hierarchy process (AHP).</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0022-ahp/index.html" class="no-external">
-<div class="listing-date">
-Apr 22, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="math,statistics" data-listing-date-sort="1713236400000" data-listing-file-modified-sort="1735760816387" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1021">
-<div class="thumbnail">
-<p><a href="./posts/0021-r2/index.html" class="no-external"></a></p><a href="./posts/0021-r2/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0021-r2/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0021-r2/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0021-r2/index.html" class="no-external">Intro to: R²</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0021-r2/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0021-r2/index.html" class="no-external">In this post, we explore the infamous metric R².</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0021-r2/index.html" class="no-external">
-<div class="listing-date">
-Apr 16, 2024
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="soft skills" data-listing-date-sort="1698548400000" data-listing-file-modified-sort="1735760816386" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1303">
-<div class="thumbnail">
-<p><a href="./posts/0020-better-presentations/index.html" class="no-external"></a></p><a href="./posts/0020-better-presentations/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0020-better-presentations/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0020-better-presentations/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0020-better-presentations/index.html" class="no-external">Some notes: Better Presentations</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0020-better-presentations/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('soft skills'); return false;">
-soft skills
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0020-better-presentations/index.html" class="no-external">In this post, I describe some notes I took after taking a course to improve my presentation skills.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0020-better-presentations/index.html" class="no-external">
-<div class="listing-date">
-Oct 29, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="math" data-listing-date-sort="1696129200000" data-listing-file-modified-sort="1735760816385" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="923">
-<div class="thumbnail">
-<p><a href="./posts/0019-quadratic-equation/index.html" class="no-external"></a></p><a href="./posts/0019-quadratic-equation/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0019-quadratic-equation/banner.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0019-quadratic-equation/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0019-quadratic-equation/index.html" class="no-external">Getting proof: Bhaskara formula</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0019-quadratic-equation/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0019-quadratic-equation/index.html" class="no-external">In this post, we explore the root of the quadratic equation, i.e., Bhaskara formula.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0019-quadratic-equation/index.html" class="no-external">
-<div class="listing-date">
-Oct 1, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="book review,soft skills" data-listing-date-sort="1695524400000" data-listing-file-modified-sort="1735760816384" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1850">
-<div class="thumbnail">
-<p><a href="./posts/0018-measure-what-matters/index.html" class="no-external"></a></p><a href="./posts/0018-measure-what-matters/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0018-measure-what-matters/0018-measure-what-matters.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0018-measure-what-matters/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0018-measure-what-matters/index.html" class="no-external">Unveiling the pages: Measure what matters</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0018-measure-what-matters/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('book review'); return false;">
-book review
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('soft skills'); return false;">
-soft skills
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0018-measure-what-matters/index.html" class="no-external">In this post, we will dive into the pages of John Doerr’s book Measure What Matters.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0018-measure-what-matters/index.html" class="no-external">
-<div class="listing-date">
-Sep 24, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="book review,non-technical" data-listing-date-sort="1694228400000" data-listing-file-modified-sort="1735760816383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1877">
-<div class="thumbnail">
-<p><a href="./posts/0017-i-robot/index.html" class="no-external"></a></p><a href="./posts/0017-i-robot/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0017-i-robot/i-robot.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0017-i-robot/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0017-i-robot/index.html" class="no-external">Unveiling the pages: I, Robot</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0017-i-robot/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('book review'); return false;">
-book review
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('non-technical'); return false;">
-non-technical
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0017-i-robot/index.html" class="no-external">In this post, we will dive into the pages of Isaac Asimov’s book I, Robot, and how we see the parallel to the growth of AI.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0017-i-robot/index.html" class="no-external">
-<div class="listing-date">
-Sep 9, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="math,statistics" data-listing-date-sort="1693969200000" data-listing-file-modified-sort="1735760816379" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1299">
-<div class="thumbnail">
-<p><a href="./posts/0016-models-and-logs/index.html" class="no-external"></a></p><a href="./posts/0016-models-and-logs/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0016-models-and-logs/intro-models-and-logs.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0016-models-and-logs/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0016-models-and-logs/index.html" class="no-external">An intro to: Linear and log models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0016-models-and-logs/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0016-models-and-logs/index.html" class="no-external">In this post, we will see how logs aren’t just for lumberjacks, but also for models.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0016-models-and-logs/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="math,probability" data-listing-date-sort="1693105200000" data-listing-file-modified-sort="1735760816378" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1124">
-<div class="thumbnail">
-<p><a href="./posts/0015-combination/index.html" class="no-external"></a></p><a href="./posts/0015-combination/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0015-combination/intro-combination-permutation.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0015-combination/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0015-combination/index.html" class="no-external">An intro to: Combination and Permutation</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0015-combination/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('probability'); return false;">
-probability
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0015-combination/index.html" class="no-external">In this post, we will see that with just four questions we can easily understand which formula to apply.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0015-combination/index.html" class="no-external">
-<div class="listing-date">
-Aug 27, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="17" data-categories="statistics" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1735760816376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="435">
-<div class="thumbnail">
-<p><a href="./posts/0013-berkson-paradox/index.html" class="no-external"></a></p><a href="./posts/0013-berkson-paradox/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0013-berkson-paradox/intro-berkson-paradox.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0013-berkson-paradox/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0013-berkson-paradox/index.html" class="no-external">An intro to: Berkson’s paradox</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0013-berkson-paradox/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0013-berkson-paradox/index.html" class="no-external">In this post, we will see how a selection can invert a relationship<strong>.</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0013-berkson-paradox/index.html" class="no-external">
-<div class="listing-date">
-Aug 20, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="18" data-categories="statistics" data-listing-date-sort="1692500400000" data-listing-file-modified-sort="1735760816377" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="529">
-<div class="thumbnail">
-<p><a href="./posts/0014-simpson-paradox/index.html" class="no-external"></a></p><a href="./posts/0014-simpson-paradox/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0014-simpson-paradox/intro-simpson-paradox.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0014-simpson-paradox/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0014-simpson-paradox/index.html" class="no-external">An intro to: Simpson’s paradox</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0014-simpson-paradox/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0014-simpson-paradox/index.html" class="no-external">In this post, we will see how a third party can show us the truth about a relationship<strong>.</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0014-simpson-paradox/index.html" class="no-external">
-<div class="listing-date">
-Aug 20, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="19" data-categories="statistics" data-listing-date-sort="1691895600000" data-listing-file-modified-sort="1735760816375" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3084">
-<div class="thumbnail">
-<p><a href="./posts/0012-mean/index.html" class="no-external"></a></p><a href="./posts/0012-mean/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0012-mean/intro-to-mean.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0012-mean/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0012-mean/index.html" class="no-external">An intro to: Mean</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0012-mean/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0012-mean/index.html" class="no-external">In this post, we will navigate the Land of the Averages<strong>.</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0012-mean/index.html" class="no-external">
-<div class="listing-date">
-Aug 13, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="20" data-categories="math,probability" data-listing-date-sort="1691204400000" data-listing-file-modified-sort="1735760816372" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="458">
-<div class="thumbnail">
-<p><a href="./posts/0011-birthday-paradox/index.html" class="no-external"></a></p><a href="./posts/0011-birthday-paradox/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0011-birthday-paradox/intro-to-birthday-paradox.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0011-birthday-paradox/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0011-birthday-paradox/index.html" class="no-external">An intro to: Birthday Paradox</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0011-birthday-paradox/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('probability'); return false;">
-probability
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0011-birthday-paradox/index.html" class="no-external">In this post, we will learn about the likelihood of birthdays colliding.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0011-birthday-paradox/index.html" class="no-external">
-<div class="listing-date">
-Aug 5, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="21" data-categories="math,statistics" data-listing-date-sort="1690686000000" data-listing-file-modified-sort="1735760816369" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1821">
-<div class="thumbnail">
-<p><a href="./posts/0010-logistic-regression/index.html" class="no-external"></a></p><a href="./posts/0010-logistic-regression/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0010-logistic-regression/intro-to-logistic-regression.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0010-logistic-regression/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0010-logistic-regression/index.html" class="no-external">An intro to: Logistic Regression</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0010-logistic-regression/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0010-logistic-regression/index.html" class="no-external">In this post, we will board the S.S. Logistic and learn about the Titanic passengers’ survival.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0010-logistic-regression/index.html" class="no-external">
-<div class="listing-date">
-Jul 30, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="22" data-categories="probability,math" data-listing-date-sort="1690340400000" data-listing-file-modified-sort="1735760816368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="997">
-<div class="thumbnail">
-<p><a href="./posts/0009-monty-hall/index.html" class="no-external"></a></p><a href="./posts/0009-monty-hall/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0009-monty-hall/intro-to-monty-hall.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0009-monty-hall/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0009-monty-hall/index.html" class="no-external">An intro to: Monty Hall problem</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0009-monty-hall/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('probability'); return false;">
-probability
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0009-monty-hall/index.html" class="no-external">In this post you will learn (or I hope you do) how probability is not intuitive, but it can make sense.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0009-monty-hall/index.html" class="no-external">
-<div class="listing-date">
-Jul 26, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="23" data-categories="math" data-listing-date-sort="1690254000000" data-listing-file-modified-sort="1735760816367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="816">
-<div class="thumbnail">
-<p><a href="./posts/0008-benford-law/index.html" class="no-external"></a></p><a href="./posts/0008-benford-law/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0008-benford-law/intro-to-benford-law.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0008-benford-law/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0008-benford-law/index.html" class="no-external">An intro to: Benford’s Law</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0008-benford-law/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0008-benford-law/index.html" class="no-external">In this post you will learn how to fraud a fraud detection.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0008-benford-law/index.html" class="no-external">
-<div class="listing-date">
-Jul 25, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="24" data-categories="analysis" data-listing-date-sort="1689476400000" data-listing-file-modified-sort="1735760816367" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1609">
-<div class="thumbnail">
-<p><a href="./posts/0007-king-james-bible/index.html" class="no-external"></a></p><a href="./posts/0007-king-james-bible/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/0007-king-james-bible/intro-to-king-james-bible.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0007-king-james-bible/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0007-king-james-bible/index.html" class="no-external">An analysis of: The King James Bible</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0007-king-james-bible/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0007-king-james-bible/index.html" class="no-external">In this post you will learn the hallelujah highs and lament lows of the bible.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0007-king-james-bible/index.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="25" data-categories="statistics" data-listing-date-sort="1687057200000" data-listing-file-modified-sort="1735760816361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1061">
-<div class="thumbnail">
-<p><a href="./posts/0006-normal-distribution/index.html" class="no-external"></a></p><a href="./posts/0006-normal-distribution/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0006-normal-distribution/intro-to-normal-distribution.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0006-normal-distribution/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0006-normal-distribution/index.html" class="no-external">An intro to: Normal Distribution</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0006-normal-distribution/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0006-normal-distribution/index.html" class="no-external">In this post you will learn what bell, Gauss and simmetry have in common.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0006-normal-distribution/index.html" class="no-external">
-<div class="listing-date">
-Jun 18, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="26" data-categories="analysis,statistics" data-listing-date-sort="1673665200000" data-listing-file-modified-sort="1735760816360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3093">
-<div class="thumbnail">
-<p><a href="./posts/0005-settlers-of-catan/index.html" class="no-external"></a></p><a href="./posts/0005-settlers-of-catan/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0005-settlers-of-catan/an-analysis-of-settlers-of-catan.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0005-settlers-of-catan/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0005-settlers-of-catan/index.html" class="no-external">An analysis of: Settlers of Catan</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0005-settlers-of-catan/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0005-settlers-of-catan/index.html" class="no-external">In this post you will learn how statistics and probability can help you to win a board game.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0005-settlers-of-catan/index.html" class="no-external">
-<div class="listing-date">
-Jan 14, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="27" data-categories="r" data-listing-date-sort="1673146800000" data-listing-file-modified-sort="1735760816358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1156">
-<div class="thumbnail">
-<p><a href="./posts/0004-tidyverse-operators/index.html" class="no-external"></a></p><a href="./posts/0004-tidyverse-operators/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0004-tidyverse-operators/intro-to-tidyverse-operators.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0004-tidyverse-operators/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0004-tidyverse-operators/index.html" class="no-external">An intro to: Tidyverse Operators</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0004-tidyverse-operators/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0004-tidyverse-operators/index.html" class="no-external">In this post you will learn that a walrus is not just a animal.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0004-tidyverse-operators/index.html" class="no-external">
-<div class="listing-date">
-Jan 8, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="28" data-categories="math" data-listing-date-sort="1673060400000" data-listing-file-modified-sort="1735760816356" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3224">
-<div class="thumbnail">
-<p><a href="./posts/0003-log-scale/index.html" class="no-external"></a></p><a href="./posts/0003-log-scale/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0003-log-scale/intro-to-log-scale.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0003-log-scale/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0003-log-scale/index.html" class="no-external">An intro to: Logarithmic Scale</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0003-log-scale/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0003-log-scale/index.html" class="no-external">In this post you will learn how to go beyond linear.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0003-log-scale/index.html" class="no-external">
-<div class="listing-date">
-Jan 7, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="29" data-categories="r" data-listing-date-sort="1672628400000" data-listing-file-modified-sort="1735760816354" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1954">
-<div class="thumbnail">
-<p><a href="./posts/0002-dplyr-across/index.html" class="no-external"></a></p><a href="./posts/0002-dplyr-across/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0002-dplyr-across/intro-to-dplyr-across.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0002-dplyr-across/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0002-dplyr-across/index.html" class="no-external">An intro to: dplyr::across</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0002-dplyr-across/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0002-dplyr-across/index.html" class="no-external">In this post you will learn to never repeat a function again inside a <code>dplyr</code> pipeline.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0002-dplyr-across/index.html" class="no-external">
-<div class="listing-date">
-Jan 2, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="30" data-categories="statistics,math" data-listing-date-sort="1672542000000" data-listing-file-modified-sort="1735760816352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2018">
-<div class="thumbnail">
-<p><a href="./posts/0001-chi-square-test/index.html" class="no-external"></a></p><a href="./posts/0001-chi-square-test/index.html" class="no-external">
-<p><img loading="lazy" data-src="./posts/0001-chi-square-test/intro-to-chi-square-test.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/0001-chi-square-test/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/0001-chi-square-test/index.html" class="no-external">An intro to: Chi-square Test</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/0001-chi-square-test/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/0001-chi-square-test/index.html" class="no-external">In this post I’ll solve the mystery of the Chi-Square, spoiler alert: It’s significant!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/0001-chi-square-test/index.html" class="no-external">
-<div class="listing-date">
-Jan 1, 2023
-</div>
-<div class="listing-author">
-Vinícius Félix
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
-</div></main>  
-</div>
- <!-- /main -->
-<script>
-(() => {
-  const STORAGE_KEY = "vbfelix-language";
-  const PORTUGUESE_SEGMENT = "/pt-br/";
-  const labels = {
-    "header-about.html": { en: "About me", pt: "Sobre mim" },
-    "header-publications.html": { en: "Publications", pt: "Publicações" },
-    "header-certifications.html": { en: "Certifications", pt: "Certificações" },
-    "header-participations.html": { en: "Participations", pt: "Participações" },
-    "header-awards.html": { en: "Awards", pt: "Prêmios" }
-  };
+<div class="about-hero__portrait">
+<figure class="portrait-plot figure" data-bootstrap="" aria-label="Retrato artístico de Vinícius Félix formado por pontos em um plano bivariado">
+<img src="./images/portrait-scatter-gray.png" alt="Vinícius Félix retratado em pontos de giz, como uma nuvem de dispersão." width="1254" height="1254" class="figure-img">
+<svg viewbox="0 0 460 460" aria-hidden="true" focusable="false">
+<g class="portrait-plot__grid"><path d="M55 110H420M55 185H420M55 260H420M55 335H420M130 40V410M205 40V410M280 40V410M355 40V410"></path></g>
+<g class="portrait-plot__axes"><path d="M55 35V410H425M50 110H60M50 185H60M50 260H60M50 335H60M130 405V415M205 405V415M280 405V415M355 405V415"></path></g>
+<g class="portrait-plot__labels"><text x="433" y="416">x</text><text x="49" y="25">y</text><text x="39" y="429">0</text></g>
+</svg>
+</figure>
+<script src="./assets/js/portrait-bootstrap.js" defer=""></script>
+</div>
+</div>
+<div class="about-principles">
+<div class="about-principles__intro">
+<p class="section-kicker">
+COMO EU TRABALHO · NA PRÁTICA
+</p>
+<section id="não-coleciono-cargos.-sigo-problemas-difíceis." class="level2">
+<h2 class="anchored" data-anchor-id="não-coleciono-cargos.-sigo-problemas-difíceis.">Não coleciono cargos. Sigo problemas difíceis.</h2>
+<p>Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.</p>
+</section>
+</div>
+<div class="about-principles__list">
+<section id="a-pergunta-vem-primeiro." class="level3 about-principle">
+<h3 class="anchored" data-anchor-id="a-pergunta-vem-primeiro.">A pergunta vem primeiro.</h3>
+<p>Antes de construir, quero saber o que merece existir. Uma resposta precisa para o problema errado ainda é desperdício.</p>
+</section>
+<section id="assumo-o-problema-que-ninguém-quer." class="level3 about-principle">
+<h3 class="anchored" data-anchor-id="assumo-o-problema-que-ninguém-quer.">Assumo o problema que ninguém quer.</h3>
+<p>Fico perto o bastante para ver funcionar de ponta a ponta e digo o que é inconveniente quando o trabalho exige isso.</p>
+</section>
+<section id="o-dado-precisa-sobreviver-à-realidade." class="level3 about-principle">
+<h3 class="anchored" data-anchor-id="o-dado-precisa-sobreviver-à-realidade.">O dado precisa sobreviver à realidade.</h3>
+<p>Uso estatística para transformar opinião em teste. O método só importa quando funciona além da análise e dentro da operação.</p>
+</section>
+<section id="contexto-é-trabalho-humano." class="level3 about-principle">
+<h3 class="anchored" data-anchor-id="contexto-é-trabalho-humano.">Contexto é trabalho humano.</h3>
+<p>Ferramentas aceleram o trabalho. Estrutura, relações e julgamento ainda vêm de quem entende o problema.</p>
+</section>
+<section id="aceitável-não-basta." class="level3 about-principle">
+<h3 class="anchored" data-anchor-id="aceitável-não-basta.">Aceitável não basta.</h3>
+<p>Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a incerteza, testar a premissa e refazer o que não se sustenta.</p>
+</section>
+</div>
+</div>
+<div id="experience" class="about-history">
+<section id="experiência-profissional" class="level2">
+<h2 class="anchored" data-anchor-id="experiência-profissional">Experiência profissional</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Período</th>
+<th>Organização e função</th>
+<th>Trabalho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>08/24 - 09/26</td>
+<td><img src=".\images/datlo-icon-white.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Chief Product Officer</td>
+<td>Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.</td>
+</tr>
+<tr class="even">
+<td>01/24 - 07/24</td>
+<td><img src=".\images/datlo-icon-white.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Head of Data</td>
+<td>Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.</td>
+</tr>
+<tr class="odd">
+<td>02/23 - 12/23</td>
+<td><img src=".\images/ponta.jfif" class="company-logo" width="31" height="31" alt="Logotipo de Ponta"> Ponta, Services Manager</td>
+<td>Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.</td>
+</tr>
+<tr class="even">
+<td>04/22 - 01/23</td>
+<td><img src=".\images/ga_intergado.jfif" class="company-logo" width="31" height="31" alt="Logotipo de GA + Intergado"> GA + Intergado, Strategy Manager</td>
+<td>Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&amp;D, reduzindo em 80% as interrupções das sprints.</td>
+</tr>
+<tr class="odd">
+<td>01/21 - 03/22</td>
+<td><img src=".\images/ga_logo.jpg" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, R&amp;D Manager</td>
+<td>Liderei o P&amp;D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.</td>
+</tr>
+<tr class="even">
+<td>09/20 - 12/20</td>
+<td><img src=".\images/ga_logo.jpg" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, Data Manager</td>
+<td>Criei a equipe e a metodologia de projetos de dados do P&amp;D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.</td>
+</tr>
+<tr class="odd">
+<td>10/18 - 11/19</td>
+<td><img src=".\images/unicesumar_logo-01.png" class="company-logo" width="31" height="31" alt="Logotipo de Unicesumar"> Unicesumar, professor</td>
+<td>Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.</td>
+</tr>
+<tr class="even">
+<td>09/16 - 08/20</td>
+<td><img src=".\images/h0_logo.jpg" class="company-logo" width="31" height="31" alt="Logotipo de H0 Consultoria"> H0 Consultoria, consultor e cofundador</td>
+<td>Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.</td>
+</tr>
+<tr class="odd">
+<td>07/13 - 12/15</td>
+<td><img src=".\images/estats_logo.jpg" class="company-logo" width="31" height="31" alt="Logotipo de Estats Consultoria"> Estats Consultoria, cofundador</td>
+<td>Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+<p><a href="./header-experience.html" class="experience-link">Ver experiência completa</a></p>
 
-  const nav = document.querySelector("#navbarCollapse .navbar-nav");
-  if (!nav) return;
 
-  const institutionalPages = new Set(Object.keys(labels));
-  const currentFilename = window.location.pathname.split("/").pop() || "index.html";
-  const isPortuguesePage = window.location.pathname.includes(PORTUGUESE_SEGMENT);
 
-  const getSavedLanguage = () => {
-    try {
-      return localStorage.getItem(STORAGE_KEY) === "pt-BR" ? "pt-BR" : "en";
-    } catch (_) {
-      return "en";
-    }
-  };
-
-  const saveLanguage = (language) => {
-    try {
-      localStorage.setItem(STORAGE_KEY, language);
-    } catch (_) {
-      // The switch still works when browser storage is unavailable.
-    }
-  };
-
-  const item = document.createElement("li");
-  item.className = "nav-item language-switcher-item";
-
-  const button = document.createElement("button");
-  button.className = "nav-link language-switcher";
-  button.type = "button";
-  item.appendChild(button);
-
-  const firstCompactItem = nav.querySelector(".nav-item.compact");
-  nav.insertBefore(item, firstCompactItem);
-
-  const applyLanguage = (language) => {
-    const isPortuguese = language === "pt-BR";
-
-    nav.querySelectorAll("a.nav-link[href]").forEach((link) => {
-      const url = new URL(link.href, window.location.href);
-      const filename = url.pathname.split("/").pop() || "index.html";
-      const translation = labels[filename];
-      const text = link.querySelector(".menu-text");
-
-      if (translation && text) {
-        text.textContent = isPortuguese ? translation.pt : translation.en;
-        if (isPortuguese && !url.pathname.includes(PORTUGUESE_SEGMENT)) {
-          url.pathname = url.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`);
-        } else if (!isPortuguese) {
-          url.pathname = url.pathname.replace(PORTUGUESE_SEGMENT, "/");
-        }
-        link.href = url.href;
-      }
-    });
-
-    const footer = document.querySelector(".nav-footer-left p");
-    if (footer) {
-      footer.dataset.english = footer.dataset.english || footer.innerHTML;
-      footer.innerHTML = isPortuguese
-        ? footer.dataset.english
-            .replace("Blog made with", "Blog criado com")
-            .replace(", by", ", por")
-            .replace("License:", "Licença:")
-        : footer.dataset.english;
-    }
-
-    button.innerHTML = isPortuguese
-      ? '<span aria-hidden="true">🇺🇸</span><span>EN</span>'
-      : '<span aria-hidden="true">🇧🇷</span><span>PT-BR</span>';
-    button.setAttribute(
-      "aria-label",
-      isPortuguese ? "Alterar o site para inglês" : "Alterar o site para português brasileiro"
-    );
-    button.dataset.language = language;
-  };
-
-  let language = isPortuguesePage ? "pt-BR" : getSavedLanguage();
-  if (isPortuguesePage) saveLanguage(language);
-
-  if (!isPortuguesePage && language === "pt-BR" && institutionalPages.has(currentFilename)) {
-    const target = new URL(window.location.href);
-    target.pathname = target.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`);
-    window.location.replace(target.href);
-    return;
-  }
-
-  applyLanguage(language);
-
-  button.addEventListener("click", () => {
-    language = language === "pt-BR" ? "en" : "pt-BR";
-    saveLanguage(language);
-
-    if (institutionalPages.has(currentFilename)) {
-      const target = new URL(window.location.href);
-      target.pathname = language === "pt-BR"
-        ? target.pathname.replace(/\/([^/]+)$/, `${PORTUGUESE_SEGMENT}$1`)
-        : target.pathname.replace(PORTUGUESE_SEGMENT, "/");
-      window.location.assign(target.href);
-      return;
-    }
-
-    applyLanguage(language);
-  });
-})();
-</script>
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1436,6 +304,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -1452,12 +327,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiada");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiada");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1501,7 +376,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1833,13 +708,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Blog made with <a href="https://quarto.org/">Quarto</a>, by <a href="https://github.com/vbfelix/vbfelix.github.io">Vinícius Félix</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      &nbsp;
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+<p>Sobre</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/vbfelix">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
     </div>
   </div>
 </footer>

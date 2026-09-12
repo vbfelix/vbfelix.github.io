@@ -1,0 +1,8 @@
+---
+title: "Escritos"
+lang: pt-BR
+toc: false
+search: false
+---
+
+{{< include _content/writing.qmd >}}

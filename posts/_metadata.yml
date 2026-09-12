@@ -6,3 +6,9 @@ freeze: true
 
 # Enable banner style title blocks
 title-block-banner: true
+
+# Historical articles retain their original language.
+lang: en-US
+
+# Hidden from discovery; existing article URLs remain valid.
+search: false

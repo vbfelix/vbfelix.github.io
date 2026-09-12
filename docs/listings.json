@@ -1,38 +1,10 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/posts/0031-biq-query/index.html",
-      "/posts/0030-llm-ops/index.html",
-      "/posts/0029-dbt-test/index.html",
-      "/posts/0028-data-driven-stages/index.html",
-      "/posts/0027-hdi-index/index.html",
-      "/posts/0026-aarrr-framework/index.html",
-      "/posts/0025-brazilian-names/index.html",
-      "/posts/0023-dbt/index.html",
-      "/posts/0024-dw/index.html",
-      "/posts/0022-ahp/index.html",
-      "/posts/0021-r2/index.html",
-      "/posts/0020-better-presentations/index.html",
-      "/posts/0019-quadratic-equation/index.html",
-      "/posts/0018-measure-what-matters/index.html",
-      "/posts/0017-i-robot/index.html",
-      "/posts/0016-models-and-logs/index.html",
-      "/posts/0015-combination/index.html",
-      "/posts/0013-berkson-paradox/index.html",
-      "/posts/0014-simpson-paradox/index.html",
-      "/posts/0012-mean/index.html",
-      "/posts/0011-birthday-paradox/index.html",
-      "/posts/0010-logistic-regression/index.html",
-      "/posts/0009-monty-hall/index.html",
-      "/posts/0008-benford-law/index.html",
-      "/posts/0007-king-james-bible/index.html",
-      "/posts/0006-normal-distribution/index.html",
-      "/posts/0005-settlers-of-catan/index.html",
-      "/posts/0004-tidyverse-operators/index.html",
-      "/posts/0003-log-scale/index.html",
-      "/posts/0002-dplyr-across/index.html",
-      "/posts/0001-chi-square-test/index.html"
+      "/portfolio/0032-ux-produtos-fisicos/index.html",
+      "/portfolio/0033-sucesso-ia-iatf/index.html",
+      "/portfolio/0034-zonas-de-manejo-satelites/index.html"
     ]
   }
 ]
