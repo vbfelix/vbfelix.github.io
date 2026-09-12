@@ -44,12 +44,20 @@ website:
       - header-awards.qmd
       - icon: github
         href: https://github.com/vbfelix
+        target: _blank
+        rel: noopener
       - icon: linkedin
         href: https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/
+        target: _blank
+        rel: noopener
       - icon: stack-overflow
         href: https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix
+        target: _blank
+        rel: noopener
       - icon: box-seam
         href: https://vbfelix.github.io/relper
+        target: _blank
+        rel: noopener
 
 format:
   html:
