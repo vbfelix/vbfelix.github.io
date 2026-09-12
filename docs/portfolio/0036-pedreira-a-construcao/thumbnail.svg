@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Observar o percurso da pedra</title>
+<desc id="desc">Pedras passam por um britador, uma pilha intermediária e uma peneira, com retorno para reprocessamento. Um ponto de medição é destacado. Esquema conceitual da operação.</desc>
+<defs>
+<pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".055"/></pattern>
+<radialGradient id="board"><stop stop-color="#214e41"/><stop offset="1" stop-color="#173f35"/></radialGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#b8d9df" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#board)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M102 320l50-68 74 7 54 58-15 70H127zM152 252l25 84 49-77M102 320l75 16 88 51" stroke="#b8d9df" /><path d="M326 256h150l-29 113h-92zM363 369v59m75-59v59M350 298h100M374 285l27 55 24-55" stroke="#f2efe0" /><path d="M267 337h57" stroke="#b8d9df" marker-end="url(#arrow)"/><path d="M471 392l113 76h167" stroke="#b8d9df" /><path d="M532 523l75-78 79 78zM553 523l54-49 36 49" stroke="#f2efe0" /><path d="M761 370h156l-22 103H784zM791 408h97M800 432h80" stroke="#f2efe0" /><path d="M693 482l65-65" stroke="#b8d9df" marker-end="url(#arrow)"/><path d="M974 510l52-61 71 61zM998 527h108" stroke="#efd58e" /><path d="M920 414q89 0 101 30" stroke="#b8d9df" marker-end="url(#arrow)"/><path d="M862 348v-130H419v29" stroke="#b8d9df" marker-end="url(#arrow)"/><circle cx="539" cy="210" r="30" stroke="#efd58e" fill="none"/><path d="M523 210h32M539 194v32" stroke="#efd58e" /><path d="M542 150v-35m-18 14 18-14 18 14" stroke="#b8d9df" />
+</g>
+</svg>

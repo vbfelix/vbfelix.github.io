@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vinícius Félix">
 
-<title>O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix</title>
+<title>Ingerindo mais de 1 bilhão de pontos por dia – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,11 +70,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix">
+<meta property="og:title" content="Ingerindo mais de 1 bilhão de pontos por dia – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
-<meta property="og:image" content="https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/thumbnail.svg">
+<meta property="og:image" content="https://vbfelix.github.io/portfolio/0039-geobehavior/thumbnail.svg">
 <meta property="og:site_name" content="Vinícius Félix">
-<meta property="og:image:alt" content="Bovino conectado a um relógio, dois profissionais e um piquete com rio. Esquema conceitual dos fatores operacionais e ambientais da IATF.">
+<meta property="og:image:alt" content="Celular, registros espaçados em um mapa e símbolos de moradia e trabalho, com uma linha temporal irregular. Esquema conceitual, sem trajetórias ou localizações reais.">
 </head>
 
 <body class="nav-fixed">
@@ -154,14 +154,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#o-que-descobrimos-ao-cruzar-os-dados" id="toc-o-que-descobrimos-ao-cruzar-os-dados" class="nav-link active" data-scroll-target="#o-que-descobrimos-ao-cruzar-os-dados">O que descobrimos ao cruzar os dados</a></li>
-  <li><a href="#o-piquete-o-rio-e-a-informação-que-faltava" id="toc-o-piquete-o-rio-e-a-informação-que-faltava" class="nav-link" data-scroll-target="#o-piquete-o-rio-e-a-informação-que-faltava">O piquete, o rio e a informação que faltava</a></li>
-  <li><a href="#um-modelo-próprio-para-uma-comissão-mais-justa" id="toc-um-modelo-próprio-para-uma-comissão-mais-justa" class="nav-link" data-scroll-target="#um-modelo-próprio-para-uma-comissão-mais-justa">Um modelo próprio para uma comissão mais justa</a></li>
-  <li><a href="#da-análise-para-o-produto-e-a-próxima-estação" id="toc-da-análise-para-o-produto-e-a-próxima-estação" class="nav-link" data-scroll-target="#da-análise-para-o-produto-e-a-próxima-estação">Da análise para o produto e a próxima estação</a></li>
-  <li><a href="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil" id="toc-como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="nav-link" data-scroll-target="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil">Como evitamos um prejuízo de mais de R$ 100 mil</a>
-  <ul class="collapse">
-  <li><a href="#aprendizados-erros-de-interpretação-e-impactos" id="toc-aprendizados-erros-de-interpretação-e-impactos" class="nav-link" data-scroll-target="#aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</a></li>
-  </ul></li>
+  <li><a href="#receber-era-a-parte-fácil" id="toc-receber-era-a-parte-fácil" class="nav-link active" data-scroll-target="#receber-era-a-parte-fácil">Receber era a parte fácil</a></li>
+  <li><a href="#um-bilhão-de-pontos-não-significava-a-mesma-informação-sobre-cada-celular" id="toc-um-bilhão-de-pontos-não-significava-a-mesma-informação-sobre-cada-celular" class="nav-link" data-scroll-target="#um-bilhão-de-pontos-não-significava-a-mesma-informação-sobre-cada-celular">Um bilhão de pontos não significava a mesma informação sobre cada celular</a></li>
+  <li><a href="#o-geobehavior" id="toc-o-geobehavior" class="nav-link" data-scroll-target="#o-geobehavior">O Geobehavior</a></li>
+  <li><a href="#aprendizados-lições-erros-e-principais-impactos" id="toc-aprendizados-lições-erros-e-principais-impactos" class="nav-link" data-scroll-target="#aprendizados-lições-erros-e-principais-impactos">Aprendizados, lições, erros e principais impactos</a></li>
   </ul>
 </nav>
     </div>
@@ -170,11 +166,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">O que define o sucesso da IA, mas não estou falando de inteligência artificial</h1>
+<h1 class="title">Ingerindo mais de 1 bilhão de pontos por dia</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">statistics</div>
-    <div class="quarto-category">agribusiness</div>
-    <div class="quarto-category">research</div>
+    <div class="quarto-category">data engineering</div>
+    <div class="quarto-category">data science</div>
   </div>
   </div>
 
@@ -204,65 +199,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">O que define o sucesso da IA, mas não estou falando de inteligência artificial</li></ol></nav>
-<p>Aqui, IA é inseminação artificial. E a IATF, a inseminação artificial em tempo fixo, ajuda a organizar quando essa operação acontece.</p>
-<p>Na reprodução de bovinos, a inseminação artificial permite introduzir o sêmen no aparelho reprodutivo da fêmea sem a monta natural. A <a href="https://www.alice.cnptia.embrapa.br/alice/handle/doc/48114">IATF usa protocolos hormonais para sincronizar a ovulação</a> e permitir a inseminação em um momento programado, sem depender da identificação do cio de cada vaca para definir esse horário.</p>
-<p>O nome entrega a ideia: existe uma hora para fazer. E uma operação inteira precisa funcionar para que isso aconteça.</p>
-<p>Tive a oportunidade de trabalhar com o que considero o melhor sistema de controle da operação de IATF do Brasil. Coletávamos dados de toda a operação. Nosso trabalho era entender o que mais impactava os resultados e usar esse conhecimento para melhorar o produto e as decisões no campo.</p>
-<p>O mais óbvio era começar pelos fatores biológicos: a vaca e o sêmen. Claro que importavam. Mas será que era só isso?</p>
-<section id="o-que-descobrimos-ao-cruzar-os-dados" class="level1">
-<h1>O que descobrimos ao cruzar os dados</h1>
-<p>Analisar os fatores em conjunto mostrou que o resultado também dependia de como a operação acontecia:</p>
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">Ingerindo mais de 1 bilhão de pontos por dia</li></ol></nav>
+<p>Mais de 1 bilhão de pontos por dia. A estrutura do dado era simples: data e hora, um identificador do dispositivo e uma coordenada. O trabalho para transformar aquilo em informação útil era bem menos simples.</p>
+<p>Conduzi de ponta a ponta um projeto que lidava com dados de mais de 100 milhões de celulares. Minha atuação atravessou arquitetura, engenharia e ciência de dados, com a execução realizada pela equipe.</p>
+<p>Recebíamos cerca de 30 a 50 gigabytes (GB) por dia, em lotes que chegavam a cada hora. Precisávamos organizar e processar esse volume, controlar o custo e, depois, construir algo útil a partir dos registros de localização.</p>
+<section id="receber-era-a-parte-fácil" class="level1">
+<h1>Receber era a parte fácil</h1>
+<p>A ingestão, a entrada dos dados no nosso ambiente, colocava um problema de armazenamento e processamento. Precisávamos de formatos compactos, que ocupassem pouco espaço, e otimizados para leitura, para que trabalhar com os dados não exigisse um custo desproporcional.</p>
+<p>O pré-processamento também era importante. Antes de desenvolver os indicadores, havia trabalho de preparação dos dados, especialmente sobre sua dimensão espacial: a localização de cada ponto.</p>
+<p>A Uber foi uma referência nessa etapa. A eficácia com que o aplicativo processava os pontos ao solicitar um motorista nos levou a estudar sua abordagem geral de processamento e adaptá-la à nossa necessidade. Meu papel era conduzir essas decisões e manter a conexão entre a estrutura de engenharia e o que a ciência de dados precisaria construir depois.</p>
+<p>Resolvemos o desafio do volume com uma estrutura de baixo custo. Mas ter os pontos armazenados e prontos para processamento ainda deixava uma pergunta: o que conseguiríamos entender a partir deles?</p>
+</section>
+<section id="um-bilhão-de-pontos-não-significava-a-mesma-informação-sobre-cada-celular" class="level1">
+<h1>Um bilhão de pontos não significava a mesma informação sobre cada celular</h1>
+<p>O identificador não me dizia quem era o dono do aparelho. Ele permitia acompanhar registros associados a um dispositivo, mas oferecia apenas uma parte de seu comportamento.</p>
+<p>A frequência desses registros variava muito. Alguns celulares geravam <strong>um registro a cada dez dias</strong>. Outros chegavam a <strong>400 registros por dia</strong>. Tratar esses dois casos da mesma forma desconsideraria uma diferença central do dado.</p>
+<p>Essa irregularidade mudou a forma como precisávamos trabalhar:</p>
 <ul>
-<li><strong>A sequência de trabalho tinha um limite.</strong> A inseminação é uma atividade exaustiva. Identificamos queda de resultado após determinada quantidade de inseminações em sequência, e esse limite variava com a experiência do inseminador. Isso nos ajudou a definir limites operacionais e a modificar o produto para interferir em ações como a inseminação sequencial.</li>
-<li><strong>A combinação entre profissionais era crucial.</strong> Além do inseminador, havia o descongelador do sêmen. A velocidade de um, combinada ao perfil do outro, estava associada a diferenças importantes nos resultados. Atribuir tudo ao inseminador deixaria de fora uma parte relevante do trabalho.</li>
-<li><strong>O ambiente também aparecia no resultado.</strong> Alguns piquetes de uma fazenda apresentavam desempenho melhor, sem que as diferenças analisadas nos animais e nos operadores explicassem o padrão. Foi necessário conversar com quem conhecia o local para entender o motivo.</li>
-<li><strong>Resultado bruto não era uma medida direta de mérito.</strong> Alguns inseminadores experientes tinham preferência para escolher os animais e selecionavam os mais favoráveis. O indicador misturava o trabalho do profissional com a vantagem das condições em que ele atuava.</li>
+<li><strong>O volume total não descrevia a cobertura de cada dispositivo.</strong> Era necessário examinar os registros disponíveis para definir o que podia entrar em cada análise.</li>
+<li><strong>O período de observação precisava variar.</strong> Alguns dispositivos ofereciam informação útil em poucos dias; outros exigiam períodos mais longos.</li>
+<li><strong>Disponibilidade não bastava para uso.</strong> Critérios de elegibilidade, as condições para aceitar um registro na análise, faziam parte dos métodos.</li>
 </ul>
-<p>A dupla de profissionais é um exemplo de interação: o comportamento de um fator depende daquele com que ele se combina. Olhar apenas para a velocidade do descongelador ou apenas para o resultado do inseminador perderia justamente essa relação.</p>
+<p>Trabalhamos com diferentes janelas temporais, os intervalos de tempo considerados na análise, para ampliar a cobertura dos dispositivos. A irregularidade dos dados precisava ser tratada junto da construção dos indicadores.</p>
 </section>
-<section id="o-piquete-o-rio-e-a-informação-que-faltava" class="level1">
-<h1>O piquete, o rio e a informação que faltava</h1>
-<p>Ao encontrar diferenças entre os piquetes, eu sabia onde o padrão aparecia, mas ainda não entendia por quê. Fui perguntar a quem conhecia a fazenda na prática.</p>
-<p>Os locais com resultados melhores acompanhavam o entorno de um rio. O pasto era melhor, e isso se refletia numa dieta melhor para os animais.</p>
-<p>A conversa acrescentou o contexto que faltava à análise. A identificação do piquete carregava uma condição daquele ambiente que precisava entrar na interpretação dos resultados.</p>
-<p>Esse episódio ficou comigo porque foi muito concreto: encontrei o padrão nos dados, mas precisei conversar com quem conhecia o lugar para entender o que ele significava. Continuar procurando uma explicação restrita ao operador deixaria de fora parte importante da história.</p>
+<section id="o-geobehavior" class="level1">
+<h1>O Geobehavior</h1>
+<p>Com critérios definidos, construímos o Geobehavior: indicadores para caracterizar padrões associados aos dispositivos a partir de seus registros de localização.</p>
+<p>Conseguíamos inferir locais associados à moradia, ao trabalho e à frequência de visitas. Ao combinar esses padrões com os dados do entorno, passávamos dos pontos isolados para uma caracterização do dispositivo.</p>
+<p>O identificador continuava sem me informar o nome de seu dono. O que tínhamos era uma leitura de parte do comportamento observado, construída a partir dos registros disponíveis e dos critérios adotados.</p>
+<p>Essa distinção era importante para entender o resultado. Um perfil dependia da informação que aquele dispositivo havia produzido. A quantidade de dados recebida pelo sistema não tornava igualmente completa a observação de todos os aparelhos.</p>
 </section>
-<section id="um-modelo-próprio-para-uma-comissão-mais-justa" class="level1">
-<h1>Um modelo próprio para uma comissão mais justa</h1>
-<p>Um dos meus papéis era apoiar a definição de comissão. Se o animal, o local e a combinação entre profissionais tinham tanto peso, como separar a contribuição do inseminador?</p>
-<p>Desenvolvemos um modelo estatístico próprio para estimar esses efeitos. Também modificamos o modelo de comissão para isolar os fatores externos, tanto quanto possível, e construir um critério mais justo.</p>
-<p>A escolha dos animais pelos profissionais mais experientes tornava esse trabalho especialmente importante. Eles tinham resultados melhores, mas também conseguiam selecionar condições mais favoráveis. Usar o indicador bruto diretamente na comissão poderia remunerar essa vantagem como se fosse inteiramente competência de execução.</p>
-<p>Esse é o problema do confundimento: uma comparação que parece medir o desempenho do inseminador também captura diferenças nos animais com que ele trabalha. A experiência continuava sendo relevante; precisávamos distinguir seus efeitos dos efeitos daquele contexto.</p>
-<p>É por isso que meritocracia é uma discussão complicada. Para atribuir mérito pelo resultado, precisamos entender as condições em que ele foi produzido. Com estatística, chegamos mais perto de uma comparação justa, sem assumir que um modelo elimina todos os fatores que ficaram fora da análise.</p>
-</section>
-<section id="da-análise-para-o-produto-e-a-próxima-estação" class="level1">
-<h1>Da análise para o produto e a próxima estação</h1>
-<p>O trabalho resultou em mudanças concretas:</p>
+<section id="aprendizados-lições-erros-e-principais-impactos" class="level1">
+<h1>Aprendizados, lições, erros e principais impactos</h1>
+<p>Conduzi o projeto desde a estrutura para receber e processar os dados até a construção dos indicadores. A equipe resolveu primeiro o desafio do alto volume com baixo custo, tratou a irregularidade dos registros e desenvolveu o Geobehavior.</p>
+<p>Dessa experiência, destaco:</p>
 <ul>
-<li><strong>Produto:</strong> modificamos o sistema para apoiar as análises e interferir em ações da operação, incluindo a inseminação sequencial.</li>
-<li><strong>Comissão:</strong> revisamos o modelo para separar efeitos externos e buscar uma comparação mais justa entre inseminadores.</li>
-<li><strong>Planejamento:</strong> apoiamos a estruturação da próxima estação de monta, considerando os fatores identificados para otimizar a taxa de prenhez dos animais.</li>
+<li><strong>A arquitetura precisava preparar o uso analítico.</strong> Formatos compactos, leitura eficiente e pré-processamento espacial faziam parte da preparação dos dados para os indicadores.</li>
+<li><strong>Usar o volume agregado como medida de informação seria uma armadilha.</strong> A diferença entre registros esparsos e frequentes exigia critérios de elegibilidade e períodos de observação distintos.</li>
+<li><strong>As janelas temporais faziam parte do método.</strong> Adaptar os intervalos analisados era o caminho adotado para ampliar a cobertura diante de registros irregulares.</li>
+<li><strong>O resultado foi transformar pontos em indicadores de comportamento.</strong> O Geobehavior combinou padrões de localização com dados do entorno, criando uma caracterização que ia além do registro cru.</li>
 </ul>
-<p>Os achados ajudavam a organizar a próxima operação, levando em conta os aspectos biológicos, a sequência de trabalho, a combinação entre profissionais e as condições do ambiente.</p>
-</section>
-<section id="como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="level1">
-<h1>Como evitamos um prejuízo de mais de R$ 100 mil</h1>
-<p>Durante a estação de monta, identificamos um lote de sêmen de um touro com resultados muito abaixo do esperado. Nossa capacidade de separar os efeitos da operação permitiu identificar que aquele lote estava comprometido.</p>
-<p>Essa identificação ainda durante a estação nos permitiu evitar um prejuízo de mais de R$ 100 mil. A análise também possibilitou que a fazenda usasse os resultados como prova junto ao fornecedor.</p>
-<p>O mesmo trabalho de separar efeitos que apoiava a comissão ajudou a localizar um problema no sêmen. Nesse caso, a análise teve uma consequência financeira concreta e deu à fazenda evidências para tratar o problema com quem havia fornecido o lote.</p>
-<section id="aprendizados-erros-de-interpretação-e-impactos" class="level2">
-<h2 class="anchored" data-anchor-id="aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</h2>
-<ul>
-<li><strong>Analisar uma variável isoladamente pode levar à atribuição errada.</strong> O inseminador não explicava sozinho o resultado; a dupla, os animais, o ambiente e o lote também importavam.</li>
-<li><strong>Comparar pessoas exige considerar suas condições de trabalho.</strong> A seleção de animais favoráveis se misturava ao indicador usado para avaliar o profissional.</li>
-<li><strong>Perguntar a quem conhece a operação faz parte da análise.</strong> O contexto dos piquetes apareceu na conversa com quem conhecia a fazenda.</li>
-<li><strong>A análise ganha consequência quando orienta ações.</strong> Mudamos o produto e a comissão, apoiamos a próxima estação e identificamos um lote comprometido a tempo de evitar uma perda expressiva.</li>
-</ul>
-<p>Correlações espúrias e confundimento deixam de ser conceitos abstratos quando uma interpretação vira critério de remuneração ou decisão operacional. Dado sem contexto pode ser mais perigoso que não ter o dado em si.</p>
+<p>Minha contribuição foi conduzir essa sequência de ponta a ponta, articulando as decisões de arquitetura, engenharia e ciência de dados para que o volume recebido pudesse se tornar informação utilizável.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

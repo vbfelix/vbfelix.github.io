@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Fontes diversas, dados prontos para uso</title>
+<desc id="desc">Tabela, arquivo e geometria convergem para uma etapa de padronização e validação, seguida de uma base comum e ramificações de consumo. Diagrama conceitual da arquitetura.</desc>
+<defs>
+<pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".055"/></pattern>
+<radialGradient id="board"><stop stop-color="#214e41"/><stop offset="1" stop-color="#173f35"/></radialGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#b8d9df" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#board)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<rect x="136" y="154" width="131" height="99" rx="8" stroke="#b8d9df" /><path d="M160 180h82M160 204h82M188 180v48" stroke="#b8d9df" /><rect x="127" y="316" width="153" height="100" rx="8" stroke="#f2efe0" /><path d="M150 346h35m-35 24h66m-66 24h95" stroke="#f2efe0" /><path d="M152 550l-16-49 52-43 61 23-5 66z" stroke="#efd58e" /><path d="M291 203h66v323h-76M287 366h70" stroke="#b8d9df" /><path d="M357 366h76" stroke="#b8d9df" marker-end="url(#arrow)"/><rect x="455" y="280" width="198" height="172" rx="8" stroke="#f2efe0" /><path d="M482 320h53M482 355h92M482 390h61" stroke="#b8d9df" /><path d="M581 322l15 15 30-34M581 390l15 15 30-34" stroke="#efd58e" /><path d="M675 366h73" stroke="#b8d9df" marker-end="url(#arrow)"/><ellipse cx="859" cy="272" rx="76" ry="23" stroke="#b8d9df"/><path d="M783 272v122c0 30 152 30 152 0V272M783 313c0 30 152 30 152 0M783 354c0 30 152 30 152 0" stroke="#b8d9df" /><path d="M953 344h81" stroke="#b8d9df" marker-end="url(#arrow)"/><path d="M1053 267v153m0-153h34m-34 76h34m-34 77h34" stroke="#b8d9df" /><circle cx="1087" cy="267" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="1087" cy="343" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="1087" cy="420" r="5" stroke="#efd58e" fill="#efd58e"/>
+</g>
+</svg>

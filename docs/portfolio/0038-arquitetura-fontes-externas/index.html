@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vinícius Félix">
 
-<title>O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix</title>
+<title>Uma arquitetura de dados para mais de 100 fontes – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,11 +70,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix">
+<meta property="og:title" content="Uma arquitetura de dados para mais de 100 fontes – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
-<meta property="og:image" content="https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/thumbnail.svg">
+<meta property="og:image" content="https://vbfelix.github.io/portfolio/0038-arquitetura-fontes-externas/thumbnail.svg">
 <meta property="og:site_name" content="Vinícius Félix">
-<meta property="og:image:alt" content="Bovino conectado a um relógio, dois profissionais e um piquete com rio. Esquema conceitual dos fatores operacionais e ambientais da IATF.">
+<meta property="og:image:alt" content="Tabela, arquivo e geometria convergem para uma etapa de padronização e validação, seguida de uma base comum e ramificações de consumo. Diagrama conceitual da arquitetura.">
 </head>
 
 <body class="nav-fixed">
@@ -154,14 +154,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#o-que-descobrimos-ao-cruzar-os-dados" id="toc-o-que-descobrimos-ao-cruzar-os-dados" class="nav-link active" data-scroll-target="#o-que-descobrimos-ao-cruzar-os-dados">O que descobrimos ao cruzar os dados</a></li>
-  <li><a href="#o-piquete-o-rio-e-a-informação-que-faltava" id="toc-o-piquete-o-rio-e-a-informação-que-faltava" class="nav-link" data-scroll-target="#o-piquete-o-rio-e-a-informação-que-faltava">O piquete, o rio e a informação que faltava</a></li>
-  <li><a href="#um-modelo-próprio-para-uma-comissão-mais-justa" id="toc-um-modelo-próprio-para-uma-comissão-mais-justa" class="nav-link" data-scroll-target="#um-modelo-próprio-para-uma-comissão-mais-justa">Um modelo próprio para uma comissão mais justa</a></li>
-  <li><a href="#da-análise-para-o-produto-e-a-próxima-estação" id="toc-da-análise-para-o-produto-e-a-próxima-estação" class="nav-link" data-scroll-target="#da-análise-para-o-produto-e-a-próxima-estação">Da análise para o produto e a próxima estação</a></li>
-  <li><a href="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil" id="toc-como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="nav-link" data-scroll-target="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil">Como evitamos um prejuízo de mais de R$ 100 mil</a>
-  <ul class="collapse">
-  <li><a href="#aprendizados-erros-de-interpretação-e-impactos" id="toc-aprendizados-erros-de-interpretação-e-impactos" class="nav-link" data-scroll-target="#aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</a></li>
-  </ul></li>
+  <li><a href="#se-não-sabe-o-que-é-não-entra" id="toc-se-não-sabe-o-que-é-não-entra" class="nav-link active" data-scroll-target="#se-não-sabe-o-que-é-não-entra">Se não sabe o que é, não entra</a></li>
+  <li><a href="#dar-nome-também-era-construir-a-arquitetura" id="toc-dar-nome-também-era-construir-a-arquitetura" class="nav-link" data-scroll-target="#dar-nome-também-era-construir-a-arquitetura">Dar nome também era construir a arquitetura</a></li>
+  <li><a href="#do-dado-cru-ao-dado-utilizável" id="toc-do-dado-cru-ao-dado-utilizável" class="nav-link" data-scroll-target="#do-dado-cru-ao-dado-utilizável">Do dado cru ao dado utilizável</a></li>
+  <li><a href="#cruzar-dados-quando-não-há-uma-chave-comum" id="toc-cruzar-dados-quando-não-há-uma-chave-comum" class="nav-link" data-scroll-target="#cruzar-dados-quando-não-há-uma-chave-comum">Cruzar dados quando não há uma chave comum</a></li>
+  <li><a href="#aprendizados-lições-erros-e-principais-impactos" id="toc-aprendizados-lições-erros-e-principais-impactos" class="nav-link" data-scroll-target="#aprendizados-lições-erros-e-principais-impactos">Aprendizados, lições, erros e principais impactos</a></li>
   </ul>
 </nav>
     </div>
@@ -170,11 +167,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">O que define o sucesso da IA, mas não estou falando de inteligência artificial</h1>
+<h1 class="title">Uma arquitetura de dados para mais de 100 fontes</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">statistics</div>
-    <div class="quarto-category">agribusiness</div>
-    <div class="quarto-category">research</div>
+    <div class="quarto-category">data engineering</div>
   </div>
   </div>
 
@@ -204,65 +199,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">O que define o sucesso da IA, mas não estou falando de inteligência artificial</li></ol></nav>
-<p>Aqui, IA é inseminação artificial. E a IATF, a inseminação artificial em tempo fixo, ajuda a organizar quando essa operação acontece.</p>
-<p>Na reprodução de bovinos, a inseminação artificial permite introduzir o sêmen no aparelho reprodutivo da fêmea sem a monta natural. A <a href="https://www.alice.cnptia.embrapa.br/alice/handle/doc/48114">IATF usa protocolos hormonais para sincronizar a ovulação</a> e permitir a inseminação em um momento programado, sem depender da identificação do cio de cada vaca para definir esse horário.</p>
-<p>O nome entrega a ideia: existe uma hora para fazer. E uma operação inteira precisa funcionar para que isso aconteça.</p>
-<p>Tive a oportunidade de trabalhar com o que considero o melhor sistema de controle da operação de IATF do Brasil. Coletávamos dados de toda a operação. Nosso trabalho era entender o que mais impactava os resultados e usar esse conhecimento para melhorar o produto e as decisões no campo.</p>
-<p>O mais óbvio era começar pelos fatores biológicos: a vaca e o sêmen. Claro que importavam. Mas será que era só isso?</p>
-<section id="o-que-descobrimos-ao-cruzar-os-dados" class="level1">
-<h1>O que descobrimos ao cruzar os dados</h1>
-<p>Analisar os fatores em conjunto mostrou que o resultado também dependia de como a operação acontecia:</p>
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">Uma arquitetura de dados para mais de 100 fontes</li></ol></nav>
+<p>Construí uma arquitetura que chegou a mais de 100 fontes de dados. Nenhuma delas era minha.</p>
+<p>Eu não controlava a qualidade na origem, os formatos, a frequência de atualização ou os nomes usados para representar as informações. Limites, irregularidades e erros faziam parte do trabalho. Precisava transformar essa diversidade em um ativo centralizado, reutilizável e compreensível para a equipe e para quem consumia os dados.</p>
+<p>A primeira condição para isso vinha antes da integração: eu precisava entender o que estava trazendo para dentro.</p>
+<section id="se-não-sabe-o-que-é-não-entra" class="level1">
+<h1>Se não sabe o que é, não entra</h1>
+<p>O critério era simples: se eu não soubesse explicar o significado de um dado, ele não podia entrar na arquitetura. Se quem executava o pipeline, a sequência de etapas que coleta e transforma os dados, não conseguia explicar a informação, como o usuário conseguiria?</p>
+<p>Ter acesso a uma base pública e ao seu dicionário não garantia esse entendimento. Era necessário pesquisar o contexto, examinar os registros e, muitas vezes, analisar o comportamento dos dados para investigar o que estava acontecendo.</p>
+<p>Cheguei a ligar para a Agência Nacional de Energia Elétrica (ANEEL) para validar uma informação. Também li um livro sobre solos para entender um conceito. Levamos essa exigência a sério: saber abrir um arquivo não encerrava o trabalho de compreender seu conteúdo.</p>
+</section>
+<section id="dar-nome-também-era-construir-a-arquitetura" class="level1">
+<h1>Dar nome também era construir a arquitetura</h1>
+<p>Com tantas origens, eu precisava de ativos que pudessem ser usados em diferentes projetos e por diferentes pessoas. Isso exigia uma taxonomia, um sistema comum para organizar e nomear fontes e dados.</p>
+<p>Construí um padrão de nomenclatura para que todos falassem a mesma língua. A centralização precisava vir acompanhada de uma forma compartilhada de identificar as informações.</p>
+<p>Esse trabalho fazia parte do reuso. Para alguém utilizar um dado em outro projeto, precisava conseguir reconhecê-lo e entender o que ele representava. A arquitetura tinha de servir à equipe inteira.</p>
+</section>
+<section id="do-dado-cru-ao-dado-utilizável" class="level1">
+<h1>Do dado cru ao dado utilizável</h1>
+<p>Ingerir uma base, isto é, trazê-la da origem para o nosso ambiente, era apenas o começo. Depois de entender seu funcionamento, precisávamos testar, decodificar os valores, ajustar formatos e normalizar os registros para um padrão de uso.</p>
+<p>Quando era possível, corrigíamos os dados. Quando um erro era identificado, substituíamos o valor por nulo, registrando a ausência de um valor utilizável naquele campo.</p>
+<p>A camada Silver era a etapa da arquitetura em que o dado tratado precisava estar apto para consumo. O critério de chegada era exigente: as informações precisavam passar pelas transformações e validações necessárias antes de serem disponibilizadas.</p>
+<p>As principais exigências desse trabalho estavam conectadas:</p>
 <ul>
-<li><strong>A sequência de trabalho tinha um limite.</strong> A inseminação é uma atividade exaustiva. Identificamos queda de resultado após determinada quantidade de inseminações em sequência, e esse limite variava com a experiência do inseminador. Isso nos ajudou a definir limites operacionais e a modificar o produto para interferir em ações como a inseminação sequencial.</li>
-<li><strong>A combinação entre profissionais era crucial.</strong> Além do inseminador, havia o descongelador do sêmen. A velocidade de um, combinada ao perfil do outro, estava associada a diferenças importantes nos resultados. Atribuir tudo ao inseminador deixaria de fora uma parte relevante do trabalho.</li>
-<li><strong>O ambiente também aparecia no resultado.</strong> Alguns piquetes de uma fazenda apresentavam desempenho melhor, sem que as diferenças analisadas nos animais e nos operadores explicassem o padrão. Foi necessário conversar com quem conhecia o local para entender o motivo.</li>
-<li><strong>Resultado bruto não era uma medida direta de mérito.</strong> Alguns inseminadores experientes tinham preferência para escolher os animais e selecionavam os mais favoráveis. O indicador misturava o trabalho do profissional com a vantagem das condições em que ele atuava.</li>
+<li><strong>Entender o significado antes de integrar.</strong> Pesquisa e validação com a origem ajudavam a esclarecer o que o dado representava e seus limites.</li>
+<li><strong>Padronizar para permitir reuso.</strong> Nomenclatura e tratamento criavam uma base comum para trabalhar com fontes diferentes.</li>
+<li><strong>Testar antes de disponibilizar.</strong> A validação automática fazia parte do caminho até o usuário e dava suporte às alterações realizadas pela equipe.</li>
 </ul>
-<p>A dupla de profissionais é um exemplo de interação: o comportamento de um fator depende daquele com que ele se combina. Olhar apenas para a velocidade do descongelador ou apenas para o resultado do inseminador perderia justamente essa relação.</p>
 </section>
-<section id="o-piquete-o-rio-e-a-informação-que-faltava" class="level1">
-<h1>O piquete, o rio e a informação que faltava</h1>
-<p>Ao encontrar diferenças entre os piquetes, eu sabia onde o padrão aparecia, mas ainda não entendia por quê. Fui perguntar a quem conhecia a fazenda na prática.</p>
-<p>Os locais com resultados melhores acompanhavam o entorno de um rio. O pasto era melhor, e isso se refletia numa dieta melhor para os animais.</p>
-<p>A conversa acrescentou o contexto que faltava à análise. A identificação do piquete carregava uma condição daquele ambiente que precisava entrar na interpretação dos resultados.</p>
-<p>Esse episódio ficou comigo porque foi muito concreto: encontrei o padrão nos dados, mas precisei conversar com quem conhecia o lugar para entender o que ele significava. Continuar procurando uma explicação restrita ao operador deixaria de fora parte importante da história.</p>
-</section>
-<section id="um-modelo-próprio-para-uma-comissão-mais-justa" class="level1">
-<h1>Um modelo próprio para uma comissão mais justa</h1>
-<p>Um dos meus papéis era apoiar a definição de comissão. Se o animal, o local e a combinação entre profissionais tinham tanto peso, como separar a contribuição do inseminador?</p>
-<p>Desenvolvemos um modelo estatístico próprio para estimar esses efeitos. Também modificamos o modelo de comissão para isolar os fatores externos, tanto quanto possível, e construir um critério mais justo.</p>
-<p>A escolha dos animais pelos profissionais mais experientes tornava esse trabalho especialmente importante. Eles tinham resultados melhores, mas também conseguiam selecionar condições mais favoráveis. Usar o indicador bruto diretamente na comissão poderia remunerar essa vantagem como se fosse inteiramente competência de execução.</p>
-<p>Esse é o problema do confundimento: uma comparação que parece medir o desempenho do inseminador também captura diferenças nos animais com que ele trabalha. A experiência continuava sendo relevante; precisávamos distinguir seus efeitos dos efeitos daquele contexto.</p>
-<p>É por isso que meritocracia é uma discussão complicada. Para atribuir mérito pelo resultado, precisamos entender as condições em que ele foi produzido. Com estatística, chegamos mais perto de uma comparação justa, sem assumir que um modelo elimina todos os fatores que ficaram fora da análise.</p>
-</section>
-<section id="da-análise-para-o-produto-e-a-próxima-estação" class="level1">
-<h1>Da análise para o produto e a próxima estação</h1>
-<p>O trabalho resultou em mudanças concretas:</p>
+<section id="cruzar-dados-quando-não-há-uma-chave-comum" class="level1">
+<h1>Cruzar dados quando não há uma chave comum</h1>
+<p>Em um banco organizado para relacionar tabelas, uma chave primária identifica um registro, e uma chave estrangeira referencia um registro de outra tabela. Ao combinar fontes independentes, nem sempre tínhamos esses identificadores em comum.</p>
+<p>O trabalho de integração podia exigir outras formas de vinculação:</p>
 <ul>
-<li><strong>Produto:</strong> modificamos o sistema para apoiar as análises e interferir em ações da operação, incluindo a inseminação sequencial.</li>
-<li><strong>Comissão:</strong> revisamos o modelo para separar efeitos externos e buscar uma comparação mais justa entre inseminadores.</li>
-<li><strong>Planejamento:</strong> apoiamos a estruturação da próxima estação de monta, considerando os fatores identificados para otimizar a taxa de prenhez dos animais.</li>
+<li><strong>Correspondência aproximada:</strong> os chamados <em>fuzzy joins</em> procuram relacionar registros pela semelhança entre valores, em vez de exigir igualdade exata.</li>
+<li><strong>Relações espaciais:</strong> os cruzamentos usam a localização e a relação entre geometrias para associar os dados.</li>
+<li><strong>Modelos de vinculação:</strong> combinam informações para avaliar quais registros correspondem à mesma entidade.</li>
 </ul>
-<p>Os achados ajudavam a organizar a próxima operação, levando em conta os aspectos biológicos, a sequência de trabalho, a combinação entre profissionais e as condições do ambiente.</p>
+<p>Isso ampliava o trabalho necessário para tornar as fontes utilizáveis em conjunto. Entender os dados também era uma condição para decidir como relacioná-los.</p>
 </section>
-<section id="como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="level1">
-<h1>Como evitamos um prejuízo de mais de R$ 100 mil</h1>
-<p>Durante a estação de monta, identificamos um lote de sêmen de um touro com resultados muito abaixo do esperado. Nossa capacidade de separar os efeitos da operação permitiu identificar que aquele lote estava comprometido.</p>
-<p>Essa identificação ainda durante a estação nos permitiu evitar um prejuízo de mais de R$ 100 mil. A análise também possibilitou que a fazenda usasse os resultados como prova junto ao fornecedor.</p>
-<p>O mesmo trabalho de separar efeitos que apoiava a comissão ajudou a localizar um problema no sêmen. Nesse caso, a análise teve uma consequência financeira concreta e deu à fazenda evidências para tratar o problema com quem havia fornecido o lote.</p>
-<section id="aprendizados-erros-de-interpretação-e-impactos" class="level2">
-<h2 class="anchored" data-anchor-id="aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</h2>
+<section id="aprendizados-lições-erros-e-principais-impactos" class="level1">
+<h1>Aprendizados, lições, erros e principais impactos</h1>
+<p>A arquitetura reuniu <strong>mais de 100 fontes, 200 pipelines e 380 processos</strong>. Com esse ativo, conseguimos <strong>dobrar a quantidade de projetos de dados entregues com metade do tamanho do time</strong>.</p>
+<p>A equipe podia trabalhar em diferentes partes da arquitetura com validação automática, voltada a impedir que erros chegassem ao usuário. O resultado combinava reuso dos ativos com uma forma comum de tratar e conferir os dados.</p>
+<p>Dessa construção, destaco:</p>
 <ul>
-<li><strong>Analisar uma variável isoladamente pode levar à atribuição errada.</strong> O inseminador não explicava sozinho o resultado; a dupla, os animais, o ambiente e o lote também importavam.</li>
-<li><strong>Comparar pessoas exige considerar suas condições de trabalho.</strong> A seleção de animais favoráveis se misturava ao indicador usado para avaliar o profissional.</li>
-<li><strong>Perguntar a quem conhece a operação faz parte da análise.</strong> O contexto dos piquetes apareceu na conversa com quem conhecia a fazenda.</li>
-<li><strong>A análise ganha consequência quando orienta ações.</strong> Mudamos o produto e a comissão, apoiamos a próxima estação e identificamos um lote comprometido a tempo de evitar uma perda expressiva.</li>
+<li><strong>A responsabilidade pelo significado continuava sendo nossa.</strong> Mesmo quando a fonte era pública e tinha dicionário, compreender a informação exigia investigação. A ligação para a ANEEL e a leitura sobre solos fizeram parte desse trabalho.</li>
+<li><strong>Reuso exigia entendimento compartilhado.</strong> Centralizar dados vinha acompanhado de organizar nomes e formas de uso, para que o conhecimento pudesse circular pela equipe.</li>
+<li><strong>Disponibilizar cedo demais era uma armadilha.</strong> O dado precisava chegar à Silver tratado e validado. Estar acessível não bastava para estar pronto para consumo.</li>
+<li><strong>O impacto apareceu nas entregas da equipe.</strong> O crescimento da quantidade de projetos entregues foi o resultado relatado dessa arquitetura. A quantidade de fontes dimensionava o ativo; a qualidade continuava sendo o critério para construí-lo.</li>
 </ul>
-<p>Correlações espúrias e confundimento deixam de ser conceitos abstratos quando uma interpretação vira critério de remuneração ou decisão operacional. Dado sem contexto pode ser mais perigoso que não ter o dado em si.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

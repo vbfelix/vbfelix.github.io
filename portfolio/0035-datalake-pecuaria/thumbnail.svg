@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Das fazendas ao datalake</title>
+<desc id="desc">Servidores de duas fazendas enviam dados para uma base na nuvem e uma tabela comum. Ilustração conceitual da integração e padronização de sistemas locais.</desc>
+<defs>
+<pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".055"/></pattern>
+<radialGradient id="board"><stop stop-color="#214e41"/><stop offset="1" stop-color="#173f35"/></radialGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#b8d9df" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#board)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M112 207l82-56 82 56v94H112zM174 301V248h40v53" stroke="#f2efe0" /><rect x="299" y="228" width="97" height="62" rx="8" stroke="#b8d9df" /><path d="M325 308h48M349 291v17" stroke="#b8d9df" /><path d="M115 449l82-56 82 56v94H115zM177 543V490h40v53" stroke="#f2efe0" /><rect x="302" y="470" width="97" height="62" rx="8" stroke="#b8d9df" /><path d="M328 550h48M352 533v17" stroke="#b8d9df" /><path d="M432 269Q516 269 549 316" stroke="#b8d9df" marker-end="url(#arrow)"/><path d="M433 514Q519 514 548 411" stroke="#b8d9df" marker-end="url(#arrow)"/><g transform="translate(674 236)"><path d="M-100 30q-35-60 25-70 8-72 75-44 62-29 80 34 64-4 53 55-4 25-43 25z" stroke="#b8d9df" /></g><ellipse cx="670" cy="351" rx="76" ry="23" stroke="#b8d9df"/><path d="M594 351v122c0 30 152 30 152 0V351M594 392c0 30 152 30 152 0M594 433c0 30 152 30 152 0" stroke="#b8d9df" /><path d="M782 408h74" stroke="#b8d9df" marker-end="url(#arrow)"/><rect x="889" y="299" width="151" height="193" rx="8" stroke="#f2efe0" /><path d="M916 337h96M916 373h96M916 409h96M916 445h96M951 337v108" stroke="#b8d9df" /><circle cx="934" cy="373" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="980" cy="409" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="933" cy="445" r="5" stroke="#efd58e" fill="#efd58e"/>
+</g>
+</svg>

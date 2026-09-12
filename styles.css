@@ -4,7 +4,13 @@
 .portfolio-page .quarto-grid-item .card-title { font-family:var(--serif); color:var(--ink); font-size:1.2rem; line-height:1.35; }
 .portfolio-page .quarto-grid-item:hover { border-color:var(--blue); }
 .portfolio-page .quarto-grid-item:focus-within { outline:2px solid var(--blue); outline-offset:4px; }
-.portfolio-page .quarto-grid-item img { object-fit:contain; background:#173f35; }
+.portfolio-page .quarto-listing .quarto-grid-item .card-img-top img.thumbnail-image {
+  object-fit:contain;
+  width:100%;
+  height:auto!important;
+  aspect-ratio:16 / 9;
+  background:#173f35;
+}
 :root {
   --paper:#173f35;
   --ink:#f2efe0;

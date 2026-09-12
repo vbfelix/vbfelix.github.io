@@ -1,8 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc"><title id="title">Fatores da operação de IATF</title><desc id="desc">Ilustração conceitual de um bovino conectado à equipe, ao tempo e ao ambiente, representando fatores da operação de inseminação artificial.</desc><defs><pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".09"/></pattern></defs><rect width="1200" height="675" fill="#173f35"/><rect width="1200" height="675" fill="url(#grid)"/><text x="80" y="88" fill="#b8d9df" font-family="monospace" font-size="22" letter-spacing="3">IATF · EFEITOS EM CONJUNTO</text><path d="M80 115h1040" stroke="#648477"/>
-<g fill="none" stroke="#b8d9df" stroke-width="3" stroke-dasharray="7 9"><path d="M470 300L265 230M725 300l210-70M600 410v100"/></g>
-<g fill="none" stroke="#f2efe0" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M450 310h195l45-65 60 15 25 65-45 30-25-20-25 45v70h-30v-65H500v65h-30v-70l-20-35zM450 310l-25 60M698 252l-13-27M735 251l15-24"/><circle cx="738" cy="292" r="3" fill="#f2efe0"/>
-<circle cx="240" cy="230" r="70"/><path d="M240 185v48l30 20"/>
-<circle cx="935" cy="205" r="20"/><circle cx="990" cy="220" r="17"/><path d="M900 272v-22q35-40 70 0v22M977 251q32-10 40 25"/>
-<path d="M500 547q55-40 100 0t100 0"/><path d="M545 558q35-15 53 5t42 9" stroke="#b8d9df"/>
-</g><g fill="#efd58e"><circle cx="450" cy="310" r="6"/><circle cx="725" cy="300" r="6"/><circle cx="600" cy="410" r="6"/></g>
-<g fill="#f2efe0" font-family="monospace" font-size="23" text-anchor="middle"><text x="240" y="345">SEQUÊNCIA</text><text x="960" y="330">EQUIPE</text><text x="600" y="615">AMBIENTE</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">A operação de inseminação artificial</title>
+<desc id="desc">Bovino conectado a um relógio, dois profissionais e um piquete com rio. Esquema conceitual dos fatores operacionais e ambientais da IATF.</desc>
+<defs>
+<pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#b8d9df" stroke-opacity=".055"/></pattern>
+<radialGradient id="board"><stop stop-color="#214e41"/><stop offset="1" stop-color="#173f35"/></radialGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#b8d9df" stroke-width="1.5"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#board)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(607 323) scale(1.17)"><path d="M-135-25h180l42-56 57 12 21 57-39 30-25-16-23 35v68H50V43H-91v62h-27V40l-17-29zM-135-25l-23 57M93-74l-11-21M126-74l14-22" stroke="#f2efe0" /><circle cx="137" cy="-38" r="3" stroke="#f2efe0" fill="#f2efe0"/></g><circle cx="223" cy="206" r="68" stroke="#b8d9df" fill="none"/><path d="M223 157v51l32 23" stroke="#efd58e" /><circle cx="929" cy="193" r="20" stroke="#f2efe0" fill="none"/><path d="M894 271v-29q35-40 70 0v29" stroke="#f2efe0" /><circle cx="1001" cy="209" r="20" stroke="#f2efe0" fill="none"/><path d="M966 287v-29q35-40 70 0v29" stroke="#f2efe0" /><path d="M290 231L438 294M876 267L798 300M601 453v38" stroke="#b8d9df" stroke-dasharray="6 11"/><path d="M396 561q55-57 116-20t108-14q61-27 111 22t107-16" stroke="#f2efe0" /><path d="M493 584q57-40 90-20t99-8q49-11 90 15" stroke="#b8d9df" /><path d="M415 541v-30m-12 15 12 8 11-14M806 535v-31m-11 14 11 8 12-14" stroke="#efd58e" /><circle cx="439" cy="294" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="796" cy="300" r="5" stroke="#efd58e" fill="#efd58e"/><circle cx="601" cy="453" r="5" stroke="#efd58e" fill="#efd58e"/>
+</g>
+</svg>

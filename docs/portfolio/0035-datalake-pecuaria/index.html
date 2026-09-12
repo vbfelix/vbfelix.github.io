@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vinícius Félix">
 
-<title>O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix</title>
+<title>O maior datalake da pecuária brasileira – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,11 +70,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="O que define o sucesso da IA, mas não estou falando de inteligência artificial – Vinícius Félix">
+<meta property="og:title" content="O maior datalake da pecuária brasileira – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
-<meta property="og:image" content="https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/thumbnail.svg">
+<meta property="og:image" content="https://vbfelix.github.io/portfolio/0035-datalake-pecuaria/thumbnail.svg">
 <meta property="og:site_name" content="Vinícius Félix">
-<meta property="og:image:alt" content="Bovino conectado a um relógio, dois profissionais e um piquete com rio. Esquema conceitual dos fatores operacionais e ambientais da IATF.">
+<meta property="og:image:alt" content="Servidores de duas fazendas enviam dados para uma base na nuvem e uma tabela comum. Ilustração conceitual da integração e padronização de sistemas locais.">
 </head>
 
 <body class="nav-fixed">
@@ -154,14 +154,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#o-que-descobrimos-ao-cruzar-os-dados" id="toc-o-que-descobrimos-ao-cruzar-os-dados" class="nav-link active" data-scroll-target="#o-que-descobrimos-ao-cruzar-os-dados">O que descobrimos ao cruzar os dados</a></li>
-  <li><a href="#o-piquete-o-rio-e-a-informação-que-faltava" id="toc-o-piquete-o-rio-e-a-informação-que-faltava" class="nav-link" data-scroll-target="#o-piquete-o-rio-e-a-informação-que-faltava">O piquete, o rio e a informação que faltava</a></li>
-  <li><a href="#um-modelo-próprio-para-uma-comissão-mais-justa" id="toc-um-modelo-próprio-para-uma-comissão-mais-justa" class="nav-link" data-scroll-target="#um-modelo-próprio-para-uma-comissão-mais-justa">Um modelo próprio para uma comissão mais justa</a></li>
-  <li><a href="#da-análise-para-o-produto-e-a-próxima-estação" id="toc-da-análise-para-o-produto-e-a-próxima-estação" class="nav-link" data-scroll-target="#da-análise-para-o-produto-e-a-próxima-estação">Da análise para o produto e a próxima estação</a></li>
-  <li><a href="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil" id="toc-como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="nav-link" data-scroll-target="#como-evitamos-um-prejuízo-de-mais-de-r-100-mil">Como evitamos um prejuízo de mais de R$ 100 mil</a>
-  <ul class="collapse">
-  <li><a href="#aprendizados-erros-de-interpretação-e-impactos" id="toc-aprendizados-erros-de-interpretação-e-impactos" class="nav-link" data-scroll-target="#aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</a></li>
-  </ul></li>
+  <li><a href="#a-nuvem-começava-no-servidor-da-fazenda" id="toc-a-nuvem-começava-no-servidor-da-fazenda" class="nav-link active" data-scroll-target="#a-nuvem-começava-no-servidor-da-fazenda">A nuvem começava no servidor da fazenda</a></li>
+  <li><a href="#o-cadastro-também-precisava-conversar" id="toc-o-cadastro-também-precisava-conversar" class="nav-link" data-scroll-target="#o-cadastro-também-precisava-conversar">O cadastro também precisava conversar</a></li>
+  <li><a href="#a-mesma-coluna-medidas-diferentes" id="toc-a-mesma-coluna-medidas-diferentes" class="nav-link" data-scroll-target="#a-mesma-coluna-medidas-diferentes">A mesma coluna, medidas diferentes</a></li>
+  <li><a href="#quando-simpson-entrou-na-fazenda" id="toc-quando-simpson-entrou-na-fazenda" class="nav-link" data-scroll-target="#quando-simpson-entrou-na-fazenda">Quando Simpson entrou na fazenda</a></li>
+  <li><a href="#aprendizados-lições-erros-e-principais-impactos" id="toc-aprendizados-lições-erros-e-principais-impactos" class="nav-link" data-scroll-target="#aprendizados-lições-erros-e-principais-impactos">Aprendizados, lições, erros e principais impactos</a></li>
   </ul>
 </nav>
     </div>
@@ -170,11 +167,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">O que define o sucesso da IA, mas não estou falando de inteligência artificial</h1>
+<h1 class="title">O maior datalake da pecuária brasileira</h1>
   <div class="quarto-categories">
+    <div class="quarto-category">data engineering</div>
     <div class="quarto-category">statistics</div>
-    <div class="quarto-category">agribusiness</div>
-    <div class="quarto-category">research</div>
   </div>
   </div>
 
@@ -204,65 +200,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">O que define o sucesso da IA, mas não estou falando de inteligência artificial</li></ol></nav>
-<p>Aqui, IA é inseminação artificial. E a IATF, a inseminação artificial em tempo fixo, ajuda a organizar quando essa operação acontece.</p>
-<p>Na reprodução de bovinos, a inseminação artificial permite introduzir o sêmen no aparelho reprodutivo da fêmea sem a monta natural. A <a href="https://www.alice.cnptia.embrapa.br/alice/handle/doc/48114">IATF usa protocolos hormonais para sincronizar a ovulação</a> e permitir a inseminação em um momento programado, sem depender da identificação do cio de cada vaca para definir esse horário.</p>
-<p>O nome entrega a ideia: existe uma hora para fazer. E uma operação inteira precisa funcionar para que isso aconteça.</p>
-<p>Tive a oportunidade de trabalhar com o que considero o melhor sistema de controle da operação de IATF do Brasil. Coletávamos dados de toda a operação. Nosso trabalho era entender o que mais impactava os resultados e usar esse conhecimento para melhorar o produto e as decisões no campo.</p>
-<p>O mais óbvio era começar pelos fatores biológicos: a vaca e o sêmen. Claro que importavam. Mas será que era só isso?</p>
-<section id="o-que-descobrimos-ao-cruzar-os-dados" class="level1">
-<h1>O que descobrimos ao cruzar os dados</h1>
-<p>Analisar os fatores em conjunto mostrou que o resultado também dependia de como a operação acontecia:</p>
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">O maior datalake da pecuária brasileira</li></ol></nav>
+<p>Em 2022, eu vi Windows 95 rodando em uma fazenda. E nosso desafio era levar os dados daquele universo para a nuvem.</p>
+<p>Eu trabalhava com o maior sistema de confinamento do Brasil, em uma empresa líder de mercado. O sistema era desktop e funcionava offline, com infraestrutura própria em cada fazenda. Queríamos integrar dezenas de bases em um datalake online, um ambiente central para reunir dados de diferentes origens e permitir seu consumo.</p>
+<p>Participar dessa construção significava lidar com versões diferentes do sistema, falta de internet e interrupções de energia. Tudo isso sem comprometer a operação das fazendas, que dependia do sistema funcionando.</p>
+<section id="a-nuvem-começava-no-servidor-da-fazenda" class="level1">
+<h1>A nuvem começava no servidor da fazenda</h1>
+<p>Cada fazenda tinha seu servidor. Encontrar Windows 95 em 2022 dava uma dimensão da variedade de ambientes com que precisávamos lidar.</p>
+<p>O desafio era criar um conector, um programa que permitisse retirar os dados do sistema local e enviá-los ao ambiente central. Ele precisava funcionar em infraestruturas muito diferentes e consumir poucos recursos. Poder computacional e conexão eram restrições reais.</p>
+<p>A orientação era subir somente o necessário e reconstruir na nuvem o que fosse possível. O trabalho de integração precisava caber na infraestrutura disponível, respeitando a prioridade da operação local.</p>
+<p>Nas minhas <a href="https://vbfelix.github.io/posts/0024-dw/index.html">notas sobre data warehouse</a>, um ambiente de dados preparado para análise e relatórios, discuto a importância de separar esse uso dos sistemas que registram a operação cotidiana. Essa preocupação ajuda a entender o desafio aqui: o sistema da fazenda precisava continuar atendendo à fazenda enquanto construíamos outra forma de consumir seus dados.</p>
+</section>
+<section id="o-cadastro-também-precisava-conversar" class="level1">
+<h1>O cadastro também precisava conversar</h1>
+<p>O sistema tinha muitos campos abertos, principalmente nos cadastros de produtos. Reunir esses registros trazia outro trabalho: normalizar e padronizar o que cada fazenda preenchia.</p>
+<p>A centralização exigia lidar tanto com a transferência dos dados quanto com o significado dos registros. E os cadastros eram apenas uma parte dessa dificuldade.</p>
+</section>
+<section id="a-mesma-coluna-medidas-diferentes" class="level1">
+<h1>A mesma coluna, medidas diferentes</h1>
+<p>O sistema possuía dezenas de parâmetros. Como produto, essa flexibilidade era incrível. Para analisar os dados de várias fazendas juntas, a quantidade de combinações era um pesadelo.</p>
+<p>Algumas diferenças explicam o tamanho do problema:</p>
 <ul>
-<li><strong>A sequência de trabalho tinha um limite.</strong> A inseminação é uma atividade exaustiva. Identificamos queda de resultado após determinada quantidade de inseminações em sequência, e esse limite variava com a experiência do inseminador. Isso nos ajudou a definir limites operacionais e a modificar o produto para interferir em ações como a inseminação sequencial.</li>
-<li><strong>A combinação entre profissionais era crucial.</strong> Além do inseminador, havia o descongelador do sêmen. A velocidade de um, combinada ao perfil do outro, estava associada a diferenças importantes nos resultados. Atribuir tudo ao inseminador deixaria de fora uma parte relevante do trabalho.</li>
-<li><strong>O ambiente também aparecia no resultado.</strong> Alguns piquetes de uma fazenda apresentavam desempenho melhor, sem que as diferenças analisadas nos animais e nos operadores explicassem o padrão. Foi necessário conversar com quem conhecia o local para entender o motivo.</li>
-<li><strong>Resultado bruto não era uma medida direta de mérito.</strong> Alguns inseminadores experientes tinham preferência para escolher os animais e selecionavam os mais favoráveis. O indicador misturava o trabalho do profissional com a vantagem das condições em que ele atuava.</li>
+<li><strong>O peso podia ser individual ou médio.</strong> Algumas fazendas pesavam cada animal; outras obtinham o peso médio pela pesagem do caminhão. Era preciso considerar como a medida havia sido produzida antes de compará-la.</li>
+<li><strong>O estoque podia vir da balança ou da nota fiscal.</strong> Reunir os valores exigia reconhecer a diferença entre essas formas de registro.</li>
+<li><strong>A coleta podia depender de sensores ou de dados autodeclarados.</strong> A origem da informação fazia parte do problema de qualidade.</li>
+<li><strong>O manejo variava muito.</strong> Havia pastagem, suplementação, dietas intensivas e ingredientes variados. Essa diversidade precisava entrar na discussão sobre quais fazendas comparar.</li>
 </ul>
-<p>A dupla de profissionais é um exemplo de interação: o comportamento de um fator depende daquele com que ele se combina. Olhar apenas para a velocidade do descongelador ou apenas para o resultado do inseminador perderia justamente essa relação.</p>
+<p>Fazer benchmarking, isto é, usar os resultados de outras fazendas como referência de desempenho, exigia cuidado. Até uma média podia induzir a uma interpretação errada quando reunia realidades diferentes.</p>
 </section>
-<section id="o-piquete-o-rio-e-a-informação-que-faltava" class="level1">
-<h1>O piquete, o rio e a informação que faltava</h1>
-<p>Ao encontrar diferenças entre os piquetes, eu sabia onde o padrão aparecia, mas ainda não entendia por quê. Fui perguntar a quem conhecia a fazenda na prática.</p>
-<p>Os locais com resultados melhores acompanhavam o entorno de um rio. O pasto era melhor, e isso se refletia numa dieta melhor para os animais.</p>
-<p>A conversa acrescentou o contexto que faltava à análise. A identificação do piquete carregava uma condição daquele ambiente que precisava entrar na interpretação dos resultados.</p>
-<p>Esse episódio ficou comigo porque foi muito concreto: encontrei o padrão nos dados, mas precisei conversar com quem conhecia o lugar para entender o que ele significava. Continuar procurando uma explicação restrita ao operador deixaria de fora parte importante da história.</p>
+<section id="quando-simpson-entrou-na-fazenda" class="level1">
+<h1>Quando Simpson entrou na fazenda</h1>
+<p>Eu já conhecia o Paradoxo de Simpson na teoria. Foi ao juntar dados de diferentes fazendas, em uma análise de eficiência operacional e financeira, que o vi aparecer com tanta nitidez na prática.</p>
+<p>O paradoxo ocorre quando a direção de uma relação observada dentro dos grupos se inverte ao reunir os dados. No meu <a href="https://vbfelix.github.io/posts/0014-simpson-paradox/index.html">artigo sobre o Paradoxo de Simpson</a>, apresento um exemplo didático: a relação é positiva dentro de cada grupo e negativa no conjunto. Olhar apenas o resultado agregado muda a interpretação.</p>
+<p>Na análise das fazendas, selecionar o que entrava e decidir o que filtrar era um desafio central. Precisávamos buscar uma amostra representativa sem induzir a conclusões erradas. Entender as diferenças de manejo e de medição fazia parte desse trabalho, assim como conhecer os dados que chegavam de cada sistema.</p>
 </section>
-<section id="um-modelo-próprio-para-uma-comissão-mais-justa" class="level1">
-<h1>Um modelo próprio para uma comissão mais justa</h1>
-<p>Um dos meus papéis era apoiar a definição de comissão. Se o animal, o local e a combinação entre profissionais tinham tanto peso, como separar a contribuição do inseminador?</p>
-<p>Desenvolvemos um modelo estatístico próprio para estimar esses efeitos. Também modificamos o modelo de comissão para isolar os fatores externos, tanto quanto possível, e construir um critério mais justo.</p>
-<p>A escolha dos animais pelos profissionais mais experientes tornava esse trabalho especialmente importante. Eles tinham resultados melhores, mas também conseguiam selecionar condições mais favoráveis. Usar o indicador bruto diretamente na comissão poderia remunerar essa vantagem como se fosse inteiramente competência de execução.</p>
-<p>Esse é o problema do confundimento: uma comparação que parece medir o desempenho do inseminador também captura diferenças nos animais com que ele trabalha. A experiência continuava sendo relevante; precisávamos distinguir seus efeitos dos efeitos daquele contexto.</p>
-<p>É por isso que meritocracia é uma discussão complicada. Para atribuir mérito pelo resultado, precisamos entender as condições em que ele foi produzido. Com estatística, chegamos mais perto de uma comparação justa, sem assumir que um modelo elimina todos os fatores que ficaram fora da análise.</p>
-</section>
-<section id="da-análise-para-o-produto-e-a-próxima-estação" class="level1">
-<h1>Da análise para o produto e a próxima estação</h1>
-<p>O trabalho resultou em mudanças concretas:</p>
+<section id="aprendizados-lições-erros-e-principais-impactos" class="level1">
+<h1>Aprendizados, lições, erros e principais impactos</h1>
+<p>Montamos um ambiente central de consumo de dados a partir das bases offline das fazendas. Na minha participação nesse trabalho, três aprendizados se destacaram:</p>
 <ul>
-<li><strong>Produto:</strong> modificamos o sistema para apoiar as análises e interferir em ações da operação, incluindo a inseminação sequencial.</li>
-<li><strong>Comissão:</strong> revisamos o modelo para separar efeitos externos e buscar uma comparação mais justa entre inseminadores.</li>
-<li><strong>Planejamento:</strong> apoiamos a estruturação da próxima estação de monta, considerando os fatores identificados para otimizar a taxa de prenhez dos animais.</li>
+<li><strong>A infraestrutura da fazenda precisava orientar a arquitetura.</strong> A operação dependia de servidores com recursos limitados e conexão instável. Enviar somente o necessário e reconstruir o possível na nuvem era a orientação para respeitar essas restrições.</li>
+<li><strong>Padronizar cadastros era apenas parte da qualidade.</strong> O peso individual e o peso médio obtido pelo caminhão mostravam que também era preciso entender como cada medida havia sido produzida para decidir o que comparar.</li>
+<li><strong>A análise agregada podia inverter a interpretação.</strong> Ver o Paradoxo de Simpson na análise de eficiência operacional e financeira tornou concreta uma armadilha que eu conhecia da teoria: tirar conclusões sobre as fazendas apenas pelo comportamento do conjunto. Selecionar e filtrar os dados exigia tanto cuidado quanto reuni-los.</li>
 </ul>
-<p>Os achados ajudavam a organizar a próxima operação, levando em conta os aspectos biológicos, a sequência de trabalho, a combinação entre profissionais e as condições do ambiente.</p>
-</section>
-<section id="como-evitamos-um-prejuízo-de-mais-de-r-100-mil" class="level1">
-<h1>Como evitamos um prejuízo de mais de R$ 100 mil</h1>
-<p>Durante a estação de monta, identificamos um lote de sêmen de um touro com resultados muito abaixo do esperado. Nossa capacidade de separar os efeitos da operação permitiu identificar que aquele lote estava comprometido.</p>
-<p>Essa identificação ainda durante a estação nos permitiu evitar um prejuízo de mais de R$ 100 mil. A análise também possibilitou que a fazenda usasse os resultados como prova junto ao fornecedor.</p>
-<p>O mesmo trabalho de separar efeitos que apoiava a comissão ajudou a localizar um problema no sêmen. Nesse caso, a análise teve uma consequência financeira concreta e deu à fazenda evidências para tratar o problema com quem havia fornecido o lote.</p>
-<section id="aprendizados-erros-de-interpretação-e-impactos" class="level2">
-<h2 class="anchored" data-anchor-id="aprendizados-erros-de-interpretação-e-impactos">Aprendizados, erros de interpretação e impactos</h2>
-<ul>
-<li><strong>Analisar uma variável isoladamente pode levar à atribuição errada.</strong> O inseminador não explicava sozinho o resultado; a dupla, os animais, o ambiente e o lote também importavam.</li>
-<li><strong>Comparar pessoas exige considerar suas condições de trabalho.</strong> A seleção de animais favoráveis se misturava ao indicador usado para avaliar o profissional.</li>
-<li><strong>Perguntar a quem conhece a operação faz parte da análise.</strong> O contexto dos piquetes apareceu na conversa com quem conhecia a fazenda.</li>
-<li><strong>A análise ganha consequência quando orienta ações.</strong> Mudamos o produto e a comissão, apoiamos a próxima estação e identificamos um lote comprometido a tempo de evitar uma perda expressiva.</li>
-</ul>
-<p>Correlações espúrias e confundimento deixam de ser conceitos abstratos quando uma interpretação vira critério de remuneração ou decisão operacional. Dado sem contexto pode ser mais perigoso que não ter o dado em si.</p>
+<p>A centralização criou um ponto comum de consumo. Construir comparações representativas continuava sendo um desafio próprio, dependente da qualidade dos registros e do entendimento de cada operação.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
