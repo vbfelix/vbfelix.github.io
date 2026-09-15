@@ -18,7 +18,7 @@ website:
   description: "Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto."
   open-graph: true
   site-url: https://vbfelix.github.io
-  favicon: /images/favicon/chalk-scatter.svg
+  favicon: images/favicon/chalk-scatter.svg
   page-footer:
     left: "© Vinícius Félix · [Quarto](https://quarto.org/) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)"
     right:

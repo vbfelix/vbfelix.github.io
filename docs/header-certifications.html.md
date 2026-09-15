@@ -6,7 +6,11 @@ Fonte: https://vbfelix.github.io/header-certifications.html
 
  \[09/26\] Build with Retrieval-Augmented Generation
 
+ \[09/26\] Claude Code in Action
+
  \[09/26\] Introduction to Model Context Protocol
+
+ \[09/26\] Introduction to Agent Skills
 
  \[04/26\] Product Marketing Manager
 

@@ -19,14 +19,19 @@ Como CPO da Datlo, fui responsável pela direção estratégica e pelo desenvolv
 \
 Minhas responsabilidades incluíam impulsionar a inovação de produtos, manter o alinhamento entre as capacidades de dados e as necessidades do mercado, gerenciar equipes multidisciplinares e promover a integração de tecnologias emergentes.\
 \
-Trabalhei com as áreas de analytics e governança para obter diferentes conjuntos de dados e melhorar os resultados dos clientes por meio de insights. Também ajudei organizações a tomar decisões geograficamente orientadas que aprimoram seu crescimento e suas operações.
+
+**Resultados**
+
+-   Geri a implementação de um arquitetura de dados que ingere mais de 1 bilhão de pontos diariamente
+-   Aumentei a eficiência de entregas do time de dados em 4x
+-   Desenvolvi um segundo cérebro que permitiu a centralização de contexo da empresa
+-   Desenvolvi um projeto de automação da voz do cliente, que permitiu a autoidentificação de problemas com leads e clientes para triagem em produto
 
 ### [01/24 - 07/24] Head of Data
 
 Como Head of Data de um produto orientado por dados, fui responsável pela integração de tecnologias, análises avançadas, governança, obtenção de dados, colaboração entre áreas, consultoria a clientes, conformidade regulatória e evolução contínua da plataforma.
 
 **Resultados**
-
 -   Liderei a implementação de uma arquitetura capaz de automatizar extrações e testes, com ferramentas e procedimentos padronizados para mais de 100 fontes de dados e dezenas de pipelines.
 
 ### [02/23 - 12/23] Gerente de Serviços
