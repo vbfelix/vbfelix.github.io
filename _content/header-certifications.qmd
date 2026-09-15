@@ -1,5 +1,13 @@
 ## 2026
 
+![OpenAI](/images/openai.svg){width="32"} \[09/26\] Build with Retrieval-Augmented Generation
+
+![Anthropic](/images/anthropic.svg){width="32"} \[09/26\] Claude Code in Action
+
+![Anthropic](/images/anthropic.svg){width="32"} \[09/26\] Introduction to Model Context Protocol
+
+![Anthropic](/images/anthropic.svg){width="32"} \[09/26\] Introduction to Agent Skills
+
 ![](/images/images.png){width="31"} \[04/26\] Product Marketing Manager
 
 ## 2025

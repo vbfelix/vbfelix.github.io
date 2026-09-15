@@ -302,6 +302,10 @@ Fonte: https://vbfelix.github.io/header-certifications.html
 
 ### 2026
 
+ \[09/26\] Build with Retrieval-Augmented Generation
+
+ \[09/26\] Introduction to Model Context Protocol
+
  \[04/26\] Product Marketing Manager
 
 ### 2025
