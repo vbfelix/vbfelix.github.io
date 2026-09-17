@@ -1,0 +1,18 @@
+---
+title: "Portfólio"
+description: "Catálogo de projetos de Vinícius Félix."
+lang: pt-BR
+page-layout: full
+toc: false
+body-classes: portfolio-page
+listing:
+  contents: "portfolio/*/index.qmd"
+  type: grid
+  fields: [image, title]
+  sort: "path desc"
+  grid-columns: 3
+  image-height: 190px
+  page-size: 12
+  sort-ui: false
+  filter-ui: false
+---

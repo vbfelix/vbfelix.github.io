@@ -51,6 +51,7 @@ function Invoke-UnitTests {
 function Invoke-Checks {
     Resolve-Quarto
     Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py', '--check')
+    Invoke-Checked $script:PythonPath @('scripts/sync-blog.py', '--check')
     Invoke-Checked $script:PythonPath @('scripts/build-writing.py', '--check')
     Invoke-Checked $script:PythonPath @('scripts/check-site.py')
     Invoke-Checked $script:QuartoPath @('run', 'scripts/build-agent-assets.ts', '--check')
@@ -61,6 +62,7 @@ function Invoke-Render {
     Resolve-Quarto
     Stop-OwnedPreview
     Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py')
+    Invoke-Checked $script:PythonPath @('scripts/sync-blog.py')
     Invoke-Checked $script:PythonPath @('scripts/build-writing.py')
     Invoke-Checked $script:QuartoPath @('render', '--no-clean')
     Invoke-Checks
@@ -73,7 +75,7 @@ function Test-RenderNeeded {
     $sourceFiles = @(
         Get-ChildItem -LiteralPath (Join-Path $repository '_content'), (Join-Path $repository 'posts'), (Join-Path $repository 'portfolio'), (Join-Path $repository 'assets') -Recurse -File
         Get-ChildItem -LiteralPath $repository -File | Where-Object { $_.Extension -in '.qmd', '.scss', '.css' -or $_.Name -eq '_quarto.yml' }
-        Get-Item -LiteralPath (Join-Path $repository 'scripts/build-writing.py'), (Join-Path $repository 'scripts/sync-portfolio.py'), (Join-Path $repository 'scripts/build-agent-assets.ts'), (Join-Path $repository 'scripts/content-source.ts'), (Join-Path $repository 'scripts/test-content-source.ts')
+        Get-Item -LiteralPath (Join-Path $repository 'scripts/build-writing.py'), (Join-Path $repository 'scripts/sync-portfolio.py'), (Join-Path $repository 'scripts/sync-blog.py'), (Join-Path $repository 'scripts/build-agent-assets.ts'), (Join-Path $repository 'scripts/content-source.ts'), (Join-Path $repository 'scripts/test-content-source.ts')
         Get-ChildItem -LiteralPath (Join-Path $repository 'scripts/filters') -Recurse -File
     )
     return [bool]($sourceFiles | Where-Object LastWriteTimeUtc -gt $outputTime | Select-Object -First 1)
@@ -123,6 +125,7 @@ function Start-Preview {
                 $diskMain = [regex]::Match($disk, '(?s)<main.*?</main>').Value
                 if ($diskMain.Length -gt 0 -and $servedMain -ceq $diskMain) {
                     Write-Host "PASS: fresh preview available at $uri"
+                    Start-Process $uri
                     return
                 }
             }
@@ -153,6 +156,7 @@ try {
         }
         'sync' {
             Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py')
+            Invoke-Checked $script:PythonPath @('scripts/sync-blog.py')
             Invoke-Checked $script:PythonPath @('scripts/build-writing.py')
         }
         'test' { Invoke-UnitTests }

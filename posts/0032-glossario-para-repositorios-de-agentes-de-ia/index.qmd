@@ -1,0 +1,155 @@
+---
+title: "Seu agente não precisa de mais um prompt"
+author: "Vinícius Félix"
+date: "2026-09-17"
+categories: [AI, engenharia de software]
+lang: pt-BR
+---
+
+Quando um agente falha, a reação mais popular é mexer no prompt. É compreensível. Também é parecido com ajustar o texto do cardápio quando a cozinha está sem estoque, sem processo e sem inspeção. O prompt importa, mas não explica como o sistema acessa informação, executa ações, delega trabalho ou verifica que não piorou.
+
+Este artigo propõe um glossário operacional para cinco termos que costumam aparecer misturados em conversas sobre agentes: skill, MCP, hook, subagente e comando. O critério de projeto é simples: antes de acrescentar um componente, identifique a responsabilidade que ele deve tornar explícita.
+
+O recorte vem dos cursos da Anthropic Academy e da OpenAI Academy que estudei e das anotações preservadas neste acervo. Não é um ranking de plataformas, nem prova de que uma arquitetura funciona em qualquer contexto. É um mapa para não chamar tudo de “agente” e esperar que o nome resolva o desenho.
+
+### O problema: cinco nomes para uma coisa só
+
+Skills, MCP, hooks e subagentes aparecem nas referências consultadas sobre agentes. O problema começa quando viram decoração de arquitetura. A pessoa instala três extensões, cria duas pastas com nomes em inglês e conclui que agora tem um sistema multiagente. Às vezes tem apenas uma pasta cara de manter.
+
+Os termos não são sinônimos. Eles respondem a perguntas diferentes.
+
+| Componente | Pergunta que responde | Responsabilidade |
+|---|---|---|
+| Skill | Como esse tipo de tarefa deve ser executado? | Reunir conhecimento operacional reutilizável |
+| MCP | Como a aplicação acessa uma capacidade externa? | Padronizar a integração com outros sistemas |
+| Hook | O que acontece quando este evento ocorre? | Reagir automaticamente a um evento |
+| Subagente | Quem assume esta subtarefa? | Delegar com contexto e retorno próprios |
+| Comando | Que ação alguém decidiu iniciar? | Expor uma operação explícita |
+
+Um agente, por sua vez, combina modelo, instruções, ferramentas, estado e critérios de parada para agir em etapas. Esses cinco componentes não substituem esse núcleo. Eles tornam partes diferentes do trabalho explícitas.
+
+### Critério de projeto: comece pela responsabilidade, não pelo produto
+
+Antes de criar uma pasta ou instalar um conector, formule o problema.
+
+1. O agente esquece o padrão de revisão? Provavelmente falta uma skill.
+2. Ele precisa consultar um sistema externo? Talvez falte uma integração, possivelmente via MCP.
+3. Uma validação deve ocorrer sempre após uma edição? O caso é de hook.
+4. Pesquisa e revisão podem ocorrer com contexto separado? Pode haver espaço para um subagente.
+5. A ação precisa de decisão explícita de quem opera? Ela deve ser um comando.
+
+Essa sequência é deliberadamente sem glamour, simples, uma referência. Boa arquitetura costuma parecer óbvia depois que o problema foi bem separado. A alternativa é empilhar componentes até o repositório parecer uma cabine de avião e ninguém mais saber qual botão desliga o motor.
+
+### Skill: o manual de operação que volta amanhã
+
+Skill é um pacote reutilizável de instruções, critérios e recursos para uma classe de tarefas. Pode conter um arquivo principal, referências, exemplos e scripts. Em plataformas que oferecem descoberta e carregamento progressivo, o agente lê primeiro a descrição e carrega o restante quando a tarefa pede. Isso é uma convenção de plataforma, não um requisito do nome. [A Anthropic documenta esse modelo de organização](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
+
+Uma skill de revisão de código, por exemplo, pode registrar quais arquivos examinar, quais riscos procurar, quando pedir confirmação e quais verificações executar.
+
+```text
+skills/
+  revisar-codigo/
+    SKILL.md
+    referencias/
+      criterios.md
+    scripts/
+      validar.ps1
+```
+
+Skill não é prompt. Prompt é uma instrução enviada ao modelo agora. Skill reúne a forma de trabalhar quando esse tipo de pedido volta amanhã. Também não é hook: a skill orienta uma tarefa reconhecida; o hook reage a um evento.
+
+Use skill para trabalho recorrente que tem regra própria. Não use como depósito de tudo o que alguém não quis organizar. Uma skill ampla demais pode dificultar a seleção e, dependendo da plataforma, aumentar o contexto carregado. Aí você volta ao problema inicial, agora com uma pasta bonita.
+
+### MCP: o protocolo, não o garçom
+
+MCP significa Model Context Protocol. É um protocolo aberto para conectar aplicações de IA a servidores que expõem ferramentas, recursos e prompts. Ele padroniza a conversa entre quem solicita uma capacidade e quem a oferece. [A documentação oficial descreve o protocolo](https://docs.anthropic.com/en/docs/mcp).
+
+A analogia do garçom ajuda se não for esticada até quebrar. MCP não é o garçom. É a convenção que permite que salão, cozinha e caixa se entendam. O agente ou aplicação cliente faz o pedido. O servidor MCP informa o que está disponível e recebe a solicitação. A ferramenta é a ação executada do outro lado.
+
+Uma API também descreve uma interface entre sistemas, mas não é idêntica a MCP. Na analogia, uma API é o cardápio e a regra de pedido de um restaurante específico. MCP cria uma convenção para que diferentes aplicações clientes e serviços se conectem sem cada combinação inventar seu próprio idioma.
+
+```text
+Aplicação cliente
+       ↓ usa o protocolo
+Servidor MCP
+       ↓ expõe
+Ferramentas, recursos e templates de prompt
+```
+
+MCP é útil quando uma capacidade precisa atender a mais de um cliente, ou quando a integração deve ser portátil. Não é obrigatório para toda automação local. Um script usado apenas no seu repositório pode ser chamado diretamente como ferramenta. MCP também não decide se uma ação é permitida, se a fonte é confiável ou se o resultado é bom. Integração não é autorização, e protocolo não é julgamento.
+
+### Hook: uma catraca, não um lembrete
+
+Hook é um gatilho que executa uma ação quando um evento ocorre no fluxo. Pode validar, registrar, bloquear ou acionar outra rotina depois de uma edição, antes de uma ferramenta ou ao concluir uma tarefa.
+
+Pseudoconfiguração, porque cada plataforma define sua própria sintaxe:
+
+```yaml
+after_edit:
+  run: scripts/validar-alteracao.ps1
+before_tool_call:
+  tool: deploy
+  run: scripts/verificar-permissao.ps1
+```
+
+O valor do hook é não depender de memória. A edição aconteceu, então a verificação roda. É uma catraca. Uma instrução escrita no prompt é mais parecida com uma placa pedindo para não pular a catraca. As duas podem coexistir; só uma age por evento.
+
+Hook não substitui permissões, desenho seguro da ferramenta ou revisão humana. Muitos hooks também não produzem segurança por osmose. Produzem um fluxo difícil de entender. Use os que aplicam regras objetivas em eventos previsíveis.
+
+### Subagente: delegar sem terceirizar a responsabilidade
+
+Subagente é um agente especializado convocado para uma subtarefa delimitada. Ele recebe objetivo, contexto e critérios de retorno próprios e devolve um achado, artefato ou decisão ao agente principal.
+
+Em uma alteração de código, o agente principal pode implementar a mudança. Um subagente pode verificar documentação e outro revisar os testes afetados. A divisão ajuda quando as partes são independentes ou exigem especialização. O responsável pela integração continua sendo quem coordena o trabalho. Delegar não terceiriza a responsabilidade, só separa a execução.
+
+Subagente não é sinônimo de paralelismo. Uma subtarefa pode ser delegada em sequência. E dois scripts executando ao mesmo tempo não viram subagentes só porque o computador está ocupado. Use esse componente quando a fronteira de contexto for clara. Sem objetivo, limite de acesso e formato de retorno, você não montou uma equipe. Apenas multiplicou conversas confusas.
+
+### Comando: o botão que alguém decide apertar
+
+Neste artigo, comando é a invocação explícita de uma operação. Pode aparecer como instrução de terminal, tarefa registrada ou interface como `/validar`. O script ou serviço por trás é a implementação, não o comando em si.
+
+```text
+validar-post posts/blog/meu-artigo.md
+gerar-preview posts/blog/meu-artigo.md
+```
+
+O mesmo script pode ocupar três papéis:
+
+ - Como comando, alguém decide rodar.
+ - Como skill, o agente pode decidir usar o script durante uma tarefa.
+ - Como hook, ele roda automaticamente depois de um evento.
+ 
+A ação pode ser idêntica. O que muda é quem a inicia e em qual condição.
+
+Essa diferença importa em ações sensíveis. Publicar, apagar ou enviar algo para fora do repositório costuma merecer comando e aprovação explícitos. Automatizar a decisão só porque a automação é possível é uma maneira eficiente de produzir incidente com boa documentação.
+
+### Método: uma estrutura inicial que não encena uma plataforma
+
+Comece por uma tarefa pequena e real, como revisar arquivos Markdown segundo regras documentadas.
+
+```text
+meu-agente/
+  AGENTS.md                 instruções gerais do repositório
+  skills/
+    revisar-markdown/
+      SKILL.md              procedimento e critérios da revisão
+  commands/
+    validar.ps1             ação manual e reproduzível
+  hooks/
+    after-edit.yml          validação automática após edição
+```
+
+Não há MCP nem subagente nessa primeira versão, e isso é saudável. Adicione MCP quando uma capacidade precisar ser compartilhada por clientes diferentes ou publicada por uma interface padronizada. Adicione subagente quando uma subtarefa exigir contexto ou especialização próprios. Um repositório inicial não precisa parecer uma plataforma para ser útil.
+
+### Limites e conclusão
+
+Nenhum desses termos resolve o problema por conta própria. Skill não garante que o agente seguirá instruções. MCP não torna uma fonte confiável. Hook não cria uma política de acesso. Subagente não aumenta qualidade automaticamente. Comando não prova que a operação é segura.
+
+O ponto do glossário não é memorizar siglas. É fazer uma pergunta incômoda e útil antes de adicionar mais uma camada: qual responsabilidade estou tentando tornar explícita? 
+- Se a resposta for instrução repetível para IA, use skill. 
+- Se for integração, considere MCP. 
+- Se for reação a evento, hook. 
+- Se for delegação a um especialista, subagente. 
+- Se for decisão explícita humana, comando.
+
+Seu agente talvez ainda precise de um prompt melhor. Só não precisa fingir que esse é o único problema.

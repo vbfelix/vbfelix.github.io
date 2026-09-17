@@ -1,0 +1,6 @@
+---
+title: "Participações"
+lang: pt-BR
+---
+
+{{< include _content/header-participations.qmd >}}

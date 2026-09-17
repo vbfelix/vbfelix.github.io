@@ -39,11 +39,20 @@ website:
       - text: Sobre mim
         href: index.qmd
       - portfolio.qmd
+      - text: Blog
+        href: writing.qmd
       - header-certifications.qmd
-      - header-participations.qmd
-      - header-courses.qmd
-      - header-publications.qmd
-      - header-awards.qmd
+      - text: Outros
+        menu:
+          - text: Participações
+            href: header-participations.qmd
+          - text: Cursos
+            href: header-courses.qmd
+          - text: Publicações
+            href: header-publications.qmd
+          - text: Prêmios
+            href: header-awards.qmd
+    right:
       - icon: github
         href: https://github.com/vbfelix
         target: _blank

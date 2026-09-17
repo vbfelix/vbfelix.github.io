@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Jev o modelo analfabeto – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jev o modelo analfabeto – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-publications.html">
+ <span class="dropdown-text">Publicações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Jev o modelo analfabeto</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">AI</div>
+                <div class="quarto-category">LLM</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">17 de setembro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#pergunta-de-pesquisa" id="toc-pergunta-de-pesquisa" class="nav-link active" data-scroll-target="#pergunta-de-pesquisa">Pergunta de pesquisa</a></li>
+  <li><a href="#material-e-método-sem-tecniquês" id="toc-material-e-método-sem-tecniquês" class="nav-link" data-scroll-target="#material-e-método-sem-tecniquês">Material e método, sem tecniquês</a></li>
+  <li><a href="#resultados-esperados-e-o-que-eles-não-provam" id="toc-resultados-esperados-e-o-que-eles-não-provam" class="nav-link" data-scroll-target="#resultados-esperados-e-o-que-eles-não-provam">Resultados esperados e o que eles não provam</a></li>
+  <li><a href="#grupo-de-controle-o-que-já-existia" id="toc-grupo-de-controle-o-que-já-existia" class="nav-link" data-scroll-target="#grupo-de-controle-o-que-já-existia">Grupo de controle: o que já existia</a></li>
+  <li><a href="#aplicação-hipotética-classificar-antes-de-gastar" id="toc-aplicação-hipotética-classificar-antes-de-gastar" class="nav-link" data-scroll-target="#aplicação-hipotética-classificar-antes-de-gastar">Aplicação hipotética: classificar antes de gastar</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações">Limitações</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">Jev o modelo analfabeto</li></ol></nav>
+<p>Em 15 de setembro de 2026, a TypeSafe anunciou o Jev. A proposta não é fazer um LLM escrever mais rápido. É parar de pedir texto quando a aplicação, no fim, só precisa de uma decisão: uma classe, uma nota, uma escolha ou uma probabilidade.</p>
+<p>Isso parece uma observação banal. E é. Algumas das melhores decisões de engenharia começam assim, depois que se remove o brilho da tela de lançamento e se percebe que alguém estava gerando um parágrafo para obter um <code>true</code>.</p>
+<p>O Jev é interessante por três razões:</p>
+<ul>
+<li>Primeiro, traz de volta uma distinção que o hype dos LLMs embaralhou: classificação, regressão e ranking não são conversa.</li>
+<li>Segundo, a velocidade alegada pode vir mais da inferência do que de alguma forma mística de treinamento.</li>
+<li>Terceiro, se essa hipótese estiver correta, a ideia não está limitada a uma API proprietária: LLMs de pesos abertos também podem expor uma interface semelhante.</li>
+</ul>
+<section id="pergunta-de-pesquisa" class="level3">
+<h3 class="anchored" data-anchor-id="pergunta-de-pesquisa">Pergunta de pesquisa</h3>
+<p>Por que uma aplicação usaria um modelo que não gera texto, se um LLM já consegue devolver JSON?</p>
+<p>Porque JSON pode ser só a embalagem de uma tarefa menor. Quando o software precisa decidir se um caso é de alto risco, priorizar uma fila, escolher uma categoria ou atribuir uma pontuação, o texto liavre pode ser capacidade sobrando. E capacidade sobrando costuma cobrar custo em tokens, latência e complexidade de integração.</p>
+<p>No post <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">“Introducing System One Models &amp; Jev”</a>, a TypeSafe descreve o Jev como um modelo que recebe estado não estruturado e devolve decisões probabilísticas e tipadas. A empresa o apresenta para classificação, extração, scoring e ramificações de fluxo. Ranking é uma aplicação relacionada mencionada no material fornecido pelo autor.</p>
+<p>O modelo, na formulação da TypeSafe, não expõe uma interface de conversa, planejamento ou explicação em texto livre. A aplicação define as opções possíveis. O modelo escolhe entre elas e acompanha a escolha com um score de confiança.</p>
+<p>Isso resolve um problema de interface, não o problema da verdade. Uma resposta compatível com o schema pode estar errada com excelente postura e 93% de confiança, o que lembre-se não implica em verdade absoluta (nada implica isso).</p>
+</section>
+<section id="material-e-método-sem-tecniquês" class="level3">
+<h3 class="anchored" data-anchor-id="material-e-método-sem-tecniquês">Material e método, sem tecniquês</h3>
+<p>Considere uma solicitação com um texto comum e N perguntas de múltipla escolha. Por exemplo: o caso exige revisão humana? Qual é a prioridade? Qual categoria melhor descreve o pedido?</p>
+<p>No caminho mais comum, um LLM recebe tudo isso e decodifica tokens, um a um, para gerar algo como um JSON. A aplicação faz parsing, valida as chaves e tenta reparar a resposta quando o modelo decide que uma vírgula é uma oportunidade de expressão artística.</p>
+<p>Um desenho semelhante ao Jev poderia operar de outra forma.</p>
+<ol type="1">
+<li>Cada escolha possível recebe um rótulo curto, como <code>1</code>, <code>2</code> ou <code>3</code>.</li>
+<li>O motor faz o prefill do contexto compartilhado, incluindo o estado do caso, o formato das respostas e as instruções comuns.</li>
+<li>Esse contexto é ramificado para cada pergunta, reutilizando o cache do prefill.</li>
+<li>Cada ramificação recebe somente a pergunta que lhe cabe.</li>
+<li>O motor observa os logits do próximo token, restringe as opções aos rótulos válidos e seleciona a alternativa mais provável.</li>
+<li>O softmax desses logits pode fornecer a probabilidade relativa de cada alternativa no conjunto permitido. Isso não prova, por si só, que a probabilidade seja calibrada.</li>
+</ol>
+<p>Em vez de decodificar uma sequência longa para produzir uma estrutura textual, o sistema faz uma decisão curta por pergunta e avança essas decisões em paralelo. A eficiência potencial cresce com o número de perguntas por requisição.</p>
+<p>Como hipótese técnica independente da arquitetura da TypeSafe, essa abordagem não depende de um modelo fechado. Um LLM de pesos abertos, combinado a um motor que reutilize o cache de atenção, conhecido como KV cache, e restrinja os tokens de saída, poderia oferecer uma interface parecida. O valor específico do Jev, se a proposta da TypeSafe se confirmar, estaria em um modelo especializado para ter bom desempenho justamente nesse cenário: interpretar contexto compartilhado, escolher entre opções curtas e produzir scores úteis com custo baixo.</p>
+</section>
+<section id="resultados-esperados-e-o-que-eles-não-provam" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-esperados-e-o-que-eles-não-provam">Resultados esperados e o que eles não provam</h3>
+<p>A TypeSafe afirma que o Jev produz decisões em paralelo, não gera strings e alcança ganhos expressivos de custo e latência em suas avaliações de workflow. O post de lançamento também explica que, nessas avaliações, usa a média das previsões de modelos externos como resposta de referência. Essa é uma proxy de concordância, não equivale a ground truth, e a empresa reconhece limites metodológicos.</p>
+<p>Isso sustenta uma hipótese de produto plausível. Em um processo com alto volume, várias decisões independentes e um espaço de resposta fechado, reduzir a geração de texto pode diminuir o tempo de resposta e o trabalho de parsing. Não sustenta uma conclusão universal de que o Jev será melhor para qualquer classificação, regressão ou ranking.</p>
+<p>A diferença entre essas tarefas importa. Classificação escolhe uma classe discreta. Ranking ordena itens. Regressão estima uma escala numérica. Colocar os três na caixa de “decisão” ajuda a organizar uma API, mas não elimina suas métricas, dados e erros próprios.</p>
+</section>
+<section id="grupo-de-controle-o-que-já-existia" class="level3">
+<h3 class="anchored" data-anchor-id="grupo-de-controle-o-que-já-existia">Grupo de controle: o que já existia</h3>
+<p>Classificar com LLM não é novidade. Um prompt bem escrito, Structured Outputs e validação já permitem pedir uma categoria ou uma nota dentro de um schema. Para exploração inicial ou volume baixo, essa costuma ser uma solução muito conveniente. A facilidade de chamar uma API é parte do motivo pelo qual tantas empresas agora tentam automatizar processos antes feitos com pessoas e planilhas.</p>
+<p>Mas nem todo problema que parece “usar IA” precisa de um LLM. Muitos são problemas clássicos de classificação ou regressão. Quando há dados limpos, rótulos e um objetivo estável, modelos supervisionados de Machine Learning são o go-to. O custo está em rotular dados, treinar, hospedar e operar o modelo. O LLM pode até ajudar a construir esse caminho, mas não faz o trabalho operacional sumir.</p>
+<p>Modelos especializados em decisões estruturadas ocupam um espaço intermediário. Eles podem ser úteis quando a empresa ainda não tem pipeline de ML supervisionado, mas já sabe qual decisão precisa tomar e não quer pagar pela liberdade de texto de um modelo geral em cada chamada.</p>
+</section>
+<section id="aplicação-hipotética-classificar-antes-de-gastar" class="level3">
+<h3 class="anchored" data-anchor-id="aplicação-hipotética-classificar-antes-de-gastar">Aplicação hipotética: classificar antes de gastar</h3>
+<p>Considere uma fila de mensagens que podem indicar risco. Uma arquitetura possível seria:</p>
+<ol type="1">
+<li>Um classificador atribui uma categoria de risco e um score de confiança.</li>
+<li>Casos de baixo risco seguem para o processamento padrão.</li>
+<li>Casos de alto risco, ou com confiança insuficiente, seguem para um LLM mais capaz ou para revisão humana.</li>
+<li>O resultado final é comparado à classificação inicial para medir qualidade e recalibrar os limiares.</li>
+</ol>
+<p>O objetivo não é remover o LLM. É reservar o recurso mais caro para os casos em que ambiguidade, consequência do erro ou necessidade de explicação justificam o custo.</p>
+<p>Esse padrão só é útil se a confiança for calibrada. Uma confiança de 90% tem valor operacional somente se casos com 90% de confiança acertarem mais que casos com 60%, no domínio real da aplicação. A TypeSafe afirma que seus scores são calibrados. Quem adota a ferramenta precisa testar essa propriedade com seus próprios rótulos e custos de erro.</p>
+</section>
+<section id="limitações" class="level3">
+<h3 class="anchored" data-anchor-id="limitações">Limitações</h3>
+<p>Eu não testei a API do Jev, não executei um benchmark e nem comparei com outros modelos, Structured Outputs ou um LLM de pesos abertos.</p>
+<p>Há uma limitação mais importante: o ganho de desempenho não decide sozinho a escolha técnica. Se a tarefa precisa gerar uma justificativa, lidar com saídas abertas ou integrar conhecimento extenso em linguagem natural, um modelo de decisão restrito pode simplesmente ser a ferramenta errada. Rápido é uma propriedade admirável. Rápido na direção errada continua sendo um modo eficiente de se perder.</p>
+</section>
+<section id="conclusão" class="level3">
+<h3 class="anchored" data-anchor-id="conclusão">Conclusão</h3>
+<p>Jev não inaugura classificação, regressão ou ranking. Ele torna uma pergunta antiga mais visível: por que estamos pedindo texto a um modelo quando o sistema só precisa de uma decisão?</p>
+<p>Vale acompanhar a proposta da TypeSafe e testar em problemas concretos. Vale também lembrar que uma API nova não substitui a formulação do problema, os dados rotulados, uma métrica de qualidade ou o julgamento de que aquela automação deveria existir.</p>
+<p>Tecnologia é meio. O objetivo é tomar uma decisão melhor, com custo, velocidade e risco conhecidos. Se um modelo especializado ajuda nisso, ótimo. Se um LLM com Structured Outputs resolve, ótimo. Se ML resolve, a máquina não vai ficar ofendida.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Sobre</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/vbfelix">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

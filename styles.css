@@ -110,7 +110,8 @@ body.about-page main.content {
   justify-self:center;
   padding:1.5rem clamp(1rem,2vw,2rem) 3rem;
 }
-body.portfolio-page main.content {
+body.portfolio-page main.content,
+body.writing-page main.content {
   grid-column:page-start / page-end;
   width:100%;
   max-width:1200px;
@@ -148,6 +149,11 @@ body.portfolio-page main.content {
 .archive-entry h2 {
   font-size:1.35rem;
   margin:0!important}
+.post-language {
+  display:inline-block;
+  margin-right:.5rem;
+  font-size:.9em;
+}
 .archive-entry p {
   font-size:.75rem;
   color:var(--muted);

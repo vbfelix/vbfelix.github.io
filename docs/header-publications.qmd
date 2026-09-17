@@ -1,0 +1,6 @@
+---
+title: "Publicações"
+lang: pt-BR
+---
+
+{{< include _content/header-publications.qmd >}}

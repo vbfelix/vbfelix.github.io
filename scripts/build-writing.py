@@ -29,7 +29,7 @@ def read_post(path):
     parts = re.split(r'^---\s*$', path.read_text(encoding='utf-8-sig'), maxsplit=2, flags=re.M)
     if len(parts) != 3 or parts[0].strip():
         raise ValueError(f'{path}: missing YAML front matter')
-    fields = dict(re.findall(r'^(title|date|categories):[ \t]*(.+)$', parts[1], re.M))
+    fields = dict(re.findall(r'^(title|date|categories|lang):[ \t]*(.+)$', parts[1], re.M))
     try:
         title = scalar(fields['title'])
         published = scalar(fields['date'])
@@ -38,15 +38,24 @@ def read_post(path):
         if not (categories.startswith('[') and categories.endswith(']')):
             raise ValueError('categories must use an inline list')
         categories = ', '.join(scalar(item) for item in categories[1:-1].split(',') if item.strip())
-        return published, title, categories, path.parent.name
+        language = scalar(fields.get('lang', 'en')).lower()
+        flags = {
+            'en': ('🇺🇸', 'Em inglês'),
+            'en-us': ('🇺🇸', 'Em inglês'),
+            'pt': ('🇧🇷', 'Em português'),
+            'pt-br': ('🇧🇷', 'Em português'),
+        }
+        if language not in flags:
+            raise ValueError(f'unsupported language: {language}')
+        return published, title, categories, path.parent.name, flags[language]
     except (KeyError, ValueError) as error:
         raise ValueError(f'{path}: invalid metadata: {error}') from error
 
 
 def render(posts):
     rows = []
-    for published, title, categories, slug in sorted(posts, reverse=True):
-        rows.append(f'<article class="archive-entry"><time datetime="{published}">{published}</time><div><h2><a href="/posts/{slug}/index.html">{html.escape(title)}</a></h2><p>{html.escape(categories)}</p></div></article>')
+    for published, title, categories, slug, (flag, language) in sorted(posts, reverse=True):
+        rows.append(f'<article class="archive-entry"><time datetime="{published}">{published}</time><div><h2><span class="post-language" role="img" aria-label="{language}">{flag}</span><a href="/posts/{slug}/index.html">{html.escape(title)}</a></h2><p>{html.escape(categories)}</p></div></article>')
     return ('Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.\n\n'
             '```{=html}\n' + '\n'.join(rows) + '\n```\n')
 

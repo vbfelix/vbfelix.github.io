@@ -1,0 +1,6 @@
+---
+title: "Certificações"
+lang: pt-BR
+---
+
+{{< include _content/header-certifications.qmd >}}

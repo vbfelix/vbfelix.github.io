@@ -1,0 +1,91 @@
+---
+title: "Jev o modelo analfabeto"
+author: "Vinícius Félix"
+date: "2026-09-17"
+categories: [AI, LLM]
+lang: pt-BR
+---
+
+Em 15 de setembro de 2026, a TypeSafe anunciou o Jev. A proposta não é fazer um LLM escrever mais rápido. É parar de pedir texto quando a aplicação, no fim, só precisa de uma decisão: uma classe, uma nota, uma escolha ou uma probabilidade.
+
+Isso parece uma observação banal. E é. Algumas das melhores decisões de engenharia começam assim, depois que se remove o brilho da tela de lançamento e se percebe que alguém estava gerando um parágrafo para obter um `true`.
+
+O Jev é interessante por três razões: 
+
+ - Primeiro, traz de volta uma distinção que o hype dos LLMs embaralhou: classificação, regressão e ranking não são conversa. 
+ - Segundo, a velocidade alegada pode vir mais da inferência do que de alguma forma mística de treinamento.
+ - Terceiro, se essa hipótese estiver correta, a ideia não está limitada a uma API proprietária: LLMs de pesos abertos também podem expor uma interface semelhante.
+
+### Pergunta de pesquisa
+
+Por que uma aplicação usaria um modelo que não gera texto, se um LLM já consegue devolver JSON?
+
+Porque JSON pode ser só a embalagem de uma tarefa menor. Quando o software precisa decidir se um caso é de alto risco, priorizar uma fila, escolher uma categoria ou atribuir uma pontuação, o texto liavre pode ser capacidade sobrando. E capacidade sobrando costuma cobrar custo em tokens, latência e complexidade de integração.
+
+No post [“Introducing System One Models & Jev”](https://typesafe.ai/blog/introducing-system-one-models-and-jev), a TypeSafe descreve o Jev como um modelo que recebe estado não estruturado e devolve decisões probabilísticas e tipadas. A empresa o apresenta para classificação, extração, scoring e ramificações de fluxo. Ranking é uma aplicação relacionada mencionada no material fornecido pelo autor.
+
+O modelo, na formulação da TypeSafe, não expõe uma interface de conversa, planejamento ou explicação em texto livre. A aplicação define as opções possíveis. O modelo escolhe entre elas e acompanha a escolha com um score de confiança.
+
+Isso resolve um problema de interface, não o problema da verdade. Uma resposta compatível com o schema pode estar errada com excelente postura e 93% de confiança, o que lembre-se não implica em verdade absoluta (nada implica isso).
+
+### Material e método, sem tecniquês
+
+Considere uma solicitação com um texto comum e N perguntas de múltipla escolha. Por exemplo: o caso exige revisão humana? Qual é a prioridade? Qual categoria melhor descreve o pedido?
+
+No caminho mais comum, um LLM recebe tudo isso e decodifica tokens, um a um, para gerar algo como um JSON. A aplicação faz parsing, valida as chaves e tenta reparar a resposta quando o modelo decide que uma vírgula é uma oportunidade de expressão artística.
+
+Um desenho semelhante ao Jev poderia operar de outra forma.
+
+1. Cada escolha possível recebe um rótulo curto, como `1`, `2` ou `3`.
+2. O motor faz o prefill do contexto compartilhado, incluindo o estado do caso, o formato das respostas e as instruções comuns.
+3. Esse contexto é ramificado para cada pergunta, reutilizando o cache do prefill.
+4. Cada ramificação recebe somente a pergunta que lhe cabe.
+5. O motor observa os logits do próximo token, restringe as opções aos rótulos válidos e seleciona a alternativa mais provável.
+6. O softmax desses logits pode fornecer a probabilidade relativa de cada alternativa no conjunto permitido. Isso não prova, por si só, que a probabilidade seja calibrada.
+
+Em vez de decodificar uma sequência longa para produzir uma estrutura textual, o sistema faz uma decisão curta por pergunta e avança essas decisões em paralelo. A eficiência potencial cresce com o número de perguntas por requisição.
+
+Como hipótese técnica independente da arquitetura da TypeSafe, essa abordagem não depende de um modelo fechado. Um LLM de pesos abertos, combinado a um motor que reutilize o cache de atenção, conhecido como KV cache, e restrinja os tokens de saída, poderia oferecer uma interface parecida. O valor específico do Jev, se a proposta da TypeSafe se confirmar, estaria em um modelo especializado para ter bom desempenho justamente nesse cenário: interpretar contexto compartilhado, escolher entre opções curtas e produzir scores úteis com custo baixo.
+
+### Resultados esperados e o que eles não provam
+
+A TypeSafe afirma que o Jev produz decisões em paralelo, não gera strings e alcança ganhos expressivos de custo e latência em suas avaliações de workflow. O post de lançamento também explica que, nessas avaliações, usa a média das previsões de modelos externos como resposta de referência. Essa é uma proxy de concordância, não equivale a ground truth, e a empresa reconhece limites metodológicos.
+
+Isso sustenta uma hipótese de produto plausível. Em um processo com alto volume, várias decisões independentes e um espaço de resposta fechado, reduzir a geração de texto pode diminuir o tempo de resposta e o trabalho de parsing. Não sustenta uma conclusão universal de que o Jev será melhor para qualquer classificação, regressão ou ranking.
+
+A diferença entre essas tarefas importa. Classificação escolhe uma classe discreta. Ranking ordena itens. Regressão estima uma escala numérica. Colocar os três na caixa de “decisão” ajuda a organizar uma API, mas não elimina suas métricas, dados e erros próprios.
+
+### Grupo de controle: o que já existia
+
+Classificar com LLM não é novidade. Um prompt bem escrito, Structured Outputs e validação já permitem pedir uma categoria ou uma nota dentro de um schema. Para exploração inicial ou volume baixo, essa costuma ser uma solução muito conveniente. A facilidade de chamar uma API é parte do motivo pelo qual tantas empresas agora tentam automatizar processos antes feitos com pessoas e planilhas.
+
+Mas nem todo problema que parece “usar IA” precisa de um LLM. Muitos são problemas clássicos de classificação ou regressão. Quando há dados limpos, rótulos e um objetivo estável, modelos supervisionados de Machine Learning são o go-to. O custo está em rotular dados, treinar, hospedar e operar o modelo. O LLM pode até ajudar a construir esse caminho, mas não faz o trabalho operacional sumir.
+
+Modelos especializados em decisões estruturadas ocupam um espaço intermediário. Eles podem ser úteis quando a empresa ainda não tem pipeline de ML supervisionado, mas já sabe qual decisão precisa tomar e não quer pagar pela liberdade de texto de um modelo geral em cada chamada.
+
+### Aplicação hipotética: classificar antes de gastar
+
+Considere uma fila de mensagens que podem indicar risco. Uma arquitetura possível seria:
+
+1. Um classificador atribui uma categoria de risco e um score de confiança.
+2. Casos de baixo risco seguem para o processamento padrão.
+3. Casos de alto risco, ou com confiança insuficiente, seguem para um LLM mais capaz ou para revisão humana.
+4. O resultado final é comparado à classificação inicial para medir qualidade e recalibrar os limiares.
+
+O objetivo não é remover o LLM. É reservar o recurso mais caro para os casos em que ambiguidade, consequência do erro ou necessidade de explicação justificam o custo.
+
+Esse padrão só é útil se a confiança for calibrada. Uma confiança de 90% tem valor operacional somente se casos com 90% de confiança acertarem mais que casos com 60%, no domínio real da aplicação. A TypeSafe afirma que seus scores são calibrados. Quem adota a ferramenta precisa testar essa propriedade com seus próprios rótulos e custos de erro.
+
+### Limitações
+
+Eu não testei a API do Jev, não executei um benchmark e nem comparei com outros modelos, Structured Outputs ou um LLM de pesos abertos. 
+
+Há uma limitação mais importante: o ganho de desempenho não decide sozinho a escolha técnica. Se a tarefa precisa gerar uma justificativa, lidar com saídas abertas ou integrar conhecimento extenso em linguagem natural, um modelo de decisão restrito pode simplesmente ser a ferramenta errada. Rápido é uma propriedade admirável. Rápido na direção errada continua sendo um modo eficiente de se perder.
+
+### Conclusão
+
+Jev não inaugura classificação, regressão ou ranking. Ele torna uma pergunta antiga mais visível: por que estamos pedindo texto a um modelo quando o sistema só precisa de uma decisão?
+
+Vale acompanhar a proposta da TypeSafe e testar em problemas concretos. Vale também lembrar que uma API nova não substitui a formulação do problema, os dados rotulados, uma métrica de qualidade ou o julgamento de que aquela automação deveria existir.
+
+Tecnologia é meio. O objetivo é tomar uma decisão melhor, com custo, velocidade e risco conhecidos. Se um modelo especializado ajuda nisso, ótimo. Se um LLM com Structured Outputs resolve, ótimo. Se ML resolve, a máquina não vai ficar ofendida.

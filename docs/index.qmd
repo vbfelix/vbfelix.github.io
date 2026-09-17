@@ -1,0 +1,12 @@
+---
+title: ""
+pagetitle: "Vinícius Félix · Sobre mim"
+lang: pt-BR
+page-layout: full
+title-block-style: none
+toc: false
+breadcrumbs: false
+body-classes: about-page
+---
+
+{{< include _content/header-about.qmd >}}

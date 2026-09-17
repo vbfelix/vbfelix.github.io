@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vbfelix.github.io/posts/0012-mean/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.375Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.045Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0002-dplyr-across/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.354Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.179Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0003-log-scale/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.356Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.285Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0025-brazilian-names/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.391Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.082Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0016-models-and-logs/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.379Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.353Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0007-king-james-bible/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.367Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.647Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0014-simpson-paradox/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.377Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.183Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0006-normal-distribution/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.361Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.556Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0001-chi-square-test/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.352Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.113Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0015-combination/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.378Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.266Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0009-monty-hall/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.368Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.825Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/header-experience.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://vbfelix.github.io/writing.html</loc>
-    <lastmod>2026-09-12T15:06:15.278Z</lastmod>
+    <lastmod>2026-09-17T16:57:21.404Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/header-participations.html</loc>
@@ -62,23 +62,27 @@
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0020-better-presentations/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.386Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html</loc>
+    <lastmod>2026-09-17T17:27:51.311Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0030-llm-ops/index.html</loc>
-    <lastmod>2025-05-03T19:49:42.140Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.473Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0028-data-driven-stages/index.html</loc>
-    <lastmod>2025-03-29T11:48:43.600Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.324Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0024-dw/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.390Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.960Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0018-measure-what-matters/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.384Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.506Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/portfolio/0040-criando-meu-clone-com-ia/index.html</loc>
@@ -122,23 +126,27 @@
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0017-i-robot/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.383Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.435Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0023-dbt/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.389Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.878Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0026-aarrr-framework/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.392Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.160Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0029-dbt-test/index.html</loc>
-    <lastmod>2025-03-29T12:43:52.501Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.396Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0031-biq-query/index.html</loc>
-    <lastmod>2025-05-03T20:30:03.729Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html</loc>
+    <lastmod>2026-09-17T17:27:51.312Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/header-awards.html</loc>
@@ -162,42 +170,42 @@
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0011-birthday-paradox/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.372Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.970Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0022-ahp/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.388Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.796Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0027-hdi-index/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.393Z</lastmod>
+    <lastmod>2026-09-17T17:03:05.226Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0021-r2/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.387Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.719Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0019-quadratic-equation/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.385Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.576Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0013-berkson-paradox/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.376Z</lastmod>
+    <lastmod>2026-09-17T17:03:04.114Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0008-benford-law/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.367Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.738Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0010-logistic-regression/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.369Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.901Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0005-settlers-of-catan/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.360Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.444Z</lastmod>
   </url>
   <url>
     <loc>https://vbfelix.github.io/posts/0004-tidyverse-operators/index.html</loc>
-    <lastmod>2025-01-01T19:46:56.358Z</lastmod>
+    <lastmod>2026-09-17T17:03:03.358Z</lastmod>
   </url>
 </urlset>

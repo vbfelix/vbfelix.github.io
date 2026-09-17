@@ -32,6 +32,21 @@ class ArchiveTests(unittest.TestCase):
     def test_single_quoted_title(self):
         self.assertEqual(archive.scalar("'Benford''s Law'"), "Benford's Law")
 
+    def test_language_flag_uses_post_metadata(self):
+        brazilian = self.read('title: Exemplo\ndate: 2025-01-01\nlang: pt-BR')
+        american = self.read('title: Example\ndate: 2025-01-02\nlang: en')
+        rendered = archive.render([brazilian, american])
+        self.assertIn('aria-label="Em português">🇧🇷', rendered)
+        self.assertIn('aria-label="Em inglês">🇺🇸', rendered)
+
+    def test_unsupported_language_fails(self):
+        with self.assertRaisesRegex(ValueError, 'unsupported language'):
+            self.read('title: Exemple\ndate: 2025-01-01\nlang: fr')
+
+    def test_missing_language_defaults_to_american_flag(self):
+        post = self.read('title: Example\ndate: 2025-01-01')
+        self.assertIn('aria-label="Em inglês">🇺🇸', archive.render([post]))
+
 
 if __name__ == '__main__':
     unittest.main()

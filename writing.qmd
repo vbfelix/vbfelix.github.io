@@ -3,6 +3,8 @@ title: "Escritos"
 lang: pt-BR
 toc: false
 search: false
+page-layout: full
+body-classes: writing-page
 ---
 
 {{< include _content/writing.qmd >}}
