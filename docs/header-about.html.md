@@ -8,7 +8,7 @@ Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separ
 
 Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
 
-Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora da apresentação.
+Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.
 
 COMO EU TRABALHO · NA PRÁTICA
 
@@ -39,7 +39,7 @@ Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a in
 ## Experiência profissional
 
 | Período | Organização e função | Trabalho |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | 08/24 - 09/26 |  Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
 | 01/24 - 07/24 |  Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
 | 02/23 - 12/23 |  Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |

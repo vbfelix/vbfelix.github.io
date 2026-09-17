@@ -1,0 +1,6 @@
+---
+title: "Cursos"
+lang: pt-BR
+---
+
+{{< include _content/header-courses.qmd >}}

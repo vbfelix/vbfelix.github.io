@@ -8,7 +8,7 @@ Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separ
 
 Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
 
-Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora da apresentação.
+Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.
 :::
 
 ::: {.about-hero__portrait}

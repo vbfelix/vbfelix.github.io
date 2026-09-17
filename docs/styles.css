@@ -96,6 +96,13 @@ body.about-page main.content {
   justify-self:center;
   padding:1.5rem clamp(1rem,2vw,2rem) 3rem;
 }
+body.portfolio-page main.content {
+  grid-column:page-start / page-end;
+  width:100%;
+  max-width:1200px;
+  justify-self:center;
+  padding:1.5rem clamp(1rem,2vw,2rem) 3rem;
+}
 .about-hero h1 {
   font-size:3rem;
   line-height:1.1}

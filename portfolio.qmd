@@ -2,6 +2,7 @@
 title: "Portfólio"
 description: "Catálogo de projetos de Vinícius Félix."
 lang: pt-BR
+page-layout: full
 toc: false
 body-classes: portfolio-page
 listing:

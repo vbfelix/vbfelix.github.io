@@ -79,7 +79,7 @@
 
 -   ![](/images/bra.png){width="20"} Correlação Múltipla Wavelet - XXV EAIC e V EAIC Jr.
 
--   ![](/images/usa-01.png){width="20"} The Concept of 4D Datasets - I Workshop em Bioestatística
+-   ![](/images/usa.png){width="20"} The Concept of 4D Datasets - I Workshop em Bioestatística
 
 ## 2015
 

@@ -33,14 +33,16 @@ website:
       - text: GitHub
         href: https://github.com/vbfelix
   navbar:
+    title: false
     pinned: true
     left:
       - text: Sobre mim
         href: index.qmd
       - portfolio.qmd
-      - header-publications.qmd
       - header-certifications.qmd
       - header-participations.qmd
+      - header-courses.qmd
+      - header-publications.qmd
       - header-awards.qmd
       - icon: github
         href: https://github.com/vbfelix

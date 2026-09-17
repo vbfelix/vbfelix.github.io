@@ -11,6 +11,7 @@ const names: Record<string, string> = {
   'header-about': 'Sobre mim',
   'header-experience': 'Experiência profissional e acadêmica',
   'header-publications': 'Publicações',
+  'header-courses': 'Cursos',
   'header-certifications': 'Certificações',
   'header-participations': 'Participações',
   'header-awards': 'Prêmios',

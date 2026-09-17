@@ -1,19 +1,17 @@
-## Experiência profissional
-
-Em setembro de 2026, encerrei meu ciclo como CPO da Datlo para buscar uma carreira mais próxima da pesquisa e da resolução direta de problemas complexos.
-
-{{< include _content/experience-table.qmd >}}
-
 ## Experiência acadêmica
 
 | Universidade | Período | Formação | Trabalho final |
 |----|----|----|----|
-| ![](/images/uem.png){width="31" height="34"} Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
-| ![](/images/uem.png){width="31" height="34"} Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
+| ![](/images/logos/uem.png){width="31" height="34"} Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
+| ![](/images/logos/uem.png){width="31" height="34"} Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
+
+## Experiência profissional
+
+{{< include _content/experience-table.qmd >}}
 
 ## Trajetória em detalhe
 
-### [08/24 - 09/26] Chief Product Officer (CPO)
+### \[08/24 - 09/26\] Chief Product Officer (CPO)
 
 Como CPO da Datlo, fui responsável pela direção estratégica e pelo desenvolvimento dos produtos de dados, desde a entrega de dados até os modelos de inteligência artificial.\
 \
@@ -27,14 +25,13 @@ Minhas responsabilidades incluíam impulsionar a inovação de produtos, manter 
 -   Desenvolvi um segundo cérebro que permitiu a centralização de contexo da empresa
 -   Desenvolvi um projeto de automação da voz do cliente, que permitiu a autoidentificação de problemas com leads e clientes para triagem em produto
 
-### [01/24 - 07/24] Head of Data
+### \[01/24 - 07/24\] Head of Data
 
 Como Head of Data de um produto orientado por dados, fui responsável pela integração de tecnologias, análises avançadas, governança, obtenção de dados, colaboração entre áreas, consultoria a clientes, conformidade regulatória e evolução contínua da plataforma.
 
-**Resultados**
--   Liderei a implementação de uma arquitetura capaz de automatizar extrações e testes, com ferramentas e procedimentos padronizados para mais de 100 fontes de dados e dezenas de pipelines.
+**Resultados** - Liderei a implementação de uma arquitetura capaz de automatizar extrações e testes, com ferramentas e procedimentos padronizados para mais de 100 fontes de dados e dezenas de pipelines.
 
-### [02/23 - 12/23] Gerente de Serviços
+### \[02/23 - 12/23\] Gerente de Serviços
 
 Após a fusão da GA com a Intergado, que passou a se chamar Ponta, assumi uma nova área da empresa para ampliar a atuação da equipe técnica e gerar valor para os clientes para além dos produtos.
 
@@ -54,7 +51,7 @@ Fui responsável pela entrega de serviços da organização. Minhas atribuiçõe
 
 -   Implementei uma base interna de conhecimento com mais de 300 artigos produzidos em um ano.
 
-### [04/22 - 01/23] Gerente de Estratégia
+### \[04/22 - 01/23\] Gerente de Estratégia
 
 Para oferecer melhores soluções por meio da ciência de dados, a GA se fundiu em 2022 com a Intergado, empresa que desenvolvia hardware para automatizar a coleta de dados, como o peso individual de animais, e software inteligente para facilitar decisões orientadas por dados.
 
@@ -70,7 +67,7 @@ Minhas responsabilidades eram:
 
 -   Aprimorei a gestão do backlog e a colaboração entre as equipes de P&D, reduzindo em 80% as interrupções das sprints.
 
-### [01/21 - 03/22] Gerente de P&D
+### \[01/21 - 03/22\] Gerente de P&D
 
 No fim de 2020, fui promovido para liderar toda a divisão de P&D. Além da equipe de dados, passei a ser responsável pelo desenvolvimento de software. Minhas atribuições incluíam:
 
@@ -84,7 +81,7 @@ No fim de 2020, fui promovido para liderar toda a divisão de P&D. Além da equi
 
 -   Implementei automações com Jira Automation, monitoramento com Metabase e tomada de decisão com Dremio, reduzindo as tarefas manuais em aproximadamente 30%.
 
-### [09/20 - 12/20] Gerente de Dados
+### \[09/20 - 12/20\] Gerente de Dados
 
 Em 2020, fui convidado a criar e desenvolver a equipe de dados na divisão de P&D da GA, empresa brasileira de tecnologia para ciências animais para a qual eu já prestava consultoria. Minhas principais atribuições eram:
 
@@ -104,7 +101,7 @@ Em 2020, fui convidado a criar e desenvolver a equipe de dados na divisão de P&
 
 -   Liderei uma arquitetura com AWS Athena e Python e implementei Dremio e Metabase para disseminar a cultura de dados, reduzindo em 50% as demandas de outros departamentos sobre os analistas.
 
-### [09/16 - 08/20] Consultor de Ciência de Dados
+### \[09/16 - 08/20\] Consultor de Ciência de Dados
 
 Em 2016, cofundei a H0 Consultoria. A empresa ajudava pessoas e organizações a aproveitar melhor a Estatística por meio de:
 
@@ -118,7 +115,7 @@ Em 2016, cofundei a H0 Consultoria. A empresa ajudava pessoas e organizações a
 -   Revisão e análise de mais de 350 estudos acadêmicos;
 -   Consultoria em mais de 40 pesquisas empresariais.
 
-#### [10/18 - 11/19] Professor de Estatística
+#### \[10/18 - 11/19\] Professor de Estatística
 
 Com o reconhecimento conquistado como consultor, fui convidado a lecionar Estatística no MBA em Business Intelligence da Unicesumar.
 
@@ -126,7 +123,7 @@ Com o reconhecimento conquistado como consultor, fui convidado a lecionar Estat�
 
 -   Atualizei os tópicos e materiais para uma abordagem mais moderna e aplicada, usando minha experiência prática para demonstrar aplicações reais dos conceitos teóricos.
 
-#### [02/17 - 02/19] Pós-graduação
+#### \[02/17 - 02/19\] Pós-graduação
 
 Após concluir a graduação no início de 2017, iniciei o mestrado em Bioestatística. Minha dissertação tratou de modelos geoestatísticos espaço-temporais, integrando as áreas temporal e espacial que eu havia estudado na graduação.
 
@@ -136,7 +133,7 @@ Para os créditos optativos, escolhi disciplinas de psicometria e epidemiologia.
 
 -   Auxiliei um orientador no desenvolvimento do pacote R [geotoolsR](https://github.com/cran/geotoolsR), contribuindo com código para técnicas de bootstrap em geoestatística.
 
-### [02/13 - 12/16] Graduação
+### \[02/13 - 12/16\] Graduação
 
 Durante a graduação, concentrei-me em séries temporais, geoestatística e visualização de dados. Recebi duas bolsas do Programa Brasileiro de Iniciação Científica (PBIC), que exigia a realização de uma pesquisa e sua apresentação em congresso:
 
@@ -145,7 +142,7 @@ Durante a graduação, concentrei-me em séries temporais, geoestatística e vis
 
 Também participei do grupo de estudos de Estatística Espacial e Temporal. Como trabalho final, escolhi estudar métodos de agrupamento para dados temporais, espaciais e espaço-temporais.
 
-#### [07/13 - 12/15] Empresa júnior
+#### \[07/13 - 12/15\] Empresa júnior
 
 Em 2013, cofundei a Estats Consultoria, empresa júnior de Estatística na qual atuei como diretor de Marketing e, posteriormente, presidente durante três anos.\
 \

@@ -14,6 +14,7 @@ O conteúdo está em português. O currículo é gerado das mesmas fontes das p�
 - [Sobre Vinícius Félix](https://vbfelix.github.io/index.html.md): versão textual da página pública.
 - [Experiência profissional e acadêmica](https://vbfelix.github.io/header-experience.html.md): versão textual da página pública.
 - [Publicações](https://vbfelix.github.io/header-publications.html.md): versão textual da página pública.
+- [Cursos](https://vbfelix.github.io/header-courses.html.md): versão textual da página pública.
 - [Certificações](https://vbfelix.github.io/header-certifications.html.md): versão textual da página pública.
 - [Participações](https://vbfelix.github.io/header-participations.html.md): versão textual da página pública.
 - [Prêmios](https://vbfelix.github.io/header-awards.html.md): versão textual da página pública.
