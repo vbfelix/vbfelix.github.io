@@ -12,6 +12,7 @@
   background:#173f35;
 }
 :root {
+  /* Source of truth: DESIGN.md. CSS aliases keep Quarto overrides readable. */
   --paper:#173f35;
   --ink:#f2efe0;
   --muted:#c0cec0;
@@ -22,6 +23,19 @@
   --mono:Consolas,"Courier New",monospace;
   --serif:Georgia,"Times New Roman",serif;
   --gutter:clamp(1.25rem,5vw,5rem)}
+
+.navbar {
+  border-bottom:1px solid var(--line);
+}
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color:var(--ink);
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar .navbar-brand:hover {
+  color:var(--rust);
+}
 
 html {
   scroll-behavior:smooth;

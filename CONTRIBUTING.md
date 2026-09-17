@@ -30,8 +30,10 @@ Comandos na raiz, com Quarto e Python disponíveis:
 python -m unittest discover -s scripts -p 'test_*.py'
 ./scripts/site.ps1 -Action render
 ./scripts/site.ps1 -Action check
-./scripts/site.ps1 -Action preview
+./scripts/site.ps1 -Action preview -Refresh auto
 ```
+
+`site.ps1` is the single local entry point. Use `-Action doctor` to diagnose tools, `-Action test` for unit tests and AI configuration, and `-Action verify -Scope staged` for proportional checks before a commit. Enable the versioned Git hook once per checkout with `git config core.hooksPath .githooks`.
 
 Use `-Python <executável>` e `-Quarto <executável>` se não estiverem no PATH. O script procura também o Quarto instalado com RStudio. O preview público usa a porta 4321 e o Quarto a porta 4323 por padrão; encerre os processos da tarefa antes de iniciar servidores concorrentes. Não encerre processos de outras tarefas.
 

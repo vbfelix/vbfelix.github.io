@@ -10,6 +10,7 @@ Use [CONTRIBUTING.md](CONTRIBUTING.md) for source ownership, proportional checks
 
 - Tests and script regressions: [.agents/skills/site-tests/SKILL.md](.agents/skills/site-tests/SKILL.md).
 - Rendering, navigation and preview validation: [.agents/skills/site-validation/SKILL.md](.agents/skills/site-validation/SKILL.md).
+- Unified local commands and preview: [.agents/skills/site-workflow/SKILL.md](.agents/skills/site-workflow/SKILL.md).
 - Branches: [.agents/skills/git-branch/SKILL.md](.agents/skills/git-branch/SKILL.md).
 - Commits: [.agents/skills/git-commit/SKILL.md](.agents/skills/git-commit/SKILL.md).
 - Merges and conflicts: [.agents/skills/git-merge/SKILL.md](.agents/skills/git-merge/SKILL.md).
@@ -41,5 +42,7 @@ After every completed user request, refresh the local preview and verify that it
 - Open or reload the homepage only after these checks pass. Report freshness checks accurately and disclose any verification that could not be completed.
 
 Do not open an incomplete or broken preview. If the task does not change the site, still open the latest valid preview. Skip this step only when the user explicitly asks not to open a preview or when the environment cannot provide one; in that case, state the reason clearly.
+
+Use `./scripts/site.ps1 -Action preview -Refresh auto` as the default final command. It resolves the bundled Python and Quarto installations, refreshes stale output, owns its preview processes and confirms that the served home matches `docs/index.html`.
 
 The project is a Quarto website whose generated output is written to `docs/`. Preserve the existing Quarto structure and GitHub Pages output unless the user requests a different architecture.

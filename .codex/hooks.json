@@ -1,0 +1,17 @@
+{
+  "description": "Valida a configuração local de IA antes de encerrar uma tarefa.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$root = git rev-parse --show-toplevel; & (Join-Path $root '.codex/hooks/check-stop.ps1')\"",
+            "timeout": 3,
+            "statusMessage": "Validando a configuração de IA"
+          }
+        ]
+      }
+    ]
+  }
+}

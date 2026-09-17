@@ -1,0 +1,4 @@
+interface:
+  display_name: "Site Workflow"
+  short_description: "Testa, renderiza e abre o preview local"
+  default_prompt: "Use $site-workflow para validar e abrir o preview local deste site."
