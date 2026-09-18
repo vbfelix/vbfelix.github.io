@@ -81,6 +81,16 @@ function Test-RenderNeeded {
     return [bool]($sourceFiles | Where-Object LastWriteTimeUtc -gt $outputTime | Select-Object -First 1)
 }
 
+function Stop-ProcessTree {
+    param([int]$ProcessId)
+    # Quarto launches deno as a child process, and deno is the one holding the port.
+    # Stopping only the parent leaves the port bound and blocks the next preview.
+    foreach ($child in @(Get-CimInstance Win32_Process -Filter "ParentProcessId = $ProcessId" -ErrorAction SilentlyContinue)) {
+        Stop-ProcessTree -ProcessId ([int]$child.ProcessId)
+    }
+    Stop-Process -Id $ProcessId -Force -ErrorAction SilentlyContinue
+}
+
 function Stop-OwnedPreview {
     if (-not (Test-Path -LiteralPath $stateFile)) { return }
     try { $state = Get-Content -Raw -LiteralPath $stateFile | ConvertFrom-Json } catch { return }
@@ -92,7 +102,7 @@ function Stop-OwnedPreview {
         if (-not $processId -or -not $entry.Started) { continue }
         $process = Get-Process -Id $processId -ErrorAction SilentlyContinue
         if ($process -and $process.StartTime.ToUniversalTime().ToString('o') -eq $entry.Started) {
-            Stop-Process -Id $processId -ErrorAction SilentlyContinue
+            Stop-ProcessTree -ProcessId $processId
         }
     }
     Remove-Item -LiteralPath $stateFile -Force -ErrorAction SilentlyContinue
@@ -121,7 +131,10 @@ function Start-Preview {
             $response = Invoke-WebRequest $uri -UseBasicParsing -TimeoutSec 2
             if ($response.StatusCode -eq 200) {
                 $disk = Get-Content -Raw -LiteralPath (Join-Path $repository 'docs/index.html') -Encoding utf8
-                $servedMain = [regex]::Match($response.Content, '(?s)<main.*?</main>').Value
+                # Invoke-WebRequest decodes the body with the default single-byte codepage when the
+                # response declares no charset, which corrupts accents and breaks the comparison.
+                $served = [System.Text.Encoding]::UTF8.GetString($response.RawContentStream.ToArray())
+                $servedMain = [regex]::Match($served, '(?s)<main.*?</main>').Value
                 $diskMain = [regex]::Match($disk, '(?s)<main.*?</main>').Value
                 if ($diskMain.Length -gt 0 -and $servedMain -ceq $diskMain) {
                     Write-Host "PASS: fresh preview available at $uri"
