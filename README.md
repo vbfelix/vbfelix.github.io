@@ -1,6 +1,6 @@
 # Site de Vinícius Félix
 
-As orientações para testes, validações e Git ficam em [CONTRIBUTING.md](CONTRIBUTING.md). As skills locais em `.agents/skills/` são indicadas em [AGENTS.md](AGENTS.md).
+As orientações para testes, validações e Git ficam em [CONTRIBUTING.md](CONTRIBUTING.md). As skills reutilizáveis vêm da biblioteca `vfx-llm-skills`, declaradas em [recursos.yaml](recursos.yaml); as skills específicas do site ficam em `.agents/skills/`. Ambas são indicadas em [AGENTS.md](AGENTS.md), que vale também para o Claude Code via [CLAUDE.md](CLAUDE.md).
 
 Site pessoal em Quarto, com interface em português e artigos preservados no idioma original. O GitHub Pages publica a pasta `docs/`.
 

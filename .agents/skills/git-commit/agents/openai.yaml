@@ -1,4 +1,0 @@
-interface:
-  display_name: "Git Commit"
-  short_description: "Prepara commits Git pequenos e claros"
-  default_prompt: "Use $git-commit para preparar e criar um commit focado desta mudanca."

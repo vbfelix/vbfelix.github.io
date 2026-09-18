@@ -17,7 +17,7 @@ O site é responsável por criar as capas, seguindo [a direção visual das thum
 
 | Mudança | Verificação |
 |---|---|
-| Documentação e skills | Links locais, exemplos, frontmatter e coerência com os scripts atuais; reutilize o preview válido |
+| Documentação e skills | Links locais, exemplos, frontmatter e coerência com os scripts atuais; reutilize o preview válido. Para skills globais, altere `recursos.yaml` ou a biblioteca e reinstale, nunca os arquivos gerados |
 | Conteúdo, navegação ou CSS | Renderize as páginas afetadas e confira a página no navegador; para mudanças globais, renderize o site inteiro |
 | Geradores e scripts | Execute testes pertinentes, gere a saída e verifique sincronização e idempotência |
 | Currículos e metadados | Confira fatos, datas, fontes, limite dos resumos, JSON válido e sincronização dos formatos |
@@ -51,6 +51,10 @@ quarto run scripts/test-content-source.ts
 Escreva testes para comportamentos relevantes e regressões: datas inválidas, caracteres especiais, links quebrados e sincronização de formatos. Não crie testes que apenas repitam o código ou fixem palavras e estilos de uma mudança simples. Não afirme que um teste passou se não foi executado. Registre bloqueios e limitações observados.
 
 ## Branches e commits
+
+As regras gerais de branch, commit e merge são as skills globais `vfx-criar-branch`, `vfx-criar-commit` e
+`vfx-integrar-branch`, vindas de `vfx-llm-skills` e declaradas em [recursos.yaml](recursos.yaml). As seções
+abaixo registram o que é específico deste repositório.
 
 Antes de uma operação Git, confira `git status --short`, `git branch --show-current` e os diffs necessários. Mudanças preexistentes pertencem ao usuário; não as descarte nem as inclua automaticamente.
 

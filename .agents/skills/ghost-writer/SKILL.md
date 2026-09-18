@@ -5,6 +5,11 @@ description: Write or revise visible copy for the vbfelix personal site in Viní
 
 # Ghost Writer
 
+This skill is the vbfelix voice layer over the global `vfx-escrever-conteudo` skill, which sets the shared
+contract: read the consumer's editorial criteria, use the declared sources and each surface's canonical
+source, and never invent facts, metrics or experiences. The sections below define what those criteria are
+for this site; `recursos.yaml` points `config.escrever-conteudo` back to this file.
+
 Write site copy that sounds like Vinícius: direct, specific, technical without being academic, and grounded in work he actually did. Treat the repository at `C:\Users\Vinícius\Github\ghost-writer` as the editorial knowledge base. Do not edit that repository unless the user explicitly asks.
 
 ## Non-negotiable rules

@@ -8,12 +8,37 @@ This repository owns portfolio thumbnail creation. When incorporating or substan
 
 Use [CONTRIBUTING.md](CONTRIBUTING.md) for source ownership, proportional checks and Git integration conventions.
 
+Reusable skills come from the `vfx-llm-skills` library and are not maintained here. [recursos.yaml](recursos.yaml) declares the source, the pinned `ref`, the selected skills and this project's verification commands. The library's CLI writes the managed copies under `.vfx-llm-skills/gerado/` and installs the platform bridges as `vfx-`-prefixed skills in `.agents/skills/` for Codex and `.claude/skills/` for Claude Code. Do not edit those files; change `recursos.yaml` or the library instead.
+
+Global skills:
+
+- Branches: `vfx-criar-branch`.
+- Commits: `vfx-criar-commit`.
+- Branch integration: `vfx-integrar-branch`.
+- Test authoring: `vfx-escrever-testes`.
+- Content writing contract: `vfx-escrever-conteudo`.
+- Declared verification commands: `vfx-verificar-alteracao`.
+
+Skills specific to this site, kept locally on top of the global ones:
+
+- Site copy in Vinícius's voice: [.agents/skills/ghost-writer/SKILL.md](.agents/skills/ghost-writer/SKILL.md).
 - Tests and script regressions: [.agents/skills/site-tests/SKILL.md](.agents/skills/site-tests/SKILL.md).
 - Rendering, navigation and preview validation: [.agents/skills/site-validation/SKILL.md](.agents/skills/site-validation/SKILL.md).
 - Unified local commands and preview: [.agents/skills/site-workflow/SKILL.md](.agents/skills/site-workflow/SKILL.md).
-- Branches: [.agents/skills/git-branch/SKILL.md](.agents/skills/git-branch/SKILL.md).
-- Commits: [.agents/skills/git-commit/SKILL.md](.agents/skills/git-commit/SKILL.md).
-- Merges and conflicts: [.agents/skills/git-merge/SKILL.md](.agents/skills/git-merge/SKILL.md).
+- Merge into `main` and push to `origin/main`: [.agents/skills/git-merge/SKILL.md](.agents/skills/git-merge/SKILL.md).
+
+To refresh the managed copies after changing `recursos.yaml` or the pinned `ref`, run the library CLI for each platform:
+
+```powershell
+python <fonte>/scripts/resources.py instalar --repositorio . --plataforma codex
+python <fonte>/scripts/resources.py instalar --repositorio . --plataforma claude-code
+```
+
+`<fonte>` is the `source.path` recorded in `recursos.yaml`. Both commands are idempotent and can be repeated in any order; the CLI tracks state per platform and replaces a bridge it generated itself. It still refuses to overwrite a bridge that was edited by hand, which is the intended protection: restore the file or remove it, then install again.
+
+`recursos.lock.json` records the resolved commit for the pinned `ref`. Version it together with `recursos.yaml` and the `vfx-*` bridges; `.vfx-llm-skills/` is generated and ignored by Git.
+
+The library also ships hooks (`session-start`, `validate-changes`, `session-end`). This repository does not enable them: it already owns a `Stop` hook in [.codex/hooks.json](.codex/hooks.json) that validates the local AI configuration. Enabling the library's hooks would mean trusting `.codex/vfx-llm-hooks.json` in Codex and composing the same descriptors into Claude Code settings by hand, so add them to `use.hooks` only when that composition is actually wanted.
 
 Load the relevant skill for the requested operation. These instructions do not authorize Git mutations, push or deployment on their own. Preserve existing user authorization without asking for it again.
 

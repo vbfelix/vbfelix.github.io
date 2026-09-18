@@ -5,7 +5,10 @@ description: Validar renderização, navegação, recursos, dados para agentes e
 
 # Validação do site
 
-Use [CONTRIBUTING.md](../../../CONTRIBUTING.md) para escolher verificações proporcionais.
+A skill global `vfx-verificar-alteracao` executa os verificadores declarados em `config.verificar-alteracao`
+do `recursos.yaml` e relata comandos, resultado e checagens indisponíveis. Esta skill descreve o que conferir
+neste site além desses comandos. Use [CONTRIBUTING.md](../../../CONTRIBUTING.md) para escolher verificações
+proporcionais.
 
 - Confira as fontes e o escopo antes de renderizar. Preserve `docs/`, `_freeze/` e redirecionamentos. Não limpe caches computacionais para resolver problemas de preview.
 - Use `scripts/site.ps1 -Action render` para alterações globais. Para alterações isoladas, renderize as páginas afetadas, execute `scripts/check-site.py` e `quarto run scripts/build-agent-assets.ts --check`.

@@ -5,7 +5,9 @@ description: Executar o fluxo local unificado deste site Quarto para diagnóstic
 
 # Fluxo local do site
 
-Use `scripts/site.ps1` como entrada única. Escolha a menor ação que prove o resultado:
+Use `scripts/site.ps1` como entrada única. Estas ações são os verificadores declarados em
+`config.verificar-alteracao` do `recursos.yaml` e executados pela skill global `vfx-verificar-alteracao`.
+Escolha a menor ação que prove o resultado:
 
 * `doctor` confere as ferramentas e portas.
 * `test` executa testes unitários e valida a configuração de IA.

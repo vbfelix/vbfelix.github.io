@@ -8,3 +8,4 @@ __pycache__/
 *.pyc
 /.cache/
 /.codex/state/
+/.vfx-llm-skills/

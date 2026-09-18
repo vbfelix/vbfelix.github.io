@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "source": "C:\\Users\\Vinícius\\Desktop\\vfx-llm-skills",
+  "ref": "v1.0.1",
+  "commit": "6e0aff632c6b2df3ad8fb4e281b287843f8ed20c",
+  "platform": "claude-code",
+  "resources": [
+    "criar-branch",
+    "criar-commit",
+    "escrever-conteudo",
+    "escrever-testes",
+    "integrar-branch",
+    "verificar-alteracao"
+  ],
+  "models": {
+    "session": {
+      "codex": {
+        "model": "gpt-5.6-luna",
+        "effort": "low"
+      },
+      "claude-code": {
+        "model": "haiku"
+      }
+    },
+    "implementation": {
+      "codex": {
+        "model": "gpt-5.6-terra",
+        "effort": "medium"
+      },
+      "claude-code": {
+        "model": "sonnet"
+      }
+    },
+    "code-review": {
+      "codex": {
+        "model": "gpt-5.6-terra",
+        "effort": "high"
+      },
+      "claude-code": {
+        "model": "sonnet"
+      }
+    },
+    "content": {
+      "codex": {
+        "model": "gpt-5.6-terra",
+        "effort": "medium"
+      },
+      "claude-code": {
+        "model": "sonnet"
+      }
+    },
+    "content-review": {
+      "codex": {
+        "model": "gpt-5.6-terra",
+        "effort": "medium"
+      },
+      "claude-code": {
+        "model": "sonnet"
+      }
+    }
+  }
+}

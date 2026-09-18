@@ -1,4 +1,0 @@
-interface:
-  display_name: "Git Branch"
-  short_description: "Cria branches Git seguras e bem nomeadas"
-  default_prompt: "Use $git-branch para criar uma branch segura e bem nomeada para esta mudanca."

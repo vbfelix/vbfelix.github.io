@@ -5,21 +5,23 @@ description: Integra a branch atual à main e faz push da main para origin/main 
 
 # Merge na main e push
 
+Camada específica deste site sobre a skill global `vfx-integrar-branch`, que define a mecânica geral de integração: confirmar origem e destino, atualizar referências, preferir fast-forward, preservar mudanças alheias e resolver conflitos nas fontes antes dos derivados. Esta skill acrescenta o destino padrão, as saídas versionadas e o envio para a remota.
+
 A execução desta skill tem como fluxo padrão integrar a branch atual à `main` local e enviar o resultado para `origin/main`. Não peça novamente o destino ou autorização de push quando o usuário solicitar esse fluxo. Um pedido para editar a própria skill altera suas instruções, sem executar operações Git por si só.
 
-Pedidos explícitos de apenas preparar, revisar, usar outro destino ou não fazer push prevalecem sobre o padrão. Siga [CONTRIBUTING.md](../../../CONTRIBUTING.md) para preservar as fontes e escolher verificações proporcionais. Use as skills locais `git-branch` e `git-commit` quando essas operações forem necessárias.
+Pedidos explícitos de apenas preparar, revisar, usar outro destino ou não fazer push prevalecem sobre o padrão. Siga [CONTRIBUTING.md](../../../CONTRIBUTING.md) para preservar as fontes e escolher verificações proporcionais. Use as skills globais `vfx-criar-branch` e `vfx-criar-commit` quando essas operações forem necessárias.
 
 ## Preparar a integração
 
-1. Confira `git status --short`, a branch atual, os commits e diffs pertinentes e a URL de `origin`. A origem padrão é a branch atual; o destino padrão é `main`, com envio para `origin/main`. Não crie nem altere remotos para contornar uma configuração ausente ou inesperada.
+1. Confira `git status --short`, os commits e diffs pertinentes e a URL de `origin`. A origem padrão é a branch atual; o destino padrão é `main`, com envio para `origin/main`. Não crie nem altere remotos para contornar uma configuração ausente ou inesperada.
 2. Atualize as referências com `git fetch origin` e compare a origem, `main` e `origin/main`. Não trate referências locais antigas como confirmação do estado remoto. Se houver falha de acesso, informe o bloqueio sem afirmar que houve envio.
-3. Preserve mudanças preexistentes. Se o trabalho solicitado ainda não tiver commit, revise e registre apenas as alterações desse trabalho, incluindo suas saídas necessárias em `docs/`. Não inclua arquivos alheios nem use stash automático para obter uma árvore limpa. Use worktree isolado quando necessário para proteger trabalho não relacionado.
+3. Se o trabalho solicitado ainda não tiver commit, registre apenas as alterações desse trabalho, incluindo suas saídas necessárias em `docs/`. Não inclua arquivos alheios nem use stash automático para obter uma árvore limpa. Use worktree isolado quando necessário para proteger trabalho não relacionado.
 4. Se já estiver na `main`, confira se a integração já ocorreu e avance para o envio dos commits pendentes. Não crie um merge artificial da `main` consigo mesma. Se a `main` local não existir, use `origin/main` como base quando disponível; só peça esclarecimento se não houver uma base inequívoca.
 
 ## Integrar e validar
 
-5. Em uma árvore limpa, integre primeiro os commits de `origin/main` à `main` local, se existirem, e depois a branch de origem. Prefira fast-forward quando possível. Em divergência, preserve o histórico com merge normal, salvo pedido explícito diferente.
-6. Resolva conflitos nas fontes antes de regenerar `docs/`. Preserve `_freeze/` e os endereços públicos; não aceite um lado inteiro sem examinar o conteúdo perdido. Não aborte operações iniciadas por outra pessoa.
+5. Em uma árvore limpa, integre primeiro os commits de `origin/main` à `main` local, se existirem, e depois a branch de origem.
+6. Regenere `docs/` depois de resolver as fontes. Preserve `_freeze/` e os endereços públicos; não aceite um lado inteiro sem examinar o conteúdo perdido. Não aborte operações iniciadas por outra pessoa.
 7. Verifique `git ls-files -u`, revise o resultado combinado e execute a validação proporcional do site. Registre a saída gerada correspondente antes do envio. Em merge com conflitos, faça essas verificações antes de concluir o commit de merge.
 
 ## Enviar para a main remota

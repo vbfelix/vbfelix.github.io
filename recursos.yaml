@@ -1,0 +1,58 @@
+source:
+  path: C:/Users/Vinícius/Desktop/vfx-llm-skills
+  ref: v1.0.1
+platforms:
+- codex
+- claude-code
+use:
+  skills:
+  - criar-branch
+  - criar-commit
+  - integrar-branch
+  - escrever-testes
+  - escrever-conteudo
+  - verificar-alteracao
+config:
+  verificar-alteracao:
+    testes:
+      comando:
+      - powershell
+      - -NoProfile
+      - -ExecutionPolicy
+      - Bypass
+      - -File
+      - scripts/site.ps1
+      - -Action
+      - test
+      diretorio: .
+      timeout: 300
+    conferencia:
+      comando:
+      - powershell
+      - -NoProfile
+      - -ExecutionPolicy
+      - Bypass
+      - -File
+      - scripts/site.ps1
+      - -Action
+      - check
+      diretorio: .
+      timeout: 600
+    proporcional:
+      comando:
+      - powershell
+      - -NoProfile
+      - -ExecutionPolicy
+      - Bypass
+      - -File
+      - scripts/site.ps1
+      - -Action
+      - verify
+      - -Scope
+      - staged
+      diretorio: .
+      timeout: 900
+  escrever-conteudo:
+    criterios:
+    - .agents/skills/ghost-writer/SKILL.md
+    - CONTRIBUTING.md
