@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "posts/portfolio",
-  "commit": "1734b6cd943c08b65170be015c90f4cc2796d659",
+  "commit": "1705cba776cc4b5669ae1df048d6ef81cf6bbcbf",
   "files": {
     "0032-ux-produtos-fisicos/index.qmd": "b9fa48e1636742c4d6914ad57eac31b1ff6e7e8a5809289542a00252733b6431",
     "0033-sucesso-ia-iatf/index.qmd": "5d0dcf251bfd4c6d9e7e5ddad298b95c58dd9249e5aeeaa232bc55d34afb44cc",
@@ -13,15 +13,15 @@
     "0038-arquitetura-fontes-externas/index.qmd": "cc51d60faf0f214b6a6c9c35b88e1882af8b81790ace78f8fd0c9688ef293c82",
     "0039-geobehavior/index.qmd": "70b85470f5ef73a4b93fe1729004b098063effe37dd90f75e3d9bab18af18a9c",
     "0040-criando-meu-clone-com-ia/index.qmd": "bd27bd4be2eae9c7e0384a7697d1a9298af17113f38a478d1560165c35a6d1d6",
-    "2026-09-12_como-criei-uma-metodologia-para-identificar-zonas-de-manejo-com-dados-de-satelites.md": "c716b1d2490e51b567368bf7605ee46d3340db9b7bd75beed328932f08caa324",
-    "2026-09-12_criando-meu-clone-com-ia.md": "9cd2505310281907884a6b7a1cf55f63fac0e902b17e76c69371d7b4c6863655",
-    "2026-09-12_da-pedreira-a-construcao-como-ir-a-campo-foi-mais-importante-que-analisar-os-dados.md": "1164b37c88116a39f63869d684119f09c0c06e2e46193b16c3bb9090c3dc49db",
-    "2026-09-12_ingerindo-mais-de-1-bilhao-de-pontos-por-dia.md": "8d654a2e01e3c2f1638e9855e779a5e66e8826061f7f594d3df95a70082b4db8",
-    "2026-09-12_o-maior-datalake-da-pecuaria-brasileira.md": "7e3d4b57dc719df9383b7e43965804b067f5bc1d0dece16ba11dbe67d162c6a6",
-    "2026-09-12_o-que-define-o-sucesso-da-ia-mas-nao-estou-falando-de-inteligencia-artificial.md": "22743ed5471df55865432dac56cc663732e871ad7b1688b8c662fedfb1a1b286",
-    "2026-09-12_quando-provas-precisam-de-provas.md": "07a8a688810f48b5c6ee66ca5c4f4196d52e9c2a08761a5ba672f4639e022eba",
-    "2026-09-12_uma-arquitetura-de-dados-para-mais-de-100-fontes.md": "9d2afb812d330546fa9f1e59107ff3591716ac9b711c0a5a74e2d96a65c738ef",
-    "2026-09-12_ux-com-produtos-fisicos-o-puro-suco-da-estatistica.md": "7c1863ac495282d70fde91ebc1b05fa912e51fb503df3337d686ed79ece3ce90"
+    "2026-09-12_como-criei-uma-metodologia-para-identificar-zonas-de-manejo-com-dados-de-satelites.md": "e106973c6795c15cd78cfba24f0569bd33c4a1b0f9c03b9c9eb91f93ce9b334f",
+    "2026-09-12_criando-meu-clone-com-ia.md": "e07fbcb67ed0fbed73eb13cbe103cef529f9b8b8e2b141fc05baaef98e6897d0",
+    "2026-09-12_da-pedreira-a-construcao-como-ir-a-campo-foi-mais-importante-que-analisar-os-dados.md": "226e3c3a0cc169b6f2910bd4dd873a0658482040b9723c2b0a56463cbb67f1d3",
+    "2026-09-12_ingerindo-mais-de-1-bilhao-de-pontos-por-dia.md": "4e675dc0ac7adf0e4ea5e360708880f33680d4f2481c30c1cf6e5f5b2186714b",
+    "2026-09-12_o-maior-datalake-da-pecuaria-brasileira.md": "1e68252868e57aa493f917a57e35845fea898907f9ceb97e256966b42a4f8a60",
+    "2026-09-12_o-que-define-o-sucesso-da-ia-mas-nao-estou-falando-de-inteligencia-artificial.md": "063f7403f15af7f8d03381bfc73536ec0918614b97692c4335fa3f27d8506acf",
+    "2026-09-12_quando-provas-precisam-de-provas.md": "827123718cd5718dddd063212807669675b22dcbefa770509aedd2951ae05081",
+    "2026-09-12_uma-arquitetura-de-dados-para-mais-de-100-fontes.md": "022825054f024c159bd19a642abe7eb2285ce731c6952a2455cb8997078a39de",
+    "2026-09-12_ux-com-produtos-fisicos-o-puro-suco-da-estatistica.md": "9aa4f21a4879614efde9aaf3b4af9545a68ae744f9449c0ebc5d1233e1d1c2df"
   },
   "pendingMigration": {}
 }

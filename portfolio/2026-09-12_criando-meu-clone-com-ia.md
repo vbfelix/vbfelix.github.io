@@ -6,13 +6,6 @@ titulo: Criando meu clone com IA
 site:
   categories: [AI, product]
   lang: pt-BR
-episodio: episodio/segundo-cerebro-de-produto
-tese: tese/o-salto-vem-do-sistema-nao-do-prompt
-referencias: [referencia/karpathy-llm-wiki]
-fatos:
-- fato/horas-de-construcao-do-segundo-cerebro-de-produto
-- fato/perguntas-respondidas-na-construcao-do-segundo-cerebro-de-produto
-fontes: [FONTE-265, FONTE-266, FONTE-048]
 ---
 
 ## Brief

@@ -6,12 +6,6 @@ titulo: O maior datalake da pecuária brasileira
 site:
   categories: [data engineering, statistics]
   lang: pt-BR
-episodio: episodio/construcao-de-um-datalake-com-dados-de-fazendas
-referencias:
-- referencia/vbfelix-paradoxo-simpson
-- referencia/vbfelix-data-warehouse
-fatos: []
-fontes: [FONTE-252, FONTE-253, FONTE-185, FONTE-195]
 ---
 
 ## Brief

@@ -2,16 +2,16 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "posts/blog",
-  "commit": "1734b6cd943c08b65170be015c90f4cc2796d659",
+  "commit": "1705cba776cc4b5669ae1df048d6ef81cf6bbcbf",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
-      "source": "609b0ffc53128926a0bc2e1c00f60825825eeac1daf00e11e8595482c254f746",
-      "rendered": "ecce6b2b820b370d89e9ec2f2d2157206304f4d5eb3057af6e4b03578114af17",
+      "source": "bb502faa51208b8f9363c26f590d3b83865c6e8697320dfa07bf609a4e4ed762",
+      "rendered": "46d98e201eb83aebc7f39bb9d0e8b3c5c4fbc9134015fa0e0f2a34d27a63c22d",
       "target": "posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.qmd"
     },
     "2026-09-17_jev-e-modelos-de-decisao.md": {
-      "source": "d2284a900e995ee3d5047672ed2e7384e6221ecd0d7b2e41da0e30814754e772",
-      "rendered": "d119512cdd6336ecfc06040a799110ce8dba03bc519385d539f11909ea7476d7",
+      "source": "b2b69324788c4ca4d98257bea721599ffd2c26d8359296bbda39d16f649f429f",
+      "rendered": "dc261a6e2f92dc9c0689e1fd12a21a3bf361f1e23aae803245e9ae5ce637faec",
       "target": "posts/0033-jev-e-modelos-de-decisao/index.qmd"
     }
   }

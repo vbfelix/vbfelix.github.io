@@ -6,11 +6,6 @@ titulo: O que define o sucesso da IA, mas não estou falando de inteligência ar
 site:
   categories: [statistics, agribusiness, research]
   lang: pt-BR
-episodio: episodio/analise-da-operacao-de-iatf-em-bovinos
-referencias:
-- referencia/embrapa-gado-de-corte-iatf
-fatos: [fato/prejuizo-evitado-com-lote-de-semen-na-operacao-de-iatf]
-fontes: [FONTE-244, FONTE-245, FONTE-246, FONTE-247]
 ---
 
 ## Brief

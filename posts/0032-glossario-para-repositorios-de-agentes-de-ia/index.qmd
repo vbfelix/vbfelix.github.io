@@ -1,8 +1,8 @@
 ---
-title: "Seu agente não precisa de mais um prompt"
+title: "Seu agente talvez não precise de mais um prompt"
 author: "Vinícius Félix"
 date: "2026-09-17"
-categories: [AI, engenharia de software]
+categories: [AI]
 lang: pt-BR
 ---
 

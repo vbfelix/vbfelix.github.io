@@ -6,15 +6,6 @@ titulo: Uma arquitetura de dados para mais de 100 fontes
 site:
   categories: [data engineering]
   lang: pt-BR
-episodio: episodio/da-arquitetura-de-dados-a-lideranca-de-produto-na-datlo
-referencias: []
-fatos:
-- fato/fontes-integradas-na-arquitetura-de-dados-da-datlo
-- fato/pipelines-na-arquitetura-de-fontes-externas
-- fato/processos-na-arquitetura-de-fontes-externas
-- fato/projetos-entregues-com-a-arquitetura-de-fontes-externas
-- fato/tamanho-do-time-na-comparacao-de-entregas-da-arquitetura-de-fontes-externas
-fontes: [FONTE-260, FONTE-261, FONTE-262]
 ---
 
 ## Brief

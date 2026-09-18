@@ -6,10 +6,6 @@ titulo: 'Da pedreira à construção: como ir a campo foi mais importante que an
 site:
   categories: [data analysis]
   lang: pt-BR
-episodio: episodio/visita-a-operacao-de-britagem-em-obra-de-infraestrutura
-referencias: []
-fatos: []
-fontes: [FONTE-255, FONTE-256, FONTE-254]
 ---
 
 ## Brief

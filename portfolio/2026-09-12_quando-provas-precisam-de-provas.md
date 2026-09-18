@@ -6,12 +6,6 @@ titulo: Quando provas precisam de provas
 site:
   categories: [statistics]
   lang: pt-BR
-episodio: episodio/apoio-a-avaliacao-psicometrica-de-provas-medicas
-referencias:
-- referencia/inep-tri-no-enem
-- referencia/projeto-lavaan-modelos-de-equacoes-estruturais
-fatos: []
-fontes: [FONTE-257, FONTE-258, FONTE-259]
 ---
 
 ## Brief

@@ -6,12 +6,6 @@ titulo: UX com produtos físicos, o puro suco da estatística
 site:
   categories: [statistics, UX, research]
   lang: pt-BR
-episodio: episodio/pesquisa-com-mochilas-para-criancas-e-adolescentes
-referencias:
-- referencia/silva-veloso-e-keating-focus-group
-- referencia/raghavarao-wiley-e-chitturi-choice-based-conjoint-analysis
-fatos: []
-fontes: [FONTE-236, FONTE-237, FONTE-238, FONTE-239, FONTE-240, FONTE-241, FONTE-242, FONTE-243]
 ---
 
 ## Brief

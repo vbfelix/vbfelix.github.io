@@ -6,14 +6,6 @@ titulo: Ingerindo mais de 1 bilhão de pontos por dia
 site:
   categories: [data engineering, data science]
   lang: pt-BR
-episodio: episodio/conducao-do-projeto-geobehavior
-referencias: []
-fatos:
-- fato/pontos-diarios-ingeridos-no-projeto-geobehavior
-- fato/dispositivos-abrangidos-pelo-projeto-geobehavior
-- fato/volume-diario-recebido-no-projeto-geobehavior
-- fato/variacao-de-frequencia-dos-registros-por-dispositivo-no-geobehavior
-fontes: [FONTE-263, FONTE-264]
 ---
 
 ## Brief

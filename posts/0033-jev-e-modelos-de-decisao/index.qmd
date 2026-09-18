@@ -1,5 +1,5 @@
 ---
-title: "Jev o modelo analfabeto"
+title: "Jev, o modelo analfabeto"
 author: "Vinícius Félix"
 date: "2026-09-17"
 categories: [AI, LLM]

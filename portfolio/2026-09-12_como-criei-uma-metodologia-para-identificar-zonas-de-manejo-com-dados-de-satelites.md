@@ -6,10 +6,6 @@ titulo: Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas
 site:
   categories: [statistics, agribusiness, research]
   lang: pt-BR
-episodio: episodio/desenvolvimento-de-zonas-de-manejo-com-dados-de-satelites
-referencias: [referencia/usgs-indice-de-vegetacao-ndvi, referencia/nist-suavizacao-por-regressao-local]
-fatos: []
-fontes: [FONTE-248, FONTE-249, FONTE-250, FONTE-251]
 ---
 
 ## Brief
