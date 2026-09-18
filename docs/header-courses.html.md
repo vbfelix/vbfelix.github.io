@@ -4,6 +4,10 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
 ## 2026
 
+ \[09/26\] Get Started with Codex
+
+ \[09/26\] Evaluate AI Applications
+
  \[09/26\] Design and Build Agentic Systems
 
  \[09/26\] Build with Retrieval-Augmented Generation
