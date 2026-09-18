@@ -1,5 +1,9 @@
 ## 2026
 
+![OpenAI](/images/logos/openai.svg){width="32"} \[09/26\] Get Started with Codex
+
+![OpenAI](/images/logos/openai.svg){width="32"} \[09/26\] Evaluate AI Applications
+
 ![OpenAI](/images/logos/openai.svg){width="32"} \[09/26\] Design and Build Agentic Systems
 
 ![OpenAI](/images/logos/openai.svg){width="32"} \[09/26\] Build with Retrieval-Augmented Generation
