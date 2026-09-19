@@ -1,6 +1,7 @@
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry"><time datetime="2026-09-18">2026-09-18</time><div><h2><span class="post-language" role="img" aria-label="Em português">🇧🇷</span><a href="/posts/0034-seu-dashboard-passa-em-code-review/index.html">Seu dashboard passa em code review?</a></h2><p>data engineering, BI</p></div></article>
 <article class="archive-entry"><time datetime="2026-09-17">2026-09-17</time><div><h2><span class="post-language" role="img" aria-label="Em português">🇧🇷</span><a href="/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html">Seu agente talvez não precise de mais um prompt</a></h2><p>AI</p></div></article>
 <article class="archive-entry"><time datetime="2026-09-17">2026-09-17</time><div><h2><span class="post-language" role="img" aria-label="Em português">🇧🇷</span><a href="/posts/0033-jev-e-modelos-de-decisao/index.html">Jev, o modelo analfabeto</a></h2><p>AI, LLM</p></div></article>
 <article class="archive-entry"><time datetime="2025-05-03">2025-05-03</time><div><h2><span class="post-language" role="img" aria-label="Em inglês">🇺🇸</span><a href="/posts/0031-biq-query/index.html">Intro to: Big Query</a></h2><p>data engineering</p></div></article>

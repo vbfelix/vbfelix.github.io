@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "posts/blog",
-  "commit": "1705cba776cc4b5669ae1df048d6ef81cf6bbcbf",
+  "commit": "06cabfced55d9fb93dadab705a69afa610e888d3",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "bb502faa51208b8f9363c26f590d3b83865c6e8697320dfa07bf609a4e4ed762",
@@ -13,6 +13,11 @@
       "source": "b2b69324788c4ca4d98257bea721599ffd2c26d8359296bbda39d16f649f429f",
       "rendered": "dc261a6e2f92dc9c0689e1fd12a21a3bf361f1e23aae803245e9ae5ce637faec",
       "target": "posts/0033-jev-e-modelos-de-decisao/index.qmd"
+    },
+    "2026-09-18_seu-dashboard-passa-em-code-review.md": {
+      "source": "14482217a1748c3240e53446832a147a2e0794131be181c96a45f5e8f3577875",
+      "rendered": "43945188162eead09422f4a6c34e3209d5fe3c6c189e5f82310d707b57393d3c",
+      "target": "posts/0034-seu-dashboard-passa-em-code-review/index.qmd"
     }
   }
 }

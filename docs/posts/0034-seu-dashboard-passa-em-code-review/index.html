@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Seu dashboard passa em code review? – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Seu dashboard passa em code review? – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-publications.html">
+ <span class="dropdown-text">Publicações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Seu dashboard passa em code review?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data engineering</div>
+                <div class="quarto-category">BI</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">18 de setembro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#o-problema-o-que-a-avaliação-de-2018-não-resolveu" id="toc-o-problema-o-que-a-avaliação-de-2018-não-resolveu" class="nav-link active" data-scroll-target="#o-problema-o-que-a-avaliação-de-2018-não-resolveu">O problema: o que a avaliação de 2018 não resolveu</a></li>
+  <li><a href="#o-que-o-self-service-entregou-e-o-que-deixou-em-aberto" id="toc-o-que-o-self-service-entregou-e-o-que-deixou-em-aberto" class="nav-link" data-scroll-target="#o-que-o-self-service-entregou-e-o-que-deixou-em-aberto">O que o self-service entregou e o que deixou em aberto</a></li>
+  <li><a href="#o-que-é-bi-as-code" id="toc-o-que-é-bi-as-code" class="nav-link" data-scroll-target="#o-que-é-bi-as-code">O que é BI as code</a></li>
+  <li><a href="#por-que-agentes-de-ia-mudam-a-conta" id="toc-por-que-agentes-de-ia-mudam-a-conta" class="nav-link" data-scroll-target="#por-que-agentes-de-ia-mudam-a-conta">Por que agentes de IA mudam a conta</a></li>
+  <li><a href="#sendo-código-validar-o-dado-deixa-de-ser-opcional" id="toc-sendo-código-validar-o-dado-deixa-de-ser-opcional" class="nav-link" data-scroll-target="#sendo-código-validar-o-dado-deixa-de-ser-opcional">Sendo código, validar o dado deixa de ser opcional</a></li>
+  <li><a href="#as-famílias-de-ferramenta-em-2026" id="toc-as-famílias-de-ferramenta-em-2026" class="nav-link" data-scroll-target="#as-famílias-de-ferramenta-em-2026">As famílias de ferramenta em 2026</a></li>
+  <li><a href="#o-que-o-formato-declarativo-obriga-você-a-escrever" id="toc-o-que-o-formato-declarativo-obriga-você-a-escrever" class="nav-link" data-scroll-target="#o-que-o-formato-declarativo-obriga-você-a-escrever">O que o formato declarativo obriga você a escrever</a></li>
+  <li><a href="#exemplo-comentado" id="toc-exemplo-comentado" class="nav-link" data-scroll-target="#exemplo-comentado">Exemplo comentado</a></li>
+  <li><a href="#limites-e-cuidados" id="toc-limites-e-cuidados" class="nav-link" data-scroll-target="#limites-e-cuidados">Limites e cuidados</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">Seu dashboard passa em code review?</li></ol></nav>
+<p>Em 2018 eu comparei nove ferramentas de BI para um cliente que precisava decidir entre uso interno e uso embarcado em produto, e a conclusão foi que nenhuma atendia os dois cenários bem. Oito anos depois a pergunta mudou de lugar. O gargalo deixou de ser quem constrói o dashboard e passou a ser o que acontece com ele quando a tabela de origem muda.</p>
+<p>Este artigo desenvolve a resposta que a engenharia de dados vem dando para isso, o BI as code, em que o painel é um arquivo de texto que vive no repositório, é revisado em pull request e é validado em integração contínua. O gatilho para escrever agora é o dbt Charts, anunciado em 14 de setembro de 2026 sob licença Apache 2.0, que leva a ideia ao extremo declarativo e parte de um pressuposto incômodo, o de que quem vai escrever o painel talvez não seja uma pessoa.</p>
+<p>A tese é simples de enunciar e trabalhosa de sustentar: o autoatendimento, ou self-service, resolveu quem constrói o painel e deixou em aberto como o painel sobrevive à mudança, que é onde o BI as code tenta aplicar ao painel a disciplina que já aplicamos ao pipeline.</p>
+<section id="o-problema-o-que-a-avaliação-de-2018-não-resolveu" class="level3">
+<h3 class="anchored" data-anchor-id="o-problema-o-que-a-avaliação-de-2018-não-resolveu">O problema: o que a avaliação de 2018 não resolveu</h3>
+<p>O projeto era uma escolha de ferramenta, com prova de conceito, comparativo de preço e desenvolvimento de visualizações de teste. Passei por nove nomes, que na época se dividiam com clareza em três grupos.</p>
+<p>No open source estavam o <a href="https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics.html">Pentaho</a>, uma suíte completa que ia do ETL à visualização mas exigia do usuário mais do que ele queria dar, e o <a href="https://www.metabase.com/">Metabase</a>, que acertava justamente onde o Pentaho pesava, com curva de aprendizado curta e uma organização de perguntas e painéis que as pessoas entendiam sozinhas.</p>
+<p>As líderes daquele mercado eram <a href="https://www.microsoft.com/pt-br/power-platform/products/power-bi/">Power BI</a>, <a href="https://help.qlik.com/pt-BR/">Qlik</a> e <a href="https://www.tableau.com/pt-br">Tableau</a>, cada uma cara à sua maneira, seja por licença de usuário, seja pelo custo de embarcar o painel dentro de um produto.</p>
+<p>E havia a geração nova de então, <a href="https://cloud.google.com/looker?hl=pt-BR">Looker</a>, Periscope Data, Mode e <a href="https://aws.amazon.com/pt/quicksight/">QuickSight</a>, que traziam integração nativa com Python e R e uma visão mais moderna de construção de painéis.</p>
+<p>A decisão foi dividida, porque a demanda era dividida. Para o uso interno ficamos com o Metabase, pela conexão fácil a fontes diversas, pela interface que não exigia SQL de quem só queria uma resposta, pelos alertas disparados a partir de consultas e por uma governança que permitia limitar acesso até o nível de tabela. Para o produto acabamos desenvolvendo os painéis, porque as ferramentas da geração nova eram todas precificadas em dólar, com pisos de licença acima da nossa necessidade, e porque naquele caso os painéis seriam iguais para todos os clientes, o que tirava boa parte da vantagem de comprar.</p>
+<p>O mercado depois consolidou quase tudo o que estava naquela lista. A Salesforce concluiu a compra do Tableau em agosto de 2019, por 15,7 bilhões de dólares (<a href="https://www.geekwire.com/2019/salesforce-completes-15-7b-acquisition-tableau-software-creating-new-enterprise-tech-force/">GeekWire</a>). A Sisense comprou a Periscope Data em maio de 2019 (<a href="https://techcrunch.com/2019/05/14/sisense-acquires-periscope-data-to-build-integrated-data-science-and-analytics-solution/">TechCrunch</a>). O Google fechou a aquisição do Looker em fevereiro de 2020, por 2,6 bilhões (<a href="https://techcrunch.com/2020/02/13/google-closes-2-6b-looker-acquisition/">TechCrunch</a>). E a ThoughtSpot anunciou a compra do Mode em 2023, por 200 milhões (<a href="https://www.thoughtspot.com/press-releases/thoughtspot-acquires-mode-analytics-for-200m">ThoughtSpot</a>). Uma lista de avaliação virou, em poucos anos, uma lista de aquisições.</p>
+<p>Registro um erro meu de leitura. Na época eu tratei o LookML, a linguagem própria do Looker para definir métricas e transformações, como desvantagem, já que amarrava a modelagem à ferramenta e dificultaria uma migração futura. A objeção sobre dependência continua válida, mas a ideia por trás dela, a de que a definição de métrica deve ser um artefato escrito e versionado em vez de um clique, é justamente a que voltou com força.</p>
+</section>
+<section id="o-que-o-self-service-entregou-e-o-que-deixou-em-aberto" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-o-self-service-entregou-e-o-que-deixou-em-aberto">O que o self-service entregou e o que deixou em aberto</h3>
+<p>Seria desonesto tratar o self-service como promessa vazia. Em 2020, atuando como Gerente de dados implantei arquitetura de dados e ferramentas de self-service com uma redução de 50% no consumo do time de analistas por outros departamentos, e que mede fila que deixou de chegar ao time, não produtividade dele, nem adoção de cultura de dados.</p>
+<p>O que ficou em aberto aparece quando o modelo por baixo muda. Uma coluna é renomeada e alguém descobre pelo painel quebrado, geralmente na reunião. A lógica da métrica fica presa em uma interface, distribuída entre um filtro salvo, uma coluna calculada e a memória de quem construiu. Quase nunca há histórico legível do que mudou, revisão antes de publicar ou ambiente de teste, e quando dois painéis discordam a decisão sobre qual está certo depende de alguém reconstruir o caminho dos cliques. O painel virou artefato crítico de decisão sem herdar as práticas que aplicamos a qualquer outro artefato crítico.</p>
+</section>
+<section id="o-que-é-bi-as-code" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-é-bi-as-code">O que é BI as code</h3>
+<p>BI as code é tratar a definição do painel como código-fonte, e na prática são quatro propriedades que só funcionam juntas: a definição vive em arquivos de texto no mesmo repositório dos modelos, o que dá versionamento e diff legível, a mudança passa por pull request, que é a proposta de alteração revisada antes de entrar, a integração contínua valida a definição antes do merge, transformando quebra silenciosa em falha explícita, e o deploy parte de um arquivo, não de uma sessão de cliques.</p>
+<p>Nada disso decreta o fim do self-service, apesar do entusiasmo de quem vende. A pessoa de negócio que precisa filtrar um relatório continua precisando de interface, e escrever YAML não é um objetivo de vida amplamente compartilhado. O ponto aqui é outro: a camada de definição vira código e a camada de consumo continua sendo interface. Quem ganha primeiro é o time que mantém painéis de que outras pessoas dependem.</p>
+</section>
+<section id="por-que-agentes-de-ia-mudam-a-conta" class="level3">
+<h3 class="anchored" data-anchor-id="por-que-agentes-de-ia-mudam-a-conta">Por que agentes de IA mudam a conta</h3>
+<p>Até pouco tempo atrás o argumento a favor do BI as code era de disciplina, e disciplina é um argumento que perde reuniões. O que mudou a conta foi quem passou a escrever o painel.</p>
+<p>A formulação mais direta disso está no anúncio do dbt Charts, assinado por Dave Fowler em 14 de setembro de 2026: agentes são fluentes em código, SQL e Git, e desastrosos na interface dos outros (<a href="https://dbtcharts.com/blog/charts-built-for-chat/">dbt Charts</a>). A observação é trivial, o que vem dela não. Um agente que precisa arrastar um campo, abrir três menus e salvar um filtro depende de automação frágil de interface, enquanto o mesmo agente, diante de um arquivo de texto, escreve, relê, explica o que mudou e aceita revisão. A página de produto é ainda mais franca sobre o problema que está tentando resolver, ao dizer que agentes de IA fazem uma bagunça não auditável de dashboards (<a href="https://www.getdbt.com/product/dbtcharts">dbt Labs</a>). A proposta é dar ao agente um formato que alguém consiga revisar depois.</p>
+<p>Evidence, Rill e Lightdash descrevem hoje o agente como usuário da ferramenta, e não como recurso dentro dela (<a href="https://evidence.dev/">Evidence</a>, <a href="https://www.rilldata.com/">Rill</a>, <a href="https://www.lightdash.com/">Lightdash</a>). O Evidence chega a oferecer o seu agente em qualquer cliente MCP, o protocolo que conecta assistentes a ferramentas externas, incluindo Claude Desktop e ChatGPT. Quando três concorrentes e o dbt Charts chegam ao mesmo posicionamento, é razoável ler aquilo como aposta de mercado.</p>
+<p>O dbt Charts leva isso até a instalação, com <code>dct skills intro</code>, um comando cuja função é ensinar o agente a usar a ferramenta antes de qualquer pessoa abrir a documentação.</p>
+<p>Um agente produz SQL plausível e número errado com a mesma fluência, e raramente com alguma alteração de tom que denuncie a diferença. Aumentar a velocidade com que painéis são criados, sem aumentar na mesma proporção a rede que verifica o que eles dizem, é uma forma eficiente de industrializar o engano.</p>
+</section>
+<section id="sendo-código-validar-o-dado-deixa-de-ser-opcional" class="level3">
+<h3 class="anchored" data-anchor-id="sendo-código-validar-o-dado-deixa-de-ser-opcional">Sendo código, validar o dado deixa de ser opcional</h3>
+<p>Painel em código só vale a pena se o código for verificado, e a verificação acontece em camadas que é importante não confundir.</p>
+<p>A checagem mais barata é estrutural. No dbt Charts, <code>dct validate</code> confere sintaxe YAML, conformidade de schema em cada campo, família de gráfico e formato de query, e as referências cruzadas dentro do board, que é como a ferramenta chama o arquivo de painel, ou seja, se o nome de query que um gráfico invoca existe, se os itens citados no layout existem e se as variáveis resolvem (<a href="https://docs.dbtcharts.com/cli/validate/">documentação do dct validate</a>). Roda em menos de um segundo e cabe em editor, pre-commit e CI.</p>
+<p>Depois vem o encontro com o modelo de dados. O mesmo comando confere se as referências <code>ref()</code> e <code>source()</code> existem no manifest, que é o arquivo com o grafo do projeto gerado pelo dbt, e detecta deriva de coluna, derivando estaticamente do SQL de cada modelo as colunas que ele produz. Há também uma checagem estática do SQL, o lint, que aponta junções cartesianas e junções sem predicado nas queries nomeadas, emitidas como aviso, e que só derrubam a execução com a flag <code>--strict</code>. Com <code>--warehouse</code> a validação se estende até o banco, usando <code>DESCRIBE</code>, dry-run nativo ou <code>EXPLAIN</code>, conforme o adaptador. E <code>dct init ci</code> gera um workflow de GitHub Actions que roda a validação a cada pull request que toca os boards, sem precisar de credencial de banco, porque valida estrutura sem executar consulta (<a href="https://docs.dbtcharts.com/cli/init/">documentação do dct init</a>).</p>
+<p>O comando <code>dct impact</code> resolve uma dor bem antiga, ao responder quais boards quebram se uma coluna mudar, e a documentação enquadra o caso exato de quem mantém dbt, o autor prestes a renomear uma coluna que quer saber, antes de tocar no modelo, quais dashboards dependem dela (<a href="https://docs.dbtcharts.com/cli/impact/">documentação do dct impact</a>). A análise é feita sobre o SQL compilado dos boards e resolve CTEs, que são as subconsultas nomeadas com <code>WITH</code>, além de apelidos e subconsultas correlacionadas, separando em lista própria os casos indeterminados, como <code>SELECT *</code> e Jinja dinâmico. Separar o indeterminado é uma decisão de projeto que muda o que a saída significa, porque o silêncio deixa de valer como aprovação.</p>
+<p>Nada disso olha para o conteúdo da tabela. Isso continua sendo trabalho dos testes do próprio dbt, com as verificações de unicidade, ausência de nulos, valores aceitos e relacionamentos, além dos testes singulares para regras que só fazem sentido no seu domínio, assunto que já detalhei em <a href="https://vbfelix.github.io/posts/0029-dbt-test/">Intro: dbt testing</a>. Um painel pode passar por validação estrutural, referência, lint e impacto, renderizar sem um aviso sequer, e mostrar um faturamento duplicado porque uma junção multiplicou linhas.</p>
+<p>Painel que renderiza não é painel correto, e a CI pega a coluna que sumiu, não pega a métrica mal definida. A própria documentação delimita o alcance, ao registrar que sem a flag <code>--warehouse</code> a validação não confere a existência real de modelos e tabelas, nem se as queries executam, nem o resultado da renderização. Então a rede tem quatro camadas automáticas, estrutura, modelo, impacto e teste de dado, mais uma quinta que nenhum comando cobre, que é alguém olhar o número e dizer se ele faz sentido. Com uma pessoa escrevendo um painel por semana, dá para sobreviver sem parte disso. Quando a produção passa a ser em lote, porque um agente escreve rápido e não se cansa, a rede é o que separa velocidade de erro em escala.</p>
+</section>
+<section id="as-famílias-de-ferramenta-em-2026" class="level3">
+<h3 class="anchored" data-anchor-id="as-famílias-de-ferramenta-em-2026">As famílias de ferramenta em 2026</h3>
+<p>O rótulo cobre coisas bastante diferentes, e o que as separa é o que você acaba escrevendo, um programa, um documento, um modelo de métricas ou só a descrição do painel. A classificação abaixo é minha, montada a partir das páginas de produto de cada ferramenta, e não uma taxonomia que o mercado use.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Família</th>
+<th>Ferramenta</th>
+<th>O que você escreve</th>
+<th>Acoplamento com dbt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Framework de aplicação</td>
+<td>Shiny, Streamlit</td>
+<td>Programa em R ou Python</td>
+<td>Nenhum por padrão</td>
+</tr>
+<tr class="even">
+<td>Documento executável</td>
+<td>Evidence</td>
+<td>Markdown com SQL e componentes</td>
+<td>Opcional</td>
+</tr>
+<tr class="odd">
+<td>Exploração sobre métricas</td>
+<td>Rill, Lightdash</td>
+<td>SQL e YAML de modelos e métricas</td>
+<td>Forte no Lightdash</td>
+</tr>
+<tr class="even">
+<td>Declarativa pura</td>
+<td>dbt Charts</td>
+<td>YAML com SQL dentro</td>
+<td>Nativo, no mesmo repositório</td>
+</tr>
+</tbody>
+</table>
+<p>A escolha entre elas depende da natureza do problema. Se a saída precisa de interação complexa, entrada de formulário ou um modelo estatístico rodando por trás, você vai escrever um programa que por acaso mostra gráficos, no <a href="https://shiny.posit.co/">Shiny</a>, da Posit, hoje disponível em R e em Python, ou no <a href="https://streamlit.io/">Streamlit</a>, mantido pela Snowflake. Se a saída é um relatório narrativo com números no meio do texto, o documento executável é mais direto. Se o objetivo é dar autonomia de exploração sobre métricas já governadas, a terceira família existe para isso. E se o objetivo é ter dezenas de painéis auditáveis vivendo ao lado dos modelos, a declarativa é a que menos pede código para manter.</p>
+</section>
+<section id="o-que-o-formato-declarativo-obriga-você-a-escrever" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-o-formato-declarativo-obriga-você-a-escrever">O que o formato declarativo obriga você a escrever</h3>
+<p>Não vou mentir que gosto muito do dbt, e fiquei animado com este anúncio recente do dbt Charts, ele é uma linguagem declarativa em YAML em volta do SQL, mais um motor de renderização e a CLI <code>dct</code>. A dbt Labs o apresentou como beta público na leva de anúncios do dbt Summit daquele mês, chamando-o de primeira camada de BI orientada a linguagem (<a href="https://www.getdbt.com/blog/dbt-summit-2026-product-announcements">dbt Labs</a>). Junto da linguagem existe uma plataforma hospedada, com workspace gratuito, editor visual e compartilhamento com permissões (<a href="https://www.getdbt.com/product/dbtcharts">dbt Labs</a>).</p>
+<p>A ideia central é que a query, os gráficos e o layout ficam em um único arquivo que você lê de ponta a ponta, guardado ao lado dos modelos dbt, na mesma branch e no mesmo pull request da mudança de dado (<a href="https://dbtcharts.com/language/">dbt Charts</a>). Quando o modelo muda em uma branch, os painéis daquela branch mudam junto, o que é uma frase simples com implicações grandes para quem já explicou a alguém por que o painel de produção não bate com o número novo.</p>
+<p>A CLI cobre o ciclo com <code>validate</code> para conferir, <code>serve</code> para levantar o servidor local de dashboards, em que parâmetros da URL viram variáveis e os filtros funcionam (<a href="https://docs.dbtcharts.com/cli/serve/">documentação do dct serve</a>), <code>impact</code> para medir estrago antes de mexer no modelo e <code>render</code> para gerar saída estática em SVG, HTML, PNG, PDF, JSON e até terminal (<a href="https://docs.dbtcharts.com/cli/render/">documentação do dct render</a>). O acesso ao dado usa os adaptadores do dbt, então roda onde o seu projeto dbt já roda, com DuckDB embutido para quem quiser experimentar sem banco (<a href="https://github.com/dbt-labs/dbt-charts">repositório oficial</a>).</p>
+</section>
+<section id="exemplo-comentado" class="level3">
+<h3 class="anchored" data-anchor-id="exemplo-comentado">Exemplo comentado</h3>
+<p>O arquivo abaixo é adaptado do exemplo mínimo do repositório e serve para mostrar a anatomia do formato.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span><span class="kw">:</span><span class="at"> db</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">status</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">column</span><span class="kw">:</span><span class="at"> documentos.contratos.status</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">queries</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">  contratos</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    SELECT DATE_TRUNC('month', criado_em) AS mes,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           SUM(COUNT(*)) OVER (ORDER BY MIN(criado_em)) AS contratos</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    FROM documentos.contratos</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    WHERE {{ filter('status', status) }}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    GROUP BY 1</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">charts</span><span class="kw">:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">crescimento</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Contratos criados, acumulado</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> area</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">query</span><span class="kw">:</span><span class="at"> contratos</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">x</span><span class="kw">:</span><span class="at"> mes</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">y</span><span class="kw">:</span><span class="at"> contratos</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">rows</span><span class="kw">:</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> crescimento</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>São cinco blocos, e vale lê-los pensando em onde a validação atua:</p>
+<ul>
+<li><code>source</code> diz de onde vem o dado;</li>
+<li><code>variables</code> declara o filtro que o leitor manipula na interface, amarrado a uma coluna real cuja referência a validação confere;</li>
+<li><code>queries</code> guarda o SQL nomeado, único lugar onde a lógica de negócio mora e sobre o qual roda o lint;</li>
+<li><code>charts</code> descreve a visualização citando a query e as colunas pelo nome, de modo que um <code>y</code> apontando para coluna inexistente vira erro de validação em vez de gráfico vazio em produção;</li>
+<li><code>rows</code> é o layout, o empilhamento vertical que vem por padrão, com <code>cols</code> disponível para colocar gráficos lado a lado (<a href="https://docs.dbtcharts.com/boards/">documentação de boards</a>).</li>
+</ul>
+<p>O detalhe mais bem resolvido é a marcação <code>{ filter('status', status) }</code> dentro do SQL. O filtro da interface não é uma camada aplicada depois da query, é um trecho declarado dentro dela, visível para quem revisa o diff. Boa parte das discussões sobre número divergente entre dois painéis nasce de um filtro que alguém aplicou em um e esqueceu no outro, e que não aparecia em lugar nenhum que pudesse ser lido.</p>
+</section>
+<section id="limites-e-cuidados" class="level3">
+<h3 class="anchored" data-anchor-id="limites-e-cuidados">Limites e cuidados</h3>
+<p>O dbt Charts está em beta anterior à versão 1.0, exige Python de 3.10 a 3.13 e avisa que a sintaxe YAML vai mudar antes do 1.0, com uma ferramenta de migração para atualizar arquivos antigos. O repositório público é um espelho somente leitura, que não aceita pull request externo, o que é uma diferença importante em relação ao open source que muita gente assume ao ver a licença Apache. Adotar hoje é adotar um formato que ainda se move, dentro de um ecossistema com um fornecedor no centro.</p>
+<p>Do lado da prática, o custo real não é a ferramenta, é a autonomia. Se o analista de negócio precisa abrir um pull request para mudar a cor de uma barra, você não melhorou o processo, apenas criou uma fila com nome mais bonito. O BI as code compensa quando o painel é um ativo que alguém mantém, com dependência e histórico, e continua não compensando para exploração pontual e pergunta que morre na semana seguinte, território em que o no-code segue sendo a resposta certa.</p>
+<p>A distância entre arquivo coerente e número certo costuma ser onde moram os incidentes mais caros de quem trabalha com dados.</p>
+</section>
+<section id="conclusão" class="level3">
+<h3 class="anchored" data-anchor-id="conclusão">Conclusão</h3>
+<p>A pergunta do título não é retórica. Se o seu dashboard não passa por code review, ele é um artefato de decisão sem revisão, sem histórico legível e sem teste, mantido por quem lembra onde clicou.</p>
+<p>O BI as code não é nostalgia de quem prefere texto a interface, é o reconhecimento de que o painel virou parte do sistema e precisa das mesmas garantias que o resto do sistema tem há décadas. O dbt Charts é provavelmente a versão mais radical dessa ideia até agora, pelo menos no que a documentação promete, e o fato de ter sido desenhado para um agente escrever diz menos sobre moda e mais sobre para onde o trabalho está indo.</p>
+<p>Em 2018 eu escolhi uma ferramenta para pessoas construírem painéis. A escolha de agora é outra, é sobre qual formato de painel a sua equipe consegue revisar quando o volume aumentar. Vale responder antes que o volume aumente.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Sobre</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/">
+<p>LinkedIn</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/vbfelix">
+<p>GitHub</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
