@@ -18,6 +18,8 @@ Global skills:
 - Test authoring: `vfx-escrever-testes`.
 - Content writing contract: `vfx-escrever-conteudo`.
 - Declared verification commands: `vfx-verificar-alteracao`.
+- Defect investigation before fixing: `vfx-investigar-defeito`.
+- Push and merge into `origin/main` on explicit request: `vfx-publicar-alteracoes`.
 
 Skills specific to this site, kept locally on top of the global ones:
 
@@ -25,7 +27,8 @@ Skills specific to this site, kept locally on top of the global ones:
 - Tests and script regressions: [.agents/skills/site-tests/SKILL.md](.agents/skills/site-tests/SKILL.md).
 - Rendering, navigation and preview validation: [.agents/skills/site-validation/SKILL.md](.agents/skills/site-validation/SKILL.md).
 - Unified local commands and preview: [.agents/skills/site-workflow/SKILL.md](.agents/skills/site-workflow/SKILL.md).
-- Merge into `main` and push to `origin/main`: [.agents/skills/git-merge/SKILL.md](.agents/skills/git-merge/SKILL.md).
+
+Merging into `main` and pushing to `origin/main` is `vfx-publicar-alteracoes`, which follows `vfx-integrar-branch`. The site-specific requirements it depends on — preserving `_freeze/`, committing the matching `docs/` output, regenerating `docs/` when a merge touches sources — live in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 To refresh the managed copies after changing `recursos.yaml` or the pinned `ref`, run the library CLI for each platform:
 

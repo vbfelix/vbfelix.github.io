@@ -1,8 +1,8 @@
 {
   "format": 1,
   "source": "C:\\Users\\Vinícius\\Desktop\\vfx-llm-skills",
-  "ref": "v1.0.1",
-  "commit": "6e0aff632c6b2df3ad8fb4e281b287843f8ed20c",
+  "ref": "v1.0.2",
+  "commit": "bbcd377eaa553b76d2f6a71dd7f9b7b3ce5e9409",
   "platform": "claude-code",
   "resources": [
     "criar-branch",
@@ -10,6 +10,8 @@
     "escrever-conteudo",
     "escrever-testes",
     "integrar-branch",
+    "investigar-defeito",
+    "publicar-alteracoes",
     "verificar-alteracao"
   ],
   "models": {

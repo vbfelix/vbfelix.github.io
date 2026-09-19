@@ -1,6 +1,6 @@
 ---
-name: criar-branch
-description: Creates an isolated branch while preserving pre-existing user changes.
+name: vfx-criar-branch
+description: Use when work is about to change files and the current branch is not already an isolated branch for that work.
 ---
 
 # Criar branch

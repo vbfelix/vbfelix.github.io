@@ -1,6 +1,6 @@
 ---
-name: escrever-conteudo
-description: Writes content using voice, sources, and criteria configured by the consumer.
+name: vfx-escrever-conteudo
+description: Use when producing or rewriting prose for a consumer surface such as an article, page, newsletter or post; not for code, commit messages or session reports.
 ---
 
 # Escrever conteúdo

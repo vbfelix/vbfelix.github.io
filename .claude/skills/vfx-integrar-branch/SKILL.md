@@ -1,5 +1,6 @@
 ---
-description: Integrates a branch while preserving history, sources, and consumer checks.
+name: vfx-integrar-branch
+description: Use when a finished branch has to be merged into its target locally; not when the result must reach the remote, which is publicar-alteracoes.
 ---
 
 # Integrar branch

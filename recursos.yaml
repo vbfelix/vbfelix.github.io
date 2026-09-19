@@ -1,6 +1,6 @@
 source:
   path: C:/Users/Vinícius/Desktop/vfx-llm-skills
-  ref: v1.0.1
+  ref: v1.0.2
 platforms:
 - codex
 - claude-code
@@ -12,6 +12,8 @@ use:
   - escrever-testes
   - escrever-conteudo
   - verificar-alteracao
+  - investigar-defeito
+  - publicar-alteracoes
 config:
   verificar-alteracao:
     testes:
