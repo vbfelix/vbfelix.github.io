@@ -14,6 +14,10 @@ $navbar-hl: #EFD58E;
 $border-color: #648477;
 $code-bg: #12372E;
 $code-color: #B8D9DF;
+// Blocos de codigo em fundo preto: o realce de sintaxe do Quarto e o tema
+// escuro, de texto quase branco, e o padrao cinza-claro do div.sourceCode
+// deixava esse texto em 2:1 sobre a lousa. Ver maintenance/design/code-blocks.md.
+$code-block-bg: #000000;
 $enable-rounded: false;
 $min-contrast-ratio: 4.5;
 /*-- scss:rules --*/

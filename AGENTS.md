@@ -6,6 +6,10 @@ This repository owns portfolio thumbnail creation. Thumbnails belong to portfoli
 
 When incorporating or substantially revising a portfolio article, follow [maintenance/design/portfolio-thumbnails.md](maintenance/design/portfolio-thumbnails.md): read the article, use its concrete subjects and methods, and create a composition in the site's green chalkboard identity. Keep artwork local; do not import or overwrite `thumbnail.*` or `_metadata.yml` from ghost-writer. Validate the rendered card and accessible description before completing the article integration.
 
+## Code blocks
+
+Code blocks render on a black background with high-contrast text, per [maintenance/design/code-blocks.md](maintenance/design/code-blocks.md). The background is `$code-block-bg` in `custom_theme.scss`, and every text color over it must clear 4.5:1. When changing the theme or the syntax highlighting, measure the contrast in the preview against the composited background rather than trusting the declared value.
+
 ## Guidelines and task-specific skills
 
 Use [CONTRIBUTING.md](CONTRIBUTING.md) for source ownership, proportional checks and Git integration conventions.

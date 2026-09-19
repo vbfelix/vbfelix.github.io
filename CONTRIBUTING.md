@@ -17,9 +17,14 @@ As capas são exclusivas do portfólio, em `portfolio/<slug>/`. Blogposts em `po
 
 O site é responsável por criar as capas do portfólio, seguindo [a direção visual das thumbnails](maintenance/design/portfolio-thumbnails.md). Ao incorporar um artigo do portfólio, leia seu conteúdo e produza uma composição específica com elementos do tema, na identidade de lousa verde. `thumbnail.*` e `_metadata.yml` pertencem ao site e não devem ser sobrescritos pela sincronização do ghost-writer. Confira a imagem e seu texto alternativo no card renderizado antes de concluir a integração.
 
+### Blocos de código
+
+Bloco de código tem fundo preto e texto de alto contraste, seguindo [a direção visual dos blocos de código](maintenance/design/code-blocks.md). O fundo é `$code-block-bg` em `custom_theme.scss`, distinto de `$code-bg`, que só atinge código inline. Ao mexer no tema ou no realce de sintaxe, meça o contraste no preview sobre o fundo composto, não sobre o valor declarado.
+
 | Mudança | Verificação |
 |---|---|
 | Documentação e skills | Links locais, exemplos, frontmatter e coerência com os scripts atuais; reutilize o preview válido. Para skills globais, altere `recursos.yaml` ou a biblioteca e reinstale, nunca os arquivos gerados |
+| Tema, CSS ou realce de sintaxe | Meça o contraste real do bloco de código no navegador, compondo transparências; texto base e ao menos um token colorido acima de 4,5:1 |
 | Conteúdo, navegação ou CSS | Renderize as páginas afetadas e confira a página no navegador; para mudanças globais, renderize o site inteiro |
 | Geradores e scripts | Execute testes pertinentes, gere a saída e verifique sincronização e idempotência |
 | Currículos e metadados | Confira fatos, datas, fontes, limite dos resumos, JSON válido e sincronização dos formatos |
