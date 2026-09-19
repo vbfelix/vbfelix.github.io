@@ -2,7 +2,11 @@
 
 Este repositório cria e mantém as thumbnails. O ghost-writer fornece os textos; imagens de capa e metadados locais de apresentação não são importados. O sincronizador reserva `thumbnail.*` e `_metadata.yml` para o site, preservando imagens do corpo do artigo vindas da origem.
 
-## Processo para cada artigo
+## Escopo
+
+Esta direção vale apenas para os artigos do portfólio, em `portfolio/<slug>/`. Blogposts em `posts/` não levam thumbnail: um post sincronizado sem capa já está completo e não tem integração visual pendente.
+
+## Processo para cada artigo do portfólio
 
 1. Leia o artigo completo e identifique o objeto concreto, a pergunta investigada e o método utilizado.
 2. Escolha uma composição própria com elementos reconhecíveis daquele texto. Não reutilize uma capa genérica trocando apenas o título, nem crie gráficos com resultados inventados.
@@ -11,7 +15,7 @@ Este repositório cria e mantém as thumbnails. O ghost-writer fornece os textos
 5. Associe a capa e uma descrição acessível em `_metadata.yml` local, usando `image` e `image-alt`. Confira se o frontmatter do artigo define outra imagem, pois ele tem precedência no Quarto; resolva a referência editorial na origem antes de apresentar o card como concluído. Não altere o corpo importado para decorar o site.
 6. Confira o card renderizado, a legibilidade, o recorte e a descrição alternativa. Gere o preview atualizado e verifique o arquivo servido contra a imagem local.
 
-Quando chegar um artigo sem thumbnail, a integração visual ainda está pendente: crie a composição antes de concluir a entrega do artigo. Se a revisão mudar o assunto ou o método, revise também a capa. Não é necessário redesenhar a imagem por correções ortográficas.
+Quando chegar um artigo do portfólio sem thumbnail, a integração visual ainda está pendente: crie a composição antes de concluir a entrega do artigo. Se a revisão mudar o assunto ou o método, revise também a capa. Não é necessário redesenhar a imagem por correções ortográficas.
 
 ## Primeiro artigo: UX com produtos físicos
 

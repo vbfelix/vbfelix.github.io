@@ -2,7 +2,9 @@
 
 ## Portfolio thumbnails
 
-This repository owns portfolio thumbnail creation. When incorporating or substantially revising an article, follow [maintenance/design/portfolio-thumbnails.md](maintenance/design/portfolio-thumbnails.md): read the article, use its concrete subjects and methods, and create a composition in the site's green chalkboard identity. Keep artwork local; do not import or overwrite `thumbnail.*` or `_metadata.yml` from ghost-writer. Validate the rendered card and accessible description before completing the article integration.
+This repository owns portfolio thumbnail creation. Thumbnails belong to portfolio articles only, under `portfolio/<slug>/`. Blog posts under `posts/` do not carry one, so a post that arrives without a thumbnail is already complete; do not treat it as pending visual integration.
+
+When incorporating or substantially revising a portfolio article, follow [maintenance/design/portfolio-thumbnails.md](maintenance/design/portfolio-thumbnails.md): read the article, use its concrete subjects and methods, and create a composition in the site's green chalkboard identity. Keep artwork local; do not import or overwrite `thumbnail.*` or `_metadata.yml` from ghost-writer. Validate the rendered card and accessible description before completing the article integration.
 
 ## Guidelines and task-specific skills
 

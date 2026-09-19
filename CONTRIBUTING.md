@@ -13,7 +13,9 @@
 
 ### Thumbnails do Portfólio
 
-O site é responsável por criar as capas, seguindo [a direção visual das thumbnails](maintenance/design/portfolio-thumbnails.md). Ao incorporar um artigo, leia seu conteúdo e produza uma composição específica com elementos do tema, na identidade de lousa verde. `thumbnail.*` e `_metadata.yml` pertencem ao site e não devem ser sobrescritos pela sincronização do ghost-writer. Confira a imagem e seu texto alternativo no card renderizado antes de concluir a integração.
+As capas são exclusivas do portfólio, em `portfolio/<slug>/`. Blogposts em `posts/` não levam thumbnail: um artigo sincronizado sem capa já está completo.
+
+O site é responsável por criar as capas do portfólio, seguindo [a direção visual das thumbnails](maintenance/design/portfolio-thumbnails.md). Ao incorporar um artigo do portfólio, leia seu conteúdo e produza uma composição específica com elementos do tema, na identidade de lousa verde. `thumbnail.*` e `_metadata.yml` pertencem ao site e não devem ser sobrescritos pela sincronização do ghost-writer. Confira a imagem e seu texto alternativo no card renderizado antes de concluir a integração.
 
 | Mudança | Verificação |
 |---|---|
