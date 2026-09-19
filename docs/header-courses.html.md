@@ -4,6 +4,12 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
 ## 2026
 
+ \[09/26\] Introduction to AWS Glue 6.0
+
+ \[09/26\] Amazon Athena Getting Started
+
+ \[09/26\] Introduction to Amazon Athena
+
  \[09/26\] Get Started with Codex
 
  \[09/26\] Evaluate AI Applications
@@ -14,21 +20,21 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
  \[09/26\] The AI-native SDLC playbook
 
- \[09/26\] Model Context Protocol: Advanced topics
+ \[09/26\] [Model Context Protocol: Advanced topics](https://academy.claude.com/verify/baac0a655ca694bbe6ae938cba8693bf)
 
- \[09/26\] AI Capabilities and Limitations
+ \[09/26\] [AI Capabilities and Limitations](https://academy.claude.com/verify/71ff4029549258fe3110a1b0927b828b)
 
- \[09/26\] AI Fluency: Framework & Foundations
+ \[09/26\] [AI Fluency: Framework & Foundations](https://academy.claude.com/verify/effb4ea59516d5c98d7b973859400a4d)
 
- \[09/26\] Building Effective Human Agent Teams
+ \[09/26\] [Building Effective Human Agent Teams](https://academy.claude.com/verify/a0b878d89688b5349c42bbe958ce3e02)
 
  \[09/26\] Introduction to Subagents
 
- \[09/26\] Claude Code in Action
+ \[09/26\] [Claude Code in Action](https://academy.claude.com/verify/74ca5e3e7216588f33ef9644be8d988b)
 
- \[09/26\] Claude Code 101
+ \[09/26\] [Claude Code 101](https://academy.claude.com/verify/deeac771a6e9095756fde5e5a24265a8)
 
- \[09/26\] Introduction to Model Context Protocol
+ \[09/26\] [Introduction to Model Context Protocol](https://academy.claude.com/verify/c511f71980f914f29b83c1ab7cc8e1d3)
 
  \[09/26\] Introduction to Agent Skills
 
