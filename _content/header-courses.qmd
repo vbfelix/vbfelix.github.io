@@ -1,5 +1,7 @@
 ## 2026
 
+![AWS](/images/logos/aws.svg){width="32"} \[09/26\] AWS Glue Getting Started
+
 ![AWS](/images/logos/aws.svg){width="32"} \[09/26\] Introduction to AWS Glue 6.0
 
 ![AWS](/images/logos/aws.svg){width="32"} \[09/26\] Amazon Athena Getting Started

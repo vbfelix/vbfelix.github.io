@@ -4,6 +4,8 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
 ## 2026
 
+ \[09/26\] AWS Glue Getting Started
+
  \[09/26\] Introduction to AWS Glue 6.0
 
  \[09/26\] Amazon Athena Getting Started
