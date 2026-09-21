@@ -1,6 +1,6 @@
 source:
   path: C:/Users/Vinícius/Desktop/vfx-llm-skills
-  ref: v1.0.2
+  ref: v1.1.0
 platforms:
 - codex
 - claude-code

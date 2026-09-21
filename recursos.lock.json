@@ -1,8 +1,8 @@
 {
   "format": 1,
   "source": "C:\\Users\\Vinícius\\Desktop\\vfx-llm-skills",
-  "ref": "v1.0.2",
-  "commit": "bbcd377eaa553b76d2f6a71dd7f9b7b3ce5e9409",
+  "ref": "v1.1.0",
+  "commit": "de1747322899e6360a21d49de99a8c9e7180b73b",
   "platform": "claude-code",
   "resources": [
     "criar-branch",
