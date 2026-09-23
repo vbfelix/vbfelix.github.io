@@ -1,6 +1,7 @@
 ---
 name: vfx-publicar-alteracoes
 description: Use when the user asks to publish, push, ship or integrate the current branch into origin main; invoking it is the explicit push and merge authorization the other git skills require.
+disable-model-invocation: true
 ---
 
 # Publicar alterações
