@@ -1,0 +1,23 @@
+::: {.about-project-card}
+<a href="portfolio/0040-criando-meu-clone-com-ia/index.html" class="about-project-card__media"><img src="portfolio/0040-criando-meu-clone-com-ia/thumbnail.svg" alt="Esquema conceitual em lousa verde: documentos passam por uma etapa de curadoria e formam uma rede de conhecimento ligada a um assistente, que devolve perguntas ao examinar um projeto."></a>
+
+### [Criando meu clone com IA](portfolio/0040-criando-meu-clone-com-ia/index.html)
+
+Na época da Copa, brincamos na empresa que precisávamos de um Vini Jr. Um clone meu para responder às perguntas e apoiar o time quando eu não estivesse disponível.
+:::
+
+::: {.about-project-card}
+<a href="portfolio/0038-arquitetura-fontes-externas/index.html" class="about-project-card__media"><img src="portfolio/0038-arquitetura-fontes-externas/thumbnail.svg" alt="Tabela, arquivo e geometria convergem para uma etapa de padronização e validação, seguida de uma base comum e ramificações de consumo. Diagrama conceitual da arquitetura."></a>
+
+### [Uma arquitetura de dados para mais de 100 fontes](portfolio/0038-arquitetura-fontes-externas/index.html)
+
+Construí uma arquitetura que chegou a mais de 100 fontes de dados. Nenhuma delas era minha.
+:::
+
+::: {.about-project-card}
+<a href="portfolio/0032-ux-produtos-fisicos/index.html" class="about-project-card__media"><img src="portfolio/0032-ux-produtos-fisicos/thumbnail.svg" alt="Desenho conceitual de duas mochilas, uma com rodinhas, lupa examinando uma alça e roteiro de avaliação. Não representa dados do estudo."></a>
+
+### [UX com produtos físicos, o puro suco da estatística](portfolio/0032-ux-produtos-fisicos/index.html)
+
+Um dos projetos mais interessantes de que participei envolvia uma indústria de mochilas para crianças e adolescentes.
+:::

@@ -1,0 +1,248 @@
+﻿# An analysis of: Brazilian names
+
+Fonte: https://vbfelix.github.io/posts/0025-brazilian-names/index.html
+
+```{r setup,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(stringr))
+suppressWarnings(library(forcats))
+```
+
+In this analysis, we seek to discover how the Brazilian population's names were till 2010.
+
+# Context
+
+The national institute of geography and statistics (IBGE) provided a dataset with the population's frequency and first name as part of the 2010 Brazilian Census, this dataset was extracted from [Brasil.io](https://brasil.io/home/).
+
+```{r download_data, echo = FALSE,include = F}
+
+url <- "https://data.brasil.io/dataset/genero-nomes/nomes.csv.gz"
+
+temp_gz  <- tempfile(fileext = ".gz")
+download.file(url, temp_gz, mode = "wb")
+data_or <- read.csv(gzfile(temp_gz))
+
+data <- 
+  data_or %>% 
+    as_tibble() %>% 
+    mutate(
+      first_name = str_to_title(first_name),
+      n_char = nchar(first_name),
+      frequency_total = frequency_total/(10^6),
+      frequency_male = frequency_male/(10^6),
+      frequency_female = frequency_female/(10^6),
+      frequency_male = relper::replace_na(frequency_male,0),
+      frequency_female = relper::replace_na(frequency_female,0),
+      perc_male = 100*frequency_male/frequency_total,
+      perc_female = 100*frequency_female/frequency_total,
+      male_female = 100*(perc_male/perc_female)
+    ) %>% 
+  glimpse()
+
+caption <- "Source: Censo 2010 (IBGE) + Brasil.io"
+
+n_names <- data %>% summarise(n = sum(frequency_total,na.rm = TRUE)) %>% pull(n)
+
+```
+
+# Biblical Roots
+
+```{r top10, echo = FALSE}
+data_top10 <-
+  data %>% 
+  mutate(perc = 100*frequency_total/sum(frequency_total)) %>% 
+  arrange(-frequency_total) %>% 
+  slice(1:10) %>% 
+  mutate(
+    first_name = fct_reorder(first_name,frequency_total),
+    frequency_total = frequency_total,
+    lbl = format_num(frequency_total,3,br_mark = FALSE)
+    )
+  
+top10_labs <-
+  labs(
+    x = "Frequency, in millions",
+    y = "",
+    caption = caption,
+    title = "Top 10 popular names"
+    # subtitle = paste0("*População = ",format_num(n_nomes,digits = 0,br_mark = TRUE)) 
+  )
+
+plot_top10 <-
+data_top10 %>% 
+  ggplot(aes(frequency_total,first_name))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_x = -.5, fontface = "bold",col = "white")+
+  top10_labs+
+  plt_theme_x(margin = .5)+
+  scale_x_continuous(breaks = 0:15, expand = c(0,0), limits = c(0,12))+
+  plt_water_mark(vfx_watermark)
+
+plot_top10
+
+```
+
+Maria and José are the most common names in Brazil because of their Christian roots and cultural history.
+
+These names represent the country's largely Catholic faith, which was established during Portuguese colonization, when naming children after biblical figures became customary. Religious celebrations honoring Santa Maria (Saint Mary) and São José (Saint Joseph) increase their significance. Not only that, but other popular names are also biblical, such as: João (John), Paulo (Paul), Pedro (Peter) and others.
+
+Even with this effect is clear how Maria is more common than others names, a reason is that Maria is commonly used as the first name of a compound name, such as Maria Luiza, Maria José, and others.
+
+# \_maria what?
+
+```{r top10_maria, echo = FALSE}
+
+data_maria <-
+  data %>% 
+  filter(n_char > 5) %>% 
+  filter(str_sub(first_name,-5,-1) == "maria") %>% 
+  arrange(-frequency_total) %>% 
+  slice(1:10) %>% 
+  mutate(
+    prefix = str_sub(first_name,1,n_char-5),
+    first_name = fct_reorder(first_name,frequency_total),
+    frequency_total = frequency_total*(10^6),
+    lbl = format_num(frequency_total,digits = 0,br_mark = TRUE)
+  )
+
+maria_labs <-
+  labs(
+    x = "Frequency",
+    y = "",
+    caption = caption,
+    title = "Top 10 names that ends with 'maria'"
+    # subtitle = ""
+  )
+
+maria_xaxis <- seq(0,3000,500)
+maria_xlbls <- maria_xaxis %>% format_num(.,digits = 0,br_mark = TRUE)
+
+plot_maria <-
+  data_maria %>% 
+  ggplot(aes(frequency_total,first_name))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_x = -100, fontface = "bold", col = "white")+
+  maria_labs+
+  plt_theme_x(margin = .5)+
+  scale_x_continuous(breaks = maria_xaxis,
+                     label = maria_xlbls,
+                     expand = c(0,0),
+                     limits = c(0,3000)
+                     )+
+  plt_water_mark(vfx_watermark)
+
+plot_maria
+```
+
+In Brazil, laws regulate naming children to protect them from embarrassment or ridicule. Civil registries can reject names deemed offensive, overly complex, or difficult to spell or pronounce, while foreign and culturally influenced names are allowed, they should align with Brazilian phonetics.
+
+Even with these restrictions, there is still a lot of room for creativity, thus adding maria as a component of the name is an option; this is not included in the Maria frequency analysis above, but still shows the impact of the name Maria.
+
+# How "high" can you go?
+
+```{r nchar, echo = FALSE}
+data_nchar <-
+  data %>% 
+  count(n_char,wt = frequency_total) %>% 
+  mutate(
+    perc = 100*n/sum(n),
+    lbl = if_else(perc < .01,"<0,01",format_num(perc,digits = 2,br_mark = TRUE))
+    )
+
+nchar_labs <-
+  labs(
+    x = "Number of letters in a name",
+    y = "%",
+    caption = caption,
+    title = "Distribution of the number of letters in a name",
+    # subtitle = ""
+  )
+
+pop_lbls <- format_num(seq(0,25,5)/100*n_names/(10^6),br_mark = TRUE)
+
+plot_nchar <-
+data_nchar %>% 
+  ggplot(aes(n_char,perc))+
+  geom_col(alpha = .85, fill = "royalblue4", col = "black")+
+  geom_text(aes(label = lbl),nudge_y = 1, fontface = "bold")+
+  plt_theme_y(margin = .5)+
+  scale_x_continuous(expand = c(0.01,0),breaks = 3:14)+
+  scale_y_continuous(expand = c(0,0), limits = c(0,25), breaks = seq(0,25,5)
+                     # sec.axis = sec_axis(~.,name = "#Milhões",labels = pop_lbls)
+                     )+
+  nchar_labs+
+  plt_flip_y_title+
+  theme(axis.title.y.right = element_text(angle = 0,vjust = 1))+
+  plt_water_mark(vfx_watermark)
+
+plot_nchar
+```
+
+When looking at the distribution of the number of letters in a name, we see that we have names with 3 from 14 letters, to give the most popular examples from this extremes, we have:
+
+-   3 letters, for example: Ana, Eva, Ivo, Eli and Ari.
+
+-   14 letters, for example: Cristianderson and Vandercleisson.
+
+Besides this, names with five to seven letters cover almost 70% of names in the population.
+
+```{r, echo = FALSE,include = F}
+data %>% 
+  filter(n_char == 3 | n_char == 14) %>% 
+  group_by(n_char) %>%
+  mutate(rank = rank(-frequency_total)) %>% 
+  arrange(rank) %>% 
+  select(rank,first_name,frequency_total)
+```
+
+# Sex dynamics in names
+
+```{r, echo = FALSE}
+
+mf_labs <-
+  labs(
+    subtitle = "Frequency, in millions (log scale)",
+    y = "",
+    caption = caption,
+    x = "Percentage of the name occurrence for males"
+  )
+
+data %>% 
+  ggplot(aes(perc_male,frequency_total))+
+  geom_point(alpha = .15, col = "royalblue4")+
+  scale_y_log10(
+    breaks = c(0.0001,0.001,0.01,0.1,1,10),
+    labels = c("0.0001","0.001","0.01","0.1","1","10") 
+  )+
+  plt_theme_y(margin = .5)+
+  mf_labs+
+  plt_water_mark(vfx_watermark)+
+  geom_vline(xintercept = 50,col = "red", linetype = "dashed")
+```
+
+We can see that the majority of the names (almost 90%) are practically connected with names either completely associated to females or males.
+
+Furthermore, only names that are less prevalent have a more evenly distributed male and female population, such as Edir, Darcy, and Tainan.
+
+```{r, echo = FALSE,include = F}
+data %>% 
+  filter(between(perc_male,49,51)) %>% 
+  arrange(-frequency_total) %>% 
+  select(first_name,frequency_total,perc_male)
+
+data %>% 
+  filter(!(only = perc_male == 100 | perc_male == 0)) %>% 
+  arrange(-frequency_total) %>% 
+  select(first_name,perc_male,frequency_total)
+
+data %>% 
+  count(between(perc_male,97.5,100)|between(perc_male,0,2.5)) %>% 
+  mutate(perc = 100*n/sum(n))
+
+```

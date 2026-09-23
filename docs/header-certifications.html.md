@@ -4,24 +4,24 @@ Fonte: https://vbfelix.github.io/header-certifications.html
 
 ## 2026
 
- \[04/26\] Product Marketing Manager
+![](https://vbfelix.github.io/images/logos/espm.png) \[04/26\] Product Marketing Manager
 
 ## 2024
 
- \[12/24\] Chief Product Officer (CPO)
+![](https://vbfelix.github.io/images/logos/iftl.png) \[12/24\] Chief Product Officer (CPO)
 
- \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
+![](https://vbfelix.github.io/images/logos/strides.png) \[11/24\] [Head of Data & Analytics 5.0](https://www.credential.net/2cd10087-c683-4e9c-adfc-e49d1b7bf455)
 
 ## 2022
 
- \[12/22\] [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
+![](https://vbfelix.github.io/images/logos/datacamp.png) \[12/22\] [Data Analyst with Python](https://www.datacamp.com/statement-of-accomplishment/track/67774c6f199b21768ae7ff5175e765c9b5de34c9)
 
- \[11/22\] [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
+![](https://vbfelix.github.io/images/logos/datacamp.png) \[11/22\] [Data Analyst in SQL](https://www.datacamp.com/statement-of-accomplishment/track/1358b6f9357ffdaec03dbfa329a173bd95c41360)
 
 ## 2019
 
- \[01/19\] [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
+![](https://vbfelix.github.io/images/logos/datacamp.png) \[01/19\] [Data Analyst with R](https://www.datacamp.com/statement-of-accomplishment/track/b2e74053d5b2195e8f3a124f63a38081c210102d)
 
- \[01/19\] [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
+![](https://vbfelix.github.io/images/logos/datacamp.png) \[01/19\] [Data Scientist with R](https://www.datacamp.com/statement-of-accomplishment/track/2e0b83340d63ded2751266704d2f0d385cda2a43)
 
- \[02/19\] [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)
+![](https://vbfelix.github.io/images/logos/datacamp.png) \[02/19\] [R Programmer](https://www.datacamp.com/statement-of-accomplishment/track/3ead25e9d7f379f930c5c203355bc1e315187354)

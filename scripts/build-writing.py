@@ -12,6 +12,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / '_content/writing.qmd'
+RECENT_TARGET = ROOT / '_content/recent-writing.qmd'
 
 
 def scalar(text):
@@ -40,10 +41,10 @@ def read_post(path):
         categories = ', '.join(scalar(item) for item in categories[1:-1].split(',') if item.strip())
         language = scalar(fields.get('lang', 'en')).lower()
         flags = {
-            'en': ('🇺🇸', 'Em inglês'),
-            'en-us': ('🇺🇸', 'Em inglês'),
-            'pt': ('🇧🇷', 'Em português'),
-            'pt-br': ('🇧🇷', 'Em português'),
+            'en': ('EN', 'Em inglês', 'en'),
+            'en-us': ('EN', 'Em inglês', 'en'),
+            'pt': ('PT', 'Em português', 'pt'),
+            'pt-br': ('PT', 'Em português', 'pt'),
         }
         if language not in flags:
             raise ValueError(f'unsupported language: {language}')
@@ -52,10 +53,13 @@ def read_post(path):
         raise ValueError(f'{path}: invalid metadata: {error}') from error
 
 
-def render(posts):
+def render(posts, limit=None, heading=2):
     rows = []
-    for published, title, categories, slug, (flag, language) in sorted(posts, reverse=True):
-        rows.append(f'<article class="archive-entry"><time datetime="{published}">{published}</time><div><h2><span class="post-language" role="img" aria-label="{language}">{flag}</span><a href="/posts/{slug}/index.html">{html.escape(title)}</a></h2><p>{html.escape(categories)}</p></div></article>')
+    ordered = sorted(posts, reverse=True)
+    if limit is not None:
+        ordered = ordered[:limit]
+    for published, title, categories, slug, (label, language, code) in ordered:
+        rows.append(f'<article class="archive-entry" data-language="{code}" data-categories="{html.escape(categories, quote=True)}"><time datetime="{published}">{published}</time><div><h{heading}><span class="post-language" role="img" aria-label="{language}">{label}</span><a href="/posts/{slug}/index.html">{html.escape(title)}</a></h{heading}><p>{html.escape(categories)}</p></div></article>')
     return ('Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.\n\n'
             '```{=html}\n' + '\n'.join(rows) + '\n```\n')
 
@@ -67,12 +71,14 @@ def main():
     posts = [read_post(path) for path in sorted(ROOT.glob('posts/*/index.qmd'))]
     if not posts:
         raise SystemExit('No posts found; archive was not changed.')
-    content = render(posts)
+    outputs = ((TARGET, render(posts)), (RECENT_TARGET, render(posts, limit=3, heading=3)))
     if args.check:
-        if not TARGET.exists() or TARGET.read_text(encoding='utf-8') != content:
-            raise SystemExit('Archive is outdated. Run python scripts/build-writing.py')
-    elif not TARGET.exists() or TARGET.read_text(encoding='utf-8') != content:
-        TARGET.write_text(content, encoding='utf-8')
+        if any(not path.exists() or path.read_text(encoding='utf-8') != content for path, content in outputs):
+            raise SystemExit('Archive or recent writing is outdated. Run python scripts/build-writing.py')
+    else:
+        for path, content in outputs:
+            if not path.exists() or path.read_text(encoding='utf-8') != content:
+                path.write_text(content, encoding='utf-8')
     print(f'Portuguese archive: {len(posts)} articles.')
 
 

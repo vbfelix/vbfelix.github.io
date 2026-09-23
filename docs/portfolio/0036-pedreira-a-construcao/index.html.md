@@ -1,0 +1,53 @@
+﻿# Da pedreira à construção: como ir a campo foi mais importante que analisar
+
+Fonte: https://vbfelix.github.io/portfolio/0036-pedreira-a-construcao/index.html
+
+![Pedras passam por um britador, uma pilha intermediária e uma peneira, com retorno para reprocessamento. Um ponto de medição é destacado. Esquema conceitual da operação.](https://vbfelix.github.io/portfolio/0036-pedreira-a-construcao/thumbnail.svg)
+
+Os dados não faziam tanto sentido. Eu estava trabalhando em um projeto para otimizar a operação de uma obra de infraestrutura que produzia a própria brita a partir de pedras. Para ajudar a melhorar aquele processo, pedi para ir a campo.
+
+Foi lá que entendi como a britagem funcionava, onde estavam suas limitações, onde faltava medição e como os dados que eu analisava eram obtidos.
+
+# A pedra não atravessava uma linha reta
+
+A britagem reduz pedras a materiais menores, usados na construção. Na operação que visitei, isso envolvia diferentes etapas de processamento e classificação até chegar à brita e ao pó.
+
+Entre essas etapas havia uma pilha pulmão, um estoque intermediário do material que saía da britagem primária, chamado rachão. Essa reserva atendia a situações inesperadas. Em alguns casos, o rachão também podia ser destinado à terraplanagem.
+
+O material que não se enquadrava na classificação passava novamente pelo processamento até se adequar. Quando havia necessidade de produzir pó, a brita também podia passar por processamento adicional.
+
+Esses caminhos faziam parte da operação que eu precisava compreender. Havia estoque entre etapas, destinos alternativos e material voltando a ser processado. Entender o percurso da pedra ajudava a entender o que uma medida de produção representava.
+
+# O que a visita revelou sobre as medidas
+
+Algumas observações tornaram o problema muito mais concreto:
+
+- **Uma etapa importante não era medida.** Na britagem primária, a justificativa era que o material ainda não era o produto final. Para entender o processo completo, aquela ausência de medição precisava entrar no diagnóstico.
+- **O tempo disponível incluía outras atividades.** Limpeza e manutenção faziam parte da rotina. Era necessário considerar esses períodos ao analisar a produção ao longo do dia.
+- **O clima interferia na operação.** Chuva forte interrompia a produção, e a umidade dificultava a produção de pó. Esses fatores precisavam acompanhar a leitura dos volumes produzidos.
+- **A obtenção dos arquivos também merecia investigação.** Havia registros de arquivos duplicados na importação e de reinício da geração do arquivo de produção quando a britagem era desligada. Também precisava ser esclarecido se coletar o arquivo em horários intermediários afetava os dados.
+
+Um problema no painel ilustrava essa última dificuldade: ampliar o período selecionado podia fazer o total de produção diminuir. Era uma inconsistência a investigar antes de usar aquele total para avaliar a operação.
+
+# Da observação às propostas de coleta
+
+O trabalho de campo ajudou a tornar específicas as propostas de melhoria. Para os pontos sem medição, havia propostas de adicionar balanças e usar uma balança mais resistente na etapa primária. Outra possibilidade era estimar a quantidade de pedra transportada a partir das viagens e da capacidade dos caminhões.
+
+Para interpretar as interrupções, a proposta incluía levar ao painel o formulário de paradas, que era manual. Também estavam previstas a coleta de dados de chuva e umidade e a automação da coleta de produção.
+
+Cada proposta respondia a uma limitação observada. Medir melhor passava por entender onde o material circulava, quando a operação parava e em que condições o arquivo era gerado.
+
+# Um painel que levasse a operação em conta
+
+O desenho dos painéis contemplava diferentes necessidades de acompanhamento. A visão geral reunia metas das obras, dias de chuva e horas de limpeza e manutenção. A visão mensal acompanhava a produção acumulada em relação à meta, incluindo os dias sem produção. A visão diária detalhava o comportamento ao longo das horas e considerava o intervalo de almoço.
+
+Esses recortes davam contexto à leitura do desempenho. Um total de produção precisava ser acompanhado pelas condições em que havia sido produzido e pelas limitações da coleta.
+
+# Aprendizados, lições, erros e principais impactos
+
+A ida a campo me permitiu relacionar os dados ao processo físico e identificar lacunas de medição. Desse trabalho ficaram aprendizados concretos:
+
+- **Conhecer o processo ajudou a formular o problema.** O estoque intermediário e o reprocessamento mostraram por que eu precisava acompanhar o percurso dos materiais para interpretar a produção.
+- **A ausência de medida também fazia parte do diagnóstico.** A etapa primária sem medição apontava uma limitação que exigia discutir a própria coleta.
+- **Uma inconsistência de informação podia comprometer a avaliação da operação.** Antes de interpretar o total do painel, era preciso investigar a duplicação de arquivos e o comportamento dos filtros.
+- **O objetivo de otimizar exigia preparar a análise.** A visita trouxe entendimento das restrições e sustentou propostas de medição e acompanhamento. Esse foi o avanço que tornou mais concreto o trabalho com os dados.

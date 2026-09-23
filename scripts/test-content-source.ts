@@ -1,4 +1,4 @@
-import { readContent } from './content-source.ts';
+import { articleLanguage, findArticleSources, firstProseParagraph, markdownLinks, readContent, readFrontMatter, validatePublishedLink } from './content-source.ts';
 
 function assert(value: boolean, message: string) { if (!value) throw new Error(message); }
 const temporary = await Deno.makeTempDir();
@@ -22,6 +22,28 @@ try {
   let missing = false;
   try { await readContent(`${temporary}/index.qmd`); } catch (error) { missing = error instanceof Deno.errors.NotFound; }
   assert(missing, 'Missing include must fail explicitly');
+  await Deno.mkdir(`${temporary}/posts/example`, {recursive:true});
+  await Deno.writeTextFile(`${temporary}/posts/example/index.qmd`, '---\ntitle: "Teste"\ncategories: [AI, data]\nlang: pt-BR\n---\nTexto');
+  await Deno.writeTextFile(`${temporary}/posts/index.qmd`, '---\ntitle: Raiz\n---');
+  const articleSources = await findArticleSources(`${temporary}/posts`);
+  assert(articleSources.length === 2, 'Article discovery must include every index.qmd');
+  const metadata = await Promise.all(articleSources.map(async path => readFrontMatter(await Deno.readTextFile(path))));
+  const rootMetadata = metadata.find(item => item.title === 'Raiz');
+  const nestedMetadata = metadata.find(item => item.title === 'Teste');
+  assert(rootMetadata?.title === 'Raiz', 'Front matter title missing');
+  assert(Array.isArray(nestedMetadata?.categories) && nestedMetadata.categories.join(',') === 'AI,data', 'Inline categories missing');
+  assert(articleLanguage('post') === 'en' && articleLanguage('portfolio') === 'pt-BR', 'Article default language mismatch');
+  assert(articleLanguage('post', 'pt-BR') === 'pt-BR', 'Declared article language ignored');
+  assert(firstProseParagraph('```{r}\nprint("code")\n```\n\nPrimeira frase.\n\nOutra.') === 'Primeira frase.', 'Code chunk leaked into article description');
+  assert(markdownLinks('[Broken](https://vbfelix.github.io/missing.html)').includes('https://vbfelix.github.io/missing.html'), 'Exported links missing from validation');
+  await Deno.mkdir(`${temporary}/published`);
+  await Deno.writeTextFile(`${temporary}/published/index.html`, '<h1 id="present">Present</h1>');
+  await validatePublishedLink('https://vbfelix.github.io/#present', 'https://vbfelix.github.io', `${temporary}/published`);
+  let brokenAbsolute = false;
+  try { await validatePublishedLink('https://vbfelix.github.io/missing.html', 'https://vbfelix.github.io', `${temporary}/published`); }
+  catch (error) { brokenAbsolute = error instanceof Deno.errors.NotFound; }
+  assert(brokenAbsolute, 'Missing same-origin absolute target must fail');
+  await validatePublishedLink('https://vbfelix.github.io/relper/index.html', 'https://vbfelix.github.io', `${temporary}/published`);
 } finally {
   // This directory is created by this test, never derived from a user path.
   await Deno.remove(temporary, {recursive:true});

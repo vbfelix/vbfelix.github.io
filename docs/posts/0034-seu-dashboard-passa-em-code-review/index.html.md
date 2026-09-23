@@ -1,0 +1,137 @@
+﻿# Seu dashboard passa em code review?
+
+Fonte: https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html
+
+Em 2018 eu comparei nove ferramentas de BI para um cliente que precisava decidir entre uso interno e uso embarcado em produto, e a conclusão foi que nenhuma atendia os dois cenários bem. Oito anos depois a pergunta mudou de lugar. O gargalo deixou de ser quem constrói o dashboard e passou a ser o que acontece com ele quando a tabela de origem muda.
+
+Este artigo desenvolve a resposta que a engenharia de dados vem dando para isso, o BI as code, em que o painel é um arquivo de texto que vive no repositório, é revisado em pull request e é validado em integração contínua. O gatilho para escrever agora é o dbt Charts, anunciado em 14 de setembro de 2026 sob licença Apache 2.0, que leva a ideia ao extremo declarativo e parte de um pressuposto incômodo, o de que quem vai escrever o painel talvez não seja uma pessoa.
+
+A tese é simples de enunciar e trabalhosa de sustentar: o autoatendimento, ou self-service, resolveu quem constrói o painel e deixou em aberto como o painel sobrevive à mudança, que é onde o BI as code tenta aplicar ao painel a disciplina que já aplicamos ao pipeline.
+
+### O problema: o que a avaliação de 2018 não resolveu
+
+O projeto era uma escolha de ferramenta, com prova de conceito, comparativo de preço e desenvolvimento de visualizações de teste. Passei por nove nomes, que na época se dividiam com clareza em três grupos.
+
+No open source estavam o [Pentaho](https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics.html), uma suíte completa que ia do ETL à visualização mas exigia do usuário mais do que ele queria dar, e o [Metabase](https://www.metabase.com/), que acertava justamente onde o Pentaho pesava, com curva de aprendizado curta e uma organização de perguntas e painéis que as pessoas entendiam sozinhas.
+
+As líderes daquele mercado eram [Power BI](https://www.microsoft.com/pt-br/power-platform/products/power-bi/), [Qlik](https://help.qlik.com/pt-BR/) e [Tableau](https://www.tableau.com/pt-br), cada uma cara à sua maneira, seja por licença de usuário, seja pelo custo de embarcar o painel dentro de um produto.
+
+E havia a geração nova de então, [Looker](https://cloud.google.com/looker?hl=pt-BR), Periscope Data, Mode e [QuickSight](https://aws.amazon.com/pt/quicksight/), que traziam integração nativa com Python e R e uma visão mais moderna de construção de painéis.
+
+A decisão foi dividida, porque a demanda era dividida. Para o uso interno ficamos com o Metabase, pela conexão fácil a fontes diversas, pela interface que não exigia SQL de quem só queria uma resposta, pelos alertas disparados a partir de consultas e por uma governança que permitia limitar acesso até o nível de tabela. Para o produto acabamos desenvolvendo os painéis, porque as ferramentas da geração nova eram todas precificadas em dólar, com pisos de licença acima da nossa necessidade, e porque naquele caso os painéis seriam iguais para todos os clientes, o que tirava boa parte da vantagem de comprar.
+
+O mercado depois consolidou quase tudo o que estava naquela lista. A Salesforce concluiu a compra do Tableau em agosto de 2019, por 15,7 bilhões de dólares ([GeekWire](https://www.geekwire.com/2019/salesforce-completes-15-7b-acquisition-tableau-software-creating-new-enterprise-tech-force/)). A Sisense comprou a Periscope Data em maio de 2019 ([TechCrunch](https://techcrunch.com/2019/05/14/sisense-acquires-periscope-data-to-build-integrated-data-science-and-analytics-solution/)). O Google fechou a aquisição do Looker em fevereiro de 2020, por 2,6 bilhões ([TechCrunch](https://techcrunch.com/2020/02/13/google-closes-2-6b-looker-acquisition/)). E a ThoughtSpot anunciou a compra do Mode em 2023, por 200 milhões ([ThoughtSpot](https://www.thoughtspot.com/press-releases/thoughtspot-acquires-mode-analytics-for-200m)). Uma lista de avaliação virou, em poucos anos, uma lista de aquisições.
+
+Registro um erro meu de leitura. Na época eu tratei o LookML, a linguagem própria do Looker para definir métricas e transformações, como desvantagem, já que amarrava a modelagem à ferramenta e dificultaria uma migração futura. A objeção sobre dependência continua válida, mas a ideia por trás dela, a de que a definição de métrica deve ser um artefato escrito e versionado em vez de um clique, é justamente a que voltou com força.
+
+### O que o self-service entregou e o que deixou em aberto
+
+Seria desonesto tratar o self-service como promessa vazia. Em 2020, atuando como Gerente de dados implantei arquitetura de dados e ferramentas de self-service com uma redução de 50% no consumo do time de analistas por outros departamentos, e que mede fila que deixou de chegar ao time, não produtividade dele, nem adoção de cultura de dados. 
+
+O que ficou em aberto aparece quando o modelo por baixo muda. Uma coluna é renomeada e alguém descobre pelo painel quebrado, geralmente na reunião. A lógica da métrica fica presa em uma interface, distribuída entre um filtro salvo, uma coluna calculada e a memória de quem construiu. Quase nunca há histórico legível do que mudou, revisão antes de publicar ou ambiente de teste, e quando dois painéis discordam a decisão sobre qual está certo depende de alguém reconstruir o caminho dos cliques. O painel virou artefato crítico de decisão sem herdar as práticas que aplicamos a qualquer outro artefato crítico.
+
+### O que é BI as code
+
+BI as code é tratar a definição do painel como código-fonte, e na prática são quatro propriedades que só funcionam juntas: a definição vive em arquivos de texto no mesmo repositório dos modelos, o que dá versionamento e diff legível, a mudança passa por pull request, que é a proposta de alteração revisada antes de entrar, a integração contínua valida a definição antes do merge, transformando quebra silenciosa em falha explícita, e o deploy parte de um arquivo, não de uma sessão de cliques.
+
+Nada disso decreta o fim do self-service, apesar do entusiasmo de quem vende. A pessoa de negócio que precisa filtrar um relatório continua precisando de interface, e escrever YAML não é um objetivo de vida amplamente compartilhado. O ponto aqui é outro: a camada de definição vira código e a camada de consumo continua sendo interface. Quem ganha primeiro é o time que mantém painéis de que outras pessoas dependem.
+
+### Por que agentes de IA mudam a conta
+
+Até pouco tempo atrás o argumento a favor do BI as code era de disciplina, e disciplina é um argumento que perde reuniões. O que mudou a conta foi quem passou a escrever o painel.
+
+A formulação mais direta disso está no anúncio do dbt Charts, assinado por Dave Fowler em 14 de setembro de 2026: agentes são fluentes em código, SQL e Git, e desastrosos na interface dos outros ([dbt Charts](https://dbtcharts.com/blog/charts-built-for-chat/)). A observação é trivial, o que vem dela não. Um agente que precisa arrastar um campo, abrir três menus e salvar um filtro depende de automação frágil de interface, enquanto o mesmo agente, diante de um arquivo de texto, escreve, relê, explica o que mudou e aceita revisão. A página de produto é ainda mais franca sobre o problema que está tentando resolver, ao dizer que agentes de IA fazem uma bagunça não auditável de dashboards ([dbt Labs](https://www.getdbt.com/product/dbtcharts)). A proposta é dar ao agente um formato que alguém consiga revisar depois.
+
+Evidence, Rill e Lightdash descrevem hoje o agente como usuário da ferramenta, e não como recurso dentro dela ([Evidence](https://evidence.dev/), [Rill](https://www.rilldata.com/), [Lightdash](https://www.lightdash.com/)). O Evidence chega a oferecer o seu agente em qualquer cliente MCP, o protocolo que conecta assistentes a ferramentas externas, incluindo Claude Desktop e ChatGPT. Quando três concorrentes e o dbt Charts chegam ao mesmo posicionamento, é razoável ler aquilo como aposta de mercado.
+
+O dbt Charts leva isso até a instalação, com `dct skills intro`, um comando cuja função é ensinar o agente a usar a ferramenta antes de qualquer pessoa abrir a documentação.
+
+Um agente produz SQL plausível e número errado com a mesma fluência, e raramente com alguma alteração de tom que denuncie a diferença. Aumentar a velocidade com que painéis são criados, sem aumentar na mesma proporção a rede que verifica o que eles dizem, é uma forma eficiente de industrializar o engano.
+
+### Sendo código, validar o dado deixa de ser opcional
+
+Painel em código só vale a pena se o código for verificado, e a verificação acontece em camadas que é importante não confundir.
+
+A checagem mais barata é estrutural. No dbt Charts, `dct validate` confere sintaxe YAML, conformidade de schema em cada campo, família de gráfico e formato de query, e as referências cruzadas dentro do board, que é como a ferramenta chama o arquivo de painel, ou seja, se o nome de query que um gráfico invoca existe, se os itens citados no layout existem e se as variáveis resolvem ([documentação do dct validate](https://docs.dbtcharts.com/cli/validate/)). Roda em menos de um segundo e cabe em editor, pre-commit e CI.
+
+Depois vem o encontro com o modelo de dados. O mesmo comando confere se as referências `ref()` e `source()` existem no manifest, que é o arquivo com o grafo do projeto gerado pelo dbt, e detecta deriva de coluna, derivando estaticamente do SQL de cada modelo as colunas que ele produz. Há também uma checagem estática do SQL, o lint, que aponta junções cartesianas e junções sem predicado nas queries nomeadas, emitidas como aviso, e que só derrubam a execução com a flag `--strict`. Com `--warehouse` a validação se estende até o banco, usando `DESCRIBE`, dry-run nativo ou `EXPLAIN`, conforme o adaptador. E `dct init ci` gera um workflow de GitHub Actions que roda a validação a cada pull request que toca os boards, sem precisar de credencial de banco, porque valida estrutura sem executar consulta ([documentação do dct init](https://docs.dbtcharts.com/cli/init/)).
+
+O comando `dct impact` resolve uma dor bem antiga, ao responder quais boards quebram se uma coluna mudar, e a documentação enquadra o caso exato de quem mantém dbt, o autor prestes a renomear uma coluna que quer saber, antes de tocar no modelo, quais dashboards dependem dela ([documentação do dct impact](https://docs.dbtcharts.com/cli/impact/)). A análise é feita sobre o SQL compilado dos boards e resolve CTEs, que são as subconsultas nomeadas com `WITH`, além de apelidos e subconsultas correlacionadas, separando em lista própria os casos indeterminados, como `SELECT *` e Jinja dinâmico. Separar o indeterminado é uma decisão de projeto que muda o que a saída significa, porque o silêncio deixa de valer como aprovação.
+
+Nada disso olha para o conteúdo da tabela. Isso continua sendo trabalho dos testes do próprio dbt, com as verificações de unicidade, ausência de nulos, valores aceitos e relacionamentos, além dos testes singulares para regras que só fazem sentido no seu domínio, assunto que já detalhei em [Intro: dbt testing](https://vbfelix.github.io/posts/0029-dbt-test/). Um painel pode passar por validação estrutural, referência, lint e impacto, renderizar sem um aviso sequer, e mostrar um faturamento duplicado porque uma junção multiplicou linhas.
+
+Painel que renderiza não é painel correto, e a CI pega a coluna que sumiu, não pega a métrica mal definida. A própria documentação delimita o alcance, ao registrar que sem a flag `--warehouse` a validação não confere a existência real de modelos e tabelas, nem se as queries executam, nem o resultado da renderização. Então a rede tem quatro camadas automáticas, estrutura, modelo, impacto e teste de dado, mais uma quinta que nenhum comando cobre, que é alguém olhar o número e dizer se ele faz sentido. Com uma pessoa escrevendo um painel por semana, dá para sobreviver sem parte disso. Quando a produção passa a ser em lote, porque um agente escreve rápido e não se cansa, a rede é o que separa velocidade de erro em escala.
+
+### As famílias de ferramenta em 2026
+
+O rótulo cobre coisas bastante diferentes, e o que as separa é o que você acaba escrevendo, um programa, um documento, um modelo de métricas ou só a descrição do painel. A classificação abaixo é minha, montada a partir das páginas de produto de cada ferramenta, e não uma taxonomia que o mercado use.
+
+| Família | Ferramenta | O que você escreve | Acoplamento com dbt |
+|---|---|---|---|
+| Framework de aplicação | Shiny, Streamlit | Programa em R ou Python | Nenhum por padrão |
+| Documento executável | Evidence | Markdown com SQL e componentes | Opcional |
+| Exploração sobre métricas | Rill, Lightdash | SQL e YAML de modelos e métricas | Forte no Lightdash |
+| Declarativa pura | dbt Charts | YAML com SQL dentro | Nativo, no mesmo repositório |
+
+A escolha entre elas depende da natureza do problema. Se a saída precisa de interação complexa, entrada de formulário ou um modelo estatístico rodando por trás, você vai escrever um programa que por acaso mostra gráficos, no [Shiny](https://shiny.posit.co/), da Posit, hoje disponível em R e em Python, ou no [Streamlit](https://streamlit.io/), mantido pela Snowflake. Se a saída é um relatório narrativo com números no meio do texto, o documento executável é mais direto. Se o objetivo é dar autonomia de exploração sobre métricas já governadas, a terceira família existe para isso. E se o objetivo é ter dezenas de painéis auditáveis vivendo ao lado dos modelos, a declarativa é a que menos pede código para manter.
+
+### O que o formato declarativo obriga você a escrever
+
+Não vou mentir que gosto muito do dbt, e fiquei animado com este anúncio recente do dbt Charts, ele é uma linguagem declarativa em YAML em volta do SQL, mais um motor de renderização e a CLI `dct`. A dbt Labs o apresentou como beta público na leva de anúncios do dbt Summit daquele mês, chamando-o de primeira camada de BI orientada a linguagem ([dbt Labs](https://www.getdbt.com/blog/dbt-summit-2026-product-announcements)). Junto da linguagem existe uma plataforma hospedada, com workspace gratuito, editor visual e compartilhamento com permissões ([dbt Labs](https://www.getdbt.com/product/dbtcharts)).
+
+A ideia central é que a query, os gráficos e o layout ficam em um único arquivo que você lê de ponta a ponta, guardado ao lado dos modelos dbt, na mesma branch e no mesmo pull request da mudança de dado ([dbt Charts](https://dbtcharts.com/language/)). Quando o modelo muda em uma branch, os painéis daquela branch mudam junto, o que é uma frase simples com implicações grandes para quem já explicou a alguém por que o painel de produção não bate com o número novo.
+
+A CLI cobre o ciclo com `validate` para conferir, `serve` para levantar o servidor local de dashboards, em que parâmetros da URL viram variáveis e os filtros funcionam ([documentação do dct serve](https://docs.dbtcharts.com/cli/serve/)), `impact` para medir estrago antes de mexer no modelo e `render` para gerar saída estática em SVG, HTML, PNG, PDF, JSON e até terminal ([documentação do dct render](https://docs.dbtcharts.com/cli/render/)). O acesso ao dado usa os adaptadores do dbt, então roda onde o seu projeto dbt já roda, com DuckDB embutido para quem quiser experimentar sem banco ([repositório oficial](https://github.com/dbt-labs/dbt-charts)).
+
+### Exemplo comentado
+
+O arquivo abaixo é adaptado do exemplo mínimo do repositório e serve para mostrar a anatomia do formato.
+
+```yaml
+source: db
+variables:
+  status:
+    column: documentos.contratos.status
+queries:
+  contratos: |
+    SELECT DATE_TRUNC('month', criado_em) AS mes,
+           SUM(COUNT(*)) OVER (ORDER BY MIN(criado_em)) AS contratos
+    FROM documentos.contratos
+    WHERE {{ filter('status', status) }}
+    GROUP BY 1
+charts:
+  crescimento:
+    title: Contratos criados, acumulado
+    type: area
+    query: contratos
+    x: mes
+    y: contratos
+rows:
+  - crescimento
+```
+
+São cinco blocos, e vale lê-los pensando em onde a validação atua:
+
+ - `source` diz de onde vem o dado;
+ - `variables` declara o filtro que o leitor manipula na interface, amarrado a uma coluna real cuja referência a validação confere;
+ - `queries` guarda o SQL nomeado, único lugar onde a lógica de negócio mora e sobre o qual roda o lint;
+ - `charts` descreve a visualização citando a query e as colunas pelo nome, de modo que um `y` apontando para coluna inexistente vira erro de validação em vez de gráfico vazio em produção;
+ - `rows` é o layout, o empilhamento vertical que vem por padrão, com `cols` disponível para colocar gráficos lado a lado ([documentação de boards](https://docs.dbtcharts.com/boards/)).
+
+O detalhe mais bem resolvido é a marcação `{{ filter('status', status) }}` dentro do SQL. O filtro da interface não é uma camada aplicada depois da query, é um trecho declarado dentro dela, visível para quem revisa o diff. Boa parte das discussões sobre número divergente entre dois painéis nasce de um filtro que alguém aplicou em um e esqueceu no outro, e que não aparecia em lugar nenhum que pudesse ser lido.
+
+### Limites e cuidados
+
+O dbt Charts está em beta anterior à versão 1.0, exige Python de 3.10 a 3.13 e avisa que a sintaxe YAML vai mudar antes do 1.0, com uma ferramenta de migração para atualizar arquivos antigos. O repositório público é um espelho somente leitura, que não aceita pull request externo, o que é uma diferença importante em relação ao open source que muita gente assume ao ver a licença Apache. Adotar hoje é adotar um formato que ainda se move, dentro de um ecossistema com um fornecedor no centro.
+
+Do lado da prática, o custo real não é a ferramenta, é a autonomia. Se o analista de negócio precisa abrir um pull request para mudar a cor de uma barra, você não melhorou o processo, apenas criou uma fila com nome mais bonito. O BI as code compensa quando o painel é um ativo que alguém mantém, com dependência e histórico, e continua não compensando para exploração pontual e pergunta que morre na semana seguinte, território em que o no-code segue sendo a resposta certa.
+
+A distância entre arquivo coerente e número certo costuma ser onde moram os incidentes mais caros de quem trabalha com dados.
+
+### Conclusão
+
+A pergunta do título não é retórica. Se o seu dashboard não passa por code review, ele é um artefato de decisão sem revisão, sem histórico legível e sem teste, mantido por quem lembra onde clicou.
+
+O BI as code não é nostalgia de quem prefere texto a interface, é o reconhecimento de que o painel virou parte do sistema e precisa das mesmas garantias que o resto do sistema tem há décadas. O dbt Charts é provavelmente a versão mais radical dessa ideia até agora, pelo menos no que a documentação promete, e o fato de ter sido desenhado para um agente escrever diz menos sobre moda e mais sobre para onde o trabalho está indo.
+
+Em 2018 eu escolhi uma ferramenta para pessoas construírem painéis. A escolha de agora é outra, é sobre qual formato de painel a sua equipe consegue revisar quando o volume aumentar. Vale responder antes que o volume aumente.

@@ -8,3 +8,7 @@ body-classes: writing-page
 ---
 
 {{< include _content/writing.qmd >}}
+
+```{=html}
+<script src="/assets/js/archive-filters.js" defer></script>
+```

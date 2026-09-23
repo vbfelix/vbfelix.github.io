@@ -121,6 +121,43 @@ body.writing-page main.content {
 .about-hero h1 {
   font-size:3rem;
   line-height:1.1}
+.about-hero__eyebrow {
+  margin:0 0:.35rem;
+  color:var(--muted);
+  font:normal .78rem/1.5 var(--mono);
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.about-hero__copy h1 {
+  font-size:clamp(2.7rem,5vw,4.4rem);
+  max-width:11ch;
+  margin:0;
+}
+.about-hero__copy section > p { max-width:38rem; margin-top:1.25rem; }
+.about-hero__actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.6rem; }
+.about-action {
+  display:inline-block;
+  border:1px solid var(--line);
+  color:var(--ink);
+  padding:.62rem .9rem;
+  text-decoration:none;
+  font:.78rem/1.5 var(--mono);
+}
+.about-action:hover { border-color:var(--rust); color:var(--rust); }
+.about-action--primary { background:var(--wash); border-color:var(--blue); }
+.about-selected-work,.about-recent-writing { margin-top:4.5rem; padding-top:2rem; border-top:1px solid var(--line); }
+.about-section-heading { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1rem 2rem; }
+.about-section-heading h2 { margin:0; font-size:clamp(2rem,4vw,3.2rem); }
+.about-projects { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+.about-project-card { background:var(--wash); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+.about-project-card > p:first-child { margin:0; background:var(--paper); }
+.about-project-card__media { display:block; }
+.about-project-card img { display:block; width:100%; aspect-ratio:16 / 9; object-fit:contain; }
+.about-project-card h3 { font-size:1.35rem; line-height:1.2; margin:1rem 1rem .45rem; }
+.about-project-card h3 a { color:var(--ink); text-decoration:none; }
+.about-project-card h3 a:hover { text-decoration:underline; }
+.about-project-card p { color:var(--muted); font-size:.9rem; line-height:1.5; margin:0 1rem 1rem; }
+.about-project-card:hover { border-color:var(--blue); }
 .about-principles,.about-foundation,.about-history {
   margin-top:3rem;
   padding-top:2rem;
@@ -146,14 +183,29 @@ body.writing-page main.content {
   font-family:var(--mono);
   font-size:.73rem;
   color:var(--muted)}
-.archive-entry h2 {
+.archive-entry h2,.archive-entry h3 {
   font-size:1.35rem;
   margin:0!important}
 .post-language {
   display:inline-block;
   margin-right:.5rem;
-  font-size:.9em;
+  color:var(--muted);
+  font:.7rem/1.4 var(--mono);
+  letter-spacing:.08em;
+  vertical-align:middle;
 }
+.archive-filters { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 2rem; }
+.archive-filters select {
+  border:1px solid var(--line);
+  background:var(--wash);
+  color:var(--ink);
+  padding:.42rem .65rem;
+  font:.72rem/1.4 var(--mono);
+}
+.archive-filters select:hover,.archive-filters select:focus-visible { border-color:var(--blue); }
+.archive-filters label { display:grid; gap:.35rem; font:.72rem/1.4 var(--mono); color:var(--muted); }
+.archive-filter-count { align-self:end; margin:0 0 .4rem; color:var(--muted); font:.72rem/1.4 var(--mono); }
+.archive-entry[hidden] { display:none; }
 .archive-entry p {
   font-size:.75rem;
   color:var(--muted);
@@ -215,10 +267,19 @@ body::before {
 .about-history table col:nth-child(3),
 .experience-page #experiência-profissional table col:nth-child(3) { width:56%!important; }
 .experience-page #experiência-profissional td:first-child { white-space:nowrap; font-variant-numeric:tabular-nums; }
+.experience-table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.experience-table-scroll table { width:100%; min-width:42rem; margin:1.25rem 0 0; border-collapse:collapse; }
+.experience-table-scroll th,
+.experience-table-scroll td { padding:.85rem .75rem; vertical-align:top; border-color:var(--line); }
+.experience-table-scroll th { color:var(--muted); font:.7rem/1.4 var(--mono); letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; }
+.experience-table-scroll tbody tr:last-child td { border-bottom:0; }
+.about-recent-writing > p:not(.section-kicker) { max-width:42rem; }
+.about-recent-writing .archive-entry { max-width:850px; }
 @media(max-width:900px) {
   .about-hero { grid-template-columns:1fr; gap:1rem; }
   .about-hero__portrait { max-width:560px; }
   .about-hero h1 { font-size:clamp(2.1rem,9vw,3rem); }
+  .about-projects { grid-template-columns:1fr; max-width:560px; }
 }
 .section-kicker { font-family:var(--mono); font-size:.69rem; letter-spacing:.11em; text-transform:uppercase; line-height:1.5; color:var(--muted); }
 .nav-footer { background:#12372e; }

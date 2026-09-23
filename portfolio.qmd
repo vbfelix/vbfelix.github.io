@@ -8,11 +8,11 @@ body-classes: portfolio-page
 listing:
   contents: "portfolio/*/index.qmd"
   type: grid
-  fields: [image, title]
+  fields: [image, title, description]
   sort: "path desc"
   grid-columns: 3
   image-height: 190px
   page-size: 12
   sort-ui: false
-  filter-ui: false
+  filter-ui: true
 ---

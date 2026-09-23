@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('sync', 'test', 'check', 'render', 'preview', 'verify', 'doctor')]
+    [ValidateSet('sync', 'test', 'check', 'render', 'preview', 'verify', 'doctor', 'stop')]
     [string]$Action = 'preview',
     [ValidateSet('auto', 'staged', 'all')][string]$Scope = 'auto',
     [ValidateSet('auto', 'render', 'none')][string]$Refresh = 'auto',
@@ -53,6 +53,7 @@ function Invoke-Checks {
     Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py', '--check')
     Invoke-Checked $script:PythonPath @('scripts/sync-blog.py', '--check')
     Invoke-Checked $script:PythonPath @('scripts/build-writing.py', '--check')
+    Invoke-Checked $script:PythonPath @('scripts/build-home.py', '--check')
     Invoke-Checked $script:PythonPath @('scripts/check-site.py')
     Invoke-Checked $script:QuartoPath @('run', 'scripts/build-agent-assets.ts', '--check')
     Invoke-Checked $script:QuartoPath @('run', 'scripts/test-content-source.ts')
@@ -64,6 +65,7 @@ function Invoke-Render {
     Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py')
     Invoke-Checked $script:PythonPath @('scripts/sync-blog.py')
     Invoke-Checked $script:PythonPath @('scripts/build-writing.py')
+    Invoke-Checked $script:PythonPath @('scripts/build-home.py')
     Invoke-Checked $script:QuartoPath @('render', '--no-clean')
     Invoke-Checks
 }
@@ -76,6 +78,7 @@ function Test-RenderNeeded {
         Get-ChildItem -LiteralPath (Join-Path $repository '_content'), (Join-Path $repository 'posts'), (Join-Path $repository 'portfolio'), (Join-Path $repository 'assets') -Recurse -File
         Get-ChildItem -LiteralPath $repository -File | Where-Object { $_.Extension -in '.qmd', '.scss', '.css' -or $_.Name -eq '_quarto.yml' }
         Get-Item -LiteralPath (Join-Path $repository 'scripts/build-writing.py'), (Join-Path $repository 'scripts/sync-portfolio.py'), (Join-Path $repository 'scripts/sync-blog.py'), (Join-Path $repository 'scripts/build-agent-assets.ts'), (Join-Path $repository 'scripts/content-source.ts'), (Join-Path $repository 'scripts/test-content-source.ts')
+        Get-Item -LiteralPath (Join-Path $repository 'scripts/build-home.py')
         Get-ChildItem -LiteralPath (Join-Path $repository 'scripts/filters') -Recurse -File
     )
     return [bool]($sourceFiles | Where-Object LastWriteTimeUtc -gt $outputTime | Select-Object -First 1)
@@ -101,7 +104,8 @@ function Stop-OwnedPreview {
         $processId = $entry.Id
         if (-not $processId -or -not $entry.Started) { continue }
         $process = Get-Process -Id $processId -ErrorAction SilentlyContinue
-        if ($process -and $process.StartTime.ToUniversalTime().ToString('o') -eq $entry.Started) {
+        try { $startedUtc = ([datetime]$entry.Started).ToUniversalTime().ToString('o') } catch { continue }
+        if ($process -and $process.StartTime.ToUniversalTime().ToString('o') -ceq $startedUtc) {
             Stop-ProcessTree -ProcessId $processId
         }
     }
@@ -160,6 +164,7 @@ try {
         }
     }
     switch ($Action) {
+        'stop' { Stop-OwnedPreview; Write-Host 'PASS: stopped task-owned preview.' }
         'doctor' {
             Write-Host "Python: $script:PythonPath"
             try { Resolve-Quarto; Write-Host "Quarto: $script:QuartoPath" }
@@ -171,6 +176,7 @@ try {
             Invoke-Checked $script:PythonPath @('scripts/sync-portfolio.py')
             Invoke-Checked $script:PythonPath @('scripts/sync-blog.py')
             Invoke-Checked $script:PythonPath @('scripts/build-writing.py')
+            Invoke-Checked $script:PythonPath @('scripts/build-home.py')
         }
         'test' { Invoke-UnitTests }
         'check' { Invoke-Checks }

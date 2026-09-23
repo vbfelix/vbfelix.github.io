@@ -2,13 +2,17 @@
 ::: {.about-hero__copy}
 
 
+<p class="about-hero__eyebrow">Vinícius Félix</p>
+
 # Meu trabalho começa com uma pergunta melhor.
 
 Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.
 
-Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
+::: {.about-hero__actions}
+[Explorar portfólio](/portfolio.qmd){.about-action .about-action--primary}
 
-Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.
+[Ler o blog](/writing.qmd){.about-action}
+:::
 :::
 
 ::: {.about-hero__portrait}
@@ -27,6 +31,18 @@ Gosto de estar perto do problema. Perto o bastante para questionar a premissa, c
 :::
 
 
+::: {.about-selected-work}
+::: {.about-section-heading}
+<p class="section-kicker">TRABALHOS SELECIONADOS</p>
+
+## Onde o método encontra a operação
+:::
+
+::: {.about-projects}
+{{< include _content/home-selected.qmd >}}
+:::
+:::
+
 ::: {.about-principles}
 ::: {.about-principles__intro}
 <p class="section-kicker">COMO EU TRABALHO · NA PRÁTICA</p>
@@ -34,6 +50,10 @@ Gosto de estar perto do problema. Perto o bastante para questionar a premissa, c
 ## Não coleciono cargos. Sigo problemas difíceis.
 
 Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.
+
+Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.
+
+Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.
 :::
 
 ::: {.about-principles__list}
@@ -70,6 +90,8 @@ Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a in
 :::
 
 ::: {.about-history #experience}
+<p class="section-kicker">TRAJETÓRIA PROFISSIONAL</p>
+
 ## Experiência profissional
 
 
@@ -78,3 +100,13 @@ Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a in
 :::
 
 [Ver experiência completa](/header-experience.qmd){.experience-link}
+
+::: {.about-recent-writing}
+<p class="section-kicker">TEXTOS RECENTES</p>
+
+## O que estou escrevendo
+
+{{< include _content/recent-writing.qmd >}}
+
+[Ver todos os textos](/writing.qmd){.experience-link}
+:::

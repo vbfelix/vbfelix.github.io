@@ -17,7 +17,7 @@ suppressWarnings(library(tidyr))
 
 # Context
 
-The [tidyverse](https://www.tidyverse.org/) is an ecosystem of R packages that revolutionized how data is handled in the language. It provides amazing and famous libraries such as [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/), that have great functions, for example, we covered the [across](https://vbfelix.github.io/posts/2023-01-01-dplyr-across/) function from [dplyr](https://dplyr.tidyverse.org/).
+The [tidyverse](https://www.tidyverse.org/) is an ecosystem of R packages that revolutionized how data is handled in the language. It provides amazing and famous libraries such as [dplyr](https://dplyr.tidyverse.org/) and [ggplot2](https://ggplot2.tidyverse.org/), that have great functions, for example, we covered the [across](https://vbfelix.github.io/posts/0002-dplyr-across/index.html) function from [dplyr](https://dplyr.tidyverse.org/).
 
 But, we can have the need to create our own functions using the tidyverse functions inside them, and a problem may surge as the tidyverse works based on a dataframe, and how to pass the arguments can be a issue.
 
@@ -215,7 +215,7 @@ penguin_summary(
   )
 ```
 
-Now we passed both `species` and `island` variables to `group_by`, but to do the same to the `num_var` argument we can benefit from `across` arguments, as we saw in our post [An intro to dplyr::across](https://vbfelix.github.io/posts/2023-01-01-dplyr-across/).
+Now we passed both `species` and `island` variables to `group_by`, but to do the same to the `num_var` argument we can benefit from `across` arguments, as we saw in our post [An intro to dplyr::across](https://vbfelix.github.io/posts/0002-dplyr-across/index.html).
 
 ```{r}
 penguin_summary <- function(df = penguins,main_var = sex,grp_var,num_var){

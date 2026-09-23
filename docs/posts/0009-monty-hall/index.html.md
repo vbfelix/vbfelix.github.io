@@ -1,0 +1,97 @@
+﻿# An intro to: Monty Hall problem
+
+Fonte: https://vbfelix.github.io/posts/0009-monty-hall/index.html
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(relper))
+suppressWarnings(library(dplyr))
+suppressWarnings(library(tidyr))
+suppressWarnings(library(janitor))
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(forcats))
+```
+
+In this post you will learn (or I hope you do) how probability is not intuitive, but it can make sense.
+
+# Introduction
+
+Because of its counterintuitive nature, it became a well-known probability scenario based on the game show "Let's Make a Deal," which Monty Hall hosted.
+
+![](https://m.media-amazon.com/images/M/MV5BNjUxNjMyZmUtYWE4Yi00Mzg2LWJkZmYtY2YyNjQ4ZmIyMGQwL2ltYWdlXkEyXkFqcGdeQXVyMTIxMDUyOTI@._V1_.jpg)
+
+It functioned as follows:
+
+1.  A player is presented with three doors, one of which hides a prize.
+
+2.  Initially, the player selects one of the doors without knowing what lies behind it.
+
+3.  After the player has made their selection, the host, who knows what is behind each door, opens one of the remaining two doors, always revealing a door that does not contain the prize.
+
+The player is confronted with a quandary, they have the option of remaining with their original selection or switching to the other unopened door.
+
+# Why not 50/50?
+
+At first glance, the probability of selecting the prize is 50% given the two remaining doors after the host opens one, so what the heck, right?
+
+That is not the case; instead, let us map each scenario, where we have three doors (A, B, and C).
+
+| Choosen door | Prize door | Host opens | Switch the door | Stay with door |
+|--------------|------------|------------|-----------------|----------------|
+| A            | A          | B/C        | Lose            | Win            |
+| B            | A          | C          | Win             | Lose           |
+| C            | A          | B          | Win             | Lose           |
+| A            | B          | C          | Win             | Lose           |
+| B            | B          | A/C        | Lose            | Win            |
+| C            | B          | A          | Win             | Lose           |
+| A            | C          | B          | Win             | Lose           |
+| B            | C          | A          | Win             | Lose           |
+| C            | C          | A/B        | Lose            | Win            |
+
+Switching the door reveals 6 winning outcomes out of the 9 possibilities, whereas sticking with the original choice offers only 3 winning scenarios. This means that switching has a higher chance of success, with a 2/3 chance of success.
+
+# Still skeptical?
+
+For those who are still skeptical, here we simulate 200,000 games in R, where I chose to stay with the first door in the first half and switch the door in the second half.
+
+```{r}
+
+doors <- c("A","B","C")
+
+monty_hall <- function(stay = TRUE){
+  
+  prize_door <- sample(x = doors,size = 1)
+  
+  initial_door <- sample(x = doors,size = 1)
+  
+  if(prize_door == initial_door){
+    switch_door <- sample(doors[doors != prize_door],1)
+  }else{
+    switch_door <- prize_door
+  }
+  
+  if(stay){
+    output <- initial_door == prize_door
+  }else{
+    output <- switch_door == prize_door
+  }
+  
+  return(output)  
+}
+
+#Probability of winning, by keeping the initial door
+set.seed(1234);mean(replicate(100000,monty_hall(stay = TRUE)))
+
+#Probability of winning, by switching the initial door
+set.seed(1234);mean(replicate(100000,monty_hall(stay = FALSE)))
+
+```
+
+As we can see, the simulation's success probability is nearly equal to the previously calculated.
+
+# Considerations
+
+Probability and conditional reasoning are central to the Monty Hall problem. Choosing door A initially gives it a 1/3 chance of containing the prize, while the other unopened door, B, now has a 2/3 chance.
+
+Despite the fact that it seems counterintuitive, switching doors increases your chances of winning the prize. The puzzle is an enthralling example of how our intuition can lead us astray, emphasizing the importance of understanding probability in decision-making.

@@ -10,6 +10,7 @@ project:
   resources:
     - pt-br/*.html
     - assets/js/portrait-bootstrap.js
+    - assets/js/archive-filters.js
     - images/chalk-distributions.svg
     - .nojekyll
 
@@ -22,6 +23,8 @@ website:
   page-footer:
     left: "© Vinícius Félix · [Quarto](https://quarto.org/) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)"
     right:
+      - text: Para agentes
+        href: agents.qmd
       - text: Currículo (Markdown)
         href: /curriculo.md
       - text: Currículo (JSON)
@@ -33,7 +36,7 @@ website:
       - text: GitHub
         href: https://github.com/vbfelix
   navbar:
-    title: false
+    title: "Vinícius Félix"
     pinned: true
     left:
       - text: Sobre mim
@@ -52,6 +55,8 @@ website:
             href: header-publications.qmd
           - text: Prêmios
             href: header-awards.qmd
+          - text: Para agentes
+            href: agents.qmd
     right:
       - icon: github
         href: https://github.com/vbfelix

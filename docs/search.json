@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "",
+    "text": "Vinícius Félix\n\n\n\nSou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.\n\nExplorar portfólio\nLer o blog\n\n\n\n\n\n\n\n\n\nxy0\nVer experiência completa"
+  },
+  {
+    "objectID": "index.html#onde-o-método-encontra-a-operação",
+    "href": "index.html#onde-o-método-encontra-a-operação",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "Onde o método encontra a operação",
+    "text": "Onde o método encontra a operação"
+  },
+  {
+    "objectID": "index.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
+    "href": "index.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "Não coleciono cargos. Sigo problemas difíceis.",
+    "text": "Não coleciono cargos. Sigo problemas difíceis.\nMinha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.\nNa pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.\nGosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide."
+  },
+  {
+    "objectID": "index.html#experiência-profissional",
+    "href": "index.html#experiência-profissional",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "Experiência profissional",
+    "text": "Experiência profissional\n\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
+  },
+  {
+    "objectID": "index.html#o-que-estou-escrevendo",
+    "href": "index.html#o-que-estou-escrevendo",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "O que estou escrevendo",
+    "text": "O que estou escrevendo\nEstatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.\n2026-09-18PTSeu dashboard passa em code review?data engineering, BI\n2026-09-17PTSeu agente talvez não precise de mais um promptAI\n2026-09-17PTJev, o modelo analfabetoAI, LLM\nVer todos os textos"
+  },
+  {
     "objectID": "header-experience.html",
     "href": "header-experience.html",
     "title": "Experiência",
@@ -18,7 +53,7 @@
     "href": "header-experience.html#experiência-profissional",
     "title": "Experiência",
     "section": "Experiência profissional",
-    "text": "Experiência profissional\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
+    "text": "Experiência profissional\n\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
   },
   {
     "objectID": "header-experience.html#trajetória-em-detalhe",
@@ -221,7 +256,35 @@
     "href": "portfolio.html",
     "title": "Portfólio",
     "section": "",
-    "text": "InícioPortfólio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCriando meu clone com IA\n\n\n\n\n\n\n\n\n\n\n\n\n\nIngerindo mais de 1 bilhão de pontos por dia\n\n\n\n\n\n\n\n\n\n\n\n\n\nUma arquitetura de dados para mais de 100 fontes\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuando provas precisam de provas\n\n\n\n\n\n\n\n\n\n\n\n\n\nDa pedreira à construção: como ir a campo foi mais importante que analisar os dados\n\n\n\n\n\n\n\n\n\n\n\n\n\nO maior datalake da pecuária brasileira\n\n\n\n\n\n\n\n\n\n\n\n\n\nSombras e nuvens, o maior inimigo para se chegar no verdor de plantas\n\n\n\n\n\n\n\n\n\n\n\n\n\nO que define o sucesso da IA, mas não estou falando de inteligência artificial\n\n\n\n\n\n\n\n\n\n\n\n\n\nUX com produtos físicos, o puro suco da estatística\n\n\n\n\n\n\n\nSem itens correspondentes"
+    "text": "InícioPortfólio\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCriando meu clone com IA\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIngerindo mais de 1 bilhão de pontos por dia\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUma arquitetura de dados para mais de 100 fontes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuando provas precisam de provas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDa pedreira à construção: como ir a campo foi mais importante que analisar os dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nO maior datalake da pecuária brasileira\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSombras e nuvens, o maior inimigo para se chegar no verdor de plantas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nO que define o sucesso da IA, mas não estou falando de inteligência artificial\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUX com produtos físicos, o puro suco da estatística\n\n\nComo o delineamento de uma pesquisa com mochilas combinou observação de uso, avaliações individuais e grupo focal.\n\n\n\n\n\n\n\nSem itens correspondentes"
+  },
+  {
+    "objectID": "agents.html",
+    "href": "agents.html",
+    "title": "Para agentes",
+    "section": "",
+    "text": "InícioPara agentes\nEste site publica o perfil profissional, o portfólio e o blog em páginas HTML. Há versões em Markdown para leitura direta e um índice JSON para localizar cada texto. Os artigos mantêm o idioma em que foram publicados."
+  },
+  {
+    "objectID": "agents.html#comece-pelo-índice",
+    "href": "agents.html#comece-pelo-índice",
+    "title": "Para agentes",
+    "section": "Comece pelo índice",
+    "text": "Comece pelo índice\nllms.txt apresenta as principais páginas e os caminhos para o acervo. agent-index.json lista os textos com endereço canônico, idioma, temas e versão Markdown. llms-full.txt reúne o conteúdo para consulta integral."
+  },
+  {
+    "objectID": "agents.html#perfil-profissional",
+    "href": "agents.html#perfil-profissional",
+    "title": "Para agentes",
+    "section": "Perfil profissional",
+    "text": "Perfil profissional\nO currículo em JSON contém trajetória e formação com precisão mensal e links para as fontes públicas. O currículo em Markdown oferece uma leitura textual dos mesmos registros. Para entender o contexto de um cargo, consulte também a página de experiência."
+  },
+  {
+    "objectID": "agents.html#ao-citar-este-site",
+    "href": "agents.html#ao-citar-este-site",
+    "title": "Para agentes",
+    "section": "Ao citar este site",
+    "text": "Ao citar este site\nUse o endereço canônico do artigo ou da página citada. Preserve o idioma original e a distinção entre experiência profissional, texto de opinião e resultado documentado. As datas do currículo têm precisão mensal; um cargo encerrado não deve ser apresentado como vínculo atual.\nFiguras produzidas durante a execução de código estão na página HTML canônica. Os arquivos são atualizados durante a geração do site. Esta página descreve recursos públicos de leitura."
   },
   {
     "objectID": "portfolio/0032-ux-produtos-fisicos/index.html",
@@ -385,38 +448,31 @@
     "text": "InícioSobre\nVer experiência completa"
   },
   {
+    "objectID": "header-about.html#onde-o-método-encontra-a-operação",
+    "href": "header-about.html#onde-o-método-encontra-a-operação",
+    "title": "Meu trabalho começa com uma pergunta melhor.",
+    "section": "Onde o método encontra a operação",
+    "text": "Onde o método encontra a operação"
+  },
+  {
     "objectID": "header-about.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
     "href": "header-about.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
     "title": "Meu trabalho começa com uma pergunta melhor.",
     "section": "Não coleciono cargos. Sigo problemas difíceis.",
-    "text": "Não coleciono cargos. Sigo problemas difíceis.\nMinha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou."
+    "text": "Não coleciono cargos. Sigo problemas difíceis.\nMinha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.\nNa pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.\nGosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide."
   },
   {
     "objectID": "header-about.html#experiência-profissional",
     "href": "header-about.html#experiência-profissional",
     "title": "Meu trabalho começa com uma pergunta melhor.",
     "section": "Experiência profissional",
-    "text": "Experiência profissional\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
+    "text": "Experiência profissional\n\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "header-about.html#o-que-estou-escrevendo",
+    "href": "header-about.html#o-que-estou-escrevendo",
     "title": "Meu trabalho começa com uma pergunta melhor.",
-    "section": "",
-    "text": "Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.\nNa pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.\nGosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.\n\n\n\n\n\n\n\nxy0\nVer experiência completa"
-  },
-  {
-    "objectID": "index.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
-    "href": "index.html#não-coleciono-cargos.-sigo-problemas-difíceis.",
-    "title": "Meu trabalho começa com uma pergunta melhor.",
-    "section": "Não coleciono cargos. Sigo problemas difíceis.",
-    "text": "Não coleciono cargos. Sigo problemas difíceis.\nMinha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou."
-  },
-  {
-    "objectID": "index.html#experiência-profissional",
-    "href": "index.html#experiência-profissional",
-    "title": "Meu trabalho começa com uma pergunta melhor.",
-    "section": "Experiência profissional",
-    "text": "Experiência profissional\n\n\n\n\n\n\n\n\nPeríodo\nOrganização e função\nTrabalho\n\n\n\n\n08/24 - 09/26\n Datlo, Chief Product Officer\nDirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.\n\n\n01/24 - 07/24\n Datlo, Head of Data\nEstruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.\n\n\n02/23 - 12/23\n Ponta, Services Manager\nOrganizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.\n\n\n04/22 - 01/23\n GA + Intergado, Strategy Manager\nCoordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints.\n\n\n01/21 - 03/22\n GA, R&D Manager\nLiderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.\n\n\n09/20 - 12/20\n GA, Data Manager\nCriei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.\n\n\n10/18 - 11/19\n Unicesumar, professor\nLecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.\n\n\n09/16 - 08/20\n H0 Consultoria, consultor e cofundador\nCofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.\n\n\n07/13 - 12/15\n Estats Consultoria, cofundador\nCofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes."
+    "section": "O que estou escrevendo",
+    "text": "O que estou escrevendo\nEstatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.\n2026-09-18PTSeu dashboard passa em code review?data engineering, BI\n2026-09-17PTSeu agente talvez não precise de mais um promptAI\n2026-09-17PTJev, o modelo analfabetoAI, LLM\nVer todos os textos"
   }
 ]

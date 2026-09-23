@@ -6,22 +6,22 @@ Fonte: https://vbfelix.github.io/header-experience.html
 
 | Universidade | Período | Formação | Trabalho final |
 |----|----|----|----|
-|  Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
-|  Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
+| ![](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
+| ![](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
 
 ## Experiência profissional
 
 | Período | Organização e função | Trabalho |
 |------------------------|------------------------|------------------------|
-| 08/24 - 09/26 |  Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
-| 01/24 - 07/24 |  Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
-| 02/23 - 12/23 |  Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |
-| 04/22 - 01/23 |  GA + Intergado, Strategy Manager | Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints. |
-| 01/21 - 03/22 |  GA, R&D Manager | Liderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%. |
-| 09/20 - 12/20 |  GA, Data Manager | Criei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas. |
-| 10/18 - 11/19 |  Unicesumar, professor | Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria. |
-| 09/16 - 08/20 |  H0 Consultoria, consultor e cofundador | Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais. |
-| 07/13 - 12/15 |  Estats Consultoria, cofundador | Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes. |
+| 08/24 - 09/26 | ![Logotipo de Datlo](https://vbfelix.github.io/images/logos/datlo.png) Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
+| 01/24 - 07/24 | ![Logotipo de Datlo](https://vbfelix.github.io/images/logos/datlo.png) Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
+| 02/23 - 12/23 | ![Logotipo de Ponta](https://vbfelix.github.io/images/logos/ponta.png) Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |
+| 04/22 - 01/23 | ![Logotipo de GA + Intergado](https://vbfelix.github.io/images/logos/ga_intergado.png) GA + Intergado, Strategy Manager | Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints. |
+| 01/21 - 03/22 | ![Logotipo de GA](https://vbfelix.github.io/images/logos/ga.png) GA, R&D Manager | Liderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%. |
+| 09/20 - 12/20 | ![Logotipo de GA](https://vbfelix.github.io/images/logos/ga.png) GA, Data Manager | Criei a equipe e a metodologia de projetos de dados do P&D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas. |
+| 10/18 - 11/19 | ![Logotipo de Unicesumar](https://vbfelix.github.io/images/logos/unicesumar.png) Unicesumar, professor | Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria. |
+| 09/16 - 08/20 | ![Logotipo de H0 Consultoria](https://vbfelix.github.io/images/logos/h0.jpg) H0 Consultoria, consultor e cofundador | Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais. |
+| 07/13 - 12/15 | ![Logotipo de Estats Consultoria](https://vbfelix.github.io/images/logos/estats.png) Estats Consultoria, cofundador | Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes. |
 
 ## Trajetória em detalhe
 

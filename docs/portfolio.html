@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
@@ -141,6 +141,11 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Procurar"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -183,6 +188,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./header-awards.html">
  <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./agents.html">
+ <span class="dropdown-text">Para agentes</span></a>
   </li>  
     </ul>
   </li>
@@ -253,6 +262,12 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="AI,product" data-listing-date-sort="1789182000000" data-listing-file-modified-sort="1789238972715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1020">
 <a href="./portfolio/0040-criando-meu-clone-com-ia/index.html" class="quarto-grid-link">
@@ -264,6 +279,9 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 Criando meu clone com IA
 </h5>
+<div class="card-text listing-description">
+Na época da Copa, brincamos na empresa que precisávamos de um Vini Jr.&nbsp;Um clone meu para responder às perguntas e apoiar o time quando eu não estivesse disponível.
+</div>
 </div>
 </div>
 </a>
@@ -278,6 +296,9 @@ Criando meu clone com IA
 <h5 class="no-anchor card-title listing-title">
 Ingerindo mais de 1 bilhão de pontos por dia
 </h5>
+<div class="card-text listing-description">
+Mais de 1 bilhão de pontos por dia. A estrutura do dado era simples: data e hora, um identificador do dispositivo e uma coordenada. O trabalho para transformar aquilo em…
+</div>
 </div>
 </div>
 </a>
@@ -292,6 +313,9 @@ Ingerindo mais de 1 bilhão de pontos por dia
 <h5 class="no-anchor card-title listing-title">
 Uma arquitetura de dados para mais de 100 fontes
 </h5>
+<div class="card-text listing-description">
+Construí uma arquitetura que chegou a mais de 100 fontes de dados. Nenhuma delas era minha.
+</div>
 </div>
 </div>
 </a>
@@ -306,6 +330,9 @@ Uma arquitetura de dados para mais de 100 fontes
 <h5 class="no-anchor card-title listing-title">
 Quando provas precisam de provas
 </h5>
+<div class="card-text listing-description">
+No mestrado, minha matéria favorita foi Psicometria. Foi onde aprendi a medir o não mensurável.
+</div>
 </div>
 </div>
 </a>
@@ -320,6 +347,9 @@ Quando provas precisam de provas
 <h5 class="no-anchor card-title listing-title">
 Da pedreira à construção: como ir a campo foi mais importante que analisar os dados
 </h5>
+<div class="card-text listing-description">
+Os dados não faziam tanto sentido. Eu estava trabalhando em um projeto para otimizar a operação de uma obra de infraestrutura que produzia a própria brita a partir de…
+</div>
 </div>
 </div>
 </a>
@@ -334,6 +364,9 @@ Da pedreira à construção: como ir a campo foi mais importante que analisar os
 <h5 class="no-anchor card-title listing-title">
 O maior datalake da pecuária brasileira
 </h5>
+<div class="card-text listing-description">
+Em 2022, eu vi Windows 95 rodando em uma fazenda. E nosso desafio era levar os dados daquele universo para a nuvem.
+</div>
 </div>
 </div>
 </a>
@@ -348,6 +381,9 @@ O maior datalake da pecuária brasileira
 <h5 class="no-anchor card-title listing-title">
 Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas
 </h5>
+<div class="card-text listing-description">
+Criei uma metodologia para identificar zonas de manejo na agricultura usando dados de satélites. O objetivo era reconhecer partes de uma área com comportamentos semelhantes…
+</div>
 </div>
 </div>
 </a>
@@ -362,6 +398,9 @@ Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas
 <h5 class="no-anchor card-title listing-title">
 O que define o sucesso da IA, mas não estou falando de inteligência artificial
 </h5>
+<div class="card-text listing-description">
+Aqui, IA é inseminação artificial. E a IATF, a inseminação artificial em tempo fixo, ajuda a organizar quando essa operação acontece.
+</div>
 </div>
 </div>
 </a>
@@ -376,6 +415,9 @@ O que define o sucesso da IA, mas não estou falando de inteligência artificial
 <h5 class="no-anchor card-title listing-title">
 UX com produtos físicos, o puro suco da estatística
 </h5>
+<div class="card-text listing-description">
+Como o delineamento de uma pesquisa com mochilas combinou observação de uso, avaliações individuais e grupo focal.
+</div>
 </div>
 </div>
 </a>
@@ -816,6 +858,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
     <li class="nav-item">
     <a class="nav-link" href="./curriculo.md">
 <p>Currículo (Markdown)</p>
