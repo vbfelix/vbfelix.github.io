@@ -55,8 +55,6 @@ website:
             href: header-publications.qmd
           - text: Prêmios
             href: header-awards.qmd
-          - text: Para agentes
-            href: agents.qmd
     right:
       - icon: github
         href: https://github.com/vbfelix
