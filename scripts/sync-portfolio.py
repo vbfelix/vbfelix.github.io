@@ -7,7 +7,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 REMOTE = 'https://github.com/vbfelix/ghost-writer.git'
-PREFIX = 'posts/portfolio/'
+PREFIX = 'conteudo/portfolio/'
 
 
 def local_presentation(name):

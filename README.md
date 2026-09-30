@@ -12,7 +12,7 @@ Site pessoal em Quarto, com interface em português e artigos preservados no idi
 - `*.qmd`: metadados e includes das páginas públicas na raiz.
 - `pt-br/*.html`: redirecionamentos estáticos dos endereços antigos para a raiz, preservando parâmetros e âncoras.
 - `posts/`: fontes, referências e dados dos artigos.
-- `portfolio/`: snapshot dos artigos de `posts/portfolio` da branch `main` de `vbfelix/ghost-writer`, além de recursos visuais locais. Não edite os textos importados aqui.
+- `portfolio/`: snapshot dos artigos de `conteudo/portfolio` da branch `main` de `vbfelix/ghost-writer`, além de recursos visuais locais. Não edite os textos importados aqui.
 - `_freeze/`: resultados computacionais dos artigos. Preserve esta pasta para renderizar sem reexecutar as análises em R.
 - `images/`, `files/`: imagens e documentos usados pelo site.
 - `styles.css`, `custom_theme.scss`: estilos do site e configuração do Bootstrap.
@@ -55,7 +55,7 @@ O render preserva as figuras computacionais já existentes. A validação percor
 
 ## Acervo e compatibilidade
 
-Os textos do Portfólio vêm de `posts/portfolio/<slug>/index.qmd` na branch `main` de [vbfelix/ghost-writer](https://github.com/vbfelix/ghost-writer). Edite e integre os artigos lá. `site.ps1 -Action render` e `-Action preview` buscam essa branch antes de renderizar. É necessário Git e acesso ao repositório remoto. Falhas de acesso interrompem o comando, sem fallback silencioso para arquivos antigos.
+Os textos do Portfólio vêm de `conteudo/portfolio/<slug>/index.qmd` na branch `main` de [vbfelix/ghost-writer](https://github.com/vbfelix/ghost-writer). Edite e integre os artigos lá. `site.ps1 -Action render` e `-Action preview` buscam essa branch antes de renderizar. É necessário Git e acesso ao repositório remoto. Falhas de acesso interrompem o comando, sem fallback silencioso para arquivos antigos.
 
 `python scripts/sync-portfolio.py` atualiza o snapshot em `portfolio/` e registra commit e hashes em `portfolio-source.json`. Versione ambos com `docs/`. O cache Git fica ignorado em `.cache/`; o checkout local do ghost-writer não é usado. `--check` confere o snapshot offline, sem afirmar que está na revisão remota mais recente. Para renderizar diretamente pelo Quarto, execute a sincronização antes.
 

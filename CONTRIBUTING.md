@@ -3,7 +3,7 @@
 ## Fontes e arquivos gerados
 
 - Edite páginas institucionais em `_content/` e metadados nos `.qmd` da raiz.
-- Textos do Portfólio têm fonte em `vbfelix/ghost-writer`, branch `main`, pasta `posts/portfolio`. Execute `scripts/sync-portfolio.py` para atualizar `portfolio/`; não edite cópias importadas. Versione o manifesto `portfolio-source.json`. Recursos visuais locais podem ficar junto aos artigos. Veja o fluxo e a migração pendente no README.
+- Textos do Portfólio têm fonte em `vbfelix/ghost-writer`, branch `main`, pasta `conteudo/portfolio`. Execute `scripts/sync-portfolio.py` para atualizar `portfolio/`; não edite cópias importadas. Versione o manifesto `portfolio-source.json`. Recursos visuais locais podem ficar junto aos artigos. Veja o fluxo e a migração pendente no README.
 - Preserve `_freeze/`: contém resultados necessários para renderizar sem reexecutar análises em R.
 - `docs/` é a saída versionada do GitHub Pages. Inclua no commit a saída correspondente às mudanças de fonte; não edite HTML ou currículos gerados manualmente.
 - Resumos dos cargos, empresas, períodos e logotipos ficam em `_content/experience-table.qmd`. Home, experiência e currículos leem essa mesma tabela. Não crie cópias editoriais para cada formato.

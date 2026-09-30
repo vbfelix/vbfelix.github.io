@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
-  "directory": "posts/blog",
-  "commit": "b7a1c7d5736d5b8e6d4efc304a3b154d56134ab6",
+  "directory": "conteudo/blog",
+  "commit": "51f86037a66202871101735b84911190cf23a18b",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "bb502faa51208b8f9363c26f590d3b83865c6e8697320dfa07bf609a4e4ed762",
@@ -18,6 +18,11 @@
       "source": "14482217a1748c3240e53446832a147a2e0794131be181c96a45f5e8f3577875",
       "rendered": "43945188162eead09422f4a6c34e3209d5fe3c6c189e5f82310d707b57393d3c",
       "target": "posts/0034-seu-dashboard-passa-em-code-review/index.qmd"
+    },
+    "2026-09-29_a-netflix-trocou-milhares-de-features-por-um-prompt.md": {
+      "source": "9ebee4018a5fde480dc6cdde4e62b03ea399bd263a0ef2b55f48f346709cf0b6",
+      "rendered": "6bc54f2115f8571c58fd1dda281ff11c1769c97cfb4e83b96fd8f0112772d507",
+      "target": "posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.qmd"
     }
   }
 }

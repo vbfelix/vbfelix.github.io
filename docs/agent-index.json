@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "abdd7a61f6aad7831ebba048db7e3b8c3ca6213c96c3d8e0d7ccecf2c1df40e1",
+  "sourceRevision": "e1ccad2a9d1db60d60f4c08375702b6b0fba596c958b81fc8d46897e7c56fe81",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -390,6 +390,19 @@
       "url": "https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md",
       "revision": "43945188162eead09422f4a6c34e3209d5fe3c6c189e5f82310d707b57393d3c"
+    },
+    {
+      "title": "GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "machine learning",
+        "LLM",
+        "sistemas de recomendação"
+      ],
+      "url": "https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md",
+      "revision": "6bc54f2115f8571c58fd1dda281ff11c1769c97cfb4e83b96fd8f0112772d507"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

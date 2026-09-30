@@ -8,7 +8,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 REMOTE = 'https://github.com/vbfelix/ghost-writer.git'
-PREFIX = 'posts/blog/'
+PREFIX = 'conteudo/blog/'
 
 
 def git(cache, *args):

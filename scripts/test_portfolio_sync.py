@@ -23,7 +23,7 @@ class PortfolioSyncTests(unittest.TestCase):
             git('init', '-b', 'main')
             git('config', 'user.name', 'Test')
             git('config', 'user.email', 'test@example.invalid')
-            article = remote / 'posts/portfolio/test/index.qmd'
+            article = remote / 'conteudo/portfolio/test/index.qmd'
             article.parent.mkdir(parents=True)
             article.write_text('Texto com acentuação.', encoding='utf-8')
             article.with_name('thumbnail.svg').write_text('<svg>upstream image</svg>')
@@ -73,7 +73,7 @@ class PortfolioSyncTests(unittest.TestCase):
             git('init', '-b', 'main')
             git('config', 'user.name', 'Test')
             git('config', 'user.email', 'test@example.invalid')
-            upstream = remote / 'posts/portfolio/test/index.qmd'
+            upstream = remote / 'conteudo/portfolio/test/index.qmd'
             upstream.parent.mkdir(parents=True)
             (upstream.parent.parent / '.gitkeep').touch()
             git('add', '.')

@@ -1,0 +1,161 @@
+﻿# GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM
+
+Fonte: https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html
+
+### Um milhão de dólares que nunca foi para produção
+
+Em 2 de outubro de 2006, a Netflix ofereceu 1 milhão de dólares a quem melhorasse em 10% o próprio algoritmo de recomendação, o Cinematch ([Netflix Prize na Wikipedia](https://en.wikipedia.org/wiki/Netflix_Prize)). A equipe BellKor's Pragmatic Chaos levou o prêmio em 21 de setembro de 2009.
+
+Um sistema de recomendação resolve um problema simples de enunciar. O catálogo é grande demais para alguém percorrer. Então o sistema escolhe o que mostrar primeiro para cada pessoa, a partir do que ela e pessoas parecidas com ela fizeram antes. Spotify faz isso com música, Amazon com produto, Netflix com filme e série.
+
+A Netflix sempre foi vanguarda nesse assunto, e o prêmio é só o episódio mais famoso. Ele abriu à comunidade um dado real de avaliações de filmes e transformou recomendação em competição pública. Na minha leitura, é difícil estudar filtragem colaborativa sem esbarrar naquela competição. Em 2012, a empresa contava que 75% do que as pessoas assistiam vinha de algum tipo de recomendação ([Netflix TechBlog, 2012](https://netflixtechblog.com/netflix-recommendations-beyond-the-5-stars-part-1-55838468f429)).
+
+O detalhe que eu mais gosto dessa história está no mesmo post de 2012. A solução vencedora misturava centenas de modelos. A Netflix avaliou os métodos novos e concluiu que o ganho de precisão não justificava o esforço de engenharia para levá-los à produção. O algoritmo de um milhão de dólares nunca foi usado.
+
+Guarde essa frase, porque ela volta. Anos depois, o custo de engenharia continua sendo o centro da conversa.
+
+### Como funciona um sistema de recomendação
+
+Antes do GenRec, vale entender o que ele pode substituir. Um sistema de recomendação responde a três perguntas: o que a pessoa gosta, o que se parece com isso e em que ordem mostrar.
+
+#### Os dois métodos clássicos
+
+Há duas famílias de método, e quase todo sistema real mistura as duas:
+
+ - **Filtragem por conteúdo.** Recomenda o que se parece com o que a pessoa já consumiu. Quem viu três thrillers de tribunal recebe um quarto. Funciona com pouco usuário, mas raramente surpreende;
+ - **Filtragem colaborativa.** Recomenda o que pessoas parecidas com você consumiram. Não precisa saber nada do filme, só quem viu o quê. É a família que o Netflix Prize popularizou, e sofre com título novo, que ainda não tem quem o tenha visto.
+
+A técnica que marcou a filtragem colaborativa é a fatoração de matrizes. Imagine uma tabela gigante com usuários nas linhas e filmes nas colunas, quase toda vazia. Para cada usuário e para cada filme, ela aprende uma lista curta de números que resume gosto e perfil. Quando o perfil de uma pessoa e o de um filme apontam na mesma direção, o filme tende a ser um bom palpite.
+
+#### As três etapas
+
+Um catálogo grande não cabe inteiro num modelo caro. Por isso o sistema trabalha em funil:
+
+- **Geração de candidatos.** Um modelo rápido reduz o catálogo inteiro a algumas centenas ou milhares de itens;
+- **Ranqueamento.** Um modelo mais preciso dá uma nota a cada candidato e ordena;
+- **Reranqueamento.** Regras de negócio ajustam a lista final: diversidade, novidade, itens que a pessoa rejeitou.
+
+#### Features: o combustível do ranqueador
+
+O ranqueador recebe um usuário, o histórico dele e o contexto do pedido, como aparelho, horário e tela. Devolve uma nota para cada título. Para isso ele não lê o histórico cru. Lê features.
+
+Feature é cada variável que eu tenho: quantos episódios a pessoa viu na semana, a proporção de filmes de ação, quanto tempo desde o último play. O ranqueador de produção da Netflix usa milhares delas, sobre usuários, títulos e interações, com arquiteturas especializadas para sequência, interação entre features e múltiplos objetivos ([Netflix TechBlog](https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3)).
+
+Cada feature gera código, pipeline e manutenção. Segundo o mesmo post, adicionar um tipo de conteúdo ou uma tela nova pede engenharia de features, mudança de arquitetura, infraestrutura e experimento. É esse custo que o GenRec ataca.
+
+#### Como se mede
+
+Há dois jeitos de medir um ranqueador:
+
+- O **offline** usa dado histórico: esconde o que a pessoa assistiu depois e vê em que posição o modelo colocou aquele título;
+- O **online** é o teste A/B, com usuário de verdade usando o sistema.
+
+A métrica offline é o MRR, mean reciprocal rank. Se o título que a pessoa assistiu aparece em primeiro, vale 1. Em segundo, vale 1/2. Em terceiro, 1/3. O MRR é a média disso em todos os pedidos. Quanto mais perto de 1, mais alto o modelo coloca o que interessa.
+
+### O que aconteceu
+
+Um exemplo rotulado, aqui, é um pedido de recomendação acompanhado da resposta certa: o título que a pessoa de fato assistiu. Com cerca de 40 vezes menos exemplos desses que o sistema atual, na etapa de treino específica para ranquear, um LLM superou, nas métricas offline, o sistema de produção que a Netflix ajusta há anos. O ganho foi de cerca de 1,6% em MRR, relativo ao sistema atual ([artigo no arXiv](https://arxiv.org/html/2608.10257v2)). O teste A/B rodou em cerca de 10% do tráfego por quatro semanas e deu ganho estatisticamente significativo em métricas de curto e de longo prazo ([Netflix TechBlog](https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3)).
+
+O sistema se chama GenRec. Eu admito que fiquei bem surpreso. Em 2019, eu divulgava um meetup sobre como Spotify, Netflix e Amazon recomendam coisas. Sete anos depois, a Netflix mostra que tudo o que construíram por anos pode ser potencialmente trocado por uma abordagem totalmente nova.
+
+### Por que um LLM pronto não serve
+
+Pegar um LLM pronto e pedir "recomende uma série" não funciona. O próprio post da Netflix lista os defeitos:
+
+ - recomenda demais o que já é popular no mundo inteiro;
+ - inventa títulos que não estão no catálogo;
+ - ignora restrições de negócio;
+ - personaliza pouco.
+
+Há principalmente problemas de escala:
+
+- **Custo**: gerar texto token a token para cada membro, a cada pedido, é caro demais para o volume da Netflix;
+- **Contexto**: os membros geram centenas de bilhões de eventos de interação, e escrever o histórico inteiro estoura qualquer orçamento de tokens.
+
+### Os cinco princípios do GenRec
+
+Cada princípio abaixo responde a um desses defeitos.
+
+#### 1. O histórico vira texto
+
+Onde o sistema clássico calcula features, o GenRec escreve. O histórico é verbalizado, isto é, transformado em frases, e organizado como uma conversa. A mensagem do usuário descreve o perfil, o contexto, o que ele assistiu e a tarefa. A mensagem do assistente é o que ele de fato assistiu depois ([Netflix TechBlog](https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3)).
+
+Um histórico verbalizado poderia ficar assim:
+
+```text
+Usuário: Perfil em português, TV da sala, sexta à noite.
+Assistiu inteira a série X e deu polegar para cima.
+Viu dois episódios da série Y e abandonou.
+Tarefa: qual título ele vai assistir em seguida?
+Assistente: Filme Z, assistido até o fim.
+```
+
+A diferença para a feature é quem descobre o padrão. Na feature, uma pessoa decidiu que "proporção de filmes de ação" importa. No texto, o modelo lê o histórico e descobre sozinho o que X e Z têm em comum.
+
+#### 2. Duas fases de treino
+
+Na fase 1, a Netflix parte de um LLM de código aberto e o adapta em dados próprios. O modelo aprende sobre o catálogo e sobre o comportamento dos membros. Essa fase é atualizada com pouca frequência e serve de base para várias aplicações.
+
+Depois, na fase 2, o modelo é refinado, isto é, treinado de novo em cima da base, desta vez para ranquear. É a fase que roda com mais frequência, para acompanhar título novo e gosto que muda.
+
+As duas contam. Partir do modelo adaptado melhora as métricas offline de ranqueamento, como o MRR, de 10% a 20% sobre partir do modelo aberto. A fase 2 soma de 35% a 50% sobre a fase 1, e a vantagem sobe para cerca de 80% duas semanas depois, quando a fase 1 já está defasada ([Netflix TechBlog](https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3)).
+
+#### 3. Ranquear sem escrever
+
+O texto do histórico passa pelo LLM uma vez. Da saída, o modelo extrai um vetor que resume o momento do usuário. Cada título do catálogo tem um embedding aprendido, a mesma ideia da fatoração de matrizes. Uma camada de pontuação combina o vetor do usuário com o de cada título e produz a nota. Tudo em uma única passada pelo modelo.
+
+Isso resolve dois aspectos de uma vez:
+
+- O modelo só pontua o que existe no catálogo, então não inventa título;
+- Roda no modo que a Netflix chama de prefill-only: o modelo lê o prompt e para, sem a etapa cara de gerar token a token.
+
+Isso ressoa com aplicações de LLM em outras áreas que "decidem" sem escrever texto. Em 17 de setembro escrevi sobre o Jev, um modelo que decide sem escrever ([Jev e modelos de decisão](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/)), e defendi que gerar texto para obter uma decisão pode ser custo desnecessário. Classificar, pontuar e ordenar pedem uma resposta fechada, não um parágrafo. O GenRec faz algo parecido, na escala da Netflix. O mecanismo é outro, com embedding e camada de pontuação, mas o princípio é similar.
+
+O objetivo de modelagem de linguagem continua no treinamento. Ele preserva a compreensão de texto e deixa aberta a porta para explicar a recomendação em linguagem natural.
+
+#### 4. Recompensa como peso, não como reforço
+
+Treinar só com o que as pessoas assistiram ensina o modelo a favorecer maratona e a se prender a um tipo de conteúdo. A Netflix corrige isso com um peso por exemplo. Quem calcula o peso são modelos auxiliares que dão a cada exemplo de treino uma nota de quanto ele vale. Um sinal estima quanto aquele engajamento contribui para o longo prazo, como voltar à plataforma ou explorar o catálogo. Outro rebalanceia tipos de conteúdo, como jogo contra filme e lançamento contra título antigo.
+
+Eu gosto dessa correção por um motivo que aprendi lendo sobre *Dataclisma*, de Christian Rudder. O próprio sistema de recomendação pode criar a preferência que mede. O comportamento registrado numa plataforma é revelado dentro das regras dela. O que a pessoa assistiu depende do que o ranqueador mostrou antes. Treinar só no engajamento é treinar o modelo para confirmar as próprias escolhas. Na minha leitura, o peso de longo prazo não resolve isso por inteiro, até porque ele também nasce de engajamento. Mas já tira do clique imediato a palavra final.
+
+#### 5. O contexto é o novo orçamento de features
+
+Verbalizar cada interação do histórico estoura o limite de tokens e fica caro demais em escala. A Netflix resume assim: a janela de contexto virou o novo orçamento. Gosto da frase porque ela diz ao time de dados onde o trabalho dele foi parar.
+
+A saída foi tratar o prompt como antes se tratava o conjunto de features:
+
+ - manter completo o sinal forte, como assistir por muito tempo e avaliação positiva;
+ - descartar o sinal fraco, como play muito curto ou passar o mouse em cima;
+ - resumir o repetitivo, como a maratona de uma série;
+ - detalhar o que importa mais, como lançamento e título sem histórico.
+
+Depois vem a busca pelo ponto a partir do qual mais dado rende pouco. A Netflix variou quantos eventos entram no prompt e mediu o MRR a cada passo. No gráfico, o MRR sobe rápido com os primeiros eventos e depois quase para. O ponto de inflexão é onde a curva dobra, e é ali que a Netflix cortou o histórico.
+
+Por fim, para os eventos que ficaram, a Netflix testou níveis de detalhe e redação. O contexto caiu para cerca de um terço do original, com perda desprezível nas métricas offline. Como o custo de servir é aproximadamente proporcional ao tamanho do contexto, o custo caiu na mesma proporção ([Netflix TechBlog](https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3)).
+
+### Os números não dizem tudo
+
+Os ganhos de 1,6%, 10% a 20% e 35% a 50% são offline, e só o primeiro compara o GenRec com o sistema de produção. Os outros comparam versões do próprio GenRec. No teste A/B, o ganho relativo na métrica online principal foi de +0,006% ([arXiv](https://arxiv.org/html/2608.10257v2)). Foi estatisticamente significativo, mas é um ganho pequeno. Quem procura um ganho maior no placar não vai achar. O ganho real do artigo é outro.
+
+### Onde está a revolução
+
+A revolução está no processo. O sistema de produção é resultado de anos de engenharia de features. O GenRec igualou ou superou esse sistema com uma fração dos rótulos e dos sinais de entrada. A Netflix chama essa configuração de baixo dado e baixo sinal.
+
+Três coisas mudam de lugar:
+
+ - **O trabalho do time.** Sai o desenho de feature e entra a decisão sobre o contexto: que sinal entra, quanto do passado cabe, como comprimir;
+ - **A arquitetura.** Cada tarefa tinha a sua rede sob medida. Agora várias tarefas partem da mesma base de LLM, e a diferença fica nos dados, no pós-treino e nas recompensas;
+ - **A previsibilidade.** Com modelos de cerca de 1 bilhão e de cerca de 10 bilhões de parâmetros, mais dado na fase 2 melhorou o MRR de forma consistente, e o modelo maior foi mais alto sob o mesmo orçamento. Na leitura da Netflix, recomendação passa a ter lei de escala. É o que LLM já tinha.
+
+Tem um detalhe que eu valorizo mais que os números. A Netflix não começou pela ferramenta. Começou por um problema com nome, o custo de engenharia de cada tipo de conteúdo e de cada tela nova. Já vi muito time discutir stack antes de saber que problema estava resolvendo, e a IA deixou isso mais visível, porque qualquer um consegue "fazer algo com IA". O GenRec é LLM aplicado a uma dor que a empresa sabia medir.
+
+Com o GenRec, a aposta é que boa parte desse trabalho vire decisão sobre o que entra no prompt.
+
+Há um preço escondido nos 40 vezes. A economia vale só para a fase 2. A fase 1 consome dado proprietário em volume que a Netflix não informa, e é ela que dá o salto de 10% a 20%. Quem não tem esse acervo não herda a fração. E o ganho de processo ainda é uma aposta: a Netflix não publicou um caso de tela nova lançada com menos esforço.
+
+Não foi a primeira tentativa do mercado. O próprio post cita PLUM, GLIDE e OneRec-Think, outros trabalhos de recomendação com LLM. O que muda é ver o modelo competir com um sistema de produção maduro, em teste A/B de verdade, numa empresa que vive de recomendação.
+
+### A lição
+
+Quase todo mundo pensa em LLM como máquina de escrever, e o GenRec mostra outro uso. Ele aproveita a compreensão do modelo e deixa a geração de fora, trocando a saída de texto por uma camada de pontuação sobre o catálogo. O Jev, sobre o qual [escrevi em 17 de setembro](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/), chega ao mesmo lugar por outro caminho, restringindo a resposta às opções válidas. Nenhum dos dois conversa. Isso abre espaço em tarefas clássicas de machine learning, como classificar, pontuar, ordenar e recomendar. Ali o LLM adaptado pode complementar o trabalho, lendo o dado cru onde antes alguém precisava transformá-lo em número, e em alguns casos, como no GenRec, pode substituir o modelo inteiro.

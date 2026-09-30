@@ -56,6 +56,7 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [Seu agente talvez não precise de mais um prompt](https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html.md): artigo em pt-BR, temas: AI.
 - [Jev, o modelo analfabeto](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html.md): artigo em pt-BR, temas: AI, LLM.
 - [Seu dashboard passa em code review?](https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md): artigo em pt-BR, temas: data engineering, BI.
+- [GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM](https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md): artigo em pt-BR, temas: machine learning, LLM, sistemas de recomendação.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
