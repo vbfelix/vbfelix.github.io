@@ -1,5 +1,7 @@
 ## 2026
 
+![AI Hero](/images/logos/aihero.svg){width="32"} \[09/26\] AI Hero Skills Workflow Course
+
 ![AWS](/images/logos/aws.svg){width="32"} \[09/26\] AWS Glue Getting Started
 
 ![AWS](/images/logos/aws.svg){width="32"} \[09/26\] Introduction to AWS Glue 6.0

@@ -354,6 +354,8 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
 ### 2026
 
+![AI Hero](https://vbfelix.github.io/images/logos/aihero.svg) \[09/26\] AI Hero Skills Workflow Course
+
 ![AWS](https://vbfelix.github.io/images/logos/aws.svg) \[09/26\] AWS Glue Getting Started
 
 ![AWS](https://vbfelix.github.io/images/logos/aws.svg) \[09/26\] Introduction to AWS Glue 6.0
