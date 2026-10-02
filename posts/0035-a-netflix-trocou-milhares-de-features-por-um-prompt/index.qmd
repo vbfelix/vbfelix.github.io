@@ -2,7 +2,7 @@
 title: "GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM"
 author: "Vinícius Félix"
 date: "2026-09-29"
-categories: [machine learning, LLM, sistemas de recomendação]
+categories: [IA]
 lang: pt-BR
 ---
 

@@ -2,7 +2,7 @@
 title: "Seu dashboard passa em code review?"
 author: "Vinícius Félix"
 date: "2026-09-18"
-categories: [data engineering, BI]
+categories: [Engenharia de dados, BI]
 lang: pt-BR
 ---
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vinícius Félix">
-<meta name="dcterms.date" content="2023-08-27">
 
-<title>An intro to: Combination and Permutation – Vinícius Félix</title>
+<title>O que é o T do GPT? – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -89,64 +54,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="An intro to: Combination and Permutation – Vinícius Félix">
+<meta property="og:title" content="O que é o T do GPT? – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
-<meta property="og:image" content="https://vbfelix.github.io/posts/0015-combination/intro-combination-permutation.png">
 <meta property="og:site_name" content="Vinícius Félix">
-<meta property="og:image:height" content="924">
-<meta property="og:image:width" content="1640">
 <!-- agent-metadata:start -->
-<link rel="canonical" href="https://vbfelix.github.io/posts/0015-combination/index.html">
-<meta name="description" content="In this post, we will see that with just four questions we can easily understand which formula to apply.">
+<link rel="canonical" href="https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html">
+<meta name="description" content="Em junho de 2017, oito pesquisadores do Google Brain, do Google Research e da Universidade de Toronto publicaram um artigo sobre tradução automática ([Vaswani et al., *Attention Is All You Need*, arXiv 1706.03762](https://arxiv.org/abs/1706.03762)). A versão grande do modelo traduziu de inglês para alemão com 28,4 de BLEU, esta é uma métrica de 0 a 100 que compara a tradução da máquina com traduções humanas de referência.">
 <link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
-<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0015-combination/index.html.md">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md">
 <link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0015-combination/index.html#page","url":"https://vbfelix.github.io/posts/0015-combination/index.html","name":"An intro to: Combination and Permutation","inLanguage":"en","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0015-combination/index.html","articleSection":["Estatística"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html#page","url":"https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html","name":"O que é o T do GPT?","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html","articleSection":["IA"]}]}</script>
 <!-- agent-metadata:end -->
 </head>
 
@@ -161,8 +94,8 @@ window.Quarto = {
     <span class="navbar-title">Vinícius Félix</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -239,12 +172,9 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">An intro to: Combination and Permutation</h1>
+      <h1 class="title">O que é o T do GPT?</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Intro to</div>
-                <div class="quarto-category">Probability</div>
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">Theory</div>
+                <div class="quarto-category">IA</div>
               </div>
                   </div>
   </div>
@@ -253,16 +183,16 @@ window.Quarto = {
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-heading">Autor</div>
       <div class="quarto-title-meta-contents">
                <p>Vinícius Félix </p>
             </div>
     </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 27, 2023</p>
+        <p class="date">30 de setembro de 2026</p>
       </div>
     </div>
     
@@ -275,18 +205,18 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
-  <li><a href="#how-to-know-which-formula-to-use" id="toc-how-to-know-which-formula-to-use" class="nav-link" data-scroll-target="#how-to-know-which-formula-to-use">How to know which formula to use</a>
-  <ul class="collapse">
-  <li><a href="#example-1-order-matter-with-repetition" id="toc-example-1-order-matter-with-repetition" class="nav-link" data-scroll-target="#example-1-order-matter-with-repetition">Example 1: Order matter with repetition</a></li>
-  <li><a href="#example-2-order-matter-without-repetition" id="toc-example-2-order-matter-without-repetition" class="nav-link" data-scroll-target="#example-2-order-matter-without-repetition">Example 2: Order matter without repetition</a></li>
-  <li><a href="#example-3-order-does-not-matter-without-repetition" id="toc-example-3-order-does-not-matter-without-repetition" class="nav-link" data-scroll-target="#example-3-order-does-not-matter-without-repetition">Example 3: Order does not matter without repetition</a></li>
-  <li><a href="#example-4-order-does-not-matter-with-repetition" id="toc-example-4-order-does-not-matter-with-repetition" class="nav-link" data-scroll-target="#example-4-order-does-not-matter-with-repetition">Example 4: Order does not matter with repetition</a></li>
-  </ul></li>
-  <li><a href="#and-where-is-this-implemented" id="toc-and-where-is-this-implemented" class="nav-link" data-scroll-target="#and-where-is-this-implemented">And where is this implemented?</a></li>
+  <li><a href="#um-artigo-de-tradução-que-não-era-sobre-tradução" id="toc-um-artigo-de-tradução-que-não-era-sobre-tradução" class="nav-link active" data-scroll-target="#um-artigo-de-tradução-que-não-era-sobre-tradução">Um artigo de tradução que não era sobre tradução</a></li>
+  <li><a href="#ler-com-o-dedo-não-escala" id="toc-ler-com-o-dedo-não-escala" class="nav-link" data-scroll-target="#ler-com-o-dedo-não-escala">Ler com o dedo não escala</a></li>
+  <li><a href="#o-cachorro-a-rua-e-quem-é-ele" id="toc-o-cachorro-a-rua-e-quem-é-ele" class="nav-link" data-scroll-target="#o-cachorro-a-rua-e-quem-é-ele">O cachorro, a rua e quem é “ele”</a></li>
+  <li><a href="#oito-olhares-veem-mais-que-um" id="toc-oito-olhares-veem-mais-que-um" class="nav-link" data-scroll-target="#oito-olhares-veem-mais-que-um">Oito olhares veem mais que um</a></li>
+  <li><a href="#o-homem-mordeu-o-cachorro-ou-o-contrário" id="toc-o-homem-mordeu-o-cachorro-ou-o-contrário" class="nav-link" data-scroll-target="#o-homem-mordeu-o-cachorro-ou-o-contrário">O homem mordeu o cachorro, ou o contrário</a></li>
+  <li><a href="#o-resto-é-história" id="toc-o-resto-é-história" class="nav-link" data-scroll-target="#o-resto-é-história">O resto é história</a></li>
+  <li><a href="#de-65-milhões-a-175-bilhões" id="toc-de-65-milhões-a-175-bilhões" class="nav-link" data-scroll-target="#de-65-milhões-a-175-bilhões">De 65 milhões a 175 bilhões</a></li>
+  <li><a href="#a-conta-que-cresce" id="toc-a-conta-que-cresce" class="nav-link" data-scroll-target="#a-conta-que-cresce">A conta que cresce</a></li>
+  <li><a href="#seu-prompt-também-disputa-atenção" id="toc-seu-prompt-também-disputa-atenção" class="nav-link" data-scroll-target="#seu-prompt-também-disputa-atenção">Seu <em>prompt</em> também disputa atenção</a></li>
   </ul>
 </nav>
     </div>
@@ -297,192 +227,89 @@ window.Quarto = {
 
 
 
-<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">An intro to: Combination and Permutation</li></ol></nav>
-<p>In this post, we will see that with just four questions we can easily understand which formula to apply.</p>
-<section id="context" class="level1">
-<h1>Context</h1>
-<p>Permutations and combinations are basic mathematical concepts with numerous real-world applications.</p>
-<p>Combinations are the process of selecting objects without regard to order, whereas permutations are the process of arranging objects in specific orders, with each arrangement being unique.</p>
-<p>These principles underpin fields ranging from cryptography to genetics, allowing for problem-solving across multiple domains, and understanding their distinctions is critical for solving a wide range of puzzles and challenges accurately.</p>
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">O que é o T do GPT?</li></ol></nav>
+<section id="um-artigo-de-tradução-que-não-era-sobre-tradução" class="level3">
+<h3 class="anchored" data-anchor-id="um-artigo-de-tradução-que-não-era-sobre-tradução">Um artigo de tradução que não era sobre tradução</h3>
+<p>Em junho de 2017, oito pesquisadores do Google Brain, do Google Research e da Universidade de Toronto publicaram um artigo sobre tradução automática (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., <em>Attention Is All You Need</em>, arXiv 1706.03762</a>). A versão grande do modelo traduziu de inglês para alemão com 28,4 de BLEU, esta é uma métrica de 0 a 100 que compara a tradução da máquina com traduções humanas de referência.</p>
+<p>Ficou mais de 2 pontos acima do melhor resultado publicado até então, incluindo combinações de vários modelos. De inglês para francês, chegou a 41,8. Dois pontos num <em>benchmark</em> disputado a cada décimo, era um salto.</p>
+<p>Hoje, o que interessa é a arquitetura que produziu o número, o Transformer. O “T” do GPT, sigla de <em>Generative Pre-trained Transformer</em>, é ele. O “T” do BERT também. Os assistentes de texto que a gente usa todo dia descendem dessa linhagem.</p>
+<p>Gosto desse artigo por um motivo, ele não inventou a atenção, apenas tirou todo o resto.</p>
 </section>
-<section id="how-to-know-which-formula-to-use" class="level1">
-<h1>How to know which formula to use</h1>
-<p>To calculate the total number of combinations/permutations, you must first answer the following questions:</p>
-<ol type="1">
-<li><p><strong>Order matter?</strong></p></li>
-<li><p><strong>There is repetition?</strong></p></li>
-<li><p><strong>What is the number of total observations?</strong></p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p></li>
-</ol>
-<section id="example-1-order-matter-with-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-1-order-matter-with-repetition">Example 1: Order matter with repetition</h2>
-<p>Assume we want to know the number of password combinations with only numbers in a four-digit password, such as 1234.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>Yes, because a password such as 1234 differs from a 4321.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>Yes, because a password could be 1111.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 10 because we have the options 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is 4, because the password will have four digits.</p></li>
-</ol>
-<p>If we can repeat the numbers and have ten options, the total number of passwords is 10x10x10x10 = 1.000.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-permutation-with-repetition"><span class="math display">\[
-n_{[1]} \times n_{[2]} \times ...\times n_{[r-1]} \times n_{[r]} = n^r,
-\tag{1}\]</span></span></p>
-<p>where:</p>
+<section id="ler-com-o-dedo-não-escala" class="level3">
+<h3 class="anchored" data-anchor-id="ler-com-o-dedo-não-escala">Ler com o dedo não escala</h3>
+<p>Antes de 2017, o padrão para tradução e para quase toda tarefa de texto era a RNN (<em>recurrent neural network</em>). Uma RNN lê a frase como você lê com o dedo: uma palavra de cada vez, da esquerda para a direita. A cada palavra, ela atualiza um resumo interno do que leu até ali, chamado <em>hidden state</em>.</p>
+<p>Esse desenho tem dois problemas:</p>
 <ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
+<li><p><strong>Memória</strong>: na frase “O servidor que a equipe de infraestrutura configurou no ano passado caiu”, o verbo “caiu” concorda com “servidor”, que está dez palavras atrás. A RNN precisa carregar essa informação palavra a palavra, a cada passo, um pouco se perde.</p></li>
+<li><p><strong>Velocidade</strong>: para calcular a palavra 10, a RNN precisa ter terminado a palavra 9. O cálculo é sequencial por natureza. Uma GPU tem milhares de núcleos feitos para fazer contas em paralelo, e a RNN deixa quase todos esperando (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., seção 1</a>).</p></li>
 </ul>
+<p>A atenção já existia como remendo para o primeiro problema. Em tradução, ela deixava o <em>decoder</em>, a parte da rede que escreve a frase traduzida, olhar de volta para todas as palavras da frase original, em vez de depender só do final (<a href="https://arxiv.org/abs/1409.0473">Bahdanau, Cho e Bengio, 2014, arXiv 1409.0473</a>). Mas a RNN continuava lá, e com ela a fila.</p>
+<p>A pergunta do artigo foi: e se a gente tirar a RNN e deixar só a atenção?</p>
 </section>
-<section id="example-2-order-matter-without-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-2-order-matter-without-repetition">Example 2: Order matter without repetition</h2>
-<p>Assume we want to know the number of combinations in a lottery ticket with six numbers drawn from 1 to 60 in the correct order.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>Yes, because you have to guess the correct order, 123456 is not the same as 654321.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>No, because each drawn number cannot be drawn again.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 60, because that is the total number to be drawn from.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is 6 because it is the number of numbers to be chosen.</p></li>
-</ol>
-<p>So we have 60 for the first option, then 59 for the second, then 58, 57, 56, 55, for a total of 60x59x58x57x56x55 = 36,045,979,200 combinations.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-permutation-without-repetition"><span class="math display">\[
-\begin{align}
-n \times (n-1) \times ...\times [n-(r-1)]
-&amp;=  n \times (n-1) \times ...\times (n-r+1) \\
-&amp;=  \frac{n \times (n-1)  \times ...\times(n-r+1) \times... \times  2 \times 1}{(n-r)\times(n-r-1)\times...\times2\times 1}\\
-&amp;= \frac{n!}{(n-r)!},
-\end{align}
-\tag{2}\]</span></span></p>
-<p>where:</p>
+<section id="o-cachorro-a-rua-e-quem-é-ele" class="level3">
+<h3 class="anchored" data-anchor-id="o-cachorro-a-rua-e-quem-é-ele">O cachorro, a rua e quem é “ele”</h3>
+<p>Pense na frase “O cachorro não atravessou a rua porque ele estava cansado”. Para entender “ele”, você olha para trás e decide que se refere a “cachorro”, não a “rua”. Você deu mais peso a uma palavra do que às outras. Atenção é isso!</p>
+<p>Antes de tudo, o modelo quebra o texto em <em>tokens</em>, pedaços de palavra, e transforma cada <em>token</em> num vetor, uma lista de números que representa o significado dele. Esse vetor se chama <em>embedding</em>.</p>
+<p>A partir do <em>embedding</em>, cada <em>token</em> gera três vetores, cada um por uma multiplicação por uma matriz aprendida no treino:</p>
 <ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
+<li><strong><em>Query</em>:</strong> O que este <em>token</em> está procurando.</li>
+<li><strong><em>Key</em>:</strong> O que este <em>token</em> oferece para quem procura.</li>
+<li><strong><em>Value</em>:</strong> A informação que este <em>token</em> entrega se for escolhido.</li>
 </ul>
+<p>As descrições acima são ilustração: no modelo real, ninguém escreve o que cada vetor procura. A analogia que mais me ajudou é a de uma busca. A <em>query</em> é o que você digita. As <em>keys</em> são os títulos das páginas. Os <em>values</em> são o conteúdo das páginas. A diferença é que a atenção não devolve uma página só. Devolve uma mistura de todas, ponderada pela relevância.</p>
+<p>O cálculo tem três passos:</p>
+<ul>
+<li><strong>Comparar.</strong> A <strong>query</strong> de “ele” é comparada com a <strong>key</strong> de cada <strong>token</strong> da frase usando o produto escalar, que mede o quanto dois vetores apontam na mesma direção. Sai uma nota por <em>token</em>;</li>
+<li><strong>Normalizar.</strong> As notas passam por uma função <em>softmax</em>, que transforma uma lista de notas em porcentagens: cada nota vira um peso positivo, os pesos somam 1 e a nota mais alta fica com um peso maior. No nosso exemplo, “cachorro” com 0,6, “rua” com 0,1 e o resto dividido;</li>
+<li><strong>Misturar.</strong> O novo vetor de “ele” é a soma dos valores de todos os <em>tokens</em>, cada um multiplicado pelo seu peso. “Ele” sai da atenção com “cachorro” mais forte.</li>
+</ul>
+<p>O artigo escreve isso em uma linha:</p>
+<pre class="text"><code>Atenção(Q, K, V) = softmax(Q · Kᵀ / √d_k) · V</code></pre>
+<p>Q, K e V são as <em>queries</em>, <em>keys</em> e <em>values</em> de todos os <em>tokens</em> organizados em matrizes. O <code>d_k</code> é o comprimento do vetor de <em>key</em>, 64 números no artigo, e <code>√d_k</code> é a raiz dele. Ele existe por um motivo prático. Com vetores longos, o <em>dot product</em> fica grande. A <em>softmax</em> então concentra quase todo o peso num <em>token</em> só. O gradiente, que é o sinal que ajusta o modelo durante o treino, praticamente some. Dividir pela raiz mantém as notas numa faixa em que o treino funciona (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., seção 3.2.1</a>).</p>
+<p>O ponto decisivo está no que não aparece na fórmula: não há fila. A atenção de “ele” não precisa esperar a de “cachorro”. Todas as palavras fazem a mesma conta ao mesmo tempo, numa multiplicação de matrizes, que é exatamente o que GPU faz bem. Isso vale para o treino, em que o texto inteiro já é conhecido. Na hora de gerar, o modelo continua escrevendo um <em>token</em> por vez.</p>
+<p>E a distância deixa de importar. “Caiu” olha direto para “servidor”, dez palavras atrás, num passo só. Na RNN eram dez.</p>
 </section>
-<section id="example-3-order-does-not-matter-without-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-3-order-does-not-matter-without-repetition">Example 3: Order does not matter without repetition</h2>
-<p>Assume we have a deck of 52 cards and want to know how many combinations exist in a three-card hand.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>No, because only the cards themselves are important, not the order.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>No, since each card is unique in the deck.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 52, because the total number of cards to be drawn is 52.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is three because that is the number of cards in a hand.</p></li>
-</ol>
-<p>Using <a href="#eq-permutation-without-repetition" class="quarto-xref">Equation&nbsp;2</a> we would have 132,600 combinations. But let’s take a single hand with the cards 1, 2 and 3, also applying <a href="#eq-permutation-without-repetition" class="quarto-xref">Equation&nbsp;2</a> to this subset, that would mean a total of 6 combinations considering the order:</p>
-<ul>
-<li><p>1 - 2 - 3</p></li>
-<li><p>1 - 3 - 2</p></li>
-<li><p>2 - 1 - 3</p></li>
-<li><p>2 - 3 - 1</p></li>
-<li><p>3 - 1 - 2</p></li>
-<li><p>3 - 2 - 1</p></li>
-</ul>
-<p>So, for example, all of these six hands are actually one, scince order is irrelevant, so the true number of hands is acutally 132,600/6 = 22,100.</p>
-<p>The we can generalize this to:</p>
-<p><span id="eq-combination-without-repetition"><span class="math display">\[
-\begin{align}
-\frac{\frac{n!}{(n-r)!}}{\frac{r!}{(r-r)!}}
-&amp;= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{(0)!}} \\
-&amp;= \frac{\frac{n!}{(n-r)!}}{\frac{r!}{1}} \\
-&amp;= \frac{n!}{r!(n-r)!},
-\end{align}
-\tag{3}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
-</ul>
+<section id="oito-olhares-veem-mais-que-um" class="level3">
+<h3 class="anchored" data-anchor-id="oito-olhares-veem-mais-que-um">Oito olhares veem mais que um</h3>
+<p>Uma palavra tem várias relações ao mesmo tempo. “Ele” se liga a “cachorro” pela referência e a “estava cansado” pelo sentido. Uma única distribuição de pesos precisa escolher.</p>
+<p>A solução do artigo é a <em>multi-head attention</em>, atenção com várias cabeças. Em vez de uma atenção com vetores de 512 números, o modelo roda oito atenções em paralelo, cada uma com vetores de 64 números e matrizes próprias. Cada “cabeça” aprende a procurar uma coisa diferente. Ao final, as oito saídas são concatenadas e combinadas (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., seção 3.2.2</a>). O custo total fica parecido com o de uma atenção única de tamanho cheio.</p>
+<p>Ninguém diz a cada cabeça o que procurar. Ela aprende no treino. Inspecionando os pesos, algumas parecem seguir estrutura sintática, outras referência, outras nada que a gente saiba nomear. O “parecem” importa, e a última seção explica por quê.</p>
 </section>
-<section id="example-4-order-does-not-matter-with-repetition" class="level2">
-<h2 class="anchored" data-anchor-id="example-4-order-does-not-matter-with-repetition">Example 4: Order does not matter with repetition</h2>
-<p>Let’s say we need to add four extra ingredients to an Açai Bowl delivery and have five options to choose from:</p>
-<ol type="1">
-<li><p>[B] Banana</p></li>
-<li><p>[S] Strawberry</p></li>
-<li><p>[G] Grape</p></li>
-<li><p>[C] Chocolate</p></li>
-<li><p>[O] Oat</p></li>
-</ol>
-<p>So, combinations such as [B,B,B,B], [B,B,B,C] or [B,S,C,G] can be made.</p>
-<ol type="1">
-<li><p><strong>Order matters?</strong></p>
-<p>No, because we only care about the ingredients used.</p></li>
-<li><p><strong>There is repetition?</strong></p>
-<p>Yes, because we can reuse the ingredient.</p></li>
-<li><p><strong>What is the number of total observations?</strong></p>
-<p>Is 5, because the number of ingredient options is five.</p></li>
-<li><p><strong>What is the number of observations to be selected?</strong></p>
-<p>Is three because that is the number of ingredients to be added.</p></li>
-</ol>
-<p>Applying <a href="#eq-combination-without-repetition" class="quarto-xref">Equation&nbsp;3</a> we would have5 combinations: [B,S,G,C], [B,S,G,O], [B,G,S,C], [B,G,O,C] and [S,G,C,O]. But now we need to take in consideration the repeated ingredients.</p>
-<p>So, how should we think about the repetition? Now we must consider the repetitions, using Banana as an example:</p>
-<ul>
-<li><p>4 bananas = [B,B,B,B]</p></li>
-<li><p>3 bananas = [B,B,B,S] [B,B,B,G] [B,B,B,C] [B,B,B,O]</p></li>
-<li><p>2 bananas and 2 unique ingredientes = [B,B,S,G] [B,B,S,C] [B,B,S,O] [B,B,G,C] [B,B,G,O] [B,B,C,O]</p></li>
-<li><p>2 bananas and 2 identical ingredientes = [B,B,S,S] [B,B,G,G] [B,B,C,C] [B,B,O,O]</p></li>
-<li><p>1 bananas and 3 identical ingredientes = [B,S,S,S] [B,G,G,G] [B,C,C,C] [B,O,O,O]</p></li>
-<li><p>1 bananas and 3 unique ingredientes = [B,S,G,C] [B,S,G,O] [B,G,S,C] [B,G,O,C]</p></li>
-<li><p>1 bananas and 2 identical ingredientes = [B,S,S,G] [B,S,S,C] [B,S,S,O] [B,G,G,S] [B,G,G,C] [B,G,G,O] [B,C,C,S] [B,C,C,G] [B,C,C,O] [B,O,O,S] [B,O,O,G] [B,O,O,C]</p></li>
-</ul>
-<p>So, we have 1 + 4 + 6 + 4 + 4 + 4 + 12 = 35 combinations, which means we must do 35 x 5? No, because some combinations would be repeated, and in this case, the order is irrelevant.</p>
-<p>We can use <a href="#eq-combination-without-repetition" class="quarto-xref">Equation&nbsp;3</a> but considering <span class="math inline">\(n\)</span> as <span class="math inline">\(n+r-1\)</span>.</p>
-<p><span id="eq-combination-with-repetition"><span class="math display">\[
-\begin{align}
-\frac{(n+r-1)!}{r![(n+r-1)-r]!}
-&amp;= \frac{(n+r-1)!}{r!(n-1)!} ,
-\end{align}
-\tag{4}\]</span></span></p>
-<p>where:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> is the total number of observations;</p></li>
-<li><p><span class="math inline">\(r\)</span> is the number of observations to be selected.</p></li>
-</ul>
+<section id="o-homem-mordeu-o-cachorro-ou-o-contrário" class="level3">
+<h3 class="anchored" data-anchor-id="o-homem-mordeu-o-cachorro-ou-o-contrário">O homem mordeu o cachorro, ou o contrário</h3>
+<p>A atenção tem um defeito de nascença: ela não sabe a ordem das palavras. A conta trata a frase como um saco de <em>tokens</em>. “O cachorro mordeu o homem” e “o homem mordeu o cachorro” produziriam as mesmas comparações.</p>
+<p>A RNN não tinha esse problema, porque a ordem estava embutida no fato de ler em fila. Ao tirar a fila, o artigo precisou devolver a ordem de outro jeito.</p>
+<p>A solução é a codificação de posição. Antes de entrar no modelo, o <em>embedding</em> de cada <em>token</em> recebe somado um vetor que depende só da posição dele na frase. O artigo usa ondas de seno e cosseno de frequências diferentes, de modo que cada posição tem uma assinatura única e posições próximas têm assinaturas parecidas (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., seção 3.5</a>).</p>
 </section>
+<section id="o-resto-é-história" class="level3">
+<h3 class="anchored" data-anchor-id="o-resto-é-história">O resto é história</h3>
+<p>Com atenção, cabeças e codificação de posição, o resto é história. O Transformer original tem duas faces:</p>
+<ul>
+<li><strong><em>Encoder</em>.</strong> Lê a frase de origem inteira. São seis camadas iguais, uma sobre a outra. Cada camada tem uma <strong>multi-head self-attention</strong>, em que cada <strong>token</strong> olha para todos os outros, seguida de uma pequena rede aplicada a cada <em>token</em> separadamente;</li>
+<li><strong><em>Decoder</em>.</strong> Gera a tradução um <strong>token</strong> por vez. Também tem seis camadas, com duas diferenças. Na atenção sobre o próprio texto, cada posição só enxerga as anteriores, por uma máscara, a <strong>masked self-attention</strong>, para não espiar a palavra que ainda vai prever. E uma segunda atenção olha para a saída do <em>encoder</em>, que é onde a tradução consulta a frase original.</li>
+</ul>
+<p>Em volta de cada bloco há uma conexão residual, que soma a entrada à saída, e uma camada de normalização, que reescala os números da camada. Os dois detalhes parecem burocráticos, mas são o que permite usar muitas camadas sem que o treino desande.</p>
+<p>O modelo base tem cerca de 65 milhões de parâmetros, os números ajustados no treino e treinou 12 horas em oito GPUs (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., seção 5.2 e tabela 3</a>). Guarde o número de parâmetros. Ele vai crescer.</p>
 </section>
-<section id="and-where-is-this-implemented" class="level1">
-<h1>And where is this implemented?</h1>
-<p>All of these functions are already implemented in my R package <a href="https://vbfelix.github.io/relper/index.html#installation">relper</a>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(relper)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 1</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">10</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">TRUE</span>,<span class="at">with_repetition =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 2</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">60</span>,<span class="at">r =</span> <span class="dv">6</span>,<span class="at">order_matter =</span> <span class="cn">TRUE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 36045979200</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 3</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">52</span>,<span class="at">r =</span> <span class="dv">3</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 22100</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 4</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">5</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 70</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_combination</span>(<span class="at">n =</span> <span class="dv">8</span>,<span class="at">r =</span> <span class="dv">4</span>,<span class="at">order_matter =</span> <span class="cn">FALSE</span>,<span class="at">with_repetition =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 70</code></pre>
-</div>
-</div>
+<section id="de-65-milhões-a-175-bilhões" class="level3">
+<h3 class="anchored" data-anchor-id="de-65-milhões-a-175-bilhões">De 65 milhões a 175 bilhões</h3>
+<p>O artigo era sobre tradução. O que aconteceu nos três anos seguintes foi que o mundo descobriu que as duas metades funcionavam sozinhas.</p>
+<p>Em 2018, o Google publicou o BERT, que usa só o <em>encoder</em> (<a href="https://arxiv.org/abs/1810.04805">Devlin et al., arXiv 1810.04805</a>). O BERT é treinado escondendo palavras de textos e tentando adivinhá-las, olhando para os dois lados. Virou a base de busca, classificação e extração de informação.</p>
+<p>No mesmo ano, a OpenAI publicou o primeiro GPT, que usa só o <em>decoder</em>, com a máscara que impede de olhar para frente (<a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Radford et al., 2018</a>). A tarefa de treino é a mais simples possível: prever o próximo <em>token</em>. É essa linhagem que leva aos assistentes de hoje.</p>
+<p>Em 2020, o GPT-3 levou a mesma receita a 175 bilhões de parâmetros, cerca de 2.700 vezes o modelo base de 2017 (<a href="https://arxiv.org/abs/2005.14165">Brown et al., arXiv 2005.14165</a>). E mostrou algo que o artigo original não prometia: com escala, o modelo resolvia tarefas novas só com exemplos no <em>prompt</em>, sem treino adicional.</p>
+<p>Na minha leitura, a parte do artigo que mais envelheceu bem é a menos glamorosa. O argumento de 2017 era de paralelismo: sem fila, a GPU trabalha cheia. A escala do GPT-3 dependeu de outras coisas também, como a ideia de <em>pre-training</em> em texto sem rótulo, que já aparecia em RNNs. Mas treinar 175 bilhões de parâmetros pede uma arquitetura que ocupe a GPU inteira, e foi isso que o Transformer entregou.</p>
+<p>A estrutura também sobreviveu. Os modelos abertos mais recentes trocaram o encoding de posição e vários detalhes de eficiência, mas o núcleo continua sendo a conta <code>softmax(Q · Kᵀ / √d_k) · V</code>, com várias <em>heads</em> e conexões residuais.</p>
+</section>
+<section id="a-conta-que-cresce" class="level3">
+<h3 class="anchored" data-anchor-id="a-conta-que-cresce">A conta que cresce</h3>
+<p>A atenção compara cada <em>token</em> com todos os outros. Com 10 <em>tokens</em>, são 100 comparações. Com 1.000, um milhão. O custo cresce com o quadrado do tamanho do texto, e o próprio artigo registra isso na tabela que compara as arquiteturas (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., tabela 1</a>). Em 2017, com frases de tradução, o custo era irrelevante. Os autores chegaram a sugerir restringir a atenção a uma vizinhança para textos muito longos, e deixaram o problema para depois.</p>
+<p>O depois chegou. A janela de contexto, é o quanto de texto o modelo consegue ler de uma vez. Ela fica cara de alargar por causa dessa conta. E há um custo além do computacional. Mais texto na janela significa mais <em>tokens</em> disputando os mesmos pesos da <em>softmax</em>. Em 2023, um estudo mediu que modelos com contexto longo usavam pior a informação que está no meio do texto do que a que está no começo ou no fim (<a href="https://arxiv.org/abs/2307.03172">Liu et al., <em>Lost in the Middle</em>, arXiv 2307.03172</a>).</p>
+<p>O segundo limite é de interpretação. É tentador olhar o peso de atenção e dizer “o modelo prestou atenção em cachorro, então entendeu”. Peso de atenção mostra onde a conta misturou informação. Não é explicação causal da resposta, e não garante que o modelo use a informação certa.</p>
+</section>
+<section id="seu-prompt-também-disputa-atenção" class="level3">
+<h3 class="anchored" data-anchor-id="seu-prompt-também-disputa-atenção">Seu <em>prompt</em> também disputa atenção</h3>
+<p>Em contexto longo, escreva <em>prompt</em> pensando em competição por peso. A instrução mais importante não fica enterrada no meio de vinte páginas coladas. Ela vai no começo ou no fim. Documento que você sabe ser irrelevante sai do contexto, porque ele disputa peso com o que importa. Na dúvida, mantenha: cortar o trecho certo por engano custa mais caro que diluir.</p>
+<p>E desconfie de quem trata janela de contexto grande como memória gratuita. Ela custa em processamento e custa em foco.</p>
 
 
 </section>
@@ -531,12 +358,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiada");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiada");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

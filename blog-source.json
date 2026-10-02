@@ -2,27 +2,32 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "51f86037a66202871101735b84911190cf23a18b",
+  "commit": "0b58c5907d06a199bada542acadcab7af6b359ab",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
-      "source": "bb502faa51208b8f9363c26f590d3b83865c6e8697320dfa07bf609a4e4ed762",
-      "rendered": "46d98e201eb83aebc7f39bb9d0e8b3c5c4fbc9134015fa0e0f2a34d27a63c22d",
+      "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
+      "rendered": "12de848f410e80d5e0157fa00a7d26af352fb9508752ac056d4af6b019c27c89",
       "target": "posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.qmd"
     },
     "2026-09-17_jev-e-modelos-de-decisao.md": {
-      "source": "b2b69324788c4ca4d98257bea721599ffd2c26d8359296bbda39d16f649f429f",
-      "rendered": "dc261a6e2f92dc9c0689e1fd12a21a3bf361f1e23aae803245e9ae5ce637faec",
+      "source": "08cac1339bd986813028422655c4c9426681020df7e6207b0606abefd67038b5",
+      "rendered": "dba907b12615d43c3ac0d49bb9a25b95a00bc5ac0f5a4a7094506bf9d408d593",
       "target": "posts/0033-jev-e-modelos-de-decisao/index.qmd"
     },
     "2026-09-18_seu-dashboard-passa-em-code-review.md": {
-      "source": "14482217a1748c3240e53446832a147a2e0794131be181c96a45f5e8f3577875",
-      "rendered": "43945188162eead09422f4a6c34e3209d5fe3c6c189e5f82310d707b57393d3c",
+      "source": "7b9be7f8b98766cff01f17ec8f43bdb708b92fa3a2a14c848c4843708affcc8c",
+      "rendered": "377061f46ae50f35eaf131b3e4db88fff3b008fb33aa6362ab8fe662726638b7",
       "target": "posts/0034-seu-dashboard-passa-em-code-review/index.qmd"
     },
     "2026-09-29_a-netflix-trocou-milhares-de-features-por-um-prompt.md": {
-      "source": "9ebee4018a5fde480dc6cdde4e62b03ea399bd263a0ef2b55f48f346709cf0b6",
-      "rendered": "6bc54f2115f8571c58fd1dda281ff11c1769c97cfb4e83b96fd8f0112772d507",
+      "source": "a8e2a2b766987c80925d2c6f5e8233e58e78eddfa51503955217cd010f1970d4",
+      "rendered": "06b958d46b3a9b6679170f00c67eab4ee58366973ca98ff2d5bcd1d65ca5a3ff",
       "target": "posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.qmd"
+    },
+    "2026-09-30_atencao-e-tudo-que-voce-precisa.md": {
+      "source": "098a8147055ee8a40000b750d1f643f187619088cc59351419097376f60fec26",
+      "rendered": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b",
+      "target": "posts/0036-atencao-e-tudo-que-voce-precisa/index.qmd"
     }
   }
 }

@@ -2,7 +2,7 @@
 title: "An intro to: Berkson's paradox"
 author: "Vinícius Félix"
 date: "2023-08-20"
-categories: [statistics]
+categories: [Estatística]
 image: "intro-berkson-paradox.png"
 bibliography: references.bib
 ---

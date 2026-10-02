@@ -2,7 +2,7 @@
 title: "An analysis of: Brazilian names"
 author: "Vinícius Félix"
 date: "2024-11-25"
-categories: [analysis,statistics]
+categories: [Estatística]
 image: "banner.png"
 ---
 

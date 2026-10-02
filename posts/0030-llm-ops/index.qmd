@@ -2,7 +2,7 @@
 title: "Some notes: LLMOps"
 author: "Vinícius Félix"
 date: "2025-03-30"
-categories: [data engineering, AI]
+categories: [IA, Engenharia de dados]
 image: "banner.png"
 ---
 

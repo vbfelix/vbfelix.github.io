@@ -97,9 +97,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
-<article class="archive-entry" data-language="pt" data-categories="machine learning, LLM, sistemas de recomendação"><time datetime="2026-09-29">2026-09-29</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html">GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM</a></h3><p>machine learning, LLM, sistemas de recomendação</p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="data engineering, BI"><time datetime="2026-09-18">2026-09-18</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0034-seu-dashboard-passa-em-code-review/index.html">Seu dashboard passa em code review?</a></h3><p>data engineering, BI</p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="AI"><time datetime="2026-09-17">2026-09-17</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html">Seu agente talvez não precise de mais um prompt</a></h3><p>AI</p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-09-30">2026-09-30</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0036-atencao-e-tudo-que-voce-precisa/index.html">O que é o T do GPT?</a></h3><p>IA</p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-09-29">2026-09-29</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html">GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM</a></h3><p>IA</p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="Engenharia de dados, BI"><time datetime="2026-09-18">2026-09-18</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0034-seu-dashboard-passa-em-code-review/index.html">Seu dashboard passa em code review?</a></h3><p>Engenharia de dados, BI</p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -8802,6 +8802,121 @@ Não foi a primeira tentativa do mercado. O próprio post cita PLUM, GLIDE e One
 #### A lição
 
 Quase todo mundo pensa em LLM como máquina de escrever, e o GenRec mostra outro uso. Ele aproveita a compreensão do modelo e deixa a geração de fora, trocando a saída de texto por uma camada de pontuação sobre o catálogo. O Jev, sobre o qual [escrevi em 17 de setembro](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/), chega ao mesmo lugar por outro caminho, restringindo a resposta às opções válidas. Nenhum dos dois conversa. Isso abre espaço em tarefas clássicas de machine learning, como classificar, pontuar, ordenar e recomendar. Ali o LLM adaptado pode complementar o trabalho, lendo o dado cru onde antes alguém precisava transformá-lo em número, e em alguns casos, como no GenRec, pode substituir o modelo inteiro.
+
+## O que é o T do GPT?
+
+Fonte: https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html
+
+#### Um artigo de tradução que não era sobre tradução
+
+Em junho de 2017, oito pesquisadores do Google Brain, do Google Research e da Universidade de Toronto publicaram um artigo sobre tradução automática ([Vaswani et al., *Attention Is All You Need*, arXiv 1706.03762](https://arxiv.org/abs/1706.03762)). A versão grande do modelo traduziu de inglês para alemão com 28,4 de BLEU, esta é uma métrica de 0 a 100 que compara a tradução da máquina com traduções humanas de referência.
+
+Ficou mais de 2 pontos acima do melhor resultado publicado até então, incluindo combinações de vários modelos. De inglês para francês, chegou a 41,8. Dois pontos num *benchmark* disputado a cada décimo, era um salto.
+
+Hoje, o que interessa é a arquitetura que produziu o número, o Transformer. O "T" do GPT, sigla de *Generative Pre-trained Transformer*, é ele. O "T" do BERT também. Os assistentes de texto que a gente usa todo dia descendem dessa linhagem.
+
+Gosto desse artigo por um motivo, ele não inventou a atenção, apenas tirou todo o resto.
+
+#### Ler com o dedo não escala
+
+Antes de 2017, o padrão para tradução e para quase toda tarefa de texto era a RNN (*recurrent neural network*). Uma RNN lê a frase como você lê com o dedo: uma palavra de cada vez, da esquerda para a direita. A cada palavra, ela atualiza um resumo interno do que leu até ali, chamado *hidden state*.
+
+Esse desenho tem dois problemas:
+
+- **Memória**: na frase "O servidor que a equipe de infraestrutura configurou no ano passado caiu", o verbo "caiu" concorda com "servidor", que está dez palavras atrás. A RNN precisa carregar essa informação palavra a palavra, a cada passo, um pouco se perde.
+
+- **Velocidade**: para calcular a palavra 10, a RNN precisa ter terminado a palavra 9. O cálculo é sequencial por natureza. Uma GPU tem milhares de núcleos feitos para fazer contas em paralelo, e a RNN deixa quase todos esperando ([Vaswani et al., seção 1](https://arxiv.org/abs/1706.03762)).
+
+A atenção já existia como remendo para o primeiro problema. Em tradução, ela deixava o *decoder*, a parte da rede que escreve a frase traduzida, olhar de volta para todas as palavras da frase original, em vez de depender só do final ([Bahdanau, Cho e Bengio, 2014, arXiv 1409.0473](https://arxiv.org/abs/1409.0473)). Mas a RNN continuava lá, e com ela a fila.
+
+A pergunta do artigo foi: e se a gente tirar a RNN e deixar só a atenção?
+
+#### O cachorro, a rua e quem é "ele"
+
+Pense na frase "O cachorro não atravessou a rua porque ele estava cansado". Para entender "ele", você olha para trás e decide que se refere a "cachorro", não a "rua". Você deu mais peso a uma palavra do que às outras. Atenção é isso!
+
+Antes de tudo, o modelo quebra o texto em *tokens*, pedaços de palavra, e transforma cada *token* num vetor, uma lista de números que representa o significado dele. Esse vetor se chama *embedding*.
+
+A partir do *embedding*, cada *token* gera três vetores, cada um por uma multiplicação por uma matriz aprendida no treino:
+
+- **_Query_:** O que este *token* está procurando. 
+- **_Key_:** O que este *token* oferece para quem procura. 
+- **_Value_:** A informação que este *token* entrega se for escolhido.
+
+As descrições acima são ilustração: no modelo real, ninguém escreve o que cada vetor procura. A analogia que mais me ajudou é a de uma busca. A *query* é o que você digita. As *keys* são os títulos das páginas. Os *values* são o conteúdo das páginas. A diferença é que a atenção não devolve uma página só. Devolve uma mistura de todas, ponderada pela relevância.
+
+O cálculo tem três passos:
+
+- **Comparar.** A **query** de "ele" é comparada com a **key** de cada **token** da frase usando o produto escalar, que mede o quanto dois vetores apontam na mesma direção. Sai uma nota por *token*;
+- **Normalizar.** As notas passam por uma função *softmax*, que transforma uma lista de notas em porcentagens: cada nota vira um peso positivo, os pesos somam 1 e a nota mais alta fica com um peso maior. No nosso exemplo, "cachorro" com 0,6, "rua" com 0,1 e o resto dividido;
+- **Misturar.** O novo vetor de "ele" é a soma dos valores de todos os *tokens*, cada um multiplicado pelo seu peso. "Ele" sai da atenção com "cachorro" mais forte.
+
+O artigo escreve isso em uma linha:
+
+```text
+Atenção(Q, K, V) = softmax(Q · Kᵀ / √d_k) · V
+```
+
+Q, K e V são as *queries*, *keys* e *values* de todos os *tokens* organizados em matrizes. O `d_k` é o comprimento do vetor de *key*, 64 números no artigo, e `√d_k` é a raiz dele. Ele existe por um motivo prático. Com vetores longos, o *dot product* fica grande. A *softmax* então concentra quase todo o peso num *token* só. O gradiente, que é o sinal que ajusta o modelo durante o treino, praticamente some. Dividir pela raiz mantém as notas numa faixa em que o treino funciona ([Vaswani et al., seção 3.2.1](https://arxiv.org/abs/1706.03762)).
+
+O ponto decisivo está no que não aparece na fórmula: não há fila. A atenção de "ele" não precisa esperar a de "cachorro". Todas as palavras fazem a mesma conta ao mesmo tempo, numa multiplicação de matrizes, que é exatamente o que GPU faz bem. Isso vale para o treino, em que o texto inteiro já é conhecido. Na hora de gerar, o modelo continua escrevendo um *token* por vez.
+
+E a distância deixa de importar. "Caiu" olha direto para "servidor", dez palavras atrás, num passo só. Na RNN eram dez.
+
+#### Oito olhares veem mais que um
+
+Uma palavra tem várias relações ao mesmo tempo. "Ele" se liga a "cachorro" pela referência e a "estava cansado" pelo sentido. Uma única distribuição de pesos precisa escolher.
+
+A solução do artigo é a *multi-head attention*, atenção com várias cabeças. Em vez de uma atenção com vetores de 512 números, o modelo roda oito atenções em paralelo, cada uma com vetores de 64 números e matrizes próprias. Cada "cabeça" aprende a procurar uma coisa diferente. Ao final, as oito saídas são concatenadas e combinadas ([Vaswani et al., seção 3.2.2](https://arxiv.org/abs/1706.03762)). O custo total fica parecido com o de uma atenção única de tamanho cheio.
+
+Ninguém diz a cada cabeça o que procurar. Ela aprende no treino. Inspecionando os pesos, algumas parecem seguir estrutura sintática, outras referência, outras nada que a gente saiba nomear. O "parecem" importa, e a última seção explica por quê.
+
+#### O homem mordeu o cachorro, ou o contrário
+
+A atenção tem um defeito de nascença: ela não sabe a ordem das palavras. A conta trata a frase como um saco de *tokens*. "O cachorro mordeu o homem" e "o homem mordeu o cachorro" produziriam as mesmas comparações.
+
+A RNN não tinha esse problema, porque a ordem estava embutida no fato de ler em fila. Ao tirar a fila, o artigo precisou devolver a ordem de outro jeito.
+
+A solução é a codificação de posição. Antes de entrar no modelo, o *embedding* de cada *token* recebe somado um vetor que depende só da posição dele na frase. O artigo usa ondas de seno e cosseno de frequências diferentes, de modo que cada posição tem uma assinatura única e posições próximas têm assinaturas parecidas ([Vaswani et al., seção 3.5](https://arxiv.org/abs/1706.03762)).
+
+#### O resto é história
+
+Com atenção, cabeças e codificação de posição, o resto é história. O Transformer original tem duas faces:
+
+- **_Encoder_.** Lê a frase de origem inteira. São seis camadas iguais, uma sobre a outra. Cada camada tem uma **multi-head self-attention**, em que cada **token** olha para todos os outros, seguida de uma pequena rede aplicada a cada *token* separadamente;
+- **_Decoder_.** Gera a tradução um **token** por vez. Também tem seis camadas, com duas diferenças. Na atenção sobre o próprio texto, cada posição só enxerga as anteriores, por uma máscara, a **masked self-attention**, para não espiar a palavra que ainda vai prever. E uma segunda atenção olha para a saída do *encoder*, que é onde a tradução consulta a frase original.
+
+Em volta de cada bloco há uma conexão residual, que soma a entrada à saída, e uma camada de normalização, que reescala os números da camada. Os dois detalhes parecem burocráticos, mas são o que permite usar muitas camadas sem que o treino desande.
+
+O modelo base tem cerca de 65 milhões de parâmetros, os números ajustados no treino e treinou 12 horas em oito GPUs ([Vaswani et al., seção 5.2 e tabela 3](https://arxiv.org/abs/1706.03762)). Guarde o número de parâmetros. Ele vai crescer.
+
+#### De 65 milhões a 175 bilhões
+
+O artigo era sobre tradução. O que aconteceu nos três anos seguintes foi que o mundo descobriu que as duas metades funcionavam sozinhas.
+
+Em 2018, o Google publicou o BERT, que usa só o *encoder* ([Devlin et al., arXiv 1810.04805](https://arxiv.org/abs/1810.04805)). O BERT é treinado escondendo palavras de textos e tentando adivinhá-las, olhando para os dois lados. Virou a base de busca, classificação e extração de informação.
+
+No mesmo ano, a OpenAI publicou o primeiro GPT, que usa só o *decoder*, com a máscara que impede de olhar para frente ([Radford et al., 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)). A tarefa de treino é a mais simples possível: prever o próximo *token*. É essa linhagem que leva aos assistentes de hoje.
+
+Em 2020, o GPT-3 levou a mesma receita a 175 bilhões de parâmetros, cerca de 2.700 vezes o modelo base de 2017 ([Brown et al., arXiv 2005.14165](https://arxiv.org/abs/2005.14165)). E mostrou algo que o artigo original não prometia: com escala, o modelo resolvia tarefas novas só com exemplos no *prompt*, sem treino adicional.
+
+Na minha leitura, a parte do artigo que mais envelheceu bem é a menos glamorosa. O argumento de 2017 era de paralelismo: sem fila, a GPU trabalha cheia. A escala do GPT-3 dependeu de outras coisas também, como a ideia de *pre-training* em texto sem rótulo, que já aparecia em RNNs. Mas treinar 175 bilhões de parâmetros pede uma arquitetura que ocupe a GPU inteira, e foi isso que o Transformer entregou.
+
+A estrutura também sobreviveu. Os modelos abertos mais recentes trocaram o encoding de posição e vários detalhes de eficiência, mas o núcleo continua sendo a conta `softmax(Q · Kᵀ / √d_k) · V`, com várias *heads* e conexões residuais.
+
+#### A conta que cresce
+
+A atenção compara cada *token* com todos os outros. Com 10 *tokens*, são 100 comparações. Com 1.000, um milhão. O custo cresce com o quadrado do tamanho do texto, e o próprio artigo registra isso na tabela que compara as arquiteturas ([Vaswani et al., tabela 1](https://arxiv.org/abs/1706.03762)). Em 2017, com frases de tradução, o custo era irrelevante. Os autores chegaram a sugerir restringir a atenção a uma vizinhança para textos muito longos, e deixaram o problema para depois.
+
+O depois chegou. A janela de contexto, é o quanto de texto o modelo consegue ler de uma vez. Ela fica cara de alargar por causa dessa conta. E há um custo além do computacional. Mais texto na janela significa mais *tokens* disputando os mesmos pesos da *softmax*. Em 2023, um estudo mediu que modelos com contexto longo usavam pior a informação que está no meio do texto do que a que está no começo ou no fim ([Liu et al., *Lost in the Middle*, arXiv 2307.03172](https://arxiv.org/abs/2307.03172)).
+
+O segundo limite é de interpretação. É tentador olhar o peso de atenção e dizer "o modelo prestou atenção em cachorro, então entendeu". Peso de atenção mostra onde a conta misturou informação. Não é explicação causal da resposta, e não garante que o modelo use a informação certa.
+
+#### Seu *prompt* também disputa atenção
+
+Em contexto longo, escreva *prompt* pensando em competição por peso. A instrução mais importante não fica enterrada no meio de vinte páginas coladas. Ela vai no começo ou no fim. Documento que você sabe ser irrelevante sai do contexto, porque ele disputa peso com o que importa. Na dúvida, mantenha: cortar o trecho certo por engano custa mais caro que diluir.
+
+E desconfie de quem trata janela de contexto grande como memória gratuita. Ela custa em processamento e custa em foco.
 
 ## UX com produtos físicos, o puro suco da estatística
 

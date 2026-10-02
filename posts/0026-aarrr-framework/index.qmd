@@ -2,7 +2,7 @@
 title: "An intro to: AARRR framework"
 author: "Vinícius Félix"
 date: "2024-11-28"
-categories: [product]
+categories: [Produto]
 image: "banner.png"
 ---
 

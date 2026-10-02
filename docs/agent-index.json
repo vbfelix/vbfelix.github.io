@@ -1,408 +1,404 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "e1ccad2a9d1db60d60f4c08375702b6b0fba596c958b81fc8d46897e7c56fe81",
+  "sourceRevision": "075ee0e1a4183aace47848b586d82b2a8eefa39fe25f4dd3327d92f76018695f",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
       "type": "post",
       "language": "en",
       "topics": [
-        "statistics",
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0001-chi-square-test/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0001-chi-square-test/index.html.md",
-      "revision": "211df2f5eb5cd964a77ff621aa5ca147aa25578b8c49ae3f0c015109da133393"
+      "revision": "67b3bac85abed99a0e84f19745f87732cd93d9d1fbb1b7db018828c65e3d2c6d"
     },
     {
       "title": "An intro to: dplyr::across",
       "type": "post",
       "language": "en",
       "topics": [
-        "r"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0002-dplyr-across/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0002-dplyr-across/index.html.md",
-      "revision": "e452c9fc8cd46b0eaf588d678f15fb4189367b56019b5a157a48c8ad37dfc1ac"
+      "revision": "5ef4aa801291b6a421cc0f7766b3435d6d2198c3195abd615de43bde7aae8c80"
     },
     {
       "title": "An intro to: Logarithmic Scale",
       "type": "post",
       "language": "en",
       "topics": [
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0003-log-scale/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0003-log-scale/index.html.md",
-      "revision": "4a021f1ece463050aa32f12a5fe2ab7abde59429c30cf5b391d673703e8aa7cd"
+      "revision": "6de1e41f69dbf5bdc959f931cc200e0182f7a4f3b1be9aeb11abd7c09bb43c72"
     },
     {
       "title": "An intro to: Tidyverse Operators",
       "type": "post",
       "language": "en",
       "topics": [
-        "r"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0004-tidyverse-operators/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0004-tidyverse-operators/index.html.md",
-      "revision": "f2e0b2e6d70c1d7d70d0df3942fe62fb82c0a4c04ff995b73275c88f6845804a"
+      "revision": "eecd834772f8d895c8495488d1c0518b537a6aae536fac856f4d0189ad5708b6"
     },
     {
       "title": "An analysis of: Settlers of Catan",
       "type": "post",
       "language": "en",
       "topics": [
-        "analysis",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0005-settlers-of-catan/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0005-settlers-of-catan/index.html.md",
-      "revision": "58184cee97465863fe1aaba3ef697b01c605ebdf3a1b4a0c7ec64c8d18b55fcb"
+      "revision": "43f94bbc305c0b0e57381e93131919c86e9901146e29f894a647bc0079a05f05"
     },
     {
       "title": "An intro to: Normal Distribution",
       "type": "post",
       "language": "en",
       "topics": [
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0006-normal-distribution/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0006-normal-distribution/index.html.md",
-      "revision": "1252dc69f58c602dc5c272ddadd707b4b0b2a30b3cfc96a329cea27eff50278d"
+      "revision": "c78d5f057980fa3df85343da6b5e080296659647fe1357f47f7374b4a599ad8e"
     },
     {
       "title": "An analysis of: The King James Bible",
       "type": "post",
       "language": "en",
       "topics": [
-        "analysis"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0007-king-james-bible/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0007-king-james-bible/index.html.md",
-      "revision": "0e78505f8516b2ed3b5322263fb50a840cd3e266d0b21e25977d8dedc3649337"
+      "revision": "d8540e152975573aefdb5e2918ca7052a48678c16155febfca7ba9316383926b"
     },
     {
       "title": "An intro to: Benford's Law",
       "type": "post",
       "language": "en",
       "topics": [
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0008-benford-law/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0008-benford-law/index.html.md",
-      "revision": "458434afda24818915d2ba3dc8b61bd0831d8558dd08058deae812bc2e115753"
+      "revision": "1087556882c2316367d5887072bfe8678aa17c2b1cc6ad9efa129d372b856b4d"
     },
     {
       "title": "An intro to: Monty Hall problem",
       "type": "post",
       "language": "en",
       "topics": [
-        "probability",
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0009-monty-hall/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0009-monty-hall/index.html.md",
-      "revision": "b91b5636a39e7cb5e5776f15e8162293329e51b9287e35a0d6360d19c8c92572"
+      "revision": "2079f4d5557351a44222377952fac0504480ec13e361d2822958e1061c231649"
     },
     {
       "title": "An intro to: Logistic Regression",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0010-logistic-regression/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0010-logistic-regression/index.html.md",
-      "revision": "2a9823eca5968a332705fdd0ae7eb583368d8583e7065655dbcdf2d03e4e22df"
+      "revision": "3704597a98164b7e912bee6c6927a3cf3d2fd29f62b2ff2d8a13765a81ecd275"
     },
     {
       "title": "An intro to: Birthday Paradox",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "probability"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0011-birthday-paradox/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0011-birthday-paradox/index.html.md",
-      "revision": "6bbe2daecab963a7e07794958d307152d91b39194927aa209348205793324b9c"
+      "revision": "5312eb1ccf0599b535206acddf73c630a2c0ac2076d75a32d2dfd85c16271d8c"
     },
     {
       "title": "An intro to: Mean",
       "type": "post",
       "language": "en",
       "topics": [
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0012-mean/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0012-mean/index.html.md",
-      "revision": "01ec71e1ee27e7a435833560f96c18caecdc2f99de2e5e90f8796121ffa9ef88"
+      "revision": "832bce0ccdb4cb04936d80a902770a93a82d986c06b82d5be193fb67e405775e"
     },
     {
       "title": "An intro to: Berkson's paradox",
       "type": "post",
       "language": "en",
       "topics": [
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0013-berkson-paradox/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0013-berkson-paradox/index.html.md",
-      "revision": "a473b82a9d72f549c180ba77bb3cd9258367b11324f9c7c9522b71665287a0ce"
+      "revision": "5d36980ec9a1d8fee3772d0a6a22b1c8bee56b4959826c55987b91691dbbe750"
     },
     {
       "title": "An intro to: Simpson's paradox",
       "type": "post",
       "language": "en",
       "topics": [
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0014-simpson-paradox/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0014-simpson-paradox/index.html.md",
-      "revision": "9b27a71475adbf463774b5d9b9762b060a4228bbe2044486de4de2b10b656e9c"
+      "revision": "03534cab63849cfa72010e12ed7d4b59d6229ae69f4428777e48e5fb5a584fbf"
     },
     {
       "title": "An intro to: Combination and Permutation",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "probability"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0015-combination/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0015-combination/index.html.md",
-      "revision": "e934d38dad659bcf96c51ce414caf72dd01584020e269ad895c139659e7b2b1b"
+      "revision": "fc6a85fe3862c7a8ec42e066eaec2ae454cefbeb3c515d9269d9b7de4c856660"
     },
     {
       "title": "An intro to: Linear and log models",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0016-models-and-logs/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0016-models-and-logs/index.html.md",
-      "revision": "e60804fb5237992772b63828e851328f885f3f4b8e5225b8f939b0fafc2bb8de"
+      "revision": "c80809e6cac3910231870491ca13ce2a1c151ad7b73ab01d593165c5684434cb"
     },
     {
       "title": "Unveiling the pages: I, Robot",
       "type": "post",
       "language": "en",
       "topics": [
-        "book review",
-        "non-technical"
+        "Outros"
       ],
       "url": "https://vbfelix.github.io/posts/0017-i-robot/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0017-i-robot/index.html.md",
-      "revision": "14e3cce8a7ab9263e28fb84fd114cd808c1b058b53adf3f66248514018818e1e"
+      "revision": "3f8b52e6c52b9b96943c997107892c8d8da4e3e3377a8178e0e081a254c2335f"
     },
     {
       "title": "Unveiling the pages: Measure what matters",
       "type": "post",
       "language": "en",
       "topics": [
-        "book review",
-        "soft skills"
+        "Produto"
       ],
       "url": "https://vbfelix.github.io/posts/0018-measure-what-matters/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0018-measure-what-matters/index.html.md",
-      "revision": "9172eb9d8699b9fe43f4fa70b2c726d496c4ae484458dac586f71ebc5cd008cd"
+      "revision": "b1d3fe7a9018aaea9e7c106ffae6b63fa4aff71da2b85e568d95055c627b6abe"
     },
     {
       "title": "Getting proof: Bhaskara formula",
       "type": "post",
       "language": "en",
       "topics": [
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0019-quadratic-equation/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0019-quadratic-equation/index.html.md",
-      "revision": "2757b1f8597fed2db78107c57b14b84bd1f6ec636c34cbf5b9ce8a03291d7d65"
+      "revision": "d46573389b032fd0c79fc7be73223dd5408facd0236a9438babfb93b63ba4397"
     },
     {
       "title": "Some notes: Better Presentations",
       "type": "post",
       "language": "en",
       "topics": [
-        "soft skills"
+        "Outros"
       ],
       "url": "https://vbfelix.github.io/posts/0020-better-presentations/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0020-better-presentations/index.html.md",
-      "revision": "c1a055b4e57e9b8cbee5eddd44a28d255bba2c552540cc6eeeddba8b0f84aa62"
+      "revision": "10ceda300c9243dd5d9f818448e514327712ef790afa9c2869ebccd19c358957"
     },
     {
       "title": "Intro to: R²",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0021-r2/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0021-r2/index.html.md",
-      "revision": "0e550e792ff583cf42f868776d05ec8bef49ea589443678aa77e2e31ae886f90"
+      "revision": "5fcaf5a6c3f0af552314e9a311085d26e60cc9a6885b133347a92461751bbde2"
     },
     {
       "title": "Intro to: AHP",
       "type": "post",
       "language": "en",
       "topics": [
-        "math"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0022-ahp/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0022-ahp/index.html.md",
-      "revision": "e1b4e762e762e564af708bffaa7a9c3655c750e88a6f4addd35a4bdb3773c9f1"
+      "revision": "6f20720f34c63afa5f4b07417eebd48c060c051c96dd24d6f9c7fcbb6a5bee1c"
     },
     {
       "title": "Some notes: Introduction to dbt",
       "type": "post",
       "language": "en",
       "topics": [
-        "data engineering"
+        "Engenharia de dados"
       ],
       "url": "https://vbfelix.github.io/posts/0023-dbt/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0023-dbt/index.html.md",
-      "revision": "7e37c5b61f80f4a3c3d51c80fc01b66791b9808ef3701504b4a84815872c63e3"
+      "revision": "335cefcc3bd6ef44620e09dc3db4f6df1b1a7789cc291666423aadd7005298f0"
     },
     {
       "title": "Some notes: Datawarehouse concepts",
       "type": "post",
       "language": "en",
       "topics": [
-        "data engineering"
+        "Engenharia de dados"
       ],
       "url": "https://vbfelix.github.io/posts/0024-dw/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0024-dw/index.html.md",
-      "revision": "fc4305ee9c424072701e2ab78a4f2783cb7c6938223def013612130f2204cc82"
+      "revision": "e5e28e8efee33daeb547abf05451e9cff0c254e347156306fec4399000d58b09"
     },
     {
       "title": "An analysis of: Brazilian names",
       "type": "post",
       "language": "en",
       "topics": [
-        "analysis",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0025-brazilian-names/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0025-brazilian-names/index.html.md",
-      "revision": "8e2bdb9b75b3843a573580e665d71cca728b86e5b527e36de90d29123ffe9d02"
+      "revision": "74868db93055ddce8b84d7a59a790e04b5004c09449f1278c368b3d94a8f0d5c"
     },
     {
       "title": "An intro to: AARRR framework",
       "type": "post",
       "language": "en",
       "topics": [
-        "product"
+        "Produto"
       ],
       "url": "https://vbfelix.github.io/posts/0026-aarrr-framework/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0026-aarrr-framework/index.html.md",
-      "revision": "a508a74f7f913c54b40655c789a6f803425516297a75e900d8585bbde1c8a1df"
+      "revision": "0a755856d017096f882b123d01fe90dc434006b57540b961e1d50102031d5979"
     },
     {
       "title": "An intro to: Human Development Index",
       "type": "post",
       "language": "en",
       "topics": [
-        "math",
-        "statistics"
+        "Estatística"
       ],
       "url": "https://vbfelix.github.io/posts/0027-hdi-index/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0027-hdi-index/index.html.md",
-      "revision": "5efa1eeedf52d3e910cfc9faf49f7ac56d74ad0a11e40139ff512906c508ce36"
+      "revision": "22fc998783d9588945dee25eb48da39167b7669aee733b46cc7d2c79c23a9474"
     },
     {
       "title": "Some notes: Data driven stages",
       "type": "post",
       "language": "en",
       "topics": [
-        "non-technical"
+        "Produto"
       ],
       "url": "https://vbfelix.github.io/posts/0028-data-driven-stages/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0028-data-driven-stages/index.html.md",
-      "revision": "36ef4d1d0045d274ee58274b93326ecf6d68839c185cf822aa02777bde62190e"
+      "revision": "409e6454cce88c741b03fce69c13444c07853b819182a056e3c8006be38c0322"
     },
     {
       "title": "Intro: dbt testing",
       "type": "post",
       "language": "en",
       "topics": [
-        "data engineering"
+        "Engenharia de dados"
       ],
       "url": "https://vbfelix.github.io/posts/0029-dbt-test/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0029-dbt-test/index.html.md",
-      "revision": "6ea14004419a1d9db57eb8f770c0e5eb03af6ab9b69a61659d5fa96221ec7a55"
+      "revision": "6d7964797207d36ffe24f4d632920bf94d15783ed0f943f9e91dcd6eb267ada6"
     },
     {
       "title": "Some notes: LLMOps",
       "type": "post",
       "language": "en",
       "topics": [
-        "data engineering",
-        "AI"
+        "IA",
+        "Engenharia de dados"
       ],
       "url": "https://vbfelix.github.io/posts/0030-llm-ops/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0030-llm-ops/index.html.md",
-      "revision": "405cd44c817d2e318721b5b2f0984731ce0ff5fb9c0704377be5ec36fe370b7c"
+      "revision": "80983ba2f11a11545f08a911e0f01b552269c4c43ae6f201a183bf55e0f47f29"
     },
     {
       "title": "Intro to: Big Query",
       "type": "post",
       "language": "en",
       "topics": [
-        "data engineering"
+        "Engenharia de dados"
       ],
       "url": "https://vbfelix.github.io/posts/0031-biq-query/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0031-biq-query/index.html.md",
-      "revision": "45ab4c4e48eeca2f15a02d96a95477729f0697b280a03948c3f47f1e426e414b"
+      "revision": "e778f33792461f08a0898a0f91fffd218ab0a6ce006328929bd82623ff1a87df"
     },
     {
       "title": "Seu agente talvez não precise de mais um prompt",
       "type": "post",
       "language": "pt-BR",
       "topics": [
-        "AI"
+        "IA"
       ],
       "url": "https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html.md",
-      "revision": "46d98e201eb83aebc7f39bb9d0e8b3c5c4fbc9134015fa0e0f2a34d27a63c22d"
+      "revision": "12de848f410e80d5e0157fa00a7d26af352fb9508752ac056d4af6b019c27c89"
     },
     {
       "title": "Jev, o modelo analfabeto",
       "type": "post",
       "language": "pt-BR",
       "topics": [
-        "AI",
-        "LLM"
+        "IA"
       ],
       "url": "https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html.md",
-      "revision": "dc261a6e2f92dc9c0689e1fd12a21a3bf361f1e23aae803245e9ae5ce637faec"
+      "revision": "dba907b12615d43c3ac0d49bb9a25b95a00bc5ac0f5a4a7094506bf9d408d593"
     },
     {
       "title": "Seu dashboard passa em code review?",
       "type": "post",
       "language": "pt-BR",
       "topics": [
-        "data engineering",
+        "Engenharia de dados",
         "BI"
       ],
       "url": "https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md",
-      "revision": "43945188162eead09422f4a6c34e3209d5fe3c6c189e5f82310d707b57393d3c"
+      "revision": "377061f46ae50f35eaf131b3e4db88fff3b008fb33aa6362ab8fe662726638b7"
     },
     {
       "title": "GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM",
       "type": "post",
       "language": "pt-BR",
       "topics": [
-        "machine learning",
-        "LLM",
-        "sistemas de recomendação"
+        "IA"
       ],
       "url": "https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md",
-      "revision": "6bc54f2115f8571c58fd1dda281ff11c1769c97cfb4e83b96fd8f0112772d507"
+      "revision": "06b958d46b3a9b6679170f00c67eab4ee58366973ca98ff2d5bcd1d65ca5a3ff"
+    },
+    {
+      "title": "O que é o T do GPT?",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md",
+      "revision": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

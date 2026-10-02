@@ -2,7 +2,7 @@
 title: "Some notes: Datawarehouse concepts"
 author: "Vinícius Félix"
 date: "2024-11-24"
-categories: [data engineering]
+categories: [Engenharia de dados]
 image: "banner.png"
 ---
 

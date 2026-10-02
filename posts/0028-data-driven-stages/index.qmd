@@ -2,7 +2,7 @@
 title: "Some notes: Data driven stages"
 author: "Vinícius Félix"
 date: "2025-03-17"
-categories: [non-technical]
+categories: [Produto]
 image: "banner.png"
 ---
 

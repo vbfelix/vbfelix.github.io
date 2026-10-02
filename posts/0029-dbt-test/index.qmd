@@ -2,7 +2,7 @@
 title: "Intro: dbt testing"
 author: "Vinícius Félix"
 date: "2025-03-29"
-categories: [data engineering]
+categories: [Engenharia de dados]
 image: "banner.png"
 ---
 

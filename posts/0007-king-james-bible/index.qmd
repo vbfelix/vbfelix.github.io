@@ -2,7 +2,7 @@
 title: "An analysis of: The King James Bible"
 author: "Vinícius Félix"
 date: "2023-07-16"
-categories: [analysis]
+categories: [Estatística]
 image: "intro-to-king-james-bible.png"
 ---
 

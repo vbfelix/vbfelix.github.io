@@ -2,7 +2,7 @@
 title: "Intro to: AHP"
 author: "Vinícius Félix"
 date: "2024-04-22"
-categories: [math]
+categories: [Estatística]
 image: "banner.png"
 ---
 

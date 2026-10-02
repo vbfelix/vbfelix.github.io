@@ -22,41 +22,42 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 
 ## Artigos e projetos
 
-- [An intro to: Chi-square Test](https://vbfelix.github.io/posts/0001-chi-square-test/index.html.md): artigo em en, temas: statistics, math.
-- [An intro to: dplyr::across](https://vbfelix.github.io/posts/0002-dplyr-across/index.html.md): artigo em en, temas: r.
-- [An intro to: Logarithmic Scale](https://vbfelix.github.io/posts/0003-log-scale/index.html.md): artigo em en, temas: math.
-- [An intro to: Tidyverse Operators](https://vbfelix.github.io/posts/0004-tidyverse-operators/index.html.md): artigo em en, temas: r.
-- [An analysis of: Settlers of Catan](https://vbfelix.github.io/posts/0005-settlers-of-catan/index.html.md): artigo em en, temas: analysis, statistics.
-- [An intro to: Normal Distribution](https://vbfelix.github.io/posts/0006-normal-distribution/index.html.md): artigo em en, temas: statistics.
-- [An analysis of: The King James Bible](https://vbfelix.github.io/posts/0007-king-james-bible/index.html.md): artigo em en, temas: analysis.
-- [An intro to: Benford's Law](https://vbfelix.github.io/posts/0008-benford-law/index.html.md): artigo em en, temas: math.
-- [An intro to: Monty Hall problem](https://vbfelix.github.io/posts/0009-monty-hall/index.html.md): artigo em en, temas: probability, math.
-- [An intro to: Logistic Regression](https://vbfelix.github.io/posts/0010-logistic-regression/index.html.md): artigo em en, temas: math, statistics.
-- [An intro to: Birthday Paradox](https://vbfelix.github.io/posts/0011-birthday-paradox/index.html.md): artigo em en, temas: math, probability.
-- [An intro to: Mean](https://vbfelix.github.io/posts/0012-mean/index.html.md): artigo em en, temas: statistics.
-- [An intro to: Berkson's paradox](https://vbfelix.github.io/posts/0013-berkson-paradox/index.html.md): artigo em en, temas: statistics.
-- [An intro to: Simpson's paradox](https://vbfelix.github.io/posts/0014-simpson-paradox/index.html.md): artigo em en, temas: statistics.
-- [An intro to: Combination and Permutation](https://vbfelix.github.io/posts/0015-combination/index.html.md): artigo em en, temas: math, probability.
-- [An intro to: Linear and log models](https://vbfelix.github.io/posts/0016-models-and-logs/index.html.md): artigo em en, temas: math, statistics.
-- [Unveiling the pages: I, Robot](https://vbfelix.github.io/posts/0017-i-robot/index.html.md): artigo em en, temas: book review, non-technical.
-- [Unveiling the pages: Measure what matters](https://vbfelix.github.io/posts/0018-measure-what-matters/index.html.md): artigo em en, temas: book review, soft skills.
-- [Getting proof: Bhaskara formula](https://vbfelix.github.io/posts/0019-quadratic-equation/index.html.md): artigo em en, temas: math.
-- [Some notes: Better Presentations](https://vbfelix.github.io/posts/0020-better-presentations/index.html.md): artigo em en, temas: soft skills.
-- [Intro to: R²](https://vbfelix.github.io/posts/0021-r2/index.html.md): artigo em en, temas: math, statistics.
-- [Intro to: AHP](https://vbfelix.github.io/posts/0022-ahp/index.html.md): artigo em en, temas: math.
-- [Some notes: Introduction to dbt](https://vbfelix.github.io/posts/0023-dbt/index.html.md): artigo em en, temas: data engineering.
-- [Some notes: Datawarehouse concepts](https://vbfelix.github.io/posts/0024-dw/index.html.md): artigo em en, temas: data engineering.
-- [An analysis of: Brazilian names](https://vbfelix.github.io/posts/0025-brazilian-names/index.html.md): artigo em en, temas: analysis, statistics.
-- [An intro to: AARRR framework](https://vbfelix.github.io/posts/0026-aarrr-framework/index.html.md): artigo em en, temas: product.
-- [An intro to: Human Development Index](https://vbfelix.github.io/posts/0027-hdi-index/index.html.md): artigo em en, temas: math, statistics.
-- [Some notes: Data driven stages](https://vbfelix.github.io/posts/0028-data-driven-stages/index.html.md): artigo em en, temas: non-technical.
-- [Intro: dbt testing](https://vbfelix.github.io/posts/0029-dbt-test/index.html.md): artigo em en, temas: data engineering.
-- [Some notes: LLMOps](https://vbfelix.github.io/posts/0030-llm-ops/index.html.md): artigo em en, temas: data engineering, AI.
-- [Intro to: Big Query](https://vbfelix.github.io/posts/0031-biq-query/index.html.md): artigo em en, temas: data engineering.
-- [Seu agente talvez não precise de mais um prompt](https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html.md): artigo em pt-BR, temas: AI.
-- [Jev, o modelo analfabeto](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html.md): artigo em pt-BR, temas: AI, LLM.
-- [Seu dashboard passa em code review?](https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md): artigo em pt-BR, temas: data engineering, BI.
-- [GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM](https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md): artigo em pt-BR, temas: machine learning, LLM, sistemas de recomendação.
+- [An intro to: Chi-square Test](https://vbfelix.github.io/posts/0001-chi-square-test/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: dplyr::across](https://vbfelix.github.io/posts/0002-dplyr-across/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Logarithmic Scale](https://vbfelix.github.io/posts/0003-log-scale/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Tidyverse Operators](https://vbfelix.github.io/posts/0004-tidyverse-operators/index.html.md): artigo em en, temas: Estatística.
+- [An analysis of: Settlers of Catan](https://vbfelix.github.io/posts/0005-settlers-of-catan/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Normal Distribution](https://vbfelix.github.io/posts/0006-normal-distribution/index.html.md): artigo em en, temas: Estatística.
+- [An analysis of: The King James Bible](https://vbfelix.github.io/posts/0007-king-james-bible/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Benford's Law](https://vbfelix.github.io/posts/0008-benford-law/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Monty Hall problem](https://vbfelix.github.io/posts/0009-monty-hall/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Logistic Regression](https://vbfelix.github.io/posts/0010-logistic-regression/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Birthday Paradox](https://vbfelix.github.io/posts/0011-birthday-paradox/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Mean](https://vbfelix.github.io/posts/0012-mean/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Berkson's paradox](https://vbfelix.github.io/posts/0013-berkson-paradox/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Simpson's paradox](https://vbfelix.github.io/posts/0014-simpson-paradox/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Combination and Permutation](https://vbfelix.github.io/posts/0015-combination/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: Linear and log models](https://vbfelix.github.io/posts/0016-models-and-logs/index.html.md): artigo em en, temas: Estatística.
+- [Unveiling the pages: I, Robot](https://vbfelix.github.io/posts/0017-i-robot/index.html.md): artigo em en, temas: Outros.
+- [Unveiling the pages: Measure what matters](https://vbfelix.github.io/posts/0018-measure-what-matters/index.html.md): artigo em en, temas: Produto.
+- [Getting proof: Bhaskara formula](https://vbfelix.github.io/posts/0019-quadratic-equation/index.html.md): artigo em en, temas: Estatística.
+- [Some notes: Better Presentations](https://vbfelix.github.io/posts/0020-better-presentations/index.html.md): artigo em en, temas: Outros.
+- [Intro to: R²](https://vbfelix.github.io/posts/0021-r2/index.html.md): artigo em en, temas: Estatística.
+- [Intro to: AHP](https://vbfelix.github.io/posts/0022-ahp/index.html.md): artigo em en, temas: Estatística.
+- [Some notes: Introduction to dbt](https://vbfelix.github.io/posts/0023-dbt/index.html.md): artigo em en, temas: Engenharia de dados.
+- [Some notes: Datawarehouse concepts](https://vbfelix.github.io/posts/0024-dw/index.html.md): artigo em en, temas: Engenharia de dados.
+- [An analysis of: Brazilian names](https://vbfelix.github.io/posts/0025-brazilian-names/index.html.md): artigo em en, temas: Estatística.
+- [An intro to: AARRR framework](https://vbfelix.github.io/posts/0026-aarrr-framework/index.html.md): artigo em en, temas: Produto.
+- [An intro to: Human Development Index](https://vbfelix.github.io/posts/0027-hdi-index/index.html.md): artigo em en, temas: Estatística.
+- [Some notes: Data driven stages](https://vbfelix.github.io/posts/0028-data-driven-stages/index.html.md): artigo em en, temas: Produto.
+- [Intro: dbt testing](https://vbfelix.github.io/posts/0029-dbt-test/index.html.md): artigo em en, temas: Engenharia de dados.
+- [Some notes: LLMOps](https://vbfelix.github.io/posts/0030-llm-ops/index.html.md): artigo em en, temas: IA, Engenharia de dados.
+- [Intro to: Big Query](https://vbfelix.github.io/posts/0031-biq-query/index.html.md): artigo em en, temas: Engenharia de dados.
+- [Seu agente talvez não precise de mais um prompt](https://vbfelix.github.io/posts/0032-glossario-para-repositorios-de-agentes-de-ia/index.html.md): artigo em pt-BR, temas: IA.
+- [Jev, o modelo analfabeto](https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/index.html.md): artigo em pt-BR, temas: IA.
+- [Seu dashboard passa em code review?](https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md): artigo em pt-BR, temas: Engenharia de dados, BI.
+- [GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM](https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md): artigo em pt-BR, temas: IA.
+- [O que é o T do GPT?](https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md): artigo em pt-BR, temas: IA.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.

@@ -2,7 +2,7 @@
 title: "Intro to: Big Query"
 author: "Vinícius Félix"
 date: "2025-05-03"
-categories: [data engineering]
+categories: [Engenharia de dados]
 image: "banner.png"
 ---
 

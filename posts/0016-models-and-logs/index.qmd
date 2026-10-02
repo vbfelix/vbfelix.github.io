@@ -2,7 +2,7 @@
 title: "An intro to: Linear and log models"
 author: "Vinícius Félix"
 date: "2023-09-06"
-categories: [math, statistics]
+categories: [Estatística]
 image: "intro-models-and-logs.png"
 bibliography: references.bib
 ---
