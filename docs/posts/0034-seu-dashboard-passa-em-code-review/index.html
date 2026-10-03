@@ -258,12 +258,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
 
 
 
 
 
-<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li aria-current="page">Seu dashboard passa em code review?</li></ol></nav>
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Seu dashboard passa em code review?</li></ol></nav>
 <p>Em 2018 eu comparei nove ferramentas de BI para um cliente que precisava decidir entre uso interno e uso embarcado em produto, e a conclusão foi que nenhuma atendia os dois cenários bem. Oito anos depois a pergunta mudou de lugar. O gargalo deixou de ser quem constrói o dashboard e passou a ser o que acontece com ele quando a tabela de origem muda.</p>
 <p>Este artigo desenvolve a resposta que a engenharia de dados vem dando para isso, o BI as code, em que o painel é um arquivo de texto que vive no repositório, é revisado em pull request e é validado em integração contínua. O gatilho para escrever agora é o dbt Charts, anunciado em 14 de setembro de 2026 sob licença Apache 2.0, que leva a ideia ao extremo declarativo e parte de um pressuposto incômodo, o de que quem vai escrever o painel talvez não seja uma pessoa.</p>
 <p>A tese é simples de enunciar e trabalhosa de sustentar: o autoatendimento, ou self-service, resolveu quem constrói o painel e deixou em aberto como o painel sobrevive à mudança, que é onde o BI as code tenta aplicar ao painel a disciplina que já aplicamos ao pipeline.</p>
@@ -403,6 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Em 2018 eu escolhi uma ferramenta para pessoas construírem painéis. A escolha de agora é outra, é sobre qual formato de painel a sua equipe consegue revisar quando o volume aumentar. Vale responder antes que o volume aumente.</p>
 
 
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Engenharia de dados">#Engenharia-de-dados</a><a class="post-tag" href="../../writing.html?tema=BI">#BI</a></p><a class="experience-link" href="../../writing.html">← Todos os textos</a></nav>
 </section>
 
 </main> <!-- /main -->
@@ -833,7 +839,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html">
+<p>Portfólio</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../writing.html">
+<p>Blog</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../header-experience.html">
+<p>Experiência</p>
+</a>
+  </li>  
+</ul>
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
@@ -850,21 +872,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <li class="nav-item">
     <a class="nav-link" href="../../curriculo.json">
 <p>Currículo (JSON)</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
-<p>Sobre</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/">
-<p>LinkedIn</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://github.com/vbfelix">
-<p>GitHub</p>
 </a>
   </li>  
 </ul>

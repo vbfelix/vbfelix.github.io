@@ -9,7 +9,7 @@
   width:100%;
   height:auto!important;
   aspect-ratio:16 / 9;
-  background:#173f35;
+  background:var(--paper);
 }
 :root {
   /* Source of truth: DESIGN.md. CSS aliases keep Quarto overrides readable. */
@@ -22,7 +22,17 @@
   --wash:#204a3e;
   --mono:Consolas,"Courier New",monospace;
   --serif:Georgia,"Times New Roman",serif;
-  --gutter:clamp(1.25rem,5vw,5rem)}
+  --surface-deep:#12372e;
+  --selection:#46685b;
+  --figure-paper:#f4f1e9;
+  --measure-read:900px;
+  --measure-wide:1200px;
+  --pad-inline:clamp(1rem,2vw,2rem);
+  --space-xs:.45rem;
+  --space-sm:.7rem;
+  --space-md:1rem;
+  --space-lg:2rem;
+  --space-xl:3rem}
 
 .navbar {
   border-bottom:1px solid var(--line);
@@ -40,10 +50,17 @@
 html {
   scroll-behavior:smooth;
   scroll-padding-top:6rem}
+/* Fine chalk dust, deliberately subtle so the prose stays sharp. */
 body {
-  background:var(--paper);
+  position:relative;
+  isolation:isolate;
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='dust'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.045' filter='url(%23dust)' d='M0 0h240v240H0z'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 18% 12%, rgba(237,240,213,.045), transparent 52%),
+    radial-gradient(ellipse at 75% 48%, rgba(7,27,20,.17), transparent 60%);
   color:var(--ink);
-  font-size:16px;
+  font-size:1rem;
   line-height:1.7}
 a {
   color:var(--blue);
@@ -52,10 +69,10 @@ a {
 a:hover {
   color:var(--rust)}
 :focus-visible {
-  outline:2px solid var(--rust)!important;
+  outline:2px solid var(--focus,var(--rust))!important;
   outline-offset:5px}
 ::selection {
-  background:#46685b;
+  background:var(--selection);
   color:var(--ink)}
 h1,h2,h3,h4 {
   font-family:var(--serif);
@@ -68,30 +85,32 @@ img,svg {
   max-width:100%}
 
 .nav-footer {
-  padding:2rem var(--gutter);
-  background:var(--paper);
+  padding:var(--space-lg) var(--pad-inline);
+  background:var(--surface-deep);
   border-top:1px solid var(--line);
   color:var(--muted);
-  font-size:.72rem}
+  font-size:.8rem}
 .nav-footer a {
   color:var(--ink)}
 
-body:not(.home-page) main.content {
-  max-width:900px;
-  padding:3rem 1.25rem 5rem;
+main.content {
+  max-width:var(--measure-read);
+  padding:var(--space-xl) 1.25rem 5rem;
   min-width:0}
-body:not(.home-page) .quarto-title h1 {
+.quarto-title h1 {
   font-size:clamp(2.5rem,5vw,4rem);
   line-height:1.1}
-body:not(.home-page) h2 {
+main.content h2 {
   margin-top:2.5rem}
-body:not(.home-page) h3 {
+main.content h3 {
   letter-spacing:-.02em}
 .quarto-title-banner {
   background:var(--wash)!important;
   color:var(--ink)!important}
 .quarto-title-banner h1 {
   color:var(--ink)!important}
+.quarto-title-banner .quarto-title .title {
+  font-weight:400}
 pre {
   border:1px solid var(--line);
   padding:1rem!important}
@@ -99,30 +118,24 @@ table {
   font-size:.9rem}
 td {
   overflow-wrap:anywhere}
-body:not(.home-page) .content a {
+.content a {
   overflow-wrap:anywhere}
 .about-page #title-block-header {
   display:none}
-body.about-page main.content {
-  grid-column: page-start / page-end;
-  width:100%;
-  max-width:1200px;
-  justify-self:center;
-  padding:1.5rem clamp(1rem,2vw,2rem) 3rem;
-}
+body.about-page main.content,
 body.portfolio-page main.content,
 body.writing-page main.content {
   grid-column:page-start / page-end;
   width:100%;
-  max-width:1200px;
+  max-width:var(--measure-wide);
   justify-self:center;
-  padding:1.5rem clamp(1rem,2vw,2rem) 3rem;
+  padding:1.5rem var(--pad-inline) var(--space-xl);
 }
-.about-hero h1 {
-  font-size:3rem;
-  line-height:1.1}
+/* The archive is a reading list, so it keeps the reading measure. */
+body.writing-page main.content {
+  max-width:var(--measure-read)}
 .about-hero__eyebrow {
-  margin:0 0:.35rem;
+  margin:0 0 .35rem;
   color:var(--muted);
   font:normal .78rem/1.5 var(--mono);
   letter-spacing:.11em;
@@ -130,6 +143,7 @@ body.writing-page main.content {
 }
 .about-hero__copy h1 {
   font-size:clamp(2.7rem,5vw,4.4rem);
+  line-height:1.1;
   max-width:11ch;
   margin:0;
 }
@@ -145,7 +159,7 @@ body.writing-page main.content {
 }
 .about-action:hover { border-color:var(--rust); color:var(--rust); }
 .about-action--primary { background:var(--wash); border-color:var(--blue); }
-.about-selected-work,.about-recent-writing { margin-top:4.5rem; padding-top:2rem; border-top:1px solid var(--line); }
+.about-selected-work,.about-recent-writing { margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid var(--line); }
 .about-section-heading { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1rem 2rem; }
 .about-section-heading h2 { margin:0; font-size:clamp(2rem,4vw,3.2rem); }
 .about-projects { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
@@ -159,8 +173,8 @@ body.writing-page main.content {
 .about-project-card p { color:var(--muted); font-size:.9rem; line-height:1.5; margin:0 1rem 1rem; }
 .about-project-card:hover { border-color:var(--blue); }
 .about-principles,.about-foundation,.about-history {
-  margin-top:3rem;
-  padding-top:2rem;
+  margin-top:var(--space-xl);
+  padding-top:var(--space-lg);
   border-top:1px solid var(--line)}
 .about-principle {
   display:grid;
@@ -181,7 +195,7 @@ body.writing-page main.content {
   border-top:1px solid var(--line)}
 .archive-entry time {
   font-family:var(--mono);
-  font-size:.73rem;
+  font-size:.75rem;
   color:var(--muted)}
 .archive-entry h2,.archive-entry h3 {
   font-size:1.35rem;
@@ -190,7 +204,7 @@ body.writing-page main.content {
   display:inline-block;
   margin-right:.5rem;
   color:var(--muted);
-  font:.7rem/1.4 var(--mono);
+  font:.75rem/1.4 var(--mono);
   letter-spacing:.08em;
   vertical-align:middle;
 }
@@ -200,16 +214,16 @@ body.writing-page main.content {
   background:var(--wash);
   color:var(--ink);
   padding:.42rem .65rem;
-  font:.72rem/1.4 var(--mono);
+  font:.75rem/1.4 var(--mono);
 }
 .archive-filters select:hover,.archive-filters select:focus-visible { border-color:var(--blue); }
-.archive-filters label { display:grid; gap:.35rem; font:.72rem/1.4 var(--mono); color:var(--muted); }
-.archive-filter-count { align-self:end; margin:0 0 .4rem; color:var(--muted); font:.72rem/1.4 var(--mono); }
+.archive-filters label { display:grid; gap:.35rem; font:.75rem/1.4 var(--mono); color:var(--muted); }
+.archive-filter-count { align-self:end; margin:0 0 .4rem; color:var(--muted); font:.75rem/1.4 var(--mono); }
 .archive-entry[hidden] { display:none; }
 .archive-entry p {
-  font-size:.75rem;
+  font-size:.8rem;
   color:var(--muted);
-  margin:.4rem 0 0}
+  margin:.2rem 0 0}
 .archive-month { margin-top:2.5rem; }
 .archive-month[hidden] { display:none; }
 .archive-month > h2 {
@@ -220,20 +234,11 @@ body.writing-page main.content {
   font:.8rem/1.5 var(--mono);
   letter-spacing:.11em;
   text-transform:uppercase}
-.post-tags { display:flex; flex-wrap:wrap; gap:.2rem .8rem; }
-.post-tag { font-family:var(--mono); color:var(--muted); text-decoration:none; }
+.post-tags { display:flex; flex-wrap:wrap; gap:0 .8rem; }
+.post-tag { padding:.35rem 0; font-family:var(--mono); color:var(--muted); text-decoration:none; }
 .post-tag:hover,.post-tag.is-active { color:var(--ink); text-decoration:underline; text-underline-offset:.2em; }
-.post-tag:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+.post-tag:focus-visible { --focus:var(--blue); outline-offset:3px; }
 
-/* Fine chalk dust, deliberately subtle so the prose stays sharp. */
-body {
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='dust'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.045' filter='url(%23dust)' d='M0 0h240v240H0z'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 18% 12%, rgba(237,240,213,.045), transparent 52%),
-    radial-gradient(ellipse at 75% 48%, rgba(7,27,20,.17), transparent 60%);
-}
-
-body { isolation: isolate; position: relative; }
 body::before {
   content: "";
   position: fixed;
@@ -242,16 +247,15 @@ body::before {
   pointer-events: none;
   background: url("images/chalk-distributions.svg") center top / 100% auto repeat-y;
 }
-/* Portrait as an artistic point cloud in a bivariate coordinate plane. */
 .site-breadcrumbs { margin: .75rem 0 2rem; font: .8rem/1.6 var(--mono); }
 .site-breadcrumbs ol { display:flex; flex-wrap:wrap; gap:.45rem .65rem; list-style:none; padding:0; margin:0; }
 .site-breadcrumbs li { display:inline; color:var(--muted); overflow-wrap:anywhere; }
 .site-breadcrumbs li + li::before { content:"/"; margin-right:.65rem; opacity:.65; }
 .site-breadcrumbs a { color:var(--ink); text-underline-offset:.2em; }
-.site-breadcrumbs a:focus-visible { outline:2px solid var(--blue); outline-offset:4px; }
+.site-breadcrumbs a:focus-visible { --focus:var(--blue); outline-offset:4px; }
 .experience-link { display:inline-block; margin-top:.7rem; padding:.65rem 1rem; border:1px solid var(--line); color:var(--ink); text-decoration:none; font:.8rem/1.5 var(--mono); }
 .experience-link:hover { background:var(--wash); border-color:var(--ink); }
-.experience-link:focus-visible { outline:2px solid var(--blue); outline-offset:4px; }
+.experience-link:focus-visible { --focus:var(--blue); outline-offset:4px; }
 
 .about-hero {
   display: grid;
@@ -285,25 +289,53 @@ body::before {
 .experience-table-scroll table { width:100%; min-width:42rem; margin:1.25rem 0 0; border-collapse:collapse; }
 .experience-table-scroll th,
 .experience-table-scroll td { padding:.85rem .75rem; vertical-align:top; border-color:var(--line); }
-.experience-table-scroll th { color:var(--muted); font:.7rem/1.4 var(--mono); letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; }
+.experience-table-scroll th { color:var(--muted); font:.75rem/1.4 var(--mono); letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; }
 .experience-table-scroll tbody tr:last-child td { border-bottom:0; }
 .about-recent-writing > p:not(.section-kicker) { max-width:42rem; }
 .about-recent-writing .archive-entry { max-width:850px; }
-@media(max-width:900px) {
+/* Breakpoints follow Bootstrap's, so the hero stacks when the navbar collapses. */
+@media(max-width:991.98px) {
   .about-hero { grid-template-columns:1fr; gap:1rem; }
   .about-hero__portrait { max-width:560px; }
-  .about-hero h1 { font-size:clamp(2.1rem,9vw,3rem); }
-  .about-projects { grid-template-columns:1fr; max-width:560px; }
+  .about-hero__copy h1 { font-size:clamp(2.1rem,9vw,3rem); }
 }
-.section-kicker { font-family:var(--mono); font-size:.69rem; letter-spacing:.11em; text-transform:uppercase; line-height:1.5; color:var(--muted); }
-.nav-footer { background:#12372e; }
+.section-kicker { font-family:var(--mono); font-size:.75rem; letter-spacing:.11em; text-transform:uppercase; line-height:1.5; color:var(--muted); }
 .table { --bs-table-color:var(--ink); --bs-table-bg:transparent; --bs-table-border-color:var(--line); }
-.content .cell-output-display img { background:#f4f1e9; padding:.6rem; }
-@media(max-width:700px) {
+.content .cell-output-display img { background:var(--figure-paper); padding:.6rem; }
+.skip-link {
+  position:absolute;
+  top:-4rem;
+  left:var(--pad-inline);
+  z-index:2000;
+  padding:.65rem 1rem;
+  background:var(--surface-deep);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font:.8rem/1.5 var(--mono)}
+.skip-link:focus { top:.5rem; }
+.article-end { margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid var(--line); }
+.article-end .post-tags { margin:0 0 var(--space-md); font-size:.8rem; }
+.embed { display:block; width:100%; max-width:42rem; border:0; }
+.embed--video { height:auto; aspect-ratio:16 / 9; }
+@media(max-width:767.98px) {
   body::before { opacity:.6; }
-  .about-principle { grid-template-columns:1fr; gap:.7rem; }
+  .about-projects { grid-template-columns:1fr; }
+  .about-principle { grid-template-columns:1fr; gap:var(--space-sm); }
   .archive-entry { grid-template-columns:1fr; gap:.4rem; }
   .nav-footer { display:block; }
+}
+/* On phones each experience row reads as a block: period, organization, work. */
+@media(max-width:575.98px) {
+  .experience-table-scroll table { min-width:0; }
+  .experience-table-scroll table,
+  .experience-table-scroll tbody,
+  .experience-table-scroll tr,
+  .experience-table-scroll td { display:block; }
+  .experience-table-scroll thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  .experience-table-scroll tr { padding:.85rem 0; border-top:1px solid var(--line); }
+  .experience-table-scroll td { padding:0; border:0; }
+  .experience-table-scroll td:first-child { color:var(--muted); font:.75rem/1.5 var(--mono); }
+  .experience-table-scroll td:nth-child(2) { margin:.3rem 0 .4rem; }
 }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }

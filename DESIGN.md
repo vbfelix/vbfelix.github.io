@@ -33,7 +33,7 @@ typography:
     lineHeight: 1.7
   label:
     fontFamily: "Consolas, Courier New, monospace"
-    fontSize: "0.69rem"
+    fontSize: "0.75rem"
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "0.11em"

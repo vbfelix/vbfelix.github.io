@@ -11,7 +11,7 @@
 -   ![](/images/bra.png){width="20"} Serratalks: Dados como ativo estratégico e base para tomada de decisões
 
 ```{=html}
-<iframe style="border-radius:10px" src="https://www.youtube.com/embed/dlg8rm1hFTA" width="80%" height="350" frameBorder="10" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe class="embed embed--video" title="Vídeo da palestra no YouTube" src="https://www.youtube.com/embed/dlg8rm1hFTA" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 ```
 
 -   ![](/images/bra.png){width="20"} IA não é mágica, é dado bem tratado (e um código decente) - The Developers Life Weekend
@@ -26,7 +26,7 @@
 -   ![](/images/bra.png){width="20"} Gestão orientada a dados - Podcast Na Ponta da Língua #8
 
 ```{=html}
-<iframe style="border-radius:10px" src="https://open.spotify.com/embed/episode/2yGOaRhg8LgYEh5tFOwjni?utm_source=generator" width="80%" height="250" frameBorder="10" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe src="https://open.spotify.com/embed/episode/2yGOaRhg8LgYEh5tFOwjni?utm_source=generator" class="embed" title="Episódio do podcast no Spotify" height="232" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 ```
 
 ## 2022

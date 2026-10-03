@@ -22,6 +22,13 @@ website:
   favicon: images/favicon/chalk-scatter.svg
   page-footer:
     left: "© Vinícius Félix · [Quarto](https://quarto.org/) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)"
+    center:
+      - text: Portfólio
+        href: portfolio.qmd
+      - text: Blog
+        href: writing.qmd
+      - text: Experiência
+        href: header-experience.qmd
     right:
       - text: Para agentes
         href: agents.qmd
@@ -29,12 +36,6 @@ website:
         href: /curriculo.md
       - text: Currículo (JSON)
         href: /curriculo.json
-      - text: Sobre
-        href: index.qmd
-      - text: LinkedIn
-        href: https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/
-      - text: GitHub
-        href: https://github.com/vbfelix
   navbar:
     title: "Vinícius Félix"
     pinned: true
@@ -79,6 +80,7 @@ format:
       - scripts/filters/breadcrumbs.lua
     theme: custom_theme.scss
     css: styles.css
+    include-before-body: _includes/skip-link.html
     toc: true
     lang: pt
 
