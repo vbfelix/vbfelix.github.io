@@ -78,6 +78,7 @@ format:
   html:
     filters:
       - scripts/filters/breadcrumbs.lua
+      - scripts/filters/records.lua
     theme: custom_theme.scss
     css: styles.css
     include-before-body: _includes/skip-link.html

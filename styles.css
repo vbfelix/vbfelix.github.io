@@ -315,6 +315,16 @@ body::before {
 .skip-link:focus { top:.5rem; }
 .article-end { margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid var(--line); }
 .article-end .post-tags { margin:0 0 var(--space-md); font-size:.8rem; }
+.record-list ul { list-style:none; margin:0 0 var(--space-lg); padding:0; }
+.record-list li {
+  display:grid;
+  grid-template-columns:2rem 3.5rem minmax(0,1fr);
+  gap:var(--space-md);
+  align-items:center;
+  padding:var(--space-sm) 0;
+  border-top:1px solid var(--line)}
+.record-list img { width:2rem; height:2rem; object-fit:contain; }
+.record-date { color:var(--muted); font:.75rem/1.5 var(--mono); font-variant-numeric:tabular-nums; }
 .embed { display:block; width:100%; max-width:42rem; border:0; }
 .embed--video { height:auto; aspect-ratio:16 / 9; }
 @media(max-width:767.98px) {

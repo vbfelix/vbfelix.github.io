@@ -14,5 +14,5 @@ listing:
   image-height: 190px
   page-size: 12
   sort-ui: false
-  filter-ui: true
+  filter-ui: false
 ---
