@@ -6,8 +6,8 @@ Fonte: https://vbfelix.github.io/header-experience.html
 
 | Universidade | Período | Formação | Trabalho final |
 |----|----|----|----|
-| ![](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
-| ![](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
+| ![UEM](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/17 - 02/19 | Mestrado em Bioestatística | [Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf) |
+| ![UEM](https://vbfelix.github.io/images/logos/uem.png) Universidade Estadual de Maringá | 02/13 - 12/16 | Bacharelado em Estatística | Processos e técnicas de agrupamento temporal, espacial e espaço-temporal |
 
 ## Experiência profissional
 

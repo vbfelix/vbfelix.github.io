@@ -20,6 +20,7 @@ website:
   open-graph: true
   site-url: https://vbfelix.github.io
   favicon: images/favicon/chalk-scatter.svg
+  search: false
   page-footer:
     left: "© Vinícius Félix · [Quarto](https://quarto.org/) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)"
     center:
@@ -58,18 +59,22 @@ website:
             href: header-awards.qmd
     right:
       - icon: github
+        aria-label: "GitHub"
         href: https://github.com/vbfelix
         target: _blank
         rel: noopener
       - icon: linkedin
+        aria-label: "LinkedIn"
         href: https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/
         target: _blank
         rel: noopener
       - icon: stack-overflow
+        aria-label: "Stack Overflow"
         href: https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix
         target: _blank
         rel: noopener
       - icon: box-seam
+        aria-label: "relper, pacote R"
         href: https://vbfelix.github.io/relper
         target: _blank
         rel: noopener
