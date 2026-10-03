@@ -1,5 +1,5 @@
 """Check generated local navigation/assets and homepage structure after render."""
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 
@@ -31,12 +31,33 @@ def selected_card_error(filename, canonical_cards, rendered_cards):
         f'(expected {canonical_cards}, found {rendered_cards})'
     )
 
+SECTIONS = {'posts': '/writing.html', 'portfolio': '/portfolio.html'}
+
+
+def article_navigation_error(relative, page):
+    """Articles must lead back to their section: in the breadcrumb and at the end of the text."""
+    section = SECTIONS.get(relative.parts[0]) if len(relative.parts) == 3 else None
+    if not section:
+        return None
+    # Quarto rewrites site-absolute links relative to the page, so compare the destination file.
+    if PurePosixPath(section).name not in {PurePosixPath(urlsplit(link).path).name for link in page.breadcrumb_links}:
+        return f'{relative.as_posix()}: breadcrumb does not link to {section}'
+    if not page.article_end:
+        return f'{relative.as_posix()}: missing the end-of-article navigation'
+    return None
+
+
 class Page(HTMLParser):
     def __init__(self, path):
         super().__init__()
         self.path, self.links, self.ids, self.images, self.project_cards = path, [], set(), [], []
         self.h1 = 0
+        self.breadcrumb_links, self.article_end, self._in_breadcrumb = [], False, False
         self.feed(path.read_text(encoding='utf-8'))
+
+    def handle_endtag(self, tag):
+        if tag == 'nav':
+            self._in_breadcrumb = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -44,6 +65,11 @@ class Page(HTMLParser):
             self.ids.add(attrs['id'])
         if tag == 'h1':
             self.h1 += 1
+        if tag == 'nav':
+            self._in_breadcrumb = attrs.get('class') == 'site-breadcrumbs'
+            self.article_end = self.article_end or attrs.get('class') == 'article-end'
+        if tag == 'a' and self._in_breadcrumb and attrs.get('href'):
+            self.breadcrumb_links.append(attrs['href'])
         if tag in ('a', 'img', 'script', 'link'):
             url = attrs.get('href') if tag in ('a', 'link') else attrs.get('src')
             if url:
@@ -89,6 +115,9 @@ def main():
                 errors.append(f'{path.relative_to(ROOT)}: missing {raw}')
             elif url.fragment and target in pages and unquote(url.fragment) not in pages[target].ids:
                 errors.append(f'{path.relative_to(ROOT)}: missing anchor {raw}')
+        error = article_navigation_error(path.relative_to(ROOT.resolve()), page)
+        if error:
+            errors.append(error)
         if path == (ROOT / 'index.html').resolve():
             if page.h1 != 1:
                 errors.append(f'{path}: expected one h1, found {page.h1}')

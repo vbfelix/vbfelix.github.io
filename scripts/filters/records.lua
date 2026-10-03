@@ -1,5 +1,6 @@
 -- Courses and certifications are written as one paragraph per record: logo, [MM/YY], title.
 -- Consecutive records become one list, so the page reads as rows instead of loose paragraphs.
+-- The layout assumes that shape: `.record-list` in styles.css places logo, date and title in columns.
 local function record(block)
   if block.t ~= 'Para' then return nil end
   local inlines = block.content
@@ -27,6 +28,9 @@ function Pandoc(doc)
     local item = record(block)
     if item then
       items[#items + 1] = item
+    elseif block.t == 'BulletList' and #items > 0 then
+      -- Sub-items written under a record, such as the levels of one certificate, stay with it.
+      table.insert(items[#items], block)
     else
       flush()
       blocks:insert(block)
