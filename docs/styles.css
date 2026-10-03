@@ -210,6 +210,20 @@ body.writing-page main.content {
   font-size:.75rem;
   color:var(--muted);
   margin:.4rem 0 0}
+.archive-month { margin-top:2.5rem; }
+.archive-month[hidden] { display:none; }
+.archive-month > h2 {
+  margin:0 0 .6rem!important;
+  padding:0;
+  border:0;
+  color:var(--muted);
+  font:.8rem/1.5 var(--mono);
+  letter-spacing:.11em;
+  text-transform:uppercase}
+.post-tags { display:flex; flex-wrap:wrap; gap:.2rem .8rem; }
+.post-tag { font-family:var(--mono); color:var(--muted); text-decoration:none; }
+.post-tag:hover,.post-tag.is-active { color:var(--ink); text-decoration:underline; text-underline-offset:.2em; }
+.post-tag:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
 
 /* Fine chalk dust, deliberately subtle so the prose stays sharp. */
 body {

@@ -65,6 +65,29 @@ class ArchiveTests(unittest.TestCase):
         self.assertIn('Newer', rendered)
         self.assertNotIn('Older', rendered)
 
+    def test_full_archive_groups_posts_by_month_newest_first(self):
+        posts = [
+            ('2025-01-01', 'January', '', 'january', ('EN', 'Em inglês', 'en')),
+            ('2025-03-02', 'March A', '', 'march-a', ('EN', 'Em inglês', 'en')),
+            ('2025-03-09', 'March B', '', 'march-b', ('EN', 'Em inglês', 'en')),
+        ]
+        rendered = archive.render(posts)
+        self.assertEqual(rendered.count('<section class="archive-month">'), 2)
+        self.assertLess(rendered.index('<h2>Março de 2025</h2>'), rendered.index('<h2>Janeiro de 2025</h2>'))
+        self.assertLess(rendered.index('March B'), rendered.index('March A'))
+        self.assertIn('<h3>', rendered)
+        self.assertNotIn('archive-month', archive.render(posts, limit=3, heading=3))
+
+    def test_categories_render_as_hashtag_links_to_the_filtered_archive(self):
+        post = self.read('title: Example\ndate: 2025-01-01\ncategories: [Engenharia de dados, IA]')
+        rendered = archive.render([post])
+        self.assertIn('href="/writing.html?tema=Engenharia%20de%20dados" data-category="Engenharia de dados">#Engenharia-de-dados</a>', rendered)
+        self.assertIn('data-category="IA">#IA</a>', rendered)
+
+    def test_post_without_categories_has_no_tag_list(self):
+        post = self.read('title: Example\ndate: 2025-01-01')
+        self.assertNotIn('post-tags', archive.render([post]))
+
 
 class HomeCardTests(unittest.TestCase):
     def test_card_tracks_article_title_opening_and_local_artwork(self):

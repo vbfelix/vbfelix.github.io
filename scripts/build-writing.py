@@ -5,7 +5,9 @@ silently generating an incomplete archive. Use --check in validation workflows.
 """
 from argparse import ArgumentParser
 from datetime import date
+from itertools import groupby
 from pathlib import Path
+from urllib.parse import quote
 import html
 import json
 import re
@@ -13,6 +15,8 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / '_content/writing.qmd'
 RECENT_TARGET = ROOT / '_content/recent-writing.qmd'
+MONTHS = ('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+          'Novembro', 'Dezembro')
 
 
 def scalar(text):
@@ -53,13 +57,37 @@ def read_post(path):
         raise ValueError(f'{path}: invalid metadata: {error}') from error
 
 
+def tags(categories):
+    """Render each category as a hashtag link that filters the archive page."""
+    if not categories:
+        return ''
+    links = ''.join(
+        f'<a class="post-tag" href="/writing.html?tema={quote(category)}" data-category="{html.escape(category, quote=True)}">'
+        f'#{html.escape("-".join(category.split()))}</a>'
+        for category in categories.split(', '))
+    return f'<p class="post-tags">{links}</p>'
+
+
+def entry(post, heading):
+    published, title, categories, slug, (label, language, code) = post
+    return (f'<article class="archive-entry" data-language="{code}" data-categories="{html.escape(categories, quote=True)}">'
+            f'<time datetime="{published}">{published}</time><div><h{heading}>'
+            f'<span class="post-language" role="img" aria-label="{language}">{label}</span>'
+            f'<a href="/posts/{slug}/index.html">{html.escape(title)}</a></h{heading}>{tags(categories)}</div></article>')
+
+
 def render(posts, limit=None, heading=2):
-    rows = []
+    """Render the full archive grouped by month, or a flat list of the `limit` newest posts."""
     ordered = sorted(posts, reverse=True)
-    if limit is not None:
-        ordered = ordered[:limit]
-    for published, title, categories, slug, (label, language, code) in ordered:
-        rows.append(f'<article class="archive-entry" data-language="{code}" data-categories="{html.escape(categories, quote=True)}"><time datetime="{published}">{published}</time><div><h{heading}><span class="post-language" role="img" aria-label="{language}">{label}</span><a href="/posts/{slug}/index.html">{html.escape(title)}</a></h{heading}><p>{html.escape(categories)}</p></div></article>')
+    if limit is None:
+        rows = []
+        for month, group in groupby(ordered, key=lambda post: post[0][:7]):
+            year, number = month.split('-')
+            rows.append(f'<section class="archive-month"><h{heading}>{MONTHS[int(number) - 1]} de {year}</h{heading}>')
+            rows.extend(entry(post, heading + 1) for post in group)
+            rows.append('</section>')
+    else:
+        rows = [entry(post, heading) for post in ordered[:limit]]
     return ('Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.\n\n'
             '```{=html}\n' + '\n'.join(rows) + '\n```\n')
 
