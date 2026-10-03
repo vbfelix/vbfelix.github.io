@@ -92,7 +92,7 @@ As formas são essencialmente retangulares. A borda arredondada de 6px é exclus
 
 ## Components
 
-Cartões de portfólio usam `surface`, borda `line` e título serif. Imagens de capa usam proporção 16:9 e preservam sua composição, sem corte automático. Links têm sublinhado fino e afastado do texto. O foco usa contorno de 2px em `accent` ou `link`, com espaço externo suficiente. Controles de navegação devem continuar legíveis sobre a lousa e respeitar o mesmo estado de foco.
+Cartões de portfólio usam `surface`, borda `line` e título serif. Imagens de capa usam proporção 16:9 e preservam sua composição, sem corte automático. Links têm sublinhado fino e afastado do texto. O foco usa contorno de 2px em `accent` ou `link`, com espaço externo suficiente. Controles de navegação devem continuar legíveis sobre a lousa e respeitar o mesmo estado de foco. Menus suspensos usam `surface-deep` com borda `line`; o item sob o cursor, em foco ou ativo recebe fundo `surface` e texto `accent`, nunca uma faixa clara.
 
 ## Do's and Don'ts
 

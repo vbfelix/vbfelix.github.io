@@ -46,6 +46,16 @@
 .navbar .navbar-brand:hover {
   color:var(--rust);
 }
+/* Bootstrap's default hover is a near-white bar; menu items stay on the board's greens. */
+.navbar .dropdown-menu {
+  --bs-dropdown-bg:var(--surface-deep);
+  --bs-dropdown-border-color:var(--line);
+  --bs-dropdown-link-color:var(--ink);
+  --bs-dropdown-link-hover-color:var(--rust);
+  --bs-dropdown-link-hover-bg:var(--wash);
+  --bs-dropdown-link-active-color:var(--rust);
+  --bs-dropdown-link-active-bg:var(--wash);
+}
 
 html {
   scroll-behavior:smooth;
