@@ -9,3 +9,10 @@
 *.ps1 text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
+# Generated output is compared byte for byte by the agent-assets check, so a checkout must not rewrite it as CRLF.
+*.html text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.txt text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
