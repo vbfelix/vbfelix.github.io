@@ -10,6 +10,8 @@ falhava e um caso válido relacionado em uma regressão, e não criar testes que
 implementação ou congelam texto e estilo. Esta skill acrescenta os alvos e as verificações deste site.
 Leia a matriz de verificações em [CONTRIBUTING.md](../../../CONTRIBUTING.md).
 
+Os testes existentes são congelados (veja `AGENTS.md`): não edite, renomeie nem apague `scripts/test_*.py` ou `scripts/test-*.ts` para acomodar uma alteração. Comportamento novo ganha um arquivo de teste novo; teste existente que falha indica defeito no código. Mudar um teste exige pedido explícito do usuário e um commit só dele, com `SITE_ALLOW_TEST_EDIT=1`. Esta regra prevalece sobre a `vfx-write-tests`.
+
 1. Identifique o comportamento afetado e os testes existentes em `scripts/test_*.py`. Execute os testes pertinentes com o Python disponível, sem assumir um caminho pessoal instalado.
 2. Use diretórios temporários em testes que escrevem arquivos; não sobrescreva os dados do site.
 3. Para geradores, confira saída válida e sincronização, incluindo `quarto run scripts/build-agent-assets.ts --check`. Não substitua esse comando por comparações de títulos ou snapshots extensos de HTML.

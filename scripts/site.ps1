@@ -184,6 +184,7 @@ try {
         'verify' {
             $changed = Get-ChangedFiles
             Invoke-Checked $script:PythonPath @('scripts/check-ai-workflow.py')
+            if ($Scope -eq 'staged') { Invoke-Checked $script:PythonPath @('scripts/check-test-freeze.py') }
             if ($Scope -eq 'all' -or $changed -match '^scripts/') { Invoke-UnitTests }
             if ($Scope -eq 'all' -or $changed -match '\.(qmd|yml|yaml|scss|css|lua)$' -or $changed -match '^(scripts|_includes|assets)/') { Invoke-Render }
             else { Write-Host 'PASS: no rendered site inputs changed.' }

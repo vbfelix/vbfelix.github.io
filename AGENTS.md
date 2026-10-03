@@ -10,6 +10,17 @@ When incorporating or substantially revising a portfolio article, follow [mainte
 
 Code blocks render on a black background with high-contrast text, per [maintenance/design/code-blocks.md](maintenance/design/code-blocks.md). The background is `$code-block-bg` in `custom_theme.scss`, and every text color over it must clear 4.5:1. When changing the theme or the syntax highlighting, measure the contrast in the preview against the composited background rather than trusting the declared value.
 
+## Existing tests are frozen
+
+A change or a new feature must NEVER modify, rename or delete existing test code (`scripts/test_*.py` and `scripts/test-*.ts`). The tests are the fixed reference that proves the change did not break the site; a change that edits them to pass proves nothing.
+
+- New behavior gets new test files. Adding a test file is always allowed.
+- When an existing test fails, the code is wrong until shown otherwise: fix the code, not the test. Do not loosen an assertion, skip a test, delete a case or change expected values to make a change pass.
+- If a test really must change, because the requirement itself changed, stop and ask the user. Only after an explicit request, commit the test change alone with `SITE_ALLOW_TEST_EDIT=1`, and say in the commit message which requirement changed.
+- `scripts/check-test-freeze.py` enforces this in the pre-commit verification (`site.ps1 -Action verify -Scope staged`). Do not bypass it with `--no-verify` or by setting the variable on your own initiative.
+
+This rule takes precedence over any skill that suggests adjusting tests together with the code.
+
 ## Guidelines and task-specific skills
 
 Use [CONTRIBUTING.md](CONTRIBUTING.md) for source ownership, proportional checks and Git integration conventions.

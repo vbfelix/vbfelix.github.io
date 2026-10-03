@@ -55,6 +55,8 @@ quarto run scripts/test-content-source.ts
 
 `site.ps1 -Action check` verifica o acervo, links e recursos locais, além dos arquivos para agentes; não substitui os testes unitários. A validação não verifica disponibilidade dos links externos nem garante funcionamento visual. A listagem de Portfólio pode avisar que não há arquivos enquanto nenhum projeto estiver cadastrado.
 
+**Os testes existentes são congelados.** Uma alteração ou funcionalidade nova nunca modifica, renomeia ou apaga código de teste já versionado (`scripts/test_*.py` e `scripts/test-*.ts`); ela só pode acrescentar arquivos de teste novos. Se um teste existente falha, corrija o código, não o teste. Quando o próprio requisito mudou e o teste precisa mudar, isso é decisão explícita do usuário: o teste vai sozinho em um commit feito com `SITE_ALLOW_TEST_EDIT=1`, e a mensagem diz qual requisito mudou. `scripts/check-test-freeze.py` recusa o commit que desrespeitar a regra.
+
 Escreva testes para comportamentos relevantes e regressões: datas inválidas, caracteres especiais, links quebrados e sincronização de formatos. Não crie testes que apenas repitam o código ou fixem palavras e estilos de uma mudança simples. Não afirme que um teste passou se não foi executado. Registre bloqueios e limitações observados.
 
 ## Branches e commits
