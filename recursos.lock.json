@@ -1,30 +1,21 @@
 {
   "format": 1,
   "source": "C:\\Users\\Vinícius\\Desktop\\vfx-llm-skills",
-  "ref": "v1.2.0",
-  "commit": "7eac0874927a0094ad3b78515ecc2a7c571d5f91",
+  "ref": "v2.3.0",
+  "commit": "6414dfe79557efdcc460fc2409831704db458ca3",
   "platform": "claude-code",
   "resources": [
-    "criar-branch",
-    "criar-commit",
-    "escrever-conteudo",
-    "escrever-testes",
-    "integrar-branch",
-    "investigar-defeito",
-    "publicar-alteracoes",
-    "verificar-alteracao"
+    "create-branch",
+    "create-commit",
+    "debug-defect",
+    "finish-branch",
+    "publish-changes",
+    "verify-change",
+    "write-content",
+    "write-tests"
   ],
   "models": {
-    "session": {
-      "codex": {
-        "model": "gpt-5.6-luna",
-        "effort": "low"
-      },
-      "claude-code": {
-        "model": "haiku"
-      }
-    },
-    "implementation": {
+    "standard": {
       "codex": {
         "model": "gpt-5.6-terra",
         "effort": "medium"
@@ -33,31 +24,13 @@
         "model": "sonnet"
       }
     },
-    "code-review": {
+    "complex": {
       "codex": {
         "model": "gpt-5.6-terra",
         "effort": "high"
       },
       "claude-code": {
-        "model": "sonnet"
-      }
-    },
-    "content": {
-      "codex": {
-        "model": "gpt-5.6-terra",
-        "effort": "medium"
-      },
-      "claude-code": {
-        "model": "sonnet"
-      }
-    },
-    "content-review": {
-      "codex": {
-        "model": "gpt-5.6-terra",
-        "effort": "medium"
-      },
-      "claude-code": {
-        "model": "sonnet"
+        "model": "opus"
       }
     }
   }

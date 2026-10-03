@@ -5,7 +5,7 @@ description: Validar renderização, navegação, recursos, dados para agentes e
 
 # Validação do site
 
-A skill global `vfx-verificar-alteracao` executa os verificadores declarados em `config.verificar-alteracao`
+A skill global `vfx-verify-change` executa os verificadores declarados em `config.verify-change`
 do `recursos.yaml` e relata comandos, resultado e checagens indisponíveis. Esta skill descreve o que conferir
 neste site além desses comandos. Use [CONTRIBUTING.md](../../../CONTRIBUTING.md) para escolher verificações
 proporcionais.

@@ -5,7 +5,7 @@ description: Criar ou executar testes dos scripts e geradores deste site Quarto,
 
 # Testes do site
 
-A skill global `vfx-escrever-testes` define o critério geral: seguir a convenção local, cobrir o caso que
+A skill global `vfx-write-tests` define o critério geral: seguir a convenção local, cobrir o caso que
 falhava e um caso válido relacionado em uma regressão, e não criar testes que apenas espelham a
 implementação ou congelam texto e estilo. Esta skill acrescenta os alvos e as verificações deste site.
 Leia a matriz de verificações em [CONTRIBUTING.md](../../../CONTRIBUTING.md).

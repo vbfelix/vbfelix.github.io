@@ -59,8 +59,8 @@ Escreva testes para comportamentos relevantes e regressões: datas inválidas, c
 
 ## Branches e commits
 
-As regras gerais de branch, commit e merge são as skills globais `vfx-criar-branch`, `vfx-criar-commit` e
-`vfx-integrar-branch`, vindas de `vfx-llm-skills` e declaradas em [recursos.yaml](recursos.yaml). As seções
+As regras gerais de branch, commit e merge são as skills globais `vfx-create-branch`, `vfx-create-commit` e
+`vfx-finish-branch`, vindas de `vfx-llm-skills` e declaradas em [recursos.yaml](recursos.yaml). As seções
 abaixo registram o que é específico deste repositório.
 
 Antes de uma operação Git, confira `git status --short`, `git branch --show-current` e os diffs necessários. Mudanças preexistentes pertencem ao usuário; não as descarte nem as inclua automaticamente.

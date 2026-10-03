@@ -1,21 +1,21 @@
 source:
   path: C:/Users/Vinícius/Desktop/vfx-llm-skills
-  ref: v1.2.0
+  ref: v2.3.0
 platforms:
 - codex
 - claude-code
 use:
   skills:
-  - criar-branch
-  - criar-commit
-  - integrar-branch
-  - escrever-testes
-  - escrever-conteudo
-  - verificar-alteracao
-  - investigar-defeito
-  - publicar-alteracoes
+  - create-branch
+  - create-commit
+  - finish-branch
+  - write-tests
+  - write-content
+  - verify-change
+  - debug-defect
+  - publish-changes
 config:
-  verificar-alteracao:
+  verify-change:
     testes:
       comando:
       - powershell
@@ -54,7 +54,7 @@ config:
       - staged
       diretorio: .
       timeout: 900
-  escrever-conteudo:
+  write-content:
     criterios:
     - .agents/skills/ghost-writer/SKILL.md
     - CONTRIBUTING.md

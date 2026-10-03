@@ -18,14 +18,14 @@ Reusable skills come from the `vfx-llm-skills` library and are not maintained he
 
 Global skills:
 
-- Branches: `vfx-criar-branch`.
-- Commits: `vfx-criar-commit`.
-- Branch integration: `vfx-integrar-branch`.
-- Test authoring: `vfx-escrever-testes`.
-- Content writing contract: `vfx-escrever-conteudo`.
-- Declared verification commands: `vfx-verificar-alteracao`.
-- Defect investigation before fixing: `vfx-investigar-defeito`.
-- Push and merge into `origin/main` on explicit request: `vfx-publicar-alteracoes`.
+- Branches: `vfx-create-branch`.
+- Commits: `vfx-create-commit`.
+- Branch integration: `vfx-finish-branch`.
+- Test authoring: `vfx-write-tests`.
+- Content writing contract: `vfx-write-content`.
+- Declared verification commands: `vfx-verify-change`.
+- Defect investigation before fixing: `vfx-debug-defect`.
+- Push and merge into `origin/main` on explicit request: `vfx-publish-changes`.
 
 Skills specific to this site, kept locally on top of the global ones:
 
@@ -34,7 +34,7 @@ Skills specific to this site, kept locally on top of the global ones:
 - Rendering, navigation and preview validation: [.agents/skills/site-validation/SKILL.md](.agents/skills/site-validation/SKILL.md).
 - Unified local commands and preview: [.agents/skills/site-workflow/SKILL.md](.agents/skills/site-workflow/SKILL.md).
 
-Merging into `main` and pushing to `origin/main` is `vfx-publicar-alteracoes`, which follows `vfx-integrar-branch`. The site-specific requirements it depends on — preserving `_freeze/`, committing the matching `docs/` output, regenerating `docs/` when a merge touches sources — live in [CONTRIBUTING.md](CONTRIBUTING.md).
+Merging into `main` and pushing to `origin/main` is `vfx-publish-changes`, which follows `vfx-finish-branch`. The site-specific requirements it depends on — preserving `_freeze/`, committing the matching `docs/` output, regenerating `docs/` when a merge touches sources — live in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 To refresh the managed copies after changing `recursos.yaml` or the pinned `ref`, run the library CLI for each platform:
 
@@ -47,7 +47,7 @@ python <fonte>/scripts/resources.py instalar --repositorio . --plataforma claude
 
 `recursos.lock.json` records the resolved commit for the pinned `ref`. Version it together with `recursos.yaml` and the `vfx-*` bridges; `.vfx-llm-skills/` is generated and ignored by Git.
 
-The library also ships hooks (`session-start`, `validate-changes`, `session-end`). This repository does not enable them: it already owns a `Stop` hook in [.codex/hooks.json](.codex/hooks.json) that validates the local AI configuration. Enabling the library's hooks would mean trusting `.codex/vfx-llm-hooks.json` in Codex and composing the same descriptors into Claude Code settings by hand, so add them to `use.hooks` only when that composition is actually wanted.
+The library also ships hooks (`session-start`, `validate-changes`, `session-end`, `measure-invocations` and the `guard-git`, `guard-secrets`, `guard-config` and `guard-large-reads` guards). This repository does not enable them: it already owns a `Stop` hook in [.codex/hooks.json](.codex/hooks.json) that validates the local AI configuration. Enabling the library's hooks would mean trusting `.codex/vfx-llm-hooks.json` in Codex and composing the same descriptors into Claude Code settings by hand, so add them to `use.hooks` only when that composition is actually wanted.
 
 Load the relevant skill for the requested operation. These instructions do not authorize Git mutations, push or deployment on their own. Preserve existing user authorization without asking for it again.
 
