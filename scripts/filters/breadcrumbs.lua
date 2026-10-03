@@ -46,7 +46,7 @@ function Pandoc(doc)
   if parent then
     local ending = '<nav class="article-end" aria-label="Continuar lendo">'
       .. (parent.label == 'Blog' and tags(doc.meta) or '')
-      .. '<a class="experience-link" href="' .. parent.href .. '">← ' .. parent.back .. '</a></nav>'
+      .. '<a class="utility-link" href="' .. parent.href .. '">← ' .. parent.back .. '</a></nav>'
     doc.blocks:insert(pandoc.RawBlock('html', ending))
   end
   return doc

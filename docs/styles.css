@@ -263,9 +263,9 @@ body::before {
 .site-breadcrumbs li + li::before { content:"/"; margin-right:.65rem; opacity:.65; }
 .site-breadcrumbs a { color:var(--ink); text-underline-offset:.2em; }
 .site-breadcrumbs a:focus-visible { --focus:var(--blue); outline-offset:4px; }
-.experience-link { display:inline-block; margin-top:.7rem; padding:.65rem 1rem; border:1px solid var(--line); color:var(--ink); text-decoration:none; font:.8rem/1.5 var(--mono); }
-.experience-link:hover { background:var(--wash); border-color:var(--ink); }
-.experience-link:focus-visible { --focus:var(--blue); outline-offset:4px; }
+.experience-link,.utility-link { display:inline-block; margin-top:.7rem; padding:.65rem 1rem; border:1px solid var(--line); color:var(--ink); text-decoration:none; font:.8rem/1.5 var(--mono); }
+.experience-link:hover,.utility-link:hover { background:var(--wash); border-color:var(--ink); }
+.experience-link:focus-visible,.utility-link:focus-visible { --focus:var(--blue); outline-offset:4px; }
 
 .about-hero {
   display: grid;
@@ -325,8 +325,8 @@ body::before {
 .skip-link:focus { top:.5rem; }
 .article-end { margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid var(--line); }
 .article-end .post-tags { margin:0 0 var(--space-md); font-size:.8rem; }
-.record-list ul { list-style:none; margin:0 0 var(--space-lg); padding:0; }
-.record-list li {
+.record-list > ul { list-style:none; margin:0 0 var(--space-lg); padding:0; }
+.record-list > ul > li {
   display:grid;
   grid-template-columns:2rem 3.5rem minmax(0,1fr);
   gap:var(--space-md);
@@ -334,6 +334,7 @@ body::before {
   padding:var(--space-sm) 0;
   border-top:1px solid var(--line)}
 .record-list img { width:2rem; height:2rem; object-fit:contain; }
+.record-list li ul { grid-column:3; margin:0; padding-left:1.1rem; font-size:.9rem; }
 .record-date { color:var(--muted); font:.75rem/1.5 var(--mono); font-variant-numeric:tabular-nums; }
 .embed { display:block; width:100%; max-width:42rem; border:0; }
 .embed--video { height:auto; aspect-ratio:16 / 9; }

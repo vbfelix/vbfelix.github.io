@@ -138,6 +138,25 @@ class SelectedCardOutputTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'no selected portfolio cards'):
                 site.selected_cards(source)
 
+    def test_article_must_link_back_to_its_section(self):
+        with tempfile.TemporaryDirectory() as directory:
+            page = Path(directory) / 'index.html'
+            page.write_text(
+                '<nav class="site-breadcrumbs"><a href="/index.html">Início</a></nav>'
+                '<nav class="article-end"><a href="/writing.html">Todos os textos</a></nav>',
+                encoding='utf-8',
+            )
+            error = site.article_navigation_error(Path('posts/case/index.html'), site.Page(page))
+            self.assertIn('breadcrumb does not link to /writing.html', error)
+
+            page.write_text(
+                '<nav class="site-breadcrumbs"><a href="/index.html">Início</a><a href="/writing.html">Blog</a></nav>',
+                encoding='utf-8',
+            )
+            error = site.article_navigation_error(Path('posts/case/index.html'), site.Page(page))
+            self.assertIn('missing the end-of-article navigation', error)
+            self.assertIsNone(site.article_navigation_error(Path('writing.html'), site.Page(page)))
+
     def test_different_rendered_order_reports_the_page_and_source(self):
         error = site.selected_card_error(
             'header-about.html',

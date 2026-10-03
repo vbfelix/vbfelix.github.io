@@ -75,7 +75,7 @@ function Test-RenderNeeded {
     if (-not (Test-Path -LiteralPath $homepage)) { return $true }
     $outputTime = (Get-Item -LiteralPath $homepage).LastWriteTimeUtc
     $sourceFiles = @(
-        Get-ChildItem -LiteralPath (Join-Path $repository '_content'), (Join-Path $repository 'posts'), (Join-Path $repository 'portfolio'), (Join-Path $repository 'assets') -Recurse -File
+        Get-ChildItem -LiteralPath (Join-Path $repository '_content'), (Join-Path $repository '_includes'), (Join-Path $repository 'posts'), (Join-Path $repository 'portfolio'), (Join-Path $repository 'assets') -Recurse -File
         Get-ChildItem -LiteralPath $repository -File | Where-Object { $_.Extension -in '.qmd', '.scss', '.css' -or $_.Name -eq '_quarto.yml' }
         Get-Item -LiteralPath (Join-Path $repository 'scripts/build-writing.py'), (Join-Path $repository 'scripts/sync-portfolio.py'), (Join-Path $repository 'scripts/sync-blog.py'), (Join-Path $repository 'scripts/build-agent-assets.ts'), (Join-Path $repository 'scripts/content-source.ts'), (Join-Path $repository 'scripts/test-content-source.ts')
         Get-Item -LiteralPath (Join-Path $repository 'scripts/build-home.py')
@@ -185,7 +185,7 @@ try {
             $changed = Get-ChangedFiles
             Invoke-Checked $script:PythonPath @('scripts/check-ai-workflow.py')
             if ($Scope -eq 'all' -or $changed -match '^scripts/') { Invoke-UnitTests }
-            if ($Scope -eq 'all' -or $changed -match '\.(qmd|yml|yaml|scss|css|lua)$' -or $changed -match '^scripts/') { Invoke-Render }
+            if ($Scope -eq 'all' -or $changed -match '\.(qmd|yml|yaml|scss|css|lua)$' -or $changed -match '^(scripts|_includes|assets)/') { Invoke-Render }
             else { Write-Host 'PASS: no rendered site inputs changed.' }
         }
         'preview' {
