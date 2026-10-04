@@ -4,6 +4,12 @@ Fonte: https://vbfelix.github.io/header-publications.html
 
 # Artigos
 
+## Livros
+
+1.  [Parabéns. Agora o problema é seu!](https://www.amazon.com.br/dp/B0HLWSZMF4)
+
+    
+
 ## Periódicos científicos
 
 1.  [SOUZA, E. M](http://lattes.cnpq.br/0029713017048136); [**FÉLIX, V. B.**](http://lattes.cnpq.br/6820390470508877) [Wavelet Cross-correlation in Bivariate Time-Series Analysis](https://www.scielo.br/j/tema/a/YFvqfzkcBJYgnLYc8MTnGHw/?lang=en&format=pdf). TEMA. Tendências em Matemática Aplicada e Computacional, v. 3, p. 391-403, 2018.

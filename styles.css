@@ -338,6 +338,7 @@ body::before {
 .record-date { color:var(--muted); font:.75rem/1.5 var(--mono); font-variant-numeric:tabular-nums; }
 .embed { display:block; width:100%; max-width:42rem; border:0; }
 .embed--video { height:auto; aspect-ratio:16 / 9; }
+.embed--book { max-width:7.5rem; height:12.5rem; margin-top:var(--space-sm); border-radius:.5rem; }
 @media(max-width:767.98px) {
   body::before { opacity:.6; }
   .about-projects { grid-template-columns:1fr; }
