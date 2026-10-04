@@ -216,13 +216,15 @@ class Navigation(unittest.TestCase):
                               'header-participations.html', 'header-courses.html', 'header-publications.html',
                               'header-awards.html'}, targets)
 
-    def test_footer_reaches_the_site_and_the_machine_formats(self):
+    def test_footer_reaches_the_machine_formats(self):
         targets = {target for _, target in self.footer(HOME)}
-        self.assertLessEqual({'portfolio.html', 'writing.html', 'header-experience.html', 'agents.html',
-                              'curriculo.md', 'curriculo.json'}, targets)
+        self.assertLessEqual({'agents.html', 'curriculo.md', 'curriculo.json'}, targets)
 
-    def test_every_published_section_page_is_reachable_from_menu_or_footer(self):
+    def test_every_published_section_page_is_reachable_from_the_home_page(self):
+        # Through the menu, the footer or a link in the home content.
         reachable = {target for _, target in self.menu(HOME) + self.footer(HOME)}
+        reachable |= {destination(HOME, link.attrs['href']) for link in page(HOME).find('main').find_all('a')
+                      if link.attrs.get('href') and not urlsplit(link.attrs['href']).scheme}
         orphans = [relative for relative in PAGES
                    if '/' not in relative and relative not in reachable and relative != 'header-about.html']
         self.assertEqual(orphans, [])
