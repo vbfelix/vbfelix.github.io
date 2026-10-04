@@ -58,6 +58,8 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [Seu dashboard passa em code review?](https://vbfelix.github.io/posts/0034-seu-dashboard-passa-em-code-review/index.html.md): artigo em pt-BR, temas: Engenharia de dados, BI.
 - [GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM](https://vbfelix.github.io/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html.md): artigo em pt-BR, temas: IA.
 - [O que é o T do GPT?](https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md): artigo em pt-BR, temas: IA.
+- [Seu prompt passou no teste do olhômetro](https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html.md): artigo em pt-BR, temas: IA.
+- [Quão rápido era um Velociraptor? E como descobrir isso](https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html.md): artigo em pt-BR, temas: Estatística.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.

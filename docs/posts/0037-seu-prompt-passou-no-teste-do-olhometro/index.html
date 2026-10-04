@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Seu prompt passou no teste do olhômetro – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Seu prompt passou no teste do olhômetro – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html">
+<meta name="description" content="Em janeiro de 2026, a Anthropic contou que o Claude Opus 4.5 marcou 42% no CORE-Bench, um *benchmark* que pede a um agente para reproduzir resultados de artigos científicos. Depois de corrigir o teste, a nota foi para 95% ([Anthropic, *Demystifying evals for AI agents*](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)).">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html#page","url":"https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html","name":"Seu prompt passou no teste do olhômetro","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html","articleSection":["IA"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Seu prompt passou no teste do olhômetro</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">IA</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#um-modelo-que-tirou-42-e-merecia-95" id="toc-um-modelo-que-tirou-42-e-merecia-95" class="nav-link active" data-scroll-target="#um-modelo-que-tirou-42-e-merecia-95">Um modelo que tirou 42 e merecia 95</a></li>
+  <li><a href="#teste-unitário-para-quem-não-repete-a-resposta" id="toc-teste-unitário-para-quem-não-repete-a-resposta" class="nav-link" data-scroll-target="#teste-unitário-para-quem-não-repete-a-resposta">Teste unitário para quem não repete a resposta</a></li>
+  <li><a href="#três-juízes-nenhum-perfeito" id="toc-três-juízes-nenhum-perfeito" class="nav-link" data-scroll-target="#três-juízes-nenhum-perfeito">Três juízes, nenhum perfeito</a></li>
+  <li><a href="#capacidade-e-regressão-não-são-a-mesma-nota" id="toc-capacidade-e-regressão-não-são-a-mesma-nota" class="nav-link" data-scroll-target="#capacidade-e-regressão-não-são-a-mesma-nota">Capacidade e regressão não são a mesma nota</a></li>
+  <li><a href="#acertar-uma-vez-não-é-acertar-sempre" id="toc-acertar-uma-vez-não-é-acertar-sempre" class="nav-link" data-scroll-target="#acertar-uma-vez-não-é-acertar-sempre">Acertar uma vez não é acertar sempre</a></li>
+  <li><a href="#vinte-linhas-para-aposentar-o-olhômetro" id="toc-vinte-linhas-para-aposentar-o-olhômetro" class="nav-link" data-scroll-target="#vinte-linhas-para-aposentar-o-olhômetro">Vinte linhas para aposentar o olhômetro</a></li>
+  <li><a href="#quando-quem-reprova-é-o-avaliador" id="toc-quando-quem-reprova-é-o-avaliador" class="nav-link" data-scroll-target="#quando-quem-reprova-é-o-avaliador">Quando quem reprova é o avaliador</a></li>
+  <li><a href="#sua-pior-reclamação-já-é-um-caso-de-teste" id="toc-sua-pior-reclamação-já-é-um-caso-de-teste" class="nav-link" data-scroll-target="#sua-pior-reclamação-já-é-um-caso-de-teste">Sua pior reclamação já é um caso de teste</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Seu prompt passou no teste do olhômetro</li></ol></nav>
+<section id="um-modelo-que-tirou-42-e-merecia-95" class="level3">
+<h3 class="anchored" data-anchor-id="um-modelo-que-tirou-42-e-merecia-95">Um modelo que tirou 42 e merecia 95</h3>
+<p>Em janeiro de 2026, a Anthropic contou que o Claude Opus 4.5 marcou 42% no CORE-Bench, um <em>benchmark</em> que pede a um agente para reproduzir resultados de artigos científicos. Depois de corrigir o teste, a nota foi para 95% (<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic, <em>Demystifying evals for AI agents</em></a>).</p>
+<p>O modelo não mudou. O avaliador mudou. Ele reprovava a resposta “96.12” porque esperava “96.124991…”. Algumas tarefas eram ambíguas. Outras não davam o mesmo resultado duas vezes nem com a solução certa.</p>
+<p>Gosto desse caso porque ele resume o assunto inteiro. Avaliar um LLM é medir um sistema que não responde igual duas vezes, com uma régua que também pode estar torta.</p>
+</section>
+<section id="teste-unitário-para-quem-não-repete-a-resposta" class="level3">
+<h3 class="anchored" data-anchor-id="teste-unitário-para-quem-não-repete-a-resposta">Teste unitário para quem não repete a resposta</h3>
+<p>Algo determinístico implica que a mesma entrada produz a mesma saída. O teste é passa ou falha, e roda igual mil vezes. Com LLM, trocar uma letra no prompt pode mudar a resposta, e o teste manual com as perguntas favoritas só diz se a saída “parece” melhor (<a href="https://www.aihero.dev/what-are-evals">Matt Pocock, <em>Your App Is Only As Good As Its Evals</em></a>).</p>
+<p>Eval é o teste automatizado desse tipo de sistema. Ele roda um conjunto fixo de casos, dá nota a cada resposta e devolve um número que você compara entre versões. Um <em>benchmark</em> mede o modelo numa prova pública. O eval mede a sua aplicação nos seus casos. O artigo da Anthropic dá nome às peças. Vale guardar os nomes, porque toda ferramenta usa algum deles:</p>
+<ul>
+<li><strong><em>Task</em></strong>, a tarefa: um caso de teste, com entrada e critério de sucesso definidos;</li>
+<li><strong><em>Trial</em></strong>, a tentativa: uma execução da tarefa. Como a saída varia, a mesma tarefa roda várias vezes;</li>
+<li><strong><em>Grader</em></strong>, o avaliador: a lógica que dá nota a algum aspecto da resposta. Uma tarefa pode ter vários;</li>
+<li><strong><em>Transcript</em></strong>: o registro completo da tentativa, com saída, chamadas de ferramenta e passos intermediários;</li>
+<li><strong><em>Outcome</em></strong>: o estado final do mundo depois da tentativa. O agente disse que reservou o voo, mas a reserva existe no banco?;</li>
+<li><strong><em>Harness</em></strong>: a infraestrutura que roda tudo de ponta a ponta. Entrega a tarefa, executa as tentativas em paralelo, grava os <em>transcripts</em>, chama os <em>graders</em> e soma as notas.</li>
+</ul>
+<p>A diferença entre <em>transcript</em> e <em>outcome</em> parece detalhe e não é. O <em>transcript</em> é o que o agente contou. O <em>outcome</em> é o que de fato aconteceu.</p>
+</section>
+<section id="três-juízes-nenhum-perfeito" class="level3">
+<h3 class="anchored" data-anchor-id="três-juízes-nenhum-perfeito">Três juízes, nenhum perfeito</h3>
+<p>A peça que mais pesa no desenho é o <em>grader</em>. Existem três famílias (<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic</a>; <a href="https://www.langchain.com/resources/llm-evals">LangChain, <em>LLM Evals</em></a>; <a href="https://www.aihero.dev/three-types-of-evals">Matt Pocock, <em>The Three Types Of Evals</em></a>):</p>
+<ul>
+<li><strong>Código</strong>: comparação de texto, validação de JSON, teste de unidade sobre o código que o modelo escreveu, consulta ao banco para conferir o <em>outcome</em>. É rápido, barato e reproduzível. Quebra quando a resposta certa vem num formato que você não previu, como o “96.12” do CORE-Bench;</li>
+<li><strong>Modelo</strong>: outro LLM lê a resposta com uma rubrica e dá a nota. É o chamado LLM como juiz. Cobre critério aberto, como tom, fidelidade à fonte e utilidade. Custa e demora mais;</li>
+<li><strong>Humano</strong>: um especialista revisa uma amostra. É o padrão de qualidade e é o que calibra os outros dois. É lento, caro e não escala.</li>
+</ul>
+<p>A regra prática que tiro disso: use código para tudo que dá para verificar com código.</p>
+<p>O Matt Pocock repete um caso contado por Ian Webster, o do Clyde, um bot do Discord, cujas respostas eram checadas para começar sempre com letra minúscula, imitando um usuário jovem. É o <em>grader</em> mais bobo que existe, uma linha de código. E pega uma regressão real de estilo antes de o usuário ver.</p>
+<p>O LLM como juiz merece um cuidado a mais. A documentação da Anthropic recomenda usar como juiz um modelo diferente do avaliado (<a href="https://platform.claude.com/docs/en/test-and-evaluate/develop-tests">Anthropic, <em>Create strong empirical evaluations</em></a>). O viés tem medição: um LLM avaliador tende a dar nota mais alta ao texto que ele mesmo gerou, enquanto anotadores humanos consideram os textos equivalentes (<a href="https://arxiv.org/abs/2404.13076">Panickssery, Bowman e Feng, <em>LLM Evaluators Recognize and Favor Their Own Generations</em></a>).</p>
+<p>O juiz precisa ser medido. Se o mesmo <em>transcript</em> recebe nota diferente a cada rodada, a nota não serve para detectar regressão. E consistência não é acerto: um juiz pode errar sempre do mesmo jeito. É a comparação com a nota humana que mostra se ele acerta.</p>
+<p>Só que a taxa de concordância sozinha engana. Suponha 100 respostas, das quais 57 são boas. Um juiz que aprova tudo concorda com o humano em 57% dos casos e não pega nenhuma das 43 ruins. Por isso eu olharia dois números separados: quantas respostas ruins o juiz reprovou e quantas boas ele reprovou sem motivo.</p>
+<p>Na minha leitura, vale conferir ainda o que o juiz recebe para ler. Um juiz que lê só o <em>transcript</em> julga o que o agente contou. Para julgar o que aconteceu, ele precisa receber também o <em>outcome</em>.</p>
+<p>A Confident AI, que mantém o DeepEval, organiza dezenas de métricas prontas desse tipo, como <em>faithfulness</em>, que confere se cada afirmação da resposta está na fonte recuperada, e <em>answer relevancy</em>, que mede quanto da resposta responde de fato à pergunta (<a href="https://www.confident-ai.com/blog/llm-evaluation-metrics-everything-you-need-for-llm-evaluation">Confident AI, <em>LLM Evaluation Metrics</em></a>).</p>
+<p>Métricas usadas anteriormente para tradução e resumo, como BLEU e ROUGE, medem apenas palavras em comum com uma resposta de referência. Não percebem uma resposta certa escrita com outras palavras, nem uma errada que repete as palavras certas. Eu ainda as usaria como alarme barato de que a saída mudou entre duas versões. Como nota de qualidade, não servem.</p>
+</section>
+<section id="capacidade-e-regressão-não-são-a-mesma-nota" class="level3">
+<h3 class="anchored" data-anchor-id="capacidade-e-regressão-não-são-a-mesma-nota">Capacidade e regressão não são a mesma nota</h3>
+<p>O artigo da Anthropic separa as suítes pela pergunta que cada uma responde:</p>
+<ul>
+<li><strong>Capacidade</strong>: o que o sistema ainda não faz bem? A suíte começa com taxa de acerto baixa, de propósito. Se ela já nasce com 100%, não tem nada para ensinar;</li>
+<li><strong>Regressão</strong>: o que o sistema já fazia continua funcionando? Qualquer queda é sinal para investigar.</li>
+</ul>
+<p>Quando a capacidade satura perto do teto, ela vira caso de regressão e passa a rodar a cada mudança.</p>
+<p>A LangChain acrescenta outro eixo, o momento em que o eval roda (<a href="https://www.langchain.com/resources/llm-evals">LangChain</a>). O eval <strong><em>offline</em></strong> roda antes do <em>deploy</em>, sobre um conjunto curado em que você conhece a resposta boa. O eval <strong><em>online</em></strong> roda sobre o tráfego de produção, em que não existe resposta de referência, e serve para pegar a deriva lenta do comportamento e problema de segurança. O <em>offline</em> diz se a versão nova pode subir. O <em>online</em> diz se a que subiu continua boa.</p>
+</section>
+<section id="acertar-uma-vez-não-é-acertar-sempre" class="level3">
+<h3 class="anchored" data-anchor-id="acertar-uma-vez-não-é-acertar-sempre">Acertar uma vez não é acertar sempre</h3>
+<p>Como a saída de um LLM varia, uma tarefa roda várias vezes. Aí surge a pergunta: o que conta como sucesso? A Anthropic usa duas métricas, e elas andam em sentidos opostos:</p>
+<ul>
+<li><strong><em>pass@k</em></strong>: a probabilidade de pelo menos uma das <em>k</em> tentativas acertar. Sobe quando <em>k</em> cresce;</li>
+<li><strong><em>pass^k</em></strong>: a probabilidade de todas as <em>k</em> tentativas acertarem. Cai quando <em>k</em> cresce.</li>
+</ul>
+<p>Um agente que acerta 75% das vezes, avaliado em três tentativas, tem <em>pass^3</em> de 0,75 × 0,75 × 0,75, cerca de 42%. A conta supõe tentativas independentes, e num teste real algumas tarefas são sempre fáceis e outras sempre difíceis.</p>
+<p>Na minha leitura, a escolha depende da aplicação, não do gosto. Um assistente que gera cinco sugestões de código para o desenvolvedor escolher precisa de no mínimo uma ótima entre as cinco, e <em>pass@k</em> mede isso. Um agente de atendimento que cancela um pedido precisa acertar toda vez, e <em>pass^k</em> mede isso. Se não há verificação nem confirmação humana antes da ação, reportar <em>pass@k</em> para esse agente é escolher a métrica que faz o número parecer bonito.</p>
+</section>
+<section id="vinte-linhas-para-aposentar-o-olhômetro" class="level3">
+<h3 class="anchored" data-anchor-id="vinte-linhas-para-aposentar-o-olhômetro">Vinte linhas para aposentar o olhômetro</h3>
+<p>O DeepEval é uma biblioteca em Python que transforma isso em algo parecido com o <code>pytest</code>. A unidade é o <code>LLMTestCase</code>, com a pergunta, a resposta da sua aplicação e, se a aplicação usa RAG (busca documentos antes de responder), os documentos que ela recuperou. No exemplo o contexto está fixo para caber na tela. No teste de verdade, ele vem do seu recuperador. Cada métrica devolve uma nota de 0 a 1 com uma justificativa, e o <code>threshold</code> define a nota mínima para o caso passar (<a href="https://deepeval.com/docs/evaluation-introduction">DeepEval, <em>Evaluation Introduction</em></a>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> deepeval <span class="im">import</span> assert_test</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> deepeval.test_case <span class="im">import</span> LLMTestCase</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> deepeval.metrics <span class="im">import</span> AnswerRelevancyMetric, FaithfulnessMetric</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>casos <span class="op">=</span> [</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    LLMTestCase(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">input</span><span class="op">=</span><span class="st">"Qual o prazo para cancelar sem multa?"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        actual_output<span class="op">=</span>minha_app(<span class="st">"Qual o prazo para cancelar sem multa?"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        retrieval_context<span class="op">=</span>[<span class="st">"O cancelamento sem multa vale até 7 dias após a compra."</span>],</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(<span class="st">"caso"</span>, casos)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_atendimento(caso):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    assert_test(caso, [</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        AnswerRelevancyMetric(threshold<span class="op">=</span><span class="fl">0.7</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        FaithfulnessMetric(threshold<span class="op">=</span><span class="fl">0.8</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função <code>minha_app</code> é a sua aplicação. As duas métricas são LLM como juiz por baixo: chamam um modelo para julgar. O caso só passa se as duas passarem. E o arquivo roda com um comando, o que permite colocá-lo na CI, a esteira que testa cada mudança antes do <em>merge</em>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deepeval</span> test run test_atendimento.py</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A métrica pronta serve para começar. O <code>threshold</code> de 0,7 é arbitrário até você comparar a nota com o seu próprio julgamento em casos reais. Hamel Husain e Shreya Shankar são diretos nesse ponto: métrica genérica usada como medida de qualidade cria falsa confiança, e nota boa nela não quer dizer que o sistema funciona (<a href="https://hamel.dev/blog/posts/evals-faq/">Husain e Shankar, <em>AI Evals: Everything You Need to Know</em></a>). Eles defendem o juiz binário, com veredito de passa ou falha, no lugar da escala de 1 a 5, em que a diferença entre um 3 e um 4 muda de um anotador para outro.</p>
+<p>O OpenAI Evals segue a mesma ideia com outro formato. Os casos ficam num arquivo JSON e os parâmetros num YAML. Um registro aberto reúne evals prontos, inclusive com juiz por modelo (<a href="https://github.com/openai/evals">openai/evals no GitHub</a>). Para mim, a ferramenta importa menos que o conjunto de casos. Um bom conjunto costuma migrar de uma ferramenta para outra sem drama. Um conjunto ruim continua ruim em qualquer uma.</p>
+</section>
+<section id="quando-quem-reprova-é-o-avaliador" class="level3">
+<h3 class="anchored" data-anchor-id="quando-quem-reprova-é-o-avaliador">Quando quem reprova é o avaliador</h3>
+<p>O caso do CORE-Bench não é isolado. O mesmo artigo da Anthropic conta mais dois:</p>
+<ul>
+<li><strong>Terminal-Bench</strong>, um <em>benchmark</em> de tarefas no terminal: tarefas pediam ao agente que escrevesse um <em>script</em> sem dizer em que pasta salvar. O <em>grader</em> esperava uma pasta específica. O agente reprovava por ambiguidade da tarefa, não por incapacidade;</li>
+<li><strong>METR</strong>, uma organização que mede o horizonte de tarefas dos agentes: algumas tarefas pediam ao agente que passasse de uma nota mínima. O <em>grader</em> penalizava o modelo que parava ao atingir a nota pedida e premiava o que ignorava a instrução.</li>
+</ul>
+<p>Nos três casos, o número dizia uma coisa sobre o modelo e a verdade estava no avaliador. As recomendações do artigo para evitar isso são diretas:</p>
+<ul>
+<li><strong>Leia os <em>transcripts</em></strong>: sem ler as tentativas e as notas de muitas rodadas, você não sabe se a falha é erro do agente ou solução válida rejeitada pelo <em>grader</em>;</li>
+<li><strong>Avalie o <em>outcome</em>, não o caminho</strong>: agentes acham caminhos que quem escreveu o eval não previu. Um <em>grader</em> que exige a sequência exata de passos reprova solução certa;</li>
+<li><strong>Escreva tarefas sem ambiguidade</strong>: dois especialistas, sozinhos, devem chegar ao mesmo veredito de passa ou falha. Para cada tarefa, tenha uma solução de referência que prove que ela tem solução;</li>
+<li><strong>Desconfie do 0%</strong>: um modelo de fronteira com 0% em 100 tentativas quase sempre indica tarefa quebrada, não agente incapaz;</li>
+<li><strong>Equilibre os casos</strong>: teste onde o comportamento deve acontecer e onde ele não deve. Uma suíte só com pedidos que o agente deve recusar premia o agente que recusa tudo;</li>
+<li><strong>Isole cada tentativa</strong>: cada <em>trial</em> começa de um ambiente limpo. Estado compartilhado entre tentativas produz falhas em série que são da infraestrutura, não do modelo.</li>
+</ul>
+<p>Faço uma ressalva a “avalie o <em>outcome</em>, não o caminho”. Não exigir a sequência de passos é diferente de ignorar o caminho. Um agente pode chegar ao <em>outcome</em> certo depois de emitir o mesmo reembolso duas vezes e desfazer um deles. Eu manteria um <em>grader</em> de código para a ação que nunca pode acontecer.</p>
+<p>A LangChain dá o conselho que mais uso para avaliar: nomeie a falha antes de dar nota a ela (<a href="https://www.langchain.com/resources/llm-evals">LangChain</a>). “Utilidade” é vago demais para virar <em>grader</em>. “Omitiu o aviso legal obrigatório” e “citou documento desatualizado” viram. Uma falha com nome vira caso de teste.</p>
+<p>Os nomes saem da leitura, antes de qualquer automação. Husain e Shankar recomendam revisar pelo menos 100 <em>transcripts</em>, anotar em texto livre o que saiu errado em cada um e depois agrupar as anotações em categorias de falha (<a href="https://hamel.dev/blog/posts/evals-faq/">Husain e Shankar</a>). Husain conta as ocorrências de cada categoria numa tabela dinâmica (<a href="https://hamel.dev/blog/posts/field-guide/">Husain, <em>A Field Guide to Rapidly Improving AI Products</em></a>). Eu usaria essa contagem para escolher qual <em>grader</em> escrever primeiro.</p>
+</section>
+<section id="sua-pior-reclamação-já-é-um-caso-de-teste" class="level3">
+<h3 class="anchored" data-anchor-id="sua-pior-reclamação-já-é-um-caso-de-teste">Sua pior reclamação já é um caso de teste</h3>
+<p>Você não precisa de quinhentos casos para começar. A <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic</a> sugere de 20 a 50 tarefas simples, tiradas de falhas reais. No começo, cada mudança tem efeito grande, e uma amostra pequena basta para enxergá-lo. Para separar duas versões parecidas, vinte casos não bastam: a diferença some dentro do ruído, e a suíte precisa crescer.</p>
+<p>Dá para pôr número nesse ruído. Evan Miller propõe tratar o eval como experimento e reportar a nota com barra de erro (<a href="https://arxiv.org/abs/2411.00640">Miller, <em>Adding Error Bars to Evals</em></a>). Numa suíte de 60 casos com 70% de acerto, a conta usual do intervalo de confiança de 95% para uma proporção dá de 58% a 82%, a faixa de taxas compatíveis com o que a amostra mostrou. Uma versão nova que marca 75% acertou 3 casos a mais em 60. Eu não comemoraria esses cinco pontos.</p>
+<p>Duas práticas baratas ajudam. Rode as duas versões nos mesmos casos e conte quantos pioraram, porque a mesma taxa de acerto pode esconder casos que trocaram de lado. E separe os casos em dois grupos: um para ajustar o <em>prompt</em> e o juiz, outro só para reportar a nota. A nota do grupo em que você ajustou tende a sair melhor do que o sistema é.</p>
+<p>O que eu faria amanhã numa aplicação sem eval nenhum:</p>
+<ul>
+<li>Ler pelo menos cem respostas da aplicação, anotar o que saiu errado em cada uma e agrupar as anotações em falhas com nome;</li>
+<li>Juntar as últimas reclamações de usuário ou respostas ruins e transformar cada uma num caso com critério escrito;</li>
+<li>Dar a cada critério o <em>grader</em> mais barato que o verifica: código primeiro, LLM como juiz depois;</li>
+<li>Ler à mão as notas do juiz em uma amostra e conferir se eu daria a mesma nota, contando quantas respostas ruins ele deixou passar;</li>
+<li>Rodar a suíte a cada troca de modelo ou de <em>prompt</em>, comparar as versões nos mesmos casos e reportar <em>pass^k</em> se o produto não pode errar.</li>
+</ul>
+<p>E quando a nota cair, abrir o <em>transcript</em> antes de abrir o <em>prompt</em>. Às vezes o modelo errou. Às vezes, como no CORE-Bench, quem errou foi a régua.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=IA">#IA</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

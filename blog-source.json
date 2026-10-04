@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "0b58c5907d06a199bada542acadcab7af6b359ab",
+  "commit": "22bbfcc9cc9b6053536317b37fabb76e34ce44ea",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -28,6 +28,20 @@
       "source": "098a8147055ee8a40000b750d1f643f187619088cc59351419097376f60fec26",
       "rendered": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b",
       "target": "posts/0036-atencao-e-tudo-que-voce-precisa/index.qmd"
+    },
+    "2026-10-02_seu-prompt-passou-no-teste-do-olhometro.md": {
+      "source": "26111d24a8b4208b767ef5e2b11a5d8bd8760d1fe55f8e93ff7fa46397325a0c",
+      "rendered": "344278b77090ffb58c5419ca9e646b972f51d67b15a4254f3da6d346023aa970",
+      "target": "posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.qmd"
+    },
+    "2026-10-03_por-que-o-maior-animal-nao-e-o-mais-rapido.md": {
+      "source": "73f18bb9566f97297ffdefff282cb0ca4f64e17e957d44d3c80d1761edba23c9",
+      "rendered": "f8e272585d4ccfdbc0587aef08735d0b3be5a069d32a6388bf04b2abf2e595d1",
+      "target": "posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.qmd",
+      "assets": {
+        "figura-2.png": "bdeb96a9cc2a552e790233d078e90ae8131b165fee26ae01e01efcacecba0f54",
+        "figura-4.png": "7057693d5cd49a2362fc227b20b8f88b3944c2df1f3e0d726c430055dd0bfcc0"
+      }
     }
   }
 }

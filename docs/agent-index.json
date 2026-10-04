@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "075ee0e1a4183aace47848b586d82b2a8eefa39fe25f4dd3327d92f76018695f",
+  "sourceRevision": "ad62b014b6bedb9431dc1eaa4e8874e5c24be4b4cc19d1c0a4088ff2d4e74bfb",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -399,6 +399,28 @@
       "url": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md",
       "revision": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b"
+    },
+    {
+      "title": "Seu prompt passou no teste do olhômetro",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html.md",
+      "revision": "344278b77090ffb58c5419ca9e646b972f51d67b15a4254f3da6d346023aa970"
+    },
+    {
+      "title": "Quão rápido era um Velociraptor? E como descobrir isso",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Estatística"
+      ],
+      "url": "https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html.md",
+      "revision": "f8e272585d4ccfdbc0587aef08735d0b3be5a069d32a6388bf04b2abf2e595d1"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

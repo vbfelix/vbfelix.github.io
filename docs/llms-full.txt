@@ -97,9 +97,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry" data-language="pt" data-categories="Estatística"><time datetime="2026-10-03">2026-10-03</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html">Quão rápido era um Velociraptor? E como descobrir isso</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Estat%C3%ADstica" data-category="Estatística">#Estatística</a></p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-02">2026-10-02</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html">Seu prompt passou no teste do olhômetro</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-09-30">2026-09-30</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0036-atencao-e-tudo-que-voce-precisa/index.html">O que é o T do GPT?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-09-29">2026-09-29</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.html">GenRec: vinte anos depois do Netflix Prize, a resposta pode ser um LLM</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="Engenharia de dados, BI"><time datetime="2026-09-18">2026-09-18</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0034-seu-dashboard-passa-em-code-review/index.html">Seu dashboard passa em code review?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Engenharia%20de%20dados" data-category="Engenharia de dados">#Engenharia-de-dados</a><a class="post-tag" href="/writing.html?tema=BI" data-category="BI">#BI</a></p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -8923,6 +8923,326 @@ O segundo limite é de interpretação. É tentador olhar o peso de atenção e 
 Em contexto longo, escreva *prompt* pensando em competição por peso. A instrução mais importante não fica enterrada no meio de vinte páginas coladas. Ela vai no começo ou no fim. Documento que você sabe ser irrelevante sai do contexto, porque ele disputa peso com o que importa. Na dúvida, mantenha: cortar o trecho certo por engano custa mais caro que diluir.
 
 E desconfie de quem trata janela de contexto grande como memória gratuita. Ela custa em processamento e custa em foco.
+
+## Seu prompt passou no teste do olhômetro
+
+Fonte: https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html
+
+#### Um modelo que tirou 42 e merecia 95
+
+Em janeiro de 2026, a Anthropic contou que o Claude Opus 4.5 marcou 42% no CORE-Bench, um *benchmark* que pede a um agente para reproduzir resultados de artigos científicos. Depois de corrigir o teste, a nota foi para 95% ([Anthropic, *Demystifying evals for AI agents*](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)).
+
+O modelo não mudou. O avaliador mudou. Ele reprovava a resposta "96.12" porque esperava "96.124991…". Algumas tarefas eram ambíguas. Outras não davam o mesmo resultado duas vezes nem com a solução certa.
+
+Gosto desse caso porque ele resume o assunto inteiro. Avaliar um LLM é medir um sistema que não responde igual duas vezes, com uma régua que também pode estar torta.
+
+#### Teste unitário para quem não repete a resposta
+
+Algo determinístico implica que a mesma entrada produz a mesma saída. O teste é passa ou falha, e roda igual mil vezes. Com LLM, trocar uma letra no prompt pode mudar a resposta, e o teste manual com as perguntas favoritas só diz se a saída "parece" melhor ([Matt Pocock, *Your App Is Only As Good As Its Evals*](https://www.aihero.dev/what-are-evals)).
+
+Eval é o teste automatizado desse tipo de sistema. Ele roda um conjunto fixo de casos, dá nota a cada resposta e devolve um número que você compara entre versões. Um *benchmark* mede o modelo numa prova pública. O eval mede a sua aplicação nos seus casos. O artigo da Anthropic dá nome às peças. Vale guardar os nomes, porque toda ferramenta usa algum deles:
+
+- **_Task_**, a tarefa: um caso de teste, com entrada e critério de sucesso definidos;
+- **_Trial_**, a tentativa: uma execução da tarefa. Como a saída varia, a mesma tarefa roda várias vezes;
+- **_Grader_**, o avaliador: a lógica que dá nota a algum aspecto da resposta. Uma tarefa pode ter vários;
+- **_Transcript_**: o registro completo da tentativa, com saída, chamadas de ferramenta e passos intermediários;
+- **_Outcome_**: o estado final do mundo depois da tentativa. O agente disse que reservou o voo, mas a reserva existe no banco?;
+- **_Harness_**: a infraestrutura que roda tudo de ponta a ponta. Entrega a tarefa, executa as tentativas em paralelo, grava os *transcripts*, chama os *graders* e soma as notas.
+
+A diferença entre *transcript* e *outcome* parece detalhe e não é. O *transcript* é o que o agente contou. O *outcome* é o que de fato aconteceu.
+
+#### Três juízes, nenhum perfeito
+
+A peça que mais pesa no desenho é o *grader*. Existem três famílias ([Anthropic](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents); [LangChain, *LLM Evals*](https://www.langchain.com/resources/llm-evals); [Matt Pocock, *The Three Types Of Evals*](https://www.aihero.dev/three-types-of-evals)):
+
+- **Código**: comparação de texto, validação de JSON, teste de unidade sobre o código que o modelo escreveu, consulta ao banco para conferir o *outcome*. É rápido, barato e reproduzível. Quebra quando a resposta certa vem num formato que você não previu, como o "96.12" do CORE-Bench;
+- **Modelo**: outro LLM lê a resposta com uma rubrica e dá a nota. É o chamado LLM como juiz. Cobre critério aberto, como tom, fidelidade à fonte e utilidade. Custa e demora mais;
+- **Humano**: um especialista revisa uma amostra. É o padrão de qualidade e é o que calibra os outros dois. É lento, caro e não escala.
+
+A regra prática que tiro disso: use código para tudo que dá para verificar com código.
+
+O Matt Pocock repete um caso contado por Ian Webster, o do Clyde, um bot do Discord, cujas respostas eram checadas para começar sempre com letra minúscula, imitando um usuário jovem. É o *grader* mais bobo que existe, uma linha de código. E pega uma regressão real de estilo antes de o usuário ver.
+
+O LLM como juiz merece um cuidado a mais. A documentação da Anthropic recomenda usar como juiz um modelo diferente do avaliado ([Anthropic, *Create strong empirical evaluations*](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)). O viés tem medição: um LLM avaliador tende a dar nota mais alta ao texto que ele mesmo gerou, enquanto anotadores humanos consideram os textos equivalentes ([Panickssery, Bowman e Feng, *LLM Evaluators Recognize and Favor Their Own Generations*](https://arxiv.org/abs/2404.13076)).
+
+O juiz precisa ser medido. Se o mesmo *transcript* recebe nota diferente a cada rodada, a nota não serve para detectar regressão. E consistência não é acerto: um juiz pode errar sempre do mesmo jeito. É a comparação com a nota humana que mostra se ele acerta.
+
+Só que a taxa de concordância sozinha engana. Suponha 100 respostas, das quais 57 são boas. Um juiz que aprova tudo concorda com o humano em 57% dos casos e não pega nenhuma das 43 ruins. Por isso eu olharia dois números separados: quantas respostas ruins o juiz reprovou e quantas boas ele reprovou sem motivo.
+
+Na minha leitura, vale conferir ainda o que o juiz recebe para ler. Um juiz que lê só o *transcript* julga o que o agente contou. Para julgar o que aconteceu, ele precisa receber também o *outcome*.
+
+A Confident AI, que mantém o DeepEval, organiza dezenas de métricas prontas desse tipo, como *faithfulness*, que confere se cada afirmação da resposta está na fonte recuperada, e *answer relevancy*, que mede quanto da resposta responde de fato à pergunta ([Confident AI, *LLM Evaluation Metrics*](https://www.confident-ai.com/blog/llm-evaluation-metrics-everything-you-need-for-llm-evaluation)).
+
+Métricas usadas anteriormente para tradução e resumo, como BLEU e ROUGE, medem apenas palavras em comum com uma resposta de referência. Não percebem uma resposta certa escrita com outras palavras, nem uma errada que repete as palavras certas. Eu ainda as usaria como alarme barato de que a saída mudou entre duas versões. Como nota de qualidade, não servem.
+
+#### Capacidade e regressão não são a mesma nota
+
+O artigo da Anthropic separa as suítes pela pergunta que cada uma responde:
+
+- **Capacidade**: o que o sistema ainda não faz bem? A suíte começa com taxa de acerto baixa, de propósito. Se ela já nasce com 100%, não tem nada para ensinar;
+- **Regressão**: o que o sistema já fazia continua funcionando? Qualquer queda é sinal para investigar.
+
+Quando a capacidade satura perto do teto, ela vira caso de regressão e passa a rodar a cada mudança.
+
+A LangChain acrescenta outro eixo, o momento em que o eval roda ([LangChain](https://www.langchain.com/resources/llm-evals)). O eval **_offline_** roda antes do *deploy*, sobre um conjunto curado em que você conhece a resposta boa. O eval **_online_** roda sobre o tráfego de produção, em que não existe resposta de referência, e serve para pegar a deriva lenta do comportamento e problema de segurança. O *offline* diz se a versão nova pode subir. O *online* diz se a que subiu continua boa.
+
+#### Acertar uma vez não é acertar sempre
+
+Como a saída de um LLM varia, uma tarefa roda várias vezes. Aí surge a pergunta: o que conta como sucesso? A Anthropic usa duas métricas, e elas andam em sentidos opostos:
+
+- **_pass@k_**: a probabilidade de pelo menos uma das *k* tentativas acertar. Sobe quando *k* cresce;
+- **_pass^k_**: a probabilidade de todas as *k* tentativas acertarem. Cai quando *k* cresce.
+
+Um agente que acerta 75% das vezes, avaliado em três tentativas, tem *pass^3* de 0,75 × 0,75 × 0,75, cerca de 42%. A conta supõe tentativas independentes, e num teste real algumas tarefas são sempre fáceis e outras sempre difíceis.
+
+Na minha leitura, a escolha depende da aplicação, não do gosto. Um assistente que gera cinco sugestões de código para o desenvolvedor escolher precisa de no mínimo uma ótima entre as cinco, e *pass@k* mede isso. Um agente de atendimento que cancela um pedido precisa acertar toda vez, e *pass^k* mede isso. Se não há verificação nem confirmação humana antes da ação, reportar *pass@k* para esse agente é escolher a métrica que faz o número parecer bonito.
+
+#### Vinte linhas para aposentar o olhômetro
+
+O DeepEval é uma biblioteca em Python que transforma isso em algo parecido com o `pytest`. A unidade é o `LLMTestCase`, com a pergunta, a resposta da sua aplicação e, se a aplicação usa RAG (busca documentos antes de responder), os documentos que ela recuperou. No exemplo o contexto está fixo para caber na tela. No teste de verdade, ele vem do seu recuperador. Cada métrica devolve uma nota de 0 a 1 com uma justificativa, e o `threshold` define a nota mínima para o caso passar ([DeepEval, *Evaluation Introduction*](https://deepeval.com/docs/evaluation-introduction)).
+
+```python
+import pytest
+from deepeval import assert_test
+from deepeval.test_case import LLMTestCase
+from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric
+
+casos = [
+    LLMTestCase(
+        input="Qual o prazo para cancelar sem multa?",
+        actual_output=minha_app("Qual o prazo para cancelar sem multa?"),
+        retrieval_context=["O cancelamento sem multa vale até 7 dias após a compra."],
+    ),
+]
+
+@pytest.mark.parametrize("caso", casos)
+def test_atendimento(caso):
+    assert_test(caso, [
+        AnswerRelevancyMetric(threshold=0.7),
+        FaithfulnessMetric(threshold=0.8),
+    ])
+```
+
+A função `minha_app` é a sua aplicação. As duas métricas são LLM como juiz por baixo: chamam um modelo para julgar. O caso só passa se as duas passarem. E o arquivo roda com um comando, o que permite colocá-lo na CI, a esteira que testa cada mudança antes do *merge*:
+
+```bash
+deepeval test run test_atendimento.py
+```
+
+A métrica pronta serve para começar. O `threshold` de 0,7 é arbitrário até você comparar a nota com o seu próprio julgamento em casos reais. Hamel Husain e Shreya Shankar são diretos nesse ponto: métrica genérica usada como medida de qualidade cria falsa confiança, e nota boa nela não quer dizer que o sistema funciona ([Husain e Shankar, *AI Evals: Everything You Need to Know*](https://hamel.dev/blog/posts/evals-faq/)). Eles defendem o juiz binário, com veredito de passa ou falha, no lugar da escala de 1 a 5, em que a diferença entre um 3 e um 4 muda de um anotador para outro.
+
+O OpenAI Evals segue a mesma ideia com outro formato. Os casos ficam num arquivo JSON e os parâmetros num YAML. Um registro aberto reúne evals prontos, inclusive com juiz por modelo ([openai/evals no GitHub](https://github.com/openai/evals)). Para mim, a ferramenta importa menos que o conjunto de casos. Um bom conjunto costuma migrar de uma ferramenta para outra sem drama. Um conjunto ruim continua ruim em qualquer uma.
+
+#### Quando quem reprova é o avaliador
+
+O caso do CORE-Bench não é isolado. O mesmo artigo da Anthropic conta mais dois:
+
+- **Terminal-Bench**, um *benchmark* de tarefas no terminal: tarefas pediam ao agente que escrevesse um *script* sem dizer em que pasta salvar. O *grader* esperava uma pasta específica. O agente reprovava por ambiguidade da tarefa, não por incapacidade;
+- **METR**, uma organização que mede o horizonte de tarefas dos agentes: algumas tarefas pediam ao agente que passasse de uma nota mínima. O *grader* penalizava o modelo que parava ao atingir a nota pedida e premiava o que ignorava a instrução.
+
+Nos três casos, o número dizia uma coisa sobre o modelo e a verdade estava no avaliador. As recomendações do artigo para evitar isso são diretas:
+
+- **Leia os _transcripts_**: sem ler as tentativas e as notas de muitas rodadas, você não sabe se a falha é erro do agente ou solução válida rejeitada pelo *grader*;
+- **Avalie o _outcome_, não o caminho**: agentes acham caminhos que quem escreveu o eval não previu. Um *grader* que exige a sequência exata de passos reprova solução certa;
+- **Escreva tarefas sem ambiguidade**: dois especialistas, sozinhos, devem chegar ao mesmo veredito de passa ou falha. Para cada tarefa, tenha uma solução de referência que prove que ela tem solução;
+- **Desconfie do 0%**: um modelo de fronteira com 0% em 100 tentativas quase sempre indica tarefa quebrada, não agente incapaz;
+- **Equilibre os casos**: teste onde o comportamento deve acontecer e onde ele não deve. Uma suíte só com pedidos que o agente deve recusar premia o agente que recusa tudo;
+- **Isole cada tentativa**: cada *trial* começa de um ambiente limpo. Estado compartilhado entre tentativas produz falhas em série que são da infraestrutura, não do modelo.
+
+Faço uma ressalva a "avalie o *outcome*, não o caminho". Não exigir a sequência de passos é diferente de ignorar o caminho. Um agente pode chegar ao *outcome* certo depois de emitir o mesmo reembolso duas vezes e desfazer um deles. Eu manteria um *grader* de código para a ação que nunca pode acontecer.
+
+A LangChain dá o conselho que mais uso para avaliar: nomeie a falha antes de dar nota a ela ([LangChain](https://www.langchain.com/resources/llm-evals)). "Utilidade" é vago demais para virar *grader*. "Omitiu o aviso legal obrigatório" e "citou documento desatualizado" viram. Uma falha com nome vira caso de teste.
+
+Os nomes saem da leitura, antes de qualquer automação. Husain e Shankar recomendam revisar pelo menos 100 *transcripts*, anotar em texto livre o que saiu errado em cada um e depois agrupar as anotações em categorias de falha ([Husain e Shankar](https://hamel.dev/blog/posts/evals-faq/)). Husain conta as ocorrências de cada categoria numa tabela dinâmica ([Husain, *A Field Guide to Rapidly Improving AI Products*](https://hamel.dev/blog/posts/field-guide/)). Eu usaria essa contagem para escolher qual *grader* escrever primeiro.
+
+#### Sua pior reclamação já é um caso de teste
+
+Você não precisa de quinhentos casos para começar. A [Anthropic](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) sugere de 20 a 50 tarefas simples, tiradas de falhas reais. No começo, cada mudança tem efeito grande, e uma amostra pequena basta para enxergá-lo. Para separar duas versões parecidas, vinte casos não bastam: a diferença some dentro do ruído, e a suíte precisa crescer.
+
+Dá para pôr número nesse ruído. Evan Miller propõe tratar o eval como experimento e reportar a nota com barra de erro ([Miller, *Adding Error Bars to Evals*](https://arxiv.org/abs/2411.00640)). Numa suíte de 60 casos com 70% de acerto, a conta usual do intervalo de confiança de 95% para uma proporção dá de 58% a 82%, a faixa de taxas compatíveis com o que a amostra mostrou. Uma versão nova que marca 75% acertou 3 casos a mais em 60. Eu não comemoraria esses cinco pontos.
+
+Duas práticas baratas ajudam. Rode as duas versões nos mesmos casos e conte quantos pioraram, porque a mesma taxa de acerto pode esconder casos que trocaram de lado. E separe os casos em dois grupos: um para ajustar o *prompt* e o juiz, outro só para reportar a nota. A nota do grupo em que você ajustou tende a sair melhor do que o sistema é.
+
+O que eu faria amanhã numa aplicação sem eval nenhum:
+
+- Ler pelo menos cem respostas da aplicação, anotar o que saiu errado em cada uma e agrupar as anotações em falhas com nome;
+- Juntar as últimas reclamações de usuário ou respostas ruins e transformar cada uma num caso com critério escrito;
+- Dar a cada critério o *grader* mais barato que o verifica: código primeiro, LLM como juiz depois;
+- Ler à mão as notas do juiz em uma amostra e conferir se eu daria a mesma nota, contando quantas respostas ruins ele deixou passar;
+- Rodar a suíte a cada troca de modelo ou de *prompt*, comparar as versões nos mesmos casos e reportar *pass^k* se o produto não pode errar.
+
+E quando a nota cair, abrir o *transcript* antes de abrir o *prompt*. Às vezes o modelo errou. Às vezes, como no CORE-Bench, quem errou foi a régua.
+
+## Quão rápido era um Velociraptor? E como descobrir isso
+
+Fonte: https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html
+
+#### Quando os medianos ganham
+
+Em 2017, quatro pesquisadores publicaram um modelo que prevê a velocidade máxima de um animal a partir de duas informações: quanto ele pesa e se ele corre, voa ou nada ([Hirt, Jetz, Rall e Brose, *A general scaling law reveals why the largest animals are not the fastest*, Nature Ecology & Evolution, 2017](https://doi.org/10.1038/s41559-017-0241-4)). O modelo foi ajustado a 622 medições de 474 espécies. A menor pesa 30 microgramas. A maior passa de 100 toneladas.
+
+Com essas duas informações, o modelo explica quase 90% da variação de velocidade entre as espécies ($R^2$ de 0,893).
+
+O resultado que dá título ao artigo é o formato da curva. A velocidade sobe com o tamanho, chega a um pico e depois cai. O guepardo e o marlim, que estão entre os mais rápidos da terra e do mar, têm tamanho intermediário. Os gigantes ficam para trás.
+
+Gosto deste artigo por um motivo que tem pouco a ver com bicho. Ele é uma aula de modelagem: mostra o que acontece quando uma reta que ajusta bem a maioria dos dados pode ser uma furada.
+
+#### A reta que põe um *Tyrannosaurus* a 129 km/h
+
+Muita coisa em biologia cresce com a massa do corpo seguindo uma lei de potência. A forma é $y = a M^b$, em que $M$ é a massa, $a$ define a altura da curva e $b$ define o ritmo de crescimento.
+
+O que distingue a lei de potência é que ela trabalha com proporção. Com $b = 0{,}26$, dobrar a massa multiplica a velocidade por cerca de 1,2. Multiplicar a massa por dez multiplica a velocidade por cerca de 1,8. Em qualquer ponto da curva, a mesma multiplicação na massa dá a mesma multiplicação na velocidade. A questão é se os animais seguem essa regra até o fim.
+
+Por isso ela vira uma reta quando os dois eixos do gráfico estão em escala logarítmica. Nessa escala, distâncias iguais são multiplicações iguais, e $b$ é a inclinação da reta. Com $b$ menor que 1, a velocidade cresce menos que a massa.
+
+Durante décadas, a velocidade dos animais foi descrita desse jeito. Um bicho maior tem pernas mais longas e mais músculo, então corre mais. Para os animais pequenos e médios, a reta dá resultados razoáveis.
+
+O problema aparece na ponta. A Tabela 1 do artigo traz a previsão de uma lei de potência simples para um *Tyrannosaurus* de 6 toneladas: 129 km/h. Para um *Brachiosaurus* de 78 toneladas, 224 km/h.
+
+Nenhuma reta sabe a hora de parar. Ela segue a maioria dos pontos, que são de animais pequenos e médios, e continua subindo depois deles.
+
+#### O polinômio faz a curva e não sabe por quê
+
+Uma saída frequente na literatura era trocar a reta por um polinômio, com um termo quadrático que faz a curva virar para baixo. Funciona no papel. Para entender o que o artigo fez de diferente, vale separar dois tipos de modelo.
+
+- **Modelo empírico.** A forma da equação é escolhida porque acompanha os dados. Os parâmetros são os números que melhor encaixam a curva nos pontos, e não significam nada fora do ajuste. O polinômio é o exemplo: o termo quadrático está ali porque a curva vira, e só;
+- **Modelo mecanístico.** A forma da equação é deduzida de como o fenômeno funciona. Cada parâmetro corresponde a uma grandeza do mundo, que pode ser medida por outro caminho.
+
+A diferença aparece fora da faixa dos dados. Dentro dela, os dois podem ajustar igualmente bem. Fora, o modelo empírico continua devolvendo números, mas sem razão para eles valerem. A lei de potência devolveu 129 km/h. O modelo mecanístico carrega uma razão para a forma, e por isso tem licença para ir além dos dados, até onde o mecanismo valer.
+
+Essa licença tem preço. Um modelo mecanístico pode ser cobrado duas vezes: pelo ajuste e pelo mecanismo. Se o parâmetro tem significado físico, o valor ajustado precisa bater com o que se mede por fora.
+
+Na prática os dois tipos se misturam. A lei de potência, ajustada sozinha à velocidade, funciona aqui como modelo empírico. O modelo do artigo deduz a forma da curva de um mecanismo e depois estima os valores dos parâmetros pelos dados.
+
+#### A bateria acaba antes do teto
+
+O mecanismo tem três passos, e é o terceiro que faz a curva virar.
+
+- Primeiro, existe uma velocidade máxima teórica, e ela segue uma lei de potência. É a reta de antes: quanto maior o animal, maior o teto.
+
+- Segundo, ninguém chega ao teto de uma vez. A aceleração segue uma curva de saturação: a velocidade sobe rápido no começo e vai se aproximando do teto cada vez mais devagar. Animal grande demora mais nesse caminho, porque a força do músculo cresce menos que a massa que ele precisa empurrar. É o caminhão e a moto saindo do mesmo semáforo.
+
+- Terceiro, a arrancada máxima é movida por energia anaeróbica, que o músculo tira de um estoque pronto, sem esperar o oxigênio. Esse estoque funciona como uma bateria: entrega muita potência e acaba rápido. O animal tem, portanto, um tempo limitado para acelerar.
+
+A bateria do animal maior também é maior, porque ele tem mais músculo. A curva vira quando o tempo que ele precisa para acelerar cresce mais depressa que o tempo que a bateria dá.
+
+Juntando os três: o animal pequeno ou médio acelera rápido e chega perto do teto antes de a bateria acabar. O animal muito grande tem um teto altíssimo e uma bateria maior, mas acelera tão devagar que ela acaba no meio da arrancada. Ele para de acelerar muito antes de chegar lá.
+
+Por esse raciocínio, o animal gigante tem teto para ser o mais rápido de todos. O que falta a ele é tempo de arrancada para o ritmo em que acelera.
+
+#### Quatro parâmetros e nenhum osso
+
+A equação final do artigo cabe em uma linha:
+
+$$
+v_{\text{max}} = a M^b \left(1 - e^{-h M^i}\right)
+$$
+
+Ela tem duas partes:
+
+- **$a M^b$** é a velocidade máxima teórica, uma lei de potência;
+- **$1 - e^{-h M^i}$** é a fração do teto que o animal consegue realizar antes de a energia acabar. Vale entre 0 e 1.
+
+O termo $h M^i$ compara os dois tempos do mecanismo: o tempo que a bateria dá, dividido pelo tempo que o animal leva para acelerar. Quando essa razão é grande, a fração fica perto de 1. Quando é pequena, a fração encolhe. O $i$ diz como a razão muda com a massa, e o $h$ é a escala dela.
+
+Com $i$ negativo, a razão cai conforme a massa cresce. A reta sobe, a fração desce, e o produto das duas faz a corcova.
+
+Os valores ajustados para animais que correm são $a = 26$, $b = 0{,}26$ e $i = -0{,}6$. Calculei o teto teórico com $a$ e $b$, e peguei a previsão do modelo na Tabela 1 do artigo. A divisão de uma pela outra mostra a fração trabalhando:
+
+- **_Velociraptor_, 20 kg.** Teto teórico de cerca de 57 km/h. O modelo prevê 55 km/h. Ele realiza uns 96% do teto;
+- **_Tyrannosaurus_, 6.000 kg.** Teto teórico de cerca de 250 km/h. O modelo prevê 27 km/h. Ele realiza uns 11%.
+
+O animal de 6 toneladas tem um teto quatro vezes maior e corre a metade.
+
+O teto de 250 km/h é maior que os 129 km/h da reta do começo. São ajustes diferentes, com valores de $a$ e $b$ diferentes: lá a reta foi ajustada sozinha, e aqui ela é só uma das duas partes da curva.
+
+Note que o modelo não sabe nada sobre ossos, postura ou número de patas. Só massa e meio de locomoção.
+
+#### O inseto não ganhou curva própria
+
+A Figura 2 do artigo mostra os dados e o ajuste. Cada ponto é uma medição. O eixo horizontal é a massa em kg. O eixo vertical é a velocidade em km/h. Os dois estão em escala logarítmica, então uma lei de potência apareceria como reta.
+
+![Figura 2 de Hirt et al. (2017): dados empíricos e ajuste do modelo. (a) os três modos de locomoção; (b) voo, n = 55; (c) corrida, n = 458; (d) nado, n = 109. Reproduzida de Nature Ecology & Evolution, doi 10.1038/s41559-017-0241-4. © 2017 Macmillan Publishers Limited, part of Springer Nature.](https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/figura-2.png)
+
+O que eu leio nela, painel por painel:
+
+- **Painel a.** As três curvas têm o mesmo formato: reta na subida, pico no meio, queda no fim. Quem voa (verde) fica acima de quem corre (laranja). O parâmetro $a$ é 143 para o voo e 26 para a corrida, uma diferença de quase seis vezes. A inclinação $b$ é quase a mesma, 0,24 e 0,26;
+- **Painel a, curva azul.** Para quem nada, a subida é mais inclinada ($b = 0{,}36$). Os autores atribuem isso ao meio: a água é 800 vezes mais densa e 60 vezes mais viscosa que o ar. Um animal aquático pequeno é mais lento que um terrestre do mesmo peso, e os grandes se aproximam. Na água, ganhar massa rende mais velocidade;
+- **Painéis b, c e d.** Cada painel mostra um modo de locomoção (voo, corrida e nado), com um símbolo para cada grupo: aves, artrópodes, mamíferos, répteis, peixes e moluscos. Os grupos se espalham em volta da mesma curva. Não há uma curva para mamífero e outra para inseto.
+
+Esse último ponto foi testado. Os autores compararam o modelo com seis concorrentes empíricos: três leis de potência e três polinômios, com e sem o grupo taxonômico como variável. O critério foi o BIC, explicado logo abaixo. O modelo de quatro parâmetros teve o menor BIC nos três modos de locomoção. Ganhou inclusive dos modelos que tinham o grupo taxonômico como informação extra.
+
+O que sobra sem explicação é pouco. Animais de sangue quente tendem a ser mais rápidos que os de sangue frio na terra e no ar, e mais lentos na água. Esse efeito explica cerca de 4% da variação que o modelo deixa sem explicar.
+
+##### Parâmetro a mais não sai de graça
+
+Comparar modelos pelo ajuste tem uma armadilha. Um modelo com mais parâmetros quase sempre encosta mais nos pontos, mesmo quando o parâmetro extra só está decorando ruído. Quem escolhe pelo menor erro acaba escolhendo o modelo mais complicado.
+
+O BIC (*Bayesian information criterion*, critério de informação bayesiano) é uma nota que corrige isso. A forma usual dele tem duas parcelas:
+
+$$
+\text{BIC} = k \ln(n) - 2 \ln(L)
+$$
+
+- **$-2 \ln(L)$** mede o ajuste. $L$ é a verossimilhança máxima: o quanto o modelo, no seu melhor ajuste, torna prováveis os dados observados. Quanto maior a verossimilhança, menor essa parcela;
+- **$k \ln(n)$** é a multa. $k$ é o número de parâmetros e $n$ é o número de observações. Cada parâmetro a mais aumenta a nota.
+
+Ganha o modelo com o menor BIC. Um parâmetro novo só compensa quando melhora o ajuste mais do que custa em multa.
+
+Dois cuidados. O BIC só compara modelos ajustados aos mesmos dados, e o valor sozinho não diz nada. Ele mede o equilíbrio entre ajuste e simplicidade. A explicação por trás do modelo fica fora da conta.
+
+#### O expoente que não fecha a conta
+
+Um modelo mecanístico é cobrado pelo mecanismo, e aqui a cobrança encontra problemas.
+
+**A mesma curva tem outra explicação.** O artigo cita uma linha de trabalhos que explica a queda por biomecânica: músculo e osso do animal grande não aguentam o impacto da corrida rápida. As duas explicações dependem da massa. Um modelo que só usa massa não separa uma explicação da outra.
+
+**As medições misturam coisas.** O banco junta estudos de campo e de laboratório, e os autores reconhecem que parte das velocidades deve ser de esforço aeróbico, um pouco abaixo do máximo real.
+
+**A análise dos resíduos é um atalho.** O efeito do sangue quente foi medido nos resíduos do modelo, a diferença entre o medido e o previsto, em vez de entrar junto no ajuste. Os autores admitem que o ideal seria o ajuste conjunto e que o método usado pode enviesar as estimativas.
+
+#### O teste que ninguém cronometrou
+
+Guardei para o fim a parte de que mais gosto. Ajustar bem os dados que você tem é a "parte fácil".Responder onde não há dado.
+
+Poucas perguntas servem tão bem a esse teste quanto a velocidade de um dinossauro. Ninguém vai cronometrar um. A resposta só pode vir de um modelo.
+
+Os autores estimaram os parâmetros só com animais vivos. Depois esticaram a curva de corrida para massas maiores, sem ajustar nenhum parâmetro novo, e compararam com seis dinossauros. As velocidades de referência vêm de modelos morfológicos, que reconstroem a corrida a partir da anatomia do animal.
+
+![Figura 4 de Hirt et al. (2017): previsão para espécies extintas. Círculos cinza são espécies vivas, usadas no ajuste. Triângulos verdes são dinossauros, com velocidades calculadas por modelos morfológicos, que não entraram no ajuste. Reproduzida de Nature Ecology & Evolution, doi 10.1038/s41559-017-0241-4. © 2017 Macmillan Publishers Limited, part of Springer Nature.](https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/figura-4.png)
+
+Na figura, a maioria dos triângulos verdes cai perto da curva cinza, do lado direito, onde ela já está descendo. O primeiro triângulo à esquerda é o *Velociraptor*, e o último à direita é o *Brachiosaurus*. A Tabela 1 do artigo põe os três tipos de previsão lado a lado, em km/h:
+
+- **_Velociraptor_, 20 kg.** Lei de potência: 38. Modelo morfológico: 39. Modelo do artigo: 55;
+- **_Tyrannosaurus_, 6.000 kg.** Lei de potência: 129. Modelo morfológico: 29. Modelo do artigo: 27;
+- **_Brachiosaurus_, 78.258 kg.** Lei de potência: 224. Modelo morfológico: 18. Modelo do artigo: 12.
+
+A lei de potência acerta o pequeno e erra o *Tyrannosaurus* por 100 km/h. O modelo do artigo faz o inverso: passa do ponto no *Velociraptor* e chega perto no *Tyrannosaurus*.
+
+O modelo põe o *Tyrannosaurus* mais lento que o *Velociraptor*, que é 300 vezes mais leve. Os modelos morfológicos chegam à mesma ordem partindo da anatomia, e o modelo do artigo chega partindo só da massa. A lei de potência inverte.
+
+É o tipo de pergunta para a qual se constrói um modelo mecanístico.
+
+##### Até onde a curva tem licença para ir
+
+A extrapolação é a melhor parte do artigo e também a mais frágil. Cinco limites:
+
+- **A referência é outro modelo.** Os triângulos verdes são saída de cálculo morfológico. O teste mostra que dois modelos concordam. Não mostra que os dois estão certos;
+- **Dois dos nove ficam fora.** A Tabela 1 compara nove espécies, três aves que não voam e seis dinossauros. Sete previsões morfológicas caem dentro do intervalo de confiança de 95% do modelo. Entre os dinossauros, são quatro de seis. O *Velociraptor* fica de fora: 39 km/h contra um intervalo de 47 a 58. O *Brachiosaurus* também: 18 km/h contra um intervalo de 6 a 16;
+- **A curva viaja no tempo.** Ela foi ajustada a mamíferos, aves, répteis e artrópodes vivos. Aplicá-la a um dinossauro supõe que o músculo dele acelerava e gastava energia como o dos animais vivos;
+- **Bípede e quadrúpede recebem a mesma curva.** O modelo só conhece a massa. Os autores reconhecem que a forma de correr pode ter efeito próprio, ainda não separado.
+
+O limite mais sério é o da seção sobre o expoente. A licença para extrapolar vem do mecanismo, e ali ele não fechou com os expoentes medidos.
+
+#### Teste a reta onde ela ainda não foi
+
+Quem trabalha com dados ajusta retas em escala log o tempo todo: custo por volume, tempo de resposta por carga, receita por tamanho de cliente. Tiro do artigo três práticas que valem fora da biologia.
+
+- **Olhe a ponta antes de confiar no meio.** A lei de potência dava resultados razoáveis para os animais menores, e o erro aparecia nos maiores. Faça o gráfico dos resíduos só da ponta da faixa;
+- **Saiba que tipo de modelo você tem.** Modelo empírico serve dentro da faixa dos dados. Para ir além dela, o mecanismo de um modelo mecanístico dá uma razão, e a razão precisa ser conferida. Confronte os parâmetros com estimativas independentes, como na soma dos expoentes. Sem mecanismo conferido, trate a extrapolação como hipótese;
+- **Guarde um teste que o ajuste nunca viu.** O BIC comparou os modelos dentro da amostra. Os dinossauros, que não entraram na estimação, foram o teste fora dela.
+
+Da próxima vez que uma reta ajustar bem os seus dados, pergunte quanto ela prevê para um cliente dez vezes maior que o maior da base. Se a resposta for um *Tyrannosaurus* a 129 km/h, o modelo pode estar errando.
 
 ## UX com produtos físicos, o puro suco da estatística
 
