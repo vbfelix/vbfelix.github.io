@@ -23,13 +23,6 @@ website:
   search: false
   page-footer:
     left: "© Vinícius Félix · [Quarto](https://quarto.org/) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)"
-    center:
-      - text: Portfólio
-        href: portfolio.qmd
-      - text: Blog
-        href: writing.qmd
-      - text: Experiência
-        href: header-experience.qmd
     right:
       - text: Para agentes
         href: agents.qmd
