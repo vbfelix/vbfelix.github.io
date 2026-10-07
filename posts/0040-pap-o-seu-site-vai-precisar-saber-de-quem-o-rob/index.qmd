@@ -1,0 +1,80 @@
+---
+title: "PAP: o seu site vai precisar saber de quem é o robô"
+author: "Vinícius Félix"
+date: "2026-10-06"
+categories: [IA]
+lang: pt-BR
+---
+
+### Um mês de Muse e a Amazon já fechou a porta
+
+Em 6 de outubro de 2026, a Meta e a Sierra anunciaram o Personal Agent Protocol, o PAP. É um padrão aberto para definir como um agente pessoal conversa com uma empresa. Outras seis companhias participam do desenvolvimento: Genesys, Instinct, Rocket, Shopify, Stripe e Walmart ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)).
+
+Agente pessoal é o assistente de IA que age em nome de uma pessoa. Ele marca a consulta, compra a passagem e cota o seguro do carro. O da Meta se chama Muse e foi lançado há cerca de um mês. Segundo David Singleton, vice-presidente de engenharia e produtos de consumo do Meta Superintelligence Labs, ele já tem milhões de usuários nos Estados Unidos ([CNBC](https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html), relatada pela [Quartz](https://tech.yahoo.com/ai/meta-ai/articles/meta-walmart-stripe-launch-open-195459763.html)).
+
+O atrito é mais velho que o Muse e já chegou nele. Segundo a CNBC, a Amazon bloqueou o Muse por preocupação com *scraping*, a raspagem automática de páginas. Em novembro do ano passado, ela tinha levado a Perplexity à Justiça. A acusação era de que a *startup* disfarçava os robôs para continuar com o *scraping* depois de ter o acesso negado. A Perplexity chamou o processo de tática de intimidação ([Quartz](https://tech.yahoo.com/ai/meta-ai/articles/meta-walmart-stripe-launch-open-195459763.html)).
+
+Bret Taylor, cofundador da Sierra, resumiu a situação para a CNBC: é meio que um caos enquanto esse padrão não existir. Eu concordo com o diagnóstico. O remédio ainda não dá para avaliar por inteiro.
+
+### Hoje o seu agente finge que é você
+
+O agente pessoal de hoje usa site e aplicativo do jeito que uma pessoa usa. Ele carrega a página, preenche o formulário e clica no botão. Quando isso não resolve, liga para o suporte ou abre o chat. Demora, e às vezes a tarefa não termina ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)).
+
+Do outro lado, a empresa enxerga um visitante esquisito. Ela não tem um jeito confiável de saber se quem está ali é uma pessoa ou um agente. Também não sabe em nome de quem o agente age. Bloquear tudo é a resposta mais fácil, e foi a que a Amazon escolheu.
+
+O anúncio descreve três partes com interesses diferentes:
+
+- **O consumidor** quer a tarefa feita na primeira tentativa, por um agente em que ele confia;
+- **A empresa** quer saber quando um agente age por um cliente e decidir o que ele pode fazer;
+- **Quem constrói o agente** quer um jeito direto e igual de se conectar a todas as empresas.
+
+Um padrão dificilmente pega se deixar uma das três de fora. É essa a conta que o PAP tenta fechar.
+
+### Um crachá para o robô
+
+O princípio do PAP cabe em uma frase. O consumidor decide que acesso dá ao agente, e a empresa define o que o agente pode fazer com esse acesso.
+
+O caminho anunciado tem quatro passos:
+
+- **Descoberta.** Tudo começa no site da empresa. Ali o agente descobre o que ela oferece e como chegar a cada coisa;
+- **Sessão de convidado.** O agente abre uma sessão em nome do usuário, sem login. É o bastante para consultar estoque ou perguntar a política de devolução;
+- **Login.** Quando a tarefa precisa da conta do cliente, ele entra pela página da própria empresa. Ou usa uma credencial que já deixou configurada com o agente;
+- **Leitura ou escrita.** O cliente escolhe se o agente só lê ou se também altera. Ver o pedido é uma coisa. Trocar o endereço de entrega é outra.
+
+A sessão é construída sobre OAuth, um padrão de autorização que você provavelmente já usou sem saber o nome. Ele está por trás do botão "Entrar com Google". Com OAuth, um aplicativo recebe um acesso limitado à sua conta sem nunca ver a sua senha ([OAuth 2.0](https://oauth.net/2/)). Taylor usou essa mesma comparação com a CNBC. Ele ajudou a construir o login com a conta do Facebook quando liderava a tecnologia da empresa.
+
+A escolha me agrada porque não inventa nada. O OAuth já resolve o problema de dar acesso parcial a um terceiro. O PAP troca o terceiro: sai o aplicativo e entra o agente.
+
+Há um detalhe de que eu gosto mais. A sessão atravessa os canais. A pergunta feita como convidado e a alteração de pedido feita depois do login contam como a mesma visita. Quem já explicou o mesmo problema três vezes para três atendentes sabe o valor disso.
+
+### Três portas, e quem escolhe é a empresa
+
+Com a sessão aberta, o agente pode resolver a tarefa por três rotas. A empresa decide quais abre:
+
+- **O site.** O agente navega pelas páginas normais, como já faz hoje, só que identificado;
+- **As APIs.** O agente chama interfaces construídas sobre padrões que já existem, como o MCP (Model Context Protocol);
+- **O agente da empresa.** Para o que pede conversa, como acionar uma garantia, o agente pessoal fala com o agente da companhia.
+
+O MCP é um protocolo aberto que conecta aplicações de IA a ferramentas e dados externos ([documentação do MCP](https://modelcontextprotocol.io/docs/getting-started/intro)). Ele padroniza a conexão, e a especificação dele já prevê autorização opcional por OAuth entre o cliente e o servidor ([autorização no MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)).
+
+Na minha leitura, o PAP não disputa esse lugar. Ele fica em volta. O MCP cuida de uma das três portas. O PAP cuida do que vem antes e do que liga as três: a descoberta no site, a sessão de convidado, a identidade do agente e a sessão que atravessa os canais.
+
+A terceira porta ajuda a entender a lista de participantes. A Sierra é uma *startup* de IA para empresas. A Rocket atua em compra e financiamento de casas. No anúncio, ela conta que a tecnologia construída com a Sierra deixa um agente Muse atravessar a plataforma, da busca da casa ao financiamento. É agente pessoal de um lado e agente de empresa do outro, com o PAP no meio.
+
+### O anúncio tem mais nome que especificação
+
+O que existe hoje é um post e oito nomes. A especificação v0.1 está prometida para ainda em outubro, junto com oficinas de desenho e uma implementação de referência ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)). Até lá, não dá para implementar nada, nem para conferir se o desenho aguenta um caso real.
+
+Três recursos que eu consideraria básicos aparecem no anúncio no condicional:
+
+- permissão detalhada, com limite por ação específica;
+- notificação da empresa para o agente, como o aviso de voo atrasado;
+- pagamento sem compartilhar o número do cartão.
+
+Sem o primeiro, a escolha fica entre ler tudo e escrever tudo. Eu não daria a um agente a permissão de escrita na conta do meu banco nesses termos.
+
+A lista de presença também diz muito. OpenAI e Anthropic não participam. Taylor também preside o conselho da OpenAI. Ele disse à CNBC que espera a adesão delas e que ficaria muito decepcionado se as concorrentes não adotassem o padrão. A Amazon também não está entre as oito. Um protocolo de agente pessoal sem dois dos maiores construtores de agente e sem a maior loja ainda é uma proposta de um grupo.
+
+Há um limite que nenhuma versão da especificação resolve. O PAP é voluntário. Ele dá um caminho melhor para o agente que quer se identificar. O robô disfarçado continua disfarçado. O caso da Perplexity, do jeito que a Amazon o descreve, é o de um agente que escolheu não se apresentar. Para esse, o padrão só ajuda de forma indireta: quando existe um caminho oficial, a empresa ganha argumento para bloquear quem insiste no *scraping*.
+
+Vale lembrar quem escreve as regras. A Meta diz ter um agente pessoal com milhões de usuários nos Estados Unidos e precisa que as empresas o deixem entrar. A Sierra vende o agente que fica do outro lado. As duas ganham com a adoção, e isso explica a pressa.

@@ -97,9 +97,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-06">2026-10-06</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html">PAP: o seu site vai precisar saber de quem é o robô</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="Engenharia de dados"><time datetime="2026-10-06">2026-10-06</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html">New SQL, o melhor dos dois mundos?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Engenharia%20de%20dados" data-category="Engenharia de dados">#Engenharia-de-dados</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="Estatística"><time datetime="2026-10-03">2026-10-03</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html">Quão rápido era um Velociraptor? E como descobrir isso</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Estat%C3%ADstica" data-category="Estatística">#Estatística</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-02">2026-10-02</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0037-seu-prompt-passou-no-teste-do-olhometro/index.html">Seu prompt passou no teste do olhômetro</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-09-30">2026-09-30</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0036-atencao-e-tudo-que-voce-precisa/index.html">O que é o T do GPT?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -9243,6 +9243,179 @@ Quem trabalha com dados ajusta retas em escala log o tempo todo: custo por volum
 - **Guarde um teste que o ajuste nunca viu.** O BIC comparou os modelos dentro da amostra. Os dinossauros, que não entraram na estimação, foram o teste fora dela.
 
 Da próxima vez que uma reta ajustar bem os seus dados, pergunte quanto ela prevê para um cliente dez vezes maior que o maior da base. Se a resposta for um *Tyrannosaurus* a 129 km/h, o modelo pode estar errando.
+
+## New SQL, o melhor dos dois mundos?
+
+Fonte: https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html
+
+#### Treze anos para o *paper* do Google virar botão na AWS
+
+Em 27 de maio de 2025, a AWS colocou o Aurora DSQL em disponibilidade geral, desenhado para 99,999% de disponibilidade quando espalhado por mais de uma região, o nome que a AWS dá a um conjunto de *datacenters* na mesma área geográfica ([AWS, *Amazon Aurora DSQL is now generally available*](https://aws.amazon.com/blogs/aws/amazon-aurora-dsql-is-now-generally-available/)). O artigo que abriu esse caminho é de 2012. Nele o Google descreveu o Spanner, um banco relacional replicado entre continentes ([Corbett et al., *Spanner: Google's Globally-Distributed Database*](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+Spanner, CockroachDB e Aurora DSQL respondem à mesma pergunta: como um banco decide qual transação veio primeiro quando as máquinas discordam da hora? Gosto desse trio porque cada um responde cobrando em uma moeda diferente. O Spanner paga em espera. O CockroachDB paga em *retry*, a repetição de uma transação que não pôde terminar. O Aurora DSQL paga em erro: quem perde a disputa descobre na hora de confirmar a transação.
+
+Nenhum dos três eliminou o custo, só o moveu. Quem escolhe um deles está escolhendo onde ele aparece.
+
+#### NewSQL é uma promessa nova, mas de técnicas velhas
+
+O termo NewSQL apareceu em 2011, em um relatório de mercado de Matthew Aslett, da 451 Research. Cinco anos depois, ele e Andrew Pavlo, da Carnegie Mellon, escreveram o artigo que organiza a categoria ([Pavlo e Aslett, *What's Really New with NewSQL?*](https://db.cs.cmu.edu/papers/2016/pavlo-newsql-sigmodrec2016.pdf)).
+
+A promessa cabe em uma frase. Um banco NewSQL escala como um NoSQL e mantém as garantias de um banco relacional: a transação, que faz várias escritas valerem juntas ou não valerem. NoSQL é a família de bancos que, nos anos 2000, abriu mão da transação para crescer em muitas máquinas. Mover dinheiro de uma conta para outra virava problema da aplicação.
+
+Os autores do Spanner tomaram o lado oposto. Eles escrevem que preferem ver o programador lidar com problema de desempenho por excesso de transação a vê-lo programar em volta da falta dela ([Corbett et al.](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+A conclusão de Pavlo e Aslett é menos empolgante que o nome. NewSQL não rompe com a arquitetura dos bancos anteriores. É o capítulo seguinte dela, feito com técnicas que em boa parte já existiam. A exceção é o Spanner, pelo uso de relógios de alta precisão para ordenar transações.Relógio esse que separa os três bancos.
+
+#### Dois servidores quase nunca concordam sobre a hora
+
+Distribuir um banco relacional tem um problema conhecido: os dados são repartidos em faixas de chaves. Cada faixa mora em um grupo de máquinas. Uma escrita só vale depois que a maioria do grupo a registrou ([Google Cloud, *Life of Spanner Reads & Writes*](https://docs.cloud.google.com/spanner/docs/whitepapers/life-of-reads-and-writes)). Isso se chama consenso: as máquinas do grupo votam sobre cada escrita, e todas concordam sobre o que foi gravado mesmo quando uma delas cai. O consenso resolve a cópia dos dados.
+
+O consenso não resolve a pergunta seguinte: qual transação veio antes?
+
+Suponha uma transação A, que deposita R$ 100 em uma conta e termina. Depois que A terminou, começa em outro servidor a transação B, que lê o saldo. Quase todo mundo espera que B veja os R$ 100. Para isso o banco precisa saber que A veio antes de B. O jeito usual é dar um horário a cada transação e ordenar por ele. Só que os dois servidores têm relógios diferentes. Se o relógio do segundo servidor está atrasado, B pode receber um horário anterior ao de A, ser ordenada antes dela e ler o saldo antigo.
+
+Existem dois níveis de garantia para essa ordem:
+
+- ***Serializable***: o resultado é igual ao de alguma ordem de execução, uma transação inteira depois da outra. Essa ordem pode ser qualquer uma, até uma em que B venha antes de A;
+- ***External consistency***: a ordem respeita o tempo real. Se uma transação terminou antes de outra começar a confirmar, nenhum cliente vê o efeito da segunda sem o da primeira ([Google Cloud, *TrueTime and external consistency*](https://docs.cloud.google.com/spanner/docs/true-time-external-consistency)).
+
+No exemplo do depósito, a definição de *serializable* aceita a ordem B antes de A, porque é uma ordem possível, e por isso não proíbe o saldo antigo. A de *external consistency* proíbe, porque A terminou antes de B começar. A diferença entre os três bancos começa aqui.
+
+#### O Google comprou relógios atômicos para poder esperar
+
+A saída do Spanner foi parar de fingir que o relógio é exato. O TrueTime, a API de tempo dos servidores do Google, não devolve um instante. Devolve um intervalo que contém o instante real, com garantia. Cada *datacenter* tem servidores de tempo com receptor de GPS e outros com relógio atômico. Em produção, o artigo relata um erro de até 7 ms ([Corbett et al.](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+Com o erro conhecido, a regra é simples. O coordenador escolhe um horário para a transação. Antes de responder ao cliente, ele espera até ter certeza de que esse horário já ficou no passado em qualquer relógio do sistema. A espera é de poucos milissegundos por escrita, e corre em paralelo com a replicação, então só aparece na latência quando o erro do relógio passa do tempo que a cópia leva.
+
+É essa espera que compra a *external consistency*. Quando B começa, o horário de A já passou em todos os servidores. Se o relógio piora, o Spanner espera mais. O erro do relógio vira latência. Acho essa a decisão de projeto mais elegante dos três.
+
+Ela também é a menos portátil. O relógio atômico e a rede privada do Google fazem parte do produto, logo isso só existe no Google Cloud.
+
+#### Sem relógio atômico, a leitura paga a conta
+
+O CockroachDB nasceu para rodar em qualquer nuvem, com relógio comum sincronizado pela rede. Ali ninguém mede o erro do relógio. O CockroachDB assume um teto, e o teto padrão de diferença entre os relógios das máquinas é de 500 ms ([Cockroach Labs, *Production Checklist*](https://docs.cockroachlabs.com/docs/stable/recommended-production-settings)).
+
+Esperar esse teto em toda escrita custaria meio segundo, enquanto o Spanner espera só o erro que mediu. Como regra, o CockroachDB não espera. Spencer Kimball e Irfan Sharif, da Cockroach Labs, resumem a troca: o Spanner sempre espera depois da escrita, e o CockroachDB às vezes repete a transação ([Kimball e Sharif, *Living Without Atomic Clocks*](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)).
+
+Funciona assim. Cada transação recebe um horário do relógio da máquina em que começou. Como esse relógio pode estar até 500 ms atrasado em relação aos outros, qualquer valor gravado nos 500 ms seguintes ao horário dela pode, na verdade, ter sido gravado antes. Se a transação encontra um valor nessa janela, o banco não sabe dizer se a escrita veio antes ou depois. Na dúvida, ele reinicia a transação com um horário maior que o do valor encontrado, e a dúvida some. Sem disputa pelo mesmo dado, nada disso acontece. Com disputa, a aplicação pode repetir a transação ([Cockroach Labs, *Transaction Retry Error Reference*](https://docs.cockroachlabs.com/docs/stable/transaction-retry-error-reference)).
+
+Tudo depende de o limite de 500 ms ser verdade. Quando uma máquina percebe que o seu relógio se afastou demais das outras, ela se desliga sozinha. Prefiro um banco que se mata a um que mente.
+
+O que sai desse desenho é *serializable*. Para o exemplo do depósito, em que A e B tocam a mesma conta, a janela de incerteza resolve. Para duas transações em linhas separadas, como fechar um pedido e depois gravar o aviso de envio em outra tabela, a ordem no tempo real não é garantida, e uma leitura pode ver o aviso de um pedido que ainda não fechou.
+
+#### Na AWS ninguém espera, alguém perde
+
+O Aurora DSQL escolheu a terceira moeda. Marc Brooker, engenheiro da AWS que montou o time do projeto, explica a arquitetura em uma série de textos ([Brooker, *DSQL Vignette: Aurora DSQL, and A Personal Story*](https://brooker.co.za/blog/2024/12/03/aurora-dsql.html)).
+
+Quem recebe o seu SQL é um PostgreSQL modificado. Ele manteve o interpretador e o planejador de consultas e trocou o armazenamento e o processamento de transações ([Brooker, *Reads and Compute*](https://brooker.co.za/blog/2024/12/04/inside-dsql.html)).
+
+O relógio continua no centro. A transação começa com um horário tirado do relógio de precisão do EC2, o serviço de máquinas virtuais da AWS, que informa o erro como o TrueTime. Toda leitura pede os dados como eles eram naquele horário. Por isso a leitura não precisa de trava. Só que o DSQL não impõe uma espera de confirmação como a do Spanner. O horário serve para responder, na confirmação, a uma pergunta.
+
+A escrita é onde o desenho muda. Um `UPDATE` não vai para o armazenamento. Ele fica anotado como intenção. Só na confirmação a transação é enviada ao componente que decide quem confirma, chamado *adjudicator*. Ele faz a pergunta: alguma outra transação gravou nas mesmas linhas entre o horário de início e o horário de confirmação desta? Se não, ela é confirmada. Se sim, ela é abortada ([Brooker, *Transactions and Durability*](https://brooker.co.za/blog/2024/12/05/inside-dsql-writes.html)).
+
+Isso se chama controle de concorrência otimista: o banco aposta que conflito é raro e só confere no final. O aborto não vem do relógio, e sim dessa conferência. O relógio só define o retrato que a transação leu. A transação que perde recebe o mesmo código `40001` do CockroachDB ([AWS, *Concurrency control in Aurora DSQL*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-concurrency-control.html)). Não há fila de trava na escrita, e uma transação lenta tende a não segurar as outras. A documentação avisa do outro lado: a aplicação vai repetir transação com mais frequência do que em um PostgreSQL comum.
+
+O isolamento também é uma escolha. O DSQL fixa o nível em *snapshot isolation* e não oferece *serializable*. Ele confere só as escritas, e não as leituras. Brooker defende a escolha: a transação típica lê muito mais do que grava, e conferir leituras causaria abortos que o programador teria de evitar o tempo todo ([Brooker, *Snapshot Isolation vs Serializability*](https://brooker.co.za/blog/2024/12/17/occ-and-isolation.html)).
+
+Para manter a transação pequena, o serviço impõe limites que um PostgreSQL não tem: no máximo 3.000 linhas alteradas e 5 minutos por transação ([AWS, *Cluster quotas and database limits*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/CHAP_quotas.html); [AWS, *Migrating from PostgreSQL to Aurora DSQL*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-postgresql-compatibility-migration-guide.html)). E, como o Spanner, ele só existe na própria nuvem.
+
+#### O PostgreSQL de uma máquina só ainda resolve quase tudo
+
+Lado a lado, as três escolhas ficam assim:
+
+| | Spanner | CockroachDB | Aurora DSQL |
+|---|---|---|---|
+| Moeda | Espera na escrita | *Retry* na leitura | Erro na confirmação |
+| Relógio | TrueTime, com erro de até 7 ms | Relógio comum, com erro de até 500 ms | Relógio de precisão do EC2, com erro informado |
+| Garantia | *External consistency* | *Serializable* | *Snapshot isolation* |
+| O que a aplicação precisa saber | Escrita tem um piso de latência | `40001` sob disputa | `40001` sob disputa, *write skew*, limites por transação |
+
+Antes de trocar um PostgreSQL por um deles, eu responderia a três perguntas:
+
+- Preciso gravar em mais de uma região, ou só sobreviver à queda de uma? Réplica e promoção de réplica costumam resolver o segundo caso sem banco distribuído;
+- Minhas transações aguentam ser repetidas? Se alguma chama serviço externo no meio, o trabalho começa na aplicação;
+- Tenho regra que depende de uma leitura, como a do plantão? Em *snapshot isolation* ela pede `FOR UPDATE`.
+
+Minha posição é que a maioria das aplicações que conheço cabe em um PostgreSQL bem cuidado, e que banco distribuído é resposta para dois problemas: escrita em várias regiões, com consistência forte e sem operar a replicação à mão, ou volume de escrita que uma máquina não aguenta, que é o caso para o qual a categoria nasceu. Quando o problema é esse, os três são candidatos.
+
+Abra o caminho mais disputado da sua aplicação, aquele em que duas requisições brigam pela mesma linha, e decida o que você prefere que aconteça ali: esperar alguns milissegundos, repetir uma leitura ou tratar um erro.
+
+## PAP: o seu site vai precisar saber de quem é o robô
+
+Fonte: https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html
+
+#### Um mês de Muse e a Amazon já fechou a porta
+
+Em 6 de outubro de 2026, a Meta e a Sierra anunciaram o Personal Agent Protocol, o PAP. É um padrão aberto para definir como um agente pessoal conversa com uma empresa. Outras seis companhias participam do desenvolvimento: Genesys, Instinct, Rocket, Shopify, Stripe e Walmart ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)).
+
+Agente pessoal é o assistente de IA que age em nome de uma pessoa. Ele marca a consulta, compra a passagem e cota o seguro do carro. O da Meta se chama Muse e foi lançado há cerca de um mês. Segundo David Singleton, vice-presidente de engenharia e produtos de consumo do Meta Superintelligence Labs, ele já tem milhões de usuários nos Estados Unidos ([CNBC](https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html), relatada pela [Quartz](https://tech.yahoo.com/ai/meta-ai/articles/meta-walmart-stripe-launch-open-195459763.html)).
+
+O atrito é mais velho que o Muse e já chegou nele. Segundo a CNBC, a Amazon bloqueou o Muse por preocupação com *scraping*, a raspagem automática de páginas. Em novembro do ano passado, ela tinha levado a Perplexity à Justiça. A acusação era de que a *startup* disfarçava os robôs para continuar com o *scraping* depois de ter o acesso negado. A Perplexity chamou o processo de tática de intimidação ([Quartz](https://tech.yahoo.com/ai/meta-ai/articles/meta-walmart-stripe-launch-open-195459763.html)).
+
+Bret Taylor, cofundador da Sierra, resumiu a situação para a CNBC: é meio que um caos enquanto esse padrão não existir. Eu concordo com o diagnóstico. O remédio ainda não dá para avaliar por inteiro.
+
+#### Hoje o seu agente finge que é você
+
+O agente pessoal de hoje usa site e aplicativo do jeito que uma pessoa usa. Ele carrega a página, preenche o formulário e clica no botão. Quando isso não resolve, liga para o suporte ou abre o chat. Demora, e às vezes a tarefa não termina ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)).
+
+Do outro lado, a empresa enxerga um visitante esquisito. Ela não tem um jeito confiável de saber se quem está ali é uma pessoa ou um agente. Também não sabe em nome de quem o agente age. Bloquear tudo é a resposta mais fácil, e foi a que a Amazon escolheu.
+
+O anúncio descreve três partes com interesses diferentes:
+
+- **O consumidor** quer a tarefa feita na primeira tentativa, por um agente em que ele confia;
+- **A empresa** quer saber quando um agente age por um cliente e decidir o que ele pode fazer;
+- **Quem constrói o agente** quer um jeito direto e igual de se conectar a todas as empresas.
+
+Um padrão dificilmente pega se deixar uma das três de fora. É essa a conta que o PAP tenta fechar.
+
+#### Um crachá para o robô
+
+O princípio do PAP cabe em uma frase. O consumidor decide que acesso dá ao agente, e a empresa define o que o agente pode fazer com esse acesso.
+
+O caminho anunciado tem quatro passos:
+
+- **Descoberta.** Tudo começa no site da empresa. Ali o agente descobre o que ela oferece e como chegar a cada coisa;
+- **Sessão de convidado.** O agente abre uma sessão em nome do usuário, sem login. É o bastante para consultar estoque ou perguntar a política de devolução;
+- **Login.** Quando a tarefa precisa da conta do cliente, ele entra pela página da própria empresa. Ou usa uma credencial que já deixou configurada com o agente;
+- **Leitura ou escrita.** O cliente escolhe se o agente só lê ou se também altera. Ver o pedido é uma coisa. Trocar o endereço de entrega é outra.
+
+A sessão é construída sobre OAuth, um padrão de autorização que você provavelmente já usou sem saber o nome. Ele está por trás do botão "Entrar com Google". Com OAuth, um aplicativo recebe um acesso limitado à sua conta sem nunca ver a sua senha ([OAuth 2.0](https://oauth.net/2/)). Taylor usou essa mesma comparação com a CNBC. Ele ajudou a construir o login com a conta do Facebook quando liderava a tecnologia da empresa.
+
+A escolha me agrada porque não inventa nada. O OAuth já resolve o problema de dar acesso parcial a um terceiro. O PAP troca o terceiro: sai o aplicativo e entra o agente.
+
+Há um detalhe de que eu gosto mais. A sessão atravessa os canais. A pergunta feita como convidado e a alteração de pedido feita depois do login contam como a mesma visita. Quem já explicou o mesmo problema três vezes para três atendentes sabe o valor disso.
+
+#### Três portas, e quem escolhe é a empresa
+
+Com a sessão aberta, o agente pode resolver a tarefa por três rotas. A empresa decide quais abre:
+
+- **O site.** O agente navega pelas páginas normais, como já faz hoje, só que identificado;
+- **As APIs.** O agente chama interfaces construídas sobre padrões que já existem, como o MCP (Model Context Protocol);
+- **O agente da empresa.** Para o que pede conversa, como acionar uma garantia, o agente pessoal fala com o agente da companhia.
+
+O MCP é um protocolo aberto que conecta aplicações de IA a ferramentas e dados externos ([documentação do MCP](https://modelcontextprotocol.io/docs/getting-started/intro)). Ele padroniza a conexão, e a especificação dele já prevê autorização opcional por OAuth entre o cliente e o servidor ([autorização no MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)).
+
+Na minha leitura, o PAP não disputa esse lugar. Ele fica em volta. O MCP cuida de uma das três portas. O PAP cuida do que vem antes e do que liga as três: a descoberta no site, a sessão de convidado, a identidade do agente e a sessão que atravessa os canais.
+
+A terceira porta ajuda a entender a lista de participantes. A Sierra é uma *startup* de IA para empresas. A Rocket atua em compra e financiamento de casas. No anúncio, ela conta que a tecnologia construída com a Sierra deixa um agente Muse atravessar a plataforma, da busca da casa ao financiamento. É agente pessoal de um lado e agente de empresa do outro, com o PAP no meio.
+
+#### O anúncio tem mais nome que especificação
+
+O que existe hoje é um post e oito nomes. A especificação v0.1 está prometida para ainda em outubro, junto com oficinas de desenho e uma implementação de referência ([Sierra](https://sierra.ai/blog/introducing-personal-agent-protocol)). Até lá, não dá para implementar nada, nem para conferir se o desenho aguenta um caso real.
+
+Três recursos que eu consideraria básicos aparecem no anúncio no condicional:
+
+- permissão detalhada, com limite por ação específica;
+- notificação da empresa para o agente, como o aviso de voo atrasado;
+- pagamento sem compartilhar o número do cartão.
+
+Sem o primeiro, a escolha fica entre ler tudo e escrever tudo. Eu não daria a um agente a permissão de escrita na conta do meu banco nesses termos.
+
+A lista de presença também diz muito. OpenAI e Anthropic não participam. Taylor também preside o conselho da OpenAI. Ele disse à CNBC que espera a adesão delas e que ficaria muito decepcionado se as concorrentes não adotassem o padrão. A Amazon também não está entre as oito. Um protocolo de agente pessoal sem dois dos maiores construtores de agente e sem a maior loja ainda é uma proposta de um grupo.
+
+Há um limite que nenhuma versão da especificação resolve. O PAP é voluntário. Ele dá um caminho melhor para o agente que quer se identificar. O robô disfarçado continua disfarçado. O caso da Perplexity, do jeito que a Amazon o descreve, é o de um agente que escolheu não se apresentar. Para esse, o padrão só ajuda de forma indireta: quando existe um caminho oficial, a empresa ganha argumento para bloquear quem insiste no *scraping*.
+
+Vale lembrar quem escreve as regras. A Meta diz ter um agente pessoal com milhões de usuários nos Estados Unidos e precisa que as empresas o deixem entrar. A Sierra vende o agente que fica do outro lado. As duas ganham com a adoção, e isso explica a pressa.
 
 ## UX com produtos físicos, o puro suco da estatística
 

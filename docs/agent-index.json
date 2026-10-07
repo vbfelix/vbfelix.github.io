@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "ad62b014b6bedb9431dc1eaa4e8874e5c24be4b4cc19d1c0a4088ff2d4e74bfb",
+  "sourceRevision": "cff8e8f8e72dc2f80a1176bff67e9c89cec6c63fe001a697809f4f5fde11e2b0",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -421,6 +421,28 @@
       "url": "https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html.md",
       "revision": "f8e272585d4ccfdbc0587aef08735d0b3be5a069d32a6388bf04b2abf2e595d1"
+    },
+    {
+      "title": "New SQL, o melhor dos dois mundos?",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Engenharia de dados"
+      ],
+      "url": "https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html.md",
+      "revision": "3111a095d882b2046b35d60ae6412cbaddfc8fc09ed9aeca373dfcb41c195a39"
+    },
+    {
+      "title": "PAP: o seu site vai precisar saber de quem é o robô",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html.md",
+      "revision": "ae3ba4bcc380fcec8f27ac964ed88bab01b4588ebe0541a7c06027446a15d192"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "22bbfcc9cc9b6053536317b37fabb76e34ce44ea",
+  "commit": "0ac987dc0e6e5593e09a807eabc5f62434e1606e",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -42,6 +42,16 @@
         "figura-2.png": "bdeb96a9cc2a552e790233d078e90ae8131b165fee26ae01e01efcacecba0f54",
         "figura-4.png": "7057693d5cd49a2362fc227b20b8f88b3944c2df1f3e0d726c430055dd0bfcc0"
       }
+    },
+    "2026-10-06_o-sql-que-escala-cobra-em-espera-retry-ou-erro.md": {
+      "source": "ac9cc27305c92b51e508f93d9cd7d2fc717666d4077b9f03d49230f52600477c",
+      "rendered": "3111a095d882b2046b35d60ae6412cbaddfc8fc09ed9aeca373dfcb41c195a39",
+      "target": "posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.qmd"
+    },
+    "2026-10-06_pap-o-seu-site-vai-precisar-saber-de-quem-o-rob.md": {
+      "source": "b0583cd5610167b9c45621debfa61aaa92496bca05d28b3c886519cc80c3836b",
+      "rendered": "ae3ba4bcc380fcec8f27ac964ed88bab01b4588ebe0541a7c06027446a15d192",
+      "target": "posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.qmd"
     }
   }
 }

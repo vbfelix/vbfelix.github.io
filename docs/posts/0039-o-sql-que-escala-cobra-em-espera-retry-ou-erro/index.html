@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>New SQL, o melhor dos dois mundos? – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="New SQL, o melhor dos dois mundos? – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html">
+<meta name="description" content="Em 27 de maio de 2025, a AWS colocou o Aurora DSQL em disponibilidade geral, desenhado para 99,999% de disponibilidade quando espalhado por mais de uma região, o nome que a AWS dá a um conjunto de *datacenters* na mesma área geográfica ([AWS, *Amazon Aurora DSQL is now generally available*](https://aws.amazon.com/blogs/aws/amazon-aurora-dsql-is-now-generally-available/)). O artigo que abriu esse caminho é de 2012. Nele o Google descreveu o Spanner, um banco relacional replicado entre continentes ([Corbett et al., *Spanner: Google's Globally-Distributed Database*](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html#page","url":"https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html","name":"New SQL, o melhor dos dois mundos?","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html","articleSection":["Engenharia de dados"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">New SQL, o melhor dos dois mundos?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Engenharia de dados</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">6 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#treze-anos-para-o-paper-do-google-virar-botão-na-aws" id="toc-treze-anos-para-o-paper-do-google-virar-botão-na-aws" class="nav-link active" data-scroll-target="#treze-anos-para-o-paper-do-google-virar-botão-na-aws">Treze anos para o <em>paper</em> do Google virar botão na AWS</a></li>
+  <li><a href="#newsql-é-uma-promessa-nova-mas-de-técnicas-velhas" id="toc-newsql-é-uma-promessa-nova-mas-de-técnicas-velhas" class="nav-link" data-scroll-target="#newsql-é-uma-promessa-nova-mas-de-técnicas-velhas">NewSQL é uma promessa nova, mas de técnicas velhas</a></li>
+  <li><a href="#dois-servidores-quase-nunca-concordam-sobre-a-hora" id="toc-dois-servidores-quase-nunca-concordam-sobre-a-hora" class="nav-link" data-scroll-target="#dois-servidores-quase-nunca-concordam-sobre-a-hora">Dois servidores quase nunca concordam sobre a hora</a></li>
+  <li><a href="#o-google-comprou-relógios-atômicos-para-poder-esperar" id="toc-o-google-comprou-relógios-atômicos-para-poder-esperar" class="nav-link" data-scroll-target="#o-google-comprou-relógios-atômicos-para-poder-esperar">O Google comprou relógios atômicos para poder esperar</a></li>
+  <li><a href="#sem-relógio-atômico-a-leitura-paga-a-conta" id="toc-sem-relógio-atômico-a-leitura-paga-a-conta" class="nav-link" data-scroll-target="#sem-relógio-atômico-a-leitura-paga-a-conta">Sem relógio atômico, a leitura paga a conta</a></li>
+  <li><a href="#na-aws-ninguém-espera-alguém-perde" id="toc-na-aws-ninguém-espera-alguém-perde" class="nav-link" data-scroll-target="#na-aws-ninguém-espera-alguém-perde">Na AWS ninguém espera, alguém perde</a></li>
+  <li><a href="#o-postgresql-de-uma-máquina-só-ainda-resolve-quase-tudo" id="toc-o-postgresql-de-uma-máquina-só-ainda-resolve-quase-tudo" class="nav-link" data-scroll-target="#o-postgresql-de-uma-máquina-só-ainda-resolve-quase-tudo">O PostgreSQL de uma máquina só ainda resolve quase tudo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">New SQL, o melhor dos dois mundos?</li></ol></nav>
+<section id="treze-anos-para-o-paper-do-google-virar-botão-na-aws" class="level3">
+<h3 class="anchored" data-anchor-id="treze-anos-para-o-paper-do-google-virar-botão-na-aws">Treze anos para o <em>paper</em> do Google virar botão na AWS</h3>
+<p>Em 27 de maio de 2025, a AWS colocou o Aurora DSQL em disponibilidade geral, desenhado para 99,999% de disponibilidade quando espalhado por mais de uma região, o nome que a AWS dá a um conjunto de <em>datacenters</em> na mesma área geográfica (<a href="https://aws.amazon.com/blogs/aws/amazon-aurora-dsql-is-now-generally-available/">AWS, <em>Amazon Aurora DSQL is now generally available</em></a>). O artigo que abriu esse caminho é de 2012. Nele o Google descreveu o Spanner, um banco relacional replicado entre continentes (<a href="https://research.google/pubs/spanner-googles-globally-distributed-database-2/">Corbett et al., <em>Spanner: Google’s Globally-Distributed Database</em></a>).</p>
+<p>Spanner, CockroachDB e Aurora DSQL respondem à mesma pergunta: como um banco decide qual transação veio primeiro quando as máquinas discordam da hora? Gosto desse trio porque cada um responde cobrando em uma moeda diferente. O Spanner paga em espera. O CockroachDB paga em <em>retry</em>, a repetição de uma transação que não pôde terminar. O Aurora DSQL paga em erro: quem perde a disputa descobre na hora de confirmar a transação.</p>
+<p>Nenhum dos três eliminou o custo, só o moveu. Quem escolhe um deles está escolhendo onde ele aparece.</p>
+</section>
+<section id="newsql-é-uma-promessa-nova-mas-de-técnicas-velhas" class="level3">
+<h3 class="anchored" data-anchor-id="newsql-é-uma-promessa-nova-mas-de-técnicas-velhas">NewSQL é uma promessa nova, mas de técnicas velhas</h3>
+<p>O termo NewSQL apareceu em 2011, em um relatório de mercado de Matthew Aslett, da 451 Research. Cinco anos depois, ele e Andrew Pavlo, da Carnegie Mellon, escreveram o artigo que organiza a categoria (<a href="https://db.cs.cmu.edu/papers/2016/pavlo-newsql-sigmodrec2016.pdf">Pavlo e Aslett, <em>What’s Really New with NewSQL?</em></a>).</p>
+<p>A promessa cabe em uma frase. Um banco NewSQL escala como um NoSQL e mantém as garantias de um banco relacional: a transação, que faz várias escritas valerem juntas ou não valerem. NoSQL é a família de bancos que, nos anos 2000, abriu mão da transação para crescer em muitas máquinas. Mover dinheiro de uma conta para outra virava problema da aplicação.</p>
+<p>Os autores do Spanner tomaram o lado oposto. Eles escrevem que preferem ver o programador lidar com problema de desempenho por excesso de transação a vê-lo programar em volta da falta dela (<a href="https://research.google/pubs/spanner-googles-globally-distributed-database-2/">Corbett et al.</a>).</p>
+<p>A conclusão de Pavlo e Aslett é menos empolgante que o nome. NewSQL não rompe com a arquitetura dos bancos anteriores. É o capítulo seguinte dela, feito com técnicas que em boa parte já existiam. A exceção é o Spanner, pelo uso de relógios de alta precisão para ordenar transações.Relógio esse que separa os três bancos.</p>
+</section>
+<section id="dois-servidores-quase-nunca-concordam-sobre-a-hora" class="level3">
+<h3 class="anchored" data-anchor-id="dois-servidores-quase-nunca-concordam-sobre-a-hora">Dois servidores quase nunca concordam sobre a hora</h3>
+<p>Distribuir um banco relacional tem um problema conhecido: os dados são repartidos em faixas de chaves. Cada faixa mora em um grupo de máquinas. Uma escrita só vale depois que a maioria do grupo a registrou (<a href="https://docs.cloud.google.com/spanner/docs/whitepapers/life-of-reads-and-writes">Google Cloud, <em>Life of Spanner Reads &amp; Writes</em></a>). Isso se chama consenso: as máquinas do grupo votam sobre cada escrita, e todas concordam sobre o que foi gravado mesmo quando uma delas cai. O consenso resolve a cópia dos dados.</p>
+<p>O consenso não resolve a pergunta seguinte: qual transação veio antes?</p>
+<p>Suponha uma transação A, que deposita R$ 100 em uma conta e termina. Depois que A terminou, começa em outro servidor a transação B, que lê o saldo. Quase todo mundo espera que B veja os R$ 100. Para isso o banco precisa saber que A veio antes de B. O jeito usual é dar um horário a cada transação e ordenar por ele. Só que os dois servidores têm relógios diferentes. Se o relógio do segundo servidor está atrasado, B pode receber um horário anterior ao de A, ser ordenada antes dela e ler o saldo antigo.</p>
+<p>Existem dois níveis de garantia para essa ordem:</p>
+<ul>
+<li><strong><em>Serializable</em></strong>: o resultado é igual ao de alguma ordem de execução, uma transação inteira depois da outra. Essa ordem pode ser qualquer uma, até uma em que B venha antes de A;</li>
+<li><strong><em>External consistency</em></strong>: a ordem respeita o tempo real. Se uma transação terminou antes de outra começar a confirmar, nenhum cliente vê o efeito da segunda sem o da primeira (<a href="https://docs.cloud.google.com/spanner/docs/true-time-external-consistency">Google Cloud, <em>TrueTime and external consistency</em></a>).</li>
+</ul>
+<p>No exemplo do depósito, a definição de <em>serializable</em> aceita a ordem B antes de A, porque é uma ordem possível, e por isso não proíbe o saldo antigo. A de <em>external consistency</em> proíbe, porque A terminou antes de B começar. A diferença entre os três bancos começa aqui.</p>
+</section>
+<section id="o-google-comprou-relógios-atômicos-para-poder-esperar" class="level3">
+<h3 class="anchored" data-anchor-id="o-google-comprou-relógios-atômicos-para-poder-esperar">O Google comprou relógios atômicos para poder esperar</h3>
+<p>A saída do Spanner foi parar de fingir que o relógio é exato. O TrueTime, a API de tempo dos servidores do Google, não devolve um instante. Devolve um intervalo que contém o instante real, com garantia. Cada <em>datacenter</em> tem servidores de tempo com receptor de GPS e outros com relógio atômico. Em produção, o artigo relata um erro de até 7 ms (<a href="https://research.google/pubs/spanner-googles-globally-distributed-database-2/">Corbett et al.</a>).</p>
+<p>Com o erro conhecido, a regra é simples. O coordenador escolhe um horário para a transação. Antes de responder ao cliente, ele espera até ter certeza de que esse horário já ficou no passado em qualquer relógio do sistema. A espera é de poucos milissegundos por escrita, e corre em paralelo com a replicação, então só aparece na latência quando o erro do relógio passa do tempo que a cópia leva.</p>
+<p>É essa espera que compra a <em>external consistency</em>. Quando B começa, o horário de A já passou em todos os servidores. Se o relógio piora, o Spanner espera mais. O erro do relógio vira latência. Acho essa a decisão de projeto mais elegante dos três.</p>
+<p>Ela também é a menos portátil. O relógio atômico e a rede privada do Google fazem parte do produto, logo isso só existe no Google Cloud.</p>
+</section>
+<section id="sem-relógio-atômico-a-leitura-paga-a-conta" class="level3">
+<h3 class="anchored" data-anchor-id="sem-relógio-atômico-a-leitura-paga-a-conta">Sem relógio atômico, a leitura paga a conta</h3>
+<p>O CockroachDB nasceu para rodar em qualquer nuvem, com relógio comum sincronizado pela rede. Ali ninguém mede o erro do relógio. O CockroachDB assume um teto, e o teto padrão de diferença entre os relógios das máquinas é de 500 ms (<a href="https://docs.cockroachlabs.com/docs/stable/recommended-production-settings">Cockroach Labs, <em>Production Checklist</em></a>).</p>
+<p>Esperar esse teto em toda escrita custaria meio segundo, enquanto o Spanner espera só o erro que mediu. Como regra, o CockroachDB não espera. Spencer Kimball e Irfan Sharif, da Cockroach Labs, resumem a troca: o Spanner sempre espera depois da escrita, e o CockroachDB às vezes repete a transação (<a href="https://www.cockroachlabs.com/blog/living-without-atomic-clocks/">Kimball e Sharif, <em>Living Without Atomic Clocks</em></a>).</p>
+<p>Funciona assim. Cada transação recebe um horário do relógio da máquina em que começou. Como esse relógio pode estar até 500 ms atrasado em relação aos outros, qualquer valor gravado nos 500 ms seguintes ao horário dela pode, na verdade, ter sido gravado antes. Se a transação encontra um valor nessa janela, o banco não sabe dizer se a escrita veio antes ou depois. Na dúvida, ele reinicia a transação com um horário maior que o do valor encontrado, e a dúvida some. Sem disputa pelo mesmo dado, nada disso acontece. Com disputa, a aplicação pode repetir a transação (<a href="https://docs.cockroachlabs.com/docs/stable/transaction-retry-error-reference">Cockroach Labs, <em>Transaction Retry Error Reference</em></a>).</p>
+<p>Tudo depende de o limite de 500 ms ser verdade. Quando uma máquina percebe que o seu relógio se afastou demais das outras, ela se desliga sozinha. Prefiro um banco que se mata a um que mente.</p>
+<p>O que sai desse desenho é <em>serializable</em>. Para o exemplo do depósito, em que A e B tocam a mesma conta, a janela de incerteza resolve. Para duas transações em linhas separadas, como fechar um pedido e depois gravar o aviso de envio em outra tabela, a ordem no tempo real não é garantida, e uma leitura pode ver o aviso de um pedido que ainda não fechou.</p>
+</section>
+<section id="na-aws-ninguém-espera-alguém-perde" class="level3">
+<h3 class="anchored" data-anchor-id="na-aws-ninguém-espera-alguém-perde">Na AWS ninguém espera, alguém perde</h3>
+<p>O Aurora DSQL escolheu a terceira moeda. Marc Brooker, engenheiro da AWS que montou o time do projeto, explica a arquitetura em uma série de textos (<a href="https://brooker.co.za/blog/2024/12/03/aurora-dsql.html">Brooker, <em>DSQL Vignette: Aurora DSQL, and A Personal Story</em></a>).</p>
+<p>Quem recebe o seu SQL é um PostgreSQL modificado. Ele manteve o interpretador e o planejador de consultas e trocou o armazenamento e o processamento de transações (<a href="https://brooker.co.za/blog/2024/12/04/inside-dsql.html">Brooker, <em>Reads and Compute</em></a>).</p>
+<p>O relógio continua no centro. A transação começa com um horário tirado do relógio de precisão do EC2, o serviço de máquinas virtuais da AWS, que informa o erro como o TrueTime. Toda leitura pede os dados como eles eram naquele horário. Por isso a leitura não precisa de trava. Só que o DSQL não impõe uma espera de confirmação como a do Spanner. O horário serve para responder, na confirmação, a uma pergunta.</p>
+<p>A escrita é onde o desenho muda. Um <code>UPDATE</code> não vai para o armazenamento. Ele fica anotado como intenção. Só na confirmação a transação é enviada ao componente que decide quem confirma, chamado <em>adjudicator</em>. Ele faz a pergunta: alguma outra transação gravou nas mesmas linhas entre o horário de início e o horário de confirmação desta? Se não, ela é confirmada. Se sim, ela é abortada (<a href="https://brooker.co.za/blog/2024/12/05/inside-dsql-writes.html">Brooker, <em>Transactions and Durability</em></a>).</p>
+<p>Isso se chama controle de concorrência otimista: o banco aposta que conflito é raro e só confere no final. O aborto não vem do relógio, e sim dessa conferência. O relógio só define o retrato que a transação leu. A transação que perde recebe o mesmo código <code>40001</code> do CockroachDB (<a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-concurrency-control.html">AWS, <em>Concurrency control in Aurora DSQL</em></a>). Não há fila de trava na escrita, e uma transação lenta tende a não segurar as outras. A documentação avisa do outro lado: a aplicação vai repetir transação com mais frequência do que em um PostgreSQL comum.</p>
+<p>O isolamento também é uma escolha. O DSQL fixa o nível em <em>snapshot isolation</em> e não oferece <em>serializable</em>. Ele confere só as escritas, e não as leituras. Brooker defende a escolha: a transação típica lê muito mais do que grava, e conferir leituras causaria abortos que o programador teria de evitar o tempo todo (<a href="https://brooker.co.za/blog/2024/12/17/occ-and-isolation.html">Brooker, <em>Snapshot Isolation vs Serializability</em></a>).</p>
+<p>Para manter a transação pequena, o serviço impõe limites que um PostgreSQL não tem: no máximo 3.000 linhas alteradas e 5 minutos por transação (<a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/CHAP_quotas.html">AWS, <em>Cluster quotas and database limits</em></a>; <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-postgresql-compatibility-migration-guide.html">AWS, <em>Migrating from PostgreSQL to Aurora DSQL</em></a>). E, como o Spanner, ele só existe na própria nuvem.</p>
+</section>
+<section id="o-postgresql-de-uma-máquina-só-ainda-resolve-quase-tudo" class="level3">
+<h3 class="anchored" data-anchor-id="o-postgresql-de-uma-máquina-só-ainda-resolve-quase-tudo">O PostgreSQL de uma máquina só ainda resolve quase tudo</h3>
+<p>Lado a lado, as três escolhas ficam assim:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Spanner</th>
+<th>CockroachDB</th>
+<th>Aurora DSQL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Moeda</td>
+<td>Espera na escrita</td>
+<td><em>Retry</em> na leitura</td>
+<td>Erro na confirmação</td>
+</tr>
+<tr class="even">
+<td>Relógio</td>
+<td>TrueTime, com erro de até 7 ms</td>
+<td>Relógio comum, com erro de até 500 ms</td>
+<td>Relógio de precisão do EC2, com erro informado</td>
+</tr>
+<tr class="odd">
+<td>Garantia</td>
+<td><em>External consistency</em></td>
+<td><em>Serializable</em></td>
+<td><em>Snapshot isolation</em></td>
+</tr>
+<tr class="even">
+<td>O que a aplicação precisa saber</td>
+<td>Escrita tem um piso de latência</td>
+<td><code>40001</code> sob disputa</td>
+<td><code>40001</code> sob disputa, <em>write skew</em>, limites por transação</td>
+</tr>
+</tbody>
+</table>
+<p>Antes de trocar um PostgreSQL por um deles, eu responderia a três perguntas:</p>
+<ul>
+<li>Preciso gravar em mais de uma região, ou só sobreviver à queda de uma? Réplica e promoção de réplica costumam resolver o segundo caso sem banco distribuído;</li>
+<li>Minhas transações aguentam ser repetidas? Se alguma chama serviço externo no meio, o trabalho começa na aplicação;</li>
+<li>Tenho regra que depende de uma leitura, como a do plantão? Em <em>snapshot isolation</em> ela pede <code>FOR UPDATE</code>.</li>
+</ul>
+<p>Minha posição é que a maioria das aplicações que conheço cabe em um PostgreSQL bem cuidado, e que banco distribuído é resposta para dois problemas: escrita em várias regiões, com consistência forte e sem operar a replicação à mão, ou volume de escrita que uma máquina não aguenta, que é o caso para o qual a categoria nasceu. Quando o problema é esse, os três são candidatos.</p>
+<p>Abra o caminho mais disputado da sua aplicação, aquele em que duas requisições brigam pela mesma linha, e decida o que você prefere que aconteça ali: esperar alguns milissegundos, repetir uma leitura ou tratar um erro.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Engenharia de dados">#Engenharia-de-dados</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

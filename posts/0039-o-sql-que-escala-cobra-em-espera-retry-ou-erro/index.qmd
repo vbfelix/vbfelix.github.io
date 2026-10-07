@@ -1,0 +1,99 @@
+---
+title: "New SQL, o melhor dos dois mundos?"
+author: "Vinícius Félix"
+date: "2026-10-06"
+categories: [Engenharia de dados]
+lang: pt-BR
+---
+
+### Treze anos para o *paper* do Google virar botão na AWS
+
+Em 27 de maio de 2025, a AWS colocou o Aurora DSQL em disponibilidade geral, desenhado para 99,999% de disponibilidade quando espalhado por mais de uma região, o nome que a AWS dá a um conjunto de *datacenters* na mesma área geográfica ([AWS, *Amazon Aurora DSQL is now generally available*](https://aws.amazon.com/blogs/aws/amazon-aurora-dsql-is-now-generally-available/)). O artigo que abriu esse caminho é de 2012. Nele o Google descreveu o Spanner, um banco relacional replicado entre continentes ([Corbett et al., *Spanner: Google's Globally-Distributed Database*](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+Spanner, CockroachDB e Aurora DSQL respondem à mesma pergunta: como um banco decide qual transação veio primeiro quando as máquinas discordam da hora? Gosto desse trio porque cada um responde cobrando em uma moeda diferente. O Spanner paga em espera. O CockroachDB paga em *retry*, a repetição de uma transação que não pôde terminar. O Aurora DSQL paga em erro: quem perde a disputa descobre na hora de confirmar a transação.
+
+Nenhum dos três eliminou o custo, só o moveu. Quem escolhe um deles está escolhendo onde ele aparece.
+
+### NewSQL é uma promessa nova, mas de técnicas velhas
+
+O termo NewSQL apareceu em 2011, em um relatório de mercado de Matthew Aslett, da 451 Research. Cinco anos depois, ele e Andrew Pavlo, da Carnegie Mellon, escreveram o artigo que organiza a categoria ([Pavlo e Aslett, *What's Really New with NewSQL?*](https://db.cs.cmu.edu/papers/2016/pavlo-newsql-sigmodrec2016.pdf)).
+
+A promessa cabe em uma frase. Um banco NewSQL escala como um NoSQL e mantém as garantias de um banco relacional: a transação, que faz várias escritas valerem juntas ou não valerem. NoSQL é a família de bancos que, nos anos 2000, abriu mão da transação para crescer em muitas máquinas. Mover dinheiro de uma conta para outra virava problema da aplicação.
+
+Os autores do Spanner tomaram o lado oposto. Eles escrevem que preferem ver o programador lidar com problema de desempenho por excesso de transação a vê-lo programar em volta da falta dela ([Corbett et al.](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+A conclusão de Pavlo e Aslett é menos empolgante que o nome. NewSQL não rompe com a arquitetura dos bancos anteriores. É o capítulo seguinte dela, feito com técnicas que em boa parte já existiam. A exceção é o Spanner, pelo uso de relógios de alta precisão para ordenar transações.Relógio esse que separa os três bancos.
+
+### Dois servidores quase nunca concordam sobre a hora
+
+Distribuir um banco relacional tem um problema conhecido: os dados são repartidos em faixas de chaves. Cada faixa mora em um grupo de máquinas. Uma escrita só vale depois que a maioria do grupo a registrou ([Google Cloud, *Life of Spanner Reads & Writes*](https://docs.cloud.google.com/spanner/docs/whitepapers/life-of-reads-and-writes)). Isso se chama consenso: as máquinas do grupo votam sobre cada escrita, e todas concordam sobre o que foi gravado mesmo quando uma delas cai. O consenso resolve a cópia dos dados.
+
+O consenso não resolve a pergunta seguinte: qual transação veio antes?
+
+Suponha uma transação A, que deposita R$ 100 em uma conta e termina. Depois que A terminou, começa em outro servidor a transação B, que lê o saldo. Quase todo mundo espera que B veja os R$ 100. Para isso o banco precisa saber que A veio antes de B. O jeito usual é dar um horário a cada transação e ordenar por ele. Só que os dois servidores têm relógios diferentes. Se o relógio do segundo servidor está atrasado, B pode receber um horário anterior ao de A, ser ordenada antes dela e ler o saldo antigo.
+
+Existem dois níveis de garantia para essa ordem:
+
+- ***Serializable***: o resultado é igual ao de alguma ordem de execução, uma transação inteira depois da outra. Essa ordem pode ser qualquer uma, até uma em que B venha antes de A;
+- ***External consistency***: a ordem respeita o tempo real. Se uma transação terminou antes de outra começar a confirmar, nenhum cliente vê o efeito da segunda sem o da primeira ([Google Cloud, *TrueTime and external consistency*](https://docs.cloud.google.com/spanner/docs/true-time-external-consistency)).
+
+No exemplo do depósito, a definição de *serializable* aceita a ordem B antes de A, porque é uma ordem possível, e por isso não proíbe o saldo antigo. A de *external consistency* proíbe, porque A terminou antes de B começar. A diferença entre os três bancos começa aqui.
+
+### O Google comprou relógios atômicos para poder esperar
+
+A saída do Spanner foi parar de fingir que o relógio é exato. O TrueTime, a API de tempo dos servidores do Google, não devolve um instante. Devolve um intervalo que contém o instante real, com garantia. Cada *datacenter* tem servidores de tempo com receptor de GPS e outros com relógio atômico. Em produção, o artigo relata um erro de até 7 ms ([Corbett et al.](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+
+Com o erro conhecido, a regra é simples. O coordenador escolhe um horário para a transação. Antes de responder ao cliente, ele espera até ter certeza de que esse horário já ficou no passado em qualquer relógio do sistema. A espera é de poucos milissegundos por escrita, e corre em paralelo com a replicação, então só aparece na latência quando o erro do relógio passa do tempo que a cópia leva.
+
+É essa espera que compra a *external consistency*. Quando B começa, o horário de A já passou em todos os servidores. Se o relógio piora, o Spanner espera mais. O erro do relógio vira latência. Acho essa a decisão de projeto mais elegante dos três.
+
+Ela também é a menos portátil. O relógio atômico e a rede privada do Google fazem parte do produto, logo isso só existe no Google Cloud.
+
+### Sem relógio atômico, a leitura paga a conta
+
+O CockroachDB nasceu para rodar em qualquer nuvem, com relógio comum sincronizado pela rede. Ali ninguém mede o erro do relógio. O CockroachDB assume um teto, e o teto padrão de diferença entre os relógios das máquinas é de 500 ms ([Cockroach Labs, *Production Checklist*](https://docs.cockroachlabs.com/docs/stable/recommended-production-settings)).
+
+Esperar esse teto em toda escrita custaria meio segundo, enquanto o Spanner espera só o erro que mediu. Como regra, o CockroachDB não espera. Spencer Kimball e Irfan Sharif, da Cockroach Labs, resumem a troca: o Spanner sempre espera depois da escrita, e o CockroachDB às vezes repete a transação ([Kimball e Sharif, *Living Without Atomic Clocks*](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)).
+
+Funciona assim. Cada transação recebe um horário do relógio da máquina em que começou. Como esse relógio pode estar até 500 ms atrasado em relação aos outros, qualquer valor gravado nos 500 ms seguintes ao horário dela pode, na verdade, ter sido gravado antes. Se a transação encontra um valor nessa janela, o banco não sabe dizer se a escrita veio antes ou depois. Na dúvida, ele reinicia a transação com um horário maior que o do valor encontrado, e a dúvida some. Sem disputa pelo mesmo dado, nada disso acontece. Com disputa, a aplicação pode repetir a transação ([Cockroach Labs, *Transaction Retry Error Reference*](https://docs.cockroachlabs.com/docs/stable/transaction-retry-error-reference)).
+
+Tudo depende de o limite de 500 ms ser verdade. Quando uma máquina percebe que o seu relógio se afastou demais das outras, ela se desliga sozinha. Prefiro um banco que se mata a um que mente.
+
+O que sai desse desenho é *serializable*. Para o exemplo do depósito, em que A e B tocam a mesma conta, a janela de incerteza resolve. Para duas transações em linhas separadas, como fechar um pedido e depois gravar o aviso de envio em outra tabela, a ordem no tempo real não é garantida, e uma leitura pode ver o aviso de um pedido que ainda não fechou.
+
+### Na AWS ninguém espera, alguém perde
+
+O Aurora DSQL escolheu a terceira moeda. Marc Brooker, engenheiro da AWS que montou o time do projeto, explica a arquitetura em uma série de textos ([Brooker, *DSQL Vignette: Aurora DSQL, and A Personal Story*](https://brooker.co.za/blog/2024/12/03/aurora-dsql.html)).
+
+Quem recebe o seu SQL é um PostgreSQL modificado. Ele manteve o interpretador e o planejador de consultas e trocou o armazenamento e o processamento de transações ([Brooker, *Reads and Compute*](https://brooker.co.za/blog/2024/12/04/inside-dsql.html)).
+
+O relógio continua no centro. A transação começa com um horário tirado do relógio de precisão do EC2, o serviço de máquinas virtuais da AWS, que informa o erro como o TrueTime. Toda leitura pede os dados como eles eram naquele horário. Por isso a leitura não precisa de trava. Só que o DSQL não impõe uma espera de confirmação como a do Spanner. O horário serve para responder, na confirmação, a uma pergunta.
+
+A escrita é onde o desenho muda. Um `UPDATE` não vai para o armazenamento. Ele fica anotado como intenção. Só na confirmação a transação é enviada ao componente que decide quem confirma, chamado *adjudicator*. Ele faz a pergunta: alguma outra transação gravou nas mesmas linhas entre o horário de início e o horário de confirmação desta? Se não, ela é confirmada. Se sim, ela é abortada ([Brooker, *Transactions and Durability*](https://brooker.co.za/blog/2024/12/05/inside-dsql-writes.html)).
+
+Isso se chama controle de concorrência otimista: o banco aposta que conflito é raro e só confere no final. O aborto não vem do relógio, e sim dessa conferência. O relógio só define o retrato que a transação leu. A transação que perde recebe o mesmo código `40001` do CockroachDB ([AWS, *Concurrency control in Aurora DSQL*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-concurrency-control.html)). Não há fila de trava na escrita, e uma transação lenta tende a não segurar as outras. A documentação avisa do outro lado: a aplicação vai repetir transação com mais frequência do que em um PostgreSQL comum.
+
+O isolamento também é uma escolha. O DSQL fixa o nível em *snapshot isolation* e não oferece *serializable*. Ele confere só as escritas, e não as leituras. Brooker defende a escolha: a transação típica lê muito mais do que grava, e conferir leituras causaria abortos que o programador teria de evitar o tempo todo ([Brooker, *Snapshot Isolation vs Serializability*](https://brooker.co.za/blog/2024/12/17/occ-and-isolation.html)).
+
+Para manter a transação pequena, o serviço impõe limites que um PostgreSQL não tem: no máximo 3.000 linhas alteradas e 5 minutos por transação ([AWS, *Cluster quotas and database limits*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/CHAP_quotas.html); [AWS, *Migrating from PostgreSQL to Aurora DSQL*](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-postgresql-compatibility-migration-guide.html)). E, como o Spanner, ele só existe na própria nuvem.
+
+### O PostgreSQL de uma máquina só ainda resolve quase tudo
+
+Lado a lado, as três escolhas ficam assim:
+
+| | Spanner | CockroachDB | Aurora DSQL |
+|---|---|---|---|
+| Moeda | Espera na escrita | *Retry* na leitura | Erro na confirmação |
+| Relógio | TrueTime, com erro de até 7 ms | Relógio comum, com erro de até 500 ms | Relógio de precisão do EC2, com erro informado |
+| Garantia | *External consistency* | *Serializable* | *Snapshot isolation* |
+| O que a aplicação precisa saber | Escrita tem um piso de latência | `40001` sob disputa | `40001` sob disputa, *write skew*, limites por transação |
+
+Antes de trocar um PostgreSQL por um deles, eu responderia a três perguntas:
+
+- Preciso gravar em mais de uma região, ou só sobreviver à queda de uma? Réplica e promoção de réplica costumam resolver o segundo caso sem banco distribuído;
+- Minhas transações aguentam ser repetidas? Se alguma chama serviço externo no meio, o trabalho começa na aplicação;
+- Tenho regra que depende de uma leitura, como a do plantão? Em *snapshot isolation* ela pede `FOR UPDATE`.
+
+Minha posição é que a maioria das aplicações que conheço cabe em um PostgreSQL bem cuidado, e que banco distribuído é resposta para dois problemas: escrita em várias regiões, com consistência forte e sem operar a replicação à mão, ou volume de escrita que uma máquina não aguenta, que é o caso para o qual a categoria nasceu. Quando o problema é esse, os três são candidatos.
+
+Abra o caminho mais disputado da sua aplicação, aquele em que duas requisições brigam pela mesma linha, e decida o que você prefere que aconteça ali: esperar alguns milissegundos, repetir uma leitura ou tratar um erro.
