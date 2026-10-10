@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Vinícius Félix">
 
-<title>Vinícius Félix · Sobre mim – Vinícius Félix</title>
+<title>Agent swarm: mais agentes fazem melhor que um? – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,18 +24,18 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<link href="./images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Nenhum resultado",
@@ -52,28 +53,28 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Vinícius Félix · Sobre mim">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Agent swarm: mais agentes fazem melhor que um? – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
 <meta property="og:site_name" content="Vinícius Félix">
 <!-- agent-metadata:start -->
-<link rel="canonical" href="https://vbfelix.github.io/index.html">
-<meta name="description" content="Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.">
+<link rel="canonical" href="https://vbfelix.github.io/posts/0041-agent-swarm/index.html">
+<meta name="description" content="Revisei o meu primeiro livro com o Claude Code. Pela conta feita na própria sessão, foram 277 execuções de subagentes para chegar a cerca de 13 mil palavras. O trabalho inteiro consumiu cerca de 587 milhões de *tokens*, se pagos por uso em API, dariam cerca de US$ 397.">
 <link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
-<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/index.html.md">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0041-agent-swarm/index.html.md">
 <link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":"ProfilePage","@id":"https://vbfelix.github.io/index.html#page","url":"https://vbfelix.github.io/index.html","name":"Sobre Vinícius Félix","inLanguage":"pt-BR","mainEntity":{"@id":"https://vbfelix.github.io/#person"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0041-agent-swarm/index.html#page","url":"https://vbfelix.github.io/posts/0041-agent-swarm/index.html","name":"Agent swarm: mais agentes fazem melhor que um?","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0041-agent-swarm/index.html","articleSection":["IA"]}]}</script>
 <!-- agent-metadata:end -->
 </head>
 
-<body class="nav-fixed about-page">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Vinícius Félix</span>
     </a>
   </div>
@@ -83,23 +84,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Sobre mim</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
+    <a class="nav-link" href="../../portfolio.html"> 
 <span class="menu-text">Portfólio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./writing.html"> 
+    <a class="nav-link" href="../../writing.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-certifications.html"> 
+    <a class="nav-link" href="../../header-certifications.html"> 
 <span class="menu-text">Certificações</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-publications.html"> 
+    <a class="nav-link" href="../../header-publications.html"> 
 <span class="menu-text">Publicações</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -108,15 +109,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
         <li>
-    <a class="dropdown-item" href="./header-participations.html">
+    <a class="dropdown-item" href="../../header-participations.html">
  <span class="dropdown-text">Participações</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./header-courses.html">
+    <a class="dropdown-item" href="../../header-courses.html">
  <span class="dropdown-text">Cursos</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./header-awards.html">
+    <a class="dropdown-item" href="../../header-awards.html">
  <span class="dropdown-text">Prêmios</span></a>
   </li>  
     </ul>
@@ -151,12 +152,56 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Agent swarm: mais agentes fazem melhor que um?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">IA</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">10 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#um-livro-de-13-mil-palavras-e-277-execuções-de-subagente" id="toc-um-livro-de-13-mil-palavras-e-277-execuções-de-subagente" class="nav-link active" data-scroll-target="#um-livro-de-13-mil-palavras-e-277-execuções-de-subagente">Um livro de 13 mil palavras e 277 execuções de subagente</a></li>
+  <li><a href="#um-coordenador-e-vários-estagiários-sem-memória" id="toc-um-coordenador-e-vários-estagiários-sem-memória" class="nav-link" data-scroll-target="#um-coordenador-e-vários-estagiários-sem-memória">Um coordenador e vários estagiários sem memória</a></li>
+  <li><a href="#quinze-vezes-o-preço-de-um-chat-e-a-conta-não-para-aí" id="toc-quinze-vezes-o-preço-de-um-chat-e-a-conta-não-para-aí" class="nav-link" data-scroll-target="#quinze-vezes-o-preço-de-um-chat-e-a-conta-não-para-aí">Quinze vezes o preço de um <em>chat</em>, e a conta não para aí</a></li>
+  <li><a href="#no-meu-enxame-subagente-não-escreve" id="toc-no-meu-enxame-subagente-não-escreve" class="nav-link" data-scroll-target="#no-meu-enxame-subagente-não-escreve">No meu enxame, subagente não escreve</a></li>
+  <li><a href="#dois-agentes-um-repositório-e-nenhuma-reserva" id="toc-dois-agentes-um-repositório-e-nenhuma-reserva" class="nav-link" data-scroll-target="#dois-agentes-um-repositório-e-nenhuma-reserva">Dois agentes, um repositório e nenhuma reserva</a></li>
+  <li><a href="#conte-as-partes-antes-de-contar-os-agentes" id="toc-conte-as-partes-antes-de-contar-os-agentes" class="nav-link" data-scroll-target="#conte-as-partes-antes-de-contar-os-agentes">Conte as partes antes de contar os agentes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
 <script>
 // Quarto places this include inside <main>; the link only helps as the first stop in tab order.
@@ -166,187 +211,75 @@ document.body.prepend(document.currentScript.previousElementSibling);
 
 
 
-<div class="about-hero">
-<div class="about-hero__copy">
-<p class="about-hero__eyebrow">
-Vinícius Félix
-</p>
-<section id="meu-trabalho-começa-com-uma-pergunta-melhor." class="level1">
-<h1>Meu trabalho começa com uma pergunta melhor.</h1>
-<p>Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.</p>
-<div class="about-hero__actions">
-<p><a href="./portfolio.html" class="about-action about-action--primary">Explorar portfólio</a></p>
-<p><a href="./writing.html" class="about-action">Ler o blog</a></p>
-</div>
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Agent swarm: mais agentes fazem melhor que um?</li></ol></nav>
+<section id="um-livro-de-13-mil-palavras-e-277-execuções-de-subagente" class="level3">
+<h3 class="anchored" data-anchor-id="um-livro-de-13-mil-palavras-e-277-execuções-de-subagente">Um livro de 13 mil palavras e 277 execuções de subagente</h3>
+<p>Revisei o meu primeiro livro com o Claude Code. Pela conta feita na própria sessão, foram 277 execuções de subagentes para chegar a cerca de 13 mil palavras. O trabalho inteiro consumiu cerca de 587 milhões de <em>tokens</em>, se pagos por uso em API, dariam cerca de US$ 397.</p>
+<p>O mercado tem um nome para esse arranjo: <em>agent swarm</em>, o enxame de agentes. Gosto dele, com uma ressalva. Um <em>swarm</em> não cria paralelismo. Ele aproveita o paralelismo que a tarefa já tem, e cobra por isso.</p>
 </section>
-</div>
-<div class="about-hero__portrait">
-<figure class="portrait-plot figure" data-bootstrap="" aria-label="Retrato artístico de Vinícius Félix formado por pontos em um plano bivariado">
-<img src="./images/portrait-scatter-gray.png" alt="Vinícius Félix retratado em pontos de giz, como uma nuvem de dispersão." width="1254" height="1254" class="figure-img">
-<svg viewbox="0 0 460 460" aria-hidden="true" focusable="false">
-<g class="portrait-plot__grid"><path d="M55 110H420M55 185H420M55 260H420M55 335H420M130 40V410M205 40V410M280 40V410M355 40V410"></path></g>
-<g class="portrait-plot__axes"><path d="M55 35V410H425M50 110H60M50 185H60M50 260H60M50 335H60M130 405V415M205 405V415M280 405V415M355 405V415"></path></g>
-<g class="portrait-plot__labels"><text x="433" y="416">x</text><text x="49" y="25">y</text><text x="39" y="429">0</text></g>
-</svg>
-</figure>
-<script src="./assets/js/portrait-bootstrap.js" defer=""></script>
-</div>
-</div>
-<div class="about-selected-work">
-<div class="about-section-heading">
-<p class="section-kicker">
-TRABALHOS SELECIONADOS
-</p>
-<section id="onde-o-método-encontra-a-operação" class="level2">
-<h2 class="anchored" data-anchor-id="onde-o-método-encontra-a-operação">Onde o método encontra a operação</h2>
+<section id="um-coordenador-e-vários-estagiários-sem-memória" class="level3">
+<h3 class="anchored" data-anchor-id="um-coordenador-e-vários-estagiários-sem-memória">Um coordenador e vários estagiários sem memória</h3>
+<p>Um agente é um modelo de linguagem que trabalha em etapas: lê a instrução, usa uma ferramenta, olha o resultado e decide o próximo passo. Tudo o que ele leu fica na <em>context window</em>, a janela de texto que o modelo enxerga de uma vez. Ela é finita.</p>
+<p>Um subagente é um agente convocado para uma subtarefa. Ele recebe um objetivo, trabalha em uma <em>context window</em> separada e devolve um resumo. A conversa de quem o convocou ele não herda. Quem convoca é o orquestrador, o agente que divide o trabalho, dispara os subagentes e junta as respostas.</p>
+<p><em>Agent swarm</em> é o rótulo para um orquestrador com vários subagentes, em geral rodando ao mesmo tempo:</p>
+<pre class="text"><code>              pergunta
+                 |
+           orquestrador
+          /      |      \
+  subagente  subagente  subagente
+          \      |      /
+           orquestrador
+                 |
+             resposta</code></pre>
+<p>O nome não tem definição tão formal, mas o mercado já usa. Um exemplo é o Swarm, projeto experimental da OpenAI substituído pelo Agents SDK (<a href="https://github.com/openai/swarm">OpenAI, <em>Swarm</em></a>). Outro é o <code>qa-swarm</code>, montado por um engenheiro da PostHog, que dispara quatro agentes revisores de código, cada um com instruções próprias (<a href="https://newsletter.posthog.com/p/code-review-tips">Jina Yoon, <em>Stop being the code review bottleneck</em></a>).</p>
+<p>Em junho de 2025, a Anthropic descreveu o que o arranjo compra ao contar como montou o seu sistema de pesquisa (<a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic, <em>How we built our multi-agent research system</em></a>). São duas coisas. A primeira é exploração em paralelo: o orquestrador dispara de três a cinco subagentes de uma vez, cada um em um aspecto da pergunta. A segunda é contexto separado: cada subagente lê muito e devolve pouco, e a <em>context window</em> do orquestrador enche mais devagar. Na avaliação interna de pesquisa deles, <strong>um modelo maior orquestrando subagentes de um modelo menor teve resultado 90,2% melhor que o modelo maior sozinho</strong>.</p>
 </section>
-</div>
-<div class="about-projects">
-<div class="about-project-card">
-<p><a href="portfolio/0040-criando-meu-clone-com-ia/index.html" class="about-project-card__media"><img src="portfolio/0040-criando-meu-clone-com-ia/thumbnail.svg" alt="Esquema conceitual em lousa verde: documentos passam por uma etapa de curadoria e formam uma rede de conhecimento ligada a um assistente, que devolve perguntas ao examinar um projeto."></a></p>
-<section id="criando-meu-clone-com-ia" class="level3">
-<h3 class="anchored" data-anchor-id="criando-meu-clone-com-ia"><a href="portfolio/0040-criando-meu-clone-com-ia/index.html">Criando meu clone com IA</a></h3>
-<p>Na época da Copa, brincamos na empresa que precisávamos de um Vini Jr.&nbsp;Um clone meu para responder às perguntas e apoiar o time quando eu não estivesse disponível.</p>
+<section id="quinze-vezes-o-preço-de-um-chat-e-a-conta-não-para-aí" class="level3">
+<h3 class="anchored" data-anchor-id="quinze-vezes-o-preço-de-um-chat-e-a-conta-não-para-aí">Quinze vezes o preço de um <em>chat</em>, e a conta não para aí</h3>
+<p>O mesmo texto traz o preço. As restrições são quatro:</p>
+<ul>
+<li><strong>A conta.</strong> A Anthropic relata que um agente gasta cerca de 4 vezes os <em>tokens</em> de uma conversa de <em>chat</em>, e que o sistema com vários agentes gasta cerca de 15 vezes;</li>
+<li><strong>O subagente começa do zero.</strong> Ele não enxerga o histórico da conversa principal nem os arquivos que ela já leu (<a href="https://code.claude.com/docs/en/sub-agents">Claude Code, <em>Subagents</em></a>). O que ele precisa saber tem de caber na instrução que o orquestrador escreve;</li>
+<li><strong>As partes dependem umas das outras.</strong> A Anthropic avisa que o arranjo não é bom candidato quando todos os agentes precisam do mesmo contexto ou quando há muita dependência entre eles;</li>
+<li><strong>Dois agentes escrevem no mesmo lugar.</strong> Ler em paralelo é tranquilo. Escrever em paralelo no mesmo arquivo ou no mesmo repositório é disputa.</li>
+</ul>
+<p>A primeira restrição explica o ganho. Em outro teste da Anthropic, a quantidade de <em>tokens</em> gasta explicou, sozinha, 80% da variação de desempenho. Os autores escrevem que esses sistemas funcionam principalmente porque ajudam a gastar <em>tokens</em> suficientes para resolver o problema. O ganho e o gasto andam juntos.</p>
+<p>A terceira é a que mais derruba expectativa. A Anthropic cita programação como exemplo, por ter menos tarefas de fato paralelizáveis do que pesquisa. Walden Yan, da Cognition, argumenta que cada ação carrega decisões implícitas, e que decisões em conflito dão resultado ruim. No exemplo dele, dois subagentes dividem um clone de Flappy Bird. Um entrega um cenário com cara de Super Mario, o outro entrega um pássaro que nem parece peça de jogo (<a href="https://cognition.com/blog/dont-build-multi-agents">Walden Yan, <em>Don’t Build Multi-Agents</em></a>).</p>
+<p>Um <em>benchmark</em> de programação publicado por Fabio Akita ilustra o mesmo ponto. O modelo mais forte fez 97 de 100 pontos sozinho. Proibido de escrever código e obrigado a delegar a um subagente, ficou entre 90 e 95 (<a href="https://www.akitaonrails.com/2026/04/25/llm-benchmarks-vale-a-pena-misturar-2-modelos/">Fabio Akita, <em>Vale a Pena Misturar 2 Modelos?</em></a>). O teste é um aplicativo só, e o relato é dele. A leitura que ele tira é a que adotei na abertura: orquestrar agentes só expõe o paralelismo que já existe.</p>
 </section>
-</div>
-<div class="about-project-card">
-<p><a href="portfolio/0038-arquitetura-fontes-externas/index.html" class="about-project-card__media"><img src="portfolio/0038-arquitetura-fontes-externas/thumbnail.svg" alt="Tabela, arquivo e geometria convergem para uma etapa de padronização e validação, seguida de uma base comum e ramificações de consumo. Diagrama conceitual da arquitetura."></a></p>
-<section id="uma-arquitetura-de-dados-para-mais-de-100-fontes" class="level3">
-<h3 class="anchored" data-anchor-id="uma-arquitetura-de-dados-para-mais-de-100-fontes"><a href="portfolio/0038-arquitetura-fontes-externas/index.html">Uma arquitetura de dados para mais de 100 fontes</a></h3>
-<p>Construí uma arquitetura que chegou a mais de 100 fontes de dados. Nenhuma delas era minha.</p>
+<section id="no-meu-enxame-subagente-não-escreve" class="level3">
+<h3 class="anchored" data-anchor-id="no-meu-enxame-subagente-não-escreve">No meu enxame, subagente não escreve</h3>
+<p>Os subagentes do livro eram leitores, chamados de novo a cada rodada de revisão. É daí que saem as 277 execuções. No repositório em que escrevo, a pasta versionada com os meus textos, toda escrita ou revisão de conteúdo aciona cinco agentes revisores, em três rodadas, no máximo dois ao mesmo tempo. Cada um tem uma função e um limite:</p>
+<ul>
+<li><strong>O revisor de texto</strong> lê voz, clareza e repetição, e não julga o argumento;</li>
+<li><strong>O conferente de evidências</strong> compara cada afirmação com a minha base de fontes;</li>
+<li><strong>O advogado do diabo</strong> ataca o argumento e, numa revisão, lê o que mudou entre as versões;</li>
+<li><strong>O leitor leigo</strong> recebe só o texto publicável, sem as minhas anotações, sem guia e sem versão anterior;</li>
+<li><strong>O leitor do público</strong> veste a pessoa para quem o texto foi escrito, decide se compra ou para a leitura.</li>
+</ul>
+<p>Nenhum deles edita arquivo. Os achados voltam para mim, e eu decido o que entra. No livro, quatro citações que entraram em uma rodada foram quase todas derrubadas por eles.</p>
+<p>O leitor leigo é o melhor exemplo disso. Eu tenho o contexto inteiro na cabeça e não consigo mais ler o texto como quem chegou agora. Ele consegue, porque a <em>context window</em> dele nasceu vazia. Jina Yoon, da PostHog, recomenda o mesmo para código: o agente que escreveu não revisa, porque agentes checam mal o próprio trabalho (<a href="https://newsletter.posthog.com/p/code-review-tips">Jina Yoon</a>).</p>
+<p>A escrita ficou fora do enxame. No livro, eu escrevi à mão, e os subagentes só criticaram. Cinco leituras do mesmo texto são independentes. Os capítulos de um livro dependem uns dos outros: do termo que o anterior fixou, do episódio que ele já contou.</p>
 </section>
-</div>
-<div class="about-project-card">
-<p><a href="portfolio/0032-ux-produtos-fisicos/index.html" class="about-project-card__media"><img src="portfolio/0032-ux-produtos-fisicos/thumbnail.svg" alt="Desenho conceitual de duas mochilas, uma com rodinhas, lupa examinando uma alça e roteiro de avaliação. Não representa dados do estudo."></a></p>
-<section id="ux-com-produtos-físicos-o-puro-suco-da-estatística" class="level3">
-<h3 class="anchored" data-anchor-id="ux-com-produtos-físicos-o-puro-suco-da-estatística"><a href="portfolio/0032-ux-produtos-fisicos/index.html">UX com produtos físicos, o puro suco da estatística</a></h3>
-<p>Um dos projetos mais interessantes de que participei envolvia uma indústria de mochilas para crianças e adolescentes.</p>
+<section id="dois-agentes-um-repositório-e-nenhuma-reserva" class="level3">
+<h3 class="anchored" data-anchor-id="dois-agentes-um-repositório-e-nenhuma-reserva">Dois agentes, um repositório e nenhuma reserva</h3>
+<p>Na mesma época, o trabalho em paralelo falhou comigo. Em outro projeto, montei com sessões do Claude Code a base de fontes que os meus textos consultam. Foram 66 <em>commits</em>, os registros de alteração de um repositório. Mais de uma sessão trabalhou em paralelo na mesma cópia do repositório. Elas disputaram os identificadores numerados das fontes. E uma delas levou arquivos da outra para dentro do próprio <em>commit</em>.</p>
+<p>Ali não havia orquestrador além de mim, e eu não tinha dado a cada sessão um lugar só dela. É a quarta restrição em estado puro: duas escritas no mesmo estado, sem reserva. <em>Prompt</em> melhor não resolve esse tipo de falha. Quem acusa a colisão é um programa comum, como um validador que recusa identificador repetido, e ele só avisa depois. Evitar pede reserva: cada agente com a sua faixa de identificadores e a sua cópia do repositório. A reserva tem preço, porque alguém junta as cópias no fim.</p>
 </section>
-</div>
-</div>
-</div>
-<div class="about-principles">
-<div class="about-principles__intro">
-<p class="section-kicker">
-COMO EU TRABALHO · NA PRÁTICA
-</p>
-<section id="não-coleciono-cargos.-sigo-problemas-difíceis." class="level2">
-<h2 class="anchored" data-anchor-id="não-coleciono-cargos.-sigo-problemas-difíceis.">Não coleciono cargos. Sigo problemas difíceis.</h2>
-<p>Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.</p>
-<p>Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.</p>
-<p>Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.</p>
-</section>
-</div>
-<div class="about-principles__list">
-<section id="a-pergunta-vem-primeiro." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="a-pergunta-vem-primeiro.">A pergunta vem primeiro.</h3>
-<p>Antes de construir, quero saber o que merece existir. Uma resposta precisa para o problema errado ainda é desperdício.</p>
-</section>
-<section id="assumo-o-problema-que-ninguém-quer." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="assumo-o-problema-que-ninguém-quer.">Assumo o problema que ninguém quer.</h3>
-<p>Fico perto o bastante para ver funcionar de ponta a ponta e digo o que é inconveniente quando o trabalho exige isso.</p>
-</section>
-<section id="o-dado-precisa-sobreviver-à-realidade." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="o-dado-precisa-sobreviver-à-realidade.">O dado precisa sobreviver à realidade.</h3>
-<p>Uso estatística para transformar opinião em teste. O método só importa quando funciona além da análise e dentro da operação.</p>
-</section>
-<section id="contexto-é-trabalho-humano." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="contexto-é-trabalho-humano.">Contexto é trabalho humano.</h3>
-<p>Ferramentas aceleram o trabalho. Estrutura, relações e julgamento ainda vêm de quem entende o problema.</p>
-</section>
-<section id="aceitável-não-basta." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="aceitável-não-basta.">Aceitável não basta.</h3>
-<p>Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a incerteza, testar a premissa e refazer o que não se sustenta.</p>
-</section>
-</div>
-</div>
-<div id="experience" class="about-history">
-<p class="section-kicker">
-TRAJETÓRIA PROFISSIONAL
-</p>
-<section id="experiência-profissional" class="level2">
-<h2 class="anchored" data-anchor-id="experiência-profissional">Experiência profissional</h2>
-<div class="experience-table-scroll">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Período</th>
-<th>Organização e função</th>
-<th>Trabalho</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>08/24 - 09/26</td>
-<td><img src=".\images/logos/datlo.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Chief Product Officer</td>
-<td>Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.</td>
-</tr>
-<tr class="even">
-<td>01/24 - 07/24</td>
-<td><img src=".\images/logos/datlo.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Head of Data</td>
-<td>Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.</td>
-</tr>
-<tr class="odd">
-<td>02/23 - 12/23</td>
-<td><img src=".\images/logos/ponta.png" class="company-logo" width="31" height="31" alt="Logotipo de Ponta"> Ponta, Services Manager</td>
-<td>Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.</td>
-</tr>
-<tr class="even">
-<td>04/22 - 01/23</td>
-<td><img src=".\images/logos/ga_intergado.png" class="company-logo" width="31" height="31" alt="Logotipo de GA + Intergado"> GA + Intergado, Strategy Manager</td>
-<td>Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&amp;D, reduzindo em 80% as interrupções das sprints.</td>
-</tr>
-<tr class="odd">
-<td>01/21 - 03/22</td>
-<td><img src=".\images/logos/ga.png" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, R&amp;D Manager</td>
-<td>Liderei o P&amp;D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.</td>
-</tr>
-<tr class="even">
-<td>09/20 - 12/20</td>
-<td><img src=".\images/logos/ga.png" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, Data Manager</td>
-<td>Criei a equipe e a metodologia de projetos de dados do P&amp;D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.</td>
-</tr>
-<tr class="odd">
-<td>10/18 - 11/19</td>
-<td><img src=".\images/logos/unicesumar.png" class="company-logo" width="31" height="31" alt="Logotipo de Unicesumar"> Unicesumar, professor</td>
-<td>Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.</td>
-</tr>
-<tr class="even">
-<td>09/16 - 08/20</td>
-<td><img src=".\images/logos/h0.jpg" class="company-logo" width="31" height="31" alt="Logotipo de H0 Consultoria"> H0 Consultoria, consultor e cofundador</td>
-<td>Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.</td>
-</tr>
-<tr class="odd">
-<td>07/13 - 12/15</td>
-<td><img src=".\images/logos/estats.png" class="company-logo" width="31" height="31" alt="Logotipo de Estats Consultoria"> Estats Consultoria, cofundador</td>
-<td>Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</div>
-<p><a href="./header-experience.html" class="experience-link">Ver experiência completa</a></p>
-<div class="about-recent-writing">
-<p class="section-kicker">
-TEXTOS RECENTES
-</p>
-<section id="o-que-estou-escrevendo" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-estou-escrevendo">O que estou escrevendo</h2>
-<p>Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.</p>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0042-llm-como-juiz/index.html">O juiz que prefere a resposta de cima</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0041-agent-swarm/index.html">Agent swarm: mais agentes fazem melhor que um?</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-06">2026-10-06</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html">PAP: o seu site vai precisar saber de quem é o robô</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<p><a href="./writing.html" class="experience-link">Ver todos os textos</a></p>
-</section>
-</div>
+<section id="conte-as-partes-antes-de-contar-os-agentes" class="level3">
+<h3 class="anchored" data-anchor-id="conte-as-partes-antes-de-contar-os-agentes">Conte as partes antes de contar os agentes</h3>
+<p>Antes de montar um enxame, eu responderia a três perguntas:</p>
+<ul>
+<li>As partes se resolvem sem conversar entre si? Pesquisa, leitura e revisão costumam passar. Construir uma coisa só costuma não passar;</li>
+<li>O resultado paga a conta? Cerca de quinze vezes os <em>tokens</em> de um <em>chat</em> cabem em uma decisão cara e não cabem em uma dúvida rápida;</li>
+<li>Cada agente escreve em um lugar só dele? Se dois escrevem no mesmo arquivo, resolva isso antes de ligar o segundo.</li>
+</ul>
+<p>Pegue a próxima tarefa que você pensou em entregar a vários agentes e escreva a lista das partes. Risque as que dependem da resposta de outra, e as pequenas demais para pagar um subagente que começa do zero. O que sobrar é o tamanho do seu enxame, e às vezes sobra um.</p>
 
 
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=IA">#IA</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -781,17 +714,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./agents.html">
+    <a class="nav-link" href="../../agents.html">
 <p>Para agentes</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./curriculo.md">
+    <a class="nav-link" href="../../curriculo.md">
 <p>Currículo (Markdown)</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./curriculo.json">
+    <a class="nav-link" href="../../curriculo.json">
 <p>Currículo (JSON)</p>
 </a>
   </li>  

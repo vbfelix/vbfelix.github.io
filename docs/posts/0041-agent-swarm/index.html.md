@@ -1,0 +1,80 @@
+﻿# Agent swarm: mais agentes fazem melhor que um?
+
+Fonte: https://vbfelix.github.io/posts/0041-agent-swarm/index.html
+
+### Um livro de 13 mil palavras e 277 execuções de subagente
+
+Revisei o meu primeiro livro com o Claude Code. Pela conta feita na própria sessão, foram 277 execuções de subagentes para chegar a cerca de 13 mil palavras. O trabalho inteiro consumiu cerca de 587 milhões de *tokens*, se pagos por uso em API, dariam cerca de US$ 397.
+
+O mercado tem um nome para esse arranjo: *agent swarm*, o enxame de agentes. Gosto dele, com uma ressalva. Um *swarm* não cria paralelismo. Ele aproveita o paralelismo que a tarefa já tem, e cobra por isso.
+
+### Um coordenador e vários estagiários sem memória
+
+Um agente é um modelo de linguagem que trabalha em etapas: lê a instrução, usa uma ferramenta, olha o resultado e decide o próximo passo. Tudo o que ele leu fica na *context window*, a janela de texto que o modelo enxerga de uma vez. Ela é finita.
+
+Um subagente é um agente convocado para uma subtarefa. Ele recebe um objetivo, trabalha em uma *context window* separada e devolve um resumo. A conversa de quem o convocou ele não herda. Quem convoca é o orquestrador, o agente que divide o trabalho, dispara os subagentes e junta as respostas.
+
+*Agent swarm* é o rótulo para um orquestrador com vários subagentes, em geral rodando ao mesmo tempo:
+
+```text
+              pergunta
+                 |
+           orquestrador
+          /      |      \
+  subagente  subagente  subagente
+          \      |      /
+           orquestrador
+                 |
+             resposta
+```
+
+O nome não tem definição tão formal, mas o mercado já usa. Um exemplo é o Swarm, projeto experimental da OpenAI substituído pelo Agents SDK ([OpenAI, *Swarm*](https://github.com/openai/swarm)). Outro é o `qa-swarm`, montado por um engenheiro da PostHog, que dispara quatro agentes revisores de código, cada um com instruções próprias ([Jina Yoon, *Stop being the code review bottleneck*](https://newsletter.posthog.com/p/code-review-tips)).
+
+Em junho de 2025, a Anthropic descreveu o que o arranjo compra ao contar como montou o seu sistema de pesquisa ([Anthropic, *How we built our multi-agent research system*](https://www.anthropic.com/engineering/multi-agent-research-system)). São duas coisas. A primeira é exploração em paralelo: o orquestrador dispara de três a cinco subagentes de uma vez, cada um em um aspecto da pergunta. A segunda é contexto separado: cada subagente lê muito e devolve pouco, e a *context window* do orquestrador enche mais devagar. Na avaliação interna de pesquisa deles, **um modelo maior orquestrando subagentes de um modelo menor teve resultado 90,2% melhor que o modelo maior sozinho**.
+
+### Quinze vezes o preço de um *chat*, e a conta não para aí
+
+O mesmo texto traz o preço. As restrições são quatro:
+
+- **A conta.** A Anthropic relata que um agente gasta cerca de 4 vezes os *tokens* de uma conversa de *chat*, e que o sistema com vários agentes gasta cerca de 15 vezes;
+- **O subagente começa do zero.** Ele não enxerga o histórico da conversa principal nem os arquivos que ela já leu ([Claude Code, *Subagents*](https://code.claude.com/docs/en/sub-agents)). O que ele precisa saber tem de caber na instrução que o orquestrador escreve;
+- **As partes dependem umas das outras.** A Anthropic avisa que o arranjo não é bom candidato quando todos os agentes precisam do mesmo contexto ou quando há muita dependência entre eles;
+- **Dois agentes escrevem no mesmo lugar.** Ler em paralelo é tranquilo. Escrever em paralelo no mesmo arquivo ou no mesmo repositório é disputa.
+
+A primeira restrição explica o ganho. Em outro teste da Anthropic, a quantidade de *tokens* gasta explicou, sozinha, 80% da variação de desempenho. Os autores escrevem que esses sistemas funcionam principalmente porque ajudam a gastar *tokens* suficientes para resolver o problema. O ganho e o gasto andam juntos.
+
+A terceira é a que mais derruba expectativa. A Anthropic cita programação como exemplo, por ter menos tarefas de fato paralelizáveis do que pesquisa. Walden Yan, da Cognition, argumenta que cada ação carrega decisões implícitas, e que decisões em conflito dão resultado ruim. No exemplo dele, dois subagentes dividem um clone de Flappy Bird. Um entrega um cenário com cara de Super Mario, o outro entrega um pássaro que nem parece peça de jogo ([Walden Yan, *Don't Build Multi-Agents*](https://cognition.com/blog/dont-build-multi-agents)).
+
+Um *benchmark* de programação publicado por Fabio Akita ilustra o mesmo ponto. O modelo mais forte fez 97 de 100 pontos sozinho. Proibido de escrever código e obrigado a delegar a um subagente, ficou entre 90 e 95 ([Fabio Akita, *Vale a Pena Misturar 2 Modelos?*](https://www.akitaonrails.com/2026/04/25/llm-benchmarks-vale-a-pena-misturar-2-modelos/)). O teste é um aplicativo só, e o relato é dele. A leitura que ele tira é a que adotei na abertura: orquestrar agentes só expõe o paralelismo que já existe.
+
+### No meu enxame, subagente não escreve
+
+Os subagentes do livro eram leitores, chamados de novo a cada rodada de revisão. É daí que saem as 277 execuções. No repositório em que escrevo, a pasta versionada com os meus textos, toda escrita ou revisão de conteúdo aciona cinco agentes revisores, em três rodadas, no máximo dois ao mesmo tempo. Cada um tem uma função e um limite:
+
+- **O revisor de texto** lê voz, clareza e repetição, e não julga o argumento;
+- **O conferente de evidências** compara cada afirmação com a minha base de fontes;
+- **O advogado do diabo** ataca o argumento e, numa revisão, lê o que mudou entre as versões;
+- **O leitor leigo** recebe só o texto publicável, sem as minhas anotações, sem guia e sem versão anterior;
+- **O leitor do público** veste a pessoa para quem o texto foi escrito, decide se compra ou para a leitura.
+
+Nenhum deles edita arquivo. Os achados voltam para mim, e eu decido o que entra. No livro, quatro citações que entraram em uma rodada foram quase todas derrubadas por eles.
+
+O leitor leigo é o melhor exemplo disso. Eu tenho o contexto inteiro na cabeça e não consigo mais ler o texto como quem chegou agora. Ele consegue, porque a *context window* dele nasceu vazia. Jina Yoon, da PostHog, recomenda o mesmo para código: o agente que escreveu não revisa, porque agentes checam mal o próprio trabalho ([Jina Yoon](https://newsletter.posthog.com/p/code-review-tips)).
+
+A escrita ficou fora do enxame. No livro, eu escrevi à mão, e os subagentes só criticaram. Cinco leituras do mesmo texto são independentes. Os capítulos de um livro dependem uns dos outros: do termo que o anterior fixou, do episódio que ele já contou.
+
+### Dois agentes, um repositório e nenhuma reserva
+
+Na mesma época, o trabalho em paralelo falhou comigo. Em outro projeto, montei com sessões do Claude Code a base de fontes que os meus textos consultam. Foram 66 *commits*, os registros de alteração de um repositório. Mais de uma sessão trabalhou em paralelo na mesma cópia do repositório. Elas disputaram os identificadores numerados das fontes. E uma delas levou arquivos da outra para dentro do próprio *commit*.
+
+Ali não havia orquestrador além de mim, e eu não tinha dado a cada sessão um lugar só dela. É a quarta restrição em estado puro: duas escritas no mesmo estado, sem reserva. *Prompt* melhor não resolve esse tipo de falha. Quem acusa a colisão é um programa comum, como um validador que recusa identificador repetido, e ele só avisa depois. Evitar pede reserva: cada agente com a sua faixa de identificadores e a sua cópia do repositório. A reserva tem preço, porque alguém junta as cópias no fim.
+
+### Conte as partes antes de contar os agentes
+
+Antes de montar um enxame, eu responderia a três perguntas:
+
+- As partes se resolvem sem conversar entre si? Pesquisa, leitura e revisão costumam passar. Construir uma coisa só costuma não passar;
+- O resultado paga a conta? Cerca de quinze vezes os *tokens* de um *chat* cabem em uma decisão cara e não cabem em uma dúvida rápida;
+- Cada agente escreve em um lugar só dele? Se dois escrevem no mesmo arquivo, resolva isso antes de ligar o segundo.
+
+Pegue a próxima tarefa que você pensou em entregar a vários agentes e escreva a lista das partes. Risque as que dependem da resposta de outra, e as pequenas demais para pagar um subagente que começa do zero. O que sobrar é o tamanho do seu enxame, e às vezes sobra um.

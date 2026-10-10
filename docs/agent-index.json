@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "cff8e8f8e72dc2f80a1176bff67e9c89cec6c63fe001a697809f4f5fde11e2b0",
+  "sourceRevision": "e7859b8c73c7402bf0834da2147bf45902b77351506ab5048971dc94d31f83d6",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -443,6 +443,28 @@
       "url": "https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html.md",
       "revision": "ae3ba4bcc380fcec8f27ac964ed88bab01b4588ebe0541a7c06027446a15d192"
+    },
+    {
+      "title": "Agent swarm: mais agentes fazem melhor que um?",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0041-agent-swarm/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0041-agent-swarm/index.html.md",
+      "revision": "37741564efe213109122fd2495602ebda657e6c2dfb9d8f6705b86a38809e7da"
+    },
+    {
+      "title": "O juiz que prefere a resposta de cima",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html.md",
+      "revision": "b93b55eb008ce274ad6a2c2541048873bb173049d7733b892bef618c1f2992ab"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

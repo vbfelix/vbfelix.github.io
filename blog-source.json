@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "0ac987dc0e6e5593e09a807eabc5f62434e1606e",
+  "commit": "90342b795d91669aac146ea645388333634f2661",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -52,6 +52,16 @@
       "source": "b0583cd5610167b9c45621debfa61aaa92496bca05d28b3c886519cc80c3836b",
       "rendered": "ae3ba4bcc380fcec8f27ac964ed88bab01b4588ebe0541a7c06027446a15d192",
       "target": "posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.qmd"
+    },
+    "2026-10-10_agent-swarm.md": {
+      "source": "8e4b0b60209f44ddd0cde27598df01fa38fdb333db12ad57c6aebe0ab933cb89",
+      "rendered": "37741564efe213109122fd2495602ebda657e6c2dfb9d8f6705b86a38809e7da",
+      "target": "posts/0041-agent-swarm/index.qmd"
+    },
+    "2026-10-10_llm-como-juiz.md": {
+      "source": "a34a2e718dedad7f13990fbf02f5d7c6f58e57b90888ee39cff6b358132a9dcd",
+      "rendered": "b93b55eb008ce274ad6a2c2541048873bb173049d7733b892bef618c1f2992ab",
+      "target": "posts/0042-llm-como-juiz/index.qmd"
     }
   }
 }

@@ -62,6 +62,8 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [Quão rápido era um Velociraptor? E como descobrir isso](https://vbfelix.github.io/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html.md): artigo em pt-BR, temas: Estatística.
 - [New SQL, o melhor dos dois mundos?](https://vbfelix.github.io/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html.md): artigo em pt-BR, temas: Engenharia de dados.
 - [PAP: o seu site vai precisar saber de quem é o robô](https://vbfelix.github.io/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html.md): artigo em pt-BR, temas: IA.
+- [Agent swarm: mais agentes fazem melhor que um?](https://vbfelix.github.io/posts/0041-agent-swarm/index.html.md): artigo em pt-BR, temas: IA.
+- [O juiz que prefere a resposta de cima](https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html.md): artigo em pt-BR, temas: IA.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.

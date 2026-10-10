@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Vinícius Félix">
 
-<title>Vinícius Félix · Sobre mim – Vinícius Félix</title>
+<title>O juiz que prefere a resposta de cima – Vinícius Félix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,18 +24,18 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<link href="./images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Nenhum resultado",
@@ -52,28 +53,28 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Vinícius Félix · Sobre mim">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="O juiz que prefere a resposta de cima – Vinícius Félix">
 <meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
 <meta property="og:site_name" content="Vinícius Félix">
 <!-- agent-metadata:start -->
-<link rel="canonical" href="https://vbfelix.github.io/index.html">
-<meta name="description" content="Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.">
+<link rel="canonical" href="https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html">
+<meta name="description" content="Em junho de 2023, o GPT-4 concordou com 58 avaliadores humanos em 85% das comparações entre duas respostas de modelos de linguagem. Os humanos concordaram entre si em 81%. A conta deixa os empates de fora ([Zheng et al., *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena*](https://arxiv.org/abs/2306.05685)).">
 <link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
-<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/index.html.md">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html.md">
 <link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":"ProfilePage","@id":"https://vbfelix.github.io/index.html#page","url":"https://vbfelix.github.io/index.html","name":"Sobre Vinícius Félix","inLanguage":"pt-BR","mainEntity":{"@id":"https://vbfelix.github.io/#person"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html#page","url":"https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html","name":"O juiz que prefere a resposta de cima","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html","articleSection":["IA"]}]}</script>
 <!-- agent-metadata:end -->
 </head>
 
-<body class="nav-fixed about-page">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Vinícius Félix</span>
     </a>
   </div>
@@ -83,23 +84,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Sobre mim</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
+    <a class="nav-link" href="../../portfolio.html"> 
 <span class="menu-text">Portfólio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./writing.html"> 
+    <a class="nav-link" href="../../writing.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-certifications.html"> 
+    <a class="nav-link" href="../../header-certifications.html"> 
 <span class="menu-text">Certificações</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./header-publications.html"> 
+    <a class="nav-link" href="../../header-publications.html"> 
 <span class="menu-text">Publicações</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -108,15 +109,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
         <li>
-    <a class="dropdown-item" href="./header-participations.html">
+    <a class="dropdown-item" href="../../header-participations.html">
  <span class="dropdown-text">Participações</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./header-courses.html">
+    <a class="dropdown-item" href="../../header-courses.html">
  <span class="dropdown-text">Cursos</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./header-awards.html">
+    <a class="dropdown-item" href="../../header-awards.html">
  <span class="dropdown-text">Prêmios</span></a>
   </li>  
     </ul>
@@ -151,12 +152,55 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">O juiz que prefere a resposta de cima</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">IA</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">10 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#tanto-acordo-quanto-entre-humanos-até-trocar-a-ordem" id="toc-tanto-acordo-quanto-entre-humanos-até-trocar-a-ordem" class="nav-link active" data-scroll-target="#tanto-acordo-quanto-entre-humanos-até-trocar-a-ordem">Tanto acordo quanto entre humanos, até trocar a ordem</a></li>
+  <li><a href="#entre-o-código-que-só-confere-regra-e-o-humano-que-custa-caro" id="toc-entre-o-código-que-só-confere-regra-e-o-humano-que-custa-caro" class="nav-link" data-scroll-target="#entre-o-código-que-só-confere-regra-e-o-humano-que-custa-caro">Entre o código que só confere regra e o humano que custa caro</a></li>
+  <li><a href="#o-examinador-tem-lugar-preferido-e-gosta-de-texto-comprido" id="toc-o-examinador-tem-lugar-preferido-e-gosta-de-texto-comprido" class="nav-link" data-scroll-target="#o-examinador-tem-lugar-preferido-e-gosta-de-texto-comprido">O examinador tem lugar preferido e gosta de texto comprido</a></li>
+  <li><a href="#a-resposta-é-boa-é-a-pergunta-que-estraga-o-juiz" id="toc-a-resposta-é-boa-é-a-pergunta-que-estraga-o-juiz" class="nav-link" data-scroll-target="#a-resposta-é-boa-é-a-pergunta-que-estraga-o-juiz">“A resposta é boa?” é a pergunta que estraga o juiz</a></li>
+  <li><a href="#examinador-também-faz-prova" id="toc-examinador-também-faz-prova" class="nav-link" data-scroll-target="#examinador-também-faz-prova">Examinador também faz prova</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
 <script>
 // Quarto places this include inside <main>; the link only helps as the first stop in tab order.
@@ -166,187 +210,94 @@ document.body.prepend(document.currentScript.previousElementSibling);
 
 
 
-<div class="about-hero">
-<div class="about-hero__copy">
-<p class="about-hero__eyebrow">
-Vinícius Félix
-</p>
-<section id="meu-trabalho-começa-com-uma-pergunta-melhor." class="level1">
-<h1>Meu trabalho começa com uma pergunta melhor.</h1>
-<p>Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.</p>
-<div class="about-hero__actions">
-<p><a href="./portfolio.html" class="about-action about-action--primary">Explorar portfólio</a></p>
-<p><a href="./writing.html" class="about-action">Ler o blog</a></p>
-</div>
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">O juiz que prefere a resposta de cima</li></ol></nav>
+<section id="tanto-acordo-quanto-entre-humanos-até-trocar-a-ordem" class="level3">
+<h3 class="anchored" data-anchor-id="tanto-acordo-quanto-entre-humanos-até-trocar-a-ordem">Tanto acordo quanto entre humanos, até trocar a ordem</h3>
+<p>Em junho de 2023, o GPT-4 concordou com 58 avaliadores humanos em 85% das comparações entre duas respostas de modelos de linguagem. Os humanos concordaram entre si em 81%. A conta deixa os empates de fora (<a href="https://arxiv.org/abs/2306.05685">Zheng et al., <em>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</em></a>).</p>
+<p>O mesmo artigo fez um segundo teste. Os autores entregaram ao GPT-4 duas respostas parecidas, geradas pelo mesmo modelo. Pediram a comparação duas vezes, trocando a ordem. O veredito se manteve em 65% dos casos. Em 30%, o juiz favoreceu a resposta que vinha primeiro.</p>
+<p>Gosto desse artigo porque ele dá a boa e a má notícia juntas. Um LLM pode concordar com gente tanto quanto gente concorda com gente. E pode trocar de veredito porque a folha estava em cima da pilha.</p>
+<p>Um modelo que dá nota é um examinador. E examinador tem vícios.</p>
 </section>
-</div>
-<div class="about-hero__portrait">
-<figure class="portrait-plot figure" data-bootstrap="" aria-label="Retrato artístico de Vinícius Félix formado por pontos em um plano bivariado">
-<img src="./images/portrait-scatter-gray.png" alt="Vinícius Félix retratado em pontos de giz, como uma nuvem de dispersão." width="1254" height="1254" class="figure-img">
-<svg viewbox="0 0 460 460" aria-hidden="true" focusable="false">
-<g class="portrait-plot__grid"><path d="M55 110H420M55 185H420M55 260H420M55 335H420M130 40V410M205 40V410M280 40V410M355 40V410"></path></g>
-<g class="portrait-plot__axes"><path d="M55 35V410H425M50 110H60M50 185H60M50 260H60M50 335H60M130 405V415M205 405V415M280 405V415M355 405V415"></path></g>
-<g class="portrait-plot__labels"><text x="433" y="416">x</text><text x="49" y="25">y</text><text x="39" y="429">0</text></g>
-</svg>
-</figure>
-<script src="./assets/js/portrait-bootstrap.js" defer=""></script>
-</div>
-</div>
-<div class="about-selected-work">
-<div class="about-section-heading">
-<p class="section-kicker">
-TRABALHOS SELECIONADOS
-</p>
-<section id="onde-o-método-encontra-a-operação" class="level2">
-<h2 class="anchored" data-anchor-id="onde-o-método-encontra-a-operação">Onde o método encontra a operação</h2>
+<section id="entre-o-código-que-só-confere-regra-e-o-humano-que-custa-caro" class="level3">
+<h3 class="anchored" data-anchor-id="entre-o-código-que-só-confere-regra-e-o-humano-que-custa-caro">Entre o código que só confere regra e o humano que custa caro</h3>
+<p>LLM como juiz, ou <em>LLM-as-a-judge</em> em inglês, é usar um modelo para avaliar a saída de outro. O juiz recebe a resposta e um critério escrito, a rubrica. Devolve um veredito, que pode ser uma nota ou um passa ou falha.</p>
+<p>No <a href="https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/">post sobre evals</a>, o juiz era um dos três jeitos de avaliar uma resposta. Ficava entre o código, que só confere regra, e a revisão humana, que é lenta e cara. Aqui ele é o assunto.</p>
+<p>A documentação da Anthropic descreve o juiz como rápido, escalável e adequado a julgamento complexo. A mesma página manda testar a confiabilidade dele antes de escalar (<a href="https://platform.claude.com/docs/en/test-and-evaluate/develop-tests">Anthropic, <em>Define success criteria and build evaluations</em></a>).</p>
+<p>Os autores do artigo de 2023 descrevem três formatos de julgamento:</p>
+<ul>
+<li><strong><em>Pairwise comparison</em></strong>, a comparação em pares: o juiz lê uma pergunta e duas respostas. Diz qual é a melhor ou declara empate;</li>
+<li><strong><em>Single answer grading</em></strong>, a nota direta: o juiz lê uma resposta só e dá o veredito sobre ela;</li>
+<li><strong><em>Reference-guided grading</em></strong>, a nota com referência: o juiz recebe também uma resposta de referência para comparar.</li>
+</ul>
+<p>Os dois testes da abertura eram <em>pairwise comparison</em>. É o formato que eu usaria para decidir entre duas versões de um <em>prompt</em>. Para vigiar uma falha específica, eu usaria o <em>single answer grading</em>.</p>
 </section>
-</div>
-<div class="about-projects">
-<div class="about-project-card">
-<p><a href="portfolio/0040-criando-meu-clone-com-ia/index.html" class="about-project-card__media"><img src="portfolio/0040-criando-meu-clone-com-ia/thumbnail.svg" alt="Esquema conceitual em lousa verde: documentos passam por uma etapa de curadoria e formam uma rede de conhecimento ligada a um assistente, que devolve perguntas ao examinar um projeto."></a></p>
-<section id="criando-meu-clone-com-ia" class="level3">
-<h3 class="anchored" data-anchor-id="criando-meu-clone-com-ia"><a href="portfolio/0040-criando-meu-clone-com-ia/index.html">Criando meu clone com IA</a></h3>
-<p>Na época da Copa, brincamos na empresa que precisávamos de um Vini Jr.&nbsp;Um clone meu para responder às perguntas e apoiar o time quando eu não estivesse disponível.</p>
+<section id="o-examinador-tem-lugar-preferido-e-gosta-de-texto-comprido" class="level3">
+<h3 class="anchored" data-anchor-id="o-examinador-tem-lugar-preferido-e-gosta-de-texto-comprido">O examinador tem lugar preferido e gosta de texto comprido</h3>
+<p>O juiz é outro LLM e leva os vícios dele para a correção. O artigo dá nome a três vieses:</p>
+<ul>
+<li><strong>Viés de posição</strong>: o juiz favorece uma resposta pelo lugar em que ela aparece. É o teste de troca de ordem da abertura. Dos três juízes testados, GPT-4, GPT-3.5 e Claude-v1, o GPT-4 foi o mais consistente;</li>
+<li><strong>Viés de verbosidade</strong>: o juiz prefere a resposta mais longa, mesmo quando ela não é melhor. Os autores pegaram 23 respostas com lista numerada e pediram uma reescrita da lista sem informação nova. Depois puseram a reescrita antes da lista original. O GPT-3.5 e o Claude-v1 preferiram a versão inchada em 91,3% dos casos;</li>
+<li><strong>Autopreferência</strong>: o juiz favorece o texto que ele mesmo gerou. O artigo não teve dados para concluir. No ano seguinte, outro grupo mostrou que modelos como o GPT-4 conseguem distinguir o próprio texto, e ligou essa capacidade à força da preferência (<a href="https://arxiv.org/abs/2404.13076">Panickssery, Bowman e Feng, <em>LLM Evaluators Recognize and Favor Their Own Generations</em></a>).</li>
+</ul>
+<p>O viés de posição tem um agravante. Ele aparece mais quando as duas respostas têm qualidade próxima e quase some quando uma é muito melhor que a outra.</p>
+<p>Na minha leitura, isso atinge o uso mais comum do juiz. Quem compara duas versões do mesmo <em>prompt</em> quase sempre compara respostas parecidas.</p>
+<p>Esses números são de modelos de 2023, com o <em>prompt</em> padrão do artigo, e eu não os aplicaria a um juiz de hoje. O viés, porém, voltou a aparecer num estudo maior, com 15 juízes, e de novo dependeu da distância de qualidade entre as respostas (<a href="https://arxiv.org/abs/2406.07791">Shi et al., <em>Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge</em></a>).</p>
 </section>
-</div>
-<div class="about-project-card">
-<p><a href="portfolio/0038-arquitetura-fontes-externas/index.html" class="about-project-card__media"><img src="portfolio/0038-arquitetura-fontes-externas/thumbnail.svg" alt="Tabela, arquivo e geometria convergem para uma etapa de padronização e validação, seguida de uma base comum e ramificações de consumo. Diagrama conceitual da arquitetura."></a></p>
-<section id="uma-arquitetura-de-dados-para-mais-de-100-fontes" class="level3">
-<h3 class="anchored" data-anchor-id="uma-arquitetura-de-dados-para-mais-de-100-fontes"><a href="portfolio/0038-arquitetura-fontes-externas/index.html">Uma arquitetura de dados para mais de 100 fontes</a></h3>
-<p>Construí uma arquitetura que chegou a mais de 100 fontes de dados. Nenhuma delas era minha.</p>
+<section id="a-resposta-é-boa-é-a-pergunta-que-estraga-o-juiz" class="level3">
+<h3 class="anchored" data-anchor-id="a-resposta-é-boa-é-a-pergunta-que-estraga-o-juiz">“A resposta é boa?” é a pergunta que estraga o juiz</h3>
+<p>Se eu fosse montar um juiz amanhã, tomaria seis decisões antes de escrever o <em>prompt</em>:</p>
+<ul>
+<li><strong>Uma rubrica por juiz</strong>: “a resposta é boa?” deixa o juiz escolher o que olhar. “A resposta promete um prazo que a política não prevê?” tem resposta certa.</li>
+<li><strong>Veredito binário</strong>: Hamel Husain afirma que as pessoas não sabem o que fazer com um 3 ou um 4 (<a href="https://hamel.dev/blog/posts/llm-judge/">Husain, <em>Using LLM-as-a-Judge For Evaluation: A Complete Guide</em></a>);</li>
+<li><strong>Justificativa antes do veredito</strong>: o juiz escreve a crítica primeiro e o passa ou falha depois.</li>
+<li><strong>Exemplos corrigidos por gente</strong>: respostas reais, com o veredito e a crítica de quem entende do assunto, entram no <em>prompt</em>.</li>
+<li><strong>Ordem trocada no <em>pairwise comparison</em></strong>: o juiz roda duas vezes, com as respostas invertidas. Uma resposta só vence se ganhar nas duas, e veredito que muda vira empate. É a saída conservadora que o próprio artigo propõe;</li>
+<li><strong>Modelo diferente do avaliado</strong>: a documentação da Anthropic trata como boa prática, e eu vejo nisso a defesa contra a autopreferência.</li>
+</ul>
+<p>Para o <em>single answer grading</em> de uma falha só, o <em>prompt</em> fica assim. O caso é um assistente de atendimento, e a falha é prometer o que a política não dá:</p>
+<pre class="text"><code>Você vai avaliar a resposta de um assistente de atendimento.
+
+&lt;politica&gt;
+O cancelamento sem multa vale até 7 dias após a compra.
+&lt;/politica&gt;
+
+&lt;pergunta&gt;
+{pergunta_do_cliente}
+&lt;/pergunta&gt;
+
+&lt;resposta&gt;
+{resposta_do_assistente}
+&lt;/resposta&gt;
+
+&lt;rubrica&gt;
+A resposta falha se afirmar prazo, valor ou condição que não está na política.
+A resposta passa se disser só o que a política diz ou se avisar que não sabe.
+&lt;/rubrica&gt;
+
+&lt;exemplos&gt;
+{respostas_corrigidas_por_uma_pessoa}
+&lt;/exemplos&gt;
+
+Escreva primeiro a crítica, em até três frases, citando o trecho que pesou.
+Depois escreva o veredito em &lt;veredito&gt;: passa ou falha.</code></pre>
+<p>A pergunta e a resposta mudam a cada chamada. Os exemplos mudam só quando alguém corrige mais respostas. O resto é fixo, e eu versionaria junto com o código da aplicação. Para vigiar outra falha, escreveria outro juiz, com outra rubrica.</p>
 </section>
-</div>
-<div class="about-project-card">
-<p><a href="portfolio/0032-ux-produtos-fisicos/index.html" class="about-project-card__media"><img src="portfolio/0032-ux-produtos-fisicos/thumbnail.svg" alt="Desenho conceitual de duas mochilas, uma com rodinhas, lupa examinando uma alça e roteiro de avaliação. Não representa dados do estudo."></a></p>
-<section id="ux-com-produtos-físicos-o-puro-suco-da-estatística" class="level3">
-<h3 class="anchored" data-anchor-id="ux-com-produtos-físicos-o-puro-suco-da-estatística"><a href="portfolio/0032-ux-produtos-fisicos/index.html">UX com produtos físicos, o puro suco da estatística</a></h3>
-<p>Um dos projetos mais interessantes de que participei envolvia uma indústria de mochilas para crianças e adolescentes.</p>
-</section>
-</div>
-</div>
-</div>
-<div class="about-principles">
-<div class="about-principles__intro">
-<p class="section-kicker">
-COMO EU TRABALHO · NA PRÁTICA
-</p>
-<section id="não-coleciono-cargos.-sigo-problemas-difíceis." class="level2">
-<h2 class="anchored" data-anchor-id="não-coleciono-cargos.-sigo-problemas-difíceis.">Não coleciono cargos. Sigo problemas difíceis.</h2>
-<p>Minha carreira passou por pesquisa, consultoria, ensino, dados, desenvolvimento, serviços, estratégia e produto. O escopo mudou porque o problema mudou.</p>
-<p>Na pesquisa aplicada, na engenharia de dados e no produto, uso essa base para investigar mercados, desenhar sistemas e tomar decisões. Procuro entender o problema, explicitar a hipótese e testar o que sobrevive à operação.</p>
-<p>Gosto de estar perto do problema. Perto o bastante para questionar a premissa, construir o método e descobrir se ele funciona fora do slide.</p>
-</section>
-</div>
-<div class="about-principles__list">
-<section id="a-pergunta-vem-primeiro." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="a-pergunta-vem-primeiro.">A pergunta vem primeiro.</h3>
-<p>Antes de construir, quero saber o que merece existir. Uma resposta precisa para o problema errado ainda é desperdício.</p>
-</section>
-<section id="assumo-o-problema-que-ninguém-quer." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="assumo-o-problema-que-ninguém-quer.">Assumo o problema que ninguém quer.</h3>
-<p>Fico perto o bastante para ver funcionar de ponta a ponta e digo o que é inconveniente quando o trabalho exige isso.</p>
-</section>
-<section id="o-dado-precisa-sobreviver-à-realidade." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="o-dado-precisa-sobreviver-à-realidade.">O dado precisa sobreviver à realidade.</h3>
-<p>Uso estatística para transformar opinião em teste. O método só importa quando funciona além da análise e dentro da operação.</p>
-</section>
-<section id="contexto-é-trabalho-humano." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="contexto-é-trabalho-humano.">Contexto é trabalho humano.</h3>
-<p>Ferramentas aceleram o trabalho. Estrutura, relações e julgamento ainda vêm de quem entende o problema.</p>
-</section>
-<section id="aceitável-não-basta." class="level3 about-principle">
-<h3 class="anchored" data-anchor-id="aceitável-não-basta.">Aceitável não basta.</h3>
-<p>Uma resposta com aparência de certeza é fácil de produzir. Prefiro expor a incerteza, testar a premissa e refazer o que não se sustenta.</p>
-</section>
-</div>
-</div>
-<div id="experience" class="about-history">
-<p class="section-kicker">
-TRAJETÓRIA PROFISSIONAL
-</p>
-<section id="experiência-profissional" class="level2">
-<h2 class="anchored" data-anchor-id="experiência-profissional">Experiência profissional</h2>
-<div class="experience-table-scroll">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Período</th>
-<th>Organização e função</th>
-<th>Trabalho</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>08/24 - 09/26</td>
-<td><img src=".\images/logos/datlo.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Chief Product Officer</td>
-<td>Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.</td>
-</tr>
-<tr class="even">
-<td>01/24 - 07/24</td>
-<td><img src=".\images/logos/datlo.png" class="company-logo" width="31" height="31" alt="Logotipo de Datlo"> Datlo, Head of Data</td>
-<td>Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.</td>
-</tr>
-<tr class="odd">
-<td>02/23 - 12/23</td>
-<td><img src=".\images/logos/ponta.png" class="company-logo" width="31" height="31" alt="Logotipo de Ponta"> Ponta, Services Manager</td>
-<td>Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano.</td>
-</tr>
-<tr class="even">
-<td>04/22 - 01/23</td>
-<td><img src=".\images/logos/ga_intergado.png" class="company-logo" width="31" height="31" alt="Logotipo de GA + Intergado"> GA + Intergado, Strategy Manager</td>
-<td>Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&amp;D, reduzindo em 80% as interrupções das sprints.</td>
-</tr>
-<tr class="odd">
-<td>01/21 - 03/22</td>
-<td><img src=".\images/logos/ga.png" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, R&amp;D Manager</td>
-<td>Liderei o P&amp;D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%.</td>
-</tr>
-<tr class="even">
-<td>09/20 - 12/20</td>
-<td><img src=".\images/logos/ga.png" class="company-logo" width="31" height="31" alt="Logotipo de GA"> GA, Data Manager</td>
-<td>Criei a equipe e a metodologia de projetos de dados do P&amp;D. Implementei uma arquitetura e ferramentas de acesso aos dados que reduziram em 50% as demandas de outros departamentos sobre os analistas.</td>
-</tr>
-<tr class="odd">
-<td>10/18 - 11/19</td>
-<td><img src=".\images/logos/unicesumar.png" class="company-logo" width="31" height="31" alt="Logotipo de Unicesumar"> Unicesumar, professor</td>
-<td>Lecionei Estatística no MBA em Business Intelligence para aproximar os conceitos de sua aplicação profissional. Atualizei tópicos e materiais com exemplos da minha experiência em consultoria.</td>
-</tr>
-<tr class="even">
-<td>09/16 - 08/20</td>
-<td><img src=".\images/logos/h0.jpg" class="company-logo" width="31" height="31" alt="Logotipo de H0 Consultoria"> H0 Consultoria, consultor e cofundador</td>
-<td>Cofundei a H0 para apoiar pesquisas com planejamento amostral, análise de dados e formação em Estatística. Atuei na revisão e análise de mais de 350 estudos acadêmicos e na consultoria de mais de 40 pesquisas empresariais.</td>
-</tr>
-<tr class="odd">
-<td>07/13 - 12/15</td>
-<td><img src=".\images/logos/estats.png" class="company-logo" width="31" height="31" alt="Logotipo de Estats Consultoria"> Estats Consultoria, cofundador</td>
-<td>Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</div>
-<p><a href="./header-experience.html" class="experience-link">Ver experiência completa</a></p>
-<div class="about-recent-writing">
-<p class="section-kicker">
-TEXTOS RECENTES
-</p>
-<section id="o-que-estou-escrevendo" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-estou-escrevendo">O que estou escrevendo</h2>
-<p>Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.</p>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0042-llm-como-juiz/index.html">O juiz que prefere a resposta de cima</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0041-agent-swarm/index.html">Agent swarm: mais agentes fazem melhor que um?</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-06">2026-10-06</time><div><h3 class="anchored"><span class="post-language" role="img" aria-label="Em português">PT</span><a href="./posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html">PAP: o seu site vai precisar saber de quem é o robô</a></h3><p class="post-tags"><a class="post-tag" href="./writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<p><a href="./writing.html" class="experience-link">Ver todos os textos</a></p>
-</section>
-</div>
+<section id="examinador-também-faz-prova" class="level3">
+<h3 class="anchored" data-anchor-id="examinador-também-faz-prova">Examinador também faz prova</h3>
+<p>Já apoiei, com uma equipe, a avaliação de provas da área médica. Havia questões de conhecimento e tarefas práticas, e nas tarefas práticas a nota vinha de examinadores. A pergunta ali era de confiabilidade: dois examinadores dão a mesma nota ao mesmo candidato? Prova em que a nota depende de quem corrige mede o examinador junto com o candidato.</p>
+<p>O LLM como juiz é um examinador novo na banca, e eu o trataria do mesmo jeito. Antes de usar o veredito dele:</p>
+<ul>
+<li>Corrigir à mão cerca de 30 respostas reais, com passa ou falha e uma crítica em cada uma. É o ponto de partida de Husain, que segue corrigindo até parar de aparecer falha nova. São menos que as cem respostas que o post sobre evals manda ler, porque o objetivo é outro: lá era descobrir as falhas, aqui é calibrar o juiz de uma delas;</li>
+<li>Rodar o juiz nas mesmas respostas, menos as que viraram exemplo no <em>prompt</em>, e ler as discordâncias uma a uma. A taxa de concordância sozinha engana: um juiz que aprova tudo acerta toda resposta boa e nenhuma ruim.</li>
+<li>Repetir em casa os dois testes do artigo: trocar a ordem das respostas e inchar uma resposta sem informação nova. Se o veredito muda, o juiz tem viés de posição ou de verbosidade;</li>
+<li>Refazer a conferência a cada troca do modelo do juiz, porque os vieses variam de um modelo para outro.</li>
+</ul>
+<p>Sobra o caso em que você e um colega corrigem as mesmas 30 respostas e discordam. Lembre dos 81% do começo: os avaliadores humanos do artigo discordaram entre si em quase uma de cada cinco comparações. Na minha leitura, quando duas pessoas não chegam ao mesmo veredito, o defeito costuma estar na rubrica. Reescreva a rubrica até vocês concordarem. Só depois vale cobrar o juiz.</p>
 
 
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=IA">#IA</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -781,17 +732,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./agents.html">
+    <a class="nav-link" href="../../agents.html">
 <p>Para agentes</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./curriculo.md">
+    <a class="nav-link" href="../../curriculo.md">
 <p>Currículo (Markdown)</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./curriculo.json">
+    <a class="nav-link" href="../../curriculo.json">
 <p>Currículo (JSON)</p>
 </a>
   </li>  

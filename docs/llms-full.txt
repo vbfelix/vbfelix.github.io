@@ -97,9 +97,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0042-llm-como-juiz/index.html">O juiz que prefere a resposta de cima</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
+<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-10">2026-10-10</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0041-agent-swarm/index.html">Agent swarm: mais agentes fazem melhor que um?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-06">2026-10-06</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0040-pap-o-seu-site-vai-precisar-saber-de-quem-o-rob/index.html">PAP: o seu site vai precisar saber de quem é o robô</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="Engenharia de dados"><time datetime="2026-10-06">2026-10-06</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0039-o-sql-que-escala-cobra-em-espera-retry-ou-erro/index.html">New SQL, o melhor dos dois mundos?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Engenharia%20de%20dados" data-category="Engenharia de dados">#Engenharia-de-dados</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="Estatística"><time datetime="2026-10-03">2026-10-03</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0038-por-que-o-maior-animal-nao-e-o-mais-rapido/index.html">Quão rápido era um Velociraptor? E como descobrir isso</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Estat%C3%ADstica" data-category="Estatística">#Estatística</a></p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -9416,6 +9416,187 @@ A lista de presença também diz muito. OpenAI e Anthropic não participam. Tayl
 Há um limite que nenhuma versão da especificação resolve. O PAP é voluntário. Ele dá um caminho melhor para o agente que quer se identificar. O robô disfarçado continua disfarçado. O caso da Perplexity, do jeito que a Amazon o descreve, é o de um agente que escolheu não se apresentar. Para esse, o padrão só ajuda de forma indireta: quando existe um caminho oficial, a empresa ganha argumento para bloquear quem insiste no *scraping*.
 
 Vale lembrar quem escreve as regras. A Meta diz ter um agente pessoal com milhões de usuários nos Estados Unidos e precisa que as empresas o deixem entrar. A Sierra vende o agente que fica do outro lado. As duas ganham com a adoção, e isso explica a pressa.
+
+## Agent swarm: mais agentes fazem melhor que um?
+
+Fonte: https://vbfelix.github.io/posts/0041-agent-swarm/index.html
+
+#### Um livro de 13 mil palavras e 277 execuções de subagente
+
+Revisei o meu primeiro livro com o Claude Code. Pela conta feita na própria sessão, foram 277 execuções de subagentes para chegar a cerca de 13 mil palavras. O trabalho inteiro consumiu cerca de 587 milhões de *tokens*, se pagos por uso em API, dariam cerca de US$ 397.
+
+O mercado tem um nome para esse arranjo: *agent swarm*, o enxame de agentes. Gosto dele, com uma ressalva. Um *swarm* não cria paralelismo. Ele aproveita o paralelismo que a tarefa já tem, e cobra por isso.
+
+#### Um coordenador e vários estagiários sem memória
+
+Um agente é um modelo de linguagem que trabalha em etapas: lê a instrução, usa uma ferramenta, olha o resultado e decide o próximo passo. Tudo o que ele leu fica na *context window*, a janela de texto que o modelo enxerga de uma vez. Ela é finita.
+
+Um subagente é um agente convocado para uma subtarefa. Ele recebe um objetivo, trabalha em uma *context window* separada e devolve um resumo. A conversa de quem o convocou ele não herda. Quem convoca é o orquestrador, o agente que divide o trabalho, dispara os subagentes e junta as respostas.
+
+*Agent swarm* é o rótulo para um orquestrador com vários subagentes, em geral rodando ao mesmo tempo:
+
+```text
+              pergunta
+                 |
+           orquestrador
+          /      |      \
+  subagente  subagente  subagente
+          \      |      /
+           orquestrador
+                 |
+             resposta
+```
+
+O nome não tem definição tão formal, mas o mercado já usa. Um exemplo é o Swarm, projeto experimental da OpenAI substituído pelo Agents SDK ([OpenAI, *Swarm*](https://github.com/openai/swarm)). Outro é o `qa-swarm`, montado por um engenheiro da PostHog, que dispara quatro agentes revisores de código, cada um com instruções próprias ([Jina Yoon, *Stop being the code review bottleneck*](https://newsletter.posthog.com/p/code-review-tips)).
+
+Em junho de 2025, a Anthropic descreveu o que o arranjo compra ao contar como montou o seu sistema de pesquisa ([Anthropic, *How we built our multi-agent research system*](https://www.anthropic.com/engineering/multi-agent-research-system)). São duas coisas. A primeira é exploração em paralelo: o orquestrador dispara de três a cinco subagentes de uma vez, cada um em um aspecto da pergunta. A segunda é contexto separado: cada subagente lê muito e devolve pouco, e a *context window* do orquestrador enche mais devagar. Na avaliação interna de pesquisa deles, **um modelo maior orquestrando subagentes de um modelo menor teve resultado 90,2% melhor que o modelo maior sozinho**.
+
+#### Quinze vezes o preço de um *chat*, e a conta não para aí
+
+O mesmo texto traz o preço. As restrições são quatro:
+
+- **A conta.** A Anthropic relata que um agente gasta cerca de 4 vezes os *tokens* de uma conversa de *chat*, e que o sistema com vários agentes gasta cerca de 15 vezes;
+- **O subagente começa do zero.** Ele não enxerga o histórico da conversa principal nem os arquivos que ela já leu ([Claude Code, *Subagents*](https://code.claude.com/docs/en/sub-agents)). O que ele precisa saber tem de caber na instrução que o orquestrador escreve;
+- **As partes dependem umas das outras.** A Anthropic avisa que o arranjo não é bom candidato quando todos os agentes precisam do mesmo contexto ou quando há muita dependência entre eles;
+- **Dois agentes escrevem no mesmo lugar.** Ler em paralelo é tranquilo. Escrever em paralelo no mesmo arquivo ou no mesmo repositório é disputa.
+
+A primeira restrição explica o ganho. Em outro teste da Anthropic, a quantidade de *tokens* gasta explicou, sozinha, 80% da variação de desempenho. Os autores escrevem que esses sistemas funcionam principalmente porque ajudam a gastar *tokens* suficientes para resolver o problema. O ganho e o gasto andam juntos.
+
+A terceira é a que mais derruba expectativa. A Anthropic cita programação como exemplo, por ter menos tarefas de fato paralelizáveis do que pesquisa. Walden Yan, da Cognition, argumenta que cada ação carrega decisões implícitas, e que decisões em conflito dão resultado ruim. No exemplo dele, dois subagentes dividem um clone de Flappy Bird. Um entrega um cenário com cara de Super Mario, o outro entrega um pássaro que nem parece peça de jogo ([Walden Yan, *Don't Build Multi-Agents*](https://cognition.com/blog/dont-build-multi-agents)).
+
+Um *benchmark* de programação publicado por Fabio Akita ilustra o mesmo ponto. O modelo mais forte fez 97 de 100 pontos sozinho. Proibido de escrever código e obrigado a delegar a um subagente, ficou entre 90 e 95 ([Fabio Akita, *Vale a Pena Misturar 2 Modelos?*](https://www.akitaonrails.com/2026/04/25/llm-benchmarks-vale-a-pena-misturar-2-modelos/)). O teste é um aplicativo só, e o relato é dele. A leitura que ele tira é a que adotei na abertura: orquestrar agentes só expõe o paralelismo que já existe.
+
+#### No meu enxame, subagente não escreve
+
+Os subagentes do livro eram leitores, chamados de novo a cada rodada de revisão. É daí que saem as 277 execuções. No repositório em que escrevo, a pasta versionada com os meus textos, toda escrita ou revisão de conteúdo aciona cinco agentes revisores, em três rodadas, no máximo dois ao mesmo tempo. Cada um tem uma função e um limite:
+
+- **O revisor de texto** lê voz, clareza e repetição, e não julga o argumento;
+- **O conferente de evidências** compara cada afirmação com a minha base de fontes;
+- **O advogado do diabo** ataca o argumento e, numa revisão, lê o que mudou entre as versões;
+- **O leitor leigo** recebe só o texto publicável, sem as minhas anotações, sem guia e sem versão anterior;
+- **O leitor do público** veste a pessoa para quem o texto foi escrito, decide se compra ou para a leitura.
+
+Nenhum deles edita arquivo. Os achados voltam para mim, e eu decido o que entra. No livro, quatro citações que entraram em uma rodada foram quase todas derrubadas por eles.
+
+O leitor leigo é o melhor exemplo disso. Eu tenho o contexto inteiro na cabeça e não consigo mais ler o texto como quem chegou agora. Ele consegue, porque a *context window* dele nasceu vazia. Jina Yoon, da PostHog, recomenda o mesmo para código: o agente que escreveu não revisa, porque agentes checam mal o próprio trabalho ([Jina Yoon](https://newsletter.posthog.com/p/code-review-tips)).
+
+A escrita ficou fora do enxame. No livro, eu escrevi à mão, e os subagentes só criticaram. Cinco leituras do mesmo texto são independentes. Os capítulos de um livro dependem uns dos outros: do termo que o anterior fixou, do episódio que ele já contou.
+
+#### Dois agentes, um repositório e nenhuma reserva
+
+Na mesma época, o trabalho em paralelo falhou comigo. Em outro projeto, montei com sessões do Claude Code a base de fontes que os meus textos consultam. Foram 66 *commits*, os registros de alteração de um repositório. Mais de uma sessão trabalhou em paralelo na mesma cópia do repositório. Elas disputaram os identificadores numerados das fontes. E uma delas levou arquivos da outra para dentro do próprio *commit*.
+
+Ali não havia orquestrador além de mim, e eu não tinha dado a cada sessão um lugar só dela. É a quarta restrição em estado puro: duas escritas no mesmo estado, sem reserva. *Prompt* melhor não resolve esse tipo de falha. Quem acusa a colisão é um programa comum, como um validador que recusa identificador repetido, e ele só avisa depois. Evitar pede reserva: cada agente com a sua faixa de identificadores e a sua cópia do repositório. A reserva tem preço, porque alguém junta as cópias no fim.
+
+#### Conte as partes antes de contar os agentes
+
+Antes de montar um enxame, eu responderia a três perguntas:
+
+- As partes se resolvem sem conversar entre si? Pesquisa, leitura e revisão costumam passar. Construir uma coisa só costuma não passar;
+- O resultado paga a conta? Cerca de quinze vezes os *tokens* de um *chat* cabem em uma decisão cara e não cabem em uma dúvida rápida;
+- Cada agente escreve em um lugar só dele? Se dois escrevem no mesmo arquivo, resolva isso antes de ligar o segundo.
+
+Pegue a próxima tarefa que você pensou em entregar a vários agentes e escreva a lista das partes. Risque as que dependem da resposta de outra, e as pequenas demais para pagar um subagente que começa do zero. O que sobrar é o tamanho do seu enxame, e às vezes sobra um.
+
+## O juiz que prefere a resposta de cima
+
+Fonte: https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html
+
+#### Tanto acordo quanto entre humanos, até trocar a ordem
+
+Em junho de 2023, o GPT-4 concordou com 58 avaliadores humanos em 85% das comparações entre duas respostas de modelos de linguagem. Os humanos concordaram entre si em 81%. A conta deixa os empates de fora ([Zheng et al., *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena*](https://arxiv.org/abs/2306.05685)).
+
+O mesmo artigo fez um segundo teste. Os autores entregaram ao GPT-4 duas respostas parecidas, geradas pelo mesmo modelo. Pediram a comparação duas vezes, trocando a ordem. O veredito se manteve em 65% dos casos. Em 30%, o juiz favoreceu a resposta que vinha primeiro.
+
+Gosto desse artigo porque ele dá a boa e a má notícia juntas. Um LLM pode concordar com gente tanto quanto gente concorda com gente. E pode trocar de veredito porque a folha estava em cima da pilha.
+
+Um modelo que dá nota é um examinador. E examinador tem vícios.
+
+#### Entre o código que só confere regra e o humano que custa caro
+
+LLM como juiz, ou *LLM-as-a-judge* em inglês, é usar um modelo para avaliar a saída de outro. O juiz recebe a resposta e um critério escrito, a rubrica. Devolve um veredito, que pode ser uma nota ou um passa ou falha.
+
+No [post sobre evals](https://vbfelix.github.io/posts/0037-seu-prompt-passou-no-teste-do-olhometro/), o juiz era um dos três jeitos de avaliar uma resposta. Ficava entre o código, que só confere regra, e a revisão humana, que é lenta e cara. Aqui ele é o assunto.
+
+A documentação da Anthropic descreve o juiz como rápido, escalável e adequado a julgamento complexo. A mesma página manda testar a confiabilidade dele antes de escalar ([Anthropic, *Define success criteria and build evaluations*](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).
+
+Os autores do artigo de 2023 descrevem três formatos de julgamento:
+
+- **_Pairwise comparison_**, a comparação em pares: o juiz lê uma pergunta e duas respostas. Diz qual é a melhor ou declara empate;
+- **_Single answer grading_**, a nota direta: o juiz lê uma resposta só e dá o veredito sobre ela;
+- **_Reference-guided grading_**, a nota com referência: o juiz recebe também uma resposta de referência para comparar.
+
+Os dois testes da abertura eram *pairwise comparison*. É o formato que eu usaria para decidir entre duas versões de um *prompt*. Para vigiar uma falha específica, eu usaria o *single answer grading*.
+
+#### O examinador tem lugar preferido e gosta de texto comprido
+
+O juiz é outro LLM e leva os vícios dele para a correção. O artigo dá nome a três vieses:
+
+- **Viés de posição**: o juiz favorece uma resposta pelo lugar em que ela aparece. É o teste de troca de ordem da abertura. Dos três juízes testados, GPT-4, GPT-3.5 e Claude-v1, o GPT-4 foi o mais consistente;
+- **Viés de verbosidade**: o juiz prefere a resposta mais longa, mesmo quando ela não é melhor. Os autores pegaram 23 respostas com lista numerada e pediram uma reescrita da lista sem informação nova. Depois puseram a reescrita antes da lista original. O GPT-3.5 e o Claude-v1 preferiram a versão inchada em 91,3% dos casos;
+- **Autopreferência**: o juiz favorece o texto que ele mesmo gerou. O artigo não teve dados para concluir. No ano seguinte, outro grupo mostrou que modelos como o GPT-4 conseguem distinguir o próprio texto, e ligou essa capacidade à força da preferência ([Panickssery, Bowman e Feng, *LLM Evaluators Recognize and Favor Their Own Generations*](https://arxiv.org/abs/2404.13076)).
+
+O viés de posição tem um agravante. Ele aparece mais quando as duas respostas têm qualidade próxima e quase some quando uma é muito melhor que a outra.
+
+Na minha leitura, isso atinge o uso mais comum do juiz. Quem compara duas versões do mesmo *prompt* quase sempre compara respostas parecidas.
+
+Esses números são de modelos de 2023, com o *prompt* padrão do artigo, e eu não os aplicaria a um juiz de hoje. O viés, porém, voltou a aparecer num estudo maior, com 15 juízes, e de novo dependeu da distância de qualidade entre as respostas ([Shi et al., *Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge*](https://arxiv.org/abs/2406.07791)).
+
+#### "A resposta é boa?" é a pergunta que estraga o juiz
+
+Se eu fosse montar um juiz amanhã, tomaria seis decisões antes de escrever o *prompt*:
+
+- **Uma rubrica por juiz**: "a resposta é boa?" deixa o juiz escolher o que olhar. "A resposta promete um prazo que a política não prevê?" tem resposta certa.
+- **Veredito binário**: Hamel Husain afirma que as pessoas não sabem o que fazer com um 3 ou um 4 ([Husain, *Using LLM-as-a-Judge For Evaluation: A Complete Guide*](https://hamel.dev/blog/posts/llm-judge/));
+- **Justificativa antes do veredito**: o juiz escreve a crítica primeiro e o passa ou falha depois.
+- **Exemplos corrigidos por gente**: respostas reais, com o veredito e a crítica de quem entende do assunto, entram no *prompt*. 
+- **Ordem trocada no _pairwise comparison_**: o juiz roda duas vezes, com as respostas invertidas. Uma resposta só vence se ganhar nas duas, e veredito que muda vira empate. É a saída conservadora que o próprio artigo propõe;
+- **Modelo diferente do avaliado**: a documentação da Anthropic trata como boa prática, e eu vejo nisso a defesa contra a autopreferência.
+
+Para o *single answer grading* de uma falha só, o *prompt* fica assim. O caso é um assistente de atendimento, e a falha é prometer o que a política não dá:
+
+```text
+Você vai avaliar a resposta de um assistente de atendimento.
+
+<politica>
+O cancelamento sem multa vale até 7 dias após a compra.
+</politica>
+
+<pergunta>
+{pergunta_do_cliente}
+</pergunta>
+
+<resposta>
+{resposta_do_assistente}
+</resposta>
+
+<rubrica>
+A resposta falha se afirmar prazo, valor ou condição que não está na política.
+A resposta passa se disser só o que a política diz ou se avisar que não sabe.
+</rubrica>
+
+<exemplos>
+{respostas_corrigidas_por_uma_pessoa}
+</exemplos>
+
+Escreva primeiro a crítica, em até três frases, citando o trecho que pesou.
+Depois escreva o veredito em <veredito>: passa ou falha.
+```
+
+A pergunta e a resposta mudam a cada chamada. Os exemplos mudam só quando alguém corrige mais respostas. O resto é fixo, e eu versionaria junto com o código da aplicação. Para vigiar outra falha, escreveria outro juiz, com outra rubrica.
+
+#### Examinador também faz prova
+
+Já apoiei, com uma equipe, a avaliação de provas da área médica. Havia questões de conhecimento e tarefas práticas, e nas tarefas práticas a nota vinha de examinadores. A pergunta ali era de confiabilidade: dois examinadores dão a mesma nota ao mesmo candidato? Prova em que a nota depende de quem corrige mede o examinador junto com o candidato.
+
+O LLM como juiz é um examinador novo na banca, e eu o trataria do mesmo jeito. Antes de usar o veredito dele:
+
+- Corrigir à mão cerca de 30 respostas reais, com passa ou falha e uma crítica em cada uma. É o ponto de partida de Husain, que segue corrigindo até parar de aparecer falha nova. São menos que as cem respostas que o post sobre evals manda ler, porque o objetivo é outro: lá era descobrir as falhas, aqui é calibrar o juiz de uma delas;
+- Rodar o juiz nas mesmas respostas, menos as que viraram exemplo no *prompt*, e ler as discordâncias uma a uma. A taxa de concordância sozinha engana: um juiz que aprova tudo acerta toda resposta boa e nenhuma ruim.
+- Repetir em casa os dois testes do artigo: trocar a ordem das respostas e inchar uma resposta sem informação nova. Se o veredito muda, o juiz tem viés de posição ou de verbosidade;
+- Refazer a conferência a cada troca do modelo do juiz, porque os vieses variam de um modelo para outro.
+
+Sobra o caso em que você e um colega corrigem as mesmas 30 respostas e discordam. Lembre dos 81% do começo: os avaliadores humanos do artigo discordaram entre si em quase uma de cada cinco comparações. Na minha leitura, quando duas pessoas não chegam ao mesmo veredito, o defeito costuma estar na rubrica. Reescreva a rubrica até vocês concordarem. Só depois vale cobrar o juiz.
 
 ## UX com produtos físicos, o puro suco da estatística
 
