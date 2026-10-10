@@ -1,7 +1,6 @@
 ---
 name: vfx-write-tests
 description: Use when a behavior change, a fixed defect or the acceptance criteria of a spec have no test yet, or tests have to be added or rewritten, before the change is called complete. Not for the full test-first cycle of a new feature, which is `implement-task`.
-model: sonnet
 ---
 
 # Escrever testes

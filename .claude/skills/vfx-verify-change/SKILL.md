@@ -1,7 +1,6 @@
 ---
 name: vfx-verify-change
 description: Use when a change is about to be committed, reviewed or reported as working and the checks the repository declares, such as tests, lint, types and build, have not run since the last edit. Not for checking a screen in a browser, which is `verify-ui`.
-model: sonnet
 ---
 
 # Verificar alteração

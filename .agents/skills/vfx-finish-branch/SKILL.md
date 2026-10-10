@@ -9,6 +9,8 @@ Confirme origem, destino e autorização. Rode `verify-change` na branch antes d
 
 Quando o usuário não disse como fechar a branch, ofereça as três saídas e espere a escolha: integrar localmente no destino, abrir um pull request com `open-pull-request`, ou manter a branch como está. Descartar a branch só entra na conversa quando o usuário pede.
 
+Antes de integrar localmente, aplique `review-scope` ao diff contra o destino, despache os agents que a classe de risco pede e trate o retorno com `address-review`. Achado de severidade alta ou crítica que continue aberto interrompe a integração e vai ao usuário. Integrar sem essa revisão é decisão do usuário, e o relato diz que ela não foi feita.
+
 Para integrar localmente: atualize as referências, prefira fast-forward, preserve mudanças alheias e resolva conflitos em fontes antes de derivados. Depois do merge, rode `verify-change` de novo no destino: duas branches verdes podem produzir um resultado vermelho.
 
 Remova a branch e a worktree dela só depois da integração verificada, e só as que você criou. Não reescreva histórico nem publique sem pedido explícito.

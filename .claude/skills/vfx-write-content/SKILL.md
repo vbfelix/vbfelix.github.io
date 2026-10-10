@@ -1,7 +1,6 @@
 ---
 name: vfx-write-content
 description: Use when producing or rewriting prose for a published surface such as an article, page, newsletter or post. Not for code documentation, which is `document-code`, nor for commit messages or session reports.
-model: sonnet
 ---
 
 # Escrever conteúdo

@@ -1,19 +1,30 @@
 {
-  "format": 1,
-  "source": "C:\\Users\\Vinícius\\Desktop\\vfx-llm-skills",
-  "ref": "v2.3.0",
-  "commit": "6414dfe79557efdcc460fc2409831704db458ca3",
-  "platform": "claude-code",
-  "resources": [
-    "create-branch",
-    "create-commit",
-    "debug-defect",
-    "finish-branch",
-    "publish-changes",
-    "verify-change",
-    "write-content",
-    "write-tests"
-  ],
+  "format": 2,
+  "source": "C:/Users/Vinícius/Desktop/vfx-llm-skills",
+  "ref": "v2.4.0",
+  "commit": "6b54b362d9c2e97daf68db5ab31aebf4127fb32e",
+  "resources": {
+    "claude-code": [
+      "create-branch",
+      "create-commit",
+      "debug-defect",
+      "finish-branch",
+      "publish-changes",
+      "verify-change",
+      "write-content",
+      "write-tests"
+    ],
+    "codex": [
+      "create-branch",
+      "create-commit",
+      "debug-defect",
+      "finish-branch",
+      "publish-changes",
+      "verify-change",
+      "write-content",
+      "write-tests"
+    ]
+  },
   "models": {
     "standard": {
       "codex": {

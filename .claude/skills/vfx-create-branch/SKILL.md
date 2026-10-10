@@ -1,7 +1,6 @@
 ---
 name: vfx-create-branch
 description: Use when starting a change that should not land directly on the current branch, when the user asks for a new branch, or when work has to run isolated in a separate working tree, such as a parallel task, an experiment or a delegated implementer, before editing files. Not for merging or closing a finished branch, which is `finish-branch`.
-model: sonnet
 ---
 
 # Criar branch
@@ -12,7 +11,7 @@ Nomeie pela convenção do repositório; sem convenção, use `<tipo>/<assunto-e
 
 **Branch no lugar** é o padrão: crie a partir da referência pedida e troque para ela.
 
-**Worktree** quando o trabalho precisa correr isolado do checkout atual, como tarefa paralela, experimento ou implementador delegado:
+**Worktree** quando o trabalho precisa correr isolado do checkout atual: tarefa paralela, experimento, implementador delegado, ou checkout com alteração ou índice que esta sessão não produziu. Esse último é sinal de outra sessão no mesmo checkout, e duas sessões ali trocam a branch e o índice uma da outra.
 
 1. Veja se já está isolado: `git rev-parse --git-dir` diferente de `git rev-parse --git-common-dir` significa que você já está numa worktree; trabalhe nela.
 2. Prefira a ferramenta de worktree do próprio ambiente. Sem ela, crie com `git worktree add <pasta> -b <branch>`, numa pasta que o git ignora; se o `.gitignore` não a cobre, proponha a linha ao usuário.

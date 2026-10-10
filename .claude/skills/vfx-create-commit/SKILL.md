@@ -1,7 +1,6 @@
 ---
 name: vfx-create-commit
 description: Use when changes are ready to be recorded in a local commit or the user asks to commit. Not for pushing to the remote, which is `publish-changes`.
-model: sonnet
 ---
 
 # Criar commit
