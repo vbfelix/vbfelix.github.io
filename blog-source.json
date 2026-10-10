@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "90342b795d91669aac146ea645388333634f2661",
+  "commit": "5a9bde356787e350c4854ad7b762052e3496a22c",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
