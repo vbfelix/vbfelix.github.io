@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "e7859b8c73c7402bf0834da2147bf45902b77351506ab5048971dc94d31f83d6",
+  "sourceRevision": "e368f3a4eb7c308ff5be2c0fd9eb1ee296f24b757779859f637b4a236eb52240",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -465,6 +465,17 @@
       "url": "https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0042-llm-como-juiz/index.html.md",
       "revision": "b93b55eb008ce274ad6a2c2541048873bb173049d7733b892bef618c1f2992ab"
+    },
+    {
+      "title": "Anisotropia, quando a direção importa",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Estatística"
+      ],
+      "url": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html.md",
+      "revision": "230b1f7dd2c49c47d46362593f0983667b0f12e017a88bcb4e0c9cd385756f67"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

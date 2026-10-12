@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Helvetica, Arial, sans-serif" font-size="16">
+  <defs>
+    <clipPath id="painel-a"><rect x="40" y="60" width="300" height="260"/></clipPath>
+    <clipPath id="painel-b"><rect x="380" y="60" width="300" height="260"/></clipPath>
+  </defs>
+  <rect width="720" height="380" fill="#ffffff"/>
+  <text x="190" y="40" text-anchor="middle" fill="#1f2937" font-weight="bold">isotrópico</text>
+  <text x="530" y="40" text-anchor="middle" fill="#1f2937" font-weight="bold">anisotrópico</text>
+  <rect x="40" y="60" width="300" height="260" fill="#f3f4f6"/>
+  <g clip-path="url(#painel-a)">
+    <g fill="#2563eb" fill-opacity="0.75">
+      <circle cx="95" cy="115" r="34"/>
+      <circle cx="255" cy="105" r="30"/>
+      <circle cx="170" cy="215" r="36"/>
+      <circle cx="300" cy="270" r="32"/>
+    </g>
+    <g fill="#d97706" fill-opacity="0.75">
+      <circle cx="175" cy="110" r="28"/>
+      <circle cx="80" cy="235" r="32"/>
+      <circle cx="270" cy="190" r="30"/>
+      <circle cx="200" cy="300" r="28"/>
+    </g>
+  </g>
+  <rect x="40" y="60" width="300" height="260" fill="none" stroke="#6b7280"/>
+  <rect x="380" y="60" width="300" height="260" fill="#f3f4f6"/>
+  <g clip-path="url(#painel-b)">
+    <g fill="#2563eb" fill-opacity="0.75">
+      <ellipse cx="450" cy="130" rx="85" ry="20" transform="rotate(-30 450 130)"/>
+      <ellipse cx="600" cy="150" rx="85" ry="20" transform="rotate(-30 600 150)"/>
+      <ellipse cx="480" cy="270" rx="85" ry="20" transform="rotate(-30 480 270)"/>
+      <ellipse cx="650" cy="290" rx="85" ry="20" transform="rotate(-30 650 290)"/>
+    </g>
+    <g fill="#d97706" fill-opacity="0.75">
+      <ellipse cx="530" cy="110" rx="85" ry="20" transform="rotate(-30 530 110)"/>
+      <ellipse cx="440" cy="205" rx="85" ry="20" transform="rotate(-30 440 205)"/>
+      <ellipse cx="590" cy="225" rx="85" ry="20" transform="rotate(-30 590 225)"/>
+      <ellipse cx="570" cy="310" rx="85" ry="20" transform="rotate(-30 570 310)"/>
+    </g>
+  </g>
+  <rect x="380" y="60" width="300" height="260" fill="none" stroke="#6b7280"/>
+  <text x="190" y="345" text-anchor="middle" fill="#1f2937">manchas sem direção preferida</text>
+  <text x="530" y="345" text-anchor="middle" fill="#1f2937">manchas alongadas para o mesmo lado</text>
+  <rect x="250" y="358" width="14" height="14" fill="#2563eb" fill-opacity="0.75"/>
+  <text x="270" y="371" fill="#1f2937">valor alto</text>
+  <rect x="380" y="358" width="14" height="14" fill="#d97706" fill-opacity="0.75"/>
+  <text x="400" y="371" fill="#1f2937">valor baixo</text>
+</svg>

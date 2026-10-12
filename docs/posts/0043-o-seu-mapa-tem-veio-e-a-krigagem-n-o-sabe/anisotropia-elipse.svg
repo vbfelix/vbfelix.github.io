@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Helvetica, Arial, sans-serif" font-size="16">
+  <defs>
+    <marker id="seta-e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="720" height="400" fill="#ffffff"/>
+  <ellipse cx="300" cy="210" rx="160" ry="64" transform="rotate(-30 300 210)" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="300" y1="210" x2="300" y2="60" stroke="#6b7280" stroke-width="2" marker-end="url(#seta-e)"/>
+  <text x="300" y="48" text-anchor="middle" fill="#4b5563">norte</text>
+  <line x1="300" y1="210" x2="438.6" y2="130" stroke="#2563eb" stroke-width="3"/>
+  <line x1="300" y1="210" x2="268" y2="154.6" stroke="#d97706" stroke-width="3"/>
+  <path d="M300,140 A70,70 0 0 1 360.6,175" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="318" y="168" fill="#1f2937">60°</text>
+  <circle cx="300" cy="210" r="4" fill="#1f2937"/>
+  <text x="500" y="120" fill="#1d4ed8">alcance maior: 400 m</text>
+  <line x1="494" y1="116" x2="444" y2="128" stroke="#2563eb" stroke-width="1"/>
+  <text x="60" y="130" fill="#b45309">alcance menor: 160 m</text>
+  <line x1="228" y1="132" x2="264" y2="152" stroke="#d97706" stroke-width="1"/>
+  <text x="500" y="250" fill="#1f2937">razão: 160 / 400 = 0,4</text>
+  <text x="500" y="276" fill="#1f2937">ângulo: 60° a partir do norte,</text>
+  <text x="500" y="298" fill="#1f2937">no sentido horário</text>
+</svg>

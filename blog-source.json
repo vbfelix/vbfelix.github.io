@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "5a9bde356787e350c4854ad7b762052e3496a22c",
+  "commit": "4927cbd9684f13e93839a01489bf0ea13eb84149",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -62,6 +62,18 @@
       "source": "a34a2e718dedad7f13990fbf02f5d7c6f58e57b90888ee39cff6b358132a9dcd",
       "rendered": "b93b55eb008ce274ad6a2c2541048873bb173049d7733b892bef618c1f2992ab",
       "target": "posts/0042-llm-como-juiz/index.qmd"
+    },
+    "2026-10-12_o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe.md": {
+      "source": "4baefdbe04c582ad33179aeb0a1eb5bc8b040064e9f5d2a3a800ac604d5d4985",
+      "rendered": "230b1f7dd2c49c47d46362593f0983667b0f12e017a88bcb4e0c9cd385756f67",
+      "target": "posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.qmd",
+      "assets": {
+        "anisotropia-calcita.svg": "d706fd2d1c19d5e276451c493f9c71e29f55c640619e29cc16b21467b4c17b69",
+        "anisotropia-campos.svg": "b7b6a7371b5788b42725eef15f3cefa740285326d7dba3b87632b5dd55578c9d",
+        "anisotropia-elipse.svg": "c090d1748696b484db335aa5553a9ed4f70d54153e4833ec125389156c264db1",
+        "anisotropia-madeira.svg": "b4978052a2cd83ebf720caf0bef791562f7e9fec804a42484007d3293b26115c",
+        "anisotropia-variogramas.svg": "73bfafd8dc09822d65bfabb581d130b03384e6088f6674dda660e90ee4c5a4b5"
+      }
     }
   }
 }

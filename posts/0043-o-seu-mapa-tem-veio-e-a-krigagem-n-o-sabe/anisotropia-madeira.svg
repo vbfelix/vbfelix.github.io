@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Helvetica, Arial, sans-serif" font-size="16">
+  <defs>
+    <marker id="seta-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="720" height="360" fill="#ffffff"/>
+  <rect x="120" y="70" width="400" height="180" fill="#e8c998" stroke="#78350f" stroke-width="2"/>
+  <g fill="none" stroke="#92400e" stroke-width="1.5">
+    <path d="M120,90 C220,82 320,98 520,88"/>
+    <path d="M120,108 C240,100 340,116 520,106"/>
+    <path d="M120,126 C200,120 360,134 520,124"/>
+    <path d="M120,144 C230,136 330,152 520,142"/>
+    <path d="M120,162 C210,156 350,170 520,160"/>
+    <path d="M120,180 C240,172 320,188 520,178"/>
+    <path d="M120,198 C220,192 360,206 520,196"/>
+    <path d="M120,216 C230,208 340,224 520,214"/>
+    <path d="M120,234 C210,228 350,242 520,232"/>
+  </g>
+  <line x1="130" y1="285" x2="510" y2="285" stroke="#2563eb" stroke-width="3" marker-start="url(#seta-m)" marker-end="url(#seta-m)"/>
+  <text x="320" y="312" text-anchor="middle" fill="#1d4ed8">ao longo das fibras: mais rígida e mais resistente</text>
+  <line x1="555" y1="80" x2="555" y2="240" stroke="#d97706" stroke-width="3" marker-start="url(#seta-m)" marker-end="url(#seta-m)"/>
+  <text x="572" y="150" fill="#b45309">através das</text>
+  <text x="572" y="172" fill="#b45309">fibras: mais fraca</text>
+  <text x="320" y="50" text-anchor="middle" fill="#78350f" font-weight="bold">bloco de madeira</text>
+</svg>

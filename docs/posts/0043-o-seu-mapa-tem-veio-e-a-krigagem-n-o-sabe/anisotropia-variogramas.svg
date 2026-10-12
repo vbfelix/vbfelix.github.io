@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Helvetica, Arial, sans-serif" font-size="16">
+  <defs>
+    <marker id="seta-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/>
+    </marker>
+  </defs>
+  <rect width="720" height="400" fill="#ffffff"/>
+  <line x1="80" y1="300" x2="660" y2="300" stroke="#1f2937" stroke-width="2" marker-end="url(#seta-v)"/>
+  <line x1="80" y1="300" x2="80" y2="50" stroke="#1f2937" stroke-width="2" marker-end="url(#seta-v)"/>
+  <text x="370" y="385" text-anchor="middle" fill="#1f2937">distância entre os pontos</text>
+  <text x="34" y="180" text-anchor="middle" fill="#1f2937" transform="rotate(-90 34 180)">semivariância</text>
+  <line x1="80" y1="100" x2="640" y2="100" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="640" y="90" text-anchor="end" fill="#4b5563">patamar</text>
+  <line x1="240" y1="100" x2="240" y2="300" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="480" y1="100" x2="480" y2="300" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="240" y="322" text-anchor="middle" fill="#b45309">alcance menor</text>
+  <text x="480" y="322" text-anchor="middle" fill="#1d4ed8">alcance maior</text>
+  <path d="M80,300 Q150,100 240,100 L640,100" fill="none" stroke="#d97706" stroke-width="3"/>
+  <path d="M80,300 Q260,100 480,100 L640,100" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <line x1="150" y1="352" x2="180" y2="352" stroke="#d97706" stroke-width="3"/>
+  <text x="188" y="357" fill="#1f2937">direção de menor continuidade</text>
+  <line x1="430" y1="352" x2="460" y2="352" stroke="#2563eb" stroke-width="3"/>
+  <text x="468" y="357" fill="#1f2937">direção de maior continuidade</text>
+</svg>

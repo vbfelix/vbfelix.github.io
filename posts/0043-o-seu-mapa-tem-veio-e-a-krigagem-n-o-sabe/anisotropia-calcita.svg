@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Helvetica, Arial, sans-serif" font-size="16">
+  <defs>
+    <marker id="seta-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="720" height="360" fill="#ffffff"/>
+  <polygon points="250,110 470,70 470,250 250,290" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="360" y="60" text-anchor="middle" fill="#1e3a8a" font-weight="bold">cristal de calcita</text>
+  <line x1="60" y1="200" x2="250" y2="200" stroke="#1f2937" stroke-width="3" marker-end="url(#seta-c)"/>
+  <text x="150" y="185" text-anchor="middle" fill="#1f2937">um raio entra</text>
+  <line x1="250" y1="200" x2="470" y2="200" stroke="#2563eb" stroke-width="3"/>
+  <line x1="470" y1="200" x2="650" y2="200" stroke="#2563eb" stroke-width="3" marker-end="url(#seta-c)"/>
+  <line x1="250" y1="200" x2="470" y2="150" stroke="#d97706" stroke-width="3"/>
+  <line x1="470" y1="150" x2="650" y2="150" stroke="#d97706" stroke-width="3" marker-end="url(#seta-c)"/>
+  <text x="560" y="138" text-anchor="middle" fill="#b45309">raio extraordinário</text>
+  <text x="560" y="224" text-anchor="middle" fill="#1d4ed8">raio ordinário</text>
+  <text x="560" y="300" text-anchor="middle" fill="#1f2937">dois raios saem</text>
+</svg>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Anisotropia, quando a direção importa – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Anisotropia, quando a direção importa – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html">
+<meta name="description" content="Minha relação com a geoestatística e com a análise espacial começou cedo na graduação em Estatística. Publiquei, com colegas, o artigo [*Estimadores de semivariância: uma revisão*](https://periodicos.ufsm.br/cienciaenatura/article/view/21326/pdf) (Ciência e Natura, 2016). Depois, no mestrado, defendi a dissertação [*Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo*](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf). Os outros trabalhos sobre semivariograma e dependência espacial estão na minha [lista de publicações](https://vbfelix.github.io/header-publications.html).">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html#page","url":"https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html","name":"Anisotropia, quando a direção importa","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html","articleSection":["Estatística"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Anisotropia, quando a direção importa</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Estatística</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">12 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#um-vídeo-de-marcenaria-me-devolveu-à-geoestatística" id="toc-um-vídeo-de-marcenaria-me-devolveu-à-geoestatística" class="nav-link active" data-scroll-target="#um-vídeo-de-marcenaria-me-devolveu-à-geoestatística">Um vídeo de marcenaria me devolveu à geoestatística</a></li>
+  <li><a href="#um-cristal-mostrou-duas-imagens-de-uma-coisa-só" id="toc-um-cristal-mostrou-duas-imagens-de-uma-coisa-só" class="nav-link" data-scroll-target="#um-cristal-mostrou-duas-imagens-de-uma-coisa-só">Um cristal mostrou duas imagens de uma coisa só</a></li>
+  <li><a href="#ninguém-racha-lenha-de-lado" id="toc-ninguém-racha-lenha-de-lado" class="nav-link" data-scroll-target="#ninguém-racha-lenha-de-lado">Ninguém racha lenha de lado</a></li>
+  <li><a href="#a-resposta-depende-de-para-onde-você-aponta" id="toc-a-resposta-depende-de-para-onde-você-aponta" class="nav-link" data-scroll-target="#a-resposta-depende-de-para-onde-você-aponta">A resposta depende de para onde você aponta</a></li>
+  <li><a href="#o-semivariograma-pergunta-a-que-distância-e-esquece-para-que-lado" id="toc-o-semivariograma-pergunta-a-que-distância-e-esquece-para-que-lado" class="nav-link" data-scroll-target="#o-semivariograma-pergunta-a-que-distância-e-esquece-para-que-lado">O semivariograma pergunta a que distância e esquece para que lado</a></li>
+  <li><a href="#quatro-curvas-onde-havia-uma" id="toc-quatro-curvas-onde-havia-uma" class="nav-link" data-scroll-target="#quatro-curvas-onde-havia-uma">Quatro curvas onde havia uma</a></li>
+  <li><a href="#três-números-desenham-a-elipse" id="toc-três-números-desenham-a-elipse" class="nav-link" data-scroll-target="#três-números-desenham-a-elipse">Três números desenham a elipse</a></li>
+  <li><a href="#a-krigagem-que-desenha-bolinhas" id="toc-a-krigagem-que-desenha-bolinhas" class="nav-link" data-scroll-target="#a-krigagem-que-desenha-bolinhas">A krigagem que desenha bolinhas</a></li>
+  <li><a href="#antes-de-interpolar-procure-a-direção" id="toc-antes-de-interpolar-procure-a-direção" class="nav-link" data-scroll-target="#antes-de-interpolar-procure-a-direção">Antes de interpolar, procure a direção</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Anisotropia, quando a direção importa</li></ol></nav>
+<section id="um-vídeo-de-marcenaria-me-devolveu-à-geoestatística" class="level3">
+<h3 class="anchored" data-anchor-id="um-vídeo-de-marcenaria-me-devolveu-à-geoestatística">Um vídeo de marcenaria me devolveu à geoestatística</h3>
+<p>Minha relação com a geoestatística e com a análise espacial começou cedo na graduação em Estatística. Publiquei, com colegas, o artigo <a href="https://periodicos.ufsm.br/cienciaenatura/article/view/21326/pdf"><em>Estimadores de semivariância: uma revisão</em></a> (Ciência e Natura, 2016). Depois, no mestrado, defendi a dissertação <a href="http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf"><em>Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo</em></a>. Os outros trabalhos sobre semivariograma e dependência espacial estão na minha <a href="https://vbfelix.github.io/header-publications.html">lista de publicações</a>.</p>
+<p>Recentemente comecei a atuar em um projeto de movelaria, e me mandaram um vídeo sobre o funcionamento da madeira. O vídeo comentava sobre anisotropia, um conceito que estudei bastante, que apesar do nomes assustador possui aplicação real, e não é tão difícil de enteder. Só que ali ela estava em uma tábua, e eu a conhecia de mapas.</p>
+<p>Este texto faz o caminho do vídeo ao mapa. Antes da madeira, passo pela luz, que tem o exemplo mais clássico do conceito.</p>
+</section>
+<section id="um-cristal-mostrou-duas-imagens-de-uma-coisa-só" class="level3">
+<h3 class="anchored" data-anchor-id="um-cristal-mostrou-duas-imagens-de-uma-coisa-só">Um cristal mostrou duas imagens de uma coisa só</h3>
+<p>Em 1669, o dinamarquês Rasmus Bartholin descreveu um cristal de calcita que dividia um raio de luz em dois (<a href="https://www.newworldencyclopedia.org/entry/Double_refraction">New World Encyclopedia, <em>Double refraction</em></a>). Quem olha um texto através do cristal vê cada letra duas vezes, o nome deste fenômeno é a birrefringência, ou dupla refração.</p>
+<p>Os dois raios têm nome: o ordinário atravessa o cristal com a mesma velocidade em qualquer direção. A velocidade do extraordinário depende da direção em que ele viaja lá dentro (<a href="https://micro.magnet.fsu.edu/optics/lightandcolor/birefringence.html">Molecular Expressions, <em>Birefringence</em>, Florida State University</a>). O raio extraordinário chega a andar uns 12% mais rápido que o ordinário.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="anisotropia-calcita.svg" class="img-fluid figure-img"></p>
+<figcaption>Esquema ilustrativo da birrefringência: um raio de luz entra no cristal de calcita e sai dividido em dois, o ordinário e o extraordinário.</figcaption>
+</figure>
+</div>
+<p>Existe uma direção dentro do cristal em que a duplicação some. Ao longo dela, a luz passa com uma velocidade só, como passaria por um vidro, de acordo com a Florida State University. O cristal é o mesmo. <strong>Mudou apenas o lado por onde a luz entrou</strong>.</p>
+</section>
+<section id="ninguém-racha-lenha-de-lado" class="level3">
+<h3 class="anchored" data-anchor-id="ninguém-racha-lenha-de-lado">Ninguém racha lenha de lado</h3>
+<p>A madeira ensina a mesma coisa sem sair da floresta. O tronco é feito de fibras alinhadas, que o marceneiro chama de veio. A madeira é mais rígida e mais resistente ao longo das fibras, porque é nessa direção que a maior parte da celulose está alinhada (<a href="https://en.wikipedia.org/wiki/Orthotropic_material">Wikipedia, <em>Orthotropic material</em></a>).</p>
+<p>Por isso o machado entra a favor do veio. Ali ele só precisa afastar uma fibra da outra. Atravessado, teria de cortar todas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="anisotropia-madeira.svg" class="img-fluid figure-img"></p>
+<figcaption>Esquema ilustrativo de um bloco de madeira: a seta horizontal acompanha as fibras, direção em que a madeira é mais rígida e mais resistente, e a seta vertical atravessa as fibras, direção em que ela é mais fraca.</figcaption>
+</figure>
+</div>
+<p>Uma tábua não tem “a resistência”. Tem uma para cada direção. Quem projeta uma viga precisa saber primeiro para que lado as fibras correm.</p>
+</section>
+<section id="a-resposta-depende-de-para-onde-você-aponta" class="level3">
+<h3 class="anchored" data-anchor-id="a-resposta-depende-de-para-onde-você-aponta">A resposta depende de para onde você aponta</h3>
+<p>A birrefringência da calcita e o veio da madeira são a mesma propriedade, e ela tem nome. <strong>Anisotropia é a falta de uniformidade conforme a direção</strong>: a medida muda quando muda a direção em que se mede. O oposto é a isotropia (<a href="https://en.wikipedia.org/wiki/Anisotropy">Wikipedia, <em>Anisotropy</em></a>). O vidro é isotrópico para a luz. A calcita e a madeira são anisotrópicas.</p>
+<p>Gosto desses dois exemplos porque eles tiram o conceito do abstrato. Ninguém precisa de equação para entender que a lenha tem lado.</p>
+<p>Dado com coordenada também pode ter “veio”. A documentação de um programa de mineração dá o exemplo de depósitos minerais formados em camadas, com direções preferenciais de mineralização (<a href="https://help.maptek.com/vulcan/2025.1/Content/topics/Appendices/Block_Appendix_D/Appendices_11ANSTR.HTM">Maptek, ajuda do Vulcan, <em>Anisotropies</em></a>). O minério varia pouco para quem anda ao longo da camada e muito para quem a atravessa. É a tora, só que no mapa.</p>
+</section>
+<section id="o-semivariograma-pergunta-a-que-distância-e-esquece-para-que-lado" class="level3">
+<h3 class="anchored" data-anchor-id="o-semivariograma-pergunta-a-que-distância-e-esquece-para-que-lado">O semivariograma pergunta a que distância e esquece para que lado</h3>
+<p>A geoestatística é o ramo da estatística que trata de dados espaciais (<a href="https://en.wikipedia.org/wiki/Geostatistics">Wikipedia, <em>Geostatistics</em></a>). Ela parte de uma observação simples: pontos próximos tendem a ter valores parecidos, e a semelhança se perde com a distância.</p>
+<p>A ferramenta que mede essa perda é o semivariograma. Para cada distância <span class="math inline">\(h\)</span>, ele junta os pares de pontos separados por mais ou menos essa distância e calcula metade da média do quadrado das diferenças entre os valores (<a href="https://en.wikipedia.org/wiki/Variogram">Wikipedia, <em>Variogram</em></a>):</p>
+<p><span id="eq-semivariancia"><span class="math display">\[
+\hat{\gamma}(h) = \frac{1}{2N(h)} \sum_{(i,j)} (z_i - z_j)^2
+\tag{1}\]</span></span></p>
+<p>Em <a href="#eq-semivariancia" class="quarto-xref">Equação&nbsp;1</a>, <span class="math inline">\(z_i\)</span> e <span class="math inline">\(z_j\)</span> são os valores medidos nos dois pontos de um par. A soma percorre os pares separados pela distância <span class="math inline">\(h\)</span>, e <span class="math inline">\(N(h)\)</span> é o número desses pares. O resultado, <span class="math inline">\(\hat{\gamma}(h)\)</span>, é a semivariância. Semivariância baixa quer dizer pares parecidos.</p>
+<p>A curva costuma subir com a distância e depois estabilizar. Dois números dela interessam aqui, com a definição do mesmo verbete:</p>
+<ul>
+<li><strong>Patamar.</strong> O valor em que a curva estabiliza;</li>
+<li><strong>Alcance.</strong> A distância em que ela praticamente chega ao patamar.</li>
+</ul>
+<p>Além do alcance, conhecer o valor de um ponto não ajuda a adivinhar o do outro.</p>
+<p>Repare no que a conta fez com os pares. Ela juntou todos os que estão à mesma distância, apontem para o norte ou para o leste. Em geral se supõe isotropia, e a semivariância depende só da distância. Ou seja, podemos estar tratando a madeira como se fosse vidro.</p>
+<p>Quando a suposição falha, <strong>dois pontos à mesma distância podem ser parecidos em uma direção e muito diferentes na outra</strong>. O semivariograma passa a mudar com a distância e também com a direção. É aí que a geoestatística também considera anisotropia (<a href="https://pro.arcgis.com/en/pro-app/3.3/help/analysis/geostatistical-analyst/accounting-for-anisotropy-using-directional-semivariogram-and-covariance-functions.htm">Esri, ajuda do ArcGIS Pro, <em>Accounting for anisotropy</em></a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="anisotropia-campos.svg" class="img-fluid figure-img"></p>
+<figcaption>Esquema ilustrativo, sem dados, de dois mapas. À esquerda, o caso isotrópico: manchas redondas de valor alto e de valor baixo, sem direção preferida. À direita, o caso anisotrópico: as manchas são alongadas e apontam todas para o mesmo lado.</figcaption>
+</figure>
+</div>
+<p>No mapa da direita, ande 100 metros ao longo de uma mancha e você continua dentro dela. Faça o mesmo na outra direção e você trocará de mancha.</p>
+</section>
+<section id="quatro-curvas-onde-havia-uma" class="level3">
+<h3 class="anchored" data-anchor-id="quatro-curvas-onde-havia-uma">Quatro curvas onde havia uma</h3>
+<p>O jeito de enxergar a anisotropia é parar de misturar as direções. Calcula-se a <a href="#eq-semivariancia" class="quarto-xref">Equação&nbsp;1</a> várias vezes. Em cada uma só entram os pares cuja linha aponta para perto de uma direção escolhida. O resultado se chama semivariograma direcional.</p>
+<p>Um guia da MetricGate sugere quatro direções, 0, 45, 90 e 135 graus (<a href="https://metricgate.com/docs/anisotropic-variogram-fitting-directional/">MetricGate, <em>Anisotropic variogram fitting</em></a>). A tolerância diz o quanto um par pode desviar da direção e ainda entrar na conta.</p>
+<p>É nela que mora o risco. Com tolerância estreita demais, sobram poucos pares em cada direção e o sinal some. Com tolerância larga demais, as direções se misturam de novo e a anisotropia some na média.</p>
+<p>Se as quatro curvas saem iguais, o dado é isotrópico e nada muda. Se saem diferentes, o tipo da diferença importa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="anisotropia-variogramas.svg" class="img-fluid figure-img"></p>
+<figcaption>Esquema ilustrativo, sem dados, de dois semivariogramas direcionais. As duas curvas sobem até o mesmo patamar. A curva laranja chega a ele em uma distância curta, o alcance menor. A curva azul só chega em uma distância maior, o alcance maior.</figcaption>
+</figure>
+</div>
+<p>O eixo horizontal é a distância entre os pontos e o vertical é a semivariância. As duas curvas chegam ao mesmo patamar. Só o alcance muda: na direção azul, a semelhança entre os pontos dura mais longe.</p>
+</section>
+<section id="três-números-desenham-a-elipse" class="level3">
+<h3 class="anchored" data-anchor-id="três-números-desenham-a-elipse">Três números desenham a elipse</h3>
+<p>Esse caso, de patamar igual e alcance diferente, é a anisotropia geométrica. No dado isotrópico, a região em que um ponto ainda se parece com os vizinhos é um círculo, com raio igual ao alcance. Na anisotropia geométrica, o alcance muda com a direção e desenha uma elipse.</p>
+<p>Três números bastam para descrever a elipse em duas dimensões</p>
+<ul>
+<li><strong>Alcance maior.</strong> O alcance na direção em que a semelhança vai mais longe. É o eixo comprido da elipse;</li>
+<li><strong>Razão de anisotropia.</strong> O alcance menor dividido pelo alcance maior, um número entre 0 e 1;</li>
+<li><strong>Ângulo.</strong> A direção do eixo comprido, em graus, medida no sentido horário a partir do norte.</li>
+</ul>
+<p>Um exemplo inventado para fixar: alcance maior de 400 metros, razão de 0,4 e ângulo de 60 graus. O alcance menor é 400 vezes 0,4, ou 160 metros.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="anisotropia-elipse.svg" class="img-fluid figure-img"></p>
+<figcaption>Esquema ilustrativo da elipse de anisotropia do exemplo. O eixo comprido, de 400 metros, é o alcance maior e aponta a 60 graus do norte, no sentido horário. O eixo curto, de 160 metros, é o alcance menor. A razão é 0,4.</figcaption>
+</figure>
+</div>
+<p>O nome “geométrica” vem do conserto. Esse tipo de anisotropia se reduz à isotropia com uma transformação linear das coordenadas. Em palavras simples, gire o mapa até o eixo comprido ficar alinhado e estique o eixo curto até a elipse voltar a ser círculo. No mapa esticado, o dado é isotrópico de novo.</p>
+</section>
+<section id="a-krigagem-que-desenha-bolinhas" class="level3">
+<h3 class="anchored" data-anchor-id="a-krigagem-que-desenha-bolinhas">A krigagem que desenha bolinhas</h3>
+<p>O semivariograma existe para alimentar a krigagem, o método que estima o valor em pontos não amostrados a partir das observações vizinhas. É ela que transforma amostras soltas em mapa contínuo.</p>
+<p>Com um semivariograma isotrópico, a krigagem supõe a mesma correlação em todas as direções. Um vizinho a 100 metros para o norte é tratado como tão informativo quanto um vizinho a 100 metros para o leste.</p>
+<p>Quando o “veio” é forte, o mapa pode sair errado de um jeito reconhecível. No exemplo de geoquímica, a krigagem isotrópica borraria os limites do minério em círculos. O corpo alongado viraria uma fileira de bolinhas.</p>
+<p>A krigagem também não avisa do erro. Ela devolve, junto com cada estimativa, uma variância de erro, e essa medida só vale se o semivariograma estiver correto. Semivariograma errado, incerteza errada.</p>
+<p>A elipse tem o seu próprio limite. Uma elipse só para o mapa inteiro supõe que as mesmas propriedades estatísticas valem em toda parte. Quando o veio muda de direção no meio da área, uma elipse única volta a ser uma média de coisas diferentes.</p>
+</section>
+<section id="antes-de-interpolar-procure-a-direção" class="level3">
+<h3 class="anchored" data-anchor-id="antes-de-interpolar-procure-a-direção">Antes de interpolar, procure a direção</h3>
+<p>Três práticas para qualquer dado com coordenada:</p>
+<ul>
+<li><strong>Olhe as direções antes de ajustar.</strong> Calcule os semivariogramas direcionais antes de aceitar uma curva só para o mapa inteiro;</li>
+<li><strong>Compare patamar e alcance.</strong> Patamar igual e alcance diferente pedem a elipse. Patamar diferente é anisotropia zonal e pede outro tratamento;</li>
+<li><strong>Desconfie das bolinhas.</strong> Mapa interpolado cheio de manchas redondas, em um fenômeno que você sabe ser alongado, pode ser sinal de direção ignorada.</li>
+</ul>
+<p>O marceneiro olha o veio antes de serrar. Da próxima vez que alguém entregar um mapa interpolado, pergunte para que lado as “fibras” correm.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Estatística">#Estatística</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
