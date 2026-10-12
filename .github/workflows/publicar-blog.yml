@@ -25,7 +25,11 @@ env:
 
 jobs:
   publicar:
-    runs-on: ubuntu-latest
+    # Windows como a máquina local: no Linux a mesma renderização reescreve páginas que não mudaram.
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
 
