@@ -92,6 +92,35 @@ jobs:
           quarto run scripts/build-agent-assets.ts --check
           quarto run scripts/test-content-source.ts
 
+      # Num checkout novo todo arquivo tem a data de agora, e o Quarto a grava na listagem do
+      # portfólio e no lastmod do sitemap. A importação do blog não muda o portfólio, e o sitemap
+      # mantém a data antiga das páginas cujo HTML ficou igual.
+      - name: Descartar o ruído do checkout
+        if: steps.importar.outputs.mudou == 'true' || env.ENSAIO == 'true'
+        run: |
+          git checkout -- docs/portfolio.html
+          python - <<'PY'
+          import re
+          import subprocess
+
+          def git(*args):
+              return subprocess.run(['git', *args], check=True, capture_output=True, encoding='utf-8').stdout
+
+          ENTRY = re.compile(r'<loc>(.*?)</loc>(\s*)<lastmod>(.*?)</lastmod>')
+          changed = set(git('diff', '--name-only', '--', 'docs').split())
+          old = {loc: date for loc, _, date in ENTRY.findall(git('show', 'HEAD:docs/sitemap.xml'))}
+
+          def keep(match):
+              loc, gap, date = match.groups()
+              page = 'docs/' + loc.split('vbfelix.github.io/', 1)[1]
+              return f'<loc>{loc}</loc>{gap}<lastmod>{date if page in changed else old.get(loc, date)}</lastmod>'
+
+          with open('docs/sitemap.xml', encoding='utf-8', newline='') as file:
+              text = file.read()
+          with open('docs/sitemap.xml', 'w', encoding='utf-8', newline='') as file:
+              file.write(ENTRY.sub(keep, text))
+          PY
+
       - name: Mostrar o que mudaria
         if: env.ENSAIO == 'true'
         run: |
