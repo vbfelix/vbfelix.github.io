@@ -31,6 +31,9 @@ jobs:
       run:
         shell: bash
     steps:
+      # O manifesto guarda o hash dos bytes importados; a conversão para CRLF no checkout os mudaria.
+      - run: git config --global core.autocrlf false
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
