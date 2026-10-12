@@ -1,0 +1,104 @@
+name: publicar blog
+
+# Importa os artigos com `status: published` de ghost-writer/main, renderiza e
+# commita o resultado em main, que o GitHub Pages serve de docs/.
+# O ghost-writer dispara este workflow a cada push; ele também roda à mão.
+on:
+  repository_dispatch:
+    types: [publicar-blog]
+  workflow_dispatch:
+    inputs:
+      ensaio:
+        description: Renderiza e mostra o que mudaria, sem commitar
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-blog
+  cancel-in-progress: false
+
+env:
+  ENSAIO: ${{ inputs.ensaio || false }}
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # A mesma versão da máquina local, para a saída em docs/ não mudar por troca de Quarto.
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.5.57"
+
+      # O ghost-writer é privado. O importador busca por HTTPS, então o token entra na URL
+      # só nesta máquina descartável. O ensaio sem token pula a importação e ainda prova a renderização.
+      - name: Importar de ghost-writer/main
+        id: importar
+        env:
+          GHOST_WRITER_TOKEN: ${{ secrets.GHOST_WRITER_TOKEN }}
+        run: |
+          if [ -z "$GHOST_WRITER_TOKEN" ]; then
+            if [ "$ENSAIO" = "true" ]; then
+              echo "::warning::Sem GHOST_WRITER_TOKEN: o ensaio pula a importação."
+              echo "mudou=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::Falta o segredo GHOST_WRITER_TOKEN, com leitura do ghost-writer."
+            exit 1
+          fi
+          git config --global url."https://x-access-token:${GHOST_WRITER_TOKEN}@github.com/vbfelix/ghost-writer".insteadOf "https://github.com/vbfelix/ghost-writer"
+          python scripts/sync-blog.py
+          # Só o commit fixado no manifesto muda quando main não trouxe artigo novo, alterado ou retirado.
+          if [ -z "$(git status --porcelain -- posts)" ]; then
+            git checkout -- blog-source.json
+            echo "mudou=false" >> "$GITHUB_OUTPUT"
+            echo "Nenhum artigo novo, alterado ou retirado."
+          else
+            echo "mudou=true" >> "$GITHUB_OUTPUT"
+            git status --short -- posts
+          fi
+
+      - name: Renderizar
+        if: steps.importar.outputs.mudou == 'true' || env.ENSAIO == 'true'
+        run: |
+          python scripts/build-writing.py
+          python scripts/build-home.py
+          quarto render --no-clean
+
+      # As mesmas conferências de `site.ps1 -Action check`.
+      - name: Conferir
+        if: steps.importar.outputs.mudou == 'true' || env.ENSAIO == 'true'
+        run: |
+          python scripts/sync-portfolio.py --check
+          python scripts/sync-blog.py --check
+          python scripts/build-writing.py --check
+          python scripts/build-home.py --check
+          python scripts/check-site.py
+          quarto run scripts/build-agent-assets.ts --check
+          quarto run scripts/test-content-source.ts
+
+      - name: Mostrar o que mudaria
+        if: env.ENSAIO == 'true'
+        run: |
+          git add -A
+          git status --short
+          git diff --cached --stat | tail -n 1
+
+      - name: Commitar e enviar
+        if: steps.importar.outputs.mudou == 'true' && env.ENSAIO != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- posts _content docs blog-source.json
+          origem=$(python -c "import json; print(json.load(open('blog-source.json', encoding='utf-8'))['commit'][:7])")
+          git commit -m "feat: publica o blog a partir de ghost-writer@${origem}" \
+                     -m "Importação automática dos artigos com status published, com as listagens e a saída em docs/."
+          git push
