@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>SubQ, o analfabeto ganhou um colega que lê o contrato inteiro – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="SubQ, o analfabeto ganhou um colega que lê o contrato inteiro – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0044-subq-snap/index.html">
+<meta name="description" content="Em 12 de outubro de 2026, a Subquadratic lançou o SubQ Snap, um modelo de decisão que aceita até 384 mil *tokens* de texto e imagem em uma chamada ([Subquadratic, *Introducing SubQ Snap*](https://subq.ai/introducing-subq-snap)). No mesmo anúncio, a empresa afirma que os modelos de decisão de hoje param em 32 mil *tokens*.">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0044-subq-snap/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0044-subq-snap/index.html#page","url":"https://vbfelix.github.io/posts/0044-subq-snap/index.html","name":"SubQ, o analfabeto ganhou um colega que lê o contrato inteiro","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0044-subq-snap/index.html","articleSection":["IA"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">SubQ, o analfabeto ganhou um colega que lê o contrato inteiro</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">IA</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">13 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#o-modelo-que-não-escreve-também-lê-pouco" id="toc-o-modelo-que-não-escreve-também-lê-pouco" class="nav-link active" data-scroll-target="#o-modelo-que-não-escreve-também-lê-pouco">O modelo que não escreve também lê pouco</a></li>
+  <li><a href="#o-analfabeto-resolveu-metade-da-conta" id="toc-o-analfabeto-resolveu-metade-da-conta" class="nav-link" data-scroll-target="#o-analfabeto-resolveu-metade-da-conta">O analfabeto resolveu metade da conta</a></li>
+  <li><a href="#escolher-pode-exigir-ler-o-repositório" id="toc-escolher-pode-exigir-ler-o-repositório" class="nav-link" data-scroll-target="#escolher-pode-exigir-ler-o-repositório">Escolher pode exigir ler o repositório</a></li>
+  <li><a href="#o-jev-fez-a-prova-com-o-livro-rasgado" id="toc-o-jev-fez-a-prova-com-o-livro-rasgado" class="nav-link" data-scroll-target="#o-jev-fez-a-prova-com-o-livro-rasgado">O Jev fez a prova com o livro rasgado</a></li>
+  <li><a href="#antes-de-escolher-o-modelo-conte-o-que-ele-precisa-ler" id="toc-antes-de-escolher-o-modelo-conte-o-que-ele-precisa-ler" class="nav-link" data-scroll-target="#antes-de-escolher-o-modelo-conte-o-que-ele-precisa-ler">Antes de escolher o modelo, conte o que ele precisa ler</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">SubQ, o analfabeto ganhou um colega que lê o contrato inteiro</li></ol></nav>
+<section id="o-modelo-que-não-escreve-também-lê-pouco" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-que-não-escreve-também-lê-pouco">O modelo que não escreve também lê pouco</h3>
+<p>Em 12 de outubro de 2026, a Subquadratic lançou o SubQ Snap, um modelo de decisão que aceita até 384 mil <em>tokens</em> de texto e imagem em uma chamada (<a href="https://subq.ai/introducing-subq-snap">Subquadratic, <em>Introducing SubQ Snap</em></a>). No mesmo anúncio, a empresa afirma que os modelos de decisão de hoje param em 32 mil <em>tokens</em>.</p>
+<p>Para a Subquadratic, quem para em 32 mil decide sem a maior parte do que precisaria ver. A promessa do Snap é ler de uma vez um repositório de código ou um contrato com os anexos.</p>
+<p>Fiquei animado com o anúncio, e o motivo passa longe do placar. Os números deste texto sobre o Snap e o Jev vêm todos da Subquadratic, e eu leio cada um como alegação de quem vende.</p>
+<p>O que me animou foi o problema que o lançamento expõe. Um modelo que não escreve ainda precisa ler.</p>
+</section>
+<section id="o-analfabeto-resolveu-metade-da-conta" class="level3">
+<h3 class="anchored" data-anchor-id="o-analfabeto-resolveu-metade-da-conta">O analfabeto resolveu metade da conta</h3>
+<p>Escrevi sobre o Jev, da TypeSafe, em <a href="https://vbfelix.github.io/posts/0033-jev-e-modelos-de-decisao/">Jev, o modelo analfabeto</a>. Um modelo de decisão recebe um contexto, uma pergunta e uma lista fechada de respostas. Em vez de escrever um texto, devolve uma probabilidade para cada resposta.</p>
+<p>O apelido vinha daí: o Jev não escreve. Fechei aquele texto perguntando por que estamos pedindo texto a um modelo quando o sistema só precisa de uma decisão.</p>
+<p>A pergunta continua boa. Ela só olha para um lado da chamada.</p>
+<p>Toda chamada a um modelo tem dois custos. O de ler é processar a entrada inteira antes de qualquer resposta. O de responder é produzir a saída, que num LLM comum é texto gerado <em>token</em> a <em>token</em>.</p>
+<p>O modelo de decisão praticamente zera o segundo, porque não gera texto. O primeiro fica onde estava. O anúncio do Snap diz isso sem rodeio: tirar a geração remove o custo da saída e mantém o de ler a entrada (<a href="https://subq.ai/introducing-subq-snap">Subquadratic</a>).</p>
+<p>A tabela de preços conta a mesma história. O Snap cobra US$ 0,05 por milhão de <em>tokens</em> de entrada e nada pela saída.</p>
+<p>Sobrou a leitura.</p>
+</section>
+<section id="escolher-pode-exigir-ler-o-repositório" class="level3">
+<h3 class="anchored" data-anchor-id="escolher-pode-exigir-ler-o-repositório">Escolher pode exigir ler o repositório</h3>
+<p>Resposta curta não garante contexto curto. A escolha entre três ferramentas pode depender de evidência espalhada por um repositório inteiro ou por um histórico longo de interações. O anúncio lista outros casos: a restrição que o usuário deu 40 turnos atrás, a função definida em outro módulo e a cláusula que está em outro documento (<a href="https://subq.ai/introducing-subq-snap">Subquadratic</a>).</p>
+<p>É aí que a conta aperta.</p>
+<p>No contexto longo, a leitura corrói a economia que o modelo de decisão fez ao não escrever. A Subquadratic diz que é por isso que os modelos de decisão ficaram nos 32 mil <em>tokens</em>.</p>
+<p>Quem precisava decidir sobre um repositório ou um contrato inteiro tinha duas saídas:</p>
+<ul>
+<li><strong>Ler tudo</strong>: mandar o material inteiro em uma chamada e pagar a conta maior, em tempo e em dinheiro;</li>
+<li><strong>Reduzir a entrada</strong>: truncar, resumir, recuperar só os trechos que parecem relevantes ou fatiar o texto em pedaços, o <em>chunking</em>.</li>
+</ul>
+<p>A segunda saída esconde uma decisão. Truncar, resumir, recuperar e fatiar escolhem, antes do modelo, o que ele vai ver e o que não vai (<a href="https://subq.ai/introducing-subq-snap">Subquadratic</a>). E cada corte perde de um jeito. O truncamento pode levar embora a restrição dita 40 turnos atrás. A recuperação pode deixar de fora a evidência relevante. O resumo pode apagar o detalhe que só depois se mostra importante.</p>
+<p>O modelo de decisão decide sobre o que sobrou. A primeira decisão do fluxo já foi tomada, e quem tomou foi o corte.</p>
+<p>O Snap é a aposta numa terceira saída: ler tudo sem pagar a conta maior. E o que sustenta a aposta se chama <em>Subquadratic Sparse Attention</em> (SSA). A empresa afirma que, com ela, o custo da atenção cresce de forma linear com o contexto, e explica a ideia em <a href="https://subq.ai/how-ssa-makes-long-context-practical"><em>How SSA Makes Long Context Practical</em></a>.</p>
+</section>
+<section id="o-jev-fez-a-prova-com-o-livro-rasgado" class="level3">
+<h3 class="anchored" data-anchor-id="o-jev-fez-a-prova-com-o-livro-rasgado">O Jev fez a prova com o livro rasgado</h3>
+<p>O teste que mais me interessou no anúncio se chama Decision LCR. A Subquadratic adaptou um <em>benchmark</em> de contexto longo da Artificial Analysis: 100 perguntas escritas por pessoas sobre conjuntos de documentos reais, cada conjunto com 72 mil a 115 mil <em>tokens</em>. As perguntas viraram decisões de múltipla escolha (<a href="https://subq.ai/introducing-subq-snap">Subquadratic</a>).</p>
+<p>Nenhum conjunto cabe em 32 mil <em>tokens</em>. O Snap leu cada um inteiro, em uma chamada, e o Jev leu em <em>chunks</em>. O resultado: <strong>o Snap marcou 74,0 lendo os documentos inteiros, e o Jev, 48,0 lendo em pedaços</strong>.</p>
+<p>São 26 pontos. Para ter a escala: sem documento nenhum, os modelos marcam entre 24 e 25 nesse teste, e o chute puro dá 19,2.</p>
+<p>Só que esse número mede duas coisas de uma vez. Uma é a diferença entre os dois modelos. A outra é a diferença entre ler tudo e ler fatiado. O teste não separa uma da outra.</p>
+<p>O anúncio também não descreve como os documentos foram fatiados para o Jev, nem como as respostas dos pedaços viraram uma decisão só. Outro fatiamento poderia dar outro placar.</p>
+<p>Por isso não leio os 26 pontos como prova de que o Snap raciocina melhor. Leio como um indício do que se perde quando alguém corta o texto antes de o modelo decidir. E quem escolheu a tesoura foi a concorrente do Jev.</p>
+<p>No contexto curto, a distância é bem menor, ali o Snap marca 61,7 e o Jev, 57,9.</p>
+<p>As duas réguas são diferentes, e não dá para subtrair uma da outra. Ainda assim, a vantagem grande aparece justamente onde um dos dois precisou cortar a entrada.</p>
+<p>O placar também tem derrota. Em 16 testes do Decision Index que a empresa associa a fluxos corporativos, o Snap lidera em 13. Dos três que perde, dois são por menos de 2 pontos. O terceiro é o When2Call: 67,0 contra 74,6 do Jev.</p>
+<p>Esse teste mede uma decisão: chamar a ferramenta, perguntar, responder ou recusar. O anúncio desenha quatro papéis para o Snap dentro de um agente. O primeiro é o de roteador, que decide entre chamar uma ferramenta, perguntar ao usuário ou responder direto.</p>
+<p>Antes de levar esse placar para uma decisão de arquitetura, eu anotaria quatro ressalvas:</p>
+<ul>
+<li><strong>Quem mediu</strong>: todos os números vêm do anúncio da Subquadratic, e o teste de contexto longo foi adaptado por ela;</li>
+<li><strong>Custo linear</strong>: é a alegação da empresa para o SSA;</li>
+<li><strong>Acesso</strong>: o Snap está em prévia pública, com capacidade limitada, e a empresa avisa que pode abrir lista de espera;</li>
+<li><strong>Calibração</strong>: no post do Jev, cobrei que a confiança do modelo fosse testada nos dados de quem adota, isso não muda aqui.</li>
+</ul>
+<p>Nenhuma dessas ressalvas derruba a ideia. Elas mudam o que eu faria com ela.</p>
+</section>
+<section id="antes-de-escolher-o-modelo-conte-o-que-ele-precisa-ler" class="level3">
+<h3 class="anchored" data-anchor-id="antes-de-escolher-o-modelo-conte-o-que-ele-precisa-ler">Antes de escolher o modelo, conte o que ele precisa ler</h3>
+<p>Ao desenhar uma etapa de decisão, eu começaria por duas contas: onde está a evidência e quanto dela chega ao modelo.</p>
+<p>Se a evidência cabe na janela do modelo de decisão que você já usa, o que escrevi no post do Jev continua valendo. Classifique antes de gastar e confira a calibração nos seus dados.</p>
+<p>Quando ela não cabe, existe um corte antes do modelo, e esse corte já é uma decisão. Trocar de modelo é agora mais uma opção.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=IA">#IA</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -28,7 +28,7 @@ A pergunta do artigo foi: e se a gente tirar a RNN e deixar só a atenção?
 
 ### O cachorro, a rua e quem é "ele"
 
-Pense na frase "O cachorro não atravessou a rua porque ele estava cansado". Para entender "ele", você olha para trás e decide que se refere a "cachorro", não a "rua". Você deu mais peso a uma palavra do que às outras. Atenção é isso!
+Pense na frase "O cachorro não atravessou a rua porque ele estava cansado". Para entender "ele", você olha para trás e decide que se refere a "cachorro", não a "rua". Você deu mais peso a uma palavra do que às outras. Atenção é isso.
 
 Antes de tudo, o modelo quebra o texto em *tokens*, pedaços de palavra, e transforma cada *token* num vetor, uma lista de números que representa o significado dele. Esse vetor se chama *embedding*.
 

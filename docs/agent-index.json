@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "e368f3a4eb7c308ff5be2c0fd9eb1ee296f24b757779859f637b4a236eb52240",
+  "sourceRevision": "d9bac1b33a5dff9afbb2e08b2ea528e220c72caedcc9328443272f5d06cbdf82",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -398,7 +398,7 @@
       ],
       "url": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0036-atencao-e-tudo-que-voce-precisa/index.html.md",
-      "revision": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b"
+      "revision": "89ace0f5859cb7643dc62968387c5640a40fb22c8f0b88a9ef955f4754af2551"
     },
     {
       "title": "Seu prompt passou no teste do olhômetro",
@@ -476,6 +476,17 @@
       "url": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html.md",
       "revision": "230b1f7dd2c49c47d46362593f0983667b0f12e017a88bcb4e0c9cd385756f67"
+    },
+    {
+      "title": "SubQ, o analfabeto ganhou um colega que lê o contrato inteiro",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0044-subq-snap/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0044-subq-snap/index.html.md",
+      "revision": "2e7134b51de936caf0e424c7fd732332df0ac803d8dad7e80b1b03060de14214"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "4927cbd9684f13e93839a01489bf0ea13eb84149",
+  "commit": "022b33df1f4a63edde8e4a8011802338a9a04c77",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -15,18 +15,18 @@
       "target": "posts/0033-jev-e-modelos-de-decisao/index.qmd"
     },
     "2026-09-18_seu-dashboard-passa-em-code-review.md": {
-      "source": "7b9be7f8b98766cff01f17ec8f43bdb708b92fa3a2a14c848c4843708affcc8c",
+      "source": "0a0705057a3150941a6f5c7550141b664edf973477e474afe9ec9ffc89e72b88",
       "rendered": "377061f46ae50f35eaf131b3e4db88fff3b008fb33aa6362ab8fe662726638b7",
       "target": "posts/0034-seu-dashboard-passa-em-code-review/index.qmd"
     },
     "2026-09-29_a-netflix-trocou-milhares-de-features-por-um-prompt.md": {
-      "source": "a8e2a2b766987c80925d2c6f5e8233e58e78eddfa51503955217cd010f1970d4",
+      "source": "425e1a14daeff39335c479d1d1386d59a7649ca18b0a5670daedbd3e4657365b",
       "rendered": "06b958d46b3a9b6679170f00c67eab4ee58366973ca98ff2d5bcd1d65ca5a3ff",
       "target": "posts/0035-a-netflix-trocou-milhares-de-features-por-um-prompt/index.qmd"
     },
     "2026-09-30_atencao-e-tudo-que-voce-precisa.md": {
-      "source": "098a8147055ee8a40000b750d1f643f187619088cc59351419097376f60fec26",
-      "rendered": "09411de1da67d3f501c1cf118b043c8c1a300d0c53b3a8ddecfcbf9f0163dd9b",
+      "source": "188edad4dd0c40352c64d42dbc509e6cc2bfb0ba58dc533345f57d590bf672bd",
+      "rendered": "89ace0f5859cb7643dc62968387c5640a40fb22c8f0b88a9ef955f4754af2551",
       "target": "posts/0036-atencao-e-tudo-que-voce-precisa/index.qmd"
     },
     "2026-10-02_seu-prompt-passou-no-teste-do-olhometro.md": {
@@ -74,6 +74,11 @@
         "anisotropia-madeira.svg": "b4978052a2cd83ebf720caf0bef791562f7e9fec804a42484007d3293b26115c",
         "anisotropia-variogramas.svg": "73bfafd8dc09822d65bfabb581d130b03384e6088f6674dda660e90ee4c5a4b5"
       }
+    },
+    "2026-10-13_subq-snap.md": {
+      "source": "1cdbe15d1bcf98ba03975e9dc5467f41c9f8e070335dc42f7fb2590e8c727f65",
+      "rendered": "2e7134b51de936caf0e424c7fd732332df0ac803d8dad7e80b1b03060de14214",
+      "target": "posts/0044-subq-snap/index.qmd"
     }
   }
 }
