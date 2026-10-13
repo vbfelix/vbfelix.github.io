@@ -9,8 +9,12 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 REMOTE = 'https://github.com/vbfelix/ghost-writer.git'
 PREFIX = 'conteudo/blog/'
+ARTICLE = 'post.md'
+PLAN = 'plano.md'
 IMAGES = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 RE_IMAGE = re.compile(r'!\[[^\]]*\]\(([^)\s]+)')
+# An article is named by its date and slug; the public path takes the slug, so a name without the date is refused.
+RE_DATED = re.compile(r'^\d{4}-\d{2}-\d{2}_.+')
 
 
 def git(cache, *args):
@@ -28,6 +32,32 @@ def source_path(name):
     if path.is_absolute() or any(part in ('.', '..') for part in path.parts) or '\\' in name or ':' in name:
         raise ValueError(f'Unsafe source path: {name}')
     return path
+
+
+def source_entry(name):
+    """Place one path under conteudo/blog: its role, the folder it sits in and its manifest key or image name.
+
+    ghost-writer keeps one folder per article: `<folder>/post.md`, the images it cites and, when the article was
+    planned, `plano.md`, which is never published. The manifest key stays `<folder>.md`, the name the article had
+    as a loose file, so an article that moved into its folder keeps its public path. Loose files are still read,
+    with an empty folder.
+    """
+    parts = source_path(name).parts
+    if len(parts) == 1:
+        folder, file = '', parts[0]
+        article = file[:-3] if file.endswith('.md') else ''
+    elif len(parts) == 2:
+        folder, file = parts
+        article = folder if file == ARTICLE else ''
+    else:
+        folder = file = article = ''
+    if file.lower().endswith(IMAGES):
+        return 'image', folder, file
+    if folder and file == PLAN:
+        return 'plan', folder, None
+    if RE_DATED.match(article):
+        return 'article', folder, f'{article}.md'
+    raise ValueError(f'Unsupported source entry: {name}')
 
 
 def parse_source(data):
@@ -125,23 +155,34 @@ def synchronize(root=ROOT, remote=REMOTE, check=False):
     git(cache, 'fetch', '--depth=1', remote, 'refs/heads/main')
     commit = git(cache, 'rev-parse', 'FETCH_HEAD').decode().strip()
     records = git(cache, 'ls-tree', '-rz', commit, '--', PREFIX).split(b'\0')
-    incoming, images = {}, {}
+    # Articles by manifest key, the folder each one came from and the images of each folder.
+    incoming, folders, images = {}, {}, {}
     for record in filter(None, records):
         meta, raw_path = record.split(b'\t', 1)
         mode, kind, blob = meta.split()
         name = raw_path.decode('utf-8')[len(PREFIX):]
         if name == '.gitkeep':
             continue
-        is_image = name.lower().endswith(IMAGES)
-        if mode not in (b'100644', b'100755') or kind != b'blob' or not (name.endswith('.md') or is_image):
+        if mode not in (b'100644', b'100755') or kind != b'blob':
             raise ValueError(f'Unsupported source entry: {name}')
-        source_path(name)
-        (images if is_image else incoming)[name] = git(cache, 'cat-file', 'blob', blob.decode())
+        role, folder, key = source_entry(name)
+        if role == 'plan':
+            continue
+        data = git(cache, 'cat-file', 'blob', blob.decode())
+        if role == 'image':
+            images.setdefault(folder, {})[key] = data
+        elif key in incoming:
+            raise ValueError(f'Article has two sources in main: {key}')
+        else:
+            incoming[key], folders[key] = data, folder
     for name, record in old['files'].items():
         if not unchanged(root, record):
             raise ValueError(f'Local edit to imported file: {name}; reconcile before syncing.')
     rendered = {name: render_article(data) for name, data in incoming.items()}
-    assets = {name: article_assets(name, output, images) for name, output in rendered.items()}
+    # A missing image is reported against the path the article has in main, which is where its images are sought.
+    sources = {name: f'{folder}/{ARTICLE}' if folder else name for name, folder in folders.items()}
+    assets = {name: article_assets(sources[name], output, images.get(folders[name], {}))
+              for name, output in rendered.items()}
     targets = allocate_targets(root, incoming, old)
     # Every file an article owns in the site: the page and the images beside it.
     outputs = {name: {root / targets[name]: rendered[name],
