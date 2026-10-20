@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "022b33df1f4a63edde8e4a8011802338a9a04c77",
+  "commit": "c9afeaefe40bcf91645b6ba5b11c2cf7ff865236",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -79,6 +79,14 @@
       "source": "1cdbe15d1bcf98ba03975e9dc5467f41c9f8e070335dc42f7fb2590e8c727f65",
       "rendered": "2e7134b51de936caf0e424c7fd732332df0ac803d8dad7e80b1b03060de14214",
       "target": "posts/0044-subq-snap/index.qmd"
+    },
+    "2026-10-17_culpa-no-olhar.md": {
+      "source": "36bdc8bb7c34f3fb22bf295bfdf15dadeac127fe6bea16019f9c7a9a15838bc0",
+      "rendered": "14c7357a16fd75fc5ff11d8db6334e2c8ea1f27158a9f36972ec991d0abf5b6f",
+      "target": "posts/0045-culpa-no-olhar/index.qmd",
+      "assets": {
+        "fig-aoi-e-medidas.png": "349405541a3feec14e9d0af8a303fad7f45d1515c78f43fe0973e8ac09072b34"
+      }
     }
   }
 }
