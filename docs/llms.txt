@@ -67,6 +67,7 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [Anisotropia, quando a direção importa](https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html.md): artigo em pt-BR, temas: Estatística.
 - [SubQ, o analfabeto ganhou um colega que lê o contrato inteiro](https://vbfelix.github.io/posts/0044-subq-snap/index.html.md): artigo em pt-BR, temas: IA.
 - [Quem tem culpa olha para o nariz](https://vbfelix.github.io/posts/0045-culpa-no-olhar/index.html.md): artigo em pt-BR, temas: Estatística.
+- [Tempo de casa não é senioridade](https://vbfelix.github.io/posts/0046-senioridade/index.html.md): artigo em pt-BR, temas: Outro.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.

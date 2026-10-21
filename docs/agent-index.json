@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "9795ddb0ac6708f7482f4cc0c043cc2286f6cff8c898096e7e2991a75aba8888",
+  "sourceRevision": "41b73ecccba8844d44b8b66b27441f12271ed98c9e611c19243cd6988711e442",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -498,6 +498,17 @@
       "url": "https://vbfelix.github.io/posts/0045-culpa-no-olhar/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0045-culpa-no-olhar/index.html.md",
       "revision": "14c7357a16fd75fc5ff11d8db6334e2c8ea1f27158a9f36972ec991d0abf5b6f"
+    },
+    {
+      "title": "Tempo de casa não é senioridade",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Outro"
+      ],
+      "url": "https://vbfelix.github.io/posts/0046-senioridade/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0046-senioridade/index.html.md",
+      "revision": "eed78b8e81424a6ef67d92fac8707efec022117667bd59ddd7c9d80c94b2bcfd"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

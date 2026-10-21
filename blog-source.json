@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "c9afeaefe40bcf91645b6ba5b11c2cf7ff865236",
+  "commit": "bb42872f7ae02bfff729af6040a4897bf7901c5b",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -87,6 +87,11 @@
       "assets": {
         "fig-aoi-e-medidas.png": "349405541a3feec14e9d0af8a303fad7f45d1515c78f43fe0973e8ac09072b34"
       }
+    },
+    "2026-10-20_senioridade.md": {
+      "source": "9dd52372e4990fd0bb8de79834bdf2ab09762f75cf1d5699c6e279e48c3e1ecb",
+      "rendered": "eed78b8e81424a6ef67d92fac8707efec022117667bd59ddd7c9d80c94b2bcfd",
+      "target": "posts/0046-senioridade/index.qmd"
     }
   }
 }
