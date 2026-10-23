@@ -38,10 +38,10 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [An intro to: Simpson's paradox](https://vbfelix.github.io/posts/0014-simpson-paradox/index.html.md): artigo em en, temas: Estatística.
 - [An intro to: Combination and Permutation](https://vbfelix.github.io/posts/0015-combination/index.html.md): artigo em en, temas: Estatística.
 - [An intro to: Linear and log models](https://vbfelix.github.io/posts/0016-models-and-logs/index.html.md): artigo em en, temas: Estatística.
-- [Unveiling the pages: I, Robot](https://vbfelix.github.io/posts/0017-i-robot/index.html.md): artigo em en, temas: Outros.
+- [Unveiling the pages: I, Robot](https://vbfelix.github.io/posts/0017-i-robot/index.html.md): artigo em en, temas: Outro.
 - [Unveiling the pages: Measure what matters](https://vbfelix.github.io/posts/0018-measure-what-matters/index.html.md): artigo em en, temas: Produto.
 - [Getting proof: Bhaskara formula](https://vbfelix.github.io/posts/0019-quadratic-equation/index.html.md): artigo em en, temas: Estatística.
-- [Some notes: Better Presentations](https://vbfelix.github.io/posts/0020-better-presentations/index.html.md): artigo em en, temas: Outros.
+- [Some notes: Better Presentations](https://vbfelix.github.io/posts/0020-better-presentations/index.html.md): artigo em en, temas: Outro.
 - [Intro to: R²](https://vbfelix.github.io/posts/0021-r2/index.html.md): artigo em en, temas: Estatística.
 - [Intro to: AHP](https://vbfelix.github.io/posts/0022-ahp/index.html.md): artigo em en, temas: Estatística.
 - [Some notes: Introduction to dbt](https://vbfelix.github.io/posts/0023-dbt/index.html.md): artigo em en, temas: Engenharia de dados.

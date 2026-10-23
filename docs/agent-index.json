@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "41b73ecccba8844d44b8b66b27441f12271ed98c9e611c19243cd6988711e442",
+  "sourceRevision": "005be3e81e215b45fff92be86a972c564c31db50c3957f638c48ec1a27212322",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -183,11 +183,11 @@
       "type": "post",
       "language": "en",
       "topics": [
-        "Outros"
+        "Outro"
       ],
       "url": "https://vbfelix.github.io/posts/0017-i-robot/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0017-i-robot/index.html.md",
-      "revision": "3f8b52e6c52b9b96943c997107892c8d8da4e3e3377a8178e0e081a254c2335f"
+      "revision": "767d8315987ead95c491289f9e65048d918c8336bd8facb992dbbf74b3ed04b4"
     },
     {
       "title": "Unveiling the pages: Measure what matters",
@@ -216,11 +216,11 @@
       "type": "post",
       "language": "en",
       "topics": [
-        "Outros"
+        "Outro"
       ],
       "url": "https://vbfelix.github.io/posts/0020-better-presentations/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0020-better-presentations/index.html.md",
-      "revision": "10ceda300c9243dd5d9f818448e514327712ef790afa9c2869ebccd19c358957"
+      "revision": "c04dddbd3c0add49fab9f87952b2a98293ed89b26abb0bc28b4ad4fb56d160e6"
     },
     {
       "title": "Intro to: R²",

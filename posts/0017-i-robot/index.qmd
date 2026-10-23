@@ -2,7 +2,7 @@
 title: "Unveiling the pages: I, Robot"
 author: "Vinícius Félix"
 date: "2023-09-09"
-categories: [Outros]
+categories: [Outro]
 image: "i-robot.png"
 ---
 
