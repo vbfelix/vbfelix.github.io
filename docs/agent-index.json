@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "005be3e81e215b45fff92be86a972c564c31db50c3957f638c48ec1a27212322",
+  "sourceRevision": "304facc609770f05bac5e33e11db3a399f12ae99e6b65d0114993997b97bd424",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -509,6 +509,17 @@
       "url": "https://vbfelix.github.io/posts/0046-senioridade/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0046-senioridade/index.html.md",
       "revision": "eed78b8e81424a6ef67d92fac8707efec022117667bd59ddd7c9d80c94b2bcfd"
+    },
+    {
+      "title": "Como criar um segundo cérebro",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0047-llm-wiki/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0047-llm-wiki/index.html.md",
+      "revision": "22f991c1144ec37b594e7ccb02bfb7e860d8cadcacb95df0f69663796e3809a7"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",
