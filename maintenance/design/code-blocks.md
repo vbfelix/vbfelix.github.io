@@ -16,6 +16,8 @@ O tema definia `$code-bg`, que só atinge código inline, e não `$code-block-bg
 
 Definir só `$code-bg` não corrige: são variáveis distintas, e a do bloco é `$code-block-bg`.
 
+Bloco sem linguagem realçada, como ```` ```text ````, não passa pelo `div.sourceCode`: vira um `<pre>` solto. O Quarto zera o fundo dele e o Bootstrap pinta o texto de preto, que sobre a lousa ficava em cerca de 1,5:1, como na árvore de pastas de `posts/0047-llm-wiki`. A regra `pre:not(.sourceCode)` em `custom_theme.scss` dá a esse bloco o mesmo fundo preto e o texto da lousa.
+
 ## Como conferir
 
 Ao mexer no tema ou no realce de sintaxe, abra no preview um artigo com bloco de código e meça o contraste real, sem confiar no valor declarado no SCSS — o fundo efetivo pode vir de uma camada semitransparente. Leia `backgroundColor` do `div.sourceCode` e `color` do `pre` já computados pelo navegador, componha a transparência sobre o fundo de trás e calcule a razão pela fórmula de luminância relativa da WCAG. Confira o texto base e pelo menos um token colorido.

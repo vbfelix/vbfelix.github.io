@@ -22,3 +22,9 @@ $enable-rounded: false;
 $min-contrast-ratio: 4.5;
 /*-- scss:rules --*/
 body { -webkit-font-smoothing: antialiased; }
+// Bloco sem linguagem realcada (```text) vira um <pre> solto, fora do
+// div.sourceCode: o Quarto zera o fundo dele e o Bootstrap pinta o texto de
+// preto sobre a lousa. Mesmo fundo preto dos demais blocos, texto da lousa.
+pre:not(.sourceCode) {
+  background-color: $code-block-bg;
+  color: $body-color; }
