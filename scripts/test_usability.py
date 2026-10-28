@@ -491,7 +491,7 @@ class ExperienceTable(unittest.TestCase):
                 for row in rows:
                     cells = row.find_all('td')
                     self.assertEqual(len(cells), 3)
-                    period = re.fullmatch(r'(\d\d)/(\d\d) - (\d\d)/(\d\d)', cells[0].text)
+                    period = re.fullmatch(r'(\d\d)/(\d\d) - (?:\d\d/\d\d|atual)', cells[0].text)
                     self.assertIsNotNone(period, cells[0].text)
                     starts.append((int(period.group(2)), int(period.group(1))))
                     self.assertTrue(cells[1].text)
