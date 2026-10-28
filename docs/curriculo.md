@@ -22,6 +22,13 @@ Trabalho final: Processos e técnicas de agrupamento temporal, espacial e espaç
 
 ## Experiência profissional
 
+### Serrabits: Head de dados
+
+desde 2026-10
+
+Conduzo a evolução da arquitetura de dados, da inteligência de dados interna e dos produtos de dados.
+Também lidero a engenharia e a pesquisa de IA, com orquestração de multiagentes e um harness próprio com guardrails, otimização de custos e evals contra regressão.
+
 ### Datlo: Chief Product Officer
 
 2024-08 a 2026-09
@@ -29,7 +36,7 @@ Trabalho final: Processos e técnicas de agrupamento temporal, espacial e espaç
 Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado.
 Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes.
 
-### Datlo: Head of Data
+### Datlo: Head de dados
 
 2024-01 a 2024-07
 

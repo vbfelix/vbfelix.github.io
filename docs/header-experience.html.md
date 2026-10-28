@@ -13,8 +13,9 @@ Fonte: https://vbfelix.github.io/header-experience.html
 
 | Período | Organização e função | Trabalho |
 |------------------------|------------------------|------------------------|
+| 10/26 - atual | ![Logotipo de Serrabits](https://vbfelix.github.io/images/logos/serrabits.png) Serrabits, Head de dados | Conduzo a evolução da arquitetura de dados, da inteligência de dados interna e dos produtos de dados. Também lidero a engenharia e a pesquisa de IA, com orquestração de multiagentes e um harness próprio com guardrails, otimização de custos e evals contra regressão. |
 | 08/24 - 09/26 | ![Logotipo de Datlo](https://vbfelix.github.io/images/logos/datlo.png) Datlo, Chief Product Officer | Dirigi a evolução dos produtos de dados para conectar capacidades técnicas às necessidades do mercado. Trabalhei com equipes de produto, analytics e governança para apoiar decisões geograficamente orientadas dos clientes. |
-| 01/24 - 07/24 | ![Logotipo de Datlo](https://vbfelix.github.io/images/logos/datlo.png) Datlo, Head of Data | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
+| 01/24 - 07/24 | ![Logotipo de Datlo](https://vbfelix.github.io/images/logos/datlo.png) Datlo, Head de dados | Estruturei o ecossistema de dados para sustentar a evolução da plataforma. Implementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines. |
 | 02/23 - 12/23 | ![Logotipo de Ponta](https://vbfelix.github.io/images/logos/ponta.png) Ponta, Services Manager | Organizei implantação, suporte e consultoria para ampliar a entrega de serviços. Reduzi as violações de acordos de nível de serviço de 40% para menos de 2% e implementei uma base com mais de 300 artigos em um ano. |
 | 04/22 - 01/23 | ![Logotipo de GA + Intergado](https://vbfelix.github.io/images/logos/ga_intergado.png) GA + Intergado, Strategy Manager | Coordenei a execução da estratégia nos produtos após a fusão da GA com a Intergado. Aprimorei o backlog e a colaboração entre equipes de P&D, reduzindo em 80% as interrupções das sprints. |
 | 01/21 - 03/22 | ![Logotipo de GA](https://vbfelix.github.io/images/logos/ga.png) GA, R&D Manager | Liderei o P&D para integrar os trabalhos de dados e software. Estruturei equipes, orçamento e indicadores e implementei automações que reduziram as tarefas manuais em aproximadamente 30%. |
@@ -24,6 +25,16 @@ Fonte: https://vbfelix.github.io/header-experience.html
 | 07/13 - 12/15 | ![Logotipo de Estats Consultoria](https://vbfelix.github.io/images/logos/estats.png) Estats Consultoria, cofundador | Cofundei a empresa júnior de Estatística da UEM para desenvolver projetos de consultoria. Atuei na direção de Marketing e na presidência, realizei análises de dados e ajudei a formar novos integrantes. |
 
 ## Trajetória em detalhe
+
+### \[10/26 - atual\] Head de dados
+
+Na Serrabits, respondo por duas frentes. A primeira é dados: evoluir a arquitetura, a inteligência de dados interna e o desenvolvimento de produtos de dados.
+
+A segunda é engenharia e pesquisa de IA. Trabalho com orquestração de multiagentes e com o desenvolvimento de um harness próprio, que inclui:
+
+-   **Guardrails** para os agentes;
+-   **Otimização de custos**;
+-   **Evals** para avaliar a qualidade e evitar regressões.
 
 ### \[08/24 - 09/26\] Chief Product Officer (CPO)
 
@@ -39,9 +50,9 @@ Minhas responsabilidades incluíam impulsionar a inovação de produtos, manter 
 -   Desenvolvi um segundo cérebro que permitiu a centralização de contexo da empresa
 -   Desenvolvi um projeto de automação da voz do cliente, que permitiu a autoidentificação de problemas com leads e clientes para triagem em produto
 
-### \[01/24 - 07/24\] Head of Data
+### \[01/24 - 07/24\] Head de dados
 
-Como Head of Data de um produto orientado por dados, fui responsável pela integração de tecnologias, análises avançadas, governança, obtenção de dados, colaboração entre áreas, consultoria a clientes, conformidade regulatória e evolução contínua da plataforma.
+Como Head de dados de um produto orientado por dados, fui responsável pela integração de tecnologias, análises avançadas, governança, obtenção de dados, colaboração entre áreas, consultoria a clientes, conformidade regulatória e evolução contínua da plataforma.
 
 **Resultados** - Liderei a implementação de uma arquitetura capaz de automatizar extrações e testes, com ferramentas e procedimentos padronizados para mais de 100 fontes de dados e dezenas de pipelines.
 

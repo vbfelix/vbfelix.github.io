@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "language": "pt-BR",
-  "sourceRevision": "66396d502a20bc8dfcc666c6bc2c256fd14725978284cadc0d033e542c54ced5",
+  "sourceRevision": "9b76061409b7789da2717b576de14199c68396aabe8bbf67de1cebd5d1707c0a",
   "datePrecision": "month",
   "scope": "Dados públicos declarados no site. Datas têm precisão mensal. Campos ausentes não foram informados. Cargos com endDate são históricos.",
   "name": "Vinícius Félix",
@@ -14,6 +14,13 @@
   ],
   "work": [
     {
+      "organization": "Serrabits",
+      "position": "Head de dados",
+      "startDate": "2026-10",
+      "summary": "Conduzo a evolução da arquitetura de dados, da inteligência de dados interna e dos produtos de dados.\nTambém lidero a engenharia e a pesquisa de IA, com orquestração de multiagentes e um harness próprio com guardrails, otimização de custos e evals contra regressão.",
+      "source": "https://vbfelix.github.io/header-experience.html#experi%C3%AAncia-profissional"
+    },
+    {
       "organization": "Datlo",
       "position": "Chief Product Officer",
       "startDate": "2024-08",
@@ -23,7 +30,7 @@
     },
     {
       "organization": "Datlo",
-      "position": "Head of Data",
+      "position": "Head de dados",
       "startDate": "2024-01",
       "endDate": "2024-07",
       "summary": "Estruturei o ecossistema de dados para sustentar a evolução da plataforma.\nImplementei extrações e testes automatizados, com procedimentos padronizados para mais de 100 fontes e dezenas de pipelines.",

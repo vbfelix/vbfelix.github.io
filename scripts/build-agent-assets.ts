@@ -88,12 +88,15 @@ function rows(heading: string): string[][] {
   if (lines.length < 3) throw new Error(`Missing table: ${heading}`);
   return lines.slice(2).map(line => line.split('|').slice(1, -1).map(plain));
 }
-function dates(period: string) {
-  const match = period.match(/^(\d{2})\/(\d{2}) - (\d{2})\/(\d{2})$/);
+function dates(period: string): {startDate: string, endDate?: string} {
+  // "atual" marks a current role: it has a start but no endDate.
+  const match = period.match(/^(\d{2})\/(\d{2}) - (?:(\d{2})\/(\d{2})|atual)$/);
   if (!match) throw new Error(`Unsupported date range: ${period}`);
   const [, sm, sy, em, ey] = match;
-  if (+sm < 1 || +sm > 12 || +em < 1 || +em > 12) throw new Error(`Invalid month: ${period}`);
-  const startDate = `20${sy}-${sm}`, endDate = `20${ey}-${em}`;
+  if (+sm < 1 || +sm > 12 || (em && (+em < 1 || +em > 12))) throw new Error(`Invalid month: ${period}`);
+  const startDate = `20${sy}-${sm}`;
+  if (!em) return {startDate};
+  const endDate = `20${ey}-${em}`;
   if (startDate > endDate) throw new Error(`Reversed period: ${period}`);
   return {startDate, endDate};
 }
@@ -146,7 +149,7 @@ assets['curriculo.md'] = `# Currículo de Vinícius Félix\n\nFonte: ${base}/\n\
   `${cv.summary}\n\n## Formação acadêmica\n\n` +
   education.map(e => `### ${e.qualification}\n\n${e.institution} | ${e.startDate} a ${e.endDate}\n\nTrabalho final: ${e.thesis}`).join('\n\n') +
   '\n\n## Experiência profissional\n\n' +
-  work.map(w => `### ${w.organization}: ${w.position}\n\n${w.startDate} a ${w.endDate}\n\n${w.summary}`).join('\n\n') +
+  work.map(w => `### ${w.organization}: ${w.position}\n\n${w.endDate ? `${w.startDate} a ${w.endDate}` : `desde ${w.startDate}`}\n\n${w.summary}`).join('\n\n') +
   `\n\n[Trajetória em detalhe](${base}/header-experience.html) · [LinkedIn](${sameAs[1]}) · [GitHub](${sameAs[0]})\n`;
 assets['llms.txt'] = `# Vinícius Félix\n\n> Estatístico e mestre em Bioestatística. Perfil público, trajetória profissional, formação e produção acadêmica.\n\n` +
   `As páginas institucionais estão em português; os artigos preservam seus idiomas originais. Figuras produzidas durante a execução de código estão no HTML canônico. O currículo é gerado das mesmas fontes das páginas públicas. Datas no JSON usam YYYY-MM; não implicam um dia específico. Consulte as fontes citadas para contexto e resultados. Cargos encerrados não são vínculos atuais.\n\n` +
