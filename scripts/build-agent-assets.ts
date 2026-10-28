@@ -147,7 +147,7 @@ for (const article of articleDocuments) {
 assets['curriculo.json'] = JSON.stringify(cv, null, 2) + '\n';
 assets['curriculo.md'] = `# Currículo de Vinícius Félix\n\nFonte: ${base}/\n\n${cv.scope}\n\n` +
   `${cv.summary}\n\n## Formação acadêmica\n\n` +
-  education.map(e => `### ${e.qualification}\n\n${e.institution} | ${e.startDate} a ${e.endDate}\n\nTrabalho final: ${e.thesis}`).join('\n\n') +
+  education.map(e => `### ${e.qualification}\n\n${e.institution} | ${e.endDate ? `${e.startDate} a ${e.endDate}` : `desde ${e.startDate}`}\n\nTrabalho final: ${e.thesis}`).join('\n\n') +
   '\n\n## Experiência profissional\n\n' +
   work.map(w => `### ${w.organization}: ${w.position}\n\n${w.endDate ? `${w.startDate} a ${w.endDate}` : `desde ${w.startDate}`}\n\n${w.summary}`).join('\n\n') +
   `\n\n[Trajetória em detalhe](${base}/header-experience.html) · [LinkedIn](${sameAs[1]}) · [GitHub](${sameAs[0]})\n`;
