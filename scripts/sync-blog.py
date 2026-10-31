@@ -60,6 +60,15 @@ def source_entry(name):
     raise ValueError(f'Unsupported source entry: {name}')
 
 
+def article_status(data):
+    """The status the front matter declares; an article that declares none is imported as before."""
+    parts = re.split(r'^---\s*$', data.decode('utf-8'), maxsplit=2, flags=re.M)
+    if len(parts) != 3 or parts[0].strip():
+        raise ValueError('Missing YAML front matter.')
+    match = re.search(r'^status:\s*["\']?(.+?)["\']?\s*$', parts[1], re.M)
+    return match.group(1).strip('"\'') if match else 'published'
+
+
 def parse_source(data):
     text = data.decode('utf-8')
     parts = re.split(r'^---\s*$', text, maxsplit=2, flags=re.M)
@@ -156,7 +165,7 @@ def synchronize(root=ROOT, remote=REMOTE, check=False):
     commit = git(cache, 'rev-parse', 'FETCH_HEAD').decode().strip()
     records = git(cache, 'ls-tree', '-rz', commit, '--', PREFIX).split(b'\0')
     # Articles by manifest key, the folder each one came from and the images of each folder.
-    incoming, folders, images = {}, {}, {}
+    incoming, folders, images, seen = {}, {}, {}, set()
     for record in filter(None, records):
         meta, raw_path = record.split(b'\t', 1)
         mode, kind, blob = meta.split()
@@ -171,10 +180,13 @@ def synchronize(root=ROOT, remote=REMOTE, check=False):
         data = git(cache, 'cat-file', 'blob', blob.decode())
         if role == 'image':
             images.setdefault(folder, {})[key] = data
-        elif key in incoming:
+        elif key in seen:
             raise ValueError(f'Article has two sources in main: {key}')
         else:
-            incoming[key], folders[key] = data, folder
+            seen.add(key)
+            # A draft stays in ghost-writer: only status published crosses to the site.
+            if article_status(data) == 'published':
+                incoming[key], folders[key] = data, folder
     for name, record in old['files'].items():
         if not unchanged(root, record):
             raise ValueError(f'Local edit to imported file: {name}; reconcile before syncing.')
