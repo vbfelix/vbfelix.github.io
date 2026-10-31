@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No coador Melitta a parede lisa e os furos pequenos seguram o fluxo: o coador dita o tempo">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .parede { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 2; }
+    .cafe { fill: #b86b4b; }
+    .agua { fill: #3d5a80; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .g1 { animation: pinga 3s linear infinite; }
+    .g2 { animation: pinga 3s linear infinite; animation-delay: 1.5s; }
+    @keyframes pinga { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,70px); opacity: 1; } 100% { transform: translate(0,80px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .g1, .g2 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- coador de parede lisa -->
+  <path class="parede" d="M 330 70 L 590 70 L 520 200 L 400 200 Z"/>
+  <path class="cafe" d="M 385 125 L 535 125 L 505 185 L 415 185 Z" opacity="0.85"/>
+  <text class="nota" x="460" y="105">parede lisa, papel colado nela</text>
+
+  <!-- furos pequenos -->
+  <circle class="agua" cx="440" cy="203" r="3"/>
+  <circle class="agua" cx="460" cy="203" r="3"/>
+  <circle class="agua" cx="480" cy="203" r="3"/>
+
+  <circle class="agua g1" cx="450" cy="210" r="4"/>
+  <circle class="agua g2" cx="470" cy="210" r="4"/>
+
+  <!-- jarra -->
+  <path class="vidro" d="M 395 230 L 395 292 L 525 292 L 525 230"/>
+  <rect class="agua" x="400" y="268" width="120" height="20" opacity="0.5"/>
+
+  <text class="txt" x="460" y="52">a saída são furos pequenos: a vazão tem dono, e não é a sua mão</text>
+  <text class="nota" x="720" y="150">escoamento lento e constante,</text>
+  <text class="nota" x="720" y="168">difícil de errar, teto de ajuste</text>
+  <text class="nota" x="200" y="150">patente do filtro de papel</text>
+  <text class="nota" x="200" y="168">em 1908, cone em 1932</text>
+</svg>

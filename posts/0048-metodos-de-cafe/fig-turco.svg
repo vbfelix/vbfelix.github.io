@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No café turco o pó moído a talco ferve lentamente no cezve e vai junto para a xícara: nada é coado">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .cobre { fill: #d9a86b; stroke: #b8864b; stroke-width: 2; }
+    .cafe { fill: #b86b4b; }
+    .liquido { fill: #8a5a3b; }
+    .espuma { fill: #e8dcc8; stroke: #b8b09e; stroke-width: 1; }
+    .chama { fill: #b86b4b; opacity: 0.8; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .seta { stroke: #3d5a80; stroke-width: 2; fill: none; }
+    .fogo { animation: tremula 1.8s ease-in-out infinite; transform-origin: 325px 262px; }
+    .bolha { animation: sobe 3s linear infinite; }
+    @keyframes tremula { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes sobe { 0% { transform: translate(0,0); opacity: 0; } 25% { opacity: 1; } 90% { transform: translate(0,-46px); opacity: 1; } 100% { transform: translate(0,-50px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .fogo, .bolha { animation: none; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- cezve no fogo -->
+  <path class="cobre" d="M 270 140 L 380 140 L 368 240 L 282 240 Z"/>
+  <line x1="380" y1="145" x2="440" y2="120" stroke="#b8864b" stroke-width="4"/>
+  <rect class="liquido" x="279" y="160" width="92" height="74"/>
+  <ellipse class="espuma" cx="325" cy="158" rx="47" ry="9"/>
+  <circle class="cafe bolha" cx="305" cy="225" r="3"/>
+  <circle class="cafe bolha" cx="345" cy="230" r="3" style="animation-delay: 1.4s"/>
+  <g class="fogo">
+    <path class="chama" d="M 310 272 C 312 258, 322 254, 325 244 C 328 254, 338 258, 340 272 Z"/>
+  </g>
+  <text class="txt" x="325" y="296">fogo baixo, sem pressa</text>
+  <text class="nota" x="180" y="160">pó moído a talco,</text>
+  <text class="nota" x="180" y="178">água e açúcar juntos</text>
+  <text class="nota" x="490" y="130">a espuma é o ponto:</text>
+  <text class="nota" x="490" y="148">fervura lenta, não pressão</text>
+
+  <!-- xícara com borra -->
+  <path class="seta" d="M 540 200 L 620 200 M 610 195 L 620 200 L 610 205"/>
+  <text class="nota" x="580" y="186">serve-se tudo</text>
+
+  <path class="vidro" d="M 660 170 L 668 240 L 732 240 L 740 170"/>
+  <rect class="liquido" x="668" y="190" width="64" height="38" opacity="0.8"/>
+  <rect class="cafe" x="670" y="228" width="60" height="10"/>
+  <text class="txt" x="700" y="268">a borra desce para o fundo</text>
+  <text class="nota" x="700" y="288">e depois, quem quiser, lê a sorte nela</text>
+
+  <text class="txt" x="460" y="45">decocção: nada é coado, e a UNESCO registrou a tradição em 2013</text>
+</svg>

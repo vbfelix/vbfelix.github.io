@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No V60 as ranhuras espirais e o furo largo devolvem o controle ao despejo: a mão dita o tempo">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .parede { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 2; }
+    .ranhura { stroke: #b8b09e; stroke-width: 1; fill: none; }
+    .cafe { fill: #b86b4b; }
+    .agua { fill: #3d5a80; }
+    .fluxo { stroke: #3d5a80; stroke-width: 2; fill: none; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .g1 { animation: pinga 2.4s linear infinite; }
+    .g2 { animation: pinga 2.4s linear infinite; animation-delay: 0.8s; }
+    .g3 { animation: pinga 2.4s linear infinite; animation-delay: 1.6s; }
+    @keyframes pinga { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,62px); opacity: 1; } 100% { transform: translate(0,72px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .g1, .g2, .g3 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- chaleira e espiral -->
+  <path class="fluxo" d="M 430 60 C 470 55, 500 75, 470 90 C 445 102, 430 85, 455 78"/>
+  <text class="nota" x="590" y="70">despejo em espiral, do centro para fora</text>
+
+  <!-- cone 60 graus com ranhuras -->
+  <path class="parede" d="M 330 100 L 590 100 L 470 215 L 450 215 Z"/>
+  <path class="ranhura" d="M 352 112 C 400 150, 430 180, 452 206"/>
+  <path class="ranhura" d="M 394 112 C 428 150, 446 178, 458 206"/>
+  <path class="ranhura" d="M 436 112 C 450 150, 457 178, 461 206"/>
+  <path class="ranhura" d="M 526 112 C 492 150, 474 178, 463 206"/>
+  <path class="ranhura" d="M 568 112 C 520 150, 490 180, 468 206"/>
+  <path class="cafe" d="M 392 135 L 528 135 L 471 192 L 449 192 Z" opacity="0.85"/>
+
+  <!-- furo único largo -->
+  <rect class="agua" x="448" y="213" width="24" height="5" rx="2"/>
+  <text class="nota" x="640" y="160">ranhuras em espiral até a borda:</text>
+  <text class="nota" x="640" y="178">o papel descola e o ar escapa</text>
+  <text class="nota" x="255" y="160">cone de 60 graus,</text>
+  <text class="nota" x="255" y="178">furo único e largo</text>
+
+  <circle class="agua g1" cx="452" cy="224" r="4"/>
+  <circle class="agua g2" cx="460" cy="224" r="4"/>
+  <circle class="agua g3" cx="468" cy="224" r="4"/>
+
+  <!-- jarra -->
+  <path class="vidro" d="M 395 240 L 395 295 L 525 295 L 525 240"/>
+
+  <text class="txt" x="460" y="40">o coador não estrangula nada: quem dita o tempo é a mão</text>
+</svg>

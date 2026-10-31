@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "304facc609770f05bac5e33e11db3a399f12ae99e6b65d0114993997b97bd424",
+  "sourceRevision": "644dc6618f1c54c770bdf5a62c1c5d4f1614423e8dceaf0707f546741dcf37a5",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -520,6 +520,17 @@
       "url": "https://vbfelix.github.io/posts/0047-llm-wiki/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0047-llm-wiki/index.html.md",
       "revision": "22f991c1144ec37b594e7ccb02bfb7e860d8cadcacb95df0f69663796e3809a7"
+    },
+    {
+      "title": "Café especial não é frescura. É física.",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Outro"
+      ],
+      "url": "https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html.md",
+      "revision": "5408c15a40a7f9238ab2cff7b31e3cf9855f727a044f13bb2a35779ffa107905"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

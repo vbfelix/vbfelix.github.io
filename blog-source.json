@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "6879327e8e8aeec7ac6f1477ac5839fb38961447",
+  "commit": "45a43807b89e61bc7b6b06fe4109e75af090a2d4",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -97,6 +97,22 @@
       "source": "186a9c93b2e8787054c3bd6d270643a97080174bde01c47c95c536b42e2ce814",
       "rendered": "22f991c1144ec37b594e7ccb02bfb7e860d8cadcacb95df0f69663796e3809a7",
       "target": "posts/0047-llm-wiki/index.qmd"
+    },
+    "2026-10-31_metodos-de-cafe.md": {
+      "source": "afbb2512cabc174c1971606e0a23e4c408849eb3ba0fe755ce66861ff1f000e4",
+      "rendered": "5408c15a40a7f9238ab2cff7b31e3cf9855f727a044f13bb2a35779ffa107905",
+      "target": "posts/0048-metodos-de-cafe/index.qmd",
+      "assets": {
+        "fig-aeropress.svg": "730b981cf190cdcc3c0208b2be0589a9b7934432b601e2b130db6ffaf2dbc957",
+        "fig-espresso.svg": "51c574661ab7868fb70cb8f0f377bb78269c9bfde6293c7900cd51066c25bf6c",
+        "fig-extracao.svg": "faa7b2a81895a44d77c2ffc5ff52bb0a1eefba86d84248f535076e921a6cbd24",
+        "fig-koar.svg": "73e3d226e16f167becabe00a4792f245f8b6a1c96418d3b7e74376bdaeccca89",
+        "fig-melitta.svg": "147b763e140fa1324e7177485840ddef330ba751cfa063cb06c63207868d47ac",
+        "fig-origami.svg": "f2dd7899e158a2fcf9040acd3e0df59bd550b74868890a336a50032235d3a9fa",
+        "fig-prensa-francesa.svg": "e2b8674f1d5972acc2e4f7c706383bed30cbc29296262256a97466ef61f31a93",
+        "fig-turco.svg": "fb18772e683446473e061ed3a6d5109b54f4db93e3c9f1c220d192869cc6d87e",
+        "fig-v60.svg": "0162da9844abc7e75564ba3f58d9715911cb57ea4f8661fc01da37c4fd7b7d9c"
+      }
     }
   }
 }

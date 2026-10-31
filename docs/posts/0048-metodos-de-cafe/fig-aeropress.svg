@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No AeroPress a imersão curta termina com o êmbolo empurrando a água através do filtro: pressão de mão">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .corpo { fill: none; stroke: #b8b09e; stroke-width: 2.5; }
+    .embolo { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 2; }
+    .mistura { fill: #a9815f; }
+    .agua { fill: #3d5a80; }
+    .filtro { stroke: #3d5a80; stroke-width: 2.5; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .seta { fill: #6b6657; }
+    .press { animation: aperta 3s ease-in-out infinite; }
+    .g1 { animation: pinga 3s linear infinite; animation-delay: 1s; }
+    @keyframes aperta { 0%, 25% { transform: translate(0,0); } 70%, 100% { transform: translate(0,22px); } }
+    @keyframes pinga { 0% { transform: translate(0,0); opacity: 0; } 30% { opacity: 1; } 85% { transform: translate(0,42px); opacity: 1; } 100% { transform: translate(0,50px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .press { animation: none; } .g1 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- êmbolo -->
+  <g class="press">
+    <path class="seta" d="M 460 36 L 472 56 L 448 56 Z"/>
+    <rect class="embolo" x="408" y="60" width="104" height="48" rx="4"/>
+  </g>
+  <text class="nota" x="300" y="80">a pressão é a sua mão</text>
+
+  <!-- cilindro -->
+  <path class="corpo" d="M 400 92 L 400 212 M 520 92 L 520 212"/>
+  <rect class="mistura" x="403" y="128" width="114" height="78"/>
+  <text class="nota" x="640" y="150">imersão curta dentro</text>
+  <text class="nota" x="640" y="168">do cilindro, como uma seringa</text>
+
+  <!-- filtro de papel -->
+  <line class="filtro" x1="400" y1="212" x2="520" y2="212"/>
+  <text class="nota" x="300" y="218">filtro de papel: xícara limpa</text>
+
+  <circle class="agua g1" cx="460" cy="222" r="4"/>
+
+  <!-- xícara -->
+  <path class="vidro" d="M 418 244 L 426 296 L 494 296 L 502 244"/>
+  <rect class="agua" x="426" y="266" width="68" height="28" opacity="0.6"/>
+
+  <text class="txt" x="460" y="26">da garagem de Palo Alto em 2003 à feira de Seattle em 2005: mais de 30 protótipos</text>
+</svg>

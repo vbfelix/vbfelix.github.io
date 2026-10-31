@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Na prensa francesa o pó fica imerso em toda a água e o êmbolo de malha separa a borra no final">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .agua { fill: #cfdbe8; }
+    .cafe { fill: #b86b4b; }
+    .metal { stroke: #6b6657; stroke-width: 2; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .seta { stroke: #3d5a80; stroke-width: 2; fill: none; }
+    .graos { animation: flutua 5s ease-in-out infinite; }
+    .embolo { animation: desce 6s ease-in-out infinite; }
+    @keyframes flutua { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(0,8px); } }
+    @keyframes desce { 0%, 20% { transform: translate(0,0); } 70%, 100% { transform: translate(0,26px); } }
+    @media (prefers-reduced-motion: reduce) { .graos, .embolo { animation: none; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- copo da prensa, imersão -->
+  <rect class="agua" x="200" y="90" width="180" height="170"/>
+  <path class="vidro" d="M 195 70 L 195 265 L 385 265 L 385 70"/>
+  <g class="graos">
+    <circle class="cafe" cx="230" cy="130" r="4"/>
+    <circle class="cafe" cx="275" cy="155" r="4"/>
+    <circle class="cafe" cx="320" cy="120" r="4"/>
+    <circle class="cafe" cx="250" cy="195" r="4"/>
+    <circle class="cafe" cx="305" cy="210" r="4"/>
+    <circle class="cafe" cx="350" cy="175" r="4"/>
+    <circle class="cafe" cx="225" cy="235" r="4"/>
+    <circle class="cafe" cx="340" cy="240" r="4"/>
+  </g>
+  <g class="embolo">
+    <line class="metal" x1="290" y1="30" x2="290" y2="100"/>
+    <circle cx="290" cy="26" r="7" fill="#6b6657"/>
+    <line class="metal" x1="205" y1="100" x2="375" y2="100" stroke-dasharray="5 4"/>
+  </g>
+  <text class="txt" x="290" y="290">pó imerso em toda a água, 4 minutos no relógio</text>
+
+  <!-- resultado -->
+  <path class="seta" d="M 420 170 L 520 170 M 510 165 L 520 170 L 510 175"/>
+  <text class="nota" x="470" y="155">êmbolo desce</text>
+
+  <rect class="agua" x="580" y="140" width="130" height="100"/>
+  <rect class="cafe" x="580" y="228" width="130" height="12"/>
+  <path class="vidro" d="M 575 120 L 575 245 L 715 245 L 715 120"/>
+  <text class="txt" x="645" y="275">a malha prende a borra no fundo</text>
+  <text class="nota" x="645" y="110">óleos e finos passam: corpo</text>
+
+  <text class="nota" x="460" y="52">imersão: o tempo de contato está no relógio, não na vazão</text>
+</svg>

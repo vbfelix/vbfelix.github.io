@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Café especial não é frescura. É física. – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Café especial não é frescura. É física. – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html">
+<meta name="description" content="Provei vários métodos de preparo num *workshop* de cafés especiais. Cheguei meio desconfiado. Para mim, café é uma bebida que gosto, e a cafeteria especial tinha um pouco de teatralidade: balança de precisão, chaleira de bico fino e um copo pequeno demais pelo preço. Saí de lá com outra leitura e com um caderno de anotações.">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html#page","url":"https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html","name":"Café especial não é frescura. É física.","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html","articleSection":["Outro"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Café especial não é frescura. É física.</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Outro</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">31 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#finalmente-entendi-o-que-estava-no-cardápio" id="toc-finalmente-entendi-o-que-estava-no-cardápio" class="nav-link active" data-scroll-target="#finalmente-entendi-o-que-estava-no-cardápio">Finalmente entendi o que estava no cardápio</a></li>
+  <li><a href="#café-azedo-é-café-que-parou-cedo" id="toc-café-azedo-é-café-que-parou-cedo" class="nav-link" data-scroll-target="#café-azedo-é-café-que-parou-cedo">Café azedo é café que parou cedo</a></li>
+  <li><a href="#as-frescuras-uma-por-uma" id="toc-as-frescuras-uma-por-uma" class="nav-link" data-scroll-target="#as-frescuras-uma-por-uma">As “frescuras”, uma por uma</a></li>
+  <li><a href="#o-café-de-molho-perdoa" id="toc-o-café-de-molho-perdoa" class="nav-link" data-scroll-target="#o-café-de-molho-perdoa">O café de molho perdoa</a></li>
+  <li><a href="#quem-manda-no-tempo-o-coador-ou-a-mão" id="toc-quem-manda-no-tempo-o-coador-ou-a-mão" class="nav-link" data-scroll-target="#quem-manda-no-tempo-o-coador-ou-a-mão">Quem manda no tempo, o coador ou a mão</a></li>
+  <li><a href="#sem-tempo-para-errar" id="toc-sem-tempo-para-errar" class="nav-link" data-scroll-target="#sem-tempo-para-errar">Sem tempo para errar</a></li>
+  <li><a href="#o-método-que-lê-o-futuro" id="toc-o-método-que-lê-o-futuro" class="nav-link" data-scroll-target="#o-método-que-lê-o-futuro">O método que lê o futuro</a></li>
+  <li><a href="#onde-a-minha-régua-quebrou" id="toc-onde-a-minha-régua-quebrou" class="nav-link" data-scroll-target="#onde-a-minha-régua-quebrou">Onde a minha régua quebrou</a></li>
+  <li><a href="#mexa-num-botão-de-cada-vez" id="toc-mexa-num-botão-de-cada-vez" class="nav-link" data-scroll-target="#mexa-num-botão-de-cada-vez">Mexa num botão de cada vez</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Café especial não é frescura. É física.</li></ol></nav>
+<section id="finalmente-entendi-o-que-estava-no-cardápio" class="level3">
+<h3 class="anchored" data-anchor-id="finalmente-entendi-o-que-estava-no-cardápio">Finalmente entendi o que estava no cardápio</h3>
+<p>Provei vários métodos de preparo num <em>workshop</em> de cafés especiais. Cheguei meio desconfiado. Para mim, café é uma bebida que gosto, e a cafeteria especial tinha um pouco de teatralidade: balança de precisão, chaleira de bico fino e um copo pequeno demais pelo preço. Saí de lá com outra leitura e com um caderno de anotações.</p>
+<p>A descoberta que organiza tudo cabe numa frase: <strong>todo método de preparo é um jeito diferente de controlar três variáveis, temperatura, pressão e tempo, aplicadas sobre uma moagem e uma proporção de café e água.</strong> O gesto circular, o filtro escaldado, a pausa de meio minuto olhando o pó borbulhar: quase tudo que eu chamava de teatro existe para proteger uma dessas variáveis, ou a condição que deixa as três trabalharem: o contato uniforme entre a água e o pó.</p>
+</section>
+<section id="café-azedo-é-café-que-parou-cedo" class="level3">
+<h3 class="anchored" data-anchor-id="café-azedo-é-café-que-parou-cedo">Café azedo é café que parou cedo</h3>
+<p>Uma xícara de café é água mais o que ela conseguiu dissolver do pó. Esse processo tem nome, extração, e tem ordem. Os compostos mais solúveis saem primeiro: são os ácidos, o lado brilhante e cítrico da bebida. Os açúcares vêm no meio, com a doçura e o equilíbrio. Os compostos amargos e adstringentes, os que deixam a boca seca, saem por último.</p>
+<p>São as três fases que anotei no <em>workshop</em>: acidez, doçura e amargor, nessa sequência. A consequência prática é que fazer café é decidir onde parar. Quem para cedo demais leva só a primeira fase, e o café sai azedo, ralo, subextraído. Quem passa do ponto arrasta a terceira, e o café sai amargo e seco, superextraído. O equilíbrio mora no meio, e a janela é mais estreita do que eu imaginava.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-extracao.svg" class="img-fluid figure-img"></p>
+<figcaption>O eixo é o tempo de contato: os ácidos saem primeiro, os açúcares no meio, os amargos por último, e a janela de equilíbrio fica na fase dos açúcares.</figcaption>
+</figure>
+</div>
+<p>O que decide onde você para são três variáveis:</p>
+<ul>
+<li><strong>Temperatura</strong>: água mais quente dissolve mais rápido, e a faixa usual de preparo fica entre 92 e 96 °C;</li>
+<li><strong>Tempo</strong>: quanto mais contato entre água e pó, mais extração, e os métodos vão de meio minuto a um dia inteiro;</li>
+<li><strong>Pressão</strong>: a força que empurra a água através do pó, da gravidade pura dos coadores à bomba das máquinas de <em>espresso</em>.</li>
+</ul>
+<p>Antes de tudo isso, duas escolhas definem o ponto de partida. A moagem, que é o tamanho do grão depois de moído. E a proporção entre café e água, que define a força da bebida: uma referência comum nos filtrados é 1 parte de café para 16 de água. Força e amargor são coisas diferentes.</p>
+</section>
+<section id="as-frescuras-uma-por-uma" class="level3">
+<h3 class="anchored" data-anchor-id="as-frescuras-uma-por-uma">As “frescuras”, uma por uma</h3>
+<p>A moagem foi onde a ficha caiu, com a imagem mais útil que trouxe do <em>workshop</em>. Jogue um balde de água numa caixa de brita: a água atravessa na hora. Jogue o mesmo balde numa caixa de areia: a água leva minutos para passar. Pó fino é areia, pó grosso é brita. A areia oferece mais superfície de contato, então a água dissolve mais depressa. De quebra, ela segura a água por mais tempo no caminho. A brita faz o oposto: deixa a água escapar, e por isso pede mais tempo de contato. Escolher a moagem é escolher em que velocidade a física vai trabalhar.</p>
+<p>Toda essa água atravessa a cama de café, a camada de pó assentada no filtro. A cama só trabalha se a água passar por ela inteira: quando um canal se abre no meio do pó, parte da água escapa por ele sem extrair quase nada.</p>
+<p>O pó recém-torrado complica a passagem. A torra cria gás carbônico que fica preso no grão, e ele escapa aos poucos nas primeiras semanas. Gás repele água. Daí a primeira “frescura” que anotei, que o mundo do café chama de <em>ataque</em>: molhar o pó com o dobro do peso dele em água, esperar de 30 a 45 segundos até as bolhas assentarem, e só então completar. A pausa deixa o gás sair antes de a extração de verdade começar.</p>
+<p>Os outros gestos têm a mesma natureza:</p>
+<ul>
+<li><strong>Movimento circular</strong>: despejar em espiral molha a cama por igual, a serviço do contato uniforme;</li>
+<li><strong>Escaldar o filtro</strong>: a água quente no filtro vazio tira o gosto de papel e pré-aquece o coador e a jarra, segurando a temperatura do preparo;</li>
+<li><strong><em>Bypass</em></strong>: o nome que aprendi para a água que desce pela borda, entre o filtro e a parede, e chega à jarra sem ter atravessado o pó, isto é, contato zero e bebida diluída;</li>
+<li><strong>Oxidação</strong>: o café pronto perde os aromas assim que fica parado, o oxigênio degrada os compostos em questão de meia hora, o calor acelera tudo, e garrafa térmica fechada é o melhor abrigo.</li>
+</ul>
+<p>E as duas técnicas da abertura também têm dono: a balança de precisão cuida da proporção, e a chaleira de bico fino cuida do ritmo e da direção do despejo.</p>
+<p>Falta um conceito, o escoamento: a assinatura de vazão de cada coador, ditada pelo furo, pelas ranhuras e pelo filtro que ele aceita. Com tudo isso, os métodos se agrupam, pela física que os move, e o escoamento é o que separa os coadores da segunda delas.</p>
+</section>
+<section id="o-café-de-molho-perdoa" class="level3">
+<h3 class="anchored" data-anchor-id="o-café-de-molho-perdoa">O café de molho perdoa</h3>
+<p>A primeira família é a da imersão: o pó fica mergulhado em toda a água do preparo, do início ao fim, e o tempo de contato se mede no relógio. É a família que mais perdoa, porque o escoamento simplesmente não existe aqui.</p>
+<section id="prensa-francesa" class="level4">
+<h4 class="anchored" data-anchor-id="prensa-francesa">Prensa francesa</h4>
+<p>A prensa francesa é a cara dessa família, e a certidão dela atravessa a França e a Itália. O primeiro registro é a patente francesa de 1852, de Henri-Otto Mayer e Jacques-Victor Delforge, um pistão com filtro que ainda não vedava a parede. O desenho moderno veio dos milaneses Attilio Calimani e Giulio Moneta, que patentearam em 1929 o êmbolo com mola vedando o filtro contra o vidro. A popularização veio décadas depois, com marcas como a dinamarquesa Bodum.</p>
+<p>O mecanismo cabe em três frases. Moagem grossa no fundo do vidro, água quente por cima, cerca de quatro minutos de espera. O êmbolo de malha metálica desce devagar e prende a borra no fundo. Sem papel no caminho, a malha segura a borra grossa e deixa passar as partículas finas que o papel reteria. Corpo, daqui em diante, é a sensação de espessura da bebida na boca.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-prensa-francesa.svg" class="img-fluid figure-img"></p>
+<figcaption>O desenho da imersão: pó e água juntos do início ao fim, e o êmbolo só separa a borra na hora de servir.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: com o tempo no relógio, é difícil errar, e foi das xícaras mais encorpadas que provei;</li>
+<li><strong>Contra</strong>: sedimento no fundo, xícara menos limpa, e pressa para servir, porque o café que fica sobre a borra segue extraindo e amarga.</li>
+</ul>
+<p>O <em>cold brew</em>, o café de água fria, entra aqui de carona, porque é a imersão levada ao extremo: moagem grossa de molho por 12 a 24 horas, em temperatura ambiente ou gelada, rendendo um concentrado que se dilui em água ou leite.</p>
+<p>A troca é: menos temperatura, muito mais tempo, e a extração acontece do mesmo jeito. Já a fama de café menos ácido é mais tímida do que o marketing sugere: a bebida carrega menos ácido no total, e mesmo assim a acidez que a língua sente fica parecida com a do café quente.</p>
+</section>
+</section>
+<section id="quem-manda-no-tempo-o-coador-ou-a-mão" class="level3">
+<h3 class="anchored" data-anchor-id="quem-manda-no-tempo-o-coador-ou-a-mão">Quem manda no tempo, o coador ou a mão</h3>
+<p>A segunda família é a da percolação: a água atravessa a cama de café uma vez, de cima para baixo, e leva o que conseguiu dissolver no caminho. É a família dos coadores, que o mercado chama de <em>drippers</em>. A cafeteira elétrica de filtro, o <em>drip coffee</em> de hotel, é a mesma física com um chuveiro automático em cima. Aqui o escoamento manda, e cada coador responde de um jeito à pergunta do título desta seção.</p>
+<section id="melitta" class="level4">
+<h4 class="anchored" data-anchor-id="melitta">Melitta</h4>
+<p>Em 1908, a dona de casa alemã Melitta Bentz, depois de tentar sacos de linho e filtros de pano, furou um pote de latão e o forrou com uma folha de mata-borrão do caderno do filho. A patente do filtro de papel saiu em junho daquele ano, a empresa com o nome dela nasceu na sequência, e o cone que conhecemos chegou em 1932. No coador Melitta de hoje, a parede é lisa e a saída são furos pequenos: a vazão é do coador, e a mão pouco muda o resultado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-melitta.svg" class="img-fluid figure-img"></p>
+<figcaption>A assinatura da Melitta: parede lisa, furos pequenos, escoamento lento e constante.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: barato, fácil de achar, difícil de errar, e o papel entrega uma xícara limpa, sem sedimento, que a prensa não alcança;</li>
+<li><strong>Contra</strong>: o mesmo desenho que protege do erro limita o ajuste fino, porque a vazão tem teto.</li>
+</ul>
+</section>
+<section id="v60" class="level4">
+<h4 class="anchored" data-anchor-id="v60">V60</h4>
+<p>O V60 responde à pergunta do jeito oposto. A Hario, vidraria japonesa, lançou o cone em 2005, evoluindo um coador de 1980 que não vingou na era do café solúvel. O nome vem do ângulo de 60 graus. As ranhuras em espiral sobem até a borda e mantêm o papel descolado da parede, deixando o ar escapar, e a saída é um furo único e largo, que não estrangula o fluxo. Quem dita o tempo é o despejo: rápido demais tende ao café ralo, fino e em espiral tende ao café bem extraído.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-v60.svg" class="img-fluid figure-img"></p>
+<figcaption>O V60 entrega o controle: ranhuras até a borda, furo largo, e o tempo nas mãos de quem despeja.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: o maior controle, para quem quer decidir a extração despejo a despejo;</li>
+<li><strong>Contra</strong>: o controle cobra, porque cada hesitação da mão, cada despejo na borda virando <em>bypass</em>, aparece na xícara.</li>
+</ul>
+</section>
+<section id="origami" class="level4">
+<h4 class="anchored" data-anchor-id="origami">Origami</h4>
+<p>O Origami dobra a aposta da versatilidade. As 20 dobras que dão nome ao coador aceitam dois filtros: o cônico, como o do V60, que corre rápido pelos vãos das dobras, e o de fundo chato, que muda o desenho da cama e o ritmo do escoamento. O coador ficou famoso no World Brewers Cup de 2019, o mundial dos métodos de coar. Dois perfis num objeto só, com um contra à altura: mais uma decisão para errar, e porcelana artesanal custa como porcelana artesanal. A versão Air, de resina, esquenta mais rápido que a porcelana, lembrete de que até o material do coador mexe na temperatura.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-origami.svg" class="img-fluid figure-img"></p>
+<figcaption>As 20 dobras do Origami: filtro cônico de um lado, fundo chato do outro, dois cafés na mesma porcelana.</figcaption>
+</figure>
+</div>
+</section>
+<section id="koar" class="level4">
+<h4 class="anchored" data-anchor-id="koar">Koar</h4>
+<p>O Koar foi criado em Pernambuco em 2017, com 16 sulcos inclinados e uma saída de 16 milímetros, e os sulcos mantêm o papel longe da parede para controlar o fluxo. Segundo a matéria que o apresenta, o desenho mira menos acidez e mais doçura na xícara. O Koar responde como a Melitta, com o coador no comando, só que com intenção declarada. O contra é ser menos difundido: menos receitas circulando e menos gente para pedir ajuda quando a xícara sai errada.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-koar.svg" class="img-fluid figure-img"></p>
+<figcaption>O Koar entra na disputa com 16 sulcos inclinados e saída de 16 mm, desenhados para um café menos ácido e mais doce.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sem-tempo-para-errar" class="level3">
+<h3 class="anchored" data-anchor-id="sem-tempo-para-errar">Sem tempo para errar</h3>
+<p>A terceira família abandona a gravidade e empurra a água. Com pressão, o tempo de contato encolhe até caber em segundos, e a bebida muda de natureza.</p>
+<section id="espresso" class="level4">
+<h4 class="anchored" data-anchor-id="espresso">Espresso</h4>
+<p>Vinte e cinco a trinta segundos: é quanto dura a extração de um <em>espresso</em>. A história que leva até esse meio minuto é uma corrida italiana de patentes. Angelo Moriondo, de Turim, patenteou em 16 de maio de 1884 uma máquina a vapor que fazia café em volume, para encher jarras. Luigi Bezzera e Desiderio Pavoni transformaram a ideia na dose individual nas duas décadas seguintes, e a alavanca de pistão de Achille Gaggia, em 1945, levou a pressão à casa dos 8 a 10 bar, oito a dez vezes a pressão atmosférica. Sob essa força, a água atravessa uma pastilha de pó fino e compactado e sai como um concentrado coberto pela <em>crema</em>, a espuma cor de caramelo que a pressão produz.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-espresso.svg" class="img-fluid figure-img"></p>
+<figcaption>Meio minuto de extração no espresso: a água chega a 8 a 10 bar e atravessa a pastilha compactada.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: concentração, velocidade, a <em>crema</em>, e a base de quase tudo que leva leite;</li>
+<li><strong>Contra</strong>: o equipamento mais complexo do artigo, moagem fina inegociável, e quase nenhuma tolerância a erro, porque em meio minuto não sobra tempo de corrigir nada.</li>
+</ul>
+</section>
+<section id="aeropress" class="level4">
+<h4 class="anchored" data-anchor-id="aeropress">AeroPress</h4>
+<p>O AeroPress ataca a mesma ideia pelo lado barato e tolerante. Alan Adler, o inventor do aro voador Aerobie, começou a mexer com café na garagem, em Palo Alto, em 2003, irritado com as cafeteiras domésticas. Dois anos e mais de 30 protótipos depois, apresentou o AeroPress em novembro de 2005, numa feira do setor em Seattle. O mecanismo é uma seringa gigante: imersão curta dentro do cilindro, e então o êmbolo empurra tudo através de um filtro de papel, com a pressão da sua mão no lugar da bomba.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-aeropress.svg" class="img-fluid figure-img"></p>
+<figcaption>A seringa do AeroPress: imersão curta no cilindro e a mão como bomba, empurrando tudo através do papel.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: barato, leve, simples de levar, e com a xícara limpa do papel somada ao corpo da imersão;</li>
+<li><strong>Contra</strong>: uma dose por vez, e a receita aberta demais, porque com tantas variáveis soltas cada pessoa faz um café diferente com o mesmo aparelho.</li>
+</ul>
+</section>
+</section>
+<section id="o-método-que-lê-o-futuro" class="level3">
+<h3 class="anchored" data-anchor-id="o-método-que-lê-o-futuro">O método que lê o futuro</h3>
+<p>O café turco é decocção, o pó fervendo junto com a água: moagem a talco, água fria e o açúcar de quem quiser vão juntos para um pote próprio, o <em>cezve</em>, e aquecem lentamente até formar a espuma característica. Serve-se tudo, pó incluído, em xícaras pequenas, com um copo de água ao lado. A espuma densa do topo nasce dessa fervura lenta, bem longe da <em>crema</em> de pressão.</p>
+<p>Um preparo lento no pote, o papel das casas de café como ponto de conversa e leitura, e um detalhe que nenhum outro método tem: a borra que sobra no fundo da xícara é usada para ler a sorte. A leitura da borra que anotei no <em>workshop</em> entra aqui, como cultura, e serve de lembrete honesto: café nunca foi só extração.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-turco.svg" class="img-fluid figure-img"></p>
+<figcaption>No fundo da xícara do café turco mora a borra e, para quem acredita, o futuro: nada é coado.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>A favor</strong>: o café mais denso, a espuma, e um ritual que transforma a bebida em ocasião;</li>
+<li><strong>Contra</strong>: a borra na boca de quem não esperava, e o amargor fácil, porque a fervura é a variável de temperatura no talo, acelerando a fase final da extração.</li>
+</ul>
+</section>
+<section id="onde-a-minha-régua-quebrou" class="level3">
+<h3 class="anchored" data-anchor-id="onde-a-minha-régua-quebrou">Onde a minha régua quebrou</h3>
+<p>O que o <em>workshop</em> quebrou foi a minha régua de leigo. Eu carregava duas certezas: café amargo era café forte, e café azedo era café gourmet. As duas caíram juntas. Amargor costuma ser a terceira fase da extração chegando na xícara, sinal de parada tardia. Azedo costuma ser a primeira fase sozinha, sinal de parada cedo demais. Força é outra régua, a da proporção entre café e água. Eu passei anos lendo defeito de preparo como personalidade da bebida.</p>
+<p>A comparação entre os métodos foi o segundo tombo, e ela termina longe de um ranking: o coador de supermercado e a máquina de <em>espresso</em> respondem à mesma pergunta, onde parar a extração, com orçamentos muito diferentes. A imersão é a que mais perdoa, a percolação expõe a mão na medida em que o coador deixa, a pressão cobra em segundos, e a decocção ignora o debate e serve o pó junto. Nenhuma dessas respostas é frescura. São escolhas de engenharia com mais de um século de patentes atrás de cada uma.</p>
+</section>
+<section id="mexa-num-botão-de-cada-vez" class="level3">
+<h3 class="anchored" data-anchor-id="mexa-num-botão-de-cada-vez">Mexa num botão de cada vez</h3>
+<p>A lição que trouxe para casa pede método antes de equipamento. Se o seu café de hoje sai azedo, extraia mais: moagem mais fina, água mais quente ou mais tempo de contato. Se sai amargo, extraia menos: moagem mais grossa, água um pouco mais fria ou menos tempo.</p>
+<p>Em geral é por aí que se começa, mudando uma variável por vez e provando, porque mexendo em duas você nunca sabe qual delas respondeu.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Outro">#Outro</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

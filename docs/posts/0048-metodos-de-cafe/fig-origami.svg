@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No Origami as 20 dobras aceitam filtro cônico ou de fundo chato: dois escoamentos no mesmo coador">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .parede { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 2; }
+    .dobra { stroke: #b8b09e; stroke-width: 1; fill: none; }
+    .filtro { fill: none; stroke: #3d5a80; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .agua { fill: #3d5a80; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .txtf { font-size: 14px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .g1 { animation: pinga 2s linear infinite; }
+    .g2 { animation: pinga 3.4s linear infinite; animation-delay: 0.6s; }
+    @keyframes pinga { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,48px); opacity: 1; } 100% { transform: translate(0,56px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .g1, .g2 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- esquerda: filtro cônico -->
+  <path class="parede" d="M 120 100 L 360 100 L 250 210 L 230 210 Z"/>
+  <path class="dobra" d="M 144 112 L 234 204"/>
+  <path class="dobra" d="M 168 112 L 238 204"/>
+  <path class="dobra" d="M 192 112 L 242 204"/>
+  <path class="dobra" d="M 216 112 L 246 204"/>
+  <path class="dobra" d="M 336 112 L 246 204"/>
+  <path class="dobra" d="M 312 112 L 242 204"/>
+  <path class="dobra" d="M 288 112 L 238 204"/>
+  <path class="dobra" d="M 264 112 L 234 204"/>
+  <path class="filtro" d="M 150 115 L 330 115 L 243 203 L 237 203 Z"/>
+  <circle class="agua g1" cx="240" cy="218" r="4"/>
+  <text class="txtf" x="240" y="85">filtro cônico</text>
+  <text class="nota" x="240" y="250">a água corre pelos vãos das dobras:</text>
+  <text class="nota" x="240" y="268">escoamento rápido</text>
+
+  <!-- direita: filtro de fundo chato -->
+  <path class="parede" d="M 560 100 L 800 100 L 690 210 L 670 210 Z"/>
+  <path class="dobra" d="M 584 112 L 674 204"/>
+  <path class="dobra" d="M 608 112 L 678 204"/>
+  <path class="dobra" d="M 632 112 L 682 204"/>
+  <path class="dobra" d="M 656 112 L 686 204"/>
+  <path class="dobra" d="M 776 112 L 686 204"/>
+  <path class="dobra" d="M 752 112 L 682 204"/>
+  <path class="dobra" d="M 728 112 L 678 204"/>
+  <path class="dobra" d="M 704 112 L 674 204"/>
+  <path class="filtro" d="M 600 120 L 760 120 L 760 135 L 712 172 L 648 172 L 600 135 Z"/>
+  <circle class="agua g2" cx="680" cy="218" r="4"/>
+  <text class="txtf" x="680" y="85">filtro de fundo chato</text>
+  <text class="nota" x="680" y="250">a água atravessa uma cama plana:</text>
+  <text class="nota" x="680" y="268">outro ritmo de escoamento</text>
+
+  <text class="txt" x="460" y="45">as 20 dobras aceitam os dois filtros: dois perfis no mesmo coador</text>
+  <text class="nota" x="460" y="160">mesma porcelana</text>
+  <text class="nota" x="460" y="178">de Mino, dois cafés</text>
+</svg>

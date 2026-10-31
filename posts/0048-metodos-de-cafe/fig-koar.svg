@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No Koar os 16 sulcos inclinados e a saída de 16 mm desenham um fluxo que mira a doçura">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .parede { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 2; }
+    .sulco { stroke: #b8b09e; stroke-width: 1.2; fill: none; }
+    .cafe { fill: #b86b4b; }
+    .agua { fill: #3d5a80; }
+    .cota { stroke: #6b6657; stroke-width: 1; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .vidro { fill: none; stroke: #b8b09e; stroke-width: 2; }
+    .g1 { animation: pinga 2.8s linear infinite; }
+    .g2 { animation: pinga 2.8s linear infinite; animation-delay: 1.4s; }
+    @keyframes pinga { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,58px); opacity: 1; } 100% { transform: translate(0,68px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .g1, .g2 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <!-- cone com sulcos inclinados -->
+  <path class="parede" d="M 330 80 L 590 80 L 478 205 L 442 205 Z"/>
+  <path class="sulco" d="M 352 92 C 408 132, 436 166, 448 198"/>
+  <path class="sulco" d="M 390 92 C 432 132, 450 166, 456 198"/>
+  <path class="sulco" d="M 428 92 C 452 132, 460 166, 462 198"/>
+  <path class="sulco" d="M 568 92 C 512 132, 484 166, 472 198"/>
+  <path class="sulco" d="M 530 92 C 488 132, 470 166, 464 198"/>
+  <path class="sulco" d="M 492 92 C 474 132, 466 160, 463 184"/>
+  <path class="cafe" d="M 388 118 L 532 118 L 476 180 L 444 180 Z" opacity="0.85"/>
+  <text class="nota" x="248" y="130">16 sulcos inclinados:</text>
+  <text class="nota" x="248" y="148">o papel não toca a parede</text>
+
+  <!-- saída de 16 mm -->
+  <rect class="agua" x="448" y="203" width="24" height="5" rx="2"/>
+  <line class="cota" x1="448" y1="218" x2="472" y2="218"/>
+  <line class="cota" x1="448" y1="213" x2="448" y2="223"/>
+  <line class="cota" x1="472" y1="213" x2="472" y2="223"/>
+  <text class="nota" x="530" y="223">saída de 16 mm</text>
+
+  <circle class="agua g1" cx="454" cy="226" r="4"/>
+  <circle class="agua g2" cx="466" cy="226" r="4"/>
+
+  <!-- jarra -->
+  <path class="vidro" d="M 395 248 L 395 296 L 525 296 L 525 248"/>
+
+  <text class="txt" x="460" y="50">criado em Pernambuco em 2017: fluxo desenhado para menos acidez e mais doçura</text>
+  <text class="nota" x="700" y="150">o controle que no V60 fica na mão,</text>
+  <text class="nota" x="700" y="168">aqui vem no desenho da peça</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="A extração no tempo: ácidos saem primeiro, açúcares no meio, amargos por último, com a janela de equilíbrio entre as fases">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .fase1 { fill: #cfdbe8; stroke: #b8b09e; stroke-width: 1; }
+    .fase2 { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .fase3 { fill: #d9c3b2; stroke: #b8b09e; stroke-width: 1; }
+    .janela { fill: none; stroke: #3d5a80; stroke-width: 2; stroke-dasharray: 6 4; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .txtf { font-size: 14px; fill: #3d3a33; text-anchor: middle; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .linha { stroke: #b8b09e; stroke-width: 1.5; }
+    .seta { stroke: #6b6657; stroke-width: 1.5; fill: none; }
+    .dot { fill: #b86b4b; }
+    .d1 { animation: percorre 6s linear infinite; }
+    @keyframes percorre { 0% { transform: translate(0,0); opacity: 0; } 8% { opacity: 1; } 92% { transform: translate(720px,0); opacity: 1; } 100% { transform: translate(740px,0); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .d1 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
+
+  <rect class="fase1" x="80" y="90" width="240" height="70" rx="4"/>
+  <rect class="fase2" x="320" y="90" width="280" height="70" rx="4"/>
+  <rect class="fase3" x="600" y="90" width="240" height="70" rx="4"/>
+
+  <text class="txtf" x="200" y="120">ácidos</text>
+  <text class="txt" x="200" y="142">o lado brilhante e cítrico</text>
+  <text class="txtf" x="460" y="120">açúcares</text>
+  <text class="txt" x="460" y="142">doçura e equilíbrio</text>
+  <text class="txtf" x="720" y="120">amargos</text>
+  <text class="txt" x="720" y="142">amargor e adstringência</text>
+
+  <rect class="janela" x="390" y="78" width="220" height="94" rx="6"/>
+  <text class="txt" x="500" y="66" fill="#3d5a80">janela de equilíbrio</text>
+
+  <line class="linha" x1="80" y1="200" x2="840" y2="200"/>
+  <path class="seta" d="M 830 195 L 840 200 L 830 205"/>
+  <text class="nota" x="460" y="225">tempo de contato entre água e pó</text>
+
+  <text class="nota" x="185" y="255">parou cedo: subextraído, azedo</text>
+  <text class="nota" x="730" y="255">passou do ponto: superextraído, amargo</text>
+
+  <circle class="dot d1" cx="90" cy="200" r="5"/>
+</svg>
