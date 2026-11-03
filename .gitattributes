@@ -16,3 +16,5 @@
 *.txt text eol=lf
 *.js text eol=lf
 *.ts text eol=lf
+# Imported figures are checked against the hash in blog-source.json, so a checkout must not rewrite them as CRLF.
+*.svg text eol=lf
