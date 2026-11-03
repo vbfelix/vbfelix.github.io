@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>A arquitetura muda, a modelagem fica – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="A arquitetura muda, a modelagem fica – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html">
+<meta name="description" content="No dbt Summit 2026, conferência da dbt Labs, dois arquitetos de soluções da AWS apresentaram uma consulta de receita que devolvia US$ 14,86 milhões. A resposta certa era US$ 11,36 milhões. O número parecia plausível e vinha 30,8% maior que o real. O exemplo foi montado para a palestra, e a consulta era de um agente de IA ([dbt Labs, 2026](https://www.getdbt.com/blog/aws-dbt-semantic-layer-ai-agent-revenue-accuracy)).">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html#page","url":"https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html","name":"A arquitetura muda, a modelagem fica","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html","articleSection":["Engenharia de dados"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A arquitetura muda, a modelagem fica</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Engenharia de dados</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">30 de outubro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#a-consulta-certa-errou-em-us-35-milhões" id="toc-a-consulta-certa-errou-em-us-35-milhões" class="nav-link active" data-scroll-target="#a-consulta-certa-errou-em-us-35-milhões">A consulta certa errou em US$ 3,5 milhões</a></li>
+  <li><a href="#quatro-perguntas-seguram-a-sopa-de-letrinhas" id="toc-quatro-perguntas-seguram-a-sopa-de-letrinhas" class="nav-link" data-scroll-target="#quatro-perguntas-seguram-a-sopa-de-letrinhas">Quatro perguntas seguram a sopa de letrinhas</a></li>
+  <li><a href="#data-warehouse-o-relatório-não-pode-derrubar-a-venda" id="toc-data-warehouse-o-relatório-não-pode-derrubar-a-venda" class="nav-link" data-scroll-target="#data-warehouse-o-relatório-não-pode-derrubar-a-venda"><em>Data warehouse</em>: o relatório não pode derrubar a venda</a></li>
+  <li><a href="#data-mart-autonomia-com-juros" id="toc-data-mart-autonomia-com-juros" class="nav-link" data-scroll-target="#data-mart-autonomia-com-juros"><em>Data mart</em>: autonomia com juros</a></li>
+  <li><a href="#data-lake-guarde-agora-explique-depois" id="toc-data-lake-guarde-agora-explique-depois" class="nav-link" data-scroll-target="#data-lake-guarde-agora-explique-depois"><em>Data lake</em>: guarde agora, explique depois</a></li>
+  <li><a href="#data-lakehouse-a-aposta-de-uma-cópia-só" id="toc-data-lakehouse-a-aposta-de-uma-cópia-só" class="nav-link" data-scroll-target="#data-lakehouse-a-aposta-de-uma-cópia-só"><em>Data lakehouse</em>: a aposta de uma cópia só</a></li>
+  <li><a href="#de-etl-a-elt-o-custo-trocou-as-letras-de-lugar" id="toc-de-etl-a-elt-o-custo-trocou-as-letras-de-lugar" class="nav-link" data-scroll-target="#de-etl-a-elt-o-custo-trocou-as-letras-de-lugar">De ETL a ELT: o custo trocou as letras de lugar</a></li>
+  <li><a href="#medallion-o-preço-de-guardar-o-bruto-e-servir-o-limpo" id="toc-medallion-o-preço-de-guardar-o-bruto-e-servir-o-limpo" class="nav-link" data-scroll-target="#medallion-o-preço-de-guardar-o-bruto-e-servir-o-limpo"><em>Medallion</em>: o preço de guardar o bruto e servir o limpo</a></li>
+  <li><a href="#data-mesh-a-fila-do-time-central" id="toc-data-mesh-a-fila-do-time-central" class="nav-link" data-scroll-target="#data-mesh-a-fila-do-time-central"><em>Data mesh</em>: a fila do time central</a></li>
+  <li><a href="#modelagem-dimensional-o-desenho-que-ninguém-aposentou" id="toc-modelagem-dimensional-o-desenho-que-ninguém-aposentou" class="nav-link" data-scroll-target="#modelagem-dimensional-o-desenho-que-ninguém-aposentou">Modelagem dimensional: o desenho que ninguém aposentou</a></li>
+  <li><a href="#snowflake-schema-a-ordem-que-custa-junções" id="toc-snowflake-schema-a-ordem-que-custa-junções" class="nav-link" data-scroll-target="#snowflake-schema-a-ordem-que-custa-junções"><em>Snowflake schema</em>: a ordem que custa junções</a></li>
+  <li><a href="#fn-e-inmon-primeiro-o-centro-depois-os-marts" id="toc-fn-e-inmon-primeiro-o-centro-depois-os-marts" class="nav-link" data-scroll-target="#fn-e-inmon-primeiro-o-centro-depois-os-marts">3FN e Inmon: primeiro o centro, depois os <em>marts</em></a></li>
+  <li><a href="#one-big-table-disco-é-barato-engenheiro-não" id="toc-one-big-table-disco-é-barato-engenheiro-não" class="nav-link" data-scroll-target="#one-big-table-disco-é-barato-engenheiro-não"><em>One Big Table</em>: disco é barato, engenheiro não</a></li>
+  <li><a href="#o-agente-não-pergunta-o-que-a-tabela-quer-dizer" id="toc-o-agente-não-pergunta-o-que-a-tabela-quer-dizer" class="nav-link" data-scroll-target="#o-agente-não-pergunta-o-que-a-tabela-quer-dizer">O agente não pergunta o que a tabela quer dizer</a></li>
+  <li><a href="#arquitetura-tem-que-ter-propósito" id="toc-arquitetura-tem-que-ter-propósito" class="nav-link" data-scroll-target="#arquitetura-tem-que-ter-propósito">Arquitetura tem que ter propósito</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">A arquitetura muda, a modelagem fica</li></ol></nav>
+<section id="a-consulta-certa-errou-em-us-35-milhões" class="level3">
+<h3 class="anchored" data-anchor-id="a-consulta-certa-errou-em-us-35-milhões">A consulta certa errou em US$ 3,5 milhões</h3>
+<p>No dbt Summit 2026, conferência da dbt Labs, dois arquitetos de soluções da AWS apresentaram uma consulta de receita que devolvia US$ 14,86 milhões. A resposta certa era US$ 11,36 milhões. O número parecia plausível e vinha 30,8% maior que o real. O exemplo foi montado para a palestra, e a consulta era de um agente de IA (<a href="https://www.getdbt.com/blog/aws-dbt-semantic-layer-ai-agent-revenue-accuracy">dbt Labs, 2026</a>).</p>
+<p>O SQL fazia o que dizia fazer. As quatro regras de negócio que mudavam o número estavam escritas noutro lugar, num catálogo de definições que a consulta não usou:</p>
+<ul>
+<li>O valor somado era o bruto, anterior a desconto e reembolso;</li>
+<li>Os reembolsos ficavam numa tabela que não entrava no <em>join</em>;</li>
+<li>Pedidos cancelados e pendentes contavam como venda;</li>
+<li>As contas de teste eram marcadas, não excluídas.</li>
+</ul>
+</section>
+<section id="quatro-perguntas-seguram-a-sopa-de-letrinhas" class="level3">
+<h3 class="anchored" data-anchor-id="quatro-perguntas-seguram-a-sopa-de-letrinhas">Quatro perguntas seguram a sopa de letrinhas</h3>
+<p><em>Data warehouse</em>, <em>data lake</em>, <em>lakehouse</em>, <em>mesh</em>, <em>medallion</em>, ETL, ELT, dentre outros. O vocabulário de arquitetura de dados parece uma lista de marcas, e cada conceito responde, antes de tudo, a uma de quatro perguntas:</p>
+<ul>
+<li><strong>Onde o dado mora:</strong> o <em>warehouse</em>, o <em>mart</em>, o <em>lake</em> e o <em>lakehouse</em>;</li>
+<li><strong>Como o dado flui:</strong> ETL, ELT e a arquitetura <em>medallion</em>;</li>
+<li><strong>Quem cuida de cada pedaço:</strong> o time central ou os domínios do <em>mesh</em>;</li>
+<li><strong>Como o dado se explica:</strong> a modelagem dimensional e as rivais, do centro normalizado à tabela larga.</li>
+</ul>
+<p>A resposta das três primeiras perguntas muda a cada <em>hype</em>. A quarta atravessa todas: a resposta muda de forma, e a obrigação de declarar o que o dado significa nunca sai da conta. O leitor novo que chegou para cobrá-la, o agente de IA, fecha o artigo.</p>
+</section>
+<section id="data-warehouse-o-relatório-não-pode-derrubar-a-venda" class="level3">
+<h3 class="anchored" data-anchor-id="data-warehouse-o-relatório-não-pode-derrubar-a-venda"><em>Data warehouse</em>: o relatório não pode derrubar a venda</h3>
+<p>Primeira pergunta: onde o dado mora. O endereço mais antigo é o <em>data warehouse</em>. A definição clássica pede um conjunto de dados orientado por assunto, integrado, variante no tempo e não volátil, usado sobretudo para decisão (<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/sigrecord.pdf">Chaudhuri e Dayal, <em>An Overview of Data Warehousing and OLAP Technology</em>, 1997</a>).</p>
+<p>Na prática, é o banco separado da operação. O sistema que atende o cliente faz transações curtas e repetitivas, e a análise faz consultas complexas sobre o histórico consolidado. Separar os dois melhora o desempenho de ambos (<a href="https://aws.amazon.com/what-is/data-warehouse/">AWS</a>). O dado entra por ETL: a limpeza acontece antes da escrita, e o esquema, o desenho de tabelas, colunas e tipos, é decidido antes de o dado chegar.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-warehouse.svg" class="img-fluid figure-img"></p>
+<figcaption>Fontes operacionais passam pelo ETL e chegam ao data warehouse já estruturadas, de onde o BI consulta.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Separa a leitura analítica da escrita operacional, e as duas param de disputar recurso (<a href="https://aws.amazon.com/what-is/data-warehouse/">AWS</a>);</li>
+<li>Integra fontes diferentes num conjunto só, orientado por assunto (<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/sigrecord.pdf">Chaudhuri e Dayal, 1997</a>);</li>
+<li>Guarda o histórico que o sistema de origem descarta;</li>
+<li>Entrega dado limpo e estruturado, porque o esquema vem antes da escrita.</li>
+</ul>
+<p>O que cobra, segundo quem propôs um sucessor, o <em>lakehouse</em> de três seções adiante:</p>
+<ul>
+<li>Na geração clássica, acoplava computação e armazenamento no mesmo equipamento, obrigando a pagar pelo pico de uso (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">CIDR 2021</a>);</li>
+<li>Não armazenava dado não estruturado, como vídeo, áudio e texto (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">CIDR 2021</a>);</li>
+<li>Prendia o dado no produto, o risco que esses autores chamam de <em>lock-in</em> (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">CIDR 2021</a>).</li>
+</ul>
+</section>
+<section id="data-mart-autonomia-com-juros" class="level3">
+<h3 class="anchored" data-anchor-id="data-mart-autonomia-com-juros"><em>Data mart</em>: autonomia com juros</h3>
+<p>Um recorte menor do mesmo desenho é o <em>data mart</em>: um conjunto com o dado já processado para as perguntas de uma unidade de negócio, como vendas ou financeiro (<a href="https://aws.amazon.com/what-is/data-mart/">AWS</a>). O <em>mart</em> pode derivar do <em>data warehouse</em> central, nascer independente ou misturar as duas origens.</p>
+<p>Para Bill Inmon, o <em>warehouse</em> corporativo vem primeiro, e a fonte correta do <em>mart</em> é ele, e somente ele (<a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">Inmon, <em>A Tale of Two Architectures</em></a>).</p>
+<p>Já Ralph Kimball, o sistematizador da modelagem dimensional que a quarta pergunta vai visitar, aponta o caminho inverso: o <em>warehouse</em> se constrói <em>mart</em> a <em>mart</em>, um por processo de negócio, integrados por dimensões compartilhadas (<a href="https://decisionworks.com/2004/03/differences-of-opinion/">Margy Ross, do grupo de Kimball, 2004</a>).</p>
+<p>Nenhum lado venceu: segundo um artigo do TDWI, a maioria das implementações grandes acabou híbrida (<a href="https://tdwi.org/blogs/data-101/2026/05/architectural-disagreement-that-still-shapes-data-warehouses.aspx">TDWI, 2026</a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-mart.svg" class="img-fluid figure-img"></p>
+<figcaption>O data warehouse central fatiado em data marts por área de negócio, cada um com seu público.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Dá à área autonomia sobre a própria carga e gestão, sem fila do time central (<a href="https://aws.amazon.com/what-is/data-mart/">AWS</a>);</li>
+<li>Permite controle de acesso fino, porque só o dado daquele assunto está ali;</li>
+<li>No tipo híbrido, serve para testar uma origem nova antes de levá-la ao centro (<a href="https://aws.amazon.com/what-is/data-mart/">AWS</a>).</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>O <em>mart</em> dependente herda a indisponibilidade do <em>warehouse</em> de origem (<a href="https://aws.amazon.com/what-is/data-mart/">AWS</a>);</li>
+<li><em>Marts</em> independentes multiplicam processos de carga, e dois processos respondendo à mesma pergunta tendem a terminar em dois números.</li>
+</ul>
+</section>
+<section id="data-lake-guarde-agora-explique-depois" class="level3">
+<h3 class="anchored" data-anchor-id="data-lake-guarde-agora-explique-depois"><em>Data lake</em>: guarde agora, explique depois</h3>
+<p>O terceiro endereço nasceu na direção oposta. O <em>data lake</em> é um repositório que guarda qualquer dado, estruturado ou não, no formato em que chega e em qualquer escala (<a href="https://aws.amazon.com/what-is/data-lake/">AWS</a>). A inversão está na ordem entre esquema e escrita. O <em>warehouse</em> exige estrutura antes de gravar; o <em>lake</em> grava primeiro e cobra o esquema de quem lê. Por dentro, o dado não fica indistinto: a prática recomendada é segmentar em zonas conforme a prontidão, do pouso do arquivo cru ao conjunto curado (<a href="https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/configuration-notes.html">AWS Well-Architected</a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-lake.svg" class="img-fluid figure-img"></p>
+<figcaption>Fontes heterogêneas caem no data lake como chegam, e as zonas separam o cru do curado.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Aceita o que o <em>warehouse</em> recusava: relacional e não relacional, de log de aplicação a mídia (<a href="https://aws.amazon.com/what-is/data-lake/">AWS</a>);</li>
+<li>Armazenamento de objeto barato, em qualquer escala (<a href="https://aws.amazon.com/what-is/data-lake/">AWS</a>);</li>
+<li>A pergunta pode aparecer depois do dado, porque o esquema só é cobrado na leitura;</li>
+<li>Sustenta aprendizado de máquina sobre o histórico bruto.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>Sem catálogo que registre o que existe, vira um <em>data swamp</em>, o pântano onde nada é encontrado nem merece confiança, aviso do guia de arquitetura de quem o vende (<a href="https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/configuration-notes.html">AWS Well-Architected</a>);</li>
+<li>O custo do esquema muda de lugar, e cada leitor paga um pouco dele;</li>
+<li>Consistência entre leitores depende de disciplina, porque cada um interpreta o cru por conta própria.</li>
+</ul>
+<p>A linha do tempo guarda uma confissão. O <em>lake</em> foi a década que adiou a modelagem, o pântano foi o preço, e ela voltou porque fez falta.</p>
+</section>
+<section id="data-lakehouse-a-aposta-de-uma-cópia-só" class="level3">
+<h3 class="anchored" data-anchor-id="data-lakehouse-a-aposta-de-uma-cópia-só"><em>Data lakehouse</em>: a aposta de uma cópia só</h3>
+<p>O quarto endereço tenta parar de escolher. Em 2021, engenheiros ligados à Databricks definiram o <em>data lakehouse</em> como um sistema de gestão de dados sobre armazenamento barato e de acesso direto, com funções de banco analítico por cima: transação, versionamento, auditoria e otimização de consulta (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">Armbrust, Ghodsi, Xin e Zaharia, CIDR 2021</a>). No desenho de referência do artigo, quem sustenta as garantias é uma camada de metadados, os dados sobre os dados, que diz quais arquivos formam cada versão de cada tabela. O mesmo texto conta a história em gerações. Primeiro o <em>data warehouse</em>, com esquema na escrita. Depois o <em>lake</em>, numa arquitetura de duas camadas, com o bruto no armazenamento barato e um recorte seguindo por ETL para o <em>warehouse</em>, envelhecendo no caminho. A aposta do <em>lakehouse</em> é servir, da mesma cópia do dado, o BI, os relatórios e painéis do negócio, e o treino de modelos de aprendizado de máquina.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-lakehouse.svg" class="img-fluid figure-img"></p>
+<figcaption>A camada de metadados transacional acende garantias de banco sobre os arquivos do data lake.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Uma cópia do dado para o relatório e para o treino de modelos, sem exportar para um segundo sistema (<a href="https://docs.databricks.com/aws/en/lakehouse/">Databricks</a>);</li>
+<li>Transação, imposição de esquema e governança sobre o que antes era só arquivo (<a href="https://docs.databricks.com/aws/en/lakehouse/">Databricks</a>);</li>
+<li>Formato aberto, que deixa o dado legível sem passar pelo produto que o escreveu (<a href="https://docs.databricks.com/aws/en/lakehouse/">Databricks</a>);</li>
+<li>Na defesa dos autores, dispensa o ETL duplo e o dado defasado da arquitetura de duas camadas (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">CIDR 2021</a>).</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>A medição de desempenho que acompanha a proposta é dos próprios autores, interessados nela (<a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">CIDR 2021</a>);</li>
+<li>Cada fornecedor implementa a ideia com o próprio formato e o próprio catálogo, e é dentro deles que a promessa foi demonstrada;</li>
+<li>O desenho é novo o bastante para a própria definição ainda variar conforme quem a escreve.</li>
+</ul>
+</section>
+<section id="de-etl-a-elt-o-custo-trocou-as-letras-de-lugar" class="level3">
+<h3 class="anchored" data-anchor-id="de-etl-a-elt-o-custo-trocou-as-letras-de-lugar">De ETL a ELT: o custo trocou as letras de lugar</h3>
+<p>A segunda pergunta é como o dado flui da origem até o destino analítico. A resposta clássica é o ETL: extrair, transformar e carregar, nesta ordem. O dado sai do sistema de origem. A regra de limpeza e de negócio roda em trânsito. Só o resultado limpo é gravado no destino. Essa ordem existia por escassez: o destino era caro e rígido, e transformar antes de carregar reduzia o que chegava a ele (<a href="https://www.getdbt.com/blog/data-movement-patterns">dbt Labs</a>).</p>
+<p>O ELT inverte as duas últimas etapas: extrair, carregar o bruto direto no destino e transformar lá dentro, com o motor do próprio destino, a capacidade de processamento que ele traz junto do armazenamento (<a href="https://aws.amazon.com/what-is/etl/">AWS</a>). A virada é datada pela IBM por volta de 2010. A IBM, que vende o armazenamento e o processamento que tornam o arranjo viável, credita a mudança ao aumento do volume de dado e à chegada da computação em nuvem, que trouxe armazenamento barato e escalável e capacidade de transformar em escala no próprio destino (<a href="https://www.ibm.com/think/topics/elt">IBM</a>). Quando guardar deixou de ser o gargalo, adiar a transformação virou vantagem. O padrão pressupõe um destino com motor próprio, caso do <em>warehouse</em> de nuvem e do <em>lakehouse</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-etl-elt.svg" class="img-fluid figure-img"></p>
+<figcaption>No ETL, a regra roda em trânsito e só o dado limpo chega ao destino; no ELT, o bruto chega inteiro e a regra roda dentro do destino.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Entrega mais rápida (<a href="https://www.ibm.com/think/topics/elt">IBM</a>): a carga deixa de esperar a regra ficar pronta;</li>
+<li>O bruto fica disponível para vários usos, inclusive o que ninguém previu na hora da carga (<a href="https://www.ibm.com/think/topics/elt">IBM</a>);</li>
+<li>A lógica pode ser refeita sem voltar à origem, iterando sobre o que já está carregado, ponto de quem vende ferramenta para esse arranjo (<a href="https://www.getdbt.com/blog/why-etl-matters-data-pipelines">dbt Labs</a>).</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>A despesa de armazenamento e de processamento pode escalar de forma imprevisível (<a href="https://www.ibm.com/think/topics/elt">IBM</a>): é o preço de manter o bruto em cópia no destino;</li>
+<li>A segurança do dado não processado entra na conta (<a href="https://www.ibm.com/think/topics/elt">IBM</a>): o sensível chega cru, e a proteção que o ETL aplicava antes da escrita passa a depender do destino;</li>
+<li>Dado regulado pede a ordem antiga na frente: mascarar o identificador sensível por ETL antes da carga e refinar por ELT depois, um híbrido com duas esteiras na conta, concessão de quem vende o lado do ELT (<a href="https://www.getdbt.com/blog/why-etl-matters-data-pipelines">dbt Labs</a>).</li>
+</ul>
+<p>O saldo, na minha leitura, é que a praticidade venceu, e a conta ficou no destino: a cópia do bruto e cada transformação rodando no motor dele. Carregar o dado bruto e refinar depois também deixa estados diferentes do dado convivendo no mesmo lugar, e o <em>medallion</em>, logo abaixo, dá um lugar a cada estado.</p>
+</section>
+<section id="medallion-o-preço-de-guardar-o-bruto-e-servir-o-limpo" class="level3">
+<h3 class="anchored" data-anchor-id="medallion-o-preço-de-guardar-o-bruto-e-servir-o-limpo"><em>Medallion</em>: o preço de guardar o bruto e servir o limpo</h3>
+<p>Ainda na pergunta do fluxo, a arquitetura <em>medallion</em> organiza o <em>lakehouse</em> em três camadas por estado de prontidão (<a href="https://docs.databricks.com/aws/en/lakehouse/medallion">Databricks</a>):</p>
+<ul>
+<li>A camada <em>bronze</em> guarda o dado exatamente como chegou da origem, e é a fonte para reconstruir o resto;</li>
+<li>A camada <em>silver</em> guarda o dado validado, limpo e deduplicado;</li>
+<li>A camada <em>gold</em> guarda o dado agregado e modelado para o consumo.</li>
+</ul>
+<p>Gosto do <em>medallion</em> porque ele admite um conflito em vez de fingir que não existe: preservar o bruto para auditar e entregar o limpo para confiar são desejos opostos, e o padrão dá um endereço a cada um. E ele devolve a modelagem ao palco: a própria documentação diz que a camada <em>gold</em> é modelada segundo a regra de negócio, inclusive com modelagem dimensional (<a href="https://docs.databricks.com/aws/en/lakehouse/medallion">Databricks</a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-medallion.svg" class="img-fluid figure-img"></p>
+<figcaption>O dado clareia a cada camada: bronze cru, silver validado, gold modelado para consumo.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Um lugar previsível para cada estado do dado, com público por camada (<a href="https://docs.databricks.com/aws/en/lakehouse/medallion">Databricks</a>);</li>
+<li>Reprocessar o histórico quando uma regra muda, porque o <em>bronze</em> é a fonte da verdade;</li>
+<li>Controle de acesso e otimização diferentes por camada.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>É prática recomendada e adaptável, não requisito, e o custo de cada camada a mais fica com quem opera (<a href="https://docs.databricks.com/aws/en/lakehouse/medallion">Databricks</a>);</li>
+<li>Cada camada acrescenta uma cópia e um salto de latência entre a origem e o consumo.</li>
+</ul>
+</section>
+<section id="data-mesh-a-fila-do-time-central" class="level3">
+<h3 class="anchored" data-anchor-id="data-mesh-a-fila-do-time-central"><em>Data mesh</em>: a fila do time central</h3>
+<p>O <em>data mesh</em> responde à terceira pergunta: quem cuida de cada pedaço do dado. Zhamak Dehghani o propôs ao criticar o <em>lake</em> monolítico, em que um time central de dados, dono de tudo e distante do negócio, vira fila conforme crescem as fontes e os consumidores. Os princípios dela, consolidados em 2020, são quatro (<a href="https://martinfowler.com/articles/data-mesh-principles.html">Dehghani, <em>Data Mesh Principles and Logical Architecture</em>, martinfowler.com, 2020</a>):</p>
+<ul>
+<li><strong>Propriedade por domínio:</strong> o time de negócio mais próximo do dado é dono dele, e o ecossistema cresce adicionando domínios autônomos;</li>
+<li><strong>Dado como produto:</strong> cada domínio publica seus dados para serem encontrados, entendidos e confiados por quem consome;</li>
+<li><strong>Plataforma <em>self-service</em>:</strong> uma infraestrutura comum esconde a complexidade técnica para os domínios trabalharem sozinhos;</li>
+<li><strong>Governança federada:</strong> decisões locais dentro de regras globais de interoperabilidade, aplicadas de forma automatizada.</li>
+</ul>
+<p>O sintoma que o motiva tem registro público com número. A Uber relatou um <em>warehouse</em> com mais de 16.000 <em>datasets</em> e 10 petabytes, vindos de vários domínios de negócio e operados por um único time: pico de consumo ou corrupção de metadados de um time derrubava cargas alheias, e a maioria dos times e serviços tinha acesso de leitura e escrita mais largo do que precisava. Mudança de acesso e resposta a incidente passavam pelo time central. A saída foi fatiar o banco por domínio, com acesso estrito em cada fatia (<a href="https://www.uber.com/br/en/blog/database-federation/">Uber Engineering, 2026</a>). O relato não usa a palavra <em>mesh</em>, e leio o caso como um pedaço do diagnóstico aparecendo na prática: concentrar tudo num dono único não escalou, e o corte foi por domínio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-mesh.svg" class="img-fluid figure-img"></p>
+<figcaption>Do time central dono de tudo para domínios donos de cada pedaço, sobre a mesma plataforma.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Tira o time central do caminho crítico de cada pedido (<a href="https://martinfowler.com/articles/data-mesh-principles.html">Dehghani, 2020</a>);</li>
+<li>Escala por adição de domínios autônomos, em vez de inflar um gargalo;</li>
+<li>Aproxima o dono do dado de quem entende o negócio que o gera.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>Gestão de mudança, gente qualificada em cada domínio e duplicação de dados e de esforço, segundo uma revisão sistemática de literatura cinzenta, feita sobre relatos de prática (<a href="https://arxiv.org/abs/2304.01062">Goedegebuure e colegas, arXiv</a>);</li>
+<li>A governança federada devolve aos domínios, como negociação permanente, a coordenação que o centro pagava sozinho, leitura minha dos próprios princípios;</li>
+<li>A recepção ainda polariza, de manchete dando o <em>mesh</em> por morto a quem diz que é cedo para enterrá-lo (<a href="https://analyticsindiamag.com/data-mesh-is-dead-it-just-doesnt-know-it">Analytics India Magazine</a>).</li>
+</ul>
+</section>
+<section id="modelagem-dimensional-o-desenho-que-ninguém-aposentou" class="level3">
+<h3 class="anchored" data-anchor-id="modelagem-dimensional-o-desenho-que-ninguém-aposentou">Modelagem dimensional: o desenho que ninguém aposentou</h3>
+<p>Respondidas as três primeiras perguntas, sobra a que a IA vai cobrar: como o dado se explica. Esta seção e as três seguintes percorrem as respostas, da estrela desnormalizada ao centro normalizado, e de volta à tabela achatada que dispensa junção. A resposta mais duradoura é a modelagem dimensional, que Ralph Kimball sistematizou em 1996 no livro <em>The Data Warehouse Toolkit</em> (<a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/">Kimball Group</a>). A ideia separa as tabelas em dois papéis:</p>
+<ul>
+<li>A tabela fato guarda a medição de um evento do negócio, como o valor de uma venda;</li>
+<li>A tabela dimensão guarda o contexto que dá sentido à medida: quem comprou, o quê, onde, quando.</li>
+</ul>
+<p>No desenho relacional, a tabela fato fica no centro e as dimensões em volta, cada uma em tabela única e desnormalizada: os atributos ficam juntos, repetindo valores quando preciso, para a consulta não atravessar tabelas. Kimball descrevia a estrutura como uma junção em estrela, o <em>star join</em>; <em>star schema</em> é o nome corrente (<a href="https://www.kimballgroup.com/1997/08/a-dimensional-modeling-manifesto/">Kimball, <em>A Dimensional Modeling Manifesto</em>, 1997</a>).</p>
+<p>O método tem quatro passos, nesta ordem: escolher o processo de negócio, declarar o grão, identificar as dimensões e identificar os fatos (<a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/four-4-step-design-process/">Kimball Group</a>). O grão vem antes de qualquer coluna porque diz o que uma linha da tabela fato significa. Numa fato de vendas com grão de um item por pedido, cada linha é um item vendido, e a pergunta sobre qual produto saiu mais tem resposta direta. Se o grão fosse o pedido inteiro, a mesma tabela não saberia responder.</p>
+<p>Quando os processos se multiplicam, as estrelas se ligam pelas dimensões compartilhadas: a mesma dimensão de cliente servindo à fato de vendas e à de entregas é o que permite cruzar as duas. Um desenho assim, com várias fatos e dimensões em comum, também circula com nome próprio, <em>galaxy schema</em>, com definições que variam conforme o autor (<a href="https://en.wikipedia.org/wiki/Galaxy_schema">Wikipedia</a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="star-vs-snowflake.svg" class="img-fluid figure-img"></p>
+<figcaption>A mesma venda nos dois desenhos: no star schema, a dimensão produto em tabela única; no snowflake, a hierarquia normalizada em tabelas ligadas por chaves.</figcaption>
+</figure>
+</div>
+<p>O que resolve:</p>
+<ul>
+<li>Estrutura que o usuário final entende e navega, com consultas de comportamento previsível, defesa do próprio Kimball (<a href="https://www.kimballgroup.com/1997/08/a-dimensional-modeling-manifesto/">Kimball, 1997</a>);</li>
+<li>Integração entre processos pelas dimensões compartilhadas;</li>
+<li>O grão declarado vira contrato: toda linha significa a mesma coisa.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>Manter a integridade ao carregar de sistemas diferentes é difícil, e o desenho fica rígido quando o processo de negócio muda (<a href="https://en.wikipedia.org/wiki/Dimensional_modeling">Wikipedia</a>);</li>
+<li>A técnica nasceu da observação da prática, sem base teórica nem teste empírico, avaliação de Moody e Kortink em 2000 (<a href="https://ceur-ws.org/Vol-28/paper5.pdf">Moody e Kortink</a>);</li>
+<li>Declarar grão e dimensões antes de conhecer todas as perguntas é trabalho antecipado, que times em descoberta adiam.</li>
+</ul>
+</section>
+<section id="snowflake-schema-a-ordem-que-custa-junções" class="level3">
+<h3 class="anchored" data-anchor-id="snowflake-schema-a-ordem-que-custa-junções"><em>Snowflake schema</em>: a ordem que custa junções</h3>
+<p>O <em>snowflake schema</em> é a variação que normaliza, ou seja, elimina a repetição quebrando a dimensão em tabelas menores: produto, subcategoria e categoria, separados e ligados por chaves. A hierarquia fica explícita no desenho, e a repetição sai das tabelas normalizadas. Em troca vêm mais tabelas e mais <em>joins</em> por consulta, com desempenho tipicamente pior (<a href="https://docs.oracle.com/cd/A97630_01/server.920/a96520/schemas.htm">Oracle</a>). O próprio Kimball escreveu em 1997 que o <em>snowflaking</em> não contraria a modelagem dimensional quando melhora compreensão e desempenho, e avaliou, no mesmo texto, que costuma prejudicar a navegação e a legibilidade (<a href="https://www.kimballgroup.com/1997/08/a-dimensional-modeling-manifesto/">Kimball, 1997</a>). No consumo, a recomendação da Microsoft segue a mesma direção: em geral os benefícios da dimensão em tabela única superam os da normalizada (<a href="https://learn.microsoft.com/en-us/power-bi/guidance/star-schema">Microsoft Learn</a>).</p>
+</section>
+<section id="fn-e-inmon-primeiro-o-centro-depois-os-marts" class="level3">
+<h3 class="anchored" data-anchor-id="fn-e-inmon-primeiro-o-centro-depois-os-marts">3FN e Inmon: primeiro o centro, depois os <em>marts</em></h3>
+<p>Do outro lado da disputa fica a escola que normaliza o centro. Na abordagem de Bill Inmon, constrói-se primeiro um <em>warehouse</em> corporativo único, integrado e granular, em modelo relacional normalizado, e dele derivam os <em>marts</em> (<a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">Inmon, <em>A Tale of Two Architectures</em></a>). Terceiros resumem essa forma como terceira forma normal (3FN), o desenho clássico em que cada atributo depende só da chave, a coluna que identifica a linha; o próprio Inmon a descreve como normalizada com leve desnormalização, com os <em>marts</em> de consumo em estrela, no estilo de Kimball (<a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">Inmon</a>). Como a seção do <em>mart</em> registrou, a prática acomodou as duas escolas.</p>
+<p>O que resolve:</p>
+<ul>
+<li>Uma versão única e integrada da verdade corporativa, antes de servir cada departamento (<a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">Inmon</a>);</li>
+<li>Histórico granular e governança centralizados;</li>
+<li>O centro normalizado evita a redundância que a estrela aceita.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>Valor que chega tarde, porque a integração vem antes do primeiro relatório, avaliação de um artigo do TDWI (<a href="https://tdwi.org/blogs/data-101/2026/05/architectural-disagreement-that-still-shapes-data-warehouses.aspx">TDWI, 2026</a>);</li>
+<li>Normalizar no centro e dimensionalizar no consumo duplica ETL e armazenamento, crítica do lado Kimball (<a href="https://decisionworks.com/2004/03/differences-of-opinion/">Ross, 2004</a>);</li>
+<li>Integração é a parte mais difícil, e o próprio Inmon a trata como esforço de longo prazo (<a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">Inmon</a>).</li>
+</ul>
+</section>
+<section id="one-big-table-disco-é-barato-engenheiro-não" class="level3">
+<h3 class="anchored" data-anchor-id="one-big-table-disco-é-barato-engenheiro-não"><em>One Big Table</em>: disco é barato, engenheiro não</h3>
+<p>A <em>One Big Table</em> (OBT) é a tabela única, larga e desnormalizada, com fato e dimensões já juntados de antemão, consultada sem <em>join</em>. Um registro cedo do debate é um fórum de engenharia analítica perguntando, em 2019, se a modelagem de Kimball ainda era relevante num <em>warehouse</em> moderno (<a href="https://discourse.getdbt.com/t/is-kimball-dimensional-modeling-still-relevant-in-a-modern-data-warehouse/225">fórum da dbt</a>). O argumento econômico registrado ali: com o <em>warehouse</em> na nuvem e o armazenamento em colunas, guardar valor repetido ficou barato, e o tempo de engenheiro, caro.</p>
+<p>O que resolve:</p>
+<ul>
+<li>Consulta sem junções, mais rápida num teste publicado por uma fornecedora de <em>pipelines</em>: de 25% a 49% conforme o <em>warehouse</em>, com resultado misto num deles (<a href="https://www.fivetran.com/blog/star-schema-vs-obt">Kaminsky, Fivetran, 2022</a>);</li>
+<li>Tabela plana que o usuário de negócio lê sem mapa.</li>
+</ul>
+<p>O que cobra:</p>
+<ul>
+<li>No pior caso do mesmo teste, sem compressão de coluna ajustada, o disco foi de pouco mais de 30 GB com a estrela para mais de 90 GB com a tabela larga (<a href="https://www.fivetran.com/blog/star-schema-vs-obt">Kaminsky, Fivetran, 2022</a>);</li>
+<li>O significado se dilui na tabela gigante, e achar a coluna certa vira o novo problema, queixa registrada no fórum do debate (<a href="https://discourse.getdbt.com/t/is-kimball-dimensional-modeling-still-relevant-in-a-modern-data-warehouse/225">fórum da dbt</a>);</li>
+<li>Cada pergunta nova tende a gerar outra tabela larga, e a mesma lógica passa a viver em várias.</li>
+</ul>
+<p>O detalhe que me interessa está no fecho do próprio teste: o autor sugere manter a estrela nas etapas de transformação e gravar a tabela larga pronta por cima, para o usuário final consultar sem junções (<a href="https://www.fivetran.com/blog/star-schema-vs-obt">Kaminsky, Fivetran, 2022</a>). A estrela continua no desenho, uma camada abaixo de quem consulta.</p>
+</section>
+<section id="o-agente-não-pergunta-o-que-a-tabela-quer-dizer" class="level3">
+<h3 class="anchored" data-anchor-id="o-agente-não-pergunta-o-que-a-tabela-quer-dizer">O agente não pergunta o que a tabela quer dizer</h3>
+<p>Até aqui, o leitor final do dado era uma pessoa, com um analista por perto para desfazer ambiguidade. A novidade é o agente como leitor. E o agente não é um analista mais rápido, é um leitor sem o contexto tácito que o analista carrega. Dustin Dorsey, diretor de engenharia de dados numa consultoria parceira da dbt Labs, argumenta, sem medição, que a prova de conceito com IA funciona porque roda num perímetro onde anos de uso humano já impuseram o significado. Em produção o perímetro some. A mesma pergunta passa a ter várias respostas tecnicamente válidas, o modelo escolhe uma delas, e a inconsistência que sai é defensável, difícil de perceber. A década que centralizou onde o dado vive deixou de fora o que ele representa (<a href="https://www.getdbt.com/blog/your-ai-isn-t-broken-your-data-model-is">Dorsey, blog da dbt Labs, 2026</a>).</p>
+<p>Há um número para o tamanho do problema, relatado na mesma palestra da AWS que abre este artigo: num <em>benchmark</em> de consultas reais de <em>warehouse</em> corporativo, coautorado por pesquisadores da AWS, agentes de ponta acertaram 10,8% (<a href="https://www.getdbt.com/blog/aws-dbt-semantic-layer-ai-agent-revenue-accuracy">dbt Labs, 2026</a>).</p>
+<p>A resposta que o mercado testa é a <em>semantic layer</em>, a camada semântica: declarar métrica, dimensão e relação entre tabelas uma única vez, fora da ferramenta de consumo, e deixar pessoas e agentes consultarem a definição em vez de reescrevê-la a cada consulta (<a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl">documentação do dbt</a>). O dbt é uma ferramenta de transformação de dados, e a fabricante dele vende uma implementação da camada: os números de efeito vêm de quem tem interesse neles, e ainda assim desenham uma direção. Num <em>benchmark</em> interno da dbt Labs, sem método divulgado, um analista de IA ancorado na <em>semantic layer</em> acertou de 96% a 100% das perguntas, contra 80% a 91% escrevendo SQL cru (<a href="https://www.getdbt.com/blog/semantic-layer-ai-analyst-accuracy">dbt Labs, 2026</a>).</p>
+<p>Numa consultoria que mediu um agente de <em>analytics</em> contra perguntas de gabarito, específicas a ponto de dois analistas escreverem o mesmo SQL, <strong>a acurácia foi de 0% sem contexto semântico a 94,7% com as camadas de contexto somadas</strong>, das tabelas modeladas às métricas nomeadas e consultas verificadas, sem trocar de modelo (<a href="https://www.getdbt.com/blog/data-culture-ai-analytics-agent-trust-context">Data Culture, blog da dbt Labs, 2026</a>). Nenhum desses números isola a modelagem: eles medem contexto empilhado, das tabelas modeladas às consultas prontas.</p>
+<p>O catálogo de definições da abertura era exatamente isso, uma <em>semantic layer</em>: as quatro regras dos US$ 3,5 milhões moravam nela, declaradas e ignoradas pela consulta. A camada, porém, precisa de matéria-prima. O grão declarado e a relação explícita vêm da modelagem, e é sobre eles que a métrica ganha definição única e dona. É o argumento de Dorsey para tratar fatos e dimensões como o mecanismo que torna o significado legível para a IA (<a href="https://www.getdbt.com/blog/your-ai-isn-t-broken-your-data-model-is">Dorsey, 2026</a>). A exigência que o BI tolerava por décadas, porque havia gente para compensar, virou, na minha leitura, pré-requisito.</p>
+</section>
+<section id="arquitetura-tem-que-ter-propósito" class="level3">
+<h3 class="anchored" data-anchor-id="arquitetura-tem-que-ter-propósito">Arquitetura tem que ter propósito</h3>
+<p>Onde o dado mora, como ele flui e quem cuida dele são decisões de plataforma e de organização, e as duas passam. Como o dado se explica é decisão de modelagem, e essa nenhuma geração conseguiu aposentar. A estrela segue viva, da camada de transformação à <em>gold</em> do <em>medallion</em>. A tabela larga serve o consumo sem junção. E do centro normalizado de Inmon à tabela, toda resposta depende de entidade, relação e definição declarados para continuar dizendo a mesma coisa. O que fica da modelagem é o que ela obriga a declarar.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Engenharia de dados">#Engenharia-de-dados</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

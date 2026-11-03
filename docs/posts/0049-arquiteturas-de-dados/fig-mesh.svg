@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Antes, um time central dono de tudo; no data mesh, domínios donos de cada pedaço sobre uma plataforma comum">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .box { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .sys { fill: #3d5a80; }
+    .plat { fill: #3d5a80; opacity: 0.15; stroke: #3d5a80; }
+    .titulo { font-size: 16px; fill: #3d3a33; font-weight: bold; text-anchor: middle; }
+    .txt { font-size: 12px; fill: #3d3a33; text-anchor: middle; }
+    .txtb { font-size: 12px; fill: #ffffff; text-anchor: middle; }
+    .linha { stroke: #b8b09e; stroke-width: 1.5; }
+    .nota { font-size: 11px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .dot { fill: #b86b4b; }
+    .f1 { animation: fila1 4.5s linear infinite; }
+    .f2 { animation: fila1 4.5s linear infinite; animation-delay: 0.7s; }
+    .f3 { animation: fila1 4.5s linear infinite; animation-delay: 1.4s; }
+    .loc { animation: local 2.4s ease-in-out infinite; }
+    .loc2 { animation: local 2.4s ease-in-out infinite; animation-delay: 0.8s; }
+    .loc3 { animation: local 2.4s ease-in-out infinite; animation-delay: 1.6s; }
+    @keyframes fila1 { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 55% { transform: translate(105px,0); } 70% { transform: translate(105px,0); } 95% { transform: translate(105px,0); opacity: 1; } 100% { opacity: 0; } }
+    @keyframes local { 0% { transform: translate(0,0); opacity: 0.2; } 50% { transform: translate(0,-26px); opacity: 1; } 100% { transform: translate(0,0); opacity: 0.2; } }
+    @media (prefers-reduced-motion: reduce) { .f1, .f2, .f3, .loc, .loc2, .loc3 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="440" height="340" rx="8"/>
+  <rect class="painel" x="470" y="10" width="440" height="340" rx="8"/>
+
+  <text class="titulo" x="230" y="42">Antes: tudo num dono</text>
+  <text class="titulo" x="690" y="42">Mesh: um dono por domínio</text>
+
+  <rect class="box" x="50" y="80" width="105" height="34" rx="6"/>
+  <text class="txt" x="102" y="102">Vendas pede</text>
+  <rect class="box" x="50" y="160" width="105" height="34" rx="6"/>
+  <text class="txt" x="102" y="182">Logística pede</text>
+  <rect class="box" x="50" y="240" width="105" height="34" rx="6"/>
+  <text class="txt" x="102" y="262">Risco pede</text>
+
+  <line class="linha" x1="155" y1="97" x2="265" y2="160"/>
+  <line class="linha" x1="155" y1="177" x2="265" y2="177"/>
+  <line class="linha" x1="155" y1="257" x2="265" y2="194"/>
+
+  <rect class="sys" x="265" y="140" width="140" height="74" rx="8"/>
+  <text class="txtb" x="335" y="172">Time central</text>
+  <text class="txtb" x="335" y="190" font-size="10">dono de tudo, fila de todos</text>
+
+  <circle class="dot f1" cx="160" cy="100" r="5"/>
+  <circle class="dot f2" cx="160" cy="177" r="5"/>
+  <circle class="dot f3" cx="160" cy="255" r="5"/>
+
+  <text class="nota" x="230" y="316">cada pedido espera a vez na mesma fila</text>
+
+  <rect class="box" x="500" y="90" width="120" height="70" rx="8"/>
+  <text class="txt" x="560" y="118">Vendas</text>
+  <text class="nota" x="560" y="140">dado como produto</text>
+  <rect class="box" x="635" y="90" width="120" height="70" rx="8"/>
+  <text class="txt" x="695" y="118">Logística</text>
+  <text class="nota" x="695" y="140">dado como produto</text>
+  <rect class="box" x="770" y="90" width="120" height="70" rx="8"/>
+  <text class="txt" x="830" y="118">Risco</text>
+  <text class="nota" x="830" y="140">dado como produto</text>
+
+  <circle class="dot loc" cx="560" cy="200" r="5"/>
+  <circle class="dot loc2" cx="695" cy="200" r="5"/>
+  <circle class="dot loc3" cx="830" cy="200" r="5"/>
+
+  <rect class="plat" x="500" y="230" width="390" height="44" rx="8"/>
+  <text class="txt" x="695" y="257">Plataforma self-service comum</text>
+
+  <text class="nota" x="690" y="316">cada domínio publica e cuida do seu pedaço, com governança federada</text>
+</svg>

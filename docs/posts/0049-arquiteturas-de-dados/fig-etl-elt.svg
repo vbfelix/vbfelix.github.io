@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="No ETL, a transformação acontece em trânsito e só o dado limpo chega ao destino; no ELT, o bruto chega inteiro e a transformação roda dentro do destino">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .titulo { font-size: 17px; fill: #3d3a33; font-weight: bold; text-anchor: middle; }
+    .box { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .proc { fill: #f4f0e6; stroke: #b8b09e; stroke-width: 1; stroke-dasharray: 4 3; }
+    .dest { fill: #3d5a80; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .txtb { font-size: 13px; fill: #ffffff; text-anchor: middle; }
+    .linha { stroke: #8a8374; stroke-width: 1.5; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .dot { fill: #b86b4b; }
+    .e1 { animation: transito 4.5s linear infinite; }
+    .l1 { animation: cargacrua 4.5s linear infinite; }
+    .l2 { animation: dentro 4.5s linear infinite; animation-delay: 2.2s; }
+    @keyframes transito { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 40% { transform: translate(90px,0); } 60% { transform: translate(90px,0); } 92% { transform: translate(210px,0); opacity: 1; } 100% { transform: translate(218px,0); opacity: 0; } }
+    @keyframes cargacrua { 0% { transform: translate(0,0); opacity: 0; } 12% { opacity: 1; } 88% { transform: translate(128px,0); opacity: 1; } 100% { transform: translate(136px,0); opacity: 0; } }
+    @keyframes dentro { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,76px); opacity: 1; } 100% { transform: translate(0,84px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .e1, .l1, .l2 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="440" height="380" rx="8"/>
+  <rect class="painel" x="470" y="10" width="440" height="380" rx="8"/>
+
+  <text class="titulo" x="230" y="42">ETL: a regra roda em trânsito</text>
+  <text class="titulo" x="690" y="42">ELT: a regra roda no destino</text>
+
+  <rect class="box" x="40" y="160" width="100" height="48" rx="6"/>
+  <text class="txt" x="90" y="188">Origem</text>
+
+  <line class="linha" x1="140" y1="184" x2="180" y2="184"/>
+
+  <rect class="proc" x="180" y="152" width="130" height="64" rx="6"/>
+  <text class="txt" x="245" y="180">Transformação</text>
+  <text class="nota" x="245" y="200">limpa antes de gravar</text>
+
+  <line class="linha" x1="310" y1="184" x2="350" y2="184"/>
+
+  <rect class="dest" x="350" y="152" width="80" height="64" rx="6"/>
+  <text class="txtb" x="390" y="180">Destino</text>
+  <text class="txtb" x="390" y="200" font-size="10">só o limpo</text>
+
+  <circle class="dot e1" cx="140" cy="184" r="5"/>
+
+  <text class="nota" x="230" y="340">o campo descartado na entrada nunca chega:</text>
+  <text class="nota" x="230" y="356">recuperar exige voltar à origem</text>
+
+  <rect class="box" x="500" y="136" width="100" height="48" rx="6"/>
+  <text class="txt" x="550" y="164">Origem</text>
+
+  <line class="linha" x1="600" y1="160" x2="648" y2="160"/>
+
+  <rect class="dest" x="648" y="70" width="232" height="240" rx="8"/>
+  <text class="txtb" x="764" y="98">Destino</text>
+
+  <rect class="proc" x="672" y="130" width="184" height="56" rx="6"/>
+  <text class="txt" x="764" y="155">Bruto, em cópia</text>
+  <text class="nota" x="764" y="174">como veio da origem</text>
+
+  <line class="linha" x1="764" y1="186" x2="764" y2="234"/>
+
+  <rect class="box" x="672" y="234" width="184" height="56" rx="6"/>
+  <text class="txt" x="764" y="259">Transformado</text>
+  <text class="nota" x="764" y="278">com o motor do destino</text>
+
+  <circle class="dot l1" cx="604" cy="160" r="5"/>
+  <circle class="dot l2" cx="764" cy="196" r="5"/>
+
+  <text class="nota" x="690" y="340">o bruto espera a regra dentro do destino,</text>
+  <text class="nota" x="690" y="356">e a mesma cópia serve a usos que ninguém previu</text>
+</svg>

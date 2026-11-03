@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "644dc6618f1c54c770bdf5a62c1c5d4f1614423e8dceaf0707f546741dcf37a5",
+  "sourceRevision": "892f5919e1973d54a1352c9cbc9874f4586a8a5404806ce2f80e69c1e89db189",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -531,6 +531,17 @@
       "url": "https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html.md",
       "revision": "5408c15a40a7f9238ab2cff7b31e3cf9855f727a044f13bb2a35779ffa107905"
+    },
+    {
+      "title": "A arquitetura muda, a modelagem fica",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Engenharia de dados"
+      ],
+      "url": "https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html.md",
+      "revision": "1374fa9508ae0b9291c33e0054405c6ce0f1aa133d881e95e9c3ad2c4d1c7aab"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

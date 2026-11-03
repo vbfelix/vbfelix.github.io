@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Na arquitetura medallion o dado clareia a cada camada: bronze cru, prata validado, ouro modelado para consumo">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .bronze { fill: #cd7f32; opacity: 0.82; }
+    .prata { fill: #b9b9b9; opacity: 0.85; }
+    .ouro { fill: #d4af37; opacity: 0.88; }
+    .txtb { font-size: 14px; fill: #ffffff; text-anchor: middle; font-weight: bold; }
+    .txtd { font-size: 11px; fill: #ffffff; text-anchor: middle; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .linha { stroke: #b8b09e; stroke-width: 1.5; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .g1 { animation: clareia1 5s linear infinite; }
+    .g2 { animation: clareia2 5s linear infinite; animation-delay: 2.5s; }
+    @keyframes clareia1 { 0% { transform: translate(0,0); opacity: 0; fill: #7a5a3a; } 10% { opacity: 1; } 40% { transform: translate(230px,0); fill: #9a9a9a; } 85% { transform: translate(460px,0); fill: #d4af37; opacity: 1; } 100% { transform: translate(475px,0); fill: #d4af37; opacity: 0; } }
+    @keyframes clareia2 { 0% { transform: translate(0,0); opacity: 0; fill: #7a5a3a; } 10% { opacity: 1; } 40% { transform: translate(230px,0); fill: #9a9a9a; } 85% { transform: translate(460px,0); fill: #d4af37; opacity: 1; } 100% { transform: translate(475px,0); fill: #d4af37; opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .g1, .g2 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
+
+  <rect class="bronze" x="70" y="90" width="200" height="110" rx="10"/>
+  <text class="txtb" x="170" y="135">Bronze</text>
+  <text class="txtd" x="170" y="158">o dado como chegou,</text>
+  <text class="txtd" x="170" y="174">fonte para reconstruir</text>
+
+  <line class="linha" x1="270" y1="145" x2="360" y2="145"/>
+
+  <rect class="prata" x="360" y="90" width="200" height="110" rx="10"/>
+  <text class="txtb" x="460" y="135">Prata</text>
+  <text class="txtd" x="460" y="158">validado, limpo,</text>
+  <text class="txtd" x="460" y="174">deduplicado</text>
+
+  <line class="linha" x1="560" y1="145" x2="650" y2="145"/>
+
+  <rect class="ouro" x="650" y="90" width="200" height="110" rx="10"/>
+  <text class="txtb" x="750" y="135">Ouro</text>
+  <text class="txtd" x="750" y="158">agregado e modelado</text>
+  <text class="txtd" x="750" y="174">para o consumo</text>
+
+  <circle class="g1" cx="170" cy="230" r="6"/>
+  <circle class="g2" cx="170" cy="230" r="6"/>
+
+  <text class="nota" x="460" y="268">cada passagem melhora a estrutura e a qualidade; cada camada é uma cópia a mais</text>
+</svg>

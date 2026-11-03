@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="A mesma venda nos dois desenhos: no star schema, a dimensão produto em tabela única; no snowflake, a hierarquia normalizada em tabelas ligadas por chaves">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .titulo { font-size: 17px; fill: #3d3a33; font-weight: bold; }
+    .fato { fill: #3d5a80; }
+    .dim { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .sub { fill: #f4f0e6; stroke: #b8b09e; stroke-width: 1; stroke-dasharray: 4 3; }
+    .txtfato { font-size: 14px; fill: #ffffff; text-anchor: middle; }
+    .txtdim { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .linha { stroke: #8a8374; stroke-width: 1.5; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .dot { fill: #b86b4b; }
+    .j1 { animation: junta1 3s linear infinite; }
+    .j2 { animation: junta2 3s linear infinite; animation-delay: 1s; }
+    .j3 { animation: junta3 3s linear infinite; animation-delay: 2s; }
+    .k1 { animation: cadeia 4.5s linear infinite; }
+    .k2 { animation: junta2 4.5s linear infinite; animation-delay: 1.5s; }
+    .k3 { animation: junta3 4.5s linear infinite; animation-delay: 3s; }
+    @keyframes junta1 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,104px); opacity: 1; } 100% { transform: translate(0,110px); opacity: 0; } }
+    @keyframes junta2 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(128px,-108px); opacity: 1; } 100% { transform: translate(135px,-115px); opacity: 0; } }
+    @keyframes junta3 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(-128px,-108px); opacity: 1; } 100% { transform: translate(-135px,-115px); opacity: 0; } }
+    @keyframes cadeia { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 35% { transform: translate(-115px,0); } 60% { transform: translate(-205px,0); } 90% { transform: translate(-205px,104px); opacity: 1; } 100% { transform: translate(-205px,112px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .j1, .j2, .j3, .k1, .k2, .k3 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="440" height="420" rx="8"/>
+  <rect class="painel" x="470" y="10" width="440" height="420" rx="8"/>
+
+  <text class="titulo" x="230" y="42" text-anchor="middle">Star schema</text>
+  <text class="titulo" x="690" y="42" text-anchor="middle">Snowflake schema</text>
+
+  <line class="linha" x1="230" y1="215" x2="230" y2="105"/>
+  <line class="linha" x1="230" y1="215" x2="95" y2="330"/>
+  <line class="linha" x1="230" y1="215" x2="365" y2="330"/>
+
+  <rect class="fato" x="165" y="190" width="130" height="50" rx="6"/>
+  <text class="txtfato" x="230" y="211">Fato Vendas</text>
+  <text class="txtfato" x="230" y="229" font-size="11">grão: item por pedido</text>
+
+  <rect class="dim" x="165" y="75" width="130" height="36" rx="6"/>
+  <text class="txtdim" x="230" y="98">Dim Produto</text>
+
+  <rect class="dim" x="35" y="320" width="120" height="36" rx="6"/>
+  <text class="txtdim" x="95" y="343">Dim Cliente</text>
+
+  <rect class="dim" x="305" y="320" width="120" height="36" rx="6"/>
+  <text class="txtdim" x="365" y="343">Dim Data</text>
+
+  <circle class="dot j1" cx="230" cy="106" r="5"/>
+  <circle class="dot j2" cx="100" cy="320" r="5"/>
+  <circle class="dot j3" cx="360" cy="320" r="5"/>
+
+  <text class="nota" x="230" y="400">cada dimensão em tabela única,</text>
+  <text class="nota" x="230" y="416">ligada direto à tabela fato</text>
+
+  <line class="linha" x1="620" y1="215" x2="620" y2="105"/>
+  <line class="linha" x1="620" y1="215" x2="485" y2="330"/>
+  <line class="linha" x1="620" y1="215" x2="755" y2="330"/>
+  <line class="linha" x1="620" y1="93" x2="710" y2="93"/>
+  <line class="linha" x1="710" y1="93" x2="800" y2="93"/>
+
+  <rect class="fato" x="555" y="190" width="130" height="50" rx="6"/>
+  <text class="txtfato" x="620" y="211">Fato Vendas</text>
+  <text class="txtfato" x="620" y="229" font-size="11">grão: item por pedido</text>
+
+  <rect class="dim" x="560" y="75" width="110" height="36" rx="6"/>
+  <text class="txtdim" x="615" y="98">Dim Produto</text>
+
+  <rect class="sub" x="680" y="75" width="90" height="36" rx="6"/>
+  <text class="txtdim" x="725" y="98">Subcateg.</text>
+
+  <rect class="sub" x="780" y="75" width="90" height="36" rx="6"/>
+  <text class="txtdim" x="825" y="98">Categoria</text>
+
+  <rect class="dim" x="425" y="320" width="120" height="36" rx="6"/>
+  <text class="txtdim" x="485" y="343">Dim Cliente</text>
+
+  <rect class="dim" x="695" y="320" width="120" height="36" rx="6"/>
+  <text class="txtdim" x="755" y="343">Dim Data</text>
+
+  <circle class="dot k1" cx="825" cy="93" r="5"/>
+  <circle class="dot k2" cx="490" cy="320" r="5"/>
+  <circle class="dot k3" cx="750" cy="320" r="5"/>
+
+  <text class="nota" x="690" y="400">a hierarquia do produto sai da dimensão</text>
+  <text class="nota" x="690" y="416">e vira tabelas normalizadas, ligadas por chaves</text>
+</svg>

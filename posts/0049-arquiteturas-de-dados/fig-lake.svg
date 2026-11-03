@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Fontes heterogêneas caem no data lake como chegam, e zonas separam o cru do curado">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .box { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .lago { fill: #3d5a80; opacity: 0.12; stroke: #3d5a80; stroke-width: 1; }
+    .zona { fill: none; stroke: #3d5a80; stroke-width: 1; stroke-dasharray: 5 4; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .txtz { font-size: 12px; fill: #3d5a80; text-anchor: middle; font-style: italic; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .dot { fill: #b86b4b; }
+    .q1 { animation: cai1 3.5s linear infinite; }
+    .q2 { animation: cai2 3.5s linear infinite; animation-delay: 0.9s; }
+    .q3 { animation: cai3 3.5s linear infinite; animation-delay: 1.8s; }
+    .q4 { animation: anda 5s linear infinite; animation-delay: 0.4s; }
+    @keyframes cai1 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,96px); opacity: 1; } 100% { transform: translate(0,106px); opacity: 0; } }
+    @keyframes cai2 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,96px); opacity: 1; } 100% { transform: translate(0,106px); opacity: 0; } }
+    @keyframes cai3 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(0,96px); opacity: 1; } 100% { transform: translate(0,106px); opacity: 0; } }
+    @keyframes anda { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 90% { transform: translate(520px,0); opacity: 1; } 100% { transform: translate(540px,0); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .q1, .q2, .q3, .q4 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
+
+  <rect class="box" x="130" y="40" width="130" height="34" rx="6"/>
+  <text class="txt" x="195" y="62">Tabelas (SQL)</text>
+  <rect class="box" x="400" y="40" width="130" height="34" rx="6"/>
+  <text class="txt" x="465" y="62">Eventos e logs</text>
+  <rect class="box" x="670" y="40" width="130" height="34" rx="6"/>
+  <text class="txt" x="735" y="62">Texto e mídia</text>
+
+  <rect class="lago" x="60" y="180" width="800" height="100" rx="14"/>
+  <rect class="zona" x="80" y="196" width="240" height="68" rx="8"/>
+  <text class="txtz" x="200" y="235">zona crua</text>
+  <rect class="zona" x="344" y="196" width="240" height="68" rx="8"/>
+  <text class="txtz" x="464" y="235">zona confiável</text>
+  <rect class="zona" x="608" y="196" width="232" height="68" rx="8"/>
+  <text class="txtz" x="724" y="235">zona curada</text>
+
+  <circle class="dot q1" cx="195" cy="80" r="5"/>
+  <circle class="dot q2" cx="465" cy="80" r="5"/>
+  <circle class="dot q3" cx="735" cy="80" r="5"/>
+  <circle class="dot q4" cx="200" cy="170" r="5"/>
+
+  <text class="nota" x="460" y="300">o esquema não é cobrado na escrita: é cobrado de quem lê, zona a zona</text>
+</svg>

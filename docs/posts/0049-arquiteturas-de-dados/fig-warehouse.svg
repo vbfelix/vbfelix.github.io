@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Fontes operacionais passam pelo ETL e chegam ao data warehouse, que serve o BI">
+  <style>
+    .painel { fill: #ffffff; stroke: #d8d2c6; stroke-width: 1; }
+    .box { fill: #e8e2d4; stroke: #b8b09e; stroke-width: 1; }
+    .sys { fill: #3d5a80; }
+    .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
+    .txtb { font-size: 14px; fill: #ffffff; text-anchor: middle; }
+    .linha { stroke: #b8b09e; stroke-width: 1.5; }
+    .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
+    .dot { fill: #b86b4b; }
+    .d1 { animation: fluxo1 4s linear infinite; }
+    .d2 { animation: fluxo2 4s linear infinite; animation-delay: 1.3s; }
+    .d3 { animation: fluxo3 4s linear infinite; animation-delay: 2.6s; }
+    .d4 { animation: fluxo4 4s linear infinite; animation-delay: 0.6s; }
+    @keyframes fluxo1 { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 45% { transform: translate(185px,55px); } 90% { transform: translate(330px,55px); opacity: 1; } 100% { transform: translate(340px,55px); opacity: 0; } }
+    @keyframes fluxo2 { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 45% { transform: translate(185px,0); } 90% { transform: translate(330px,0); opacity: 1; } 100% { transform: translate(340px,0); opacity: 0; } }
+    @keyframes fluxo3 { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: 1; } 45% { transform: translate(185px,-55px); } 90% { transform: translate(330px,-55px); opacity: 1; } 100% { transform: translate(340px,-55px); opacity: 0; } }
+    @keyframes fluxo4 { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 85% { transform: translate(165px,0); opacity: 1; } 100% { transform: translate(180px,0); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .d1, .d2, .d3, .d4 { animation: none; opacity: 0.5; } }
+  </style>
+
+  <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
+
+  <rect class="box" x="40" y="60" width="110" height="36" rx="6"/>
+  <text class="txt" x="95" y="83">CRM</text>
+  <rect class="box" x="40" y="132" width="110" height="36" rx="6"/>
+  <text class="txt" x="95" y="155">ERP</text>
+  <rect class="box" x="40" y="204" width="110" height="36" rx="6"/>
+  <text class="txt" x="95" y="227">Aplicação</text>
+
+  <line class="linha" x1="150" y1="78" x2="330" y2="133"/>
+  <line class="linha" x1="150" y1="150" x2="330" y2="150"/>
+  <line class="linha" x1="150" y1="222" x2="330" y2="167"/>
+
+  <rect class="box" x="330" y="122" width="90" height="56" rx="6"/>
+  <text class="txt" x="375" y="147">ETL</text>
+  <text class="nota" x="375" y="166">limpa antes</text>
+
+  <line class="linha" x1="420" y1="150" x2="520" y2="150"/>
+
+  <rect class="sys" x="520" y="104" width="180" height="92" rx="8"/>
+  <text class="txtb" x="610" y="140">Data warehouse</text>
+  <text class="txtb" x="610" y="162" font-size="11">esquema na escrita,</text>
+  <text class="txtb" x="610" y="178" font-size="11">histórico não volátil</text>
+
+  <line class="linha" x1="700" y1="150" x2="790" y2="150"/>
+
+  <rect class="box" x="790" y="122" width="90" height="56" rx="6"/>
+  <text class="txt" x="835" y="147">BI</text>
+  <text class="nota" x="835" y="166">consultas</text>
+
+  <circle class="dot d1" cx="150" cy="78" r="5"/>
+  <circle class="dot d2" cx="150" cy="150" r="5"/>
+  <circle class="dot d3" cx="150" cy="222" r="5"/>
+  <circle class="dot d4" cx="520" cy="150" r="5"/>
+
+  <text class="nota" x="460" y="272">a operação escreve de um lado, a análise lê do outro</text>
+</svg>

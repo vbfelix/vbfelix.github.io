@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "45a43807b89e61bc7b6b06fe4109e75af090a2d4",
+  "commit": "b853c1a10f20293ed9004afce54c8d9c2a6e5d6a",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -97,6 +97,21 @@
       "source": "186a9c93b2e8787054c3bd6d270643a97080174bde01c47c95c536b42e2ce814",
       "rendered": "22f991c1144ec37b594e7ccb02bfb7e860d8cadcacb95df0f69663796e3809a7",
       "target": "posts/0047-llm-wiki/index.qmd"
+    },
+    "2026-10-30_arquiteturas-de-dados.md": {
+      "source": "4d6c38913885fb1e25fc5d0543b8207030968ea36623fdc8fddbd4b22a2808f0",
+      "rendered": "1374fa9508ae0b9291c33e0054405c6ce0f1aa133d881e95e9c3ad2c4d1c7aab",
+      "target": "posts/0049-arquiteturas-de-dados/index.qmd",
+      "assets": {
+        "fig-etl-elt.svg": "338de629db088be6d97a7bf063cd91e0026cc64869c973f11d68850c3b470016",
+        "fig-lake.svg": "e495ea3233ad24080a32e5fa053d488af606418f4766fad92d197d376c5a66d5",
+        "fig-lakehouse.svg": "12d62fc47e542197341a083fc33628f604e4092d944c36dc886e1b8b53e3f846",
+        "fig-mart.svg": "6d17a8a96fb9d202b11ae1c6cd1b07688032e7a0174f581873dab127726c9bcc",
+        "fig-medallion.svg": "5999452c6d62ee7394fee0b4acbf2ae4ca7bc0296b7983017837b85426c075c3",
+        "fig-mesh.svg": "57a7d30c7caf04782340615428497f873e48410697104e44a738afa77e5ef5e8",
+        "fig-warehouse.svg": "5787ea5f06f2ee98beed058c96205618d88d5e07b76fb87cc5093cd451481fd9",
+        "star-vs-snowflake.svg": "ee94cbac4d0275770f35f4f34b8f32665aab5a1020767267b52612261cbcb00c"
+      }
     },
     "2026-10-31_metodos-de-cafe.md": {
       "source": "afbb2512cabc174c1971606e0a23e4c408849eb3ba0fe755ce66861ff1f000e4",

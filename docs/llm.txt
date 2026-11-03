@@ -70,6 +70,7 @@ As páginas institucionais estão em português; os artigos preservam seus idiom
 - [Tempo de casa não é senioridade](https://vbfelix.github.io/posts/0046-senioridade/index.html.md): artigo em pt-BR, temas: Outro.
 - [Como criar um segundo cérebro](https://vbfelix.github.io/posts/0047-llm-wiki/index.html.md): artigo em pt-BR, temas: IA.
 - [Café especial não é frescura. É física.](https://vbfelix.github.io/posts/0048-metodos-de-cafe/index.html.md): artigo em pt-BR, temas: Outro.
+- [A arquitetura muda, a modelagem fica](https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html.md): artigo em pt-BR, temas: Engenharia de dados.
 - [UX com produtos físicos, o puro suco da estatística](https://vbfelix.github.io/portfolio/0032-ux-produtos-fisicos/index.html.md): projeto em pt-BR, temas: statistics, UX, research.
 - [O que define o sucesso da IA, mas não estou falando de inteligência artificial](https://vbfelix.github.io/portfolio/0033-sucesso-ia-iatf/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
 - [Sombras e nuvens, o maior inimigo para se chegar no verdor de plantas](https://vbfelix.github.io/portfolio/0034-zonas-de-manejo-satelites/index.html.md): projeto em pt-BR, temas: statistics, agribusiness, research.
