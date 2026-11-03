@@ -6,19 +6,23 @@
     .meta { fill: #3d5a80; }
     .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
     .txtb { font-size: 13px; fill: #ffffff; text-anchor: middle; }
+    .txtb-11 { font-size: 11px; fill: #ffffff; text-anchor: middle; }
     .linha { stroke: #b8b09e; stroke-width: 1.5; }
     .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
     .dot { fill: #b86b4b; }
     .meta { animation: pulsa 3s ease-in-out infinite; }
     .s1 { animation: sobe1 4s linear infinite; }
     .s2 { animation: sobe2 4s linear infinite; animation-delay: 2s; }
-    @keyframes pulsa { 0% { opacity: 1; } 50% { opacity: 0.72; } 100% { opacity: 1; } }
+    @keyframes pulsa { 0% { opacity: 1; } 50% { opacity: 0.9; } 100% { opacity: 1; } }
     @keyframes sobe1 { 0% { transform: translate(0,0); opacity: 0; } 12% { opacity: 1; } 45% { transform: translate(-60px,-70px); } 88% { transform: translate(-180px,-150px); opacity: 1; } 100% { transform: translate(-190px,-160px); opacity: 0; } }
     @keyframes sobe2 { 0% { transform: translate(0,0); opacity: 0; } 12% { opacity: 1; } 45% { transform: translate(60px,-70px); } 88% { transform: translate(180px,-150px); opacity: 1; } 100% { transform: translate(190px,-160px); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { .meta, .s1, .s2 { animation: none; } .s1, .s2 { opacity: 0.5; } }
   </style>
 
   <rect class="painel" x="10" y="10" width="900" height="310" rx="8"/>
+
+  <circle class="dot s1" cx="460" cy="250" r="5"/>
+  <circle class="dot s2" cx="460" cy="250" r="5"/>
 
   <rect class="box" x="230" y="40" width="130" height="40" rx="6"/>
   <text class="txt" x="295" y="65">BI</text>
@@ -30,13 +34,11 @@
 
   <rect class="meta" x="200" y="178" width="520" height="46" rx="8"/>
   <text class="txtb" x="460" y="200">Camada de metadados transacional</text>
-  <text class="txtb" x="460" y="216" font-size="11">quais arquivos formam cada versão de cada tabela</text>
+  <text class="txtb-11" x="460" y="216">quais arquivos formam cada versão de cada tabela</text>
 
   <rect class="lago" x="140" y="244" width="640" height="52" rx="10"/>
   <text class="txt" x="460" y="275">Arquivos em formato aberto, no armazenamento de objeto</text>
 
-  <circle class="dot s1" cx="460" cy="250" r="5"/>
-  <circle class="dot s2" cx="460" cy="250" r="5"/>
 
   <text class="nota" x="460" y="312">a mesma cópia do dado, com garantias de banco por cima</text>
 </svg>

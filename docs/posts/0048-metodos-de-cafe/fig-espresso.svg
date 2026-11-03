@@ -36,8 +36,10 @@
 
   <!-- xícara com crema -->
   <path class="vidro" d="M 420 230 L 428 292 L 492 292 L 500 230"/>
-  <rect class="agua" x="428" y="252" width="64" height="34" opacity="0.7"/>
-  <rect class="crema" x="426" y="240" width="68" height="12" rx="3"/>
+  <g data-figura="ilustracao">
+    <rect class="agua" x="428" y="252" width="64" height="34" opacity="0.7"/>
+    <rect class="crema" x="426" y="240" width="68" height="12" rx="3"/>
+  </g>
   <text class="nota" x="610" y="250">a crema: espuma que só</text>
   <text class="nota" x="610" y="268">a pressão produz</text>
 

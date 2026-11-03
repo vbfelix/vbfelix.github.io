@@ -7,6 +7,7 @@
     .titulo { font-size: 16px; fill: #3d3a33; font-weight: bold; text-anchor: middle; }
     .txt { font-size: 12px; fill: #3d3a33; text-anchor: middle; }
     .txtb { font-size: 12px; fill: #ffffff; text-anchor: middle; }
+    .txtb-11 { font-size: 11px; fill: #ffffff; text-anchor: middle; }
     .linha { stroke: #b8b09e; stroke-width: 1.5; }
     .nota { font-size: 11px; fill: #6b6657; text-anchor: middle; font-style: italic; }
     .dot { fill: #b86b4b; }
@@ -27,6 +28,13 @@
   <text class="titulo" x="230" y="42">Antes: tudo num dono</text>
   <text class="titulo" x="690" y="42">Mesh: um dono por domínio</text>
 
+  <circle class="dot f1" cx="160" cy="100" r="5"/>
+  <circle class="dot f2" cx="160" cy="177" r="5"/>
+  <circle class="dot f3" cx="160" cy="255" r="5"/>
+  <circle class="dot loc" cx="560" cy="200" r="5"/>
+  <circle class="dot loc2" cx="695" cy="200" r="5"/>
+  <circle class="dot loc3" cx="830" cy="200" r="5"/>
+
   <rect class="box" x="50" y="80" width="105" height="34" rx="6"/>
   <text class="txt" x="102" y="102">Vendas pede</text>
   <rect class="box" x="50" y="160" width="105" height="34" rx="6"/>
@@ -38,13 +46,10 @@
   <line class="linha" x1="155" y1="177" x2="265" y2="177"/>
   <line class="linha" x1="155" y1="257" x2="265" y2="194"/>
 
-  <rect class="sys" x="265" y="140" width="140" height="74" rx="8"/>
+  <rect class="sys" x="257" y="140" width="156" height="74" rx="8"/>
   <text class="txtb" x="335" y="172">Time central</text>
-  <text class="txtb" x="335" y="190" font-size="10">dono de tudo, fila de todos</text>
+  <text class="txtb-11" x="335" y="190">dono de tudo, fila de todos</text>
 
-  <circle class="dot f1" cx="160" cy="100" r="5"/>
-  <circle class="dot f2" cx="160" cy="177" r="5"/>
-  <circle class="dot f3" cx="160" cy="255" r="5"/>
 
   <text class="nota" x="230" y="316">cada pedido espera a vez na mesma fila</text>
 
@@ -58,9 +63,6 @@
   <text class="txt" x="830" y="118">Risco</text>
   <text class="nota" x="830" y="140">dado como produto</text>
 
-  <circle class="dot loc" cx="560" cy="200" r="5"/>
-  <circle class="dot loc2" cx="695" cy="200" r="5"/>
-  <circle class="dot loc3" cx="830" cy="200" r="5"/>
 
   <rect class="plat" x="500" y="230" width="390" height="44" rx="8"/>
   <text class="txt" x="695" y="257">Plataforma self-service comum</text>

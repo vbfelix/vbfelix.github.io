@@ -32,16 +32,18 @@
   <text class="txt" x="325" y="296">fogo baixo, sem pressa</text>
   <text class="nota" x="180" y="160">pó moído a talco,</text>
   <text class="nota" x="180" y="178">água e açúcar juntos</text>
-  <text class="nota" x="490" y="130">a espuma é o ponto:</text>
-  <text class="nota" x="490" y="148">fervura lenta, não pressão</text>
+  <text class="nota" x="520" y="130">a espuma é o ponto:</text>
+  <text class="nota" x="520" y="148">fervura lenta, não pressão</text>
 
   <!-- xícara com borra -->
   <path class="seta" d="M 540 200 L 620 200 M 610 195 L 620 200 L 610 205"/>
   <text class="nota" x="580" y="186">serve-se tudo</text>
 
   <path class="vidro" d="M 660 170 L 668 240 L 732 240 L 740 170"/>
-  <rect class="liquido" x="668" y="190" width="64" height="38" opacity="0.8"/>
-  <rect class="cafe" x="670" y="228" width="60" height="10"/>
+  <g data-figura="ilustracao">
+    <rect class="liquido" x="668" y="190" width="64" height="38" opacity="0.8"/>
+    <rect class="cafe" x="670" y="228" width="60" height="10"/>
+  </g>
   <text class="txt" x="700" y="268">a borra desce para o fundo</text>
   <text class="nota" x="700" y="288">e depois, quem quiser, lê a sorte nela</text>
 

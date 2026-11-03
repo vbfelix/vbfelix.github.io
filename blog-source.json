@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "b853c1a10f20293ed9004afce54c8d9c2a6e5d6a",
+  "commit": "d3cde250ea9c55df668f281a5dd9558f29f18911",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -103,14 +103,14 @@
       "rendered": "1374fa9508ae0b9291c33e0054405c6ce0f1aa133d881e95e9c3ad2c4d1c7aab",
       "target": "posts/0049-arquiteturas-de-dados/index.qmd",
       "assets": {
-        "fig-etl-elt.svg": "338de629db088be6d97a7bf063cd91e0026cc64869c973f11d68850c3b470016",
-        "fig-lake.svg": "e495ea3233ad24080a32e5fa053d488af606418f4766fad92d197d376c5a66d5",
-        "fig-lakehouse.svg": "12d62fc47e542197341a083fc33628f604e4092d944c36dc886e1b8b53e3f846",
-        "fig-mart.svg": "6d17a8a96fb9d202b11ae1c6cd1b07688032e7a0174f581873dab127726c9bcc",
+        "fig-etl-elt.svg": "5dc067891ae13e1043084a76981c05dbc227459285c1109ff15a753aadc49cdd",
+        "fig-lake.svg": "e7d2bd08b1e5d80580d291112e87e8cdb603c4bbf333635aca8c6f348c0515e7",
+        "fig-lakehouse.svg": "da8983350dcf08cefb932f6c0bc3a3c159926abf17d1716b24ef134140445d7f",
+        "fig-mart.svg": "090001606409dc1fe3574c0dd2d5bba7223c6adef82e93897a46ebb3049584ba",
         "fig-medallion.svg": "5999452c6d62ee7394fee0b4acbf2ae4ca7bc0296b7983017837b85426c075c3",
-        "fig-mesh.svg": "57a7d30c7caf04782340615428497f873e48410697104e44a738afa77e5ef5e8",
-        "fig-warehouse.svg": "5787ea5f06f2ee98beed058c96205618d88d5e07b76fb87cc5093cd451481fd9",
-        "star-vs-snowflake.svg": "ee94cbac4d0275770f35f4f34b8f32665aab5a1020767267b52612261cbcb00c"
+        "fig-mesh.svg": "78619859278e220a655a57efe8e5aa3f95ff6911386524d40cdf3ef43e70b90d",
+        "fig-warehouse.svg": "81df7e61de70db8fadda903ac224f423be22a4ad68be1e65a34e7036f844a3d2",
+        "star-vs-snowflake.svg": "76b344e8db92a78fabd5c8ebb1467f1b00dda9c71a777649874696a539df960b"
       }
     },
     "2026-10-31_metodos-de-cafe.md": {
@@ -119,13 +119,13 @@
       "target": "posts/0048-metodos-de-cafe/index.qmd",
       "assets": {
         "fig-aeropress.svg": "730b981cf190cdcc3c0208b2be0589a9b7934432b601e2b130db6ffaf2dbc957",
-        "fig-espresso.svg": "51c574661ab7868fb70cb8f0f377bb78269c9bfde6293c7900cd51066c25bf6c",
-        "fig-extracao.svg": "faa7b2a81895a44d77c2ffc5ff52bb0a1eefba86d84248f535076e921a6cbd24",
+        "fig-espresso.svg": "e1d73a89deb410e0f2508641aff9cae98467b76f620fcf39eb2eb75d0d79bb19",
+        "fig-extracao.svg": "34c42b96a66037f07031134ac8c881067b8ac6b609322a12037afcfac11a9678",
         "fig-koar.svg": "73e3d226e16f167becabe00a4792f245f8b6a1c96418d3b7e74376bdaeccca89",
         "fig-melitta.svg": "147b763e140fa1324e7177485840ddef330ba751cfa063cb06c63207868d47ac",
-        "fig-origami.svg": "f2dd7899e158a2fcf9040acd3e0df59bd550b74868890a336a50032235d3a9fa",
+        "fig-origami.svg": "cc7a51ad53ae49b2452c98c04e02fee3fa40c2ef1bbb0f689328cf04f6252a50",
         "fig-prensa-francesa.svg": "e2b8674f1d5972acc2e4f7c706383bed30cbc29296262256a97466ef61f31a93",
-        "fig-turco.svg": "fb18772e683446473e061ed3a6d5109b54f4db93e3c9f1c220d192869cc6d87e",
+        "fig-turco.svg": "2f7681242082367ff4c6516e3d4906739214928919825a94589e5a0a26f6148c",
         "fig-v60.svg": "0162da9844abc7e75564ba3f58d9715911cb57ea4f8661fc01da37c4fd7b7d9c"
       }
     }

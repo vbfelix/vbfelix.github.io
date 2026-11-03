@@ -7,6 +7,7 @@
     .dest { fill: #3d5a80; }
     .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
     .txtb { font-size: 13px; fill: #ffffff; text-anchor: middle; }
+    .txtb-11 { font-size: 11px; fill: #ffffff; text-anchor: middle; }
     .linha { stroke: #8a8374; stroke-width: 1.5; }
     .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
     .dot { fill: #b86b4b; }
@@ -25,6 +26,9 @@
   <text class="titulo" x="230" y="42">ETL: a regra roda em trânsito</text>
   <text class="titulo" x="690" y="42">ELT: a regra roda no destino</text>
 
+  <circle class="dot e1" cx="140" cy="184" r="5"/>
+  <circle class="dot l1" cx="604" cy="160" r="5"/>
+
   <rect class="box" x="40" y="160" width="100" height="48" rx="6"/>
   <text class="txt" x="90" y="188">Origem</text>
 
@@ -38,9 +42,8 @@
 
   <rect class="dest" x="350" y="152" width="80" height="64" rx="6"/>
   <text class="txtb" x="390" y="180">Destino</text>
-  <text class="txtb" x="390" y="200" font-size="10">só o limpo</text>
+  <text class="txtb-11" x="390" y="200">só o limpo</text>
 
-  <circle class="dot e1" cx="140" cy="184" r="5"/>
 
   <text class="nota" x="230" y="340">o campo descartado na entrada nunca chega:</text>
   <text class="nota" x="230" y="356">recuperar exige voltar à origem</text>
@@ -53,6 +56,8 @@
   <rect class="dest" x="648" y="70" width="232" height="240" rx="8"/>
   <text class="txtb" x="764" y="98">Destino</text>
 
+  <circle class="dot l2" cx="764" cy="196" r="5"/>
+
   <rect class="proc" x="672" y="130" width="184" height="56" rx="6"/>
   <text class="txt" x="764" y="155">Bruto, em cópia</text>
   <text class="nota" x="764" y="174">como veio da origem</text>
@@ -63,8 +68,6 @@
   <text class="txt" x="764" y="259">Transformado</text>
   <text class="nota" x="764" y="278">com o motor do destino</text>
 
-  <circle class="dot l1" cx="604" cy="160" r="5"/>
-  <circle class="dot l2" cx="764" cy="196" r="5"/>
 
   <text class="nota" x="690" y="340">o bruto espera a regra dentro do destino,</text>
   <text class="nota" x="690" y="356">e a mesma cópia serve a usos que ninguém previu</text>

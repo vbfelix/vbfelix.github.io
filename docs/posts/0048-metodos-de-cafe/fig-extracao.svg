@@ -18,9 +18,11 @@
 
   <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
 
-  <rect class="fase1" x="80" y="90" width="240" height="70" rx="4"/>
-  <rect class="fase2" x="320" y="90" width="280" height="70" rx="4"/>
-  <rect class="fase3" x="600" y="90" width="240" height="70" rx="4"/>
+  <g data-figura="ilustracao">
+    <rect class="fase1" x="80" y="90" width="240" height="70" rx="4"/>
+    <rect class="fase2" x="320" y="90" width="280" height="70" rx="4"/>
+    <rect class="fase3" x="600" y="90" width="240" height="70" rx="4"/>
+  </g>
 
   <text class="txtf" x="200" y="120">ácidos</text>
   <text class="txt" x="200" y="142">o lado brilhante e cítrico</text>
@@ -29,7 +31,7 @@
   <text class="txtf" x="720" y="120">amargos</text>
   <text class="txt" x="720" y="142">amargor e adstringência</text>
 
-  <rect class="janela" x="390" y="78" width="220" height="94" rx="6"/>
+  <rect class="janela" data-figura="ilustracao" x="390" y="78" width="220" height="94" rx="6"/>
   <text class="txt" x="500" y="66" fill="#3d5a80">janela de equilíbrio</text>
 
   <line class="linha" x1="80" y1="200" x2="840" y2="200"/>

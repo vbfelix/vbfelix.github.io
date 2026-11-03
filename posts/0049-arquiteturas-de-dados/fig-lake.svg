@@ -21,6 +21,11 @@
 
   <rect class="painel" x="10" y="10" width="900" height="300" rx="8"/>
 
+  <circle class="dot q1" cx="195" cy="80" r="5"/>
+  <circle class="dot q2" cx="465" cy="80" r="5"/>
+  <circle class="dot q3" cx="735" cy="80" r="5"/>
+  <circle class="dot q4" cx="200" cy="170" r="5"/>
+
   <rect class="box" x="130" y="40" width="130" height="34" rx="6"/>
   <text class="txt" x="195" y="62">Tabelas (SQL)</text>
   <rect class="box" x="400" y="40" width="130" height="34" rx="6"/>
@@ -36,10 +41,6 @@
   <rect class="zona" x="608" y="196" width="232" height="68" rx="8"/>
   <text class="txtz" x="724" y="235">zona curada</text>
 
-  <circle class="dot q1" cx="195" cy="80" r="5"/>
-  <circle class="dot q2" cx="465" cy="80" r="5"/>
-  <circle class="dot q3" cx="735" cy="80" r="5"/>
-  <circle class="dot q4" cx="200" cy="170" r="5"/>
 
   <text class="nota" x="460" y="300">o esquema não é cobrado na escrita: é cobrado de quem lê, zona a zona</text>
 </svg>

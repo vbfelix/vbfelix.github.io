@@ -5,6 +5,7 @@
     .sys { fill: #3d5a80; }
     .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
     .txtb { font-size: 14px; fill: #ffffff; text-anchor: middle; }
+    .txtb-11 { font-size: 11px; fill: #ffffff; text-anchor: middle; }
     .linha { stroke: #b8b09e; stroke-width: 1.5; }
     .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
     .dot { fill: #b86b4b; }
@@ -19,10 +20,14 @@
 
   <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
 
+  <circle class="dot m1" cx="280" cy="128" r="5"/>
+  <circle class="dot m2" cx="280" cy="150" r="5"/>
+  <circle class="dot m3" cx="280" cy="172" r="5"/>
+
   <rect class="sys" x="90" y="104" width="190" height="92" rx="8"/>
   <text class="txtb" x="185" y="140">Data warehouse</text>
-  <text class="txtb" x="185" y="162" font-size="11">toda a empresa,</text>
-  <text class="txtb" x="185" y="178" font-size="11">todos os assuntos</text>
+  <text class="txtb-11" x="185" y="162">toda a empresa,</text>
+  <text class="txtb-11" x="185" y="178">todos os assuntos</text>
 
   <line class="linha" x1="280" y1="128" x2="500" y2="72"/>
   <line class="linha" x1="280" y1="150" x2="500" y2="150"/>
@@ -39,9 +44,6 @@
   <text class="nota" x="760" y="155">o time financeiro</text>
   <text class="nota" x="760" y="233">o time de marketing</text>
 
-  <circle class="dot m1" cx="280" cy="128" r="5"/>
-  <circle class="dot m2" cx="280" cy="150" r="5"/>
-  <circle class="dot m3" cx="280" cy="172" r="5"/>
 
   <text class="nota" x="380" y="272">o mesmo desenho, recortado por assunto: cada área consulta só a sua fatia</text>
 </svg>

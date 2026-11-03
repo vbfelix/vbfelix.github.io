@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/portfolio",
-  "commit": "b853c1a10f20293ed9004afce54c8d9c2a6e5d6a",
+  "commit": "d3cde250ea9c55df668f281a5dd9558f29f18911",
   "files": {
     "0032-ux-produtos-fisicos/index.qmd": "b9fa48e1636742c4d6914ad57eac31b1ff6e7e8a5809289542a00252733b6431",
     "0033-sucesso-ia-iatf/index.qmd": "5d0dcf251bfd4c6d9e7e5ddad298b95c58dd9249e5aeeaa232bc55d34afb44cc",

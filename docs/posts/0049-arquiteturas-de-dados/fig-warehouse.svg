@@ -5,6 +5,7 @@
     .sys { fill: #3d5a80; }
     .txt { font-size: 13px; fill: #3d3a33; text-anchor: middle; }
     .txtb { font-size: 14px; fill: #ffffff; text-anchor: middle; }
+    .txtb-11 { font-size: 11px; fill: #ffffff; text-anchor: middle; }
     .linha { stroke: #b8b09e; stroke-width: 1.5; }
     .nota { font-size: 12px; fill: #6b6657; text-anchor: middle; font-style: italic; }
     .dot { fill: #b86b4b; }
@@ -20,6 +21,11 @@
   </style>
 
   <rect class="painel" x="10" y="10" width="900" height="280" rx="8"/>
+
+  <circle class="dot d1" cx="150" cy="78" r="5"/>
+  <circle class="dot d2" cx="150" cy="150" r="5"/>
+  <circle class="dot d3" cx="150" cy="222" r="5"/>
+  <circle class="dot d4" cx="520" cy="150" r="5"/>
 
   <rect class="box" x="40" y="60" width="110" height="36" rx="6"/>
   <text class="txt" x="95" y="83">CRM</text>
@@ -40,8 +46,8 @@
 
   <rect class="sys" x="520" y="104" width="180" height="92" rx="8"/>
   <text class="txtb" x="610" y="140">Data warehouse</text>
-  <text class="txtb" x="610" y="162" font-size="11">esquema na escrita,</text>
-  <text class="txtb" x="610" y="178" font-size="11">histórico não volátil</text>
+  <text class="txtb-11" x="610" y="162">esquema na escrita,</text>
+  <text class="txtb-11" x="610" y="178">histórico não volátil</text>
 
   <line class="linha" x1="700" y1="150" x2="790" y2="150"/>
 
@@ -49,10 +55,6 @@
   <text class="txt" x="835" y="147">BI</text>
   <text class="nota" x="835" y="166">consultas</text>
 
-  <circle class="dot d1" cx="150" cy="78" r="5"/>
-  <circle class="dot d2" cx="150" cy="150" r="5"/>
-  <circle class="dot d3" cx="150" cy="222" r="5"/>
-  <circle class="dot d4" cx="520" cy="150" r="5"/>
 
   <text class="nota" x="460" y="272">a operação escreve de um lado, a análise lê do outro</text>
 </svg>
