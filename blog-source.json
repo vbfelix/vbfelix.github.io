@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "c28e005da6785c70f79993a2f431dee354b83d99",
+  "commit": "90a5106b50ebe33cfff20ff99548167ca6ce5cf8",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -64,8 +64,8 @@
       "target": "posts/0042-llm-como-juiz/index.qmd"
     },
     "2026-10-12_o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe.md": {
-      "source": "4baefdbe04c582ad33179aeb0a1eb5bc8b040064e9f5d2a3a800ac604d5d4985",
-      "rendered": "230b1f7dd2c49c47d46362593f0983667b0f12e017a88bcb4e0c9cd385756f67",
+      "source": "911aeff6a0a56b5da34d6e0d5a1cab0f33b729c360a09d4b33e61dedd68b710f",
+      "rendered": "23f78e12b9c5c0d751dafd8f1880886022c4a966dc30d750b3c86df963af6045",
       "target": "posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.qmd",
       "assets": {
         "anisotropia-calcita.svg": "d706fd2d1c19d5e276451c493f9c71e29f55c640619e29cc16b21467b4c17b69",
@@ -81,8 +81,8 @@
       "target": "posts/0044-subq-snap/index.qmd"
     },
     "2026-10-17_culpa-no-olhar.md": {
-      "source": "36bdc8bb7c34f3fb22bf295bfdf15dadeac127fe6bea16019f9c7a9a15838bc0",
-      "rendered": "14c7357a16fd75fc5ff11d8db6334e2c8ea1f27158a9f36972ec991d0abf5b6f",
+      "source": "7acdef7583f1d86539eb384ec8af8db5e1e0b0c86e3684c0a2772e42684959f4",
+      "rendered": "37b5df528cc4464fd8b0f93da86d00b49a8a42a4cb22e1cbf17c1e0cc4798aff",
       "target": "posts/0045-culpa-no-olhar/index.qmd",
       "assets": {
         "fig-aoi-e-medidas.png": "349405541a3feec14e9d0af8a303fad7f45d1515c78f43fe0973e8ac09072b34"

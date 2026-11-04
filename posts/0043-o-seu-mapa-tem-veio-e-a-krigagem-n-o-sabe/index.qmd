@@ -10,7 +10,7 @@ lang: pt-BR
 
 Minha relação com a geoestatística e com a análise espacial começou cedo na graduação em Estatística. Publiquei, com colegas, o artigo [*Estimadores de semivariância: uma revisão*](https://periodicos.ufsm.br/cienciaenatura/article/view/21326/pdf) (Ciência e Natura, 2016). Depois, no mestrado, defendi a dissertação [*Geoestatística espaço-temporal: modelagem de fenômenos naturais no espaço-tempo*](http://pbe.uem.br/wp-content/uploads/2020/03/GEOESTAT%C3%8DSTICA-ESPA%C3%87O-TEMPORAL-MODELAGEM-DE-FEN%C3%94MENOS-NATURAIS-NO-ESPA%C3%87O-TEMPO-%E2%80%93-Vinicius-Basseto-F%C3%A9lix.pdf). Os outros trabalhos sobre semivariograma e dependência espacial estão na minha [lista de publicações](https://vbfelix.github.io/header-publications.html).
 
-Recentemente comecei a atuar em um projeto de movelaria, e me mandaram um vídeo sobre o funcionamento da madeira. O vídeo comentava sobre anisotropia, um conceito que estudei bastante, que apesar do nomes assustador possui aplicação real, e não é tão difícil de enteder. Só que ali ela estava em uma tábua, e eu a conhecia de mapas.
+Recentemente comecei a atuar em um projeto de movelaria, e me mandaram um vídeo sobre o funcionamento da madeira. O vídeo comentava sobre anisotropia, um conceito que estudei bastante, que apesar do nome assustador possui aplicação real, e não é tão difícil de entender. Só que ali ela estava em uma tábua, e eu a conhecia de mapas.
 
 Este texto faz o caminho do vídeo ao mapa. Antes da madeira, passo pela luz, que tem o exemplo mais clássico do conceito.
 

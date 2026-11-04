@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "96d95f7e3b0d937e668784a996ee2f15964d0219c3775848124f853c8a190884",
+  "sourceRevision": "1c0eb61bed344e936a1fe368b0ba54681e897f3d8b41da55bb58f1ee064d2580",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -475,7 +475,7 @@
       ],
       "url": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0043-o-seu-mapa-tem-veio-e-a-krigagem-n-o-sabe/index.html.md",
-      "revision": "230b1f7dd2c49c47d46362593f0983667b0f12e017a88bcb4e0c9cd385756f67"
+      "revision": "23f78e12b9c5c0d751dafd8f1880886022c4a966dc30d750b3c86df963af6045"
     },
     {
       "title": "SubQ, o analfabeto ganhou um colega que lê o contrato inteiro",
@@ -497,7 +497,7 @@
       ],
       "url": "https://vbfelix.github.io/posts/0045-culpa-no-olhar/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0045-culpa-no-olhar/index.html.md",
-      "revision": "14c7357a16fd75fc5ff11d8db6334e2c8ea1f27158a9f36972ec991d0abf5b6f"
+      "revision": "37b5df528cc4464fd8b0f93da86d00b49a8a42a4cb22e1cbf17c1e0cc4798aff"
     },
     {
       "title": "Tempo de casa não é senioridade",
