@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "d3cde250ea9c55df668f281a5dd9558f29f18911",
+  "commit": "c28e005da6785c70f79993a2f431dee354b83d99",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -128,6 +128,11 @@
         "fig-turco.svg": "2f7681242082367ff4c6516e3d4906739214928919825a94589e5a0a26f6148c",
         "fig-v60.svg": "0162da9844abc7e75564ba3f58d9715911cb57ea4f8661fc01da37c4fd7b7d9c"
       }
+    },
+    "2026-11-03_saaspocalypse.md": {
+      "source": "12fc41c31c21597e5847540f17eb7e548b33f5ba3c7d2e4e9ded9256a0310584",
+      "rendered": "56579e0071b9547b1978c467afabfb25994cfc48ccceff5e01c909e5bf22a394",
+      "target": "posts/0050-saaspocalypse/index.qmd"
     }
   }
 }

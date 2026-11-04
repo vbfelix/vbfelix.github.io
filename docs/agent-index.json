@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "892f5919e1973d54a1352c9cbc9874f4586a8a5404806ce2f80e69c1e89db189",
+  "sourceRevision": "96d95f7e3b0d937e668784a996ee2f15964d0219c3775848124f853c8a190884",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -542,6 +542,18 @@
       "url": "https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0049-arquiteturas-de-dados/index.html.md",
       "revision": "1374fa9508ae0b9291c33e0054405c6ce0f1aa133d881e95e9c3ad2c4d1c7aab"
+    },
+    {
+      "title": "Seu SaaS ficou fácil de copiar. O que ainda vale dinheiro?",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Produto",
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0050-saaspocalypse/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0050-saaspocalypse/index.html.md",
+      "revision": "56579e0071b9547b1978c467afabfb25994cfc48ccceff5e01c909e5bf22a394"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

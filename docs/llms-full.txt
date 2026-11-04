@@ -98,9 +98,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry" data-language="pt" data-categories="Produto, IA"><time datetime="2026-11-03">2026-11-03</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0050-saaspocalypse/index.html">Seu SaaS ficou fácil de copiar. O que ainda vale dinheiro?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Produto" data-category="Produto">#Produto</a><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="Outro"><time datetime="2026-10-31">2026-10-31</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0048-metodos-de-cafe/index.html">Café especial não é frescura. É física.</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Outro" data-category="Outro">#Outro</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="Engenharia de dados"><time datetime="2026-10-30">2026-10-30</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0049-arquiteturas-de-dados/index.html">A arquitetura muda, a modelagem fica</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Engenharia%20de%20dados" data-category="Engenharia de dados">#Engenharia-de-dados</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-10-23">2026-10-23</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0047-llm-wiki/index.html">Como criar um segundo cérebro</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -10536,6 +10536,170 @@ O catálogo de definições da abertura era exatamente isso, uma *semantic layer
 #### Arquitetura tem que ter propósito
 
 Onde o dado mora, como ele flui e quem cuida dele são decisões de plataforma e de organização, e as duas passam. Como o dado se explica é decisão de modelagem, e essa nenhuma geração conseguiu aposentar. A estrela segue viva, da camada de transformação à *gold* do *medallion*. A tabela larga serve o consumo sem junção. E do centro normalizado de Inmon à tabela, toda resposta depende de entidade, relação e definição declarados para continuar dizendo a mesma coisa. O que fica da modelagem é o que ela obriga a declarar.
+
+## Seu SaaS ficou fácil de copiar. O que ainda vale dinheiro?
+
+Fonte: https://vbfelix.github.io/posts/0050-saaspocalypse/index.html
+
+#### O fórum que licenciou o conteúdo e perdeu valor
+
+Em maio de 2024, o Stack Overflow fechou uma parceria com a OpenAI para que o ChatGPT passasse a usar o conhecimento técnico do fórum, com atribuição à comunidade ([Stack Overflow, 2024](https://stackoverflow.co/company/press/archive/openai-partnership)). No ano fiscal encerrado em março de 2026, a Prosus, dona do site, reconheceu US$ 482 milhões em perdas por redução ao valor recuperável, vindas principalmente do Stack Overflow e da GoodHabitz. Segundo a Prosus, esses negócios não estavam rendendo o esperado por causa da disrupção causada pela IA ([Prosus, 2026](https://www.prosus.com/~/media/Files/P/prosus-corp-v2/results-reports-and-events-archive/annual-report/2026/prosus-financial-results-fy26-booklet.pdf)). Um fórum de perguntas e respostas não é um SaaS clássico, mas o caso tem a forma do problema: um produto cujo valor foi parar na saída de um modelo. Ele tem duas leituras, e volto a ele no fim deste texto.
+
+Eu chamo esse medo de *Saaspocalypse*. SaaS é a sigla de *software as a service*, o sistema que o fornecedor mantém e o cliente usa mediante pagamento recorrente. A cena que o termo resume é simples: um cliente mostra um aplicativo feito com ajuda de IA e pergunta por que continuaria pagando a sua assinatura, e na tela dele há um cadastro, um relatório e uma automação que a sua equipe levou meses para entregar.
+
+Quando alguém diz que o *software* perdeu valor, pode estar falando de três coisas:
+
+- **Custo de construir:** quanto esforço uma funcionalidade exige;
+- **Preço aceito:** quanto o cliente paga pelo serviço;
+- **Valor da empresa:** quanto o mercado paga por quem vende.
+
+As três não andam juntas por definição. Uma funcionalidade mais barata de construir pode baixar o preço, porque facilita a entrada de concorrentes, mas pode também permitir entregar mais pelo mesmo preço, e o aplicativo que o cliente mostrou não diz qual das duas forças vence. Ele mostra a tela e para antes da parte que custa manter: de onde vêm os dados, quem pode aprovar o quê, o que acontece com a exceção e quem responde quando a tarefa sai errada. É isso que eu chamo de operação neste texto, o trabalho de fazer a funcionalidade funcionar todo dia, com regras e responsáveis.
+
+Por isso eu leio o *Saaspocalypse* como um problema de diferenciação, e não como previsão de morte das assinaturas. Diferenciação, aqui, é a diferença que pesa na escolha do comprador, e a lista de recursos que o fornecedor acha sofisticados não entra nessa conta. **Copiar a funcionalidade não copia a operação que o cliente paga.** A pergunta útil passa a ser qual parte da sua oferta perdeu escassez e qual ainda resolve um problema pelo qual alguém aceita pagar.
+
+A resposta mais comum que vejo é acoplar um *chatbot* ao produto. Porém ao longo deste ano eu vi seis movimentos que mexem no negócio de fato:
+
+- **_Service as software_:** o fornecedor assume o trabalho, não só a ferramenta;
+- **AI _Friendly_:** outros sistemas acionam o produto sem passar pela tela;
+- **Plataforma agêntica:** o usuário pede o resultado e o produto coordena os passos;
+- **_Result as a service_:** a receita passa a vir de um evento, não do acesso;
+- **SaaS _Ecosystem_:** a empresa atende necessidades vizinhas do mesmo cliente;
+- **AI _provider_:** outra aplicação consome o seu dado ou a sua capacidade.
+
+Os seis se combinam e nenhum é obrigatório: uma empresa pode executar tarefas e continuar cobrando mensalidade, ou abrir ações para agentes e manter a tela atual. Na minha leitura, o que eles têm em comum é a responsabilidade, porque cada um muda quem responde por alguma coisa que pode falhar, seja a exceção, a ação do agente, o evento cobrado, a segunda oferta ou o insumo que outro embutiu no produto. Os casos a seguir ilustram cada movimento e não formam um *ranking* de vencedores. Uma oferta anunciada, uma capacidade disponível e uma operação rentável são evidências diferentes, e a maior parte do que as empresas divulgam é das duas primeiras.
+
+#### *Service as software*: ninguém contratou o seu cadastro
+
+O primeiro movimento troca o que se entrega. Quem vende ferramenta entrega acesso e deixa o trabalho com o cliente, enquanto quem vende o serviço entrega o trabalho feito. O nome técnico do que muda é o entregável, o produto concreto que o cliente recebe e confere, e junto dele vem o aceite, o critério que diz se a entrega vale. Com o entregável muda também a responsabilidade: a exceção, o caso que a automação não resolve, deixa de ser problema do cliente e passa a ser do fornecedor, e o custo dela precisa caber no preço. A forma de cobrança é outra decisão, porque dá para vender execução por mensalidade, por projeto ou por resultado. A ideia não é nova: Diego Eis lembra uma linha de marketing de 2004 para a qual bens sempre foram meios de entregar serviço e, na leitura dele, a IA só tornou o serviço escalável ao derrubar o custo de execução ([Diego Eis, 2026](https://diegoeis.com/o-que-a-sequoia-acaba-de-descobrir-o-s-d-logic-ja-sabia-desde-2004/)).
+
+##### Enter: ninguém comprou o editor de petições
+
+A Enter vende execução num trabalho que pouca gente associaria a *software*. A empresa assume o contencioso cível e trabalhista de grandes companhias, da negociação de acordos à redação das peças, com agentes de IA executando as etapas e escritórios de advocacia parceiros auditando o que sai. Em maio de 2026, captou US$ 100 milhões com avaliação de US$ 1,2 bilhão e, segundo a empresa, atendia mais de 300 mil processos por ano, para clientes como Bradesco, Nubank e Mercado Livre ([Forbes Brasil, 2026](https://forbes.com.br/forbes-money/2026/05/startup-juridica-enter-vira-unicornio-de-ia-com-rodada-de-us-100-milhoes-liderada-pelo-founders-fund/)).
+
+O cliente da Enter compra a peça pronta e o processo andando sem que o jurídico interno toque em cada etapa, e por isso a comparação dele muda de lugar: a Enter disputa com o escritório que fazia o mesmo trabalho e com a equipe interna, e outro *software* jurídico nem entra na conta. 
+
+##### Bench: a rotina que o cliente esqueceu como fazer
+
+A Bench vendia contabilidade por assinatura para pequenas empresas. A página de transição da própria empresa informa que ela se tornou insolvente no fim de 2024 e que a Employer.com, que estava adquirindo parte dos ativos, não responde pelas obrigações anteriores, embora tenha se comprometido a concluir o trabalho já pago nas assinaturas ativas ([Bench](https://www.bench.co/transition-faqs)). Aqui o movimento quebrou junto com a empresa, e o que a quebra mostra é a dependência. Quando um fornecedor de ferramenta para, o cliente exporta os dados e procura outra ferramenta. Quando o fornecedor de execução para, o cliente perde a rotina que tinha deixado de fazer, e o risco de vender execução deixa de ficar só com quem vende. Por isso continuar de pé faz parte do que se vende. Há também cliente para quem a ferramenta continua sendo a compra certa: o que quer controlar cada decisão, ou o que muda as regras tão rápido que explicar o contexto custa mais que executar em casa.
+
+#### AI *Friendly*: talvez seu próximo usuário nem abra a tela
+
+O segundo movimento troca o usuário. Um agente de IA usa um modelo de linguagem para interpretar um pedido e escolher ações dentro de limites definidos, e quando quem chega ao produto é um agente, a tela importa menos e a capacidade exposta importa mais. Um dos padrões para essa exposição é o MCP, o *Model Context Protocol*, um protocolo para que assistentes como ChatGPT e Claude descubram e acionem as ações de outro sistema. Abrir a plataforma desse jeito preserva o papel do produto mesmo quando a interface de consumo muda, mas só se a permissão vier junto. Uma resposta certa entregue à pessoa errada é uma falha, e uma ação possível feita sem a aprovação necessária também.
+
+Um experimento reforça o cuidado. No Project Swap, a Anthropic montou um mercado interno de troca de livros com 201 funcionários e seus agentes e, segundo a empresa, a maior parte da perda de eficiência veio de o agente representar mal as preferências da pessoa, enquanto a negociação respondeu pelo resto ([Anthropic, 2026](https://www.anthropic.com/research/project-swap)). Leio isso como aviso a quem abre o produto: o pedido pode chegar mal entendido, e a regra de negócio precisa barrá-lo. Abrir também tem um preço que o fornecedor pode errar. Jason Lemkin, da SaaStr, relata que quase todo fornecedor anterior à IA que a empresa dele usa está aumentando o preço do acesso por agentes, e prevê o efeito contrário ao pretendido: os agentes tiram os dados dessas plataformas para fugir do pedágio, o uso cai e a vantagem encolhe ([SaaStr, 2026](https://saastr.com/almost-every-pre-ai-vendor-we-use-is-raising-prices-for-agent-access-they-may-be-building-an-agentic-death-spiral)).
+
+##### Senior: o ChatGPT pede, o ERP decide
+
+A Senior abriu o seu ERP, o sistema integrado de gestão empresarial, para o ChatGPT e o Claude via MCP. A empresa descreve consultas e ações específicas, sujeitas às credenciais, permissões e regras do sistema, entre elas as alçadas, os limites de quem pode aprovar cada operação, e concentra as primeiras experiências em vendas e processos financeiros ([Senior](https://site.senior.com.br/erp-com-inteligencia-artificial/)). Na apresentação, Graciele de Lima, responsável pelo ERP da empresa, descreveu uma divisão de trabalho que eu levaria para qualquer abertura: o modelo interpreta a intenção, a integração liga a intenção às capacidades, e o ERP consulta os dados, aplica as regras, valida as permissões e controla a execução ([TI Inside, 2026](https://tiinside.com.br/27/07/2026/senior-anuncia-erp-operavel-por-chatgpt-e-claude-ai/)). Nessa divisão, o agente é um novo canal de entrada e o produto continua decidindo, o que mantém o valor onde ele estava, nas regras e alçadas que a empresa levou anos para codificar.
+
+##### Shopify: a fila já começa no assistente
+
+A Shopify mostra por que abrir pode ser prioridade comercial, além de técnica. Em novembro de 2025, a empresa informou que o tráfego vindo de ferramentas de IA para as lojas da plataforma tinha crescido sete vezes desde janeiro, e os pedidos atribuídos a buscas com IA, onze vezes ([TechCrunch, 2025](https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x)). Na teleconferência do segundo trimestre de 2026, o presidente Harley Finkelstein disse que o tráfego e os pedidos por canais agênticos tinham triplicado em um ano ([The Motley Fool, 2026](https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/)). Os números medem crescimento sobre uma base que a empresa não informa, e o próprio Finkelstein ressalvou que o volume agêntico ainda é pequeno perto do total vendido.
+
+##### Stripe e OpenAI: disponível não é onde se compra
+
+Em setembro de 2025, a Stripe e a OpenAI lançaram o Agentic Commerce Protocol, para que lojistas exponham produtos, preços e *checkout* a agentes de IA. O desenho de permissão é estreito: o *token* de pagamento vale só para o total e o carrinho de um lojista, e o lojista mantém o controle da venda, aceitando ou recusando o pedido, calculando o imposto e cuidando da entrega e das devoluções ([Stripe, 2025](https://stripe.com/newsroom/news/stripe-openai-instant-checkout)). A OpenAI mudou o plano em março de 2026, quando deixou de priorizar a compra dentro do ChatGPT e passou a levá-la para os aplicativos dos próprios lojistas, mantendo o protocolo como infraestrutura. Finkelstein, da Shopify, apontou o que pesa nessa compra: o estoque, o frete e os impostos ([Digital Commerce 360, 2026](https://www.digitalcommerce360.com/2026/03/06/openai-shifts-checkout-plans-agentic-commerce-strategy/)). 
+
+#### Plataforma agêntica: um *chatbot* na lateral não muda o produto
+
+O terceiro movimento mexe no produto por dentro. Em vez de uma sequência de telas, o usuário declara um objetivo e o produto coordena os passos, o que exige quatro coisas que um *chatbot* na lateral não tem: contexto da operação, poder de executar, um ponto de confirmação e um jeito de se recuperar quando a etapa falha.
+
+Ajuda separar três verbos. Recomendar é sugerir o próximo passo, preparar é deixar a mudança pronta para alguém aprovar, e executar é alterar o estado do sistema. Um assistente que só recomenda é uma busca mais simpática, enquanto o produto organizado por objetivo decide, para cada ação, em qual dos três verbos ela para. Karri Saarinen, cofundador da Linear, diz que a camada de *chatbot* sobre *software* existente mantém o modo antigo de trabalhar, com *prompts* no lugar de botões ([Karri Saarinen, 2025](https://karrisaarinen.com/posts/self-driving-saas/)).
+
+##### Nuvemshop: o Lumi pede licença
+
+A Nuvemshop mantém, no painel que o lojista já usa, o Lumi. O assistente analisa pedidos, catálogo e métricas da loja e sugere o próximo passo, mas também age: completa descrições de até 20 produtos por vez, cria um produto a partir de uma foto, gera promoções e organiza os pedidos do dia. A página do produto informa mais de 75 mil lojas com o Lumi ativo, sem custo adicional nos planos pagos ([Nuvemshop](https://www.nuvemshop.com.br/solucoes/lumi)).
+
+O detalhe que separa esse desenho de um *chatbot* está na mesma página: o Lumi não aplica nenhuma mudança sem a aprovação do lojista. A conversa termina numa alteração de estado, como uma promoção criada. Nos três verbos, o Lumi recomenda e prepara, e só executa com o sim do lojista. A confirmação bem colocada protege a decisão que merece atenção, e pedida para todo detalhe ela devolve o trabalho ao usuário.
+
+##### Intuit: o mês fecha no painel
+
+A Intuit reorganizou o QuickBooks, o seu *software* de contabilidade para pequenas empresas, em torno de agentes. Em julho de 2025, anunciou agentes de pagamentos, contabilidade, finanças e clientes, e a tela inicial virou um painel de recomendações e de resumos do que os agentes concluíram. Quando o caso passa do que o agente resolve, o assinante do QuickBooks Live recorre a especialistas humanos da própria Intuit ([Intuit, 2025](https://investors.intuit.com/news-events/press-releases/detail/1258/intuit-introduces-ground-breaking-virtual-team-of-ai-agents-to-fuel-growth-for-businesses)). No roteiro da teleconferência de agosto de 2026, a empresa informou que mais de 75% dos clientes do Intuit Enterprise Suite, a versão para empresas maiores, usavam os agentes todo mês ([Intuit, 2026](https://investors.intuit.com/_assets/_cbcc21959b1d1fa6fe15e8e5b43cc3a2/intuit/db/946/10378/webcast_transcript/Q4+FY26+Earnings+Script.pdf)). 
+
+##### HubSpot: os 28% que ainda precisam de alguém
+
+Na teleconferência do segundo trimestre de 2026, a presidente-executiva da HubSpot, Yamini Rangan, disse que o agente de atendimento resolvia 72% dos chamados sem escalar para uma pessoa, um número medido pelo critério de resolução da própria empresa ([Yahoo Finance, 2026](https://finance.yahoo.com/markets/stocks/articles/hubspot-hubs-q2-2026-earnings-003002854.html)). O que interessa aqui é o restante. Segundo a documentação, o agente passa a conversa a uma pessoa quando não sabe responder, quando o cliente pede ou quando ele próprio está pausado, e a empresa escolhe entre a passagem imediata e a passagem para acompanhamento, podendo escrever diretrizes que citam termos como reembolso e cancelamento ([HubSpot](https://knowledge.hubspot.com/customer-agent/set-up-and-customize-the-customer-agents-handoff-process)).
+
+É a quarta exigência, a recuperação quando a etapa falha. O caso simples exibe a fluidez e o caso interrompido revela a coordenação, e é na passagem para a pessoa que eu separo um produto por objetivo de uma demonstração.
+
+#### *Result as a service*: quem paga quando o resultado não vem?
+
+O quarto movimento troca o que se cobra. A unidade faturável é o evento que gera a fatura, como o assento, a tarefa executada, a resolução ou o contrato gerado, e cada escolha redistribui o risco: quanto mais longe o evento estiver do controle do fornecedor, mais risco ele carrega. A conta que decide se a troca se sustenta é a margem de contribuição, a receita menos os custos que variam com a operação, como processamento, consultas pagas, revisão humana e retrabalho. Quando só a entrega aceita gera cobrança, cada unidade aceita precisa pagar também as tentativas recusadas e abandonadas.
+
+A Sierra, que vende atendimento por agentes cobrando por resultado, defende o modelo para trabalho de alto valor ([LangChain, 2026](https://www.langchain.com/blog/why-the-best-agents-are-simpler-than-you-think-sierra-max-agency-podcast)). O cuidado vem do lado do custo. Moe Ali e Miqdad Jaffer, na *newsletter* da Product Faculty, argumentam que em produto de IA quem destrói a margem é a variância do custo ([Product Faculty, 2026](https://www.productmanagement.ai/p/the-ai-product-pricing-masterclass)), e um cliente com casos difíceis pode consumir muito mais esforço que outro e pagar o mesmo.
+
+##### TOTVS: antes de cobrar a tarefa, cobra-se a arrumação
+
+A TOTVS apresentou o LYNN, que chama de sua IA de base, e prevê monetizá-lo pelo TaaS, *Task as a Service*. A empresa associou esse modelo a quatro frentes: a nuvem própria, a preparação das bases dos clientes, o controle de aplicações e APIs e a adaptação do próprio *backoffice* para cobrar de outro jeito ([TOTVS, fato relevante de fevereiro de 2026](https://api.mziq.com/mzfilemanager/v2/d/d3be5d49-62e7-4def-a3e1-ab25ff09f153/72ca1303-105a-6930-d5eb-0dd49fce8521?origin=2)). No *release* do segundo trimestre de 2026, definiu o TaaS pela volumetria de tarefas executadas por agentes e informou que os habilitadores de IA, conta que junta consumo de APIs, organização das bases e atualização dos sistemas, responderam por 28% da adição líquida de receita recorrente anualizada no trimestre ([TOTVS, *release* do 2T26](https://api.mziq.com/mzfilemanager/v2/d/d3be5d49-62e7-4def-a3e1-ab25ff09f153/29ca7a02-e9c5-d3b1-6d1e-578cf0ac69d8?origin=2)).
+
+A tarefa é uma unidade próxima do controle do fornecedor, porque o agente executou ou não executou. Na minha leitura, o caso mostra também a ordem das coisas: antes da receita por tarefa vem a receita de arrumar a base para que a tarefa seja possível. Receita de preparação ainda não prova que a tarefa vai pagar a conta, e quem copia o modelo de preço sem a base arrumada copia só a promessa.
+
+##### Zendesk: só paga o que passa na prova
+
+Desde 18 de maio de 2026, a Zendesk separa três níveis de atendimento automatizado. No encaminhamento assistido, a IA contribuiu e uma pessoa concluiu; na resolução contida, a IA foi até o fim sem que o cliente pedisse mais ajuda; na resolução verificada, um modelo de linguagem confirma que o pedido foi atendido de forma satisfatória. Só a última conta na franquia de resoluções do cliente ([Zendesk](https://support.zendesk.com/hc/en-us/articles/9570369117338-About-automated-resolution-tiers)).
+
+O cliente só consome a franquia com o que passou num teste aplicado pelo próprio fornecedor, o que faz da regra do teste uma parte do contrato. É aqui que a margem de contribuição aparece inteira, porque olhar só o custo da tentativa bem-sucedida esconde a conta real.
+
+##### Blip: a fatura depende do sim de outra pessoa
+
+A Blip, de atendimento conversacional, afasta a unidade ainda mais da execução. No BlipCred, produto de crédito consignado, o banco deixa de pagar pelos usuários da plataforma e paga por contrato gerado. A receita do produto saiu de cerca de R$ 50 mil mensais no fim de 2025 para uma projeção da empresa próxima de R$ 1 milhão por mês, ainda uma parcela pequena do faturamento ([Brazil Economy, 2026](https://brazileconomy.com.br/financas/2026/05/blip-muda-modelo-de-negocios-aposta-em-ia-e-entra-na-disputa-bilionaria-do-consignado/)).
+
+O contrato gerado depende de o cliente final aceitar o crédito e de o banco aprovar a operação, e, na minha leitura, é isso que torna a unidade atraente para o banco e arriscada para a Blip. Quanto mais distante o evento do controle de quem cobra, mais exigente fica a atribuição, e aparece um incentivo que merece discussão: quem recebe só por evento aceito pode preferir os casos fáceis. Limitar o escopo é legítimo quando a limitação está na oferta. O problema é a promessa ampla com a operação escolhendo em silêncio.
+
+#### SaaS *Ecosystem*: a segunda oferta pode custar mais que o segundo produto
+
+O quinto movimento amplia o que se vende. Com a IA barateando o MVP, o produto mínimo viável, construir o segundo, o terceiro e o quarto produto para o mesmo cliente ficou ao alcance de quase todo mundo, e a vertical, o setor atendido em profundidade, vira portfólio. O produto ficou barato, mas a segunda oferta não, porque ela pede outra venda, outro suporte e outra implantação. Por isso a vizinhança de assunto não sustenta a expansão. O que sustenta é um ativo compartilhado, um dado, um canal, uma integração, uma relação ou uma capacidade técnica que a primeira oferta já gerou e que a segunda aproveita. Sem ele, na minha leitura, o portfólio tende a dispersar a operação e a cobrar a conta da especialização que a empresa tinha.
+
+##### Getdemo: a mesma captura, outra reunião de compra
+
+A Getdemo, de Florianópolis, nasceu vendendo demonstrações interativas de *software*: uma extensão do navegador captura as telas do produto do cliente e monta uma demonstração que o comprador navega sem falar com o vendedor ([Economia SC, 2024](https://www.economiasc.com/2024/11/26/como-essa-startup-esta-revolucionando-a-experiencia-de-compra-de-software-b2b/)). Hoje o portfólio inclui também o *onboarding* guiado e o SaaS Copilot, um agente que executa tarefas dentro do *software* do cliente da Getdemo, e a empresa descreve o produto novo pelo ativo que ele herda: a IA aprende capturando as telas e os fluxos ([Getdemo](https://www.getdemo.com.br/solucoes/saas-copilot)). A empresa informa mais de 400 clientes, entre eles TOTVS, Senior e Omie ([Getdemo](https://www.getdemo.com.br/)).
+
+É o exemplo mais limpo que encontrei de ativo compartilhado. O mapa das telas que a demonstração precisava para existir é, em boa parte, o que o agente precisa para operar, e a venda acontece no mesmo cliente. Na minha leitura, o custo da segunda oferta aparece em quem compra dentro dele: a demonstração serve a marketing e vendas, o *onboarding* e o agente servem a produto e sucesso do cliente, e isso pede outra reunião de compra mesmo com o ativo pronto.
+
+##### Salesbud: sete módulos lendo a mesma reunião
+
+A Salesbud, do mesmo fundador da Getdemo, Matheus Weigand, começou por um assistente que entra na reunião de vendas, grava, transcreve, resume e preenche o CRM ([Inforchannel, 2025](https://inforchannel.com.br/2025/01/17/solucao-de-ia-remodela-crm-e-impulsiona-eficiencia-de-equipes-de-vendas/)). A página da empresa lista hoje sete módulos e sete agentes, do copiloto ao vivo e da simulação de negociação à previsão de vendas, às propostas e a uma base de 25 milhões de empresas para prospecção, e diz que cada conversa gravada e organizada alimenta os agentes ([Salesbud](https://www.salesbud.com.br/)). Em março de 2026, Weigand disse à Exame que a empresa faturava mais de R$ 15 milhões por ano, com mais de 700 clientes, num modelo em que o cliente começa simples e recebe módulos novos conforme vê resultado ([Exame, 2026](https://exame.com/inteligencia-artificial/o-que-a-gente-faz-nada-mais-e-do-que-ter-um-produto-de-ia-ceo-tem-perspectiva-de-faturar-r-87-mi/)).
+
+O ativo compartilhado aqui é a conversa de vendas que o primeiro produto captura, e a maior parte dos módulos novos é uma leitura diferente dela. A base de prospecção ajuda a enxergar o critério, porque não sai da conversa: o que ela aproveita é a lista de clientes que já confia na empresa. As duas empresas de Weigand também não dividem recursos, segundo um relato do próprio empreendedor, mas atendem o mesmo perfil de cliente e dependem do mesmo canal de aquisição, o LinkedIn dele ([Micro-SaaS, 2025](https://microsaas.substack.com/p/como-um-empreendedor-construiu-3)). Canal e relação, que a lista de ativos acima promete, aparecem aqui atravessando CNPJs.
+
+##### ElevenLabs: o ativo era a pesquisa, não a voz
+
+A ElevenLabs nasceu de síntese e clonagem de voz e foi lançando produtos sobre a mesma pesquisa em áudio. Em maio de 2024 veio o Reader, aplicativo que lê textos em voz alta ([Bloomberg, 2024](https://www.bloomberg.com/news/articles/2024-05-15/elevenlabs-launches-ai-voiced-screen-reader-app)). Em novembro do mesmo ano, a plataforma de agentes de conversa, que a empresa montou sobre o *pipeline* de voz existente, acrescentando o reconhecimento de fala que faltava, depois de ver clientes construindo agentes por conta própria ([TechCrunch, 2024](https://techcrunch.com/2024/11/18/elevenlabs-now-offers-ability-to-build-conversational-ai-agents/)). Em agosto de 2025, o Eleven Music, gerador de música ([ElevenLabs, 2025](https://elevenlabs.io/blog/eleven-music-is-here)). Em setembro de 2026, o presidente-executivo Mati Staniszewski disse que a receita recorrente anual tinha chegado a US$ 600 milhões ([TechCrunch, 2026](https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/)).
+
+O caso é compatível com a ideia do ativo compartilhado e a estica em dois pontos. Cada produto novo pediu uma peça técnica nova, e por isso o que se reaproveita, na minha leitura, é uma capacidade: saber treinar e servir modelos de áudio. E o cliente mudou: o Reader foi buscar o consumidor, e os agentes, a empresa grande, um portfólio que cresce para fora da base. A receita, sozinha, não diz qual dos produtos a sustenta nem quanto custou atender cada novo comprador.
+
+#### AI *provider*: quem precisa do seu dado antes de precisar da sua tela?
+
+O sexto movimento muda a posição na cadeia. Quem não quer disputar a aplicação pode vender o insumo que outras aplicações consomem, seja o dado, a conexão ou a capacidade, e o comprador deixa de ser o usuário final para ser outro fornecedor. A posição tem exigências próprias: o insumo precisa de qualidade, procedência e direito de uso claro, e precisa também de entrega estável, porque o cliente o embute no produto dele e quebra junto quando ele falha. E há o risco que dá nome ao caso da abertura, o de o comprador do insumo ser quem encolhe o produto que o gerou.
+
+##### Reddit: vender o dado e trancar a porta
+
+O Reddit é o caso mais visível de plataforma que passou a vender o próprio conteúdo como insumo. Em fevereiro de 2024, a empresa informou no pedido de abertura de capital contratos de licenciamento de dados de US$ 203 milhões, com prazos de dois a três anos ([TechCrunch, 2024](https://techcrunch.com/2024/02/22/reddit-says-its-made-203m-so-far-licensing-its-data)), e no relatório anual de 2025 diz explorar o licenciamento de conteúdo para treino de modelos de IA generativa, entre outros usos ([Reddit, relatório anual de 2025](https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm)). O mesmo relatório mostra o outro lado. Terceiros tentam coletar dados do site por raspagem não autorizada, inclusive para treinar modelos comerciais, e a empresa admite que não há garantia de sustentar as receitas de licenciamento. Vender o dado exige defender o acesso a ele, porque sem a porta trancada o comprador leva de graça.
+
+##### Pluggy: o encanamento também é produto
+
+A Pluggy, de *open finance*, vende outra camada de insumo: dados bancários padronizados, como saldo, extrato, cartões e investimentos, e a iniciação de pagamentos, para sistemas de gestão, contabilidade e terceirização financeira que embutem esses dados no próprio produto. A empresa promete os dados de mais de 220 instituições no mesmo formato ([Pluggy](https://www.pluggy.ai/)). Em agosto de 2026, captou US$ 3,5 milhões numa rodada liderada pela DGF e informou cerca de 500 clientes diretos e operação lucrativa desde 2024 ([Startups, 2026](https://startups.com.br/negocios/rodada-de-investimento/pluggy-conclui-serie-a-de-us-35m-com-dgf-e-y-combinator/)). Sem ser dona do dado bancário, ela vende a conexão estável, que na promessa dela absorve as mudanças de cada banco sem quebrar a API do cliente. É um negócio pequeno perto do Reddit, e por isso eu gosto do caso: mostra que a posição de insumo não exige ser dono de uma base enorme.
+
+##### Stack Overflow: o cliente que encolhe o fornecedor
+
+Volto ao caso da abertura. No mesmo relatório que registrou a perda de valor, a Prosus informou que a receita do Stack Overflow cresceu 12% no ano, para US$ 129 milhões, e que o resultado operacional ajustado passou de um prejuízo de US$ 22 milhões para um lucro de US$ 1 milhão ([Prosus, 2026](https://www.prosus.com/~/media/Files/P/prosus-corp-v2/results-reports-and-events-archive/annual-report/2026/prosus-financial-results-fy26-booklet.pdf)). Os números tocam em duas das três coisas da abertura: o licenciamento é preço aceito, porque um comprador pagou pelo conteúdo, e a perda é a dona revendo o valor da empresa. Eles também admitem duas leituras. Na primeira, o licenciamento foi a receita que ajudou um produto em encolhimento a voltar ao lucro. Na segunda, a venda do conteúdo alimentou a ferramenta que tirou do fórum as perguntas que o mantinham vivo. Os números não provam nem descartam nenhuma das duas, mas o risco que a segunda descreve continua de pé: vender o insumo para quem disputa o seu usuário pode pagar a conta deste ano e encurtar o produto dos próximos.
+
+#### Manter a assinatura também é uma decisão
+
+Seis movimentos não são seis obrigações. Dinis Cruz, fundador do sgit, argumenta num texto do site do próprio produto que o *Saaspocalypse* será decidido pela inércia do sucesso passado, já que a IA, para ele, está disponível tanto para quem já vende quanto para quem está chegando ([Dinis Cruz, 2026](https://sgit.ai/articles/saas-apocalypse-decided-by-inertia-not-by-ai.html)). Eu concordo em parte: a inércia pode matar quem não olha, mas mudar por reflexo pode custar mais caro.
+
+Volte ao cliente da abertura, com o aplicativo feito com IA na mão. A resposta para ele começa por uma frase que diga quem paga, por qual trabalho e sob quais condições, algo como "a construtora paga para que o pedido de compra aprovado no orçamento chegue ao fornecedor sem redigitação, e paga de novo quando a obra muda". A tela que o cliente mostrou é a parte que mais perdeu escassez, e a frase mostra a que pode não ter perdido. Se você não consegue escrevê-la sem as palavras produtividade e transformação, ainda não sabe o que o seu cliente compra.
+
+Com a frase escrita, eu responderia quatro perguntas antes de escolher um movimento:
+
+- **Responsabilidade:** qual você aceita assumir, seja a exceção do cliente, a ação do agente ou o evento que não aconteceu;
+- **Ativo:** o dado, a integração, o canal ou o acesso ao comprador que o movimento exige e você ainda não tem;
+- **Custo da falha:** se a margem fecha contando as tentativas recusadas, a revisão e o suporte;
+- **Alternativa:** por que a assinatura atual não basta, comparada com a mudança.
+
+A posição de partida muda a resposta. Quem tem base de clientes precisa pensar em quem será afetado pela transição e pode testar com um grupo delimitado antes de mudar para todos, enquanto quem começa sem clientes tem outro problema antes da arquitetura, o acesso ao comprador e ao processo real, e para esse uma entrega estreita ensina mais que uma plataforma ampla. 
+
+A última pergunta é a que mais gente pula. Uma assinatura continua adequada quando financia disponibilidade, manutenção e uso recorrente de uma capacidade que o cliente quer operar ele mesmo, e se a empresa entrega bem e a mudança só acrescenta risco, ficar é uma decisão defensável.
 
 ## UX com produtos físicos, o puro suco da estatística
 
