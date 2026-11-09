@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "1c0eb61bed344e936a1fe368b0ba54681e897f3d8b41da55bb58f1ee064d2580",
+  "sourceRevision": "1534e645c991901126cbb960ca674015a573f56b583e2eff395ef45fc0bf7292",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -554,6 +554,17 @@
       "url": "https://vbfelix.github.io/posts/0050-saaspocalypse/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0050-saaspocalypse/index.html.md",
       "revision": "56579e0071b9547b1978c467afabfb25994cfc48ccceff5e01c909e5bf22a394"
+    },
+    {
+      "title": "Aprendeu com a IA? Prove amanhã.",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA"
+      ],
+      "url": "https://vbfelix.github.io/posts/0051-aprender-com-ia/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0051-aprender-com-ia/index.html.md",
+      "revision": "fb921d801ec86079e505bbb78e184d078d9b94132d5a2ae3532e9a6f3576896b"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

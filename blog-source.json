@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "90a5106b50ebe33cfff20ff99548167ca6ce5cf8",
+  "commit": "2a6d3e07e584a0256ff9cf68932149c4fc1cef6b",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -133,6 +133,11 @@
       "source": "12fc41c31c21597e5847540f17eb7e548b33f5ba3c7d2e4e9ded9256a0310584",
       "rendered": "56579e0071b9547b1978c467afabfb25994cfc48ccceff5e01c909e5bf22a394",
       "target": "posts/0050-saaspocalypse/index.qmd"
+    },
+    "2026-11-08_aprender-com-ia.md": {
+      "source": "1039b2849dada8ab849b19d9eaf76dad77d6e6f0216e23ffc96ca2ae2f832ae2",
+      "rendered": "fb921d801ec86079e505bbb78e184d078d9b94132d5a2ae3532e9a6f3576896b",
+      "target": "posts/0051-aprender-com-ia/index.qmd"
     }
   }
 }
