@@ -219,14 +219,18 @@ body.writing-page main.content {
   vertical-align:middle;
 }
 .archive-filters { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 2rem; }
-.archive-filters select {
+.archive-filters select,.archive-filters input {
   border:1px solid var(--line);
+  border-radius:0;
   background:var(--wash);
   color:var(--ink);
   padding:.42rem .65rem;
   font:.75rem/1.4 var(--mono);
 }
-.archive-filters select:hover,.archive-filters select:focus-visible { border-color:var(--blue); }
+.archive-filters input { min-width:14rem; appearance:none; -webkit-appearance:none; }
+.archive-filters input::placeholder { color:var(--muted); opacity:1; }
+.archive-filters select:hover,.archive-filters select:focus-visible,
+.archive-filters input:hover,.archive-filters input:focus-visible { border-color:var(--blue); }
 .archive-filters label { display:grid; gap:.35rem; font:.75rem/1.4 var(--mono); color:var(--muted); }
 .archive-filter-count { align-self:end; margin:0 0 .4rem; color:var(--muted); font:.75rem/1.4 var(--mono); }
 .archive-entry[hidden] { display:none; }
@@ -344,6 +348,8 @@ body::before {
   .about-projects { grid-template-columns:1fr; }
   .about-principle { grid-template-columns:1fr; gap:var(--space-sm); }
   .archive-entry { grid-template-columns:1fr; gap:.4rem; }
+  .archive-filters label:has(input) { flex:1 1 100%; }
+  .archive-filters input { min-width:0; width:100%; }
   .nav-footer { display:block; }
 }
 /* On phones each experience row reads as a block: period, organization, work. */
