@@ -1,5 +1,7 @@
 ## 2026
 
+![Scoras Academy](/images/logos/scoras.png){width="32"} \[11/26\] Engenharia de Harness para Agentes de IA
+
 ![AI Hero](/images/logos/aihero.svg){width="32"} \[09/26\] AI Hero Skills Workflow Course
 
 ![AWS](/images/logos/aws.svg){width="32"} \[09/26\] AWS Glue Getting Started

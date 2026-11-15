@@ -4,6 +4,8 @@ Fonte: https://vbfelix.github.io/header-courses.html
 
 ## 2026
 
+![Scoras Academy](https://vbfelix.github.io/images/logos/scoras.png) \[11/26\] Engenharia de Harness para Agentes de IA
+
 ![AI Hero](https://vbfelix.github.io/images/logos/aihero.svg) \[09/26\] AI Hero Skills Workflow Course
 
 ![AWS](https://vbfelix.github.io/images/logos/aws.svg) \[09/26\] AWS Glue Getting Started
