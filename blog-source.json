@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "2a6d3e07e584a0256ff9cf68932149c4fc1cef6b",
+  "commit": "022e40a1c8f5115532650b88df1792e439fa3921",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -138,6 +138,11 @@
       "source": "1039b2849dada8ab849b19d9eaf76dad77d6e6f0216e23ffc96ca2ae2f832ae2",
       "rendered": "fb921d801ec86079e505bbb78e184d078d9b94132d5a2ae3532e9a6f3576896b",
       "target": "posts/0051-aprender-com-ia/index.qmd"
+    },
+    "2026-11-16_escalas-em-questionario.md": {
+      "source": "7e8ca7a8984154b753ff19b3e4c0461beb9308ce71ca4c9abea2d22f732d9a48",
+      "rendered": "5441813471f60217fb4f0f3e21422893d29873e283fae53a3c179aed7ca0335d",
+      "target": "posts/0052-escalas-em-questionario/index.qmd"
     }
   }
 }

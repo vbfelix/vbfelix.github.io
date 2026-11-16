@@ -98,9 +98,9 @@ TEXTOS RECENTES
 Estatística, matemática e engenharia de dados. Textos do acervo, preservados no idioma original.
 
 ```{=html}
+<article class="archive-entry" data-language="pt" data-categories="Estatística"><time datetime="2026-11-16">2026-11-16</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0052-escalas-em-questionario/index.html">Em cima do muro também é resposta</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Estat%C3%ADstica" data-category="Estatística">#Estatística</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="IA"><time datetime="2026-11-08">2026-11-08</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0051-aprender-com-ia/index.html">Aprendeu com a IA? Prove amanhã.</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
 <article class="archive-entry" data-language="pt" data-categories="Produto, IA"><time datetime="2026-11-03">2026-11-03</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0050-saaspocalypse/index.html">Seu SaaS ficou fácil de copiar. O que ainda vale dinheiro?</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Produto" data-category="Produto">#Produto</a><a class="post-tag" href="/writing.html?tema=IA" data-category="IA">#IA</a></p></div></article>
-<article class="archive-entry" data-language="pt" data-categories="Outro"><time datetime="2026-10-31">2026-10-31</time><div><h3><span class="post-language" role="img" aria-label="Em português">PT</span><a href="/posts/0048-metodos-de-cafe/index.html">Café especial não é frescura. É física.</a></h3><p class="post-tags"><a class="post-tag" href="/writing.html?tema=Outro" data-category="Outro">#Outro</a></p></div></article>
 ```
 
 [Ver todos os textos](https://vbfelix.github.io/writing.html){.experience-link}
@@ -10789,6 +10789,80 @@ Aprendeu com a IA? Menos do que você acha, até provar amanhã. Do sábado em M
 
 - A primeira vem antes de abrir o chat: decidir quanto daquela tarefa fica com você, que é o contrário de aprender por delegação, e aceitar que a parte que você entrega inteira à IA não vai virar conhecimento seu, o que está certo para consulta e errado para o que você quer saber fazer.
 - A segunda vem no dia seguinte: explicar a um colega o que a IA te ensinou ontem, sem abrir o chat de novo. Se a explicação sair, você aprendeu. Se não sair, você leu. Não aprendeu.
+
+## Em cima do muro também é resposta
+
+Fonte: https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html
+
+#### A escala que não tinha lugar para quem atende
+
+Recentemente li uma avaliação de desempenho com escala de 1 a 4 e não encontrei nela o lugar de quem é médio. O gestor que avalia alguém exatamente no padrão precisa escolher entre o 2, que põe a pessoa abaixo dele, e o 3, que a põe um pouco acima. A escala par costuma ser escolhida para forçar quem responde a tomar posição, e isso é uma estratégia que pode ser aplicada, mas com ressalvas. Em avaliação de desempenho, o ponto central não é indecisão, é "atende às expectativas", um julgamento válido e, na prática, o lugar onde está a maior parte das pessoas. Sugeri trocar por uma escala de 1 a 5 no próximo ciclo. A escala de resposta decide parte da resposta, porque chega junto com a pergunta, e por isso se escolhe pelo objetivo da pesquisa, pelo canal e pela conta que vai ser feita com o resultado.
+
+Aprendi isso no início da carreira, na H0 Consultoria, empresa de estatística onde trabalhei em mais de 40 pesquisas de mercado, por telefone, em domicílio, online e na rua, e entendi que como coletar não é fácil.
+
+#### O muro que a escala par promete derrubar
+
+"Escala par evita que as pessoas fiquem em cima do muro." É o argumento que aparece quando alguém monta um formulário e decide tirar o meio, e ele parte de uma suposição que raramente é dita: a de que quem marca o meio está escondendo uma opinião que tem. Às vezes está. Mas muitas vezes o meio pode ser a resposta certa, e tirá-lo obriga a pessoa a escolher um lado que ela não ocupa.
+
+A escala de concordância com cinco pontos, a mais comum nesse debate, tem nome e tem história. Rensis Likert a propôs em 1932, num estudo publicado no *Archives of Psychology* sobre como medir atitudes ([*International Encyclopedia of the Social Sciences*, *Likert Scale*](https://www.encyclopedia.com/social-sciences/applied-and-social-sciences-magazines/likert-scale)). A técnica anterior, de Louis Thurstone, pedia a um painel de juízes que atribuísse a cada afirmação um valor na escala de atitude, um trabalho longo e trabalhoso. Likert deixou de medir as afirmações e passou a medir as respostas: cada pessoa diz o quanto concorda com várias afirmações sobre o mesmo assunto, cada resposta recebe um peso, e a atitude é a soma desses pesos. A escala Likert, no sentido original, é essa soma de vários itens. A pergunta isolada com cinco opções de "discordo totalmente" a "concordo totalmente", que hoje leva o nome dele, é um item no formato Likert.
+
+A diferença importa porque a resposta a um item é ordinal: sabemos que "concordo totalmente" está acima de "concordo", mas não que a distância entre os dois seja a mesma que separa "concordo" do meio. Quem calcula a média de um item isolado supõe que essas distâncias são iguais. Somar vários itens, como Likert fazia, não elimina a suposição, mas produz um total com muitos valores possíveis, que se comporta mais como uma medida contínua do que a resposta a uma pergunta só transformada no indicador do trimestre. Por isso a conta que você pretende fazer com o resultado já é uma decisão sobre a escala.
+
+#### Quem escolhe a escala é a conta que vem depois
+
+A escala certa depende de três decisões que vêm antes dela. A primeira é o objetivo. Uma pesquisa que quer registrar onde a pessoa está, como satisfação ou avaliação, precisa do meio sempre que ele for um lugar onde alguém pode estar, e uma pesquisa que quer saber para que lado alguém pende talvez possa dispensá-lo, mas acho um risco.
+
+A segunda é o canal. Uma revisão publicada no *Survey Practice* resume a literatura assim: escalas de cinco a sete pontos se mostraram mais confiáveis do que as mais curtas e as mais longas, e escalas longas funcionam melhor quando o respondente as vê, porque no telefone ele precisa guardar todas as opções na memória ([Maitland, *How Many Scale Points Should I Include for Attitudinal Questions?*, *Survey Practice*](https://www.surveypractice.org/article/2950)).
+
+A saída que o artigo descreve para o telefone é desdobrar a pergunta em duas etapas, primeiro a direção e depois a intensidade, enquanto na rua e no domicílio o entrevistador pode mostrar um cartão com a escala inteira e online ela aparece toda na tela. O canal também muda o que as pessoas respondem. Num experimento do Pew Research Center de 2015, com painelistas sorteados para responder por telefone ou pela internet, 62% dos que falaram com um entrevistador se disseram muito satisfeitos com a vida familiar, contra 44% dos que responderam na tela, diferença que o Pew atribui à vontade de causar boa impressão a quem pergunta ([Pew Research Center, *Where web surveys produce different results than phone interviews*](https://www.pewresearch.org/short-reads/2015/05/14/where-web-surveys-produce-different-results-than-phone-interviews/)).
+
+A terceira é a análise. Quem vai analisar precisa de pontos que se possam tratar como equidistantes, quem vai olhar só a proporção das duas notas mais altas depende menos disso, porque só pergunta se a resposta passou de um corte, e quem vai comparar o resultado com o de outra pesquisa precisa repetir a escala, o canal e a redação, porque qualquer um dos três muda o número. Nas pesquisas da H0, a escala era decidida por esses fatores, e não pelo hábito de quem montava o questionário.
+
+#### Quem atende as expectativas foi empurrado
+
+Volte à avaliação de 1 a 4. O gestor que tem diante de si alguém exatamente no padrão da função não encontra a categoria certa e precisa empurrar a pessoa para um dos lados. Chamo isso de viés do empurrão: a resposta que sai deslocada de onde a pessoa de fato está, aqui porque a categoria certa não existe. Patrick Sturgis, Caroline Roberts e Patten Smith descrevem o mesmo efeito em quem tem uma posição neutra e, sem o meio, é obrigado a escolher entre as categorias que sobraram ([Sturgis, Roberts e Smith, *Middle Alternatives Revisited*, *Sociological Methods & Research*](https://doi.org/10.1177/0049124112452527)). O empurrão não aparece no relatório como erro. Ele pode aparecer como uma distribuição com dois picos, no 2 e no 3, que parece dizer que a equipe se divide entre quem está abaixo e quem está acima do padrão, e que pode estar dizendo apenas que a escala não tinha onde pôr quem estava nele.
+
+"Com o meio, o 3 de 5 vira o depósito de quem ninguém quis avaliar direito; sem ele, o gestor é obrigado a se posicionar." A objeção tem uma parte verdadeira. No mesmo estudo, quem escolheu o "nem concordo nem discordo" em perguntas de opinião foi questionado em seguida, e a grande maioria dessas respostas era de quem não tinha opinião sobre o assunto e usava o meio para não admitir isso ao entrevistador. O gestor que dá nota do meio para todos, para não ter de justificar nenhuma, também existe. Onde a objeção falha é no remédio. O "nem concordo nem discordo" de uma pesquisa de opinião é ambíguo, porque serve tanto para a neutralidade quanto para a falta de opinião, enquanto o "atende às expectativas" tem significado próprio e é a resposta correta para quem está ali. O gestor que não sabe avaliar alguém precisa de uma opção de "não observei" e de calibração com os pares, e tirar o meio só escolhe por ele o lado para onde vai a dúvida.
+
+O caso que derrubaria a defesa do meio é a pesquisa em que forçar a posição é o próprio objetivo, e nele a escala par continua sendo a escolha certa. Uma pesquisa de opinião que pergunta se a pessoa apoia ou rejeita uma mudança polêmica quer saber justamente para que lado pende quem tem opinião formada e prefere não se comprometer, e aí o deslocamento é exatamente o que se quer medir. Avaliação de desempenho, autoavaliação e avaliação por pares têm outro objetivo: posicionar a pessoa com precisão.
+
+A escala de 4 pontos tem ainda um segundo defeito, nos extremos. O 4 é o teto, então quem supera o que a função pede e quem tem um desempenho de fato excepcional recebem a mesma nota.
+
+Cinco pontos também não são uma fórmula perfeita. A escala ímpar resolve o empurrão que nasce da falta de categoria, mas não protege contra a leniência, a do gestor que dá 4 para não ter uma conversa difícil, nem contra a nota atrelada a dinheiro: quando ela decide bônus e promoção, o 3 deixa de ser "atende" e vira sinal de alerta, e as notas tendem a subir para fugir dele.
+
+#### Ninguém quer dar zero
+
+O número escrito na ponta de uma escala muda o peso do que está escrito ao lado dele. Em 1991, Norbert Schwarz e colegas perguntaram a uma amostra representativa de adultos alemães o quanto eles tinham sido bem-sucedidos na vida, numa escala de 11 pontos com os mesmos rótulos nas pontas, "nada bem-sucedido" e "extremamente bem-sucedido". Metade recebeu a escala numerada de 0 a 10, e a outra metade, de -5 a +5.
+
+**Com a escala de 0 a 10, 34% escolheram um valor entre 0 e 5; com a de -5 a +5, só 13% escolheram um valor entre -5 e 0** ([Schwarz e colegas, *Rating Scales: Numeric Values May Change the Meaning of Scale Labels*, *Public Opinion Quarterly*](https://doi.org/10.1086/269282)). Para os autores, o zero ao lado de "nada bem-sucedido" foi lido como ausência de sucesso, e o -5, como presença do fracasso, e a ponta lida como mais pesada recebeu menos gente. É a diferença entre o zero da escala Celsius, um ponto no meio do caminho entre o frio e o calor, e o da Kelvin, que é ausência de temperatura: o mesmo símbolo muda de sentido conforme a escala em que aparece. Na escala de -5 a +5, o zero virou o meio, como no Celsius, e a ponta de baixo passou a significar fracasso.
+
+Nas pesquisas que fiz, o zero da escala de 0 a 10 costumava ser a nota que muita gente evitava. Quando ele lê como a nota zero da escola, ou como "nada", quem teve uma experiência ruim, mas não nula, tende a subir para o 1, o 2 ou o 3. É o empurrão de novo, agora com a categoria presente: ela existe, mas pesa demais para ser usada.
+
+A consequência para a análise é direta. Se o zero é evitado, a distância entre o 0 e o 1 não vale o mesmo que a que separa o 5 do 6 para quem responde, e a média de uma escala de 0 a 10 soma respostas que não estão na mesma régua. A métrica de recomendação que talvez esteja no painel da sua empresa também foi construída numa escala de 0 a 10, e escapou do problema da média trocando-a por duas proporções, de um jeito que cria outros problemas.
+
+#### Nota 10 ou eu perco o emprego
+
+A escala de 0 a 10 parece intuitiva para quem cresceu com nota de escola, e foi ela que Fred Reichheld escolheu em 2003, na *Harvard Business Review*, para a pergunta única que, segundo ele, bastava para prever o crescimento de uma empresa: qual a probabilidade de você recomendar esta empresa a um amigo ou colega ([Reichheld, *The One Number You Need to Grow*, *Harvard Business Review*](https://hbr.org/2003/12/the-one-number-you-need-to-grow)). Quem responde 9 ou 10 é promotor, quem responde 7 ou 8 é neutro, e quem responde de 0 a 6 é detrator. O *Net Promoter Score*, o NPS, é a diferença entre as duas proporções das pontas:
+
+$$
+\text{NPS} = P - D
+$$
+
+em que $P$ é o percentual de promotores e $D$, o de detratores, de modo que o resultado vai de -100 a 100.
+
+Os problemas começam na escala. Onze pontos viram três categorias, e dentro de cada categoria a diferença desaparece: o cliente que deu 6 conta exatamente como o que deu 0, e a média deixa de existir para dar lugar a duas proporções. A subtração ainda esconde a distribuição. Uma base com metade de promotores e metade de detratores tem NPS zero, e uma base em que todo mundo respondeu 7 ou 8 também, embora a primeira descreva uma empresa que divide os clientes e a segunda uma empresa de que ninguém reclama nem fala bem.
+
+A promessa de ser o melhor preditor de crescimento também não se confirmou num teste fora dos dados do autor. Timothy Keiningham e colegas usaram dados longitudinais de 21 empresas e mais de 15.500 entrevistas do barômetro norueguês de satisfação do cliente, repetiram as análises da pesquisa do NPS e não encontraram a superioridade clara dele sobre outras medidas de satisfação ([Keiningham e colegas, *A Longitudinal Examination of Net Promoter and Firm Revenue Growth*, *Journal of Marketing*](https://doi.org/10.1509/jmkg.71.3.39)).
+
+O problema mais visível, porém, está na coleta, e o próprio criador da métrica o descreveu. Em 2021, Reichheld, Darci Darnell e Maureen Burns publicaram na *Harvard Business Review* uma revisão do sistema em que reconhecem o que a adoção fez com ele ([Reichheld, Darnell e Burns, *Net Promoter 3.0*, *Harvard Business Review*, na cópia da Bain](https://www.bain.com/insights/net-promoter-3-0/)).
+
+Empresas atrelaram a nota ao bônus de quem atende o cliente, e a equipe passou a se importar mais com a nota do que com o atendimento. Funcionários passaram a pedir o 10 dizendo que perderiam o emprego com uma nota menor, e empresas passaram a oferecer brinde em troca dele. Há empresa que não envia a pesquisa ao cliente que teve o pedido negado, e os relatórios em que empresas divulgam a própria nota raramente dizem quantos clientes foram pesquisados ou qual foi a taxa de resposta. Os autores chamam o resultado de estatística de vaidade, o número que serve para a empresa se exibir, e dizem que ela corrói a credibilidade da própria métrica. É o empurrão feito à mão: a escala tem onze pontos, e a coleta trabalha para que o cliente marque 9 ou 10.
+
+Nada disso obriga a desligar o NPS que já está rodando, porque a série histórica tem valor quando a coleta foi estável, e trocar a escala agora quebraria a comparação. O que eu mudaria é o que vem em volta dele: publicar a distribuição das onze notas ao lado do número final, para que a base dividida e a base morna deixem de parecer a mesma empresa, dizer quantos clientes receberam a pesquisa e quantos responderam, e tirar a nota do bônus de quem atende o cliente. Os autores do *Net Promoter 3.0*, por sua vez, propõem acompanhar a nota junto de uma medida financeira de crescimento, tirada da receita auditada de todos os clientes e não de uma amostra que respondeu à pesquisa.
+
+#### Antes dos pontos, escolha a conta
+
+Em cima do muro também é resposta quando o meio da escala tem significado, e na avaliação de desempenho ele tem: é onde está quem atende ao que a função pede. Antes de decidir quantos pontos o seu próximo questionário vai ter, decida o que você vai fazer com o resultado e por qual canal a pergunta vai chegar.
 
 ## UX com produtos físicos, o puro suco da estatística
 

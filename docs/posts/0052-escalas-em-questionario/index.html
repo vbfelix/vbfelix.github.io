@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>Em cima do muro também é resposta – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Em cima do muro também é resposta – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html">
+<meta name="description" content="Recentemente li uma avaliação de desempenho com escala de 1 a 4 e não encontrei nela o lugar de quem é médio. O gestor que avalia alguém exatamente no padrão precisa escolher entre o 2, que põe a pessoa abaixo dele, e o 3, que a põe um pouco acima. A escala par costuma ser escolhida para forçar quem responde a tomar posição, e isso é uma estratégia que pode ser aplicada, mas com ressalvas. Em avaliação de desempenho, o ponto central não é indecisão, é &quot;atende às expectativas&quot;, um julgamento válido e, na prática, o lugar onde está a maior parte das pessoas. Sugeri trocar por uma escala de 1 a 5 no próximo ciclo. A escala de resposta decide parte da resposta, porque chega junto com a pergunta, e por isso se escolhe pelo objetivo da pesquisa, pelo canal e pela conta que vai ser feita com o resultado.">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html#page","url":"https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html","name":"Em cima do muro também é resposta","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html","articleSection":["Estatística"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Em cima do muro também é resposta</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Estatística</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">16 de novembro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#a-escala-que-não-tinha-lugar-para-quem-atende" id="toc-a-escala-que-não-tinha-lugar-para-quem-atende" class="nav-link active" data-scroll-target="#a-escala-que-não-tinha-lugar-para-quem-atende">A escala que não tinha lugar para quem atende</a></li>
+  <li><a href="#o-muro-que-a-escala-par-promete-derrubar" id="toc-o-muro-que-a-escala-par-promete-derrubar" class="nav-link" data-scroll-target="#o-muro-que-a-escala-par-promete-derrubar">O muro que a escala par promete derrubar</a></li>
+  <li><a href="#quem-escolhe-a-escala-é-a-conta-que-vem-depois" id="toc-quem-escolhe-a-escala-é-a-conta-que-vem-depois" class="nav-link" data-scroll-target="#quem-escolhe-a-escala-é-a-conta-que-vem-depois">Quem escolhe a escala é a conta que vem depois</a></li>
+  <li><a href="#quem-atende-as-expectativas-foi-empurrado" id="toc-quem-atende-as-expectativas-foi-empurrado" class="nav-link" data-scroll-target="#quem-atende-as-expectativas-foi-empurrado">Quem atende as expectativas foi empurrado</a></li>
+  <li><a href="#ninguém-quer-dar-zero" id="toc-ninguém-quer-dar-zero" class="nav-link" data-scroll-target="#ninguém-quer-dar-zero">Ninguém quer dar zero</a></li>
+  <li><a href="#nota-10-ou-eu-perco-o-emprego" id="toc-nota-10-ou-eu-perco-o-emprego" class="nav-link" data-scroll-target="#nota-10-ou-eu-perco-o-emprego">Nota 10 ou eu perco o emprego</a></li>
+  <li><a href="#antes-dos-pontos-escolha-a-conta" id="toc-antes-dos-pontos-escolha-a-conta" class="nav-link" data-scroll-target="#antes-dos-pontos-escolha-a-conta">Antes dos pontos, escolha a conta</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">Em cima do muro também é resposta</li></ol></nav>
+<section id="a-escala-que-não-tinha-lugar-para-quem-atende" class="level3">
+<h3 class="anchored" data-anchor-id="a-escala-que-não-tinha-lugar-para-quem-atende">A escala que não tinha lugar para quem atende</h3>
+<p>Recentemente li uma avaliação de desempenho com escala de 1 a 4 e não encontrei nela o lugar de quem é médio. O gestor que avalia alguém exatamente no padrão precisa escolher entre o 2, que põe a pessoa abaixo dele, e o 3, que a põe um pouco acima. A escala par costuma ser escolhida para forçar quem responde a tomar posição, e isso é uma estratégia que pode ser aplicada, mas com ressalvas. Em avaliação de desempenho, o ponto central não é indecisão, é “atende às expectativas”, um julgamento válido e, na prática, o lugar onde está a maior parte das pessoas. Sugeri trocar por uma escala de 1 a 5 no próximo ciclo. A escala de resposta decide parte da resposta, porque chega junto com a pergunta, e por isso se escolhe pelo objetivo da pesquisa, pelo canal e pela conta que vai ser feita com o resultado.</p>
+<p>Aprendi isso no início da carreira, na H0 Consultoria, empresa de estatística onde trabalhei em mais de 40 pesquisas de mercado, por telefone, em domicílio, online e na rua, e entendi que como coletar não é fácil.</p>
+</section>
+<section id="o-muro-que-a-escala-par-promete-derrubar" class="level3">
+<h3 class="anchored" data-anchor-id="o-muro-que-a-escala-par-promete-derrubar">O muro que a escala par promete derrubar</h3>
+<p>“Escala par evita que as pessoas fiquem em cima do muro.” É o argumento que aparece quando alguém monta um formulário e decide tirar o meio, e ele parte de uma suposição que raramente é dita: a de que quem marca o meio está escondendo uma opinião que tem. Às vezes está. Mas muitas vezes o meio pode ser a resposta certa, e tirá-lo obriga a pessoa a escolher um lado que ela não ocupa.</p>
+<p>A escala de concordância com cinco pontos, a mais comum nesse debate, tem nome e tem história. Rensis Likert a propôs em 1932, num estudo publicado no <em>Archives of Psychology</em> sobre como medir atitudes (<a href="https://www.encyclopedia.com/social-sciences/applied-and-social-sciences-magazines/likert-scale"><em>International Encyclopedia of the Social Sciences</em>, <em>Likert Scale</em></a>). A técnica anterior, de Louis Thurstone, pedia a um painel de juízes que atribuísse a cada afirmação um valor na escala de atitude, um trabalho longo e trabalhoso. Likert deixou de medir as afirmações e passou a medir as respostas: cada pessoa diz o quanto concorda com várias afirmações sobre o mesmo assunto, cada resposta recebe um peso, e a atitude é a soma desses pesos. A escala Likert, no sentido original, é essa soma de vários itens. A pergunta isolada com cinco opções de “discordo totalmente” a “concordo totalmente”, que hoje leva o nome dele, é um item no formato Likert.</p>
+<p>A diferença importa porque a resposta a um item é ordinal: sabemos que “concordo totalmente” está acima de “concordo”, mas não que a distância entre os dois seja a mesma que separa “concordo” do meio. Quem calcula a média de um item isolado supõe que essas distâncias são iguais. Somar vários itens, como Likert fazia, não elimina a suposição, mas produz um total com muitos valores possíveis, que se comporta mais como uma medida contínua do que a resposta a uma pergunta só transformada no indicador do trimestre. Por isso a conta que você pretende fazer com o resultado já é uma decisão sobre a escala.</p>
+</section>
+<section id="quem-escolhe-a-escala-é-a-conta-que-vem-depois" class="level3">
+<h3 class="anchored" data-anchor-id="quem-escolhe-a-escala-é-a-conta-que-vem-depois">Quem escolhe a escala é a conta que vem depois</h3>
+<p>A escala certa depende de três decisões que vêm antes dela. A primeira é o objetivo. Uma pesquisa que quer registrar onde a pessoa está, como satisfação ou avaliação, precisa do meio sempre que ele for um lugar onde alguém pode estar, e uma pesquisa que quer saber para que lado alguém pende talvez possa dispensá-lo, mas acho um risco.</p>
+<p>A segunda é o canal. Uma revisão publicada no <em>Survey Practice</em> resume a literatura assim: escalas de cinco a sete pontos se mostraram mais confiáveis do que as mais curtas e as mais longas, e escalas longas funcionam melhor quando o respondente as vê, porque no telefone ele precisa guardar todas as opções na memória (<a href="https://www.surveypractice.org/article/2950">Maitland, <em>How Many Scale Points Should I Include for Attitudinal Questions?</em>, <em>Survey Practice</em></a>).</p>
+<p>A saída que o artigo descreve para o telefone é desdobrar a pergunta em duas etapas, primeiro a direção e depois a intensidade, enquanto na rua e no domicílio o entrevistador pode mostrar um cartão com a escala inteira e online ela aparece toda na tela. O canal também muda o que as pessoas respondem. Num experimento do Pew Research Center de 2015, com painelistas sorteados para responder por telefone ou pela internet, 62% dos que falaram com um entrevistador se disseram muito satisfeitos com a vida familiar, contra 44% dos que responderam na tela, diferença que o Pew atribui à vontade de causar boa impressão a quem pergunta (<a href="https://www.pewresearch.org/short-reads/2015/05/14/where-web-surveys-produce-different-results-than-phone-interviews/">Pew Research Center, <em>Where web surveys produce different results than phone interviews</em></a>).</p>
+<p>A terceira é a análise. Quem vai analisar precisa de pontos que se possam tratar como equidistantes, quem vai olhar só a proporção das duas notas mais altas depende menos disso, porque só pergunta se a resposta passou de um corte, e quem vai comparar o resultado com o de outra pesquisa precisa repetir a escala, o canal e a redação, porque qualquer um dos três muda o número. Nas pesquisas da H0, a escala era decidida por esses fatores, e não pelo hábito de quem montava o questionário.</p>
+</section>
+<section id="quem-atende-as-expectativas-foi-empurrado" class="level3">
+<h3 class="anchored" data-anchor-id="quem-atende-as-expectativas-foi-empurrado">Quem atende as expectativas foi empurrado</h3>
+<p>Volte à avaliação de 1 a 4. O gestor que tem diante de si alguém exatamente no padrão da função não encontra a categoria certa e precisa empurrar a pessoa para um dos lados. Chamo isso de viés do empurrão: a resposta que sai deslocada de onde a pessoa de fato está, aqui porque a categoria certa não existe. Patrick Sturgis, Caroline Roberts e Patten Smith descrevem o mesmo efeito em quem tem uma posição neutra e, sem o meio, é obrigado a escolher entre as categorias que sobraram (<a href="https://doi.org/10.1177/0049124112452527">Sturgis, Roberts e Smith, <em>Middle Alternatives Revisited</em>, <em>Sociological Methods &amp; Research</em></a>). O empurrão não aparece no relatório como erro. Ele pode aparecer como uma distribuição com dois picos, no 2 e no 3, que parece dizer que a equipe se divide entre quem está abaixo e quem está acima do padrão, e que pode estar dizendo apenas que a escala não tinha onde pôr quem estava nele.</p>
+<p>“Com o meio, o 3 de 5 vira o depósito de quem ninguém quis avaliar direito; sem ele, o gestor é obrigado a se posicionar.” A objeção tem uma parte verdadeira. No mesmo estudo, quem escolheu o “nem concordo nem discordo” em perguntas de opinião foi questionado em seguida, e a grande maioria dessas respostas era de quem não tinha opinião sobre o assunto e usava o meio para não admitir isso ao entrevistador. O gestor que dá nota do meio para todos, para não ter de justificar nenhuma, também existe. Onde a objeção falha é no remédio. O “nem concordo nem discordo” de uma pesquisa de opinião é ambíguo, porque serve tanto para a neutralidade quanto para a falta de opinião, enquanto o “atende às expectativas” tem significado próprio e é a resposta correta para quem está ali. O gestor que não sabe avaliar alguém precisa de uma opção de “não observei” e de calibração com os pares, e tirar o meio só escolhe por ele o lado para onde vai a dúvida.</p>
+<p>O caso que derrubaria a defesa do meio é a pesquisa em que forçar a posição é o próprio objetivo, e nele a escala par continua sendo a escolha certa. Uma pesquisa de opinião que pergunta se a pessoa apoia ou rejeita uma mudança polêmica quer saber justamente para que lado pende quem tem opinião formada e prefere não se comprometer, e aí o deslocamento é exatamente o que se quer medir. Avaliação de desempenho, autoavaliação e avaliação por pares têm outro objetivo: posicionar a pessoa com precisão.</p>
+<p>A escala de 4 pontos tem ainda um segundo defeito, nos extremos. O 4 é o teto, então quem supera o que a função pede e quem tem um desempenho de fato excepcional recebem a mesma nota.</p>
+<p>Cinco pontos também não são uma fórmula perfeita. A escala ímpar resolve o empurrão que nasce da falta de categoria, mas não protege contra a leniência, a do gestor que dá 4 para não ter uma conversa difícil, nem contra a nota atrelada a dinheiro: quando ela decide bônus e promoção, o 3 deixa de ser “atende” e vira sinal de alerta, e as notas tendem a subir para fugir dele.</p>
+</section>
+<section id="ninguém-quer-dar-zero" class="level3">
+<h3 class="anchored" data-anchor-id="ninguém-quer-dar-zero">Ninguém quer dar zero</h3>
+<p>O número escrito na ponta de uma escala muda o peso do que está escrito ao lado dele. Em 1991, Norbert Schwarz e colegas perguntaram a uma amostra representativa de adultos alemães o quanto eles tinham sido bem-sucedidos na vida, numa escala de 11 pontos com os mesmos rótulos nas pontas, “nada bem-sucedido” e “extremamente bem-sucedido”. Metade recebeu a escala numerada de 0 a 10, e a outra metade, de -5 a +5.</p>
+<p><strong>Com a escala de 0 a 10, 34% escolheram um valor entre 0 e 5; com a de -5 a +5, só 13% escolheram um valor entre -5 e 0</strong> (<a href="https://doi.org/10.1086/269282">Schwarz e colegas, <em>Rating Scales: Numeric Values May Change the Meaning of Scale Labels</em>, <em>Public Opinion Quarterly</em></a>). Para os autores, o zero ao lado de “nada bem-sucedido” foi lido como ausência de sucesso, e o -5, como presença do fracasso, e a ponta lida como mais pesada recebeu menos gente. É a diferença entre o zero da escala Celsius, um ponto no meio do caminho entre o frio e o calor, e o da Kelvin, que é ausência de temperatura: o mesmo símbolo muda de sentido conforme a escala em que aparece. Na escala de -5 a +5, o zero virou o meio, como no Celsius, e a ponta de baixo passou a significar fracasso.</p>
+<p>Nas pesquisas que fiz, o zero da escala de 0 a 10 costumava ser a nota que muita gente evitava. Quando ele lê como a nota zero da escola, ou como “nada”, quem teve uma experiência ruim, mas não nula, tende a subir para o 1, o 2 ou o 3. É o empurrão de novo, agora com a categoria presente: ela existe, mas pesa demais para ser usada.</p>
+<p>A consequência para a análise é direta. Se o zero é evitado, a distância entre o 0 e o 1 não vale o mesmo que a que separa o 5 do 6 para quem responde, e a média de uma escala de 0 a 10 soma respostas que não estão na mesma régua. A métrica de recomendação que talvez esteja no painel da sua empresa também foi construída numa escala de 0 a 10, e escapou do problema da média trocando-a por duas proporções, de um jeito que cria outros problemas.</p>
+</section>
+<section id="nota-10-ou-eu-perco-o-emprego" class="level3">
+<h3 class="anchored" data-anchor-id="nota-10-ou-eu-perco-o-emprego">Nota 10 ou eu perco o emprego</h3>
+<p>A escala de 0 a 10 parece intuitiva para quem cresceu com nota de escola, e foi ela que Fred Reichheld escolheu em 2003, na <em>Harvard Business Review</em>, para a pergunta única que, segundo ele, bastava para prever o crescimento de uma empresa: qual a probabilidade de você recomendar esta empresa a um amigo ou colega (<a href="https://hbr.org/2003/12/the-one-number-you-need-to-grow">Reichheld, <em>The One Number You Need to Grow</em>, <em>Harvard Business Review</em></a>). Quem responde 9 ou 10 é promotor, quem responde 7 ou 8 é neutro, e quem responde de 0 a 6 é detrator. O <em>Net Promoter Score</em>, o NPS, é a diferença entre as duas proporções das pontas:</p>
+<p><span class="math display">\[
+\text{NPS} = P - D
+\]</span></p>
+<p>em que <span class="math inline">\(P\)</span> é o percentual de promotores e <span class="math inline">\(D\)</span>, o de detratores, de modo que o resultado vai de -100 a 100.</p>
+<p>Os problemas começam na escala. Onze pontos viram três categorias, e dentro de cada categoria a diferença desaparece: o cliente que deu 6 conta exatamente como o que deu 0, e a média deixa de existir para dar lugar a duas proporções. A subtração ainda esconde a distribuição. Uma base com metade de promotores e metade de detratores tem NPS zero, e uma base em que todo mundo respondeu 7 ou 8 também, embora a primeira descreva uma empresa que divide os clientes e a segunda uma empresa de que ninguém reclama nem fala bem.</p>
+<p>A promessa de ser o melhor preditor de crescimento também não se confirmou num teste fora dos dados do autor. Timothy Keiningham e colegas usaram dados longitudinais de 21 empresas e mais de 15.500 entrevistas do barômetro norueguês de satisfação do cliente, repetiram as análises da pesquisa do NPS e não encontraram a superioridade clara dele sobre outras medidas de satisfação (<a href="https://doi.org/10.1509/jmkg.71.3.39">Keiningham e colegas, <em>A Longitudinal Examination of Net Promoter and Firm Revenue Growth</em>, <em>Journal of Marketing</em></a>).</p>
+<p>O problema mais visível, porém, está na coleta, e o próprio criador da métrica o descreveu. Em 2021, Reichheld, Darci Darnell e Maureen Burns publicaram na <em>Harvard Business Review</em> uma revisão do sistema em que reconhecem o que a adoção fez com ele (<a href="https://www.bain.com/insights/net-promoter-3-0/">Reichheld, Darnell e Burns, <em>Net Promoter 3.0</em>, <em>Harvard Business Review</em>, na cópia da Bain</a>).</p>
+<p>Empresas atrelaram a nota ao bônus de quem atende o cliente, e a equipe passou a se importar mais com a nota do que com o atendimento. Funcionários passaram a pedir o 10 dizendo que perderiam o emprego com uma nota menor, e empresas passaram a oferecer brinde em troca dele. Há empresa que não envia a pesquisa ao cliente que teve o pedido negado, e os relatórios em que empresas divulgam a própria nota raramente dizem quantos clientes foram pesquisados ou qual foi a taxa de resposta. Os autores chamam o resultado de estatística de vaidade, o número que serve para a empresa se exibir, e dizem que ela corrói a credibilidade da própria métrica. É o empurrão feito à mão: a escala tem onze pontos, e a coleta trabalha para que o cliente marque 9 ou 10.</p>
+<p>Nada disso obriga a desligar o NPS que já está rodando, porque a série histórica tem valor quando a coleta foi estável, e trocar a escala agora quebraria a comparação. O que eu mudaria é o que vem em volta dele: publicar a distribuição das onze notas ao lado do número final, para que a base dividida e a base morna deixem de parecer a mesma empresa, dizer quantos clientes receberam a pesquisa e quantos responderam, e tirar a nota do bônus de quem atende o cliente. Os autores do <em>Net Promoter 3.0</em>, por sua vez, propõem acompanhar a nota junto de uma medida financeira de crescimento, tirada da receita auditada de todos os clientes e não de uma amostra que respondeu à pesquisa.</p>
+</section>
+<section id="antes-dos-pontos-escolha-a-conta" class="level3">
+<h3 class="anchored" data-anchor-id="antes-dos-pontos-escolha-a-conta">Antes dos pontos, escolha a conta</h3>
+<p>Em cima do muro também é resposta quando o meio da escala tem significado, e na avaliação de desempenho ele tem: é onde está quem atende ao que a função pede. Antes de decidir quantos pontos o seu próximo questionário vai ter, decida o que você vai fazer com o resultado e por qual canal a pergunta vai chegar.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=Estatística">#Estatística</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

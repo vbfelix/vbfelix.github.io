@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "1534e645c991901126cbb960ca674015a573f56b583e2eff395ef45fc0bf7292",
+  "sourceRevision": "bcc2e35d6885670812f7967ab15d9c5789f6a0d801260fc2e3a727d357262cbc",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -565,6 +565,17 @@
       "url": "https://vbfelix.github.io/posts/0051-aprender-com-ia/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0051-aprender-com-ia/index.html.md",
       "revision": "fb921d801ec86079e505bbb78e184d078d9b94132d5a2ae3532e9a6f3576896b"
+    },
+    {
+      "title": "Em cima do muro também é resposta",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "Estatística"
+      ],
+      "url": "https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html.md",
+      "revision": "5441813471f60217fb4f0f3e21422893d29873e283fae53a3c179aed7ca0335d"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",
