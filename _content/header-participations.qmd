@@ -2,6 +2,7 @@
 
 ## 2026
 
+-   ![Brasil](/images/bra.png){width="20"} Não culpe o cavalo: o que um harness faz por um LLM - AMENDUTECH (Serra Bits)
 -   ![Brasil](/images/bra.png){width="20"} Cloud Native Maringá #4: De dados caóticos a um produto de dados
 
 ## 2025
