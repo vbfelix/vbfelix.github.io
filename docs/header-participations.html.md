@@ -6,6 +6,8 @@ Fonte: https://vbfelix.github.io/header-participations.html
 
 ## 2026
 
+-   ![Brasil](https://vbfelix.github.io/images/bra.png) AMENDUTECH: Não culpe o cavalo: o que um harness faz por um LLM
+
 -   ![Brasil](https://vbfelix.github.io/images/bra.png) Cloud Native Maringá #4: De dados caóticos a um produto de dados
 
 ## 2025
