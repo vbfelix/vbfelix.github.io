@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vinícius Félix">
+
+<title>O que o gestor que eu sou traria ao meu eu executor? – Vinícius Félix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../images/favicon/chalk-scatter.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="O que o gestor que eu sou traria ao meu eu executor? – Vinícius Félix">
+<meta property="og:description" content="Estatístico e mestre em Bioestatística, com experiência em pesquisa, engenharia de dados e produto.">
+<meta property="og:site_name" content="Vinícius Félix">
+<!-- agent-metadata:start -->
+<link rel="canonical" href="https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html">
+<meta name="description" content="Meu gestor me fez uma provocação interessante: **o que eu, como gestor, traria ao meu eu executor?**">
+<link rel="describedby" href="https://vbfelix.github.io/llms.txt" type="text/plain">
+<link rel="alternate" type="text/markdown" href="https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html.md">
+<link rel="alternate" type="application/json" href="https://vbfelix.github.io/agent-index.json" title="Índice estruturado">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://vbfelix.github.io/#person","name":"Vinícius Félix","url":"https://vbfelix.github.io/","description":"Sou estatístico e mestre em Bioestatística. Essa formação me ensinou a separar evidência de convicção, perguntar o que mudaria minha opinião e respeitar os limites de uma resposta.","sameAs":["https://github.com/vbfelix","https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/","http://lattes.cnpq.br/6820390470508877"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Estadual de Maringá"}]},{"@type":["Article","BlogPosting"],"@id":"https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html#page","url":"https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html","name":"O que o gestor que eu sou traria ao meu eu executor?","inLanguage":"pt-BR","author":{"@id":"https://vbfelix.github.io/#person"},"mainEntityOfPage":"https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html","articleSection":["IA","Produto"]}]}</script>
+<!-- agent-metadata:end -->
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Vinícius Félix</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfólio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-certifications.html"> 
+<span class="menu-text">Certificações</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../header-publications.html"> 
+<span class="menu-text">Publicações</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-outros" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Outros</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-outros">    
+        <li>
+    <a class="dropdown-item" href="../../header-participations.html">
+ <span class="dropdown-text">Participações</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-courses.html">
+ <span class="dropdown-text">Cursos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../header-awards.html">
+ <span class="dropdown-text">Prêmios</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/vbfelix" rel="noopener" target="_blank"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vin%C3%ADcius-f%C3%A9lix-962010140/" rel="noopener" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://stackoverflow.com/users/9696037/vin%c3%adcius-f%c3%a9lix" rel="noopener" target="_blank"> <i class="bi bi-stack-overflow" role="img" aria-label="Stack Overflow">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://vbfelix.github.io/relper" rel="noopener" target="_blank"> <i class="bi bi-box-seam" role="img" aria-label="relper, pacote R">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">O que o gestor que eu sou traria ao meu eu executor?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">IA</div>
+                <div class="quarto-category">Produto</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Vinícius Félix </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">26 de novembro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#a-régua-de-senioridade-media-o-que-a-ia-aprendeu-a-fazer" id="toc-a-régua-de-senioridade-media-o-que-a-ia-aprendeu-a-fazer" class="nav-link active" data-scroll-target="#a-régua-de-senioridade-media-o-que-a-ia-aprendeu-a-fazer">A régua de senioridade media o que a IA aprendeu a fazer</a></li>
+  <li><a href="#se-a-ia-executa-o-que-sobra-para-mim" id="toc-se-a-ia-executa-o-que-sobra-para-mim" class="nav-link" data-scroll-target="#se-a-ia-executa-o-que-sobra-para-mim">Se a IA executa, o que sobra para mim?</a></li>
+  <li><a href="#a-liberdade-que-você-deu-ao-time-pode-ser-a-prisão-dele" id="toc-a-liberdade-que-você-deu-ao-time-pode-ser-a-prisão-dele" class="nav-link" data-scroll-target="#a-liberdade-que-você-deu-ao-time-pode-ser-a-prisão-dele">A liberdade que você deu ao time pode ser a prisão dele</a></li>
+  <li><a href="#o-porquê-vem-antes-da-autonomia" id="toc-o-porquê-vem-antes-da-autonomia" class="nav-link" data-scroll-target="#o-porquê-vem-antes-da-autonomia">O porquê vem antes da autonomia</a></li>
+  <li><a href="#ceo-do-próprio-projeto-com-evidência" id="toc-ceo-do-próprio-projeto-com-evidência" class="nav-link" data-scroll-target="#ceo-do-próprio-projeto-com-evidência">CEO do próprio projeto, com evidência</a></li>
+  <li><a href="#negócio-e-estratégia-o-calcanhar-de-aquiles-do-especialista" id="toc-negócio-e-estratégia-o-calcanhar-de-aquiles-do-especialista" class="nav-link" data-scroll-target="#negócio-e-estratégia-o-calcanhar-de-aquiles-do-especialista">Negócio e estratégia, o calcanhar de Aquiles do especialista</a></li>
+  <li><a href="#na-próxima-demanda-entregue-o-porquê-antes-da-tarefa" id="toc-na-próxima-demanda-entregue-o-porquê-antes-da-tarefa" class="nav-link" data-scroll-target="#na-próxima-demanda-entregue-o-porquê-antes-da-tarefa">Na próxima demanda, entregue o porquê antes da tarefa</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
+<script>
+// Quarto places this include inside <main>; the link only helps as the first stop in tab order.
+document.body.prepend(document.currentScript.previousElementSibling);
+</script>
+
+
+
+
+
+<nav class="site-breadcrumbs" aria-label="Navegação estrutural"><ol><li><a href="../../index.html">Início</a></li><li><a href="../../writing.html">Blog</a></li><li aria-current="page">O que o gestor que eu sou traria ao meu eu executor?</li></ol></nav>
+<p>Meu gestor me fez uma provocação interessante: <strong>o que eu, como gestor, traria ao meu eu executor?</strong></p>
+<p>A resposta curta é contexto, critério e limite, que são justamente as três coisas que uma tarefa mastigada, já recortada e com o passo a passo, nunca carregou. Cheguei a ela por um caminho incômodo, porque com IA eu voltei a executar, e executo bem. Escrever um texto, montar uma análise ou levantar um protótipo ficou barato, e o que continua caro é o que eu levo para a ferramenta: a maturidade para reconhecer o que é suficientemente bom, a transversalidade para ligar uma decisão técnica a um efeito no negócio e o contexto do cliente, do histórico e da estratégia.</p>
+<section id="a-régua-de-senioridade-media-o-que-a-ia-aprendeu-a-fazer" class="level3">
+<h3 class="anchored" data-anchor-id="a-régua-de-senioridade-media-o-que-a-ia-aprendeu-a-fazer">A régua de senioridade media o que a IA aprendeu a fazer</h3>
+<p>Durante muito tempo, cargo e senioridade foram medidos pela profundidade de execução. O júnior executava com supervisão, o pleno executava sozinho, e o sênior executava o difícil e ensinava os outros a executar. Essa régua fazia sentido enquanto executar era a parte escassa do trabalho. Quando a IA barateia a execução, a régua continua lá, mas passa a medir a parte do trabalho que ficou barata.</p>
+<p>O deslocamento já aparece em quem contrata. Num relatório sobre como o trabalho mudou dentro da empresa, a equipe de economia da Anthropic conta que os gestores de contratação de lá passaram a <strong>enfatizar autonomia e julgamento mais do que conhecimento de domínio</strong> (<a href="https://www.anthropic.com/research/employment-at-anthropic">Anthropic, outubro de 2026</a>). É um estudo da Anthropic sobre ela mesma, com os limites que isso traz, mas ele descreve bem o que eu vejo de perto: se executar vira <em>commodity</em>, algo barato e intercambiável, escolher passa a ser o diferencial. Escolher o que fazer, como fazer e quando parar. Vou chamar esse padrão de “escolher é o novo executar”, porque ele explica o que vem a seguir.</p>
+</section>
+<section id="se-a-ia-executa-o-que-sobra-para-mim" class="level3">
+<h3 class="anchored" data-anchor-id="se-a-ia-executa-o-que-sobra-para-mim">Se a IA executa, o que sobra para mim?</h3>
+<p>Sobra escolher e responder pelo resultado. Quando “escolher é o novo executar”, essa é a resposta, mas a pergunta dói a quem sempre foi bom executor porque mexe com identidade, além de carreira. Quem construiu a reputação sobre o domínio técnico de uma ferramenta, de uma linguagem ou de um tipo de análise vê parte desse domínio virar uma instrução bem escrita. Muitos profissionais excelentes passaram a vida recebendo o problema já recortado, e não foram preparados para assumir risco, decidir o escopo ou responder por um resultado de negócio. Pedir autonomia a essa pessoa sem mais nada é pedir que ela vire empreendedora de um dia para o outro.</p>
+<p>E empreendedor aqui não é papo de <em>coach</em>: é alguém que toca uma iniciativa de ponta a ponta, que tem a capacidade de fazer cada parte com a ajuda da IA e que pensa na entrega do resultado, além da entrega da tarefa. Chamo esse dono de iniciativa de <em>high</em> IC, um contribuidor individual (<em>individual contributor</em>, o profissional que tem impacto sem gerir pessoas) de alto impacto. A parte desconfortável é que, a depender do histórico de cada um, essa transição pode dar muito errado, e a próxima seção mostra por onde.</p>
+<p>O caso que me fez pensar nisso veio da própria Anthropic. Entre o fim de 2024 e março de 2026, ex-CTOs do Instagram, da Workday, da You.com e da Adept passaram a trabalhar na empresa como <em>member of technical staff</em>, o título de membro da equipe técnica (<a href="https://www.aol.com/news/workday-exec-trades-cto-title-055414483.html">Business Insider, abril de 2026</a>; <a href="https://officechai.com/ai/ctos-of-companies-including-instagram-workday-you-com-and-adept-have-joined-anthropic-as-members-of-technical-staff/">OfficeChai, abril de 2026</a>).</p>
+<p>As duas matérias não trazem o motivo da troca. A minha leitura é que o valor deles está na mesma transversalidade de que falei na abertura, o que alguns chamam de perfil <strong>nexialista</strong>: navegar entre o técnico e o negócio, entender nuance e decidir sob ambiguidade. Essa habilidade nem sempre vem do especialista mais sênior do time, e com frequência vem de quem já foi fundador, passou por várias áreas e precisou abstrair muito para sobreviver.</p>
+</section>
+<section id="a-liberdade-que-você-deu-ao-time-pode-ser-a-prisão-dele" class="level3">
+<h3 class="anchored" data-anchor-id="a-liberdade-que-você-deu-ao-time-pode-ser-a-prisão-dele">A liberdade que você deu ao time pode ser a prisão dele</h3>
+<p>A reação natural de quem quer formar donos é soltar: dar autonomia total, tirar a supervisão e esperar que a pessoa floresça. Para quem passou anos recebendo tarefa pronta, um mundo livre é um mundo sem limites, e sem limites a pessoa não sabe por onde começar, o que é prioridade nem quando parar. A liberdade sem limite acaba funcionando como uma prisão, porque a pessoa gasta a energia procurando o contorno do problema em vez de resolvê-lo. É o ponto contraintuitivo da transição: a restrição bem escolhida costuma provocar criatividade.</p>
+<p>Quem trabalha com agentes de IA conhece bem esse efeito. Numa palestra recente sobre o assunto, eu resumi a ideia na frase “não culpe o cavalo, melhore o <em>harness</em>”, em que o cavalo é o modelo de IA e o <em>harness</em> é o conjunto de instruções, ferramentas e limites em volta do modelo. Um agente com acesso a tudo e sem limite claro se perde com mais facilidade, e quando ele erra, a primeira suspeita deve recair sobre o que ele recebeu. Com pessoas, a pergunta é a mesma: quando o resultado é ruim, examine primeiro o objetivo, o contexto e o critério que a pessoa recebeu, e só depois avalie a execução.</p>
+<p>Por isso, mais do que apoiar a transição, cabe ao gestor dar clareza. Autonomia funciona como um acordo de duas vias, em que quem recebe espaço passa a responder pelas escolhas, e a dose desse espaço muda de pessoa para pessoa e de assunto para assunto. Entender quem você tem no time, o que cada um já sabe decidir e onde cada um ainda precisa de limite, e isso é trabalho de gestor.</p>
+</section>
+<section id="o-porquê-vem-antes-da-autonomia" class="level3">
+<h3 class="anchored" data-anchor-id="o-porquê-vem-antes-da-autonomia">O porquê vem antes da autonomia</h3>
+<p>A primeira coisa é o porquê. Quem recebe só o “o quê” tende a executar, e quem recebe o “porquê” passa a decidir. Com a IA essa diferença cresce, porque a qualidade do que a ferramenta entrega depende do objetivo que a pessoa conhece, e uma iniciativa sem propósito claro gera muito volume e pouco resultado. Por isso defendo que toda iniciativa nasça com uma frase simples, que diga por que ela existe e que resultado de negócio ela muda.</p>
+<p>Depois do porquê vem o foco. A IA torna fácil abrir muitas frentes ao mesmo tempo, a autonomia aumenta essa tentação, e cabe a você dizer o que não se faz agora. Essa decisão protege a atenção do time e entra na lista de prioridades junto com o resto. O mesmo raciocínio vale para o fim do trabalho: a ferramenta permite polir um entregável sem limite, e sem critério declarado a pessoa não tem como saber quando parar, então polir vira a escolha segura. Quando você declara antes o que é suficientemente bom, ela sabe quando entregar.</p>
+<p>Autonomia também exige segurança. Um dono de iniciativa precisa mostrar o risco cedo, quando ele ainda é barato, mas quem tem medo do gestor esconde o problema até ele crescer. Essa segurança se constrói na forma como você reage ao primeiro problema que recebe: “o que te travou?” abre a conversa, e “por que não terminou?” a fecha. Quem está travado quase sempre sabe de algo que você não vê, e a pergunta certa traz essa informação para a mesa enquanto ela ainda muda alguma coisa.</p>
+<p>Resistência é outra conversa. Quando alguém discorda de uma decisão sua ou adia uma mudança, a primeira leitura costuma ser de falta de adesão, e a segunda precisa ser de informação, porque quem executa está mais perto do problema e sabe coisas que você não sabe. Escutar a resistência até o fim, antes de responder, custa uma conversa e pode poupar uma iniciativa inteira construída sobre um plano errado.</p>
+<p>Reconhecer também faz parte, porque o gestor costuma ver só o que falta, e quem não vê o próprio progresso dificilmente assume mais responsabilidade. Por fim, cada iniciativa termina com uma lição registrada sobre o que repetir e o que abandonar, e é por esse registro que o contexto que existia só na sua cabeça passa a existir no time.</p>
+</section>
+<section id="ceo-do-próprio-projeto-com-evidência" class="level3">
+<h3 class="anchored" data-anchor-id="ceo-do-próprio-projeto-com-evidência">CEO do próprio projeto, com evidência</h3>
+<p>Tudo isso pede uma forma objetiva de medir autonomia, e para simplificar vamos tentar enxergar quatro níveis de autonomia.</p>
+<p>No primeiro nível, o 100% orientado, a pessoa recebe a tarefa definida, com o passo a passo e o critério de aceite, executa o que foi pedido e consulta o gestor em toda dúvida de escopo, de método ou de prioridade. A evidência de que ela domina esse nível é simples: entregas que passam no critério sem retrabalho.</p>
+<p>Já no segundo nível, ela recebe o problema e o critério de aceite, mas não o caminho, escolhe o método e as ferramentas, e consulta o gestor quando o escopo, o prazo ou o custo precisam mudar. Ela mostra que está ali quando traz uma proposta de solução antes de fazer uma pergunta e quando avisa o risco antes do prazo.</p>
+<p>O terceiro nível entrega à pessoa o objetivo e as restrições de prazo, orçamento e qualidade, e dentro delas ela decide o escopo, a sequência e as concessões entre uma coisa e outra, escalando só quando o objetivo muda ou uma restrição é violada. A evidência é um plano escrito por ela, um registro das decisões com o motivo de cada uma e uma comunicação direta com o cliente ou com a área.</p>
+<p>No quarto nível, ela recebe só o resultado de negócio esperado, ou apenas a oportunidade. Ela define o objetivo, as restrições e quem mais precisa participar, e escala apenas o que afeta outras iniciativas ou a estratégia da empresa. As evidências passam a ser três: ela define a métrica de sucesso, mede o resultado depois da entrega e propõe a próxima iniciativa, ou o fim desta.</p>
+<p>A avaliação destes níveis possui algumas nuances:</p>
+<ul>
+<li>Uma pessoa pode estar no quarto nível no domínio que conhece e no segundo num domínio novo, o que mede o contexto que ela tem naquele assunto sem rebaixá-la;</li>
+<li>O nível se prova por artefatos que outra pessoa pode ler, como o plano, o registro de decisões, a medição do resultado e a lição escrita, em vez da impressão do gestor;</li>
+<li>A mudança de nível exige recorrência: como ponto de partida, a pessoa sobe de nível naquele domínio quando mostra a evidência do nível seguinte;</li>
+<li>A escala também avalia você, porque dificilmente alguém chega ao quarto nível recebendo sempre a tarefa mastigada, e se você não entrega o que cada nível pede, a pessoa não tem como provar que está pronta para o próximo.</li>
+</ul>
+<p>Ser CEO do próprio projeto pede, na empresa, quatro atributos, e cada um precisa de um comportamento observável para não voltar a ser subjetivo:</p>
+<ul>
+<li><strong>Autonomia.</strong> É decidir sem pedir permissão, dentro das restrições combinadas. Na prática, a pessoa decide e registra o motivo. Por exemplo, numa integração com um fornecedor, a API muda no meio do trabalho. Em vez de parar e perguntar o que fazer, a pessoa escolhe a alternativa que cabe no prazo, registra por que escolheu e avisa o gestor depois;</li>
+<li><strong>Responsabilidade.</strong> É responder pelo resultado, além da tarefa. Na prática, quando o resultado não vem, a pessoa explica a causa e propõe a correção. Por exemplo, um painel foi entregue no prazo, mas a área não usa. A pessoa vai descobrir por quê, percebe que a métrica do painel não é a que a área acompanha e propõe a mudança, sem esperar alguém cobrar;</li>
+<li><strong>Visão de negócio.</strong> É saber qual métrica a iniciativa muda, quanto ela custa e que retorno se espera. Na prática, a pessoa faz essa conta antes de começar. Por exemplo, antes de automatizar um relatório, ela estima quantas horas a área gasta nele por mês e compara com o custo de construir e manter a automação;</li>
+<li><strong>Visão estratégica.</strong> É ligar a iniciativa aos objetivos da empresa e saber o que se perde se ela parar, e também quando ela deve parar. Na prática, a pessoa revê a iniciativa quando a prioridade da empresa muda. Por exemplo, uma melhoria interna perde sentido porque a empresa mudou o foco para outro mercado. A pessoa propõe encerrar a iniciativa, registra o que aprendeu e libera o tempo para o que passou a importar.</li>
+</ul>
+</section>
+<section id="negócio-e-estratégia-o-calcanhar-de-aquiles-do-especialista" class="level3">
+<h3 class="anchored" data-anchor-id="negócio-e-estratégia-o-calcanhar-de-aquiles-do-especialista">Negócio e estratégia, o calcanhar de Aquiles do especialista</h3>
+<p>Dos quatro atributos, a visão de negócio e a visão estratégica são os pontos fracos mais comuns, sobretudo em quem cresceu num cargo tradicional e numa trilha de especialista. Essa trilha recompensa profundidade num assunto, e a profundidade muitas vezes puxa na direção oposta da transversalidade: quanto mais a pessoa sobe, mais estreito fica o recorte que ela enxerga. Não é falta de capacidade, é o formato da carreira que ela seguiu.</p>
+<p>Entender negócio e estratégia é o que permite saber quando abrir mão de uma parte, quando parar e o que perguntar antes de começar. Sem isso, a autonomia vira risco. A pessoa decide rápido, decide bem sobre a coisa errada, e o resultado é trabalho jogado no lixo. Com IA o estrago cresce, porque a ferramenta entrega o errado tão rápido quanto o certo.</p>
+<p>Na prática, a falta de cada atributo aparece assim:</p>
+<ul>
+<li><strong>Sem autonomia.</strong> A pessoa para a cada dúvida, e a fila de perguntas ao gestor vira o gargalo. Por exemplo, uma análise que a IA ajudou a montar em uma hora espera dois dias por um sim sobre qual filtro usar;</li>
+<li><strong>Sem responsabilidade.</strong> A pessoa entrega a tarefa e some. Por exemplo, um modelo de previsão vai para produção, o erro dobra depois de um mês e ninguém percebe, porque a tarefa era entregar o modelo;</li>
+<li><strong>Sem visão de negócio.</strong> A pessoa otimiza o que não importa. Por exemplo, passa semanas reduzindo o tempo de carga de um relatório de dez para dois minutos, num relatório que a área abre uma vez por mês;</li>
+<li><strong>Sem visão estratégica.</strong> A pessoa segue firme numa iniciativa que a empresa já deixou para trás. Por exemplo, termina com capricho a migração para uma ferramenta que vai ser desligada no trimestre seguinte.</li>
+</ul>
+<p>As combinações são piores, porque um atributo presente amplifica o que falta:</p>
+<ul>
+<li><strong>Autonomia sem visão de negócio.</strong> É a combinação mais cara. A pessoa decide sozinha, rápido, e constrói bem algo que ninguém precisava;</li>
+<li><strong>Autonomia sem visão estratégica.</strong> A pessoa decide bem para o curto prazo e contra o rumo da empresa;</li>
+<li><strong>Responsabilidade sem autonomia.</strong> A pessoa se cobra pelo resultado, mas não se sente autorizada a mudar o caminho, e carrega a culpa de um plano que não pode corrigir;</li>
+<li><strong>Visão de negócio sem responsabilidade.</strong> A pessoa aponta o problema e não age;</li>
+<li><strong>As duas visões sem autonomia.</strong> A pessoa vira consultora do próprio projeto: sabe o que deveria ser feito e espera permissão para fazer.</li>
+</ul>
+<p>Por isso a ordem importa para o gestor. Dar autonomia antes de dar contexto de negócio e de estratégia é o caminho mais curto para o desperdício. Ao subir alguém de nível, a pergunta vai além de saber se a pessoa decide sozinha: ela sabe dizer que resultado a decisão muda e o que a empresa perde se ela errar?</p>
+</section>
+<section id="na-próxima-demanda-entregue-o-porquê-antes-da-tarefa" class="level3">
+<h3 class="anchored" data-anchor-id="na-próxima-demanda-entregue-o-porquê-antes-da-tarefa">Na próxima demanda, entregue o porquê antes da tarefa</h3>
+<p>O que o gestor que eu sou traria ao meu eu executor, então, é contexto, critério e limite, junto com a confiança de que eu decidiria bem dentro deles, porque é isso que vale quando “escolher é o novo executar”.</p>
+<p>Na próxima demanda que você estiver pronto para executar porque sai mais rápido, retire um nível de detalhe, entregue o porquê e o critério e pergunte: “o que você propõe?”.</p>
+<p>Aceitar uma proposta diferente da sua, quando ela cumpre o objetivo, é um sinal claro de que a autonomia é real e de que você já está formando este profissional.</p>
+<p>E se você está do outro lado, o do colaborador, peça o porquê e o critério antes de começar, e chegue com uma proposta.</p>
+
+
+<nav class="article-end" aria-label="Continuar lendo"><p class="post-tags"><a class="post-tag" href="../../writing.html?tema=IA">#IA</a><a class="post-tag" href="../../writing.html?tema=Produto">#Produto</a></p><a class="utility-link" href="../../writing.html">← Todos os textos</a></nav>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vbfelix\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Vinícius Félix · <a href="https://quarto.org/">Quarto</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../agents.html">
+<p>Para agentes</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.md">
+<p>Currículo (Markdown)</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../curriculo.json">
+<p>Currículo (JSON)</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

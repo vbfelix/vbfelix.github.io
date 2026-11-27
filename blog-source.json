@@ -2,7 +2,7 @@
   "repository": "https://github.com/vbfelix/ghost-writer.git",
   "branch": "main",
   "directory": "conteudo/blog",
-  "commit": "022e40a1c8f5115532650b88df1792e439fa3921",
+  "commit": "8de2f76c5c71cd0931b694df6719d1df6bdb9ca7",
   "files": {
     "2026-09-17_glossario-para-repositorios-de-agentes-de-ia.md": {
       "source": "b88802c73c5e8ae9258b9988bedcab911679f0896a627cbd3df562adac9cf612",
@@ -143,6 +143,11 @@
       "source": "7e8ca7a8984154b753ff19b3e4c0461beb9308ce71ca4c9abea2d22f732d9a48",
       "rendered": "5441813471f60217fb4f0f3e21422893d29873e283fae53a3c179aed7ca0335d",
       "target": "posts/0052-escalas-em-questionario/index.qmd"
+    },
+    "2026-11-26_gestor-e-high-ic-na-era-da-ia.md": {
+      "source": "5f7a1b254addcc0be7986cb41c83fafec2af2b76d43ce0e65e0207c66162b388",
+      "rendered": "79ccf23856d98eb50c799f6a84c71f4b8533d8342e58665b7c6ad5d1fb264626",
+      "target": "posts/0053-gestor-e-high-ic-na-era-da-ia/index.qmd"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "sourceRevision": "bcc2e35d6885670812f7967ab15d9c5789f6a0d801260fc2e3a727d357262cbc",
+  "sourceRevision": "0abe1ac140027375757a37544fc1276920d709fda809821c8261307b2155b79e",
   "items": [
     {
       "title": "An intro to: Chi-square Test",
@@ -576,6 +576,18 @@
       "url": "https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html",
       "markdownUrl": "https://vbfelix.github.io/posts/0052-escalas-em-questionario/index.html.md",
       "revision": "5441813471f60217fb4f0f3e21422893d29873e283fae53a3c179aed7ca0335d"
+    },
+    {
+      "title": "O que o gestor que eu sou traria ao meu eu executor?",
+      "type": "post",
+      "language": "pt-BR",
+      "topics": [
+        "IA",
+        "Produto"
+      ],
+      "url": "https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html",
+      "markdownUrl": "https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html.md",
+      "revision": "79ccf23856d98eb50c799f6a84c71f4b8533d8342e58665b7c6ad5d1fb264626"
     },
     {
       "title": "UX com produtos físicos, o puro suco da estatística",

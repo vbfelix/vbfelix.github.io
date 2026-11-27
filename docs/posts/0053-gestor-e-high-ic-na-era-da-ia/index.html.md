@@ -1,0 +1,102 @@
+﻿# O que o gestor que eu sou traria ao meu eu executor?
+
+Fonte: https://vbfelix.github.io/posts/0053-gestor-e-high-ic-na-era-da-ia/index.html
+
+Meu gestor me fez uma provocação interessante: **o que eu, como gestor, traria ao meu eu executor?**
+
+A resposta curta é contexto, critério e limite, que são justamente as três coisas que uma tarefa mastigada, já recortada e com o passo a passo, nunca carregou. Cheguei a ela por um caminho incômodo, porque com IA eu voltei a executar, e executo bem. Escrever um texto, montar uma análise ou levantar um protótipo ficou barato, e o que continua caro é o que eu levo para a ferramenta: a maturidade para reconhecer o que é suficientemente bom, a transversalidade para ligar uma decisão técnica a um efeito no negócio e o contexto do cliente, do histórico e da estratégia.
+
+### A régua de senioridade media o que a IA aprendeu a fazer
+
+Durante muito tempo, cargo e senioridade foram medidos pela profundidade de execução. O júnior executava com supervisão, o pleno executava sozinho, e o sênior executava o difícil e ensinava os outros a executar. Essa régua fazia sentido enquanto executar era a parte escassa do trabalho. Quando a IA barateia a execução, a régua continua lá, mas passa a medir a parte do trabalho que ficou barata.
+
+O deslocamento já aparece em quem contrata. Num relatório sobre como o trabalho mudou dentro da empresa, a equipe de economia da Anthropic conta que os gestores de contratação de lá passaram a **enfatizar autonomia e julgamento mais do que conhecimento de domínio** ([Anthropic, outubro de 2026](https://www.anthropic.com/research/employment-at-anthropic)). É um estudo da Anthropic sobre ela mesma, com os limites que isso traz, mas ele descreve bem o que eu vejo de perto: se executar vira *commodity*, algo barato e intercambiável, escolher passa a ser o diferencial. Escolher o que fazer, como fazer e quando parar. Vou chamar esse padrão de "escolher é o novo executar", porque ele explica o que vem a seguir.
+
+### Se a IA executa, o que sobra para mim?
+
+Sobra escolher e responder pelo resultado. Quando "escolher é o novo executar", essa é a resposta, mas a pergunta dói a quem sempre foi bom executor porque mexe com identidade, além de carreira. Quem construiu a reputação sobre o domínio técnico de uma ferramenta, de uma linguagem ou de um tipo de análise vê parte desse domínio virar uma instrução bem escrita. Muitos profissionais excelentes passaram a vida recebendo o problema já recortado, e não foram preparados para assumir risco, decidir o escopo ou responder por um resultado de negócio. Pedir autonomia a essa pessoa sem mais nada é pedir que ela vire empreendedora de um dia para o outro.
+
+E empreendedor aqui não é papo de *coach*: é alguém que toca uma iniciativa de ponta a ponta, que tem a capacidade de fazer cada parte com a ajuda da IA e que pensa na entrega do resultado, além da entrega da tarefa. Chamo esse dono de iniciativa de *high* IC, um contribuidor individual (*individual contributor*, o profissional que tem impacto sem gerir pessoas) de alto impacto. A parte desconfortável é que, a depender do histórico de cada um, essa transição pode dar muito errado, e a próxima seção mostra por onde.
+
+O caso que me fez pensar nisso veio da própria Anthropic. Entre o fim de 2024 e março de 2026, ex-CTOs do Instagram, da Workday, da You.com e da Adept passaram a trabalhar na empresa como *member of technical staff*, o título de membro da equipe técnica ([Business Insider, abril de 2026](https://www.aol.com/news/workday-exec-trades-cto-title-055414483.html); [OfficeChai, abril de 2026](https://officechai.com/ai/ctos-of-companies-including-instagram-workday-you-com-and-adept-have-joined-anthropic-as-members-of-technical-staff/)).
+
+As duas matérias não trazem o motivo da troca. A minha leitura é que o valor deles está na mesma transversalidade de que falei na abertura, o que alguns chamam de perfil **nexialista**: navegar entre o técnico e o negócio, entender nuance e decidir sob ambiguidade. Essa habilidade nem sempre vem do especialista mais sênior do time, e com frequência vem de quem já foi fundador, passou por várias áreas e precisou abstrair muito para sobreviver.
+
+### A liberdade que você deu ao time pode ser a prisão dele
+
+A reação natural de quem quer formar donos é soltar: dar autonomia total, tirar a supervisão e esperar que a pessoa floresça. Para quem passou anos recebendo tarefa pronta, um mundo livre é um mundo sem limites, e sem limites a pessoa não sabe por onde começar, o que é prioridade nem quando parar. A liberdade sem limite acaba funcionando como uma prisão, porque a pessoa gasta a energia procurando o contorno do problema em vez de resolvê-lo. É o ponto contraintuitivo da transição: a restrição bem escolhida costuma provocar criatividade.
+
+Quem trabalha com agentes de IA conhece bem esse efeito. Numa palestra recente sobre o assunto, eu resumi a ideia na frase "não culpe o cavalo, melhore o *harness*", em que o cavalo é o modelo de IA e o *harness* é o conjunto de instruções, ferramentas e limites em volta do modelo. Um agente com acesso a tudo e sem limite claro se perde com mais facilidade, e quando ele erra, a primeira suspeita deve recair sobre o que ele recebeu. Com pessoas, a pergunta é a mesma: quando o resultado é ruim, examine primeiro o objetivo, o contexto e o critério que a pessoa recebeu, e só depois avalie a execução.
+
+Por isso, mais do que apoiar a transição, cabe ao gestor dar clareza. Autonomia funciona como um acordo de duas vias, em que quem recebe espaço passa a responder pelas escolhas, e a dose desse espaço muda de pessoa para pessoa e de assunto para assunto. Entender quem você tem no time, o que cada um já sabe decidir e onde cada um ainda precisa de limite, e isso é trabalho de gestor.
+
+### O porquê vem antes da autonomia
+
+A primeira coisa é o porquê. Quem recebe só o "o quê" tende a executar, e quem recebe o "porquê" passa a decidir. Com a IA essa diferença cresce, porque a qualidade do que a ferramenta entrega depende do objetivo que a pessoa conhece, e uma iniciativa sem propósito claro gera muito volume e pouco resultado. Por isso defendo que toda iniciativa nasça com uma frase simples, que diga por que ela existe e que resultado de negócio ela muda.
+
+Depois do porquê vem o foco. A IA torna fácil abrir muitas frentes ao mesmo tempo, a autonomia aumenta essa tentação, e cabe a você dizer o que não se faz agora. Essa decisão protege a atenção do time e entra na lista de prioridades junto com o resto. O mesmo raciocínio vale para o fim do trabalho: a ferramenta permite polir um entregável sem limite, e sem critério declarado a pessoa não tem como saber quando parar, então polir vira a escolha segura. Quando você declara antes o que é suficientemente bom, ela sabe quando entregar.
+
+Autonomia também exige segurança. Um dono de iniciativa precisa mostrar o risco cedo, quando ele ainda é barato, mas quem tem medo do gestor esconde o problema até ele crescer. Essa segurança se constrói na forma como você reage ao primeiro problema que recebe: "o que te travou?" abre a conversa, e "por que não terminou?" a fecha. Quem está travado quase sempre sabe de algo que você não vê, e a pergunta certa traz essa informação para a mesa enquanto ela ainda muda alguma coisa.
+
+Resistência é outra conversa. Quando alguém discorda de uma decisão sua ou adia uma mudança, a primeira leitura costuma ser de falta de adesão, e a segunda precisa ser de informação, porque quem executa está mais perto do problema e sabe coisas que você não sabe. Escutar a resistência até o fim, antes de responder, custa uma conversa e pode poupar uma iniciativa inteira construída sobre um plano errado.
+
+Reconhecer também faz parte, porque o gestor costuma ver só o que falta, e quem não vê o próprio progresso dificilmente assume mais responsabilidade. Por fim, cada iniciativa termina com uma lição registrada sobre o que repetir e o que abandonar, e é por esse registro que o contexto que existia só na sua cabeça passa a existir no time.
+
+### CEO do próprio projeto, com evidência
+
+Tudo isso pede uma forma objetiva de medir autonomia, e para simplificar vamos tentar enxergar quatro níveis de autonomia.
+
+No primeiro nível, o 100% orientado, a pessoa recebe a tarefa definida, com o passo a passo e o critério de aceite, executa o que foi pedido e consulta o gestor em toda dúvida de escopo, de método ou de prioridade. A evidência de que ela domina esse nível é simples: entregas que passam no critério sem retrabalho.
+
+Já no segundo nível, ela recebe o problema e o critério de aceite, mas não o caminho, escolhe o método e as ferramentas, e consulta o gestor quando o escopo, o prazo ou o custo precisam mudar. Ela mostra que está ali quando traz uma proposta de solução antes de fazer uma pergunta e quando avisa o risco antes do prazo.
+
+O terceiro nível entrega à pessoa o objetivo e as restrições de prazo, orçamento e qualidade, e dentro delas ela decide o escopo, a sequência e as concessões entre uma coisa e outra, escalando só quando o objetivo muda ou uma restrição é violada. A evidência é um plano escrito por ela, um registro das decisões com o motivo de cada uma e uma comunicação direta com o cliente ou com a área.
+
+No quarto nível, ela recebe só o resultado de negócio esperado, ou apenas a oportunidade. Ela define o objetivo, as restrições e quem mais precisa participar, e escala apenas o que afeta outras iniciativas ou a estratégia da empresa. As evidências passam a ser três: ela define a métrica de sucesso, mede o resultado depois da entrega e propõe a próxima iniciativa, ou o fim desta.
+
+A avaliação destes níveis possui algumas nuances:
+
+- Uma pessoa pode estar no quarto nível no domínio que conhece e no segundo num domínio novo, o que mede o contexto que ela tem naquele assunto sem rebaixá-la;
+- O nível se prova por artefatos que outra pessoa pode ler, como o plano, o registro de decisões, a medição do resultado e a lição escrita, em vez da impressão do gestor;
+- A mudança de nível exige recorrência: como ponto de partida, a pessoa sobe de nível naquele domínio quando mostra a evidência do nível seguinte;
+- A escala também avalia você, porque dificilmente alguém chega ao quarto nível recebendo sempre a tarefa mastigada, e se você não entrega o que cada nível pede, a pessoa não tem como provar que está pronta para o próximo.
+
+Ser CEO do próprio projeto pede, na empresa, quatro atributos, e cada um precisa de um comportamento observável para não voltar a ser subjetivo:
+
+- **Autonomia.** É decidir sem pedir permissão, dentro das restrições combinadas. Na prática, a pessoa decide e registra o motivo. Por exemplo, numa integração com um fornecedor, a API muda no meio do trabalho. Em vez de parar e perguntar o que fazer, a pessoa escolhe a alternativa que cabe no prazo, registra por que escolheu e avisa o gestor depois;
+- **Responsabilidade.** É responder pelo resultado, além da tarefa. Na prática, quando o resultado não vem, a pessoa explica a causa e propõe a correção. Por exemplo, um painel foi entregue no prazo, mas a área não usa. A pessoa vai descobrir por quê, percebe que a métrica do painel não é a que a área acompanha e propõe a mudança, sem esperar alguém cobrar;
+- **Visão de negócio.** É saber qual métrica a iniciativa muda, quanto ela custa e que retorno se espera. Na prática, a pessoa faz essa conta antes de começar. Por exemplo, antes de automatizar um relatório, ela estima quantas horas a área gasta nele por mês e compara com o custo de construir e manter a automação;
+- **Visão estratégica.** É ligar a iniciativa aos objetivos da empresa e saber o que se perde se ela parar, e também quando ela deve parar. Na prática, a pessoa revê a iniciativa quando a prioridade da empresa muda. Por exemplo, uma melhoria interna perde sentido porque a empresa mudou o foco para outro mercado. A pessoa propõe encerrar a iniciativa, registra o que aprendeu e libera o tempo para o que passou a importar.
+
+### Negócio e estratégia, o calcanhar de Aquiles do especialista
+
+Dos quatro atributos, a visão de negócio e a visão estratégica são os pontos fracos mais comuns, sobretudo em quem cresceu num cargo tradicional e numa trilha de especialista. Essa trilha recompensa profundidade num assunto, e a profundidade muitas vezes puxa na direção oposta da transversalidade: quanto mais a pessoa sobe, mais estreito fica o recorte que ela enxerga. Não é falta de capacidade, é o formato da carreira que ela seguiu.
+
+Entender negócio e estratégia é o que permite saber quando abrir mão de uma parte, quando parar e o que perguntar antes de começar. Sem isso, a autonomia vira risco. A pessoa decide rápido, decide bem sobre a coisa errada, e o resultado é trabalho jogado no lixo. Com IA o estrago cresce, porque a ferramenta entrega o errado tão rápido quanto o certo.
+
+Na prática, a falta de cada atributo aparece assim:
+
+- **Sem autonomia.** A pessoa para a cada dúvida, e a fila de perguntas ao gestor vira o gargalo. Por exemplo, uma análise que a IA ajudou a montar em uma hora espera dois dias por um sim sobre qual filtro usar;
+- **Sem responsabilidade.** A pessoa entrega a tarefa e some. Por exemplo, um modelo de previsão vai para produção, o erro dobra depois de um mês e ninguém percebe, porque a tarefa era entregar o modelo;
+- **Sem visão de negócio.** A pessoa otimiza o que não importa. Por exemplo, passa semanas reduzindo o tempo de carga de um relatório de dez para dois minutos, num relatório que a área abre uma vez por mês;
+- **Sem visão estratégica.** A pessoa segue firme numa iniciativa que a empresa já deixou para trás. Por exemplo, termina com capricho a migração para uma ferramenta que vai ser desligada no trimestre seguinte.
+
+As combinações são piores, porque um atributo presente amplifica o que falta:
+
+- **Autonomia sem visão de negócio.** É a combinação mais cara. A pessoa decide sozinha, rápido, e constrói bem algo que ninguém precisava;
+- **Autonomia sem visão estratégica.** A pessoa decide bem para o curto prazo e contra o rumo da empresa;
+- **Responsabilidade sem autonomia.** A pessoa se cobra pelo resultado, mas não se sente autorizada a mudar o caminho, e carrega a culpa de um plano que não pode corrigir;
+- **Visão de negócio sem responsabilidade.** A pessoa aponta o problema e não age;
+- **As duas visões sem autonomia.** A pessoa vira consultora do próprio projeto: sabe o que deveria ser feito e espera permissão para fazer.
+
+Por isso a ordem importa para o gestor. Dar autonomia antes de dar contexto de negócio e de estratégia é o caminho mais curto para o desperdício. Ao subir alguém de nível, a pergunta vai além de saber se a pessoa decide sozinha: ela sabe dizer que resultado a decisão muda e o que a empresa perde se ela errar?
+
+### Na próxima demanda, entregue o porquê antes da tarefa
+
+O que o gestor que eu sou traria ao meu eu executor, então, é contexto, critério e limite, junto com a confiança de que eu decidiria bem dentro deles, porque é isso que vale quando "escolher é o novo executar".
+
+Na próxima demanda que você estiver pronto para executar porque sai mais rápido, retire um nível de detalhe, entregue o porquê e o critério e pergunte: "o que você propõe?".
+
+Aceitar uma proposta diferente da sua, quando ela cumpre o objetivo, é um sinal claro de que a autonomia é real e de que você já está formando este profissional.
+
+E se você está do outro lado, o do colaborador, peça o porquê e o critério antes de começar, e chegue com uma proposta.
